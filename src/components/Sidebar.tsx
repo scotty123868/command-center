@@ -12,6 +12,7 @@ import {
   ChevronDown,
   Zap,
   Sparkles,
+  X,
 } from 'lucide-react';
 import { useCompany } from '../data/CompanyContext';
 
@@ -30,10 +31,11 @@ const insightsItems = [
   { to: '/assessment', icon: Sparkles, label: 'AI Assistant' },
 ];
 
-function NavItem({ to, icon: Icon, label }: { to: string; icon: React.ElementType; label: string }) {
+function NavItem({ to, icon: Icon, label, onNavClick }: { to: string; icon: React.ElementType; label: string; onNavClick?: () => void }) {
   return (
     <NavLink
       to={to}
+      onClick={() => onNavClick?.()}
       className={({ isActive }) =>
         [
           'group relative flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-[250ms] ease-out',
@@ -65,10 +67,21 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function Sidebar() {
+export default function Sidebar({ onNavClick, onClose }: { onNavClick?: () => void; onClose?: () => void }) {
   const { company, companies, setCompanyId } = useCompany();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [pillFlash, setPillFlash] = useState(false);
+  const prevCompanyIdRef = useRef(company.id);
+
+  useEffect(() => {
+    if (company.id !== prevCompanyIdRef.current) {
+      prevCompanyIdRef.current = company.id;
+      setPillFlash(true);
+      const timer = setTimeout(() => setPillFlash(false), 800);
+      return () => clearTimeout(timer);
+    }
+  }, [company.id]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -97,6 +110,16 @@ export default function Sidebar() {
           background: 'linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%)',
         }}
       />
+
+      {/* Close button for mobile overlay */}
+      {onClose && (
+        <button
+          onClick={onClose}
+          className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white/60 hover:bg-white/20 hover:text-white transition-colors lg:hidden"
+        >
+          <X className="h-4 w-4" strokeWidth={2} />
+        </button>
+      )}
 
       {/* ── Brand ─────────────────────────────────── */}
       <div className="relative px-5 pt-6 pb-2">
@@ -139,12 +162,18 @@ export default function Sidebar() {
         <button
           type="button"
           onClick={() => setDropdownOpen(!dropdownOpen)}
-          className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg bg-white/[0.04] hover:bg-white/[0.07] border border-white/[0.06] transition-colors duration-200 cursor-pointer"
+          className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-white/[0.07] transition-all duration-500 cursor-pointer ${
+            pillFlash
+              ? 'bg-accent/10 border border-accent/30'
+              : 'bg-white/[0.04] border border-white/[0.06]'
+          }`}
         >
           <div className="w-5 h-5 rounded bg-accent/20 flex items-center justify-center flex-shrink-0">
             <span className="text-[10px] font-bold text-accent">{company.initials}</span>
           </div>
-          <span className="text-[12px] font-medium text-[#A0A0A8] truncate flex-1 text-left">
+          <span className={`text-[12px] font-medium truncate flex-1 text-left transition-colors duration-500 ${
+            pillFlash ? 'text-white' : 'text-[#A0A0A8]'
+          }`}>
             {company.name}
           </span>
           <ChevronDown
@@ -196,7 +225,7 @@ export default function Sidebar() {
         <SectionLabel>Analysis</SectionLabel>
         <div className="flex flex-col gap-0.5">
           {analysisItems.map((item) => (
-            <NavItem key={item.to} {...item} />
+            <NavItem key={item.to} {...item} onNavClick={onNavClick} />
           ))}
         </div>
 
@@ -206,7 +235,7 @@ export default function Sidebar() {
         <SectionLabel>Insights</SectionLabel>
         <div className="flex flex-col gap-0.5">
           {insightsItems.map((item) => (
-            <NavItem key={item.to} {...item} />
+            <NavItem key={item.to} {...item} onNavClick={onNavClick} />
           ))}
         </div>
       </nav>

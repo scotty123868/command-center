@@ -246,7 +246,7 @@ export default function Integrations() {
       {/* -- Active Integrations Grid -------------------------------------- */}
       {activeTab === 'active' && (
         <motion.div
-          className="grid grid-cols-4 gap-3"
+          className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
@@ -294,7 +294,7 @@ export default function Integrations() {
       {/* -- Available Integrations Grid ----------------------------------- */}
       {activeTab === 'available' && (
         <motion.div
-          className="grid grid-cols-4 gap-3"
+          className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}

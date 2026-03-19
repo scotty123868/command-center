@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, X } from 'lucide-react';
 import {
@@ -397,6 +397,19 @@ export default function Dashboard() {
   const { company } = useCompany();
   const sortedOpps = [...topOpportunities].sort((a, b) => a.priority - b.priority);
 
+  // Flash highlight when company changes
+  const [companyFlash, setCompanyFlash] = useState(false);
+  const [prevCompanyId, setPrevCompanyId] = useState(company.id);
+
+  useEffect(() => {
+    if (company.id !== prevCompanyId) {
+      setPrevCompanyId(company.id);
+      setCompanyFlash(true);
+      const timer = setTimeout(() => setCompanyFlash(false), 1200);
+      return () => clearTimeout(timer);
+    }
+  }, [company.id, prevCompanyId]);
+
   // Feature 1: Cost of Inaction toggle
   const [showCostOfInaction, setShowCostOfInaction] = useState(false);
 
@@ -470,10 +483,15 @@ export default function Dashboard() {
 
       {/* ── 1. Company Context Bar ────────────────────────────────── */}
       <motion.section
+        key={company.id}
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="flex flex-col gap-6 rounded-2xl border border-gray-100 bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)] lg:flex-row lg:items-center lg:justify-between"
+        className={`flex flex-col gap-6 rounded-2xl border bg-white p-4 lg:p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)] lg:flex-row lg:items-center lg:justify-between transition-all duration-700 ${
+          companyFlash
+            ? 'border-blue-400 ring-2 ring-blue-200 shadow-[0_0_20px_rgba(66,133,244,0.15)]'
+            : 'border-gray-100'
+        }`}
       >
         {/* Left */}
         <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
@@ -677,7 +695,7 @@ export default function Dashboard() {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.15 }}
-        className="rounded-2xl border border-gray-100 bg-white px-8 py-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
+        className="rounded-2xl border border-gray-100 bg-white px-4 py-6 lg:px-8 lg:py-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
       >
         <h2 className="text-[15px] font-semibold text-gray-900">
           Transformation Roadmap

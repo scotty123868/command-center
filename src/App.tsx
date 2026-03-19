@@ -1,5 +1,6 @@
+import { useState, useCallback, useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { Search } from 'lucide-react';
+import { Search, Menu } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { config } from './data/config';
 import Sidebar from './components/Sidebar';
@@ -26,20 +27,28 @@ const routeTitles: Record<string, string> = {
   '/assessment': 'AI Assistant',
 };
 
-function TopBar() {
+function TopBar({ onMenuClick }: { onMenuClick: () => void }) {
   const location = useLocation();
   const pageTitle = routeTitles[location.pathname] || 'Dashboard';
 
   return (
     <header className="sticky top-0 z-10 bg-white/80 backdrop-blur-xl" style={{ boxShadow: '0 1px 2px rgba(0,0,0,0.03)' }}>
-      <div className="flex items-center justify-between px-10 h-14">
-        {/* Left — Page title */}
-        <span className="text-[13px] font-medium text-gray-500">{pageTitle}</span>
+      <div className="flex items-center justify-between px-4 lg:px-10 h-14">
+        {/* Left — Hamburger (mobile) + Page title */}
+        <div className="flex items-center gap-3">
+          <button
+            onClick={onMenuClick}
+            className="flex h-8 w-8 items-center justify-center rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition-colors lg:hidden"
+          >
+            <Menu className="h-5 w-5" strokeWidth={1.8} />
+          </button>
+          <span className="text-[13px] font-medium text-gray-500">{pageTitle}</span>
+        </div>
 
         {/* Right — Search + Avatar */}
         <div className="flex items-center gap-4">
-          {/* Search bar (visual only) */}
-          <div className="relative">
+          {/* Search bar (visual only) — hidden on mobile */}
+          <div className="relative hidden lg:block">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-[14px] h-[14px] text-gray-400 pointer-events-none" strokeWidth={2} />
             <input
               type="text"
@@ -98,19 +107,60 @@ function AnimatedRoutes() {
 export default function App() {
   const location = useLocation();
   const isFullBleed = location.pathname === '/assessment';
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const closeSidebar = useCallback(() => setSidebarOpen(false), []);
+
+  // Close sidebar on route change (mobile)
+  useEffect(() => {
+    setSidebarOpen(false);
+  }, [location.pathname]);
 
   return (
     <div className="flex h-screen overflow-hidden">
-      <Sidebar />
+      {/* Desktop sidebar — always visible at lg+ */}
+      <div className="hidden lg:flex">
+        <Sidebar />
+      </div>
+
+      {/* Mobile sidebar overlay */}
+      <AnimatePresence>
+        {sidebarOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              key="sidebar-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-40 bg-black/40 lg:hidden"
+              onClick={closeSidebar}
+            />
+            {/* Sidebar panel */}
+            <motion.div
+              key="sidebar-panel"
+              initial={{ x: -240 }}
+              animate={{ x: 0 }}
+              exit={{ x: -240 }}
+              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              className="fixed inset-y-0 left-0 z-50 lg:hidden"
+            >
+              <Sidebar onNavClick={closeSidebar} onClose={closeSidebar} />
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
       <main className="flex-1 flex flex-col overflow-hidden bg-[#F8F9FB]">
-        <TopBar />
+        <TopBar onMenuClick={() => setSidebarOpen(true)} />
         {isFullBleed ? (
           <div className="flex-1 overflow-hidden">
             <AnimatedRoutes />
           </div>
         ) : (
           <div className="flex-1 overflow-y-auto">
-            <div className="max-w-[1400px] mx-auto px-10 py-8">
+            <div className="max-w-[1400px] mx-auto px-4 py-4 lg:px-10 lg:py-8">
               <AnimatedRoutes />
             </div>
           </div>
