@@ -5,8 +5,9 @@ import {
   AlertTriangle,
   Link2,
 } from 'lucide-react';
-import { workflows, workflowSummary } from '../data/constants';
+import { workflows, getWorkflowSummary } from '../data/constants';
 import type { Workflow, AutomationLevel } from '../data/constants';
+import { useCompany } from '../data/CompanyContext';
 
 /* ── helpers ─────────────────────────────────────────── */
 
@@ -289,6 +290,9 @@ function WorkflowCard({ wf, index }: { wf: Workflow; index: number }) {
 /* ── page ────────────────────────────────────────────── */
 
 export default function Workflows() {
+  const { company } = useCompany();
+  const workflowSummary = getWorkflowSummary(company.id);
+
   return (
     <div className="space-y-8">
       {/* ── page title ── */}

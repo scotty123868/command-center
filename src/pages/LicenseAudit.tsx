@@ -11,17 +11,11 @@ import {
   Line,
 } from 'recharts';
 import { ChevronDown, ChevronUp, ShieldAlert, AlertTriangle } from 'lucide-react';
-import { licenses } from '../data/constants';
+import { getLicenses } from '../data/constants';
 import type { License } from '../data/constants';
+import { useCompany } from '../data/CompanyContext';
 
 const COLORS = ['#EF4444', '#F59E0B', '#4285F4', '#10B981', '#8B5CF6', '#EC4899', '#E8600A'];
-
-const totalWaste = licenses.reduce((sum, l) => sum + l.annualWaste, 0);
-
-const donutData = licenses.map((l) => ({
-  name: l.vendor,
-  value: l.annualWaste,
-}));
 
 function fmt(n: number): string {
   if (n >= 1_000_000) return `$${(n / 1_000_000).toFixed(1)}M`;
@@ -75,6 +69,13 @@ function TrendSparkline({ data }: { data: number[] }) {
 }
 
 export default function LicenseAudit() {
+  const { company } = useCompany();
+  const licenses = getLicenses(company.id);
+  const totalWaste = licenses.reduce((sum: number, l: License) => sum + l.annualWaste, 0);
+  const donutData = licenses.map((l: License) => ({
+    name: l.vendor,
+    value: l.annualWaste,
+  }));
   const [expandedRow, setExpandedRow] = useState<number | null>(null);
 
   const toggle = (i: number) => setExpandedRow(expandedRow === i ? null : i);

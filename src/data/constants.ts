@@ -958,3 +958,808 @@ export const implementationTimeline = [
   { month: 'Nov', cost: 20_000, savings: 600_000, net: 580_000 },
   { month: 'Dec', cost: 10_000, savings: 620_000, net: 610_000 },
 ];
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Multi-Company Data ────────────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// ─── Oakwood Insurance Group ──────────────────────────────────────────────────
+
+const oakwoodCompanyProfile = {
+  name: 'Oakwood Insurance Group',
+  industry: 'Insurance',
+  employees: 800,
+  revenue: '$400M',
+  opCos: 1,
+  opCoNames: ['Oakwood Insurance Group'],
+  techSpend: '$5.8M/yr',
+  aiReadinessScore: 41,
+  holdingPeriod: '12 months into 5-year hold',
+  ebitdaMargin: '11.8%',
+  targetEbitdaMargin: '19%',
+};
+
+const oakwoodAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 32, maxScore: 100, status: 'Below Average — legacy AS/400 mainframe stores 60% of policy data, no API layer, batch-only data exports via COBOL jobs running overnight' },
+  { category: 'Process Maturity', score: 48, maxScore: 100, status: 'Moderate — claims workflows partially digitized via Guidewire, but 40% of underwriting still relies on manual spreadsheet-based rating' },
+  { category: 'Tech Stack Modernity', score: 35, maxScore: 100, status: 'Legacy-Heavy — AS/400 mainframe (1997), Duck Creek policy admin (2012), Guidewire ClaimCenter (2018), no cloud-native infrastructure' },
+  { category: 'Change Readiness', score: 52, maxScore: 100, status: 'Moderate — CTO is strong AI advocate, but claims adjusters union has expressed concerns about automation impact on jobs' },
+  { category: 'Skills & Training', score: 28, maxScore: 100, status: 'Critical Gap — IT team of 18 focused on mainframe maintenance, zero ML/AI capability, no data science function, 2 open data engineer reqs unfilled for 8 months' },
+];
+
+const oakwoodKpis = {
+  totalSavings: 3_800_000,
+  techScoreBefore: 41,
+  techScoreAfter: 78,
+  workflowsAnalyzed: 38,
+  automationReady: 9,
+  unusedLicenseWaste: 1_600_000,
+  savingsSparkline: [0, 60_000, 150_000, 290_000, 460_000, 680_000, 960_000, 1_300_000, 1_720_000, 2_280_000, 3_000_000, 3_800_000],
+  scoreSparkline: [41, 43, 46, 50, 54, 58, 62, 66, 70, 73, 76, 78],
+  workflowSparkline: [0, 3, 7, 12, 17, 22, 26, 30, 33, 35, 37, 38],
+  licenseSparkline: [1_600_000, 1_560_000, 1_480_000, 1_360_000, 1_200_000, 1_050_000, 920_000, 810_000, 730_000, 680_000, 650_000, 630_000],
+  headcountImpactSparkline: [0, 0, -1, -3, -5, -8, -11, -14, -17, -19, -21, -23],
+};
+
+const oakwoodRoadmapPhases = [
+  {
+    quarter: 'Q1',
+    title: 'Legacy Assessment + Claims Quick Wins',
+    items: ['AS/400 dependency mapping', 'Claims intake digitization', 'License audit & reclamation'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 1, task: 'Kickoff & stakeholder interviews with claims, underwriting, and IT leadership', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 2, task: 'AS/400 mainframe audit: map all COBOL programs, batch jobs, and data dependencies', owner: 'Mike Torres (Tech Lead)' },
+      { week: 3, task: 'Guidewire ClaimCenter utilization assessment — feature adoption vs license tier', owner: 'Mike Torres (Tech Lead)' },
+      { week: 4, task: 'Claims intake workflow discovery — map all 38 processes across intake, adjudication, and payment', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 5, task: 'License audit wave 1: Salesforce (120 seats, 45 inactive), Duck Creek (80 seats)', owner: 'Jason Park (DevOps)' },
+      { week: 6, task: 'Quick-win scoring: rank 38 workflows by automation potential and regulatory constraints', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 7, task: 'Microsoft 365 license reclamation (200 seats unused) + Slack consolidation', owner: 'Jason Park (DevOps)' },
+      { week: 8, task: 'Executive readout: $1.6M license waste identified, claims automation roadmap presented', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 9, task: 'Duck Creek modernization assessment — API layer feasibility for policy migration', owner: 'Mike Torres (Tech Lead)' },
+      { week: 10, task: 'Fraud detection data audit: identify available training data across claims history', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 11, task: 'Cloud migration planning: assess Azure vs AWS for Guidewire cloud hosting', owner: 'Mike Torres (Tech Lead)' },
+      { week: 12, task: 'Q1 close: $1.6M license savings confirmed, claims automation pilots scoped', owner: 'Sarah Chen (Engagement Lead)' },
+    ],
+  },
+  {
+    quarter: 'Q2',
+    title: 'Claims Automation + Fraud Detection Pilots',
+    items: ['Claims intake AI deployment', 'Fraud detection model training', 'Underwriting automation pilot'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 13, task: 'Claims intake AI: GPT-4V document extraction trained on 18 months of claims data (142K records)', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 14, task: 'Fraud detection ensemble model training on 5-year claims history with labeled fraud cases', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 15, task: 'Underwriting automation: rule engine configuration for standard personal lines auto-rating', owner: 'Mike Torres (Tech Lead)' },
+      { week: 16, task: 'Claims AI validation: target >93% extraction accuracy on structured fields', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 17, task: 'Fraud model validation: shadow mode on live claims stream — target 3x improvement in detection rate', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 18, task: 'Customer portal modernization kickoff: UX research with 50 policyholders', owner: 'Jason Park (DevOps)' },
+      { week: 19, task: 'Claims AI go-live: 4,000 claims/week through pipeline with human-in-loop review', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 20, task: 'Fraud detection go-live: all claims scored, high-risk flagged for SIU review', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 21, task: 'Underwriting auto-rating live for personal auto and homeowners lines', owner: 'Mike Torres (Tech Lead)' },
+      { week: 22, task: 'Customer self-service portal beta: FNOL filing, claim status, policy documents', owner: 'Jason Park (DevOps)' },
+      { week: 23, task: 'Pilot metrics review: claims processing time, fraud catch rate, underwriting throughput', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 24, task: 'Q2 close: 3 automation pilots live, fraud detection operational, portal in beta', owner: 'Sarah Chen (Engagement Lead)' },
+    ],
+  },
+  {
+    quarter: 'Q3',
+    title: 'Legacy Migration + Scale Automation',
+    items: ['AS/400 policy data migration', 'Expand claims automation to full volume', 'Salesforce → HubSpot migration'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 25, task: 'AS/400 policy migration planning: map 2.4M policy records to modern schema', owner: 'Mike Torres (Tech Lead)' },
+      { week: 26, task: 'Policy data extraction: COBOL batch export to staging database with validation', owner: 'Mike Torres (Tech Lead)' },
+      { week: 27, task: 'Scale claims AI to full volume (16,000 claims/month), reduce human review to exceptions', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 28, task: 'Salesforce → HubSpot migration: data mapping for 120 agent users', owner: 'Jason Park (DevOps)' },
+      { week: 29, task: 'Policy migration wave 1: personal auto (800K policies) to Duck Creek cloud', owner: 'Mike Torres (Tech Lead)' },
+      { week: 30, task: 'Automation wave 2: payment processing, subrogation intake, compliance reporting', owner: 'Jason Park (DevOps)' },
+      { week: 31, task: 'HubSpot go-live: all agents migrated, Salesforce decommission planned', owner: 'Jason Park (DevOps)' },
+      { week: 32, task: 'Policy migration wave 2: homeowners (600K policies) to Duck Creek cloud', owner: 'Mike Torres (Tech Lead)' },
+      { week: 33, task: 'Regulatory reporting automation: state filing auto-generation from claims data', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 34, task: 'Customer portal full launch: self-service FNOL, document upload, payment', owner: 'Jason Park (DevOps)' },
+      { week: 35, task: 'Data quality reconciliation: validate migrated policy data against AS/400 source', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 36, task: 'Q3 close: AS/400 migration 60% complete, claims fully automated, portal live', owner: 'Sarah Chen (Engagement Lead)' },
+    ],
+  },
+  {
+    quarter: 'Q4',
+    title: 'Complete Migration + AI-Native Operations',
+    items: ['Complete AS/400 decommission', 'Predictive underwriting models', 'Full digital operations'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 37, task: 'Policy migration wave 3: commercial lines (400K policies) — most complex migration', owner: 'Mike Torres (Tech Lead)' },
+      { week: 38, task: 'Predictive underwriting: ML models for risk scoring using enriched data sources', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 39, task: 'AS/400 parallel run: validate all migrated policies process correctly in new systems', owner: 'Mike Torres (Tech Lead)' },
+      { week: 40, task: 'Predictive loss modeling: forecast claims frequency by segment for pricing optimization', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 41, task: 'Automation wave 3: policy endorsements, billing inquiries, agent onboarding', owner: 'Jason Park (DevOps)' },
+      { week: 42, task: 'AS/400 decommission: final data archive, mainframe contract termination notice filed', owner: 'Mike Torres (Tech Lead)' },
+      { week: 43, task: 'AI-native stack validation: all systems integrated, API health monitoring live', owner: 'Jason Park (DevOps)' },
+      { week: 44, task: 'Knowledge transfer: internal IT team trained on new stack, runbooks complete', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 45, task: 'Final ROI validation: actual vs projected savings reconciliation', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 46, task: 'Board presentation: transformation metrics, combined ratio impact, Year 2 roadmap', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 47, task: 'Hypercare period: 30-day post-migration monitoring and optimization', owner: 'Mike Torres (Tech Lead)' },
+      { week: 48, task: 'Engagement close: AS/400 decommissioned, $3.8M Year 1 savings confirmed', owner: 'Sarah Chen (Engagement Lead)' },
+    ],
+  },
+];
+
+const oakwoodTopOpportunities: Opportunity[] = [
+  { name: 'Claims Intake Automation', category: 'Workflow Automation', savings: 820_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 10, confidence: 91 },
+  { name: 'Legacy Policy Migration (AS/400)', category: 'Tech Stack', savings: 680_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 24, confidence: 78 },
+  { name: 'Fraud Detection AI', category: 'Workflow Automation', savings: 540_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 84 },
+  { name: 'Underwriting Automation', category: 'Workflow Automation', savings: 460_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 76 },
+  { name: 'Customer Portal Modernization', category: 'Tech Stack', savings: 380_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 14, confidence: 82 },
+  { name: 'Unused License Reclamation', category: 'License Audit', savings: 920_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
+  { name: 'Regulatory Reporting Automation', category: 'Workflow Automation', savings: 280_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 10, confidence: 88 },
+  { name: 'Replace Salesforce → HubSpot', category: 'Tech Stack', savings: 190_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 8, confidence: 90 },
+  { name: 'Payment Processing Automation', category: 'Workflow Automation', savings: 310_000, effort: 'Low', status: 'identified', priority: 8, timeToValue: 6, confidence: 92 },
+  { name: 'Subrogation Recovery Optimization', category: 'Workflow Automation', savings: 220_000, effort: 'High', status: 'identified', priority: 5, timeToValue: 18, confidence: 70 },
+];
+
+const oakwoodCurrentStack: CurrentTool[] = [
+  {
+    name: 'Guidewire ClaimCenter',
+    category: 'Claims Management',
+    annualCost: 620_000,
+    users: 180,
+    score: 5,
+    integrationComplexity: 'Medium',
+    migrationWeeks: 0,
+    riskLevel: 'Low',
+    dependencies: ['Claims intake', 'Adjudication workflow', 'Payment processing', 'Regulatory reporting'],
+  },
+  {
+    name: 'Duck Creek Policy Admin',
+    category: 'Policy Administration',
+    annualCost: 480_000,
+    users: 120,
+    score: 4,
+    integrationComplexity: 'High',
+    migrationWeeks: 16,
+    riskLevel: 'Medium',
+    dependencies: ['Policy issuance', 'Endorsements', 'Renewal processing', 'Rating engine'],
+  },
+  {
+    name: 'AS/400 Mainframe',
+    category: 'Legacy Systems',
+    annualCost: 340_000,
+    users: 45,
+    score: 1,
+    integrationComplexity: 'High',
+    migrationWeeks: 28,
+    riskLevel: 'High',
+    dependencies: ['Historical policy data', 'COBOL batch processing', 'Legacy reporting', 'Actuarial data feeds'],
+  },
+  {
+    name: 'Salesforce CRM',
+    category: 'Agent Management',
+    annualCost: 360_000,
+    users: 120,
+    score: 3,
+    integrationComplexity: 'Medium',
+    migrationWeeks: 10,
+    riskLevel: 'Medium',
+    dependencies: ['Agent relationships', 'Commission tracking', 'Pipeline management', 'Quote generation'],
+  },
+  {
+    name: 'Microsoft 365',
+    category: 'Productivity & Collaboration',
+    annualCost: 480_000,
+    users: 800,
+    score: 6,
+    integrationComplexity: 'Low',
+    migrationWeeks: 0,
+    riskLevel: 'Low',
+    dependencies: ['Email', 'Document management', 'SharePoint sites', 'Teams collaboration'],
+  },
+  {
+    name: 'Slack',
+    category: 'Communication',
+    annualCost: 144_000,
+    users: 600,
+    score: 7,
+    integrationComplexity: 'Low',
+    migrationWeeks: 0,
+    riskLevel: 'Low',
+    dependencies: ['Internal messaging', 'Claims team coordination', 'IT alerts', 'Vendor integrations'],
+  },
+];
+
+const oakwoodLicenses: License[] = [
+  { vendor: 'Microsoft 365', totalLicenses: 800, active90d: 600, inactive: 200, annualWaste: 400_000, action: 'Reclaim 200 seats + downgrade 100 E5→E3', costPerLicense: 2_000, department: 'IT / All Departments', lastAuditDate: '2025-10-01', trend: [82, 78, 74, 70, 65, 60], complianceRisk: false },
+  { vendor: 'Salesforce', totalLicenses: 120, active90d: 75, inactive: 45, annualWaste: 225_000, action: 'Reclaim 45 seats → migrate to HubSpot in Q3', costPerLicense: 5_000, department: 'Sales & Agent Relations', lastAuditDate: '2025-11-15', trend: [80, 74, 69, 65, 60, 56], complianceRisk: false },
+  { vendor: 'Duck Creek', totalLicenses: 120, active90d: 88, inactive: 32, annualWaste: 192_000, action: 'Reclaim 32 inactive seats, optimize license tier', costPerLicense: 6_000, department: 'Underwriting & Policy Admin', lastAuditDate: '2025-09-20', trend: [85, 80, 76, 72, 68, 65], complianceRisk: false },
+  { vendor: 'Guidewire', totalLicenses: 180, active90d: 155, inactive: 25, annualWaste: 200_000, action: 'Reclaim 25 seats, evaluate ClaimCenter cloud migration', costPerLicense: 8_000, department: 'Claims Operations', lastAuditDate: '2025-12-01', trend: [92, 90, 88, 87, 86, 84], complianceRisk: false },
+  { vendor: 'Slack Enterprise', totalLicenses: 600, active90d: 480, inactive: 120, annualWaste: 144_000, action: 'Downgrade 120 inactive to free tier', costPerLicense: 1_200, department: 'IT / All Departments', lastAuditDate: '2026-01-05', trend: [90, 87, 84, 82, 80, 78], complianceRisk: false },
+  { vendor: 'Adobe Acrobat Pro', totalLicenses: 200, active90d: 90, inactive: 110, annualWaste: 264_000, action: 'Reclaim 110 seats — restrict to claims and legal only', costPerLicense: 2_400, department: 'Claims & Legal (provisioned company-wide)', lastAuditDate: '2025-08-18', trend: [70, 60, 52, 45, 40, 36], complianceRisk: true },
+  { vendor: 'LexisNexis', totalLicenses: 50, active90d: 18, inactive: 32, annualWaste: 176_000, action: 'Reclaim 32 seats — restrict to SIU and underwriting', costPerLicense: 5_500, department: 'Special Investigations & Underwriting', lastAuditDate: '2025-07-30', trend: [68, 58, 50, 44, 38, 34], complianceRisk: false },
+];
+
+const oakwoodWorkflowSummary = {
+  total: 38,
+  fullyAutomatable: 9,
+  humanInLoop: 18,
+  humanRequired: 11,
+  currentLaborSpend: 4_200_000,
+  potentialSavings: 2_200_000,
+};
+
+const oakwoodRoiSummary = {
+  techStackSavings: 1_250_000,
+  workflowAutomation: 2_200_000,
+  licenseRecovery: 1_600_000,
+  implementationCosts: 1_250_000,
+  netYear1: 3_800_000,
+  year2Projected: 5_200_000,
+};
+
+// ─── Pinnacle Healthcare ─────────────────────────────────────────────────────
+
+const pinnacleCompanyProfile = {
+  name: 'Pinnacle Healthcare',
+  industry: 'Healthcare',
+  employees: 420,
+  revenue: '$95M',
+  opCos: 1,
+  opCoNames: ['Pinnacle Healthcare'],
+  techSpend: '$3.2M/yr',
+  aiReadinessScore: 28,
+  holdingPeriod: '6 months into 5-year hold',
+  ebitdaMargin: '8.4%',
+  targetEbitdaMargin: '16%',
+};
+
+const pinnacleAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 22, maxScore: 100, status: 'Critical Gap — Epic EHR is primary data store but data extraction is limited to standard reports, no data warehouse, clinical and billing data siloed' },
+  { category: 'Process Maturity', score: 35, maxScore: 100, status: 'Below Average — 80% of prior auth handled via fax/phone, clinical documentation averages 2.5 hrs/day per provider, scheduling is manual' },
+  { category: 'Tech Stack Modernity', score: 24, maxScore: 100, status: 'Legacy-Heavy — Epic (2016 version, 2 major versions behind), fax-dependent payer integrations, no cloud infrastructure beyond email' },
+  { category: 'Change Readiness', score: 32, maxScore: 100, status: 'Low — physicians skeptical of AI in clinical workflows, nursing staff open to documentation help, admin leadership supportive' },
+  { category: 'Skills & Training', score: 18, maxScore: 100, status: 'Critical Gap — zero data science capability, IT team of 8 focused on Epic support, no informatics department, 1 analyst for all reporting' },
+];
+
+const pinnacleKpis = {
+  totalSavings: 1_900_000,
+  techScoreBefore: 28,
+  techScoreAfter: 71,
+  workflowsAnalyzed: 24,
+  automationReady: 6,
+  unusedLicenseWaste: 640_000,
+  savingsSparkline: [0, 30_000, 80_000, 160_000, 270_000, 410_000, 580_000, 790_000, 1_040_000, 1_340_000, 1_600_000, 1_900_000],
+  scoreSparkline: [28, 30, 33, 37, 41, 46, 51, 56, 60, 64, 68, 71],
+  workflowSparkline: [0, 2, 5, 8, 11, 14, 16, 18, 20, 22, 23, 24],
+  licenseSparkline: [640_000, 625_000, 595_000, 550_000, 495_000, 440_000, 390_000, 345_000, 310_000, 285_000, 268_000, 255_000],
+  headcountImpactSparkline: [0, 0, -1, -2, -3, -5, -7, -9, -10, -12, -13, -14],
+};
+
+const pinnacleRoadmapPhases = [
+  {
+    quarter: 'Q1',
+    title: 'Clinical Workflow Assessment + Quick Wins',
+    items: ['Epic utilization audit', 'Documentation burden analysis', 'License audit & reclamation'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 1, task: 'Kickoff & stakeholder interviews with CMO, CNO, CFO, and department heads', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 2, task: 'Epic EHR utilization audit: feature adoption, module usage, customization inventory', owner: 'Mike Torres (Tech Lead)' },
+      { week: 3, task: 'Clinical documentation burden study: shadow 20 providers across 5 specialties for 3 days', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 4, task: 'Prior auth workflow mapping: document all 24 processes across clinical and admin teams', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 5, task: 'License audit wave 1: Salesforce Health Cloud (80 seats), DocuSign (150 seats)', owner: 'Jason Park (DevOps)' },
+      { week: 6, task: 'Quick-win scoring: rank 24 workflows by clinical impact and HIPAA compliance requirements', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 7, task: 'Microsoft Teams license optimization (200 unused seats) + ADP module consolidation', owner: 'Jason Park (DevOps)' },
+      { week: 8, task: 'Executive readout: $640K license waste identified, clinical AI roadmap presented', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 9, task: 'Ambient documentation vendor evaluation: DAX Copilot vs Abridge vs Suki', owner: 'Mike Torres (Tech Lead)' },
+      { week: 10, task: 'Prior auth automation vendor evaluation: Cohere Health vs Olive AI vs Infinitus', owner: 'Mike Torres (Tech Lead)' },
+      { week: 11, task: 'Data infrastructure assessment: Epic data extraction capabilities, FHIR API readiness', owner: 'Mike Torres (Tech Lead)' },
+      { week: 12, task: 'Q1 close: $640K license savings confirmed, clinical AI pilots scoped and vendor selected', owner: 'Sarah Chen (Engagement Lead)' },
+    ],
+  },
+  {
+    quarter: 'Q2',
+    title: 'Clinical AI Pilots',
+    items: ['Ambient documentation pilot', 'Prior auth automation', 'Scheduling AI pilot'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 13, task: 'DAX Copilot deployment: 10-provider pilot group across primary care and orthopedics', owner: 'Mike Torres (Tech Lead)' },
+      { week: 14, task: 'Prior auth automation: configure Cohere Health integration with Epic and top 5 payers', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 15, task: 'Patient scheduling AI: configure intelligent scheduling based on visit type, provider capacity, and no-show prediction', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 16, task: 'DAX Copilot validation: measure documentation time reduction, note quality assessment by CMO', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 17, task: 'Prior auth pilot live: automated submission for imaging and specialist referrals', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 18, task: 'Scheduling AI pilot: 3 clinic locations, measure no-show rate and utilization improvement', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 19, task: 'DAX Copilot expansion: add 15 more providers based on pilot results', owner: 'Mike Torres (Tech Lead)' },
+      { week: 20, task: 'Revenue cycle assessment: identify coding accuracy gaps and denial patterns', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 21, task: 'Prior auth automation expanded to all payer contracts (18 payers)', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 22, task: 'Coding accuracy AI evaluation: compare AI-assisted coding vs current manual process', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 23, task: 'Pilot metrics review: documentation time saved, prior auth turnaround, scheduling utilization', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 24, task: 'Q2 close: 3 clinical AI pilots live, documentation burden reduced 60% for pilot providers', owner: 'Sarah Chen (Engagement Lead)' },
+    ],
+  },
+  {
+    quarter: 'Q3',
+    title: 'Scale Clinical AI + Revenue Cycle',
+    items: ['DAX Copilot full deployment', 'Revenue cycle optimization', 'Patient engagement platform'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 25, task: 'DAX Copilot full rollout: all 85 providers across all specialties', owner: 'Mike Torres (Tech Lead)' },
+      { week: 26, task: 'Revenue cycle AI: deploy coding accuracy tool with real-time CDI suggestions', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 27, task: 'Denial management AI: pattern recognition on historical denials, auto-appeal generation', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 28, task: 'Patient engagement: automated appointment reminders, pre-visit instructions, follow-up', owner: 'Jason Park (DevOps)' },
+      { week: 29, task: 'Scheduling AI expanded to all 8 clinic locations', owner: 'Jason Park (DevOps)' },
+      { week: 30, task: 'Epic upgrade planning: path to current version for FHIR R4 API capabilities', owner: 'Mike Torres (Tech Lead)' },
+      { week: 31, task: 'Revenue cycle optimization: AI-driven charge capture and billing automation', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 32, task: 'Salesforce Health Cloud → simpler CRM for patient outreach (evaluate alternatives)', owner: 'Jason Park (DevOps)' },
+      { week: 33, task: 'Clinical quality reporting automation: HEDIS/MIPS measures auto-calculated', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 34, task: 'Patient portal enhancement: AI-powered symptom checker, care navigation', owner: 'Jason Park (DevOps)' },
+      { week: 35, task: 'Data analytics foundation: clinical data warehouse for population health insights', owner: 'Mike Torres (Tech Lead)' },
+      { week: 36, task: 'Q3 close: DAX fully deployed, revenue cycle AI live, $1.4M in annualized savings realized', owner: 'Sarah Chen (Engagement Lead)' },
+    ],
+  },
+  {
+    quarter: 'Q4',
+    title: 'Optimization + Predictive Analytics',
+    items: ['Predictive patient risk models', 'Full revenue cycle automation', 'Population health analytics'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 37, task: 'Predictive risk models: readmission prediction, chronic disease progression, no-show forecasting', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 38, task: 'Full revenue cycle automation: end-to-end from charge capture to payment posting', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 39, task: 'Population health dashboard: risk stratification, care gap identification, outreach prioritization', owner: 'Mike Torres (Tech Lead)' },
+      { week: 40, task: 'Epic upgrade execution: migrate to current version with FHIR R4 support', owner: 'Mike Torres (Tech Lead)' },
+      { week: 41, task: 'Automation wave 3: credentialing, referral management, patient financial counseling', owner: 'Jason Park (DevOps)' },
+      { week: 42, task: 'Payer contract analytics: AI-driven fee schedule analysis and negotiation support', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 43, task: 'Full system integration validation: all AI tools connected, data flowing correctly', owner: 'Jason Park (DevOps)' },
+      { week: 44, task: 'Knowledge transfer: clinical informatics team trained on all AI tools', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 45, task: 'Final ROI validation: actual vs projected savings and clinical outcome improvements', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 46, task: 'Board presentation: transformation metrics, margin improvement, Year 2 roadmap', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 47, task: 'Hypercare period: 30-day monitoring of all deployed AI systems', owner: 'Mike Torres (Tech Lead)' },
+      { week: 48, task: 'Engagement close: clinical AI operational, $1.9M Year 1 savings confirmed', owner: 'Sarah Chen (Engagement Lead)' },
+    ],
+  },
+];
+
+const pinnacleTopOpportunities: Opportunity[] = [
+  { name: 'Clinical Note Automation (DAX Copilot)', category: 'Workflow Automation', savings: 520_000, effort: 'Medium', status: 'identified', priority: 10, timeToValue: 8, confidence: 89 },
+  { name: 'Prior Authorization Automation', category: 'Workflow Automation', savings: 380_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 10, confidence: 85 },
+  { name: 'Patient Scheduling AI', category: 'Workflow Automation', savings: 260_000, effort: 'Low', status: 'identified', priority: 8, timeToValue: 6, confidence: 91 },
+  { name: 'Revenue Cycle Optimization', category: 'Workflow Automation', savings: 340_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 77 },
+  { name: 'Coding Accuracy Improvement', category: 'Workflow Automation', savings: 220_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 12, confidence: 82 },
+  { name: 'Unused License Reclamation', category: 'License Audit', savings: 640_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 97 },
+  { name: 'Denial Management AI', category: 'Workflow Automation', savings: 180_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 14, confidence: 74 },
+  { name: 'Patient Engagement Automation', category: 'Workflow Automation', savings: 140_000, effort: 'Low', status: 'identified', priority: 5, timeToValue: 6, confidence: 88 },
+  { name: 'Replace Salesforce Health Cloud', category: 'Tech Stack', savings: 160_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 10, confidence: 84 },
+  { name: 'Clinical Quality Reporting', category: 'Workflow Automation', savings: 120_000, effort: 'Low', status: 'identified', priority: 4, timeToValue: 8, confidence: 90 },
+];
+
+const pinnacleCurrentStack: CurrentTool[] = [
+  {
+    name: 'Epic EHR',
+    category: 'Electronic Health Record',
+    annualCost: 1_200_000,
+    users: 350,
+    score: 6,
+    integrationComplexity: 'High',
+    migrationWeeks: 0,
+    riskLevel: 'Low',
+    dependencies: ['Clinical documentation', 'Order entry', 'Patient scheduling', 'Billing integration', 'Regulatory reporting'],
+  },
+  {
+    name: 'Availity',
+    category: 'Revenue Cycle / Clearinghouse',
+    annualCost: 180_000,
+    users: 45,
+    score: 5,
+    integrationComplexity: 'Medium',
+    migrationWeeks: 0,
+    riskLevel: 'Low',
+    dependencies: ['Claims submission', 'Eligibility verification', 'Prior auth submission', 'Remittance processing'],
+  },
+  {
+    name: 'Microsoft Teams',
+    category: 'Communication & Collaboration',
+    annualCost: 240_000,
+    users: 420,
+    score: 6,
+    integrationComplexity: 'Low',
+    migrationWeeks: 0,
+    riskLevel: 'Low',
+    dependencies: ['Internal messaging', 'Video conferencing', 'Care team coordination', 'File sharing'],
+  },
+  {
+    name: 'ADP Workforce Now',
+    category: 'HR & Payroll',
+    annualCost: 156_000,
+    users: 420,
+    score: 5,
+    integrationComplexity: 'Low',
+    migrationWeeks: 0,
+    riskLevel: 'Low',
+    dependencies: ['Payroll processing', 'Benefits administration', 'Time tracking', 'Credentialing support'],
+  },
+  {
+    name: 'Salesforce Health Cloud',
+    category: 'Patient Relationship Management',
+    annualCost: 320_000,
+    users: 80,
+    score: 3,
+    integrationComplexity: 'Medium',
+    migrationWeeks: 10,
+    riskLevel: 'Medium',
+    dependencies: ['Patient outreach', 'Care coordination', 'Referral management', 'Population health campaigns'],
+  },
+  {
+    name: 'DocuSign',
+    category: 'Document Management',
+    annualCost: 108_000,
+    users: 150,
+    score: 5,
+    integrationComplexity: 'Low',
+    migrationWeeks: 4,
+    riskLevel: 'Low',
+    dependencies: ['Patient consent forms', 'Provider contracts', 'Insurance authorizations', 'Compliance documents'],
+  },
+];
+
+const pinnacleLicenses: License[] = [
+  { vendor: 'Salesforce Health Cloud', totalLicenses: 80, active90d: 32, inactive: 48, annualWaste: 240_000, action: 'Reclaim 48 seats → evaluate simpler CRM alternative', costPerLicense: 5_000, department: 'Care Coordination & Outreach', lastAuditDate: '2025-10-20', trend: [75, 68, 60, 54, 48, 42], complianceRisk: false },
+  { vendor: 'Microsoft Teams', totalLicenses: 420, active90d: 220, inactive: 200, annualWaste: 120_000, action: 'Downgrade 200 inactive to basic tier', costPerLicense: 600, department: 'IT / All Departments', lastAuditDate: '2025-11-10', trend: [82, 76, 70, 65, 58, 52], complianceRisk: false },
+  { vendor: 'DocuSign', totalLicenses: 150, active90d: 65, inactive: 85, annualWaste: 102_000, action: 'Reclaim 85 seats — restrict to admin and legal', costPerLicense: 1_200, department: 'Admin & Legal (provisioned org-wide)', lastAuditDate: '2025-09-05', trend: [72, 64, 56, 50, 44, 40], complianceRisk: false },
+  { vendor: 'ADP Modules', totalLicenses: 420, active90d: 380, inactive: 40, annualWaste: 48_000, action: 'Consolidate redundant modules, reclaim 40 inactive', costPerLicense: 1_200, department: 'HR', lastAuditDate: '2025-12-15', trend: [95, 93, 92, 91, 90, 89], complianceRisk: false },
+  { vendor: 'Zoom Healthcare', totalLicenses: 100, active90d: 42, inactive: 58, annualWaste: 70_000, action: 'Reclaim 58 seats — consolidate to Teams for non-telehealth', costPerLicense: 1_200, department: 'Clinical (telehealth) & Admin', lastAuditDate: '2025-08-28', trend: [78, 70, 62, 56, 48, 42], complianceRisk: true },
+  { vendor: 'Nuance PowerScribe', totalLicenses: 30, active90d: 12, inactive: 18, annualWaste: 54_000, action: 'Reclaim 18 seats — evaluate DAX Copilot replacement', costPerLicense: 3_000, department: 'Radiology', lastAuditDate: '2025-07-15', trend: [68, 58, 50, 44, 38, 34], complianceRisk: false },
+];
+
+const pinnacleWorkflowSummary = {
+  total: 24,
+  fullyAutomatable: 6,
+  humanInLoop: 12,
+  humanRequired: 6,
+  currentLaborSpend: 2_800_000,
+  potentialSavings: 1_200_000,
+};
+
+const pinnacleRoiSummary = {
+  techStackSavings: 480_000,
+  workflowAutomation: 1_200_000,
+  licenseRecovery: 640_000,
+  implementationCosts: 420_000,
+  netYear1: 1_900_000,
+  year2Projected: 2_800_000,
+};
+
+// ─── Atlas Manufacturing ─────────────────────────────────────────────────────
+
+const atlasCompanyProfile = {
+  name: 'Atlas Manufacturing',
+  industry: 'Manufacturing (PE-backed, 4 OpCos)',
+  employees: 2_100,
+  revenue: '$320M',
+  opCos: 4,
+  opCoNames: ['Atlas Precision Components', 'Titan Metal Fabrication', 'Forge Industrial Systems', 'Apex Assembly Solutions'],
+  techSpend: '$9.6M/yr',
+  aiReadinessScore: 38,
+  holdingPeriod: '24 months into 5-year hold',
+  ebitdaMargin: '12.6%',
+  targetEbitdaMargin: '21%',
+};
+
+const atlasAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 30, maxScore: 100, status: 'Below Average — SAP S/4HANA at 2 of 4 plants, other 2 on legacy MES systems, Siemens MindSphere collecting IoT data but not centralized' },
+  { category: 'Process Maturity', score: 44, maxScore: 100, status: 'Moderate — production scheduling still manual at 2 plants, quality inspection 90% visual, maintenance is reactive at all 4 facilities' },
+  { category: 'Tech Stack Modernity', score: 38, maxScore: 100, status: 'Mixed — SAP S/4HANA is modern but fragmented across plants, MindSphere collecting data with no analytics layer, AutoCAD workflows manual' },
+  { category: 'Change Readiness', score: 48, maxScore: 100, status: 'Moderate — plant managers at Atlas Precision and Forge are AI advocates, Titan and Apex leadership more conservative, union workforce cautious' },
+  { category: 'Skills & Training', score: 26, maxScore: 100, status: 'Critical Gap — no data science team, IT staffed for ERP maintenance, no ML/AI capability, industrial engineers receptive but untrained' },
+];
+
+const atlasKpis = {
+  totalSavings: 5_100_000,
+  techScoreBefore: 38,
+  techScoreAfter: 84,
+  workflowsAnalyzed: 52,
+  automationReady: 14,
+  unusedLicenseWaste: 2_400_000,
+  savingsSparkline: [0, 90_000, 220_000, 400_000, 640_000, 940_000, 1_320_000, 1_800_000, 2_400_000, 3_200_000, 4_100_000, 5_100_000],
+  scoreSparkline: [38, 40, 44, 49, 54, 60, 65, 70, 74, 78, 81, 84],
+  workflowSparkline: [0, 4, 10, 16, 22, 28, 34, 38, 42, 46, 49, 52],
+  licenseSparkline: [2_400_000, 2_340_000, 2_220_000, 2_050_000, 1_840_000, 1_620_000, 1_400_000, 1_220_000, 1_080_000, 980_000, 920_000, 880_000],
+  headcountImpactSparkline: [0, 0, -2, -5, -8, -12, -16, -20, -24, -28, -31, -34],
+};
+
+const atlasRoadmapPhases = [
+  {
+    quarter: 'Q1',
+    title: 'Plant Assessment + Data Foundation',
+    items: ['Cross-plant system audit', 'IoT data centralization', 'License audit & reclamation'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 1, task: 'Kickoff & stakeholder interviews with plant managers, VP Manufacturing, and CIO', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 2, task: 'Cross-plant system audit: map SAP instances, MES systems, PLC configurations across 4 facilities', owner: 'Mike Torres (Tech Lead)' },
+      { week: 3, task: 'Siemens MindSphere data assessment: sensor coverage, data quality, collection frequency per plant', owner: 'Mike Torres (Tech Lead)' },
+      { week: 4, task: 'Workflow discovery: map 52 processes across production, quality, maintenance, and supply chain', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 5, task: 'License audit wave 1: SAP (680 seats), AutoCAD (200 seats), Jira (300 seats)', owner: 'Jason Park (DevOps)' },
+      { week: 6, task: 'Quick-win scoring: rank 52 workflows by automation potential and cross-plant synergy', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 7, task: 'Microsoft 365 license reclamation (400 unused seats) + Slack consolidation across plants', owner: 'Jason Park (DevOps)' },
+      { week: 8, task: 'Executive readout: $2.4M license waste identified, predictive maintenance roadmap presented', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 9, task: 'IoT data lake design: unified schema for MindSphere + PLC data across 4 plants', owner: 'Mike Torres (Tech Lead)' },
+      { week: 10, task: 'Predictive maintenance data audit: identify equipment with sufficient sensor history for ML models', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 11, task: 'SAP harmonization assessment: feasibility of consolidating 2 SAP instances + 2 legacy MES', owner: 'Mike Torres (Tech Lead)' },
+      { week: 12, task: 'Q1 close: $2.4M license savings confirmed, data lake architecture approved, pilots scoped', owner: 'Sarah Chen (Engagement Lead)' },
+    ],
+  },
+  {
+    quarter: 'Q2',
+    title: 'Predictive Maintenance + Inventory Consolidation',
+    items: ['Predictive maintenance pilots at 2 plants', 'Cross-plant inventory visibility', 'Quality inspection AI pilot'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 13, task: 'Predictive maintenance model training: 24 months of vibration, temperature, and pressure data from Atlas Precision', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 14, task: 'Cross-plant inventory system: connect SAP MM modules + legacy warehouse systems to unified data lake', owner: 'Mike Torres (Tech Lead)' },
+      { week: 15, task: 'Quality inspection AI: computer vision model training on 50K historical defect images', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 16, task: 'Predictive maintenance validation: shadow mode at Atlas Precision — predict vs actual failures over 4 weeks', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 17, task: 'Inventory visibility dashboard live: real-time cross-plant raw material and WIP view', owner: 'Mike Torres (Tech Lead)' },
+      { week: 18, task: 'Quality inspection pilot: inline camera stations at Forge Industrial for automated defect detection', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 19, task: 'Predictive maintenance go-live at Atlas Precision: automated work orders generated from ML predictions', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 20, task: 'Expand predictive maintenance to Titan Metal Fabrication (CNC fleet)', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 21, task: 'Cross-plant procurement consolidation: automated reorder points based on aggregate demand', owner: 'Mike Torres (Tech Lead)' },
+      { week: 22, task: 'Supplier risk monitoring pilot: real-time tracking of top 50 suppliers across geopolitical and financial signals', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 23, task: 'Pilot metrics review: unplanned downtime reduction, inventory turns, defect escape rate', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 24, task: 'Q2 close: predictive maintenance at 2 plants, inventory visibility live, quality AI in pilot', owner: 'Sarah Chen (Engagement Lead)' },
+    ],
+  },
+  {
+    quarter: 'Q3',
+    title: 'Scale Automation + Production Optimization',
+    items: ['Production scheduling AI', 'Expand predictive maintenance to all plants', 'SAP harmonization'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 25, task: 'Production scheduling AI: constraint-based optimization for Atlas Precision and Forge Industrial', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 26, task: 'Expand predictive maintenance to Forge Industrial and Apex Assembly (all 4 plants now covered)', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 27, task: 'SAP harmonization wave 1: migrate Titan legacy MES to SAP S/4HANA', owner: 'Mike Torres (Tech Lead)' },
+      { week: 28, task: 'Quality inspection AI expanded to all 4 plants with plant-specific defect models', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 29, task: 'Supply chain optimization: demand forecasting + automated purchase order generation', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 30, task: 'Automation wave 2: receiving inspection, shipping documentation, compliance reporting', owner: 'Jason Park (DevOps)' },
+      { week: 31, task: 'SAP harmonization wave 2: migrate Apex legacy MES to SAP S/4HANA', owner: 'Mike Torres (Tech Lead)' },
+      { week: 32, task: 'Cross-plant production load balancing: AI-recommended work distribution across facilities', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 33, task: 'Energy consumption optimization: ML models for reducing power usage during off-peak production', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 34, task: 'AutoCAD workflow automation: AI-assisted drawing generation and design review', owner: 'Jason Park (DevOps)' },
+      { week: 35, task: 'Data quality reconciliation: validate cross-plant data consistency in unified schema', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 36, task: 'Q3 close: all 4 plants on predictive maintenance, production scheduling AI live, SAP unified', owner: 'Sarah Chen (Engagement Lead)' },
+    ],
+  },
+  {
+    quarter: 'Q4',
+    title: 'Full AI-Native Manufacturing Operations',
+    items: ['Digital twin deployment', 'Complete system integration', 'Cross-plant optimization live'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 37, task: 'Digital twin pilot: real-time virtual model of Atlas Precision production line', owner: 'Mike Torres (Tech Lead)' },
+      { week: 38, task: 'Supplier risk monitoring full deployment: all 200+ suppliers tracked with automated alerts', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 39, task: 'Cross-plant capacity optimization: AI-driven allocation across 4 facilities for large orders', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 40, task: 'Energy and sustainability reporting: automated carbon tracking and ESG compliance', owner: 'Jason Park (DevOps)' },
+      { week: 41, task: 'Automation wave 3: warranty claims, customer quality portals, field service scheduling', owner: 'Jason Park (DevOps)' },
+      { week: 42, task: 'Full SAP landscape validation: all 4 plants on unified instance, master data harmonized', owner: 'Mike Torres (Tech Lead)' },
+      { week: 43, task: 'AI-native manufacturing stack validation: all systems integrated, real-time dashboards operational', owner: 'Jason Park (DevOps)' },
+      { week: 44, task: 'Knowledge transfer: plant engineers and IT team trained on AI tools, runbooks complete', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 45, task: 'Final ROI validation: actual vs projected savings across all 4 plants', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 46, task: 'Board presentation: transformation metrics, EBITDA impact, capacity gains, Year 2 roadmap', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 47, task: 'Hypercare period: 30-day post-deployment monitoring across all facilities', owner: 'Mike Torres (Tech Lead)' },
+      { week: 48, task: 'Engagement close: AI-native manufacturing operational, $5.1M Year 1 savings confirmed', owner: 'Sarah Chen (Engagement Lead)' },
+    ],
+  },
+];
+
+const atlasTopOpportunities: Opportunity[] = [
+  { name: 'Predictive Maintenance', category: 'Workflow Automation', savings: 1_200_000, effort: 'High', status: 'identified', priority: 10, timeToValue: 14, confidence: 82 },
+  { name: 'Cross-Plant Inventory Consolidation', category: 'Data Infrastructure', savings: 880_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 18, confidence: 79 },
+  { name: 'Quality Inspection AI', category: 'Workflow Automation', savings: 720_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 85 },
+  { name: 'Production Scheduling Optimization', category: 'Workflow Automation', savings: 640_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 76 },
+  { name: 'Supplier Risk Monitoring', category: 'Data Infrastructure', savings: 480_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 80 },
+  { name: 'Unused License Reclamation', category: 'License Audit', savings: 1_400_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
+  { name: 'Energy Consumption Optimization', category: 'Workflow Automation', savings: 380_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 14, confidence: 72 },
+  { name: 'SAP Instance Harmonization', category: 'Tech Stack', savings: 520_000, effort: 'High', status: 'in-progress', priority: 8, timeToValue: 20, confidence: 74 },
+  { name: 'Automated Receiving & Shipping', category: 'Workflow Automation', savings: 290_000, effort: 'Low', status: 'identified', priority: 5, timeToValue: 8, confidence: 88 },
+  { name: 'Demand Forecasting AI', category: 'Workflow Automation', savings: 410_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 12, confidence: 78 },
+];
+
+const atlasCurrentStack: CurrentTool[] = [
+  {
+    name: 'SAP S/4HANA',
+    category: 'ERP & Production',
+    annualCost: 1_200_000,
+    users: 680,
+    score: 6,
+    integrationComplexity: 'High',
+    migrationWeeks: 0,
+    riskLevel: 'Medium',
+    dependencies: ['Production planning', 'Material management', 'Financial consolidation', 'Quality management', 'Plant maintenance'],
+  },
+  {
+    name: 'Siemens MindSphere',
+    category: 'Industrial IoT',
+    annualCost: 480_000,
+    users: 120,
+    score: 5,
+    integrationComplexity: 'High',
+    migrationWeeks: 0,
+    riskLevel: 'Low',
+    dependencies: ['Sensor data collection', 'Equipment monitoring', 'OEE tracking', 'Energy monitoring'],
+  },
+  {
+    name: 'Jira',
+    category: 'Project & Issue Tracking',
+    annualCost: 180_000,
+    users: 300,
+    score: 7,
+    integrationComplexity: 'Low',
+    migrationWeeks: 0,
+    riskLevel: 'Low',
+    dependencies: ['Engineering change orders', 'Maintenance work orders', 'IT service management', 'Quality NCR tracking'],
+  },
+  {
+    name: 'AutoCAD',
+    category: 'Engineering & Design',
+    annualCost: 560_000,
+    users: 200,
+    score: 5,
+    integrationComplexity: 'Medium',
+    migrationWeeks: 0,
+    riskLevel: 'Low',
+    dependencies: ['Part design', 'Tool design', 'Plant layout', 'Fixture design', 'Drawing revision control'],
+  },
+  {
+    name: 'Microsoft 365',
+    category: 'Productivity & Collaboration',
+    annualCost: 840_000,
+    users: 2_100,
+    score: 6,
+    integrationComplexity: 'Low',
+    migrationWeeks: 0,
+    riskLevel: 'Low',
+    dependencies: ['Email', 'Document management', 'SharePoint sites', 'Teams collaboration'],
+  },
+  {
+    name: 'Slack',
+    category: 'Communication',
+    annualCost: 240_000,
+    users: 1_200,
+    score: 7,
+    integrationComplexity: 'Low',
+    migrationWeeks: 0,
+    riskLevel: 'Low',
+    dependencies: ['Plant floor communication', 'Engineering collaboration', 'IT alerts', 'Cross-plant coordination'],
+  },
+];
+
+const atlasLicenses: License[] = [
+  { vendor: 'SAP S/4HANA', totalLicenses: 680, active90d: 420, inactive: 260, annualWaste: 780_000, action: 'Reclaim 260 seats + harmonize 2 legacy MES plants onto SAP', costPerLicense: 3_000, department: 'Manufacturing & Finance (all plants)', lastAuditDate: '2025-09-28', trend: [80, 74, 68, 64, 60, 56], complianceRisk: false },
+  { vendor: 'AutoCAD', totalLicenses: 200, active90d: 85, inactive: 115, annualWaste: 460_000, action: 'Reclaim 115 seats — restrict to engineering departments only', costPerLicense: 4_000, department: 'Engineering (provisioned to all managers)', lastAuditDate: '2025-10-15', trend: [72, 64, 56, 50, 44, 40], complianceRisk: false },
+  { vendor: 'Microsoft 365', totalLicenses: 2_100, active90d: 1_700, inactive: 400, annualWaste: 480_000, action: 'Reclaim 400 seats + downgrade 300 E5→E1 for plant floor', costPerLicense: 1_200, department: 'IT / All Plants', lastAuditDate: '2025-11-20', trend: [88, 84, 82, 80, 78, 76], complianceRisk: false },
+  { vendor: 'Jira', totalLicenses: 300, active90d: 180, inactive: 120, annualWaste: 144_000, action: 'Reclaim 120 seats — consolidate to engineering and IT only', costPerLicense: 1_200, department: 'Engineering & IT (provisioned broadly)', lastAuditDate: '2025-08-10', trend: [82, 76, 70, 66, 62, 58], complianceRisk: false },
+  { vendor: 'Slack Enterprise', totalLicenses: 1_200, active90d: 900, inactive: 300, annualWaste: 360_000, action: 'Downgrade 300 inactive to free tier', costPerLicense: 1_200, department: 'IT / All Plants', lastAuditDate: '2026-01-08', trend: [90, 86, 82, 78, 74, 72], complianceRisk: false },
+  { vendor: 'Siemens MindSphere', totalLicenses: 120, active90d: 80, inactive: 40, annualWaste: 120_000, action: 'Reclaim 40 unused plant licenses, optimize data tier', costPerLicense: 3_000, department: 'Plant Operations & Engineering', lastAuditDate: '2025-07-25', trend: [85, 78, 72, 68, 64, 62], complianceRisk: false },
+  { vendor: 'MATLAB / Simulink', totalLicenses: 40, active90d: 12, inactive: 28, annualWaste: 56_000, action: 'Reclaim 28 seats — restrict to R&D team only', costPerLicense: 2_000, department: 'R&D & Quality Engineering', lastAuditDate: '2025-06-30', trend: [65, 55, 48, 42, 36, 32], complianceRisk: false },
+];
+
+const atlasWorkflowSummary = {
+  total: 52,
+  fullyAutomatable: 14,
+  humanInLoop: 26,
+  humanRequired: 12,
+  currentLaborSpend: 8_400_000,
+  potentialSavings: 3_800_000,
+};
+
+const atlasRoiSummary = {
+  techStackSavings: 2_100_000,
+  workflowAutomation: 3_800_000,
+  licenseRecovery: 2_400_000,
+  implementationCosts: 3_200_000,
+  netYear1: 5_100_000,
+  year2Projected: 7_600_000,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Company Data Lookup Maps ──────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+type CompanyId = string;
+
+const companyProfiles: Record<string, typeof companyProfile> = {
+  meridian: companyProfile,
+  oakwood: oakwoodCompanyProfile,
+  pinnacle: pinnacleCompanyProfile,
+  atlas: atlasCompanyProfile,
+};
+
+const companyAiReadiness: Record<string, typeof aiReadinessBreakdown> = {
+  meridian: aiReadinessBreakdown,
+  oakwood: oakwoodAiReadinessBreakdown,
+  pinnacle: pinnacleAiReadinessBreakdown,
+  atlas: atlasAiReadinessBreakdown,
+};
+
+const companyKpis: Record<string, typeof kpis> = {
+  meridian: kpis,
+  oakwood: oakwoodKpis,
+  pinnacle: pinnacleKpis,
+  atlas: atlasKpis,
+};
+
+const companyRoadmapPhases: Record<string, typeof roadmapPhases> = {
+  meridian: roadmapPhases,
+  oakwood: oakwoodRoadmapPhases,
+  pinnacle: pinnacleRoadmapPhases,
+  atlas: atlasRoadmapPhases,
+};
+
+const companyTopOpportunities: Record<string, Opportunity[]> = {
+  meridian: topOpportunities,
+  oakwood: oakwoodTopOpportunities,
+  pinnacle: pinnacleTopOpportunities,
+  atlas: atlasTopOpportunities,
+};
+
+const companyCurrentStack: Record<string, CurrentTool[]> = {
+  meridian: currentStack,
+  oakwood: oakwoodCurrentStack,
+  pinnacle: pinnacleCurrentStack,
+  atlas: atlasCurrentStack,
+};
+
+const companyLicenses: Record<string, License[]> = {
+  meridian: licenses,
+  oakwood: oakwoodLicenses,
+  pinnacle: pinnacleLicenses,
+  atlas: atlasLicenses,
+};
+
+const companyWorkflowSummaries: Record<string, typeof workflowSummary> = {
+  meridian: workflowSummary,
+  oakwood: oakwoodWorkflowSummary,
+  pinnacle: pinnacleWorkflowSummary,
+  atlas: atlasWorkflowSummary,
+};
+
+const companyRoiSummaries: Record<string, typeof roiSummary> = {
+  meridian: roiSummary,
+  oakwood: oakwoodRoiSummary,
+  pinnacle: pinnacleRoiSummary,
+  atlas: atlasRoiSummary,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Lookup Functions ──────────────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+export function getCompanyProfile(companyId: CompanyId) {
+  return companyProfiles[companyId] ?? companyProfiles.meridian;
+}
+
+export function getAiReadinessBreakdown(companyId: CompanyId) {
+  return companyAiReadiness[companyId] ?? companyAiReadiness.meridian;
+}
+
+export function getKpis(companyId: CompanyId) {
+  return companyKpis[companyId] ?? companyKpis.meridian;
+}
+
+export function getRoadmapPhases(companyId: CompanyId) {
+  return companyRoadmapPhases[companyId] ?? companyRoadmapPhases.meridian;
+}
+
+export function getTopOpportunities(companyId: CompanyId) {
+  return companyTopOpportunities[companyId] ?? companyTopOpportunities.meridian;
+}
+
+export function getCurrentStack(companyId: CompanyId) {
+  return companyCurrentStack[companyId] ?? companyCurrentStack.meridian;
+}
+
+export function getLicenses(companyId: CompanyId) {
+  return companyLicenses[companyId] ?? companyLicenses.meridian;
+}
+
+export function getWorkflowSummary(companyId: CompanyId) {
+  return companyWorkflowSummaries[companyId] ?? companyWorkflowSummaries.meridian;
+}
+
+export function getRoiSummary(companyId: CompanyId) {
+  return companyRoiSummaries[companyId] ?? companyRoiSummaries.meridian;
+}

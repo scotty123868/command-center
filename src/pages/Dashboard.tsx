@@ -9,13 +9,13 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import {
-  kpis,
-  roadmapPhases,
-  topOpportunities,
-  currentStack,
-  licenses,
-  workflowSummary,
-  roiSummary,
+  getKpis,
+  getRoadmapPhases,
+  getTopOpportunities,
+  getWorkflowSummary,
+  getRoiSummary,
+  getCurrentStack,
+  getLicenses,
   type OpportunityStatus,
 } from '../data/constants';
 import { config } from '../data/config';
@@ -46,26 +46,44 @@ type TimelineData = {
   waste: number;
 };
 
-const timelineStops: Record<number, TimelineData> = {
-  0: { savings: 0, scoreBefore: 34, scoreAfter: 34, workflows: 0, automationReady: 0, waste: 2_100_000 },
-  6: { savings: 1_800_000, scoreBefore: 34, scoreAfter: 62, workflows: 27, automationReady: 7, waste: 1_400_000 },
-  12: { savings: 4_200_000, scoreBefore: 34, scoreAfter: 87, workflows: 47, automationReady: 12, waste: 800_000 },
+const allTimelineStops: Record<string, Record<number, TimelineData>> = {
+  meridian: {
+    0: { savings: 0, scoreBefore: 34, scoreAfter: 34, workflows: 0, automationReady: 0, waste: 2_100_000 },
+    6: { savings: 1_800_000, scoreBefore: 34, scoreAfter: 62, workflows: 27, automationReady: 7, waste: 1_400_000 },
+    12: { savings: 4_200_000, scoreBefore: 34, scoreAfter: 87, workflows: 47, automationReady: 12, waste: 800_000 },
+  },
+  oakwood: {
+    0: { savings: 0, scoreBefore: 41, scoreAfter: 41, workflows: 0, automationReady: 0, waste: 1_600_000 },
+    6: { savings: 1_600_000, scoreBefore: 41, scoreAfter: 58, workflows: 22, automationReady: 5, waste: 1_100_000 },
+    12: { savings: 3_800_000, scoreBefore: 41, scoreAfter: 78, workflows: 38, automationReady: 9, waste: 620_000 },
+  },
+  pinnacle: {
+    0: { savings: 0, scoreBefore: 28, scoreAfter: 28, workflows: 0, automationReady: 0, waste: 640_000 },
+    6: { savings: 800_000, scoreBefore: 28, scoreAfter: 48, workflows: 14, automationReady: 3, waste: 420_000 },
+    12: { savings: 1_900_000, scoreBefore: 28, scoreAfter: 71, workflows: 24, automationReady: 6, waste: 280_000 },
+  },
+  atlas: {
+    0: { savings: 0, scoreBefore: 38, scoreAfter: 38, workflows: 0, automationReady: 0, waste: 2_400_000 },
+    6: { savings: 2_200_000, scoreBefore: 38, scoreAfter: 64, workflows: 30, automationReady: 8, waste: 1_600_000 },
+    12: { savings: 5_100_000, scoreBefore: 38, scoreAfter: 84, workflows: 52, automationReady: 14, waste: 920_000 },
+  },
 };
 
-function interpolateTimeline(month: number): TimelineData {
-  if (month <= 0) return timelineStops[0];
-  if (month >= 12) return timelineStops[12];
+function interpolateTimeline(month: number, companyId: string): TimelineData {
+  const stops = allTimelineStops[companyId] || allTimelineStops.meridian;
+  if (month <= 0) return stops[0];
+  if (month >= 12) return stops[12];
 
   const lowerStop = month <= 6 ? 0 : 6;
   const upperStop = month <= 6 ? 6 : 12;
   const t = (month - lowerStop) / (upperStop - lowerStop);
 
-  const lower = timelineStops[lowerStop];
-  const upper = timelineStops[upperStop];
+  const lower = stops[lowerStop];
+  const upper = stops[upperStop];
 
   return {
     savings: Math.round(lower.savings + (upper.savings - lower.savings) * t),
-    scoreBefore: 34,
+    scoreBefore: lower.scoreBefore,
     scoreAfter: Math.round(lower.scoreAfter + (upper.scoreAfter - lower.scoreAfter) * t),
     workflows: Math.round(lower.workflows + (upper.workflows - lower.workflows) * t),
     automationReady: Math.round(lower.automationReady + (upper.automationReady - lower.automationReady) * t),
@@ -187,13 +205,15 @@ function KpiCard({
 type DrillDownType = 'savings' | 'score' | 'workflows' | 'licenses' | null;
 
 function SavingsDrillDown() {
+  const { company } = useCompany();
+  const roi = getRoiSummary(company.id);
   const items = [
-    { label: 'Tech Stack Optimization', value: roiSummary.techStackSavings, color: 'text-emerald-600' },
-    { label: 'Workflow Automation', value: roiSummary.workflowAutomation, color: 'text-emerald-600' },
-    { label: 'License Recovery', value: roiSummary.licenseRecovery, color: 'text-emerald-600' },
-    { label: 'Implementation Costs', value: -roiSummary.implementationCosts, color: 'text-red-500' },
+    { label: 'Tech Stack Optimization', value: roi.techStackSavings, color: 'text-emerald-600' },
+    { label: 'Workflow Automation', value: roi.workflowAutomation, color: 'text-emerald-600' },
+    { label: 'License Recovery', value: roi.licenseRecovery, color: 'text-emerald-600' },
+    { label: 'Implementation Costs', value: -roi.implementationCosts, color: 'text-red-500' },
   ];
-  const net = roiSummary.netYear1;
+  const net = roi.netYear1;
 
   return (
     <div>
@@ -214,14 +234,15 @@ function SavingsDrillDown() {
         </div>
       </div>
       <div className="mt-6 rounded-xl bg-blue-50 px-4 py-3">
-        <p className="text-[12px] font-medium text-blue-800">Year 2 Projected: <span className="font-mono font-bold">{fmtCompact(roiSummary.year2Projected)}</span></p>
+        <p className="text-[12px] font-medium text-blue-800">Year 2 Projected: <span className="font-mono font-bold">{fmtCompact(roi.year2Projected)}</span></p>
       </div>
     </div>
   );
 }
 
 function ScoreDrillDown() {
-  const tools = currentStack.slice(0, 6);
+  const { company } = useCompany();
+  const tools = getCurrentStack(company.id).slice(0, 6);
   const targetScores: Record<string, number> = {
     'SAP ERP': 7,
     'Salesforce CRM': 8,
@@ -267,6 +288,8 @@ function ScoreDrillDown() {
 }
 
 function WorkflowsDrillDown() {
+  const { company } = useCompany();
+  const wfSummary = getWorkflowSummary(company.id);
   const topWorkflows = [
     { name: 'Claims Intake Processing', savings: '$420K/yr', level: 'Full Automation' },
     { name: 'Call Center Tier-1 Resolution', savings: '$380K/yr', level: 'Human-in-Loop' },
@@ -276,19 +299,19 @@ function WorkflowsDrillDown() {
   return (
     <div>
       <h3 className="text-[15px] font-semibold text-gray-900">Workflow Analysis</h3>
-      <p className="mt-1 text-[12px] text-gray-500">{workflowSummary.total} workflows analyzed across all OpCos</p>
+      <p className="mt-1 text-[12px] text-gray-500">{wfSummary.total} workflows analyzed across all OpCos</p>
       <div className="mt-6 space-y-3">
         <div className="flex items-center justify-between rounded-xl bg-emerald-50 px-4 py-3">
           <span className="text-[13px] text-emerald-800">Fully Automatable</span>
-          <span className="font-mono text-[16px] font-bold text-emerald-600">{workflowSummary.fullyAutomatable}</span>
+          <span className="font-mono text-[16px] font-bold text-emerald-600">{wfSummary.fullyAutomatable}</span>
         </div>
         <div className="flex items-center justify-between rounded-xl bg-amber-50 px-4 py-3">
           <span className="text-[13px] text-amber-800">Human-in-Loop</span>
-          <span className="font-mono text-[16px] font-bold text-amber-600">{workflowSummary.humanInLoop}</span>
+          <span className="font-mono text-[16px] font-bold text-amber-600">{wfSummary.humanInLoop}</span>
         </div>
         <div className="flex items-center justify-between rounded-xl bg-gray-50 px-4 py-3">
           <span className="text-[13px] text-gray-700">Human Required</span>
-          <span className="font-mono text-[16px] font-bold text-gray-500">{workflowSummary.humanRequired}</span>
+          <span className="font-mono text-[16px] font-bold text-gray-500">{wfSummary.humanRequired}</span>
         </div>
       </div>
       <div className="mt-6">
@@ -310,7 +333,8 @@ function WorkflowsDrillDown() {
 }
 
 function LicensesDrillDown() {
-  const topWaste = licenses
+  const { company } = useCompany();
+  const topWaste = getLicenses(company.id)
     .filter((l) => l.annualWaste > 0)
     .sort((a, b) => b.annualWaste - a.annualWaste)
     .slice(0, 3);
@@ -395,7 +419,10 @@ function DrillDownPanel({ type, onClose }: { type: DrillDownType; onClose: () =>
 
 export default function Dashboard() {
   const { company } = useCompany();
-  const sortedOpps = [...topOpportunities].sort((a, b) => a.priority - b.priority);
+  const companyKpis = getKpis(company.id);
+  const companyRoadmap = getRoadmapPhases(company.id);
+  const companyOpps = getTopOpportunities(company.id);
+  const sortedOpps = [...companyOpps].sort((a, b) => a.priority - b.priority);
 
   // Flash highlight when company changes
   const [companyFlash, setCompanyFlash] = useState(false);
@@ -415,7 +442,7 @@ export default function Dashboard() {
 
   // Feature 2: Timeline scrubber
   const [timelineMonth, setTimelineMonth] = useState(12);
-  const tlData = interpolateTimeline(timelineMonth);
+  const tlData = interpolateTimeline(timelineMonth, company.id);
 
   // Feature 3: Drill-down panel
   const [activeDrillDown, setActiveDrillDown] = useState<DrillDownType>(null);
@@ -531,7 +558,7 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
         <KpiCard
           label="Identified Savings"
-          sparklineData={kpis.savingsSparkline}
+          sparklineData={companyKpis.savingsSparkline}
           sparklineColor="#10B981"
           sparklineId="savings"
           delay={0.05}
@@ -545,7 +572,7 @@ export default function Dashboard() {
 
         <KpiCard
           label="Tech Stack Score"
-          sparklineData={kpis.scoreSparkline}
+          sparklineData={companyKpis.scoreSparkline}
           sparklineColor="#4285F4"
           sparklineId="score"
           delay={0.1}
@@ -564,7 +591,7 @@ export default function Dashboard() {
 
         <KpiCard
           label="Workflows Analyzed"
-          sparklineData={kpis.workflowSparkline}
+          sparklineData={companyKpis.workflowSparkline}
           sparklineColor="#F59E0B"
           sparklineId="workflows"
           delay={0.15}
@@ -582,7 +609,7 @@ export default function Dashboard() {
 
         <KpiCard
           label="License Waste"
-          sparklineData={kpis.licenseSparkline}
+          sparklineData={companyKpis.licenseSparkline}
           sparklineColor="#EF4444"
           sparklineId="license"
           delay={0.2}
@@ -708,7 +735,7 @@ export default function Dashboard() {
             <div className="absolute left-0 right-0 top-[6px] h-[2px] bg-gray-200" />
 
             <div className="relative flex justify-between">
-              {roadmapPhases.map((phase, i) => {
+              {companyRoadmap.map((phase, i) => {
                 const isActive = phase.status === 'active';
                 return (
                   <motion.div
@@ -769,7 +796,7 @@ export default function Dashboard() {
 
         {/* Mobile fallback: stacked */}
         <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:hidden">
-          {roadmapPhases.map((phase) => {
+          {companyRoadmap.map((phase) => {
             const isActive = phase.status === 'active';
             return (
               <div

@@ -2,8 +2,9 @@ import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, AlertTriangle, TrendingUp, Shield, Clock, Zap } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
-import { currentStack, recommendations } from '../data/constants';
+import { getCurrentStack, recommendations } from '../data/constants';
 import type { CurrentTool, Recommendation } from '../data/constants';
+import { useCompany } from '../data/CompanyContext';
 
 /* ── helpers ─────────────────────────────────────────────────────────────── */
 
@@ -93,6 +94,9 @@ const industryMult: Record<string, number> = {
 /* ══════════════════════════════════════════════════════════════════════════ */
 
 export default function TechStack() {
+  const { company } = useCompany();
+  const currentStack = getCurrentStack(company.id);
+
   /* ROI calculator state */
   const [spend, setSpend] = useState(3_200_000);
   const [employees, setEmployees] = useState(450);

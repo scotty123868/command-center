@@ -26,7 +26,8 @@ import {
   Legend,
   ReferenceLine,
 } from 'recharts';
-import { roiSummary, waterfallData, implementationTimeline } from '../data/constants';
+import { getRoiSummary, waterfallData, implementationTimeline } from '../data/constants';
+import { useCompany } from '../data/CompanyContext';
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
@@ -54,34 +55,36 @@ const waterfallChartData = waterfallData.map((d) => {
   return { ...d, base: d.total - d.value, segment: d.value };
 });
 
-// ─── Metric cards config ────────────────────────────────────────────────────
+// ─── Metric cards builder ────────────────────────────────────────────────────
 
-const metrics = [
-  {
-    label: 'Tech Stack Optimization',
-    value: roiSummary.techStackSavings,
-    color: '#10B981',
-    icon: Cpu,
-  },
-  {
-    label: 'Workflow Automation',
-    value: roiSummary.workflowAutomation,
-    color: '#10B981',
-    icon: Workflow,
-  },
-  {
-    label: 'License Recovery',
-    value: roiSummary.licenseRecovery,
-    color: '#10B981',
-    icon: KeyRound,
-  },
-  {
-    label: 'Implementation Costs',
-    value: -roiSummary.implementationCosts,
-    color: '#EF4444',
-    icon: Hammer,
-  },
-];
+function buildMetrics(roiSummary: ReturnType<typeof getRoiSummary>) {
+  return [
+    {
+      label: 'Tech Stack Optimization',
+      value: roiSummary.techStackSavings,
+      color: '#10B981',
+      icon: Cpu,
+    },
+    {
+      label: 'Workflow Automation',
+      value: roiSummary.workflowAutomation,
+      color: '#10B981',
+      icon: Workflow,
+    },
+    {
+      label: 'License Recovery',
+      value: roiSummary.licenseRecovery,
+      color: '#10B981',
+      icon: KeyRound,
+    },
+    {
+      label: 'Implementation Costs',
+      value: -roiSummary.implementationCosts,
+      color: '#EF4444',
+      icon: Hammer,
+    },
+  ];
+}
 
 // ─── Custom Waterfall Tooltip ───────────────────────────────────────────────
 
@@ -122,6 +125,10 @@ function TimelineTooltip({ active, payload, label }: any) {
 // ─── Page Component ─────────────────────────────────────────────────────────
 
 export default function ROISummary() {
+  const { company } = useCompany();
+  const roiSummary = getRoiSummary(company.id);
+  const metrics = buildMetrics(roiSummary);
+
   return (
     <div className="space-y-10">
       {/* ── Generate Board Report Button ──────────────────────────────── */}
