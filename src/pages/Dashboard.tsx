@@ -823,7 +823,7 @@ export default function Dashboard() {
 
         <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-[13px]">
+            <table className="w-full min-w-[700px] text-left text-[13px]">
               <thead>
                 <tr className="border-b border-gray-100 bg-gray-50/60">
                   <th className="px-5 py-3 text-[10px] font-semibold uppercase tracking-wider text-gray-500">

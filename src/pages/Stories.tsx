@@ -488,7 +488,7 @@ export default function Stories() {
 
       {/* Company Switcher Tab Bar */}
       <div className="border-b border-gray-200">
-        <nav className="flex gap-1 -mb-px overflow-x-auto" aria-label="Company tabs">
+        <nav className="flex gap-1 -mb-px overflow-x-auto scrollbar-hide" style={{ WebkitOverflowScrolling: 'touch' }} aria-label="Company tabs">
           {companies.map((company, index) => (
             <button
               key={company.name}

@@ -129,6 +129,16 @@ body::after {
   scrollbar-color: rgba(0, 0, 0, 0.12) transparent;
 }
 
+/* ── Hide scrollbar utility ──────────────────────────────── */
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* ── Smooth transitions for interactive elements ──────────── */
 
 a, button, input, select, textarea {
