@@ -67,6 +67,16 @@ const allTimelineStops: Record<string, Record<number, TimelineData>> = {
     6: { savings: 2_200_000, scoreBefore: 38, scoreAfter: 64, workflows: 30, automationReady: 8, waste: 1_600_000 },
     12: { savings: 5_100_000, scoreBefore: 38, scoreAfter: 84, workflows: 52, automationReady: 14, waste: 920_000 },
   },
+  northbridge: {
+    0: { savings: 0, scoreBefore: 52, scoreAfter: 52, workflows: 0, automationReady: 0, waste: 4_200_000 },
+    6: { savings: 11_800_000, scoreBefore: 52, scoreAfter: 70, workflows: 82, automationReady: 24, waste: 2_100_000 },
+    12: { savings: 24_800_000, scoreBefore: 52, scoreAfter: 88, workflows: 184, automationReady: 48, waste: 480_000 },
+  },
+  estonia: {
+    0: { savings: 0, scoreBefore: 68, scoreAfter: 68, workflows: 0, automationReady: 0, waste: 2_800_000 },
+    6: { savings: 8_200_000, scoreBefore: 68, scoreAfter: 80, workflows: 58, automationReady: 32, waste: 1_300_000 },
+    12: { savings: 18_600_000, scoreBefore: 68, scoreAfter: 94, workflows: 126, automationReady: 62, waste: 320_000 },
+  },
 };
 
 function interpolateTimeline(month: number, companyId: string): TimelineData {

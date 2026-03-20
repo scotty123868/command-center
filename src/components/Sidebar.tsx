@@ -185,34 +185,48 @@ export default function Sidebar({ onNavClick, onClose }: { onNavClick?: () => vo
         {/* Dropdown menu */}
         {dropdownOpen && (
           <div className="absolute left-4 right-4 top-full mt-1 bg-[#2B2B2F] rounded-xl shadow-2xl z-50 border border-white/[0.08] overflow-hidden">
-            {companies.map((c) => (
-              <button
-                key={c.id}
-                type="button"
-                onClick={() => {
-                  setCompanyId(c.id);
-                  setDropdownOpen(false);
-                }}
-                className={`w-full flex items-center gap-2.5 px-3 py-2.5 text-left transition-colors duration-150 hover:bg-white/10 ${
-                  c.id === company.id ? 'bg-white/[0.06]' : ''
-                }`}
-              >
-                <div className="w-5 h-5 rounded bg-accent/20 flex items-center justify-center flex-shrink-0">
-                  <span className="text-[10px] font-bold text-accent">{c.initials}</span>
+            {companies.map((c, idx) => {
+              const isFirstCompany = idx === 0;
+              const isConglomerate = c.id === 'northbridge';
+              const isSovereign = c.id === 'estonia';
+              const showHeader = isFirstCompany || isConglomerate || isSovereign;
+              const headerLabel = isConglomerate ? 'CONGLOMERATE' : isSovereign ? 'SOVEREIGN' : 'COMPANIES';
+
+              return (
+                <div key={c.id}>
+                  {showHeader && (
+                    <div className="text-[9px] font-bold text-white/30 uppercase tracking-widest px-3 pt-3 pb-1">
+                      {headerLabel}
+                    </div>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setCompanyId(c.id);
+                      setDropdownOpen(false);
+                    }}
+                    className={`w-full flex items-center gap-2.5 px-3 py-2.5 text-left transition-colors duration-150 hover:bg-white/10 ${
+                      c.id === company.id ? 'bg-white/[0.06]' : ''
+                    }`}
+                  >
+                    <div className="w-5 h-5 rounded bg-accent/20 flex items-center justify-center flex-shrink-0">
+                      <span className="text-[10px] font-bold text-accent">{c.initials}</span>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <span className="text-[12px] font-medium text-[#E0E0E4] truncate block">
+                        {c.name}
+                      </span>
+                      <span className="text-[10px] text-[#6B6B73] truncate block">
+                        {c.industry} &middot; {c.revenue}
+                      </span>
+                    </div>
+                    {c.id === company.id && (
+                      <div className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                    )}
+                  </button>
                 </div>
-                <div className="flex-1 min-w-0">
-                  <span className="text-[12px] font-medium text-[#E0E0E4] truncate block">
-                    {c.name}
-                  </span>
-                  <span className="text-[10px] text-[#6B6B73] truncate block">
-                    {c.industry} &middot; {c.revenue}
-                  </span>
-                </div>
-                {c.id === company.id && (
-                  <div className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
-                )}
-              </button>
-            ))}
+              );
+            })}
           </div>
         )}
       </div>

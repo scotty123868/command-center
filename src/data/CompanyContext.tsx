@@ -6,6 +6,8 @@ const companies = [
   { id: 'oakwood', name: 'Oakwood Insurance Group', initials: 'O', industry: 'Insurance', revenue: '$400M', employees: 800, opCos: 1 },
   { id: 'pinnacle', name: 'Pinnacle Healthcare', initials: 'P', industry: 'Healthcare Services', revenue: '$95M', employees: 420, opCos: 1 },
   { id: 'atlas', name: 'Atlas Manufacturing', initials: 'A', industry: 'Manufacturing (PE-backed)', revenue: '$320M', employees: 2100, opCos: 4 },
+  { id: 'northbridge', name: 'Northbridge Industries Group', initials: 'N', industry: 'Diversified Industrial ($18.2B)', revenue: '$18.2B', employees: 42000, opCos: 12 },
+  { id: 'estonia', name: 'Republic of Estonia — Digital Government', initials: 'E', industry: 'Digital Government', revenue: '€12.4B budget', employees: 28500, opCos: 8 },
 ];
 
 type Company = typeof companies[number];

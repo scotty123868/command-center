@@ -89,6 +89,8 @@ const industryMult: Record<string, number> = {
   Manufacturing: 0.30,
   'Financial Services': 0.36,
   Technology: 0.32,
+  'Diversified Industrial': 0.28,
+  'Digital Government': 0.42,
 };
 
 /* ══════════════════════════════════════════════════════════════════════════ */

@@ -1656,6 +1656,317 @@ const atlasRoiSummary = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
+// ─── Northbridge Industries Group (Conglomerate) ─────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const northbridgeCompanyProfile = {
+  name: 'Northbridge Industries Group',
+  industry: 'Diversified Industrial',
+  employees: 42_000,
+  revenue: '$18.2B',
+  opCos: 12,
+  opCoNames: ['NB Aerospace', 'NB Energy Systems', 'NB Financial Services', 'NB Health Sciences', 'NB Defense & Security', 'NB Advanced Materials', 'NB Maritime', 'NB Infrastructure', 'NB AgriTech', 'NB Digital', 'NB Logistics', 'NB Real Estate Holdings'],
+  techSpend: '$142M/yr',
+  aiReadinessScore: 52,
+  holdingPeriod: 'Public company, Fortune 500',
+  ebitdaMargin: '16.8%',
+  targetEbitdaMargin: '24%',
+};
+
+const northbridgeAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 58, maxScore: 100, status: 'Moderate — centralized data lake exists for 4 of 12 OpCos, remaining 8 operate siloed ERP instances with limited API connectivity' },
+  { category: 'Process Maturity', score: 48, maxScore: 100, status: 'Below Average — 184 workflows mapped across 12 OpCos, only 48 automated, significant manual handoffs in procurement and maintenance' },
+  { category: 'Tech Stack Modernity', score: 55, maxScore: 100, status: 'Mixed — SAP S/4HANA Cloud deployed in 6 OpCos, legacy systems persist in remaining 6, Snowflake data lake partially operational' },
+  { category: 'Change Readiness', score: 45, maxScore: 100, status: 'Moderate — C-suite fully committed to AI transformation, but adoption risk in 5 of 12 OpCos with entrenched legacy processes' },
+  { category: 'Skills & Training', score: 52, maxScore: 100, status: 'Developing — central AI CoE with 18 data scientists, but OpCo-level AI literacy below target, training programs in early stages across 42,000 employees' },
+];
+
+const northbridgeKpis = {
+  totalSavings: 24_800_000,
+  techScoreBefore: 52,
+  techScoreAfter: 88,
+  workflowsAnalyzed: 184,
+  automationReady: 48,
+  unusedLicenseWaste: 4_200_000,
+  savingsSparkline: [0, 2_400_000, 6_200_000, 11_800_000, 16_400_000, 20_100_000, 22_800_000, 24_800_000],
+  scoreSparkline: [52, 58, 64, 70, 76, 82, 86, 88],
+  workflowSparkline: [0, 22, 48, 82, 110, 140, 168, 184],
+  licenseSparkline: [4_200_000, 3_600_000, 2_800_000, 2_100_000, 1_400_000, 900_000, 600_000, 480_000],
+  headcountImpactSparkline: [0, -8, -22, -48, -80, -120, -156, -184],
+};
+
+const northbridgeRoadmapPhases = [
+  {
+    quarter: 'Q1 2026',
+    title: 'Cross-OpCo Data Unification',
+    items: ['Enterprise data lake consolidation', 'Master data management rollout', 'API gateway deployment across 12 OpCos'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 1, task: 'Enterprise data strategy kickoff with all 12 OpCo CIOs', owner: 'Chief Data Officer' },
+      { week: 2, task: 'Snowflake data lake schema unification for remaining 8 OpCos', owner: 'Data Engineering Lead' },
+      { week: 3, task: 'SAP Master Data Governance deployment for cross-OpCo entity resolution', owner: 'ERP Program Director' },
+      { week: 4, task: 'API gateway (Apigee) provisioning for all OpCo system interconnects', owner: 'Enterprise Architecture' },
+      { week: 5, task: 'Data quality baseline assessment across 12 OpCos — 847M records audited', owner: 'Data Engineering Lead' },
+      { week: 6, task: 'Real-time data pipeline deployment: SAP CDC → Snowflake for first 6 OpCos', owner: 'Data Engineering Lead' },
+      { week: 7, task: 'Cross-OpCo procurement data harmonization — 42,000 supplier records deduplicated', owner: 'Procurement Analytics' },
+      { week: 8, task: 'Executive data dashboard go-live: real-time P&L across all 12 OpCos', owner: 'Chief Data Officer' },
+    ],
+  },
+  {
+    quarter: 'Q2 2026',
+    title: 'ERP & IoT Platform Consolidation',
+    items: ['SAP S/4HANA migration for remaining OpCos', 'Siemens Xcelerator IoT integration', 'ServiceNow ITSM unification'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 9, task: 'SAP S/4HANA migration wave 2: NB Maritime + NB Infrastructure + NB AgriTech', owner: 'ERP Program Director' },
+      { week: 10, task: 'Siemens Xcelerator IoT sensor deployment across 340 manufacturing facilities', owner: 'IoT Program Manager' },
+      { week: 11, task: 'ServiceNow ITSM consolidation: merge 8 separate ITSM instances into one', owner: 'IT Operations Director' },
+      { week: 12, task: 'Workday HCM data migration for NB Defense & NB Maritime (8,400 employees)', owner: 'HR Systems Lead' },
+    ],
+  },
+  {
+    quarter: 'Q2-Q3 2026',
+    title: '184 Workflows Across 12 OpCos',
+    items: ['Procurement automation', 'Maintenance workflow AI', 'Finance close automation'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 13, task: 'Procurement workflow automation: PO matching, vendor onboarding, spend analytics across all OpCos', owner: 'Procurement Analytics' },
+      { week: 14, task: 'Predictive maintenance AI deployment across 340 manufacturing sites', owner: 'IoT Program Manager' },
+      { week: 15, task: 'Financial close automation: intercompany eliminations, consolidation, reporting', owner: 'Finance Transformation Lead' },
+      { week: 16, task: 'HR workflow automation: recruiting, onboarding, performance management across 42,000 employees', owner: 'HR Systems Lead' },
+    ],
+  },
+  {
+    quarter: 'Q3 2026',
+    title: 'AI Decision Layer for Procurement & Maintenance',
+    items: ['Procurement AI optimization', 'Predictive maintenance fleet', 'Supply chain intelligence'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 17, task: 'Cross-OpCo procurement AI: automated vendor selection, price optimization, demand forecasting', owner: 'Chief Data Officer' },
+      { week: 18, task: 'Predictive maintenance fleet: AI-driven equipment lifecycle management across all OpCos', owner: 'IoT Program Manager' },
+      { week: 19, task: 'Supply chain optimization: real-time logistics AI, inventory rebalancing across 12 OpCos', owner: 'Supply Chain Director' },
+      { week: 20, task: 'Clinical trial data pipeline for NB Health Sciences — FDA submission automation', owner: 'Health Sciences IT Director' },
+    ],
+  },
+  {
+    quarter: 'Q4 2026',
+    title: 'Enterprise-Wide Adoption Across 42,000 Employees',
+    items: ['AI training at scale', 'Full stack operational', 'Year 2 roadmap planning'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 21, task: 'AI literacy training rollout: 42,000 employees across 12 OpCos in 8-week program', owner: 'Chief Learning Officer' },
+      { week: 22, task: 'Full AI-native stack validation: all systems integrated, monitoring live', owner: 'Enterprise Architecture' },
+      { week: 23, task: 'Board presentation: $24.8M Year 1 savings confirmed, Year 2 roadmap ($42M target)', owner: 'Chief Data Officer' },
+      { week: 24, task: 'Hypercare and continuous improvement: AI model retraining, process optimization', owner: 'AI CoE Director' },
+    ],
+  },
+];
+
+const northbridgeTopOpportunities: Opportunity[] = [
+  { name: 'Cross-OpCo Procurement Consolidation', category: 'Procurement', savings: 5_200_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 12, confidence: 88 },
+  { name: 'Predictive Maintenance Fleet', category: 'Manufacturing', savings: 3_600_000, effort: 'High', status: 'automated', priority: 9, timeToValue: 16, confidence: 84 },
+  { name: 'Financial Close Automation', category: 'Finance', savings: 3_200_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 91 },
+  { name: 'Supply Chain Optimization', category: 'Supply Chain', savings: 4_800_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 20, confidence: 76 },
+  { name: 'Clinical Trial Data Pipeline', category: 'Health Sciences', savings: 2_400_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 18, confidence: 72 },
+  { name: 'Enterprise License Consolidation', category: 'License Audit', savings: 4_200_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 96 },
+  { name: 'HR Process Automation', category: 'HR', savings: 1_800_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 8, confidence: 88 },
+  { name: 'Customer Experience AI', category: 'Sales', savings: 2_200_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 14, confidence: 80 },
+];
+
+const northbridgeCurrentStack: CurrentTool[] = [
+  { name: 'SAP S/4HANA Cloud', category: 'ERP', annualCost: 12_400_000, users: 8_200, score: 6, integrationComplexity: 'High', migrationWeeks: 48, riskLevel: 'High', dependencies: ['Finance', 'Procurement', 'Manufacturing', 'Supply Chain'] },
+  { name: 'Workday', category: 'HR/Finance', annualCost: 6_800_000, users: 42_000, score: 7, integrationComplexity: 'Medium', migrationWeeks: 24, riskLevel: 'Medium', dependencies: ['HR', 'Payroll', 'Benefits', 'Workforce Planning'] },
+  { name: 'Palantir Foundry', category: 'Analytics', annualCost: 4_200_000, users: 840, score: 5, integrationComplexity: 'High', migrationWeeks: 20, riskLevel: 'Medium', dependencies: ['Executive Analytics', 'Operational Intelligence', 'Supply Chain Visibility'] },
+  { name: 'Salesforce Enterprise', category: 'CRM', annualCost: 8_400_000, users: 4_200, score: 6, integrationComplexity: 'Medium', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Sales Pipeline', 'Customer Master', 'Revenue Operations'] },
+  { name: 'Siemens Xcelerator', category: 'Industrial IoT', annualCost: 3_200_000, users: 480, score: 4, integrationComplexity: 'High', migrationWeeks: 32, riskLevel: 'High', dependencies: ['Manufacturing IoT', 'Asset Management', 'Predictive Maintenance'] },
+  { name: 'ServiceNow', category: 'IT/Ops', annualCost: 5_600_000, users: 2_100, score: 7, integrationComplexity: 'Medium', migrationWeeks: 12, riskLevel: 'Low', dependencies: ['IT Service Management', 'Change Management', 'Incident Response'] },
+  { name: 'Snowflake', category: 'Data Lake', annualCost: 2_800_000, users: 1_200, score: 8, integrationComplexity: 'Low', migrationWeeks: 8, riskLevel: 'Low', dependencies: ['Data Warehousing', 'ML Model Training', 'Cross-OpCo Analytics'] },
+  { name: 'Azure AD', category: 'Identity', annualCost: 1_800_000, users: 42_000, score: 8, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['SSO', 'MFA', 'Conditional Access', 'Identity Governance'] },
+];
+
+const northbridgeLicenses: License[] = [
+  { vendor: 'SAP S/4HANA', totalLicenses: 2400, active90d: 1680, inactive: 720, annualWaste: 3_800_000, action: 'Reclaim 720 seats + optimize license tiers across 12 OpCos', costPerLicense: 5_280, department: 'Enterprise / All OpCos', lastAuditDate: '2026-01-15', trend: [82, 76, 72, 68, 64, 70], complianceRisk: false },
+  { vendor: 'Salesforce', totalLicenses: 4200, active90d: 3100, inactive: 1100, annualWaste: 2_200_000, action: 'Reclaim 1,100 seats + consolidate 4 Salesforce orgs into 1', costPerLicense: 2_000, department: 'Sales & Revenue Operations', lastAuditDate: '2026-02-01', trend: [85, 80, 76, 72, 70, 74], complianceRisk: false },
+  { vendor: 'Workday', totalLicenses: 1800, active90d: 1420, inactive: 380, annualWaste: 1_400_000, action: 'Reclaim 380 seats from terminated/transferred employees', costPerLicense: 3_680, department: 'HR / All OpCos', lastAuditDate: '2025-12-20', trend: [90, 86, 82, 80, 78, 79], complianceRisk: false },
+  { vendor: 'Palantir Foundry', totalLicenses: 340, active90d: 180, inactive: 160, annualWaste: 840_000, action: 'Reclaim 160 seats — restrict to active analysts only', costPerLicense: 5_250, department: 'Analytics / Executive', lastAuditDate: '2026-01-08', trend: [68, 60, 55, 50, 48, 53], complianceRisk: true },
+  { vendor: 'ServiceNow', totalLicenses: 2100, active90d: 1800, inactive: 300, annualWaste: 420_000, action: 'Downgrade 300 inactive to read-only tier', costPerLicense: 1_400, department: 'IT Operations / All OpCos', lastAuditDate: '2026-02-10', trend: [92, 90, 88, 86, 85, 86], complianceRisk: false },
+  { vendor: 'Siemens Xcelerator', totalLicenses: 480, active90d: 320, inactive: 160, annualWaste: 380_000, action: 'Reclaim 160 seats from non-manufacturing OpCos', costPerLicense: 2_375, department: 'Manufacturing & Engineering', lastAuditDate: '2025-11-15', trend: [78, 72, 68, 65, 64, 67], complianceRisk: false },
+];
+
+const northbridgeWorkflowSummary = {
+  total: 184,
+  fullyAutomatable: 48,
+  humanInLoop: 94,
+  humanRequired: 42,
+  currentLaborSpend: 48_000_000,
+  potentialSavings: 24_800_000,
+};
+
+const northbridgeRoiSummary = {
+  techStackSavings: 6_400_000,
+  workflowAutomation: 8_200_000,
+  licenseRecovery: 4_600_000,
+  implementationCosts: 8_200_000,
+  netYear1: 24_800_000,
+  year2Projected: 42_000_000,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Republic of Estonia — Digital Government (Sovereign) ────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const estoniaCompanyProfile = {
+  name: 'Republic of Estonia — Digital Government',
+  industry: 'Digital Government',
+  employees: 28_500,
+  revenue: '\u20AC12.4B budget',
+  opCos: 8,
+  opCoNames: ['Ministry of Finance', 'Ministry of Economic Affairs', 'Ministry of Social Affairs', 'Ministry of Justice', 'Ministry of Education', 'Ministry of Defence', 'Ministry of Environment', 'Ministry of Interior'],
+  techSpend: '€84M/yr',
+  aiReadinessScore: 68,
+  holdingPeriod: 'Sovereign government',
+  ebitdaMargin: 'N/A',
+  targetEbitdaMargin: 'N/A',
+};
+
+const estoniaAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 78, maxScore: 100, status: 'Strong — X-Road 7.0 data exchange layer connects 900+ government services, 99.9% uptime, real-time cross-ministry data access' },
+  { category: 'Process Maturity', score: 65, maxScore: 100, status: 'Above Average — 99% of government services digitized, but 126 workflows still require manual intervention across 8 ministries' },
+  { category: 'Tech Stack Modernity', score: 72, maxScore: 100, status: 'Advanced — X-Road, eID, and RIHA form a modern digital backbone, though legacy systems persist in Social Affairs and Justice ministries' },
+  { category: 'Change Readiness', score: 58, maxScore: 100, status: 'Moderate — strong political will for AI-native governance, but civil service adoption varies across ministries, training needed for 28,500 employees' },
+  { category: 'Skills & Training', score: 62, maxScore: 100, status: 'Developing — AI CoE established at e-Governance Academy, but ministry-level AI skills below target, recruitment competing with private sector' },
+];
+
+const estoniaKpis = {
+  totalSavings: 18_600_000,
+  techScoreBefore: 68,
+  techScoreAfter: 94,
+  workflowsAnalyzed: 126,
+  automationReady: 62,
+  unusedLicenseWaste: 2_800_000,
+  savingsSparkline: [0, 1_800_000, 4_600_000, 8_200_000, 12_100_000, 15_400_000, 17_200_000, 18_600_000],
+  scoreSparkline: [68, 72, 76, 80, 84, 88, 92, 94],
+  workflowSparkline: [0, 16, 34, 58, 78, 96, 112, 126],
+  licenseSparkline: [2_800_000, 2_400_000, 1_800_000, 1_300_000, 900_000, 600_000, 400_000, 320_000],
+  headcountImpactSparkline: [0, -4, -12, -28, -46, -68, -88, -102],
+};
+
+const estoniaRoadmapPhases = [
+  {
+    quarter: 'Q1 2026',
+    title: 'X-Road AI Gateway Deployment',
+    items: ['AI gateway for X-Road 7.0', 'Cross-ministry data harmonization planning', 'Citizen service audit'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 1, task: 'X-Road AI gateway architecture review with RIA (Information System Authority)', owner: 'CTO, Government Digital Office' },
+      { week: 2, task: 'AI service registry deployment on RIHA — cataloging all 900+ government services for AI readiness', owner: 'RIHA Program Director' },
+      { week: 3, task: 'Cross-ministry data quality audit: 8 ministries, 2,400 datasets, 128M citizen records', owner: 'Chief Data Officer' },
+      { week: 4, task: 'eID/Smart-ID integration testing for AI-authenticated citizen service automation', owner: 'eID Program Manager' },
+      { week: 5, task: 'Privacy impact assessment for AI processing of citizen data — GDPR + Estonian Data Protection Act compliance', owner: 'Data Protection Officer' },
+      { week: 6, task: 'Tax compliance AI pilot: automated income verification across 680,000 annual tax returns', owner: 'Tax & Customs Board IT' },
+      { week: 7, task: 'Healthcare data pipeline: TEHIK integration for cross-ministry health record access via X-Road', owner: 'TEHIK Director' },
+      { week: 8, task: 'Q1 readout: X-Road AI gateway operational, tax compliance pilot showing 94% accuracy', owner: 'CTO, Government Digital Office' },
+    ],
+  },
+  {
+    quarter: 'Q1-Q2 2026',
+    title: 'Cross-Ministry Data Harmonization',
+    items: ['Ministry data schema unification', 'Legacy system modernization', 'AI training data preparation'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 9, task: 'Ministry of Finance + Economic Affairs data schema harmonization via X-Road', owner: 'Chief Data Officer' },
+      { week: 10, task: 'Legacy system assessment: Ministry of Social Affairs (custom legacy) and Justice (Oracle-based)', owner: 'Enterprise Architecture' },
+      { week: 11, task: 'PostgreSQL migration planning for legacy Oracle databases in Justice ministry', owner: 'Database Migration Lead' },
+      { week: 12, task: 'AI training data preparation: anonymization pipeline for citizen data per GDPR Art. 89', owner: 'Data Protection Officer' },
+    ],
+  },
+  {
+    quarter: 'Q2-Q3 2026',
+    title: '126 Government Workflows',
+    items: ['Tax automation expansion', 'Citizen services AI', 'Healthcare records integration'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 13, task: 'Tax compliance full automation: all income, corporate, and VAT processing via AI pipeline', owner: 'Tax & Customs Board IT' },
+      { week: 14, task: 'Citizen services AI assistants: 24/7 multilingual (Estonian, Russian, English) government service chatbot', owner: 'Citizen Services Director' },
+      { week: 15, task: 'Healthcare records integration: unified patient timeline across all providers via TEHIK + X-Road', owner: 'TEHIK Director' },
+      { week: 16, task: 'Cross-ministry procurement optimization: centralized AI-driven purchasing across 8 ministries', owner: 'Public Procurement Office' },
+    ],
+  },
+  {
+    quarter: 'Q3 2026',
+    title: 'Citizen Service AI Assistants',
+    items: ['AI-powered citizen portal', 'Proactive government services', 'Multilingual support'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 17, task: 'AI citizen portal launch: proactive notification of eligible government services based on life events', owner: 'Citizen Services Director' },
+      { week: 18, task: 'Automated permit processing: building permits, business licenses, residency applications', owner: 'Ministry of Interior IT' },
+      { week: 19, task: 'Education system AI: automated student enrollment, transcript processing, qualification recognition', owner: 'Ministry of Education IT' },
+      { week: 20, task: 'Environmental monitoring AI: automated compliance reporting, pollution tracking, forest management', owner: 'Ministry of Environment IT' },
+    ],
+  },
+  {
+    quarter: 'Q4 2026',
+    title: 'Pan-Ministry Adoption & EU Interoperability',
+    items: ['EU AI Act compliance', 'Cross-border interoperability', 'Full digital government'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 21, task: 'EU AI Act compliance certification for all government AI systems', owner: 'Data Protection Officer' },
+      { week: 22, task: 'Cross-border interoperability: connect Estonian X-Road AI gateway to EU eIDAS 2.0 framework', owner: 'CTO, Government Digital Office' },
+      { week: 23, task: 'Pan-ministry AI adoption: 28,500 civil servants trained, all 126 workflows operational', owner: 'Chief Learning Officer' },
+      { week: 24, task: 'Annual review: €18.6M in savings confirmed, 94 AI readiness score achieved, EU showcase presentation', owner: 'CTO, Government Digital Office' },
+    ],
+  },
+];
+
+const estoniaTopOpportunities: Opportunity[] = [
+  { name: 'Tax Compliance Automation', category: 'Tax & Revenue', savings: 4_200_000, effort: 'Medium', status: 'automated', priority: 10, timeToValue: 8, confidence: 94 },
+  { name: 'Citizen Services AI', category: 'Citizen Services', savings: 3_800_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 14, confidence: 86 },
+  { name: 'Healthcare Records Integration', category: 'Healthcare', savings: 3_400_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 16, confidence: 82 },
+  { name: 'Cross-Ministry Data Platform', category: 'Data Infrastructure', savings: 2_800_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 20, confidence: 78 },
+  { name: 'Procurement Optimization', category: 'Procurement', savings: 2_100_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 84 },
+  { name: 'Legacy System Modernization', category: 'Tech Stack', savings: 1_200_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 24, confidence: 72 },
+  { name: 'Education System Automation', category: 'Education', savings: 1_800_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 12, confidence: 80 },
+  { name: 'Environmental Compliance AI', category: 'Environment', savings: 1_400_000, effort: 'Medium', status: 'identified', priority: 5, timeToValue: 14, confidence: 76 },
+];
+
+const estoniaCurrentStack: CurrentTool[] = [
+  { name: 'X-Road 7.0', category: 'Data Exchange', annualCost: 2_400_000, users: 28_500, score: 8, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Cross-Ministry Data Exchange', 'Service Registry', 'Citizen Authentication'] },
+  { name: 'RIHA', category: 'Info System Registry', annualCost: 800_000, users: 2_400, score: 7, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Service Catalog', 'Data Asset Registry', 'Compliance Tracking'] },
+  { name: 'eID / Smart-ID', category: 'Identity', annualCost: 3_200_000, users: 28_500, score: 9, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Citizen Authentication', 'Digital Signatures', 'Cross-Border Identity'] },
+  { name: 'TEHIK', category: 'Health IT', annualCost: 4_600_000, users: 8_200, score: 6, integrationComplexity: 'Medium', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Patient Records', 'Prescription System', 'Health Insurance'] },
+  { name: 'SAP', category: 'Financial Mgmt', annualCost: 3_800_000, users: 840, score: 5, integrationComplexity: 'High', migrationWeeks: 24, riskLevel: 'High', dependencies: ['Budget Management', 'Accounting', 'Financial Reporting'] },
+  { name: 'Custom Legacy', category: 'Social Services', annualCost: 1_200_000, users: 3_400, score: 3, integrationComplexity: 'High', migrationWeeks: 32, riskLevel: 'High', dependencies: ['Benefits Processing', 'Social Welfare', 'Pension Management'] },
+  { name: 'PostgreSQL', category: 'Database', annualCost: 600_000, users: 4_200, score: 7, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['Government Databases', 'Registry Systems', 'Audit Logging'] },
+  { name: 'e-Residency Platform', category: 'Digital Identity', annualCost: 1_800_000, users: 100_000, score: 8, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Digital Residency', 'Business Registration', 'Tax Filing'] },
+];
+
+const estoniaLicenses: License[] = [
+  { vendor: 'SAP Financial Suite', totalLicenses: 840, active90d: 520, inactive: 320, annualWaste: 1_200_000, action: 'Reclaim 320 seats + evaluate open-source alternatives for smaller ministries', costPerLicense: 3_750, department: 'Ministry of Finance / Cross-Ministry', lastAuditDate: '2026-01-20', trend: [75, 70, 66, 62, 60, 62], complianceRisk: false },
+  { vendor: 'Oracle Database', totalLicenses: 280, active90d: 140, inactive: 140, annualWaste: 680_000, action: 'Migrate to PostgreSQL — Oracle license elimination program', costPerLicense: 4_860, department: 'Ministry of Justice / IT', lastAuditDate: '2025-12-15', trend: [68, 60, 55, 50, 48, 50], complianceRisk: true },
+  { vendor: 'Microsoft 365 E5', totalLicenses: 12000, active90d: 8400, inactive: 3600, annualWaste: 540_000, action: 'Downgrade 3,600 to E3 tier — E5 features unused by administrative staff', costPerLicense: 150, department: 'All Ministries', lastAuditDate: '2026-02-05', trend: [88, 82, 78, 74, 72, 70], complianceRisk: false },
+  { vendor: 'Custom Legacy Systems', totalLicenses: 42, active90d: 18, inactive: 24, annualWaste: 380_000, action: 'Decommission 24 legacy modules — replace with X-Road microservices', costPerLicense: 15_830, department: 'Ministry of Social Affairs', lastAuditDate: '2025-11-01', trend: [62, 55, 48, 42, 40, 43], complianceRisk: true },
+  { vendor: 'VMware vSphere', totalLicenses: 180, active90d: 120, inactive: 60, annualWaste: 200_000, action: 'Migrate 60 VMs to containerized deployment on Kubernetes', costPerLicense: 3_333, department: 'RIA (Information System Authority)', lastAuditDate: '2026-01-10', trend: [82, 76, 72, 68, 66, 67], complianceRisk: false },
+];
+
+const estoniaWorkflowSummary = {
+  total: 126,
+  fullyAutomatable: 62,
+  humanInLoop: 28,
+  humanRequired: 36,
+  currentLaborSpend: 32_000_000,
+  potentialSavings: 18_600_000,
+};
+
+const estoniaRoiSummary = {
+  techStackSavings: 4_200_000,
+  workflowAutomation: 6_800_000,
+  licenseRecovery: 2_400_000,
+  implementationCosts: 5_400_000,
+  netYear1: 18_600_000,
+  year2Projected: 28_000_000,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
 // ─── Company Data Lookup Maps ──────────────────────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -1666,6 +1977,8 @@ const companyProfiles: Record<string, typeof companyProfile> = {
   oakwood: oakwoodCompanyProfile,
   pinnacle: pinnacleCompanyProfile,
   atlas: atlasCompanyProfile,
+  northbridge: northbridgeCompanyProfile,
+  estonia: estoniaCompanyProfile,
 };
 
 const companyAiReadiness: Record<string, typeof aiReadinessBreakdown> = {
@@ -1673,6 +1986,8 @@ const companyAiReadiness: Record<string, typeof aiReadinessBreakdown> = {
   oakwood: oakwoodAiReadinessBreakdown,
   pinnacle: pinnacleAiReadinessBreakdown,
   atlas: atlasAiReadinessBreakdown,
+  northbridge: northbridgeAiReadinessBreakdown,
+  estonia: estoniaAiReadinessBreakdown,
 };
 
 const companyKpis: Record<string, typeof kpis> = {
@@ -1680,6 +1995,8 @@ const companyKpis: Record<string, typeof kpis> = {
   oakwood: oakwoodKpis,
   pinnacle: pinnacleKpis,
   atlas: atlasKpis,
+  northbridge: northbridgeKpis,
+  estonia: estoniaKpis,
 };
 
 const companyRoadmapPhases: Record<string, typeof roadmapPhases> = {
@@ -1687,6 +2004,8 @@ const companyRoadmapPhases: Record<string, typeof roadmapPhases> = {
   oakwood: oakwoodRoadmapPhases,
   pinnacle: pinnacleRoadmapPhases,
   atlas: atlasRoadmapPhases,
+  northbridge: northbridgeRoadmapPhases,
+  estonia: estoniaRoadmapPhases,
 };
 
 const companyTopOpportunities: Record<string, Opportunity[]> = {
@@ -1694,6 +2013,8 @@ const companyTopOpportunities: Record<string, Opportunity[]> = {
   oakwood: oakwoodTopOpportunities,
   pinnacle: pinnacleTopOpportunities,
   atlas: atlasTopOpportunities,
+  northbridge: northbridgeTopOpportunities,
+  estonia: estoniaTopOpportunities,
 };
 
 const companyCurrentStack: Record<string, CurrentTool[]> = {
@@ -1701,6 +2022,8 @@ const companyCurrentStack: Record<string, CurrentTool[]> = {
   oakwood: oakwoodCurrentStack,
   pinnacle: pinnacleCurrentStack,
   atlas: atlasCurrentStack,
+  northbridge: northbridgeCurrentStack,
+  estonia: estoniaCurrentStack,
 };
 
 const companyLicenses: Record<string, License[]> = {
@@ -1708,6 +2031,8 @@ const companyLicenses: Record<string, License[]> = {
   oakwood: oakwoodLicenses,
   pinnacle: pinnacleLicenses,
   atlas: atlasLicenses,
+  northbridge: northbridgeLicenses,
+  estonia: estoniaLicenses,
 };
 
 const companyWorkflowSummaries: Record<string, typeof workflowSummary> = {
@@ -1715,6 +2040,8 @@ const companyWorkflowSummaries: Record<string, typeof workflowSummary> = {
   oakwood: oakwoodWorkflowSummary,
   pinnacle: pinnacleWorkflowSummary,
   atlas: atlasWorkflowSummary,
+  northbridge: northbridgeWorkflowSummary,
+  estonia: estoniaWorkflowSummary,
 };
 
 const companyRoiSummaries: Record<string, typeof roiSummary> = {
@@ -1722,6 +2049,8 @@ const companyRoiSummaries: Record<string, typeof roiSummary> = {
   oakwood: oakwoodRoiSummary,
   pinnacle: pinnacleRoiSummary,
   atlas: atlasRoiSummary,
+  northbridge: northbridgeRoiSummary,
+  estonia: estoniaRoiSummary,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
