@@ -26,7 +26,7 @@ import {
   Legend,
   ReferenceLine,
 } from 'recharts';
-import { getRoiSummary, waterfallData, implementationTimeline } from '../data/constants';
+import { getRoiSummary } from '../data/constants';
 import { useCompany } from '../data/CompanyContext';
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
@@ -40,20 +40,42 @@ const fmtCompact = (n: number) => {
 const fmtAxisM = (v: number) => `$${(v / 1_000_000).toFixed(1)}M`;
 const fmtAxisK = (v: number) => `$${Math.round(v / 1_000)}k`;
 
-// ─── Waterfall transform ────────────────────────────────────────────────────
+// ─── Waterfall builder (derived from per-company ROI data) ──────────────────
 
-const waterfallChartData = waterfallData.map((d) => {
-  if (d.name === 'Current State') {
-    return { ...d, base: 0, segment: 0 };
-  }
-  if (d.name === 'Net Year 1') {
-    return { ...d, base: 0, segment: d.total };
-  }
-  if (d.value < 0) {
-    return { ...d, base: d.total, segment: Math.abs(d.value) };
-  }
-  return { ...d, base: d.total - d.value, segment: d.value };
-});
+function buildWaterfallData(roi: ReturnType<typeof getRoiSummary>) {
+  const raw = [
+    { name: 'Current State', value: 0, total: 0, fill: '#6B7280' },
+    { name: 'Tech Stack', value: roi.techStackSavings, total: roi.techStackSavings, fill: '#10B981' },
+    { name: 'Workflow Auto.', value: roi.workflowAutomation, total: roi.techStackSavings + roi.workflowAutomation, fill: '#10B981' },
+    { name: 'License Recovery', value: roi.licenseRecovery, total: roi.techStackSavings + roi.workflowAutomation + roi.licenseRecovery, fill: '#10B981' },
+    { name: 'Implementation', value: -roi.implementationCosts, total: roi.netYear1, fill: '#EF4444' },
+    { name: 'Net Year 1', value: 0, total: roi.netYear1, fill: '#4285F4' },
+  ];
+  return raw.map((d) => {
+    if (d.name === 'Current State') return { ...d, base: 0, segment: 0 };
+    if (d.name === 'Net Year 1') return { ...d, base: 0, segment: d.total };
+    if (d.value < 0) return { ...d, base: d.total, segment: Math.abs(d.value) };
+    return { ...d, base: d.total - d.value, segment: d.value };
+  });
+}
+
+// ─── Implementation timeline builder (scaled per company) ───────────────────
+
+function buildTimeline(roi: ReturnType<typeof getRoiSummary>) {
+  const totalCost = roi.implementationCosts;
+  const monthlySavingsEnd = roi.netYear1 / 8; // approx monthly savings at steady state
+  // Cost distribution: front-loaded ramp-down
+  const costPcts = [0.14, 0.18, 0.21, 0.14, 0.11, 0.07, 0.05, 0.04, 0.03, 0.015, 0.007, 0.003];
+  // Savings distribution: back-loaded ramp-up
+  const savPcts = [0, 0.015, 0.035, 0.06, 0.08, 0.10, 0.10, 0.11, 0.11, 0.12, 0.12, 0.13];
+  const totalSav = roi.techStackSavings + roi.workflowAutomation + roi.licenseRecovery;
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  return months.map((month, i) => {
+    const cost = Math.round(totalCost * costPcts[i]);
+    const savings = Math.round(totalSav * savPcts[i]);
+    return { month, cost, savings, net: savings - cost };
+  });
+}
 
 // ─── Metric cards builder ────────────────────────────────────────────────────
 
@@ -128,6 +150,8 @@ export default function ROISummary() {
   const { company } = useCompany();
   const roiSummary = getRoiSummary(company.id);
   const metrics = buildMetrics(roiSummary);
+  const waterfallChartData = buildWaterfallData(roiSummary);
+  const timelineData = buildTimeline(roiSummary);
 
   return (
     <div className="space-y-10">
@@ -156,7 +180,7 @@ export default function ROISummary() {
           className="font-mono font-bold leading-none"
           style={{ fontSize: 64, color: '#4285F4' }}
         >
-          $4.2M
+          {fmtCompact(roiSummary.netYear1)}
         </h1>
         <p className="mt-2 text-lg text-gray-500">estimated annual savings</p>
       </motion.div>
@@ -245,7 +269,7 @@ export default function ROISummary() {
         </h2>
         <ResponsiveContainer width="100%" height={350}>
           <AreaChart
-            data={implementationTimeline}
+            data={timelineData}
             margin={{ top: 10, right: 20, left: 10, bottom: 5 }}
           >
             <defs>
@@ -344,7 +368,7 @@ export default function ROISummary() {
                   Payback Period
                 </p>
               </div>
-              <p className="text-3xl font-mono font-bold text-[#4285F4]">4.2</p>
+              <p className="text-3xl font-mono font-bold text-[#4285F4]">{(roiSummary.implementationCosts / (roiSummary.netYear1 / 12)).toFixed(1)}</p>
               <p className="text-sm text-gray-500 mt-1">months</p>
             </div>
 
@@ -355,7 +379,7 @@ export default function ROISummary() {
                   Year 1 Net ROI
                 </p>
               </div>
-              <p className="text-3xl font-mono font-bold text-[#10B981]">150%</p>
+              <p className="text-3xl font-mono font-bold text-[#10B981]">{Math.round((roiSummary.netYear1 / roiSummary.implementationCosts) * 100)}%</p>
               <p className="text-sm text-gray-500 mt-1">return on investment</p>
             </div>
 
@@ -366,16 +390,13 @@ export default function ROISummary() {
                   Year 2 Projected
                 </p>
               </div>
-              <p className="text-3xl font-mono font-bold text-[#10B981]">$6.1M</p>
+              <p className="text-3xl font-mono font-bold text-[#10B981]">{fmtCompact(roiSummary.year2Projected)}</p>
               <p className="text-sm text-gray-500 mt-1">annual savings</p>
             </div>
           </div>
 
           <p className="text-gray-600 leading-relaxed max-w-3xl">
-            With a total implementation investment of $2.8M, the program reaches break-even in May
-            (month 5). Year 1 net savings of $4.2M represent a 150% ROI. As automation scales and
-            AI-native tools mature in Year 2, implementation costs drop to near-zero maintenance
-            while savings compound to a projected $6.1M annually.
+            With a total implementation investment of {fmtCompact(roiSummary.implementationCosts)}, the program reaches break-even around month {Math.ceil(roiSummary.implementationCosts / (roiSummary.netYear1 / 12))}. Year 1 net savings of {fmtCompact(roiSummary.netYear1)} represent a {Math.round((roiSummary.netYear1 / roiSummary.implementationCosts) * 100)}% ROI. As automation scales and AI-native tools mature in Year 2, implementation costs drop to near-zero maintenance while savings compound to a projected {fmtCompact(roiSummary.year2Projected)} annually.
           </p>
         </div>
       </motion.div>

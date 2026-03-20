@@ -935,29 +935,6 @@ export const roiSummary = {
   year2Projected: 6_100_000,
 };
 
-export const waterfallData = [
-  { name: 'Current State', value: 0, total: 0, fill: '#6B7280' },
-  { name: 'Tech Stack', value: 1_800_000, total: 1_800_000, fill: '#10B981' },
-  { name: 'Workflow Auto.', value: 3_100_000, total: 4_900_000, fill: '#10B981' },
-  { name: 'License Recovery', value: 2_100_000, total: 7_000_000, fill: '#10B981' },
-  { name: 'Implementation', value: -2_800_000, total: 4_200_000, fill: '#EF4444' },
-  { name: 'Net Year 1', value: 0, total: 4_200_000, fill: '#4285F4' },
-];
-
-export const implementationTimeline = [
-  { month: 'Jan', cost: 400_000, savings: 0, net: -400_000 },
-  { month: 'Feb', cost: 500_000, savings: 80_000, net: -420_000 },
-  { month: 'Mar', cost: 600_000, savings: 180_000, net: -420_000 },
-  { month: 'Apr', cost: 400_000, savings: 300_000, net: -100_000 },
-  { month: 'May', cost: 300_000, savings: 420_000, net: 120_000 },
-  { month: 'Jun', cost: 200_000, savings: 500_000, net: 300_000 },
-  { month: 'Jul', cost: 150_000, savings: 520_000, net: 370_000 },
-  { month: 'Aug', cost: 100_000, savings: 540_000, net: 440_000 },
-  { month: 'Sep', cost: 80_000, savings: 560_000, net: 480_000 },
-  { month: 'Oct', cost: 40_000, savings: 580_000, net: 540_000 },
-  { month: 'Nov', cost: 20_000, savings: 600_000, net: 580_000 },
-  { month: 'Dec', cost: 10_000, savings: 620_000, net: 610_000 },
-];
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // ─── Multi-Company Data ────────────────────────────────────────────────────────

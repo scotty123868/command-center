@@ -6,6 +6,14 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
       "port": 5173
+    },
+    {
+      "name": "lastmile",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "cwd": "/Users/scottylefkowitz/Downloads/lastmile",
+      "port": 5174,
+      "autoPort": true
     }
   ]
 }
