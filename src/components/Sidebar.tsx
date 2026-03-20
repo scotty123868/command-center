@@ -13,6 +13,9 @@ import {
   Zap,
   Sparkles,
   X,
+  Building2,
+  Landmark,
+  Check,
 } from 'lucide-react';
 import { useCompany } from '../data/CompanyContext';
 
@@ -168,14 +171,24 @@ export default function Sidebar({ onNavClick, onClose }: { onNavClick?: () => vo
               : 'bg-white/[0.04] border border-white/[0.06]'
           }`}
         >
-          <div className="w-5 h-5 rounded bg-accent/20 flex items-center justify-center flex-shrink-0">
-            <span className="text-[10px] font-bold text-accent">{company.initials}</span>
-          </div>
-          <span className={`text-[12px] font-medium truncate flex-1 text-left transition-colors duration-500 ${
-            pillFlash ? 'text-white' : 'text-[#A0A0A8]'
+          <div className={`w-5 h-5 rounded flex items-center justify-center flex-shrink-0 ${
+            company.category === 'conglomerate' ? 'bg-purple-500/20' :
+            company.category === 'sovereign' ? 'bg-emerald-500/20' :
+            'bg-accent/20'
           }`}>
-            {company.name}
-          </span>
+            <span className={`text-[10px] font-bold ${
+              company.category === 'conglomerate' ? 'text-purple-300' :
+              company.category === 'sovereign' ? 'text-emerald-300' :
+              'text-accent'
+            }`}>{company.initials}</span>
+          </div>
+          <div className="flex-1 min-w-0 text-left">
+            <span className={`text-[12px] font-medium truncate block transition-colors duration-500 ${
+              pillFlash ? 'text-white' : 'text-[#A0A0A8]'
+            }`}>
+              {company.shortName}
+            </span>
+          </div>
           <ChevronDown
             className={`w-3.5 h-3.5 text-[#4A4A50] flex-shrink-0 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`}
             strokeWidth={2}
@@ -184,46 +197,61 @@ export default function Sidebar({ onNavClick, onClose }: { onNavClick?: () => vo
 
         {/* Dropdown menu */}
         {dropdownOpen && (
-          <div className="absolute left-4 right-4 top-full mt-1 bg-[#2B2B2F] rounded-xl shadow-2xl z-50 border border-white/[0.08] overflow-hidden">
-            {companies.map((c, idx) => {
-              const isFirstCompany = idx === 0;
-              const isConglomerate = c.id === 'northbridge';
-              const isSovereign = c.id === 'estonia';
-              const showHeader = isFirstCompany || isConglomerate || isSovereign;
-              const headerLabel = isConglomerate ? 'CONGLOMERATE' : isSovereign ? 'SOVEREIGN' : 'COMPANIES';
+          <div className="absolute left-4 right-4 top-full mt-1 bg-[#2B2B2F] rounded-xl shadow-2xl z-50 border border-white/[0.08] overflow-hidden py-1">
+            {(['company', 'conglomerate', 'sovereign'] as const).map((cat, catIdx) => {
+              const group = companies.filter((c) => c.category === cat);
+              if (group.length === 0) return null;
+              const catLabel = cat === 'conglomerate' ? 'Conglomerate' : cat === 'sovereign' ? 'Sovereign' : 'Companies';
+              const CatIcon = cat === 'conglomerate' ? Building2 : cat === 'sovereign' ? Landmark : null;
 
               return (
-                <div key={c.id}>
-                  {showHeader && (
-                    <div className="text-[9px] font-bold text-white/30 uppercase tracking-widest px-3 pt-3 pb-1">
-                      {headerLabel}
-                    </div>
-                  )}
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setCompanyId(c.id);
-                      setDropdownOpen(false);
-                    }}
-                    className={`w-full flex items-center gap-2.5 px-3 py-2.5 text-left transition-colors duration-150 hover:bg-white/10 ${
-                      c.id === company.id ? 'bg-white/[0.06]' : ''
-                    }`}
-                  >
-                    <div className="w-5 h-5 rounded bg-accent/20 flex items-center justify-center flex-shrink-0">
-                      <span className="text-[10px] font-bold text-accent">{c.initials}</span>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <span className="text-[12px] font-medium text-[#E0E0E4] truncate block">
-                        {c.name}
-                      </span>
-                      <span className="text-[10px] text-[#6B6B73] truncate block">
-                        {c.industry} &middot; {c.revenue}
-                      </span>
-                    </div>
-                    {c.id === company.id && (
-                      <div className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
-                    )}
-                  </button>
+                <div key={cat}>
+                  {catIdx > 0 && <div className="mx-2.5 my-1 h-px bg-white/[0.06]" />}
+                  <div className="flex items-center gap-1.5 px-3 pt-2.5 pb-1">
+                    {CatIcon && <CatIcon className="w-3 h-3 text-white/20" strokeWidth={1.5} />}
+                    <span className="text-[9px] font-bold text-white/25 uppercase tracking-[0.12em]">
+                      {catLabel}
+                    </span>
+                  </div>
+                  {group.map((c) => {
+                    const isSelected = c.id === company.id;
+                    return (
+                      <button
+                        key={c.id}
+                        type="button"
+                        onClick={() => {
+                          setCompanyId(c.id);
+                          setDropdownOpen(false);
+                        }}
+                        className={`w-full flex items-center gap-2.5 px-3 py-2 text-left transition-colors duration-150 hover:bg-white/10 ${
+                          isSelected ? 'bg-white/[0.06]' : ''
+                        }`}
+                      >
+                        <div className={`w-5 h-5 rounded flex items-center justify-center flex-shrink-0 ${
+                          cat === 'conglomerate' ? 'bg-purple-500/20' :
+                          cat === 'sovereign' ? 'bg-emerald-500/20' :
+                          'bg-accent/20'
+                        }`}>
+                          <span className={`text-[10px] font-bold ${
+                            cat === 'conglomerate' ? 'text-purple-300' :
+                            cat === 'sovereign' ? 'text-emerald-300' :
+                            'text-accent'
+                          }`}>{c.initials}</span>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <span className="text-[12px] font-medium text-[#E0E0E4] truncate block">
+                            {c.shortName}
+                          </span>
+                          <span className="text-[10px] text-[#6B6B73] truncate block">
+                            {c.industry} · {c.revenue}
+                          </span>
+                        </div>
+                        {isSelected && (
+                          <Check className="w-3 h-3 text-accent flex-shrink-0" strokeWidth={2.5} />
+                        )}
+                      </button>
+                    );
+                  })}
                 </div>
               );
             })}
