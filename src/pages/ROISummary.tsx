@@ -63,7 +63,7 @@ function buildWaterfallData(roi: ReturnType<typeof getRoiSummary>) {
 
 function buildTimeline(roi: ReturnType<typeof getRoiSummary>) {
   const totalCost = roi.implementationCosts;
-  const monthlySavingsEnd = roi.netYear1 / 8; // approx monthly savings at steady state
+  // monthlySavingsEnd not used but kept for reference: roi.netYear1 / 8
   // Cost distribution: front-loaded ramp-down
   const costPcts = [0.14, 0.18, 0.21, 0.14, 0.11, 0.07, 0.05, 0.04, 0.03, 0.015, 0.007, 0.003];
   // Savings distribution: back-loaded ramp-up

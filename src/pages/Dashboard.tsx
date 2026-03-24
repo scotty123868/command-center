@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, X } from 'lucide-react';
+import { ArrowRight, X, Building2, ChevronRight } from 'lucide-react';
 import {
   AreaChart,
   Area,
@@ -76,6 +76,46 @@ const allTimelineStops: Record<string, Record<number, TimelineData>> = {
     0: { savings: 0, scoreBefore: 68, scoreAfter: 68, workflows: 0, automationReady: 0, waste: 2_800_000 },
     6: { savings: 8_200_000, scoreBefore: 68, scoreAfter: 80, workflows: 58, automationReady: 32, waste: 1_300_000 },
     12: { savings: 18_600_000, scoreBefore: 68, scoreAfter: 94, workflows: 126, automationReady: 62, waste: 320_000 },
+  },
+  'nb-aerospace': {
+    0: { savings: 0, scoreBefore: 46, scoreAfter: 46, workflows: 0, automationReady: 0, waste: 820_000 },
+    6: { savings: 2_800_000, scoreBefore: 46, scoreAfter: 66, workflows: 16, automationReady: 5, waste: 420_000 },
+    12: { savings: 6_200_000, scoreBefore: 46, scoreAfter: 85, workflows: 32, automationReady: 10, waste: 120_000 },
+  },
+  'nb-energy': {
+    0: { savings: 0, scoreBefore: 38, scoreAfter: 38, workflows: 0, automationReady: 0, waste: 1_100_000 },
+    6: { savings: 3_400_000, scoreBefore: 38, scoreAfter: 62, workflows: 21, automationReady: 7, waste: 560_000 },
+    12: { savings: 7_400_000, scoreBefore: 38, scoreAfter: 84, workflows: 42, automationReady: 14, waste: 140_000 },
+  },
+  'nb-financial': {
+    0: { savings: 0, scoreBefore: 62, scoreAfter: 62, workflows: 0, automationReady: 0, waste: 640_000 },
+    6: { savings: 2_200_000, scoreBefore: 62, scoreAfter: 76, workflows: 14, automationReady: 5, waste: 320_000 },
+    12: { savings: 5_000_000, scoreBefore: 62, scoreAfter: 91, workflows: 28, automationReady: 10, waste: 80_000 },
+  },
+  'nb-health': {
+    0: { savings: 0, scoreBefore: 55, scoreAfter: 55, workflows: 0, automationReady: 0, waste: 940_000 },
+    6: { savings: 2_800_000, scoreBefore: 55, scoreAfter: 72, workflows: 19, automationReady: 6, waste: 480_000 },
+    12: { savings: 6_200_000, scoreBefore: 55, scoreAfter: 89, workflows: 38, automationReady: 12, waste: 110_000 },
+  },
+  'ee-finance': {
+    0: { savings: 0, scoreBefore: 74, scoreAfter: 74, workflows: 0, automationReady: 0, waste: 680_000 },
+    6: { savings: 2_400_000, scoreBefore: 74, scoreAfter: 84, workflows: 17, automationReady: 9, waste: 340_000 },
+    12: { savings: 5_200_000, scoreBefore: 74, scoreAfter: 95, workflows: 34, automationReady: 18, waste: 80_000 },
+  },
+  'ee-social': {
+    0: { savings: 0, scoreBefore: 68, scoreAfter: 68, workflows: 0, automationReady: 0, waste: 920_000 },
+    6: { savings: 3_100_000, scoreBefore: 68, scoreAfter: 80, workflows: 21, automationReady: 11, waste: 460_000 },
+    12: { savings: 6_800_000, scoreBefore: 68, scoreAfter: 93, workflows: 42, automationReady: 22, waste: 110_000 },
+  },
+  'ee-economic': {
+    0: { savings: 0, scoreBefore: 76, scoreAfter: 76, workflows: 0, automationReady: 0, waste: 420_000 },
+    6: { savings: 1_500_000, scoreBefore: 76, scoreAfter: 86, workflows: 13, automationReady: 7, waste: 210_000 },
+    12: { savings: 3_400_000, scoreBefore: 76, scoreAfter: 95, workflows: 26, automationReady: 14, waste: 50_000 },
+  },
+  'ee-ria': {
+    0: { savings: 0, scoreBefore: 78, scoreAfter: 78, workflows: 0, automationReady: 0, waste: 380_000 },
+    6: { savings: 1_400_000, scoreBefore: 78, scoreAfter: 88, workflows: 12, automationReady: 7, waste: 190_000 },
+    12: { savings: 3_200_000, scoreBefore: 78, scoreAfter: 96, workflows: 24, automationReady: 14, waste: 40_000 },
   },
 };
 
@@ -428,10 +468,13 @@ function DrillDownPanel({ type, onClose }: { type: DrillDownType; onClose: () =>
 // ─── Dashboard ──────────────────────────────────────────────────────────────
 
 export default function Dashboard() {
-  const { company } = useCompany();
+  const { company, companies, setCompanyId } = useCompany();
   const companyKpis = getKpis(company.id);
   const companyRoadmap = getRoadmapPhases(company.id);
   const companyOpps = getTopOpportunities(company.id);
+
+  // Sub-entities for parent companies (conglomerate / sovereign)
+  const childEntities = companies.filter((c) => c.parentId === company.id);
   const sortedOpps = [...companyOpps].sort((a, b) => a.priority - b.priority);
 
   // Flash highlight when company changes
@@ -563,6 +606,97 @@ export default function Dashboard() {
           <ReadinessGauge score={config.aiReadinessScore} />
         </div>
       </motion.section>
+
+      {/* ── Sub-Entities Section (conglomerate / sovereign only) ── */}
+      {childEntities.length > 0 && (
+        <motion.section
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.05 }}
+        >
+          <div className="flex items-center gap-2 mb-5">
+            <Building2 className="h-5 w-5 text-gray-400" />
+            <h2 className="text-[15px] font-semibold text-gray-900">
+              {company.category === 'sovereign' ? 'Agencies' : 'Operating Companies'}
+            </h2>
+            <span className="rounded-full bg-gray-100 px-2 py-0.5 text-[11px] font-medium text-gray-500">
+              {childEntities.length}
+            </span>
+          </div>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            {childEntities.map((sub, i) => {
+              const subKpis = getKpis(sub.id);
+              const subRoi = getRoiSummary(sub.id);
+              const roiPct = subRoi.implementationCosts > 0
+                ? Math.round((subRoi.netYear1 / subRoi.implementationCosts) * 100)
+                : 0;
+              const isSovereign = company.category === 'sovereign';
+              const badgeBg = isSovereign ? 'bg-emerald-100 text-emerald-700' : 'bg-purple-100 text-purple-700';
+
+              return (
+                <motion.div
+                  key={sub.id}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.08 + i * 0.05 }}
+                  whileHover={{ y: -2, boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}
+                  onClick={() => setCompanyId(sub.id)}
+                  className="group cursor-pointer rounded-2xl border border-gray-100 bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-colors hover:border-gray-200"
+                >
+                  {/* Header: Initials badge + name + chevron */}
+                  <div className="flex items-start justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className={`flex h-9 w-9 items-center justify-center rounded-lg text-[12px] font-bold ${badgeBg}`}>
+                        {sub.initials}
+                      </div>
+                      <div>
+                        <p className="text-[13px] font-semibold text-gray-900 leading-tight">{sub.shortName}</p>
+                        <p className="text-[11px] text-gray-500">{sub.industry}</p>
+                      </div>
+                    </div>
+                    <ChevronRight className="h-4 w-4 text-gray-300 transition-transform group-hover:translate-x-0.5 group-hover:text-gray-500" />
+                  </div>
+
+                  {/* Metrics row */}
+                  <div className="mt-4 grid grid-cols-3 gap-2">
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-400">Savings</p>
+                      <p className="mt-0.5 font-mono text-[14px] font-bold text-emerald-600">
+                        {fmtCompact(subKpis.totalSavings)}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-400">Score</p>
+                      <p className="mt-0.5 font-mono text-[14px] font-bold text-gray-900">
+                        <span className="text-gray-400">{subKpis.techScoreBefore}</span>
+                        <span className="text-gray-300 mx-0.5">&rarr;</span>
+                        <span className="text-[#4285F4]">{subKpis.techScoreAfter}</span>
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-400">Workflows</p>
+                      <p className="mt-0.5 font-mono text-[14px] font-bold text-gray-900">
+                        {subKpis.workflowsAnalyzed}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Bottom row */}
+                  <div className="mt-3 flex items-center justify-between border-t border-gray-50 pt-3">
+                    <span className="text-[11px] text-gray-500">
+                      {sub.employees.toLocaleString()} employees
+                    </span>
+                    <span className="text-[11px] text-gray-500">{sub.revenue}</span>
+                    <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-700">
+                      {roiPct}% ROI
+                    </span>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </motion.section>
+      )}
 
       {/* ── 2. KPI Cards ──────────────────────────────────────────── */}
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">

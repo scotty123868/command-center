@@ -1789,6 +1789,542 @@ const northbridgeRoiSummary = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
+// ─── NB Aerospace & Defense (Northbridge OpCo) ──────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const nbAerospaceCompanyProfile = {
+  name: 'NB Aerospace & Defense',
+  industry: 'Aerospace & Defense',
+  employees: 8_200,
+  revenue: '$4.2B',
+  opCos: 1,
+  opCoNames: ['NB Aerospace & Defense'],
+  techSpend: '$34M/yr',
+  aiReadinessScore: 46,
+  holdingPeriod: 'Northbridge Industries OpCo',
+  ebitdaMargin: '14.2%',
+  targetEbitdaMargin: '22%',
+};
+
+const nbAerospaceAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 52, maxScore: 100, status: 'Moderate — AS9100-compliant data systems in place, but flight certification records remain in siloed legacy databases with limited API access' },
+  { category: 'Process Maturity', score: 38, maxScore: 100, status: 'Below Average — 32 workflows mapped, only 10 automated; MRO scheduling and supplier quality processes rely heavily on manual handoffs' },
+  { category: 'Tech Stack Modernity', score: 48, maxScore: 100, status: 'Mixed — Windchill PLM and TeamCenter deployed for design, but legacy DOORS requirements management and paper-based flight cert processes persist' },
+  { category: 'Change Readiness', score: 42, maxScore: 100, status: 'Moderate — engineering leadership supports AI adoption, but strict FAA/EASA regulatory requirements slow change velocity in certification workflows' },
+  { category: 'Skills & Training', score: 50, maxScore: 100, status: 'Developing — strong engineering talent base of 8,200, but AI/ML skills concentrated in R&D; production floor and supply chain teams need upskilling' },
+];
+
+const nbAerospaceKpis = {
+  totalSavings: 6_200_000,
+  techScoreBefore: 46,
+  techScoreAfter: 85,
+  workflowsAnalyzed: 32,
+  automationReady: 10,
+  unusedLicenseWaste: 820_000,
+  savingsSparkline: [0, 600_000, 1_400_000, 2_600_000, 3_800_000, 4_800_000, 5_600_000, 6_200_000],
+  scoreSparkline: [46, 52, 58, 64, 70, 76, 82, 85],
+  workflowSparkline: [0, 4, 8, 14, 18, 24, 28, 32],
+  licenseSparkline: [820_000, 720_000, 600_000, 480_000, 360_000, 260_000, 180_000, 120_000],
+  headcountImpactSparkline: [0, -2, -6, -12, -18, -24, -28, -32],
+};
+
+const nbAerospaceRoadmapPhases = [
+  {
+    quarter: 'Q1 2026',
+    title: 'Flight Certification & PLM Data Unification',
+    items: ['AS9100 data lake consolidation', 'PLM-to-ERP integration', 'Digital thread foundation'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 1, task: 'AS9100 data audit and flight certification record digitization kickoff', owner: 'Quality Systems Director' },
+      { week: 2, task: 'Windchill PLM ↔ SAP integration blueprint for BOM synchronization', owner: 'PLM Program Manager' },
+      { week: 3, task: 'DOORS requirements traceability migration to modern ALM platform', owner: 'Systems Engineering Lead' },
+      { week: 4, task: 'Digital thread architecture: design-to-manufacture data flow mapping', owner: 'Enterprise Architect' },
+    ],
+  },
+  {
+    quarter: 'Q2 2026',
+    title: 'Supplier Quality & MRO Automation',
+    items: ['Supplier quality portal deployment', 'MRO scheduling AI', 'Non-conformance tracking automation'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 5, task: 'Supplier quality management portal go-live with 280 Tier 1 suppliers', owner: 'Supplier Quality Manager' },
+      { week: 6, task: 'MRO scheduling optimization AI: predictive maintenance for fleet of 1,200 engines', owner: 'MRO Operations Director' },
+      { week: 7, task: 'Non-conformance report automation with AI-assisted root cause analysis', owner: 'Quality Systems Director' },
+      { week: 8, task: 'First article inspection (FAI) digitization across 6 manufacturing sites', owner: 'Manufacturing Engineering Lead' },
+    ],
+  },
+  {
+    quarter: 'Q3 2026',
+    title: 'Production Floor AI & Supply Chain Intelligence',
+    items: ['Shop floor IoT deployment', 'Supply chain risk AI', 'Automated test data analysis'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 9, task: 'IoT sensor deployment across 6 production facilities for real-time yield monitoring', owner: 'Manufacturing Engineering Lead' },
+      { week: 10, task: 'Supply chain risk AI: geopolitical and single-source supplier risk scoring', owner: 'Supply Chain Director' },
+      { week: 11, task: 'Automated test data analysis for flight hardware qualification', owner: 'Test Engineering Manager' },
+      { week: 12, task: 'AI-driven production scheduling optimization across all manufacturing sites', owner: 'MRO Operations Director' },
+    ],
+  },
+  {
+    quarter: 'Q4 2026',
+    title: 'Full Digital Thread & Regulatory Compliance AI',
+    items: ['End-to-end digital thread validation', 'FAA/EASA compliance automation', 'Year 2 roadmap'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 13, task: 'Digital thread validation: full traceability from design → manufacture → field service', owner: 'Enterprise Architect' },
+      { week: 14, task: 'FAA/EASA regulatory compliance automation: AI-assisted certification document generation', owner: 'Regulatory Affairs Director' },
+      { week: 15, task: 'Board presentation: $6.2M Year 1 savings confirmed, Year 2 roadmap ($10.5M target)', owner: 'OpCo General Manager' },
+      { week: 16, task: 'Hypercare and continuous improvement: AI model retraining, process optimization', owner: 'Quality Systems Director' },
+    ],
+  },
+];
+
+const nbAerospaceTopOpportunities: Opportunity[] = [
+  { name: 'Flight Certification Automation', category: 'Regulatory', savings: 1_400_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 14, confidence: 82 },
+  { name: 'Supplier Quality AI Portal', category: 'Supply Chain', savings: 1_200_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 88 },
+  { name: 'MRO Scheduling Optimization', category: 'Maintenance', savings: 1_000_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 78 },
+  { name: 'Non-Conformance Report Automation', category: 'Quality', savings: 800_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 90 },
+  { name: 'Digital Thread Integration', category: 'Data Infrastructure', savings: 1_200_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 20, confidence: 74 },
+  { name: 'License Consolidation (PLM/CAD)', category: 'License Audit', savings: 820_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 96 },
+];
+
+const nbAerospaceCurrentStack: CurrentTool[] = [
+  { name: 'Windchill PLM', category: 'PLM', annualCost: 4_200_000, users: 1_800, score: 5, integrationComplexity: 'High', migrationWeeks: 32, riskLevel: 'High', dependencies: ['Product Lifecycle', 'BOM Management', 'Change Management', 'Configuration Control'] },
+  { name: 'TeamCenter', category: 'Engineering', annualCost: 3_600_000, users: 1_200, score: 6, integrationComplexity: 'High', migrationWeeks: 28, riskLevel: 'High', dependencies: ['CAD Integration', 'Simulation Data', 'Digital Twin', 'Design Collaboration'] },
+  { name: 'SAP S/4HANA', category: 'ERP', annualCost: 2_800_000, users: 2_400, score: 7, integrationComplexity: 'High', migrationWeeks: 24, riskLevel: 'High', dependencies: ['Finance', 'Procurement', 'Manufacturing', 'MRO Planning'] },
+  { name: 'IBM DOORS', category: 'Requirements', annualCost: 1_400_000, users: 600, score: 3, integrationComplexity: 'High', migrationWeeks: 20, riskLevel: 'Medium', dependencies: ['Requirements Traceability', 'V&V Management', 'Certification Evidence'] },
+  { name: 'Solumina MES', category: 'Manufacturing', annualCost: 1_800_000, users: 1_600, score: 5, integrationComplexity: 'Medium', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Shop Floor Control', 'Work Instructions', 'Quality Records'] },
+  { name: 'AMOS MRO', category: 'Maintenance', annualCost: 2_200_000, users: 800, score: 4, integrationComplexity: 'Medium', migrationWeeks: 18, riskLevel: 'Medium', dependencies: ['MRO Scheduling', 'Parts Inventory', 'Airworthiness Tracking'] },
+];
+
+const nbAerospaceLicenses: License[] = [
+  { vendor: 'Windchill PLM', totalLicenses: 480, active90d: 340, inactive: 140, annualWaste: 320_000, action: 'Reclaim 140 inactive seats + consolidate with TeamCenter users', costPerLicense: 2_280, department: 'Engineering / Product Design', lastAuditDate: '2026-01-20', trend: [82, 76, 72, 68, 66, 71], complianceRisk: false },
+  { vendor: 'IBM DOORS', totalLicenses: 200, active90d: 120, inactive: 80, annualWaste: 240_000, action: 'Migrate to modern ALM — reclaim all legacy seats', costPerLicense: 3_000, department: 'Systems Engineering', lastAuditDate: '2026-02-05', trend: [75, 68, 62, 58, 55, 60], complianceRisk: true },
+  { vendor: 'TeamCenter', totalLicenses: 360, active90d: 280, inactive: 80, annualWaste: 160_000, action: 'Reclaim 80 seats from non-engineering departments', costPerLicense: 2_000, department: 'Engineering / Simulation', lastAuditDate: '2026-01-10', trend: [88, 84, 80, 76, 74, 78], complianceRisk: false },
+  { vendor: 'AMOS MRO', totalLicenses: 240, active90d: 200, inactive: 40, annualWaste: 100_000, action: 'Downgrade 40 inactive to read-only tier', costPerLicense: 2_500, department: 'MRO Operations', lastAuditDate: '2025-12-15', trend: [90, 88, 86, 84, 82, 83], complianceRisk: false },
+];
+
+const nbAerospaceWorkflowSummary = {
+  total: 32,
+  fullyAutomatable: 10,
+  humanInLoop: 14,
+  humanRequired: 8,
+  currentLaborSpend: 12_400_000,
+  potentialSavings: 6_200_000,
+};
+
+const nbAerospaceRoiSummary = {
+  techStackSavings: 1_600_000,
+  workflowAutomation: 2_800_000,
+  licenseRecovery: 1_200_000,
+  implementationCosts: 2_400_000,
+  netYear1: 6_200_000,
+  year2Projected: 10_500_000,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── NB Energy Systems (Northbridge OpCo) ───────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const nbEnergyCompanyProfile = {
+  name: 'NB Energy Systems',
+  industry: 'Energy & Utilities',
+  employees: 11_500,
+  revenue: '$5.1B',
+  opCos: 1,
+  opCoNames: ['NB Energy Systems'],
+  techSpend: '$42M/yr',
+  aiReadinessScore: 38,
+  holdingPeriod: 'Northbridge Industries OpCo',
+  ebitdaMargin: '18.4%',
+  targetEbitdaMargin: '26%',
+};
+
+const nbEnergyAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 42, maxScore: 100, status: 'Below Average — SCADA systems generate massive telemetry but data remains trapped in OT networks; IT/OT convergence only 30% complete' },
+  { category: 'Process Maturity', score: 32, maxScore: 100, status: 'Low — 42 workflows mapped, only 12 automated; grid management and pipeline monitoring rely on legacy control systems with manual oversight' },
+  { category: 'Tech Stack Modernity', score: 38, maxScore: 100, status: 'Legacy-Heavy — OSIsoft PI historian, legacy SCADA, and 15-year-old GIS systems; cloud migration constrained by NERC CIP compliance' },
+  { category: 'Change Readiness', score: 35, maxScore: 100, status: 'Below Average — operational teams resistant to AI in safety-critical systems; regulatory approval cycles (FERC, NERC) slow adoption' },
+  { category: 'Skills & Training', score: 44, maxScore: 100, status: 'Developing — strong operational engineering talent of 11,500, but AI/data science skills limited to central analytics team of 22' },
+];
+
+const nbEnergyKpis = {
+  totalSavings: 7_400_000,
+  techScoreBefore: 38,
+  techScoreAfter: 84,
+  workflowsAnalyzed: 42,
+  automationReady: 12,
+  unusedLicenseWaste: 1_100_000,
+  savingsSparkline: [0, 800_000, 1_800_000, 3_200_000, 4_600_000, 5_800_000, 6_800_000, 7_400_000],
+  scoreSparkline: [38, 44, 50, 58, 64, 72, 78, 84],
+  workflowSparkline: [0, 5, 10, 18, 24, 32, 38, 42],
+  licenseSparkline: [1_100_000, 960_000, 800_000, 640_000, 480_000, 340_000, 220_000, 160_000],
+  headcountImpactSparkline: [0, -3, -8, -16, -24, -32, -38, -42],
+};
+
+const nbEnergyRoadmapPhases = [
+  {
+    quarter: 'Q1 2026',
+    title: 'IT/OT Convergence & SCADA Modernization',
+    items: ['SCADA data lake integration', 'IT/OT network bridge deployment', 'Historian cloud migration'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 1, task: 'SCADA telemetry data lake architecture design with NERC CIP compliance review', owner: 'OT Security Director' },
+      { week: 2, task: 'OSIsoft PI historian → cloud migration assessment for 48,000 sensor tags', owner: 'Data Engineering Lead' },
+      { week: 3, task: 'IT/OT network segmentation and secure data bridge deployment across 12 substations', owner: 'Network Architecture Manager' },
+      { week: 4, task: 'Real-time grid telemetry pipeline: SCADA → Azure IoT Hub → data lake', owner: 'IoT Platform Manager' },
+    ],
+  },
+  {
+    quarter: 'Q2 2026',
+    title: 'Grid Management & Pipeline Monitoring AI',
+    items: ['Predictive grid analytics', 'Pipeline integrity AI', 'Outage prediction models'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 5, task: 'Predictive grid load balancing AI deployment across 3 regional control centers', owner: 'Grid Operations Director' },
+      { week: 6, task: 'Pipeline integrity monitoring AI: anomaly detection for 2,400 miles of pipeline', owner: 'Pipeline Operations Manager' },
+      { week: 7, task: 'Weather-correlated outage prediction model training on 8 years of historical data', owner: 'Data Science Lead' },
+      { week: 8, task: 'Automated FERC/NERC compliance reporting system go-live', owner: 'Regulatory Compliance Manager' },
+    ],
+  },
+  {
+    quarter: 'Q3 2026',
+    title: 'Asset Management & Field Operations',
+    items: ['Predictive maintenance fleet', 'Mobile field crew optimization', 'Digital twin deployment'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 9, task: 'Predictive maintenance AI for 340 substations and 1,800 transformers', owner: 'Asset Management Director' },
+      { week: 10, task: 'Mobile field crew dispatch optimization: AI routing for 2,200 field technicians', owner: 'Field Operations Manager' },
+      { week: 11, task: 'Digital twin deployment for 3 power generation facilities', owner: 'IoT Platform Manager' },
+      { week: 12, task: 'Vegetation management AI: satellite imagery analysis for 18,000 miles of right-of-way', owner: 'Environmental Compliance Lead' },
+    ],
+  },
+  {
+    quarter: 'Q4 2026',
+    title: 'Enterprise AI Integration & Optimization',
+    items: ['Cross-system AI orchestration', 'Customer experience AI', 'Year 2 roadmap'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 13, task: 'Cross-system AI orchestration: unified grid, pipeline, and generation optimization', owner: 'Chief Technology Officer' },
+      { week: 14, task: 'Customer experience AI: smart meter analytics and proactive outage communication', owner: 'Customer Operations Director' },
+      { week: 15, task: 'Board presentation: $7.4M Year 1 savings confirmed, Year 2 roadmap ($12.8M target)', owner: 'OpCo General Manager' },
+      { week: 16, task: 'Hypercare and continuous improvement: AI model retraining, NERC CIP re-certification', owner: 'OT Security Director' },
+    ],
+  },
+];
+
+const nbEnergyTopOpportunities: Opportunity[] = [
+  { name: 'Grid Load Balancing AI', category: 'Operations', savings: 1_800_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 16, confidence: 80 },
+  { name: 'Pipeline Integrity Monitoring', category: 'Safety', savings: 1_400_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 18, confidence: 76 },
+  { name: 'Predictive Maintenance (Substations)', category: 'Maintenance', savings: 1_200_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 12, confidence: 86 },
+  { name: 'Outage Prediction & Response', category: 'Grid Management', savings: 1_000_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 14, confidence: 82 },
+  { name: 'NERC CIP Compliance Automation', category: 'Regulatory', savings: 900_000, effort: 'Medium', status: 'in-progress', priority: 8, timeToValue: 8, confidence: 92 },
+  { name: 'License Consolidation (SCADA/GIS)', category: 'License Audit', savings: 1_100_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 95 },
+];
+
+const nbEnergyCurrentStack: CurrentTool[] = [
+  { name: 'OSIsoft PI', category: 'Historian', annualCost: 3_800_000, users: 2_400, score: 4, integrationComplexity: 'High', migrationWeeks: 36, riskLevel: 'High', dependencies: ['SCADA Integration', 'Sensor Telemetry', 'Process Data', 'Compliance Logging'] },
+  { name: 'GE Grid Solutions SCADA', category: 'Control Systems', annualCost: 5_200_000, users: 480, score: 3, integrationComplexity: 'High', migrationWeeks: 48, riskLevel: 'High', dependencies: ['Grid Control', 'Substation Automation', 'Load Management', 'Outage Response'] },
+  { name: 'Esri ArcGIS Enterprise', category: 'GIS', annualCost: 2_400_000, users: 1_800, score: 5, integrationComplexity: 'Medium', migrationWeeks: 20, riskLevel: 'Medium', dependencies: ['Asset Mapping', 'Outage Visualization', 'Field Crew Routing', 'Vegetation Management'] },
+  { name: 'SAP S/4HANA', category: 'ERP', annualCost: 3_200_000, users: 3_600, score: 7, integrationComplexity: 'High', migrationWeeks: 24, riskLevel: 'High', dependencies: ['Finance', 'Procurement', 'Plant Maintenance', 'Materials Management'] },
+  { name: 'Oracle Utilities CC&B', category: 'Billing', annualCost: 2_800_000, users: 1_200, score: 4, integrationComplexity: 'High', migrationWeeks: 32, riskLevel: 'High', dependencies: ['Customer Billing', 'Meter Data', 'Rate Management', 'Payment Processing'] },
+  { name: 'Maximo', category: 'Asset Management', annualCost: 1_600_000, users: 2_200, score: 5, integrationComplexity: 'Medium', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Work Orders', 'Asset Registry', 'Preventive Maintenance', 'Parts Inventory'] },
+];
+
+const nbEnergyLicenses: License[] = [
+  { vendor: 'OSIsoft PI', totalLicenses: 600, active90d: 420, inactive: 180, annualWaste: 480_000, action: 'Reclaim 180 inactive seats + migrate to cloud-native historian', costPerLicense: 2_667, department: 'Operations / Engineering', lastAuditDate: '2026-01-25', trend: [80, 74, 70, 66, 64, 70], complianceRisk: false },
+  { vendor: 'GE SCADA', totalLicenses: 240, active90d: 180, inactive: 60, annualWaste: 280_000, action: 'Optimize license tiers — downgrade 60 to monitoring-only', costPerLicense: 4_667, department: 'Grid Operations', lastAuditDate: '2026-02-10', trend: [85, 80, 76, 72, 70, 75], complianceRisk: true },
+  { vendor: 'Esri ArcGIS', totalLicenses: 480, active90d: 360, inactive: 120, annualWaste: 200_000, action: 'Reclaim 120 seats from non-field departments', costPerLicense: 1_667, department: 'Field Operations / GIS', lastAuditDate: '2026-01-05', trend: [88, 84, 80, 76, 74, 75], complianceRisk: false },
+  { vendor: 'Maximo', totalLicenses: 540, active90d: 440, inactive: 100, annualWaste: 140_000, action: 'Reclaim 100 inactive seats from seasonal contractors', costPerLicense: 1_400, department: 'Asset Management', lastAuditDate: '2025-12-20', trend: [90, 88, 84, 82, 80, 81], complianceRisk: false },
+];
+
+const nbEnergyWorkflowSummary = {
+  total: 42,
+  fullyAutomatable: 12,
+  humanInLoop: 18,
+  humanRequired: 12,
+  currentLaborSpend: 16_800_000,
+  potentialSavings: 7_400_000,
+};
+
+const nbEnergyRoiSummary = {
+  techStackSavings: 1_800_000,
+  workflowAutomation: 3_200_000,
+  licenseRecovery: 1_400_000,
+  implementationCosts: 2_800_000,
+  netYear1: 7_400_000,
+  year2Projected: 12_800_000,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── NB Financial Services (Northbridge OpCo) ───────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const nbFinancialCompanyProfile = {
+  name: 'NB Financial Services',
+  industry: 'Financial Services',
+  employees: 6_200,
+  revenue: '$3.8B',
+  opCos: 1,
+  opCoNames: ['NB Financial Services'],
+  techSpend: '$48M/yr',
+  aiReadinessScore: 62,
+  holdingPeriod: 'Northbridge Industries OpCo',
+  ebitdaMargin: '22.6%',
+  targetEbitdaMargin: '30%',
+};
+
+const nbFinancialAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 68, maxScore: 100, status: 'Good — Bloomberg and Murex data feeds well-integrated, centralized risk data warehouse operational, real-time market data pipeline established' },
+  { category: 'Process Maturity', score: 58, maxScore: 100, status: 'Moderate — 28 workflows mapped, 14 automated; trade settlement and compliance reporting partially automated, KYC/AML processes still manual-heavy' },
+  { category: 'Tech Stack Modernity', score: 65, maxScore: 100, status: 'Above Average — Bloomberg Terminal, Murex trading platform, and Calypso risk engine are modern; legacy back-office systems need modernization' },
+  { category: 'Change Readiness', score: 60, maxScore: 100, status: 'Good — front-office teams embrace AI for alpha generation, but compliance and risk teams cautious due to SEC/FINRA regulatory scrutiny' },
+  { category: 'Skills & Training', score: 62, maxScore: 100, status: 'Good — quantitative talent pool of 6,200 includes 180 data scientists and quantitative analysts; broader AI literacy program needed' },
+];
+
+const nbFinancialKpis = {
+  totalSavings: 5_000_000,
+  techScoreBefore: 62,
+  techScoreAfter: 91,
+  workflowsAnalyzed: 28,
+  automationReady: 14,
+  unusedLicenseWaste: 680_000,
+  savingsSparkline: [0, 500_000, 1_200_000, 2_200_000, 3_200_000, 4_000_000, 4_600_000, 5_000_000],
+  scoreSparkline: [62, 66, 70, 76, 80, 84, 88, 91],
+  workflowSparkline: [0, 3, 7, 12, 16, 20, 24, 28],
+  licenseSparkline: [680_000, 600_000, 500_000, 400_000, 300_000, 220_000, 160_000, 100_000],
+  headcountImpactSparkline: [0, -2, -4, -8, -14, -18, -24, -28],
+};
+
+const nbFinancialRoadmapPhases = [
+  {
+    quarter: 'Q1 2026',
+    title: 'Compliance & Risk Data Modernization',
+    items: ['KYC/AML automation platform', 'Risk data warehouse upgrade', 'Regulatory reporting pipeline'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 1, task: 'KYC/AML automation platform evaluation and vendor selection (Comply Advantage, Refinitiv)', owner: 'Chief Compliance Officer' },
+      { week: 2, task: 'Risk data warehouse migration to real-time streaming architecture', owner: 'Data Engineering Director' },
+      { week: 3, task: 'SEC/FINRA regulatory reporting automation pipeline design', owner: 'Regulatory Technology Lead' },
+      { week: 4, task: 'Bloomberg ↔ Murex data integration optimization for T+1 settlement readiness', owner: 'Trading Technology Director' },
+    ],
+  },
+  {
+    quarter: 'Q2 2026',
+    title: 'Trading & Settlement Automation',
+    items: ['Trade settlement AI', 'Portfolio risk optimization', 'Client reporting automation'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 5, task: 'Trade settlement automation: straight-through processing for 94% of equity trades', owner: 'Operations Director' },
+      { week: 6, task: 'AI-powered portfolio risk optimization with real-time VaR recalculation', owner: 'Chief Risk Officer' },
+      { week: 7, task: 'Client reporting automation: AI-generated investment summaries and performance attribution', owner: 'Client Services Director' },
+      { week: 8, task: 'Anti-money laundering transaction monitoring AI deployment', owner: 'Chief Compliance Officer' },
+    ],
+  },
+  {
+    quarter: 'Q3 2026',
+    title: 'AI-Powered Analytics & Decision Support',
+    items: ['Market intelligence AI', 'Credit risk modeling', 'Fraud detection enhancement'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 9, task: 'Market intelligence AI: NLP-based news sentiment analysis for trading desk', owner: 'Quantitative Research Lead' },
+      { week: 10, task: 'AI credit risk modeling: real-time counterparty risk assessment', owner: 'Chief Risk Officer' },
+      { week: 11, task: 'Fraud detection model upgrade: ML-based anomaly detection for 2.4M daily transactions', owner: 'Financial Crime Director' },
+      { week: 12, task: 'Automated stress testing and scenario analysis for Basel III compliance', owner: 'Risk Analytics Manager' },
+    ],
+  },
+  {
+    quarter: 'Q4 2026',
+    title: 'Full AI Integration & Regulatory Excellence',
+    items: ['AI model governance framework', 'Regulatory AI validation', 'Year 2 roadmap'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 13, task: 'AI model governance framework: explainability, bias testing, and audit trails for all models', owner: 'Chief Risk Officer' },
+      { week: 14, task: 'Regulatory AI validation: SEC/FINRA model risk management compliance certification', owner: 'Regulatory Technology Lead' },
+      { week: 15, task: 'Board presentation: $5.0M Year 1 savings confirmed, Year 2 roadmap ($8.4M target)', owner: 'OpCo General Manager' },
+      { week: 16, task: 'Hypercare and continuous improvement: model monitoring, drift detection, retraining cycles', owner: 'Quantitative Research Lead' },
+    ],
+  },
+];
+
+const nbFinancialTopOpportunities: Opportunity[] = [
+  { name: 'KYC/AML Automation', category: 'Compliance', savings: 1_200_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 10, confidence: 88 },
+  { name: 'Trade Settlement STP', category: 'Operations', savings: 900_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 8, confidence: 92 },
+  { name: 'Regulatory Reporting Automation', category: 'Regulatory', savings: 800_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 86 },
+  { name: 'Portfolio Risk AI Optimization', category: 'Risk', savings: 700_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 78 },
+  { name: 'Client Reporting AI', category: 'Client Services', savings: 600_000, effort: 'Low', status: 'in-progress', priority: 7, timeToValue: 6, confidence: 94 },
+  { name: 'License Consolidation (Terminal/Data)', category: 'License Audit', savings: 680_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 96 },
+];
+
+const nbFinancialCurrentStack: CurrentTool[] = [
+  { name: 'Bloomberg Terminal', category: 'Market Data', annualCost: 8_400_000, users: 420, score: 8, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Low', dependencies: ['Market Data', 'Trading Analytics', 'News Feed', 'Fixed Income Pricing'] },
+  { name: 'Murex MX.3', category: 'Trading Platform', annualCost: 6_200_000, users: 340, score: 7, integrationComplexity: 'High', migrationWeeks: 36, riskLevel: 'High', dependencies: ['Trade Execution', 'Position Management', 'P&L Attribution', 'Risk Calculation'] },
+  { name: 'Calypso', category: 'Risk Engine', annualCost: 3_400_000, users: 180, score: 6, integrationComplexity: 'High', migrationWeeks: 28, riskLevel: 'High', dependencies: ['Market Risk', 'Credit Risk', 'Collateral Management', 'VaR Calculation'] },
+  { name: 'SAP S/4HANA', category: 'ERP/Finance', annualCost: 2_200_000, users: 1_800, score: 7, integrationComplexity: 'High', migrationWeeks: 24, riskLevel: 'Medium', dependencies: ['General Ledger', 'Regulatory Reporting', 'Cost Allocation', 'Intercompany'] },
+  { name: 'Refinitiv Eikon', category: 'Data/Analytics', annualCost: 2_800_000, users: 280, score: 6, integrationComplexity: 'Medium', migrationWeeks: 12, riskLevel: 'Low', dependencies: ['Research Data', 'ESG Analytics', 'Company Screening', 'Deal Intelligence'] },
+  { name: 'Broadridge', category: 'Back Office', annualCost: 1_800_000, users: 420, score: 5, integrationComplexity: 'Medium', migrationWeeks: 20, riskLevel: 'Medium', dependencies: ['Trade Settlement', 'Reconciliation', 'Corporate Actions', 'Client Reporting'] },
+];
+
+const nbFinancialLicenses: License[] = [
+  { vendor: 'Bloomberg Terminal', totalLicenses: 180, active90d: 140, inactive: 40, annualWaste: 320_000, action: 'Reclaim 40 inactive terminals + optimize to B-PIPE for data-only users', costPerLicense: 8_000, department: 'Trading / Research', lastAuditDate: '2026-01-15', trend: [88, 84, 80, 76, 74, 78], complianceRisk: false },
+  { vendor: 'Murex MX.3', totalLicenses: 120, active90d: 98, inactive: 22, annualWaste: 180_000, action: 'Reclaim 22 seats from non-trading support staff', costPerLicense: 8_180, department: 'Trading / Operations', lastAuditDate: '2026-02-01', trend: [90, 86, 82, 80, 78, 82], complianceRisk: false },
+  { vendor: 'Refinitiv Eikon', totalLicenses: 140, active90d: 100, inactive: 40, annualWaste: 120_000, action: 'Consolidate with Bloomberg where overlap exists', costPerLicense: 3_000, department: 'Research / Sales', lastAuditDate: '2026-01-20', trend: [82, 76, 72, 68, 66, 71], complianceRisk: false },
+  { vendor: 'Calypso', totalLicenses: 80, active90d: 62, inactive: 18, annualWaste: 60_000, action: 'Reclaim 18 seats from legacy risk team members', costPerLicense: 3_333, department: 'Risk Management', lastAuditDate: '2025-12-10', trend: [86, 82, 78, 76, 74, 78], complianceRisk: true },
+];
+
+const nbFinancialWorkflowSummary = {
+  total: 28,
+  fullyAutomatable: 14,
+  humanInLoop: 10,
+  humanRequired: 4,
+  currentLaborSpend: 10_200_000,
+  potentialSavings: 5_000_000,
+};
+
+const nbFinancialRoiSummary = {
+  techStackSavings: 1_200_000,
+  workflowAutomation: 2_200_000,
+  licenseRecovery: 900_000,
+  implementationCosts: 1_800_000,
+  netYear1: 5_000_000,
+  year2Projected: 8_400_000,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── NB Health Sciences (Northbridge OpCo) ──────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const nbHealthCompanyProfile = {
+  name: 'NB Health Sciences',
+  industry: 'Pharma & Biotech',
+  employees: 16_100,
+  revenue: '$5.1B',
+  opCos: 1,
+  opCoNames: ['NB Health Sciences'],
+  techSpend: '$56M/yr',
+  aiReadinessScore: 55,
+  holdingPeriod: 'Northbridge Industries OpCo',
+  ebitdaMargin: '20.4%',
+  targetEbitdaMargin: '28%',
+};
+
+const nbHealthAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 58, maxScore: 100, status: 'Moderate — Veeva Vault and LIMS systems well-structured for clinical data, but R&D data silos persist across 4 therapeutic areas' },
+  { category: 'Process Maturity', score: 52, maxScore: 100, status: 'Moderate — 38 workflows mapped, 14 automated; clinical trial management partially digitized, but lab data capture and pharmacovigilance remain manual' },
+  { category: 'Tech Stack Modernity', score: 58, maxScore: 100, status: 'Mixed — Veeva Clinical Suite is modern, but legacy LIMS, paper-based batch records, and disconnected safety databases need urgent modernization' },
+  { category: 'Change Readiness', score: 50, maxScore: 100, status: 'Moderate — R&D teams embrace AI for drug discovery, but GxP-regulated manufacturing and quality teams require extensive validation for any change' },
+  { category: 'Skills & Training', score: 56, maxScore: 100, status: 'Developing — 16,100 employees include 2,400 scientists and 120 data scientists, but GxP AI validation skills scarce; clinical ops needs upskilling' },
+];
+
+const nbHealthKpis = {
+  totalSavings: 6_200_000,
+  techScoreBefore: 55,
+  techScoreAfter: 89,
+  workflowsAnalyzed: 38,
+  automationReady: 14,
+  unusedLicenseWaste: 920_000,
+  savingsSparkline: [0, 600_000, 1_400_000, 2_600_000, 3_800_000, 4_800_000, 5_600_000, 6_200_000],
+  scoreSparkline: [55, 60, 65, 70, 76, 82, 86, 89],
+  workflowSparkline: [0, 4, 10, 16, 22, 28, 34, 38],
+  licenseSparkline: [920_000, 800_000, 680_000, 540_000, 400_000, 280_000, 180_000, 120_000],
+  headcountImpactSparkline: [0, -2, -6, -12, -18, -26, -32, -38],
+};
+
+const nbHealthRoadmapPhases = [
+  {
+    quarter: 'Q1 2026',
+    title: 'Clinical Data Platform & Veeva Integration',
+    items: ['Clinical data lake consolidation', 'Veeva Vault optimization', 'LIMS modernization assessment'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 1, task: 'Clinical data lake architecture: Veeva Vault, LIMS, EDC, and safety data unification', owner: 'Chief Data Officer' },
+      { week: 2, task: 'Veeva Vault Clinical Suite optimization and configuration audit across 12 active trials', owner: 'Clinical Systems Director' },
+      { week: 3, task: 'LIMS modernization assessment: evaluate replacement of 15-year-old LabWare instance', owner: 'Lab Operations Director' },
+      { week: 4, task: 'GxP data integrity framework: 21 CFR Part 11 compliance validation for AI systems', owner: 'Quality Assurance VP' },
+    ],
+  },
+  {
+    quarter: 'Q2 2026',
+    title: 'Clinical Trial Optimization & Safety AI',
+    items: ['Patient recruitment AI', 'Pharmacovigilance automation', 'Electronic batch records'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 5, task: 'AI-powered patient recruitment: predictive enrollment modeling for 12 active Phase II/III trials', owner: 'Clinical Operations VP' },
+      { week: 6, task: 'Pharmacovigilance automation: NLP-based adverse event detection from 840K case reports', owner: 'Drug Safety Director' },
+      { week: 7, task: 'Electronic batch record (EBR) deployment across 4 manufacturing sites', owner: 'Manufacturing Systems Director' },
+      { week: 8, task: 'Clinical trial data quality AI: automated edit check and query resolution', owner: 'Clinical Data Management Lead' },
+    ],
+  },
+  {
+    quarter: 'Q3 2026',
+    title: 'Drug Discovery AI & Manufacturing Intelligence',
+    items: ['AI-assisted molecule screening', 'Process analytical technology', 'Supply chain optimization'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 9, task: 'AI-assisted molecule screening: ML models for lead compound optimization across 3 therapeutic areas', owner: 'Computational Chemistry Lead' },
+      { week: 10, task: 'Process analytical technology (PAT): real-time quality monitoring for continuous manufacturing', owner: 'Manufacturing Sciences Director' },
+      { week: 11, task: 'Cold chain supply optimization: AI-driven temperature excursion prediction for biologics', owner: 'Supply Chain Director' },
+      { week: 12, task: 'Regulatory submission automation: AI-assisted eCTD compilation for FDA/EMA filings', owner: 'Regulatory Affairs VP' },
+    ],
+  },
+  {
+    quarter: 'Q4 2026',
+    title: 'GxP AI Validation & Enterprise Scale',
+    items: ['AI model validation framework', 'Enterprise AI governance', 'Year 2 roadmap'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 13, task: 'GxP AI validation framework: computer system validation (CSV) for all production AI models', owner: 'Quality Assurance VP' },
+      { week: 14, task: 'Enterprise AI governance: model risk management, change control, and audit trail compliance', owner: 'Chief Data Officer' },
+      { week: 15, task: 'Board presentation: $6.2M Year 1 savings confirmed, Year 2 roadmap ($10.8M target)', owner: 'OpCo General Manager' },
+      { week: 16, task: 'Hypercare and continuous improvement: AI model retraining, GxP re-validation cycles', owner: 'Clinical Systems Director' },
+    ],
+  },
+];
+
+const nbHealthTopOpportunities: Opportunity[] = [
+  { name: 'Clinical Trial Patient Recruitment AI', category: 'Clinical Ops', savings: 1_400_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 14, confidence: 82 },
+  { name: 'Pharmacovigilance Automation', category: 'Drug Safety', savings: 1_200_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 88 },
+  { name: 'Electronic Batch Record Deployment', category: 'Manufacturing', savings: 800_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 80 },
+  { name: 'Regulatory Submission Automation', category: 'Regulatory', savings: 1_000_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 84 },
+  { name: 'Lab Data Capture Automation', category: 'R&D', savings: 600_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 8, confidence: 90 },
+  { name: 'License Consolidation (Veeva/LIMS)', category: 'License Audit', savings: 920_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 95 },
+];
+
+const nbHealthCurrentStack: CurrentTool[] = [
+  { name: 'Veeva Vault Clinical', category: 'Clinical Suite', annualCost: 8_200_000, users: 2_800, score: 7, integrationComplexity: 'Medium', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['eTMF', 'CTMS', 'Clinical Data', 'Regulatory Submissions'] },
+  { name: 'LabWare LIMS', category: 'Lab Management', annualCost: 3_400_000, users: 1_600, score: 4, integrationComplexity: 'High', migrationWeeks: 28, riskLevel: 'High', dependencies: ['Sample Management', 'Test Results', 'Quality Control', 'Stability Studies'] },
+  { name: 'SAP S/4HANA', category: 'ERP', annualCost: 3_800_000, users: 4_200, score: 7, integrationComplexity: 'High', migrationWeeks: 24, riskLevel: 'High', dependencies: ['Finance', 'Procurement', 'Manufacturing', 'Quality Management'] },
+  { name: 'Medidata Rave', category: 'EDC', annualCost: 4_600_000, users: 1_200, score: 6, integrationComplexity: 'Medium', migrationWeeks: 20, riskLevel: 'Medium', dependencies: ['Electronic Data Capture', 'Patient Randomization', 'Clinical Analytics'] },
+  { name: 'TrackWise', category: 'Quality Management', annualCost: 2_200_000, users: 3_600, score: 5, integrationComplexity: 'Medium', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['CAPA', 'Deviation Management', 'Change Control', 'Complaint Handling'] },
+  { name: 'Argus Safety', category: 'Pharmacovigilance', annualCost: 1_800_000, users: 480, score: 5, integrationComplexity: 'High', migrationWeeks: 24, riskLevel: 'High', dependencies: ['Adverse Event Reporting', 'Signal Detection', 'CIOMS/MedWatch', 'PADER'] },
+];
+
+const nbHealthLicenses: License[] = [
+  { vendor: 'Veeva Vault', totalLicenses: 720, active90d: 540, inactive: 180, annualWaste: 380_000, action: 'Reclaim 180 inactive seats from completed trial teams', costPerLicense: 2_111, department: 'Clinical / Regulatory', lastAuditDate: '2026-01-18', trend: [85, 80, 76, 72, 70, 75], complianceRisk: false },
+  { vendor: 'LabWare LIMS', totalLicenses: 400, active90d: 280, inactive: 120, annualWaste: 260_000, action: 'Reclaim 120 seats + evaluate LIMS replacement', costPerLicense: 2_167, department: 'Lab Operations / QC', lastAuditDate: '2026-02-05', trend: [82, 76, 70, 66, 64, 70], complianceRisk: true },
+  { vendor: 'Medidata Rave', totalLicenses: 360, active90d: 280, inactive: 80, annualWaste: 180_000, action: 'Reclaim 80 seats from inactive study coordinators', costPerLicense: 2_250, department: 'Clinical Data Management', lastAuditDate: '2026-01-10', trend: [88, 84, 80, 78, 76, 78], complianceRisk: false },
+  { vendor: 'Argus Safety', totalLicenses: 160, active90d: 120, inactive: 40, annualWaste: 100_000, action: 'Optimize license tiers — downgrade 40 to read-only', costPerLicense: 2_500, department: 'Drug Safety / PV', lastAuditDate: '2025-12-20', trend: [86, 82, 78, 76, 74, 75], complianceRisk: false },
+];
+
+const nbHealthWorkflowSummary = {
+  total: 38,
+  fullyAutomatable: 14,
+  humanInLoop: 16,
+  humanRequired: 8,
+  currentLaborSpend: 14_400_000,
+  potentialSavings: 6_200_000,
+};
+
+const nbHealthRoiSummary = {
+  techStackSavings: 1_400_000,
+  workflowAutomation: 2_800_000,
+  licenseRecovery: 1_200_000,
+  implementationCosts: 2_200_000,
+  netYear1: 6_200_000,
+  year2Projected: 10_800_000,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
 // ─── Republic of Estonia — Digital Government (Sovereign) ────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -1944,6 +2480,542 @@ const estoniaRoiSummary = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
+// ─── Estonia: Fiscal Policy & Taxation (ee-finance) ──────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const eeFinanceCompanyProfile = {
+  name: 'Fiscal Policy & Taxation',
+  industry: 'Government — Tax & Revenue',
+  employees: 4_200,
+  revenue: '€2.8B budget',
+  opCos: 0,
+  opCoNames: [] as string[],
+  techSpend: '€14M/yr',
+  aiReadinessScore: 74,
+  holdingPeriod: 'Government agency',
+  ebitdaMargin: 'N/A',
+  targetEbitdaMargin: 'N/A',
+};
+
+const eeFinanceAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 82, maxScore: 100, status: 'Strong — e-MTA tax portal processes 680,000+ annual returns with structured data pipelines, real-time revenue tracking' },
+  { category: 'Process Maturity', score: 74, maxScore: 100, status: 'Above Average — 28 of 34 tax workflows digitized, but VAT cross-border reconciliation and audit selection still partially manual' },
+  { category: 'Tech Stack Modernity', score: 78, maxScore: 100, status: 'Advanced — SAP FICO core with e-MTA portal, though legacy customs declaration system needs modernization' },
+  { category: 'Change Readiness', score: 66, maxScore: 100, status: 'Moderate — finance staff receptive to automation, but tax auditors require retraining on AI-assisted risk scoring' },
+  { category: 'Skills & Training', score: 70, maxScore: 100, status: 'Developing — tax analytics team proficient in data science, but broader workforce needs AI literacy upskilling' },
+];
+
+const eeFinanceKpis = {
+  totalSavings: 5_200_000,
+  techScoreBefore: 74,
+  techScoreAfter: 95,
+  workflowsAnalyzed: 34,
+  automationReady: 18,
+  unusedLicenseWaste: 680_000,
+  savingsSparkline: [0, 520_000, 1_200_000, 2_100_000, 3_200_000, 4_000_000, 4_700_000, 5_200_000],
+  scoreSparkline: [74, 77, 80, 83, 87, 90, 93, 95],
+  workflowSparkline: [0, 4, 8, 14, 20, 26, 30, 34],
+  licenseSparkline: [680_000, 580_000, 480_000, 380_000, 280_000, 200_000, 140_000, 100_000],
+  headcountImpactSparkline: [0, -2, -6, -12, -18, -24, -28, -32],
+};
+
+const eeFinanceRoadmapPhases = [
+  {
+    quarter: 'Q1 2026',
+    title: 'Tax Automation Foundation',
+    items: ['e-MTA AI integration', 'Automated income tax verification', 'VAT compliance engine pilot'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 1, task: 'e-MTA portal AI gateway deployment for automated return processing', owner: 'Tax IT Director' },
+      { week: 2, task: 'Income tax verification model training on 680,000 historical returns', owner: 'Tax Analytics Lead' },
+      { week: 3, task: 'VAT cross-border reconciliation AI pilot with EU partner states', owner: 'VAT Compliance Manager' },
+      { week: 4, task: 'Q1 checkpoint: automated verification covering 40% of personal income returns', owner: 'Tax IT Director' },
+    ],
+  },
+  {
+    quarter: 'Q2 2026',
+    title: 'Fiscal Transparency & Budget Analytics',
+    items: ['Real-time budget dashboard', 'Expenditure anomaly detection', 'Revenue forecasting AI'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 5, task: 'SAP FICO integration for real-time budget execution monitoring across all ministries', owner: 'Budget Analytics Lead' },
+      { week: 6, task: 'Expenditure anomaly detection model deployment — flagging irregular spending patterns', owner: 'Fiscal Audit Director' },
+      { week: 7, task: 'Revenue forecasting AI: monthly tax revenue predictions with 96% accuracy target', owner: 'Tax Analytics Lead' },
+      { week: 8, task: 'Mid-year review: fiscal transparency dashboard live for all 8 ministry budget officers', owner: 'CFO, Ministry of Finance' },
+    ],
+  },
+  {
+    quarter: 'Q3 2026',
+    title: 'Audit & Compliance AI',
+    items: ['Risk-based audit selection', 'Transfer pricing analysis', 'Anti-fraud detection'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 9, task: 'AI-powered risk-based audit selection replacing random sampling — targeting 3x higher yield', owner: 'Tax Audit Director' },
+      { week: 10, task: 'Transfer pricing AI analysis for multinational corporations operating in Estonia', owner: 'International Tax Lead' },
+      { week: 11, task: 'Anti-fraud detection system: real-time VAT carousel fraud identification', owner: 'Fraud Prevention Unit' },
+      { week: 12, task: 'Q3 review: audit yield improved 180%, fraud detection rate up 220%', owner: 'Tax IT Director' },
+    ],
+  },
+  {
+    quarter: 'Q4 2026',
+    title: 'Full Tax Automation & EU Reporting',
+    items: ['End-to-end tax processing', 'EU DAC7/DAC8 compliance', 'Citizen tax assistant'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 13, task: 'End-to-end automated tax processing: 95% of returns processed without human intervention', owner: 'Tax IT Director' },
+      { week: 14, task: 'EU DAC7/DAC8 automated reporting for platform economy and crypto-asset transactions', owner: 'International Tax Lead' },
+      { week: 15, task: 'AI citizen tax assistant: natural language tax filing support in Estonian, Russian, English', owner: 'Citizen Services Lead' },
+      { week: 16, task: 'Annual review: €5.2M savings confirmed, AI readiness 95, EU compliance showcase', owner: 'CFO, Ministry of Finance' },
+    ],
+  },
+];
+
+const eeFinanceTopOpportunities: Opportunity[] = [
+  { name: 'Automated Tax Return Processing', category: 'Tax Automation', savings: 1_800_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 8, confidence: 94 },
+  { name: 'VAT Cross-Border Reconciliation', category: 'VAT Compliance', savings: 1_200_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 12, confidence: 88 },
+  { name: 'Budget Optimization Analytics', category: 'Budget Analytics', savings: 800_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 10, confidence: 86 },
+  { name: 'Risk-Based Audit Selection', category: 'Tax Audit', savings: 600_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 14, confidence: 82 },
+  { name: 'Revenue Forecasting AI', category: 'Fiscal Planning', savings: 480_000, effort: 'Low', status: 'identified', priority: 7, timeToValue: 8, confidence: 84 },
+  { name: 'Anti-Fraud Detection System', category: 'Fraud Prevention', savings: 320_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 16, confidence: 78 },
+];
+
+const eeFinanceCurrentStack: CurrentTool[] = [
+  { name: 'SAP FICO', category: 'Financial ERP', annualCost: 1_800_000, users: 840, score: 6, integrationComplexity: 'High', migrationWeeks: 20, riskLevel: 'High', dependencies: ['Budget Management', 'General Ledger', 'Financial Reporting'] },
+  { name: 'e-MTA Portal', category: 'Tax Platform', annualCost: 2_200_000, users: 4_200, score: 8, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Tax Filing', 'Return Processing', 'Taxpayer Registry'] },
+  { name: 'X-Road (Finance)', category: 'Data Exchange', annualCost: 400_000, users: 4_200, score: 8, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Cross-Ministry Data', 'Bank Integrations', 'EU Tax Exchange'] },
+  { name: 'Oracle BI', category: 'Analytics', annualCost: 480_000, users: 320, score: 5, integrationComplexity: 'Medium', migrationWeeks: 12, riskLevel: 'Medium', dependencies: ['Revenue Dashboards', 'Budget Reports', 'Audit Analytics'] },
+  { name: 'Customs Declaration System', category: 'Customs', annualCost: 600_000, users: 280, score: 4, integrationComplexity: 'High', migrationWeeks: 16, riskLevel: 'High', dependencies: ['Import/Export Processing', 'Tariff Classification', 'EU NCTS'] },
+  { name: 'PostgreSQL', category: 'Database', annualCost: 120_000, users: 420, score: 7, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['Tax Records', 'Audit Trails', 'Reporting Data'] },
+];
+
+const eeFinanceLicenses: License[] = [
+  { vendor: 'SAP FICO Suite', totalLicenses: 840, active90d: 620, inactive: 220, annualWaste: 330_000, action: 'Reclaim 220 inactive seats and consolidate to S/4HANA Finance', costPerLicense: 1_500, department: 'Ministry of Finance', lastAuditDate: '2026-01-15', trend: [78, 74, 72, 70, 68, 74], complianceRisk: false },
+  { vendor: 'Oracle BI Enterprise', totalLicenses: 320, active90d: 180, inactive: 140, annualWaste: 196_000, action: 'Migrate 140 seats to open-source Metabase or Superset', costPerLicense: 1_400, department: 'Budget Analytics Division', lastAuditDate: '2025-12-20', trend: [72, 66, 60, 56, 54, 56], complianceRisk: true },
+  { vendor: 'Microsoft 365 E3', totalLicenses: 4_200, active90d: 3_600, inactive: 600, annualWaste: 108_000, action: 'Downgrade 600 seats to F3 frontline tier', costPerLicense: 180, department: 'All Finance Divisions', lastAuditDate: '2026-02-01', trend: [90, 86, 84, 82, 80, 86], complianceRisk: false },
+  { vendor: 'Customs Legacy Modules', totalLicenses: 28, active90d: 14, inactive: 14, annualWaste: 46_000, action: 'Decommission legacy customs modules — migrate to EU NCTS Phase 5', costPerLicense: 3_286, department: 'Customs IT', lastAuditDate: '2025-11-10', trend: [58, 52, 48, 44, 42, 50], complianceRisk: true },
+];
+
+const eeFinanceWorkflowSummary = {
+  total: 34,
+  fullyAutomatable: 18,
+  humanInLoop: 10,
+  humanRequired: 6,
+  currentLaborSpend: 8_400_000,
+  potentialSavings: 5_200_000,
+};
+
+const eeFinanceRoiSummary = {
+  techStackSavings: 1_200_000,
+  workflowAutomation: 2_400_000,
+  licenseRecovery: 680_000,
+  implementationCosts: 1_480_000,
+  netYear1: 5_200_000,
+  year2Projected: 7_800_000,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Estonia: Healthcare & Social Welfare (ee-social) ────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const eeSocialCompanyProfile = {
+  name: 'Healthcare & Social Welfare',
+  industry: 'Government — Health & Social Services',
+  employees: 8_400,
+  revenue: '€4.2B budget',
+  opCos: 0,
+  opCoNames: [] as string[],
+  techSpend: '€28M/yr',
+  aiReadinessScore: 68,
+  holdingPeriod: 'Government agency',
+  ebitdaMargin: 'N/A',
+  targetEbitdaMargin: 'N/A',
+};
+
+const eeSocialAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 72, maxScore: 100, status: 'Good — TEHIK health information system connects 400+ healthcare providers, but social welfare data silos persist across regional offices' },
+  { category: 'Process Maturity', score: 64, maxScore: 100, status: 'Moderate — benefits processing 70% digitized, but case management and eligibility verification require significant manual review' },
+  { category: 'Tech Stack Modernity', score: 68, maxScore: 100, status: 'Mixed — TEHIK modern health records coexist with legacy social welfare case management system built in 2008' },
+  { category: 'Change Readiness', score: 62, maxScore: 100, status: 'Moderate — healthcare staff open to AI diagnostics, but social workers concerned about algorithmic bias in benefits decisions' },
+  { category: 'Skills & Training', score: 58, maxScore: 100, status: 'Developing — clinical informaticists strong, but social welfare workforce needs substantial AI literacy and change management support' },
+];
+
+const eeSocialKpis = {
+  totalSavings: 6_800_000,
+  techScoreBefore: 68,
+  techScoreAfter: 93,
+  workflowsAnalyzed: 42,
+  automationReady: 22,
+  unusedLicenseWaste: 920_000,
+  savingsSparkline: [0, 680_000, 1_600_000, 2_800_000, 4_000_000, 5_200_000, 6_100_000, 6_800_000],
+  scoreSparkline: [68, 71, 75, 79, 83, 87, 90, 93],
+  workflowSparkline: [0, 5, 10, 18, 26, 32, 38, 42],
+  licenseSparkline: [920_000, 800_000, 680_000, 540_000, 400_000, 300_000, 220_000, 160_000],
+  headcountImpactSparkline: [0, -3, -8, -16, -26, -38, -48, -56],
+};
+
+const eeSocialRoadmapPhases = [
+  {
+    quarter: 'Q1 2026',
+    title: 'Health Records AI Integration',
+    items: ['TEHIK AI diagnostic support', 'Patient timeline unification', 'Prescription fraud detection'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 1, task: 'TEHIK health information system AI gateway — enabling cross-provider patient data analysis', owner: 'TEHIK Director' },
+      { week: 2, task: 'Patient timeline unification: merging records from 400+ providers into single longitudinal view', owner: 'Health IT Architect' },
+      { week: 3, task: 'Prescription fraud detection model training on 5 years of dispensing data', owner: 'Health Insurance Fund IT' },
+      { week: 4, task: 'Q1 checkpoint: unified patient timeline operational for 50 pilot clinics', owner: 'TEHIK Director' },
+    ],
+  },
+  {
+    quarter: 'Q2 2026',
+    title: 'Benefits & Case Management AI',
+    items: ['Automated eligibility verification', 'Benefits fraud detection', 'Case priority scoring'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 5, task: 'Automated benefits eligibility verification via X-Road cross-registry lookups', owner: 'Social Welfare IT Lead' },
+      { week: 6, task: 'Benefits fraud detection AI: pattern analysis across pension, disability, and child benefits', owner: 'Fraud Prevention Unit' },
+      { week: 7, task: 'Social worker case priority scoring — AI-assisted urgency triage for 12,000 active cases', owner: 'Case Management Director' },
+      { week: 8, task: 'Mid-year review: eligibility processing time reduced 60%, fraud detection rate up 150%', owner: 'Deputy Minister, Social Affairs' },
+    ],
+  },
+  {
+    quarter: 'Q3 2026',
+    title: 'Predictive Health & Welfare Analytics',
+    items: ['Population health risk models', 'Early intervention alerts', 'Resource allocation optimization'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 9, task: 'Population health risk model: predicting chronic disease onset for preventive intervention', owner: 'Public Health Director' },
+      { week: 10, task: 'Early intervention alert system for at-risk families and vulnerable populations', owner: 'Social Welfare IT Lead' },
+      { week: 11, task: 'Hospital resource allocation AI: bed management, staffing, and equipment optimization', owner: 'Hospital Network Director' },
+      { week: 12, task: 'Q3 review: preventive interventions increased 40%, hospital wait times reduced 25%', owner: 'TEHIK Director' },
+    ],
+  },
+  {
+    quarter: 'Q4 2026',
+    title: 'Citizen Health Portal & Full Automation',
+    items: ['AI health assistant', 'Automated referral processing', 'EU health data space compliance'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 13, task: 'AI citizen health assistant: symptom checker, appointment booking, medication reminders', owner: 'Citizen Health Services Lead' },
+      { week: 14, task: 'Automated referral processing: GP to specialist routing with AI-suggested pathways', owner: 'Primary Care IT Lead' },
+      { week: 15, task: 'EU European Health Data Space (EHDS) compliance and cross-border health record exchange', owner: 'EU Compliance Officer' },
+      { week: 16, task: 'Annual review: €6.8M savings confirmed, 93 AI readiness, 42 workflows automated', owner: 'Deputy Minister, Social Affairs' },
+    ],
+  },
+];
+
+const eeSocialTopOpportunities: Opportunity[] = [
+  { name: 'TEHIK Health Records AI', category: 'Health IT', savings: 2_400_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 14, confidence: 86 },
+  { name: 'Benefits Eligibility Automation', category: 'Social Welfare', savings: 1_600_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 88 },
+  { name: 'Case Management AI', category: 'Social Services', savings: 1_000_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 82 },
+  { name: 'Prescription Fraud Detection', category: 'Health Insurance', savings: 800_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 90 },
+  { name: 'Population Health Analytics', category: 'Public Health', savings: 600_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 16, confidence: 76 },
+  { name: 'Hospital Resource Optimization', category: 'Healthcare Operations', savings: 400_000, effort: 'High', status: 'identified', priority: 6, timeToValue: 18, confidence: 74 },
+];
+
+const eeSocialCurrentStack: CurrentTool[] = [
+  { name: 'TEHIK', category: 'Health Information', annualCost: 4_600_000, users: 8_200, score: 7, integrationComplexity: 'Medium', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Patient Records', 'Prescription System', 'Lab Results'] },
+  { name: 'Social Welfare Legacy', category: 'Case Management', annualCost: 1_200_000, users: 3_400, score: 3, integrationComplexity: 'High', migrationWeeks: 28, riskLevel: 'High', dependencies: ['Benefits Processing', 'Case Tracking', 'Eligibility Verification'] },
+  { name: 'Health Insurance Fund IS', category: 'Insurance', annualCost: 1_800_000, users: 1_200, score: 6, integrationComplexity: 'Medium', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Claims Processing', 'Provider Payments', 'Coverage Verification'] },
+  { name: 'X-Road (Social)', category: 'Data Exchange', annualCost: 300_000, users: 8_400, score: 8, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Cross-Registry Lookups', 'Benefit Verification', 'Health Data Exchange'] },
+  { name: 'Pension Registry', category: 'Pension Management', annualCost: 600_000, users: 420, score: 5, integrationComplexity: 'Medium', migrationWeeks: 12, riskLevel: 'Medium', dependencies: ['Pension Calculations', 'Benefit Disbursement', 'Retirement Processing'] },
+  { name: 'PostgreSQL', category: 'Database', annualCost: 180_000, users: 840, score: 7, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['Social Welfare Data', 'Benefits Records', 'Case History'] },
+];
+
+const eeSocialLicenses: License[] = [
+  { vendor: 'Social Welfare Legacy Suite', totalLicenses: 3_400, active90d: 2_200, inactive: 1_200, annualWaste: 420_000, action: 'Replace legacy system with modern case management platform', costPerLicense: 350, department: 'Social Welfare Division', lastAuditDate: '2025-12-01', trend: [72, 68, 64, 62, 60, 65], complianceRisk: true },
+  { vendor: 'Health Insurance Fund IS', totalLicenses: 1_200, active90d: 880, inactive: 320, annualWaste: 256_000, action: 'Consolidate 320 inactive seats, modernize claims processing', costPerLicense: 800, department: 'Health Insurance Fund', lastAuditDate: '2026-01-20', trend: [80, 76, 74, 72, 70, 73], complianceRisk: false },
+  { vendor: 'Microsoft 365 E3', totalLicenses: 8_400, active90d: 7_200, inactive: 1_200, annualWaste: 144_000, action: 'Downgrade 1,200 inactive seats to F1 tier', costPerLicense: 120, department: 'All Social Affairs', lastAuditDate: '2026-02-10', trend: [88, 86, 84, 82, 80, 86], complianceRisk: false },
+  { vendor: 'Pension Registry Modules', totalLicenses: 420, active90d: 320, inactive: 100, annualWaste: 100_000, action: 'Retire 100 unused modules, migrate to unified benefits platform', costPerLicense: 1_000, department: 'Pension Division', lastAuditDate: '2025-11-15', trend: [82, 78, 76, 74, 72, 76], complianceRisk: false },
+];
+
+const eeSocialWorkflowSummary = {
+  total: 42,
+  fullyAutomatable: 22,
+  humanInLoop: 12,
+  humanRequired: 8,
+  currentLaborSpend: 12_600_000,
+  potentialSavings: 6_800_000,
+};
+
+const eeSocialRoiSummary = {
+  techStackSavings: 1_600_000,
+  workflowAutomation: 3_200_000,
+  licenseRecovery: 920_000,
+  implementationCosts: 2_120_000,
+  netYear1: 6_800_000,
+  year2Projected: 10_200_000,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Estonia: Trade & Digital Economy (ee-economic) ──────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const eeEconomicCompanyProfile = {
+  name: 'Trade & Digital Economy',
+  industry: 'Government — Economic Affairs & Digital Trade',
+  employees: 5_200,
+  revenue: '€3.1B budget',
+  opCos: 0,
+  opCoNames: [] as string[],
+  techSpend: '€18M/yr',
+  aiReadinessScore: 76,
+  holdingPeriod: 'Government agency',
+  ebitdaMargin: 'N/A',
+  targetEbitdaMargin: 'N/A',
+};
+
+const eeEconomicAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 80, maxScore: 100, status: 'Strong — e-Residency platform and Business Registry provide structured digital-first data, real-time trade analytics pipeline operational' },
+  { category: 'Process Maturity', score: 76, maxScore: 100, status: 'Above Average — e-Residency onboarding fully automated, but trade facilitation and export licensing retain manual checkpoints' },
+  { category: 'Tech Stack Modernity', score: 82, maxScore: 100, status: 'Advanced — e-Residency built cloud-native, Business Registry on modern stack, though trade compliance tools are aging' },
+  { category: 'Change Readiness', score: 70, maxScore: 100, status: 'Good — digital economy team highly innovative, but trade compliance officers cautious about AI-driven export controls' },
+  { category: 'Skills & Training', score: 72, maxScore: 100, status: 'Good — e-Residency team has strong engineering culture, trade division needs upskilling in AI-assisted decision support' },
+];
+
+const eeEconomicKpis = {
+  totalSavings: 3_400_000,
+  techScoreBefore: 76,
+  techScoreAfter: 95,
+  workflowsAnalyzed: 26,
+  automationReady: 14,
+  unusedLicenseWaste: 420_000,
+  savingsSparkline: [0, 340_000, 800_000, 1_400_000, 2_100_000, 2_700_000, 3_100_000, 3_400_000],
+  scoreSparkline: [76, 79, 82, 85, 88, 91, 93, 95],
+  workflowSparkline: [0, 3, 6, 10, 16, 20, 24, 26],
+  licenseSparkline: [420_000, 360_000, 300_000, 240_000, 180_000, 130_000, 90_000, 60_000],
+  headcountImpactSparkline: [0, -1, -4, -8, -12, -18, -22, -26],
+};
+
+const eeEconomicRoadmapPhases = [
+  {
+    quarter: 'Q1 2026',
+    title: 'e-Residency AI Enhancement',
+    items: ['AI-powered applicant screening', 'Business Registry automation', 'Digital onboarding optimization'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 1, task: 'e-Residency AI applicant screening: automated risk assessment for 10,000+ monthly applications', owner: 'e-Residency Program Director' },
+      { week: 2, task: 'Business Registry automation: AI-assisted company formation reducing processing from 3 hours to 15 minutes', owner: 'Business Registry IT Lead' },
+      { week: 3, task: 'Digital onboarding optimization: AI chatbot for e-Resident support in 12 languages', owner: 'e-Residency CX Lead' },
+      { week: 4, task: 'Q1 checkpoint: applicant processing time reduced 70%, approval accuracy at 98%', owner: 'e-Residency Program Director' },
+    ],
+  },
+  {
+    quarter: 'Q2 2026',
+    title: 'Trade Facilitation & Export Licensing',
+    items: ['Automated trade compliance', 'Export license processing', 'Customs AI integration'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 5, task: 'Automated trade compliance checks against EU sanctions lists and dual-use regulations', owner: 'Trade Compliance Director' },
+      { week: 6, task: 'Export license AI processing: document analysis and risk scoring for controlled goods', owner: 'Export Control IT Lead' },
+      { week: 7, task: 'Customs AI integration: automated tariff classification and origin determination', owner: 'Customs Modernization Lead' },
+      { week: 8, task: 'Mid-year review: trade processing time reduced 50%, compliance accuracy improved to 99.2%', owner: 'Deputy Minister, Economic Affairs' },
+    ],
+  },
+  {
+    quarter: 'Q3 2026',
+    title: 'Digital Economy Analytics',
+    items: ['Economic impact modeling', 'Startup ecosystem AI', 'Investment facilitation'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 9, task: 'Economic impact modeling: AI-driven analysis of e-Residency contribution to GDP', owner: 'Economic Analysis Director' },
+      { week: 10, task: 'Startup ecosystem AI: automated grant evaluation and investment matching for 1,200+ startups', owner: 'Startup Estonia Lead' },
+      { week: 11, task: 'Investment facilitation AI: predictive FDI targeting based on global economic signals', owner: 'Investment Agency Director' },
+      { week: 12, task: 'Q3 review: e-Residency revenue up 25%, startup grant processing time halved', owner: 'e-Residency Program Director' },
+    ],
+  },
+  {
+    quarter: 'Q4 2026',
+    title: 'Full Digital Economy Platform',
+    items: ['Unified business services portal', 'Cross-border trade AI', 'EU Digital Markets compliance'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 13, task: 'Unified business services portal: single AI-powered entry point for all economic affairs services', owner: 'Digital Economy IT Lead' },
+      { week: 14, task: 'Cross-border trade AI: automated documentation and compliance for 150+ trading partners', owner: 'Trade Compliance Director' },
+      { week: 15, task: 'EU Digital Markets Act compliance monitoring: automated platform regulation enforcement', owner: 'EU Compliance Officer' },
+      { week: 16, task: 'Annual review: €3.4M savings confirmed, 95 AI readiness, trade digitization showcase', owner: 'Deputy Minister, Economic Affairs' },
+    ],
+  },
+];
+
+const eeEconomicTopOpportunities: Opportunity[] = [
+  { name: 'e-Residency AI Screening', category: 'Digital Identity', savings: 1_000_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 8, confidence: 92 },
+  { name: 'Trade Compliance Automation', category: 'Trade Facilitation', savings: 800_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 12, confidence: 84 },
+  { name: 'Business Registry Automation', category: 'Business Services', savings: 600_000, effort: 'Low', status: 'automated', priority: 9, timeToValue: 6, confidence: 94 },
+  { name: 'Export License AI Processing', category: 'Export Control', savings: 400_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 14, confidence: 80 },
+  { name: 'Startup Grant Evaluation AI', category: 'Innovation', savings: 340_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 82 },
+  { name: 'FDI Predictive Targeting', category: 'Investment', savings: 260_000, effort: 'High', status: 'identified', priority: 6, timeToValue: 18, confidence: 72 },
+];
+
+const eeEconomicCurrentStack: CurrentTool[] = [
+  { name: 'e-Residency Platform', category: 'Digital Identity', annualCost: 1_800_000, users: 100_000, score: 9, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Digital Residency', 'Applicant Screening', 'ID Issuance'] },
+  { name: 'Business Registry IS', category: 'Registry', annualCost: 800_000, users: 2_400, score: 7, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['Company Formation', 'Annual Reports', 'Shareholder Registry'] },
+  { name: 'Trade Compliance System', category: 'Trade', annualCost: 600_000, users: 480, score: 5, integrationComplexity: 'Medium', migrationWeeks: 14, riskLevel: 'Medium', dependencies: ['Sanctions Screening', 'Export Controls', 'Customs Declarations'] },
+  { name: 'X-Road (Economic)', category: 'Data Exchange', annualCost: 350_000, users: 5_200, score: 8, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Cross-Ministry Data', 'Business Verification', 'Tax Data Exchange'] },
+  { name: 'Startup Estonia Portal', category: 'Innovation', annualCost: 280_000, users: 1_200, score: 7, integrationComplexity: 'Low', migrationWeeks: 6, riskLevel: 'Low', dependencies: ['Grant Applications', 'Startup Directory', 'Mentor Matching'] },
+  { name: 'PostgreSQL', category: 'Database', annualCost: 140_000, users: 520, score: 7, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['Trade Records', 'Business Data', 'Economic Statistics'] },
+];
+
+const eeEconomicLicenses: License[] = [
+  { vendor: 'Trade Compliance Suite', totalLicenses: 480, active90d: 320, inactive: 160, annualWaste: 192_000, action: 'Replace legacy trade compliance with AI-native solution', costPerLicense: 1_200, department: 'Trade & Customs Division', lastAuditDate: '2025-12-15', trend: [74, 70, 66, 64, 62, 67], complianceRisk: true },
+  { vendor: 'Microsoft 365 E3', totalLicenses: 5_200, active90d: 4_400, inactive: 800, annualWaste: 96_000, action: 'Downgrade 800 inactive to F1 tier', costPerLicense: 120, department: 'All Economic Affairs', lastAuditDate: '2026-02-01', trend: [88, 86, 84, 82, 80, 85], complianceRisk: false },
+  { vendor: 'Salesforce Gov Cloud', totalLicenses: 240, active90d: 180, inactive: 60, annualWaste: 84_000, action: 'Consolidate 60 seats — evaluate migration to open-source CRM', costPerLicense: 1_400, department: 'Investment Agency', lastAuditDate: '2026-01-05', trend: [82, 78, 76, 72, 70, 75], complianceRisk: false },
+  { vendor: 'Data Analytics Platform', totalLicenses: 120, active90d: 84, inactive: 36, annualWaste: 48_000, action: 'Migrate to unified analytics on Metabase', costPerLicense: 1_333, department: 'Economic Analysis', lastAuditDate: '2025-11-20', trend: [76, 72, 68, 66, 64, 70], complianceRisk: false },
+];
+
+const eeEconomicWorkflowSummary = {
+  total: 26,
+  fullyAutomatable: 14,
+  humanInLoop: 8,
+  humanRequired: 4,
+  currentLaborSpend: 6_200_000,
+  potentialSavings: 3_400_000,
+};
+
+const eeEconomicRoiSummary = {
+  techStackSavings: 800_000,
+  workflowAutomation: 1_600_000,
+  licenseRecovery: 420_000,
+  implementationCosts: 1_020_000,
+  netYear1: 3_400_000,
+  year2Projected: 5_100_000,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Estonia: Cybersecurity & IT (ee-ria) ────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const eeRiaCompanyProfile = {
+  name: 'Cybersecurity & IT (RIA)',
+  industry: 'Government — Cybersecurity & Information Systems',
+  employees: 480,
+  revenue: '€120M budget',
+  opCos: 0,
+  opCoNames: [] as string[],
+  techSpend: '€42M/yr',
+  aiReadinessScore: 78,
+  holdingPeriod: 'Government agency',
+  ebitdaMargin: 'N/A',
+  targetEbitdaMargin: 'N/A',
+};
+
+const eeRiaAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 84, maxScore: 100, status: 'Strong — X-Road infrastructure generates rich telemetry, SIEM collects 2M+ events/day, comprehensive threat intelligence feeds' },
+  { category: 'Process Maturity', score: 78, maxScore: 100, status: 'Above Average — incident response well-structured, but vulnerability management and patch coordination across 900+ services partially manual' },
+  { category: 'Tech Stack Modernity', score: 82, maxScore: 100, status: 'Advanced — modern SIEM/SOAR stack, X-Road 7.0, eID infrastructure, though legacy vulnerability scanning tools need replacement' },
+  { category: 'Change Readiness', score: 74, maxScore: 100, status: 'Good — cybersecurity team embraces AI-powered threat detection, strong culture of innovation at RIA' },
+  { category: 'Skills & Training', score: 72, maxScore: 100, status: 'Good — world-class cyber defense talent from NATO CCDCOE collaboration, but AI/ML specialization needs deepening' },
+];
+
+const eeRiaKpis = {
+  totalSavings: 3_200_000,
+  techScoreBefore: 78,
+  techScoreAfter: 96,
+  workflowsAnalyzed: 24,
+  automationReady: 14,
+  unusedLicenseWaste: 380_000,
+  savingsSparkline: [0, 320_000, 740_000, 1_300_000, 1_900_000, 2_500_000, 2_900_000, 3_200_000],
+  scoreSparkline: [78, 81, 84, 87, 90, 92, 94, 96],
+  workflowSparkline: [0, 3, 6, 10, 14, 18, 22, 24],
+  licenseSparkline: [380_000, 320_000, 260_000, 200_000, 150_000, 110_000, 80_000, 50_000],
+  headcountImpactSparkline: [0, -1, -3, -6, -10, -14, -18, -20],
+};
+
+const eeRiaRoadmapPhases = [
+  {
+    quarter: 'Q1 2026',
+    title: 'AI-Powered Threat Detection',
+    items: ['SIEM AI enhancement', 'Automated threat hunting', 'X-Road anomaly detection'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 1, task: 'SIEM AI model deployment: real-time threat classification on 2M+ daily events', owner: 'SOC Director' },
+      { week: 2, task: 'Automated threat hunting: AI-driven proactive scanning across all government network segments', owner: 'Threat Intelligence Lead' },
+      { week: 3, task: 'X-Road anomaly detection: AI monitoring of data exchange patterns for 900+ connected services', owner: 'X-Road Security Lead' },
+      { week: 4, task: 'Q1 checkpoint: mean time to detect (MTTD) reduced from 4 hours to 12 minutes', owner: 'SOC Director' },
+    ],
+  },
+  {
+    quarter: 'Q2 2026',
+    title: 'Vulnerability Management Automation',
+    items: ['AI vulnerability scanning', 'Automated patch prioritization', 'eID security enhancement'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 5, task: 'AI vulnerability scanning: continuous assessment of 900+ government services and 14,000 endpoints', owner: 'Vulnerability Management Lead' },
+      { week: 6, task: 'Automated patch prioritization: risk-based scoring replacing manual CVE triage', owner: 'Patch Coordination Lead' },
+      { week: 7, task: 'eID/Smart-ID security enhancement: AI-powered authentication anomaly detection', owner: 'eID Security Lead' },
+      { week: 8, task: 'Mid-year review: vulnerability remediation time reduced 65%, zero critical unpatched systems', owner: 'CISO' },
+    ],
+  },
+  {
+    quarter: 'Q3 2026',
+    title: 'Incident Response Automation',
+    items: ['SOAR playbook AI', 'Automated forensics', 'Cross-border threat sharing'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 9, task: 'SOAR playbook AI: automated incident response for 80% of common attack patterns', owner: 'Incident Response Lead' },
+      { week: 10, task: 'Automated digital forensics: AI-assisted evidence collection and timeline reconstruction', owner: 'Forensics Team Lead' },
+      { week: 11, task: 'Cross-border threat sharing: AI-curated threat intel exchange with NATO CCDCOE and EU CERT', owner: 'Threat Intelligence Lead' },
+      { week: 12, task: 'Q3 review: mean time to respond (MTTR) reduced from 6 hours to 45 minutes', owner: 'SOC Director' },
+    ],
+  },
+  {
+    quarter: 'Q4 2026',
+    title: 'Full Cyber Defense AI & National Resilience',
+    items: ['AI cyber range', 'Predictive defense posture', 'National cyber resilience score'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 13, task: 'AI cyber range: automated adversary simulation for continuous defense testing', owner: 'Red Team Lead' },
+      { week: 14, task: 'Predictive defense posture: AI forecasting emerging threats based on global attack trends', owner: 'Threat Intelligence Lead' },
+      { week: 15, task: 'National cyber resilience scoring: real-time security posture assessment across all government systems', owner: 'CISO' },
+      { week: 16, task: 'Annual review: €3.2M savings, 96 AI readiness, Estonia ranked #1 EU cyber resilience', owner: 'RIA Director General' },
+    ],
+  },
+];
+
+const eeRiaTopOpportunities: Opportunity[] = [
+  { name: 'AI-Powered SIEM', category: 'Threat Detection', savings: 1_000_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 8, confidence: 92 },
+  { name: 'Automated Vulnerability Scanning', category: 'Vulnerability Management', savings: 680_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 88 },
+  { name: 'X-Road Anomaly Detection', category: 'Infrastructure Security', savings: 520_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 8, confidence: 90 },
+  { name: 'SOAR Playbook Automation', category: 'Incident Response', savings: 440_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 84 },
+  { name: 'eID Security Enhancement', category: 'Identity Security', savings: 320_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 14, confidence: 80 },
+  { name: 'Automated Digital Forensics', category: 'Forensics', savings: 240_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 16, confidence: 76 },
+];
+
+const eeRiaCurrentStack: CurrentTool[] = [
+  { name: 'X-Road 7.0 (Core)', category: 'Data Exchange', annualCost: 2_400_000, users: 480, score: 9, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Government Data Exchange', 'Service Registry', 'API Gateway'] },
+  { name: 'Splunk SIEM', category: 'Security Monitoring', annualCost: 1_600_000, users: 120, score: 7, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Medium', dependencies: ['Log Aggregation', 'Threat Detection', 'Compliance Monitoring'] },
+  { name: 'Palo Alto SOAR', category: 'Incident Response', annualCost: 800_000, users: 60, score: 7, integrationComplexity: 'Medium', migrationWeeks: 6, riskLevel: 'Medium', dependencies: ['Playbook Automation', 'Incident Orchestration', 'Alert Triage'] },
+  { name: 'Tenable.io', category: 'Vulnerability Scanning', annualCost: 480_000, users: 80, score: 6, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['Asset Discovery', 'CVE Scanning', 'Risk Scoring'] },
+  { name: 'eID Infrastructure', category: 'Identity', annualCost: 3_200_000, users: 480, score: 9, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Citizen Authentication', 'Digital Signatures', 'Smart-ID'] },
+  { name: 'CrowdStrike Falcon', category: 'Endpoint Security', annualCost: 360_000, users: 14_000, score: 8, integrationComplexity: 'Low', migrationWeeks: 2, riskLevel: 'Low', dependencies: ['Endpoint Detection', 'Threat Response', 'Device Management'] },
+];
+
+const eeRiaLicenses: License[] = [
+  { vendor: 'Splunk Enterprise', totalLicenses: 120, active90d: 88, inactive: 32, annualWaste: 160_000, action: 'Consolidate 32 inactive seats, evaluate AI-native SIEM alternatives', costPerLicense: 5_000, department: 'SOC / Threat Detection', lastAuditDate: '2026-01-10', trend: [80, 76, 74, 72, 70, 73], complianceRisk: false },
+  { vendor: 'Tenable.io', totalLicenses: 80, active90d: 56, inactive: 24, annualWaste: 96_000, action: 'Replace 24 legacy scanner licenses with AI-powered continuous scanning', costPerLicense: 4_000, department: 'Vulnerability Management', lastAuditDate: '2025-12-20', trend: [78, 72, 68, 66, 64, 70], complianceRisk: false },
+  { vendor: 'Palo Alto XSOAR', totalLicenses: 60, active90d: 48, inactive: 12, annualWaste: 72_000, action: 'Optimize playbook coverage to utilize all 60 licenses effectively', costPerLicense: 6_000, department: 'Incident Response', lastAuditDate: '2026-01-25', trend: [86, 82, 80, 78, 76, 80], complianceRisk: false },
+  { vendor: 'CrowdStrike Falcon', totalLicenses: 14_000, active90d: 12_800, inactive: 1_200, annualWaste: 52_000, action: 'Reclaim 1,200 seats from decommissioned endpoints', costPerLicense: 43, department: 'All Government Endpoints', lastAuditDate: '2026-02-05', trend: [94, 92, 90, 88, 86, 91], complianceRisk: false },
+];
+
+const eeRiaWorkflowSummary = {
+  total: 24,
+  fullyAutomatable: 14,
+  humanInLoop: 6,
+  humanRequired: 4,
+  currentLaborSpend: 5_800_000,
+  potentialSavings: 3_200_000,
+};
+
+const eeRiaRoiSummary = {
+  techStackSavings: 800_000,
+  workflowAutomation: 1_400_000,
+  licenseRecovery: 380_000,
+  implementationCosts: 980_000,
+  netYear1: 3_200_000,
+  year2Projected: 4_800_000,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
 // ─── Company Data Lookup Maps ──────────────────────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -1955,7 +3027,15 @@ const companyProfiles: Record<string, typeof companyProfile> = {
   pinnacle: pinnacleCompanyProfile,
   atlas: atlasCompanyProfile,
   northbridge: northbridgeCompanyProfile,
+  'nb-aerospace': nbAerospaceCompanyProfile,
+  'nb-energy': nbEnergyCompanyProfile,
+  'nb-financial': nbFinancialCompanyProfile,
+  'nb-health': nbHealthCompanyProfile,
   estonia: estoniaCompanyProfile,
+  'ee-finance': eeFinanceCompanyProfile,
+  'ee-social': eeSocialCompanyProfile,
+  'ee-economic': eeEconomicCompanyProfile,
+  'ee-ria': eeRiaCompanyProfile,
 };
 
 const companyAiReadiness: Record<string, typeof aiReadinessBreakdown> = {
@@ -1964,7 +3044,15 @@ const companyAiReadiness: Record<string, typeof aiReadinessBreakdown> = {
   pinnacle: pinnacleAiReadinessBreakdown,
   atlas: atlasAiReadinessBreakdown,
   northbridge: northbridgeAiReadinessBreakdown,
+  'nb-aerospace': nbAerospaceAiReadinessBreakdown,
+  'nb-energy': nbEnergyAiReadinessBreakdown,
+  'nb-financial': nbFinancialAiReadinessBreakdown,
+  'nb-health': nbHealthAiReadinessBreakdown,
   estonia: estoniaAiReadinessBreakdown,
+  'ee-finance': eeFinanceAiReadinessBreakdown,
+  'ee-social': eeSocialAiReadinessBreakdown,
+  'ee-economic': eeEconomicAiReadinessBreakdown,
+  'ee-ria': eeRiaAiReadinessBreakdown,
 };
 
 const companyKpis: Record<string, typeof kpis> = {
@@ -1973,7 +3061,15 @@ const companyKpis: Record<string, typeof kpis> = {
   pinnacle: pinnacleKpis,
   atlas: atlasKpis,
   northbridge: northbridgeKpis,
+  'nb-aerospace': nbAerospaceKpis,
+  'nb-energy': nbEnergyKpis,
+  'nb-financial': nbFinancialKpis,
+  'nb-health': nbHealthKpis,
   estonia: estoniaKpis,
+  'ee-finance': eeFinanceKpis,
+  'ee-social': eeSocialKpis,
+  'ee-economic': eeEconomicKpis,
+  'ee-ria': eeRiaKpis,
 };
 
 const companyRoadmapPhases: Record<string, typeof roadmapPhases> = {
@@ -1982,7 +3078,15 @@ const companyRoadmapPhases: Record<string, typeof roadmapPhases> = {
   pinnacle: pinnacleRoadmapPhases,
   atlas: atlasRoadmapPhases,
   northbridge: northbridgeRoadmapPhases,
+  'nb-aerospace': nbAerospaceRoadmapPhases,
+  'nb-energy': nbEnergyRoadmapPhases,
+  'nb-financial': nbFinancialRoadmapPhases,
+  'nb-health': nbHealthRoadmapPhases,
   estonia: estoniaRoadmapPhases,
+  'ee-finance': eeFinanceRoadmapPhases,
+  'ee-social': eeSocialRoadmapPhases,
+  'ee-economic': eeEconomicRoadmapPhases,
+  'ee-ria': eeRiaRoadmapPhases,
 };
 
 const companyTopOpportunities: Record<string, Opportunity[]> = {
@@ -1991,7 +3095,15 @@ const companyTopOpportunities: Record<string, Opportunity[]> = {
   pinnacle: pinnacleTopOpportunities,
   atlas: atlasTopOpportunities,
   northbridge: northbridgeTopOpportunities,
+  'nb-aerospace': nbAerospaceTopOpportunities,
+  'nb-energy': nbEnergyTopOpportunities,
+  'nb-financial': nbFinancialTopOpportunities,
+  'nb-health': nbHealthTopOpportunities,
   estonia: estoniaTopOpportunities,
+  'ee-finance': eeFinanceTopOpportunities,
+  'ee-social': eeSocialTopOpportunities,
+  'ee-economic': eeEconomicTopOpportunities,
+  'ee-ria': eeRiaTopOpportunities,
 };
 
 const companyCurrentStack: Record<string, CurrentTool[]> = {
@@ -2000,7 +3112,15 @@ const companyCurrentStack: Record<string, CurrentTool[]> = {
   pinnacle: pinnacleCurrentStack,
   atlas: atlasCurrentStack,
   northbridge: northbridgeCurrentStack,
+  'nb-aerospace': nbAerospaceCurrentStack,
+  'nb-energy': nbEnergyCurrentStack,
+  'nb-financial': nbFinancialCurrentStack,
+  'nb-health': nbHealthCurrentStack,
   estonia: estoniaCurrentStack,
+  'ee-finance': eeFinanceCurrentStack,
+  'ee-social': eeSocialCurrentStack,
+  'ee-economic': eeEconomicCurrentStack,
+  'ee-ria': eeRiaCurrentStack,
 };
 
 const companyLicenses: Record<string, License[]> = {
@@ -2009,7 +3129,15 @@ const companyLicenses: Record<string, License[]> = {
   pinnacle: pinnacleLicenses,
   atlas: atlasLicenses,
   northbridge: northbridgeLicenses,
+  'nb-aerospace': nbAerospaceLicenses,
+  'nb-energy': nbEnergyLicenses,
+  'nb-financial': nbFinancialLicenses,
+  'nb-health': nbHealthLicenses,
   estonia: estoniaLicenses,
+  'ee-finance': eeFinanceLicenses,
+  'ee-social': eeSocialLicenses,
+  'ee-economic': eeEconomicLicenses,
+  'ee-ria': eeRiaLicenses,
 };
 
 const companyWorkflowSummaries: Record<string, typeof workflowSummary> = {
@@ -2018,7 +3146,15 @@ const companyWorkflowSummaries: Record<string, typeof workflowSummary> = {
   pinnacle: pinnacleWorkflowSummary,
   atlas: atlasWorkflowSummary,
   northbridge: northbridgeWorkflowSummary,
+  'nb-aerospace': nbAerospaceWorkflowSummary,
+  'nb-energy': nbEnergyWorkflowSummary,
+  'nb-financial': nbFinancialWorkflowSummary,
+  'nb-health': nbHealthWorkflowSummary,
   estonia: estoniaWorkflowSummary,
+  'ee-finance': eeFinanceWorkflowSummary,
+  'ee-social': eeSocialWorkflowSummary,
+  'ee-economic': eeEconomicWorkflowSummary,
+  'ee-ria': eeRiaWorkflowSummary,
 };
 
 const companyRoiSummaries: Record<string, typeof roiSummary> = {
@@ -2027,7 +3163,15 @@ const companyRoiSummaries: Record<string, typeof roiSummary> = {
   pinnacle: pinnacleRoiSummary,
   atlas: atlasRoiSummary,
   northbridge: northbridgeRoiSummary,
+  'nb-aerospace': nbAerospaceRoiSummary,
+  'nb-energy': nbEnergyRoiSummary,
+  'nb-financial': nbFinancialRoiSummary,
+  'nb-health': nbHealthRoiSummary,
   estonia: estoniaRoiSummary,
+  'ee-finance': eeFinanceRoiSummary,
+  'ee-social': eeSocialRoiSummary,
+  'ee-economic': eeEconomicRoiSummary,
+  'ee-ria': eeRiaRoiSummary,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════

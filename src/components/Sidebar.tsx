@@ -72,6 +72,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 export default function Sidebar({ onNavClick, onClose }: { onNavClick?: () => void; onClose?: () => void }) {
   const { company, companies, setCompanyId } = useCompany();
+  const parentCompany = company.parentId ? companies.find((c) => c.id === company.parentId) : null;
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [pillFlash, setPillFlash] = useState(false);
@@ -183,6 +184,9 @@ export default function Sidebar({ onNavClick, onClose }: { onNavClick?: () => vo
             }`}>{company.initials}</span>
           </div>
           <div className="flex-1 min-w-0 text-left">
+            {parentCompany && (
+              <span className="text-[9px] font-medium text-white/30 truncate block">{parentCompany.shortName}</span>
+            )}
             <span className={`text-[12px] font-medium truncate block transition-colors duration-500 ${
               pillFlash ? 'text-white' : 'text-[#A0A0A8]'
             }`}>
@@ -199,7 +203,7 @@ export default function Sidebar({ onNavClick, onClose }: { onNavClick?: () => vo
         {dropdownOpen && (
           <div className="absolute left-4 right-4 top-full mt-1 bg-[#2B2B2F] rounded-xl shadow-2xl z-50 border border-white/[0.08] overflow-hidden py-1">
             {(['company', 'conglomerate', 'sovereign'] as const).map((cat, catIdx) => {
-              const group = companies.filter((c) => c.category === cat);
+              const group = companies.filter((c) => c.category === cat && !c.parentId);
               if (group.length === 0) return null;
               const catLabel = cat === 'conglomerate' ? 'Conglomerate' : cat === 'sovereign' ? 'Sovereign' : 'Companies';
               const CatIcon = cat === 'conglomerate' ? Building2 : cat === 'sovereign' ? Landmark : null;
@@ -215,41 +219,70 @@ export default function Sidebar({ onNavClick, onClose }: { onNavClick?: () => vo
                   </div>
                   {group.map((c) => {
                     const isSelected = c.id === company.id;
+                    const subEntities = companies.filter((sub) => sub.parentId === c.id);
                     return (
-                      <button
-                        key={c.id}
-                        type="button"
-                        onClick={() => {
-                          setCompanyId(c.id);
-                          setDropdownOpen(false);
-                        }}
-                        className={`w-full flex items-center gap-2.5 px-3 py-2 text-left transition-colors duration-150 hover:bg-white/10 ${
-                          isSelected ? 'bg-white/[0.06]' : ''
-                        }`}
-                      >
-                        <div className={`w-5 h-5 rounded flex items-center justify-center flex-shrink-0 ${
-                          cat === 'conglomerate' ? 'bg-purple-500/20' :
-                          cat === 'sovereign' ? 'bg-emerald-500/20' :
-                          'bg-accent/20'
-                        }`}>
-                          <span className={`text-[10px] font-bold ${
-                            cat === 'conglomerate' ? 'text-purple-300' :
-                            cat === 'sovereign' ? 'text-emerald-300' :
-                            'text-accent'
-                          }`}>{c.initials}</span>
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <span className="text-[12px] font-medium text-[#E0E0E4] truncate block">
-                            {c.shortName}
-                          </span>
-                          <span className="text-[10px] text-[#6B6B73] truncate block">
-                            {c.industry} · {c.revenue}
-                          </span>
-                        </div>
-                        {isSelected && (
-                          <Check className="w-3 h-3 text-accent flex-shrink-0" strokeWidth={2.5} />
-                        )}
-                      </button>
+                      <div key={c.id}>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setCompanyId(c.id);
+                            setDropdownOpen(false);
+                          }}
+                          className={`w-full flex items-center gap-2.5 px-3 py-2 text-left transition-colors duration-150 hover:bg-white/10 ${
+                            isSelected ? 'bg-white/[0.06]' : ''
+                          }`}
+                        >
+                          <div className={`w-5 h-5 rounded flex items-center justify-center flex-shrink-0 ${
+                            cat === 'conglomerate' ? 'bg-purple-500/20' :
+                            cat === 'sovereign' ? 'bg-emerald-500/20' :
+                            'bg-accent/20'
+                          }`}>
+                            <span className={`text-[10px] font-bold ${
+                              cat === 'conglomerate' ? 'text-purple-300' :
+                              cat === 'sovereign' ? 'text-emerald-300' :
+                              'text-accent'
+                            }`}>{c.initials}</span>
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <span className="text-[12px] font-medium text-[#E0E0E4] truncate block">
+                              {c.shortName}
+                            </span>
+                            <span className="text-[10px] text-[#6B6B73] truncate block">
+                              {c.industry} · {c.revenue}
+                            </span>
+                          </div>
+                          {isSelected && (
+                            <Check className="w-3 h-3 text-accent flex-shrink-0" strokeWidth={2.5} />
+                          )}
+                        </button>
+                        {subEntities.map((sub) => {
+                          const isSubSelected = sub.id === company.id;
+                          return (
+                            <button
+                              key={sub.id}
+                              type="button"
+                              onClick={() => { setCompanyId(sub.id); setDropdownOpen(false); }}
+                              className={`w-full flex items-center gap-2 pl-8 pr-3 py-1.5 text-left transition-colors hover:bg-white/[0.06] ${
+                                isSubSelected ? 'bg-white/[0.04]' : ''
+                              }`}
+                            >
+                              <div className={`w-4 h-4 rounded flex items-center justify-center flex-shrink-0 ${
+                                cat === 'conglomerate' ? 'bg-purple-500/20' :
+                                cat === 'sovereign' ? 'bg-emerald-500/20' :
+                                'bg-accent/20'
+                              }`}>
+                                <span className={`text-[8px] font-bold ${
+                                  cat === 'conglomerate' ? 'text-purple-300' :
+                                  cat === 'sovereign' ? 'text-emerald-300' :
+                                  'text-accent'
+                                }`}>{sub.initials}</span>
+                              </div>
+                              <span className="text-[11px] font-medium text-white/80 truncate flex-1">{sub.shortName}</span>
+                              {isSubSelected && <Check className="w-3 h-3 text-blue flex-shrink-0" strokeWidth={2.5} />}
+                            </button>
+                          );
+                        })}
+                      </div>
                     );
                   })}
                 </div>
