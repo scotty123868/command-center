@@ -1818,12 +1818,12 @@ const nbAerospaceKpis = {
   totalSavings: 6_200_000,
   techScoreBefore: 46,
   techScoreAfter: 85,
-  workflowsAnalyzed: 32,
+  workflowsAnalyzed: 52,
   automationReady: 10,
   unusedLicenseWaste: 820_000,
   savingsSparkline: [0, 600_000, 1_400_000, 2_600_000, 3_800_000, 4_800_000, 5_600_000, 6_200_000],
   scoreSparkline: [46, 52, 58, 64, 70, 76, 82, 85],
-  workflowSparkline: [0, 4, 8, 14, 18, 24, 28, 32],
+  workflowSparkline: [0, 6, 12, 22, 30, 38, 46, 52],
   licenseSparkline: [820_000, 720_000, 600_000, 480_000, 360_000, 260_000, 180_000, 120_000],
   headcountImpactSparkline: [0, -2, -6, -12, -18, -24, -28, -32],
 };
@@ -1905,19 +1905,19 @@ const nbAerospaceLicenses: License[] = [
 ];
 
 const nbAerospaceWorkflowSummary = {
-  total: 32,
+  total: 52,
   fullyAutomatable: 10,
-  humanInLoop: 14,
-  humanRequired: 8,
-  currentLaborSpend: 12_400_000,
+  humanInLoop: 28,
+  humanRequired: 12,
+  currentLaborSpend: 10_200_000,
   potentialSavings: 6_200_000,
 };
 
 const nbAerospaceRoiSummary = {
-  techStackSavings: 1_600_000,
-  workflowAutomation: 2_800_000,
+  techStackSavings: 2_000_000,
+  workflowAutomation: 1_600_000,
   licenseRecovery: 1_200_000,
-  implementationCosts: 2_400_000,
+  implementationCosts: 1_800_000,
   netYear1: 6_200_000,
   year2Projected: 10_500_000,
 };
@@ -1952,13 +1952,13 @@ const nbEnergyKpis = {
   totalSavings: 7_400_000,
   techScoreBefore: 38,
   techScoreAfter: 84,
-  workflowsAnalyzed: 42,
+  workflowsAnalyzed: 52,
   automationReady: 12,
-  unusedLicenseWaste: 1_100_000,
+  unusedLicenseWaste: 1_480_000,
   savingsSparkline: [0, 800_000, 1_800_000, 3_200_000, 4_600_000, 5_800_000, 6_800_000, 7_400_000],
   scoreSparkline: [38, 44, 50, 58, 64, 72, 78, 84],
-  workflowSparkline: [0, 5, 10, 18, 24, 32, 38, 42],
-  licenseSparkline: [1_100_000, 960_000, 800_000, 640_000, 480_000, 340_000, 220_000, 160_000],
+  workflowSparkline: [0, 6, 14, 22, 30, 38, 46, 52],
+  licenseSparkline: [1_480_000, 1_280_000, 1_060_000, 840_000, 640_000, 440_000, 280_000, 160_000],
   headcountImpactSparkline: [0, -3, -8, -16, -24, -32, -38, -42],
 };
 
@@ -2039,19 +2039,19 @@ const nbEnergyLicenses: License[] = [
 ];
 
 const nbEnergyWorkflowSummary = {
-  total: 42,
+  total: 52,
   fullyAutomatable: 12,
-  humanInLoop: 18,
-  humanRequired: 12,
-  currentLaborSpend: 16_800_000,
+  humanInLoop: 30,
+  humanRequired: 14,
+  currentLaborSpend: 14_400_000,
   potentialSavings: 7_400_000,
 };
 
 const nbEnergyRoiSummary = {
   techStackSavings: 1_800_000,
-  workflowAutomation: 3_200_000,
+  workflowAutomation: 2_400_000,
   licenseRecovery: 1_400_000,
-  implementationCosts: 2_800_000,
+  implementationCosts: 2_200_000,
   netYear1: 7_400_000,
   year2Projected: 12_800_000,
 };
@@ -2086,12 +2086,12 @@ const nbFinancialKpis = {
   totalSavings: 5_000_000,
   techScoreBefore: 62,
   techScoreAfter: 91,
-  workflowsAnalyzed: 28,
-  automationReady: 14,
+  workflowsAnalyzed: 36,
+  automationReady: 12,
   unusedLicenseWaste: 680_000,
   savingsSparkline: [0, 500_000, 1_200_000, 2_200_000, 3_200_000, 4_000_000, 4_600_000, 5_000_000],
   scoreSparkline: [62, 66, 70, 76, 80, 84, 88, 91],
-  workflowSparkline: [0, 3, 7, 12, 16, 20, 24, 28],
+  workflowSparkline: [0, 4, 9, 16, 22, 28, 32, 36],
   licenseSparkline: [680_000, 600_000, 500_000, 400_000, 300_000, 220_000, 160_000, 100_000],
   headcountImpactSparkline: [0, -2, -4, -8, -14, -18, -24, -28],
 };
@@ -2173,17 +2173,17 @@ const nbFinancialLicenses: License[] = [
 ];
 
 const nbFinancialWorkflowSummary = {
-  total: 28,
-  fullyAutomatable: 14,
-  humanInLoop: 10,
-  humanRequired: 4,
+  total: 36,
+  fullyAutomatable: 12,
+  humanInLoop: 16,
+  humanRequired: 8,
   currentLaborSpend: 10_200_000,
   potentialSavings: 5_000_000,
 };
 
 const nbFinancialRoiSummary = {
   techStackSavings: 1_200_000,
-  workflowAutomation: 2_200_000,
+  workflowAutomation: 1_600_000,
   licenseRecovery: 900_000,
   implementationCosts: 1_800_000,
   netYear1: 5_000_000,
@@ -2220,13 +2220,13 @@ const nbHealthKpis = {
   totalSavings: 6_200_000,
   techScoreBefore: 55,
   techScoreAfter: 89,
-  workflowsAnalyzed: 38,
+  workflowsAnalyzed: 44,
   automationReady: 14,
-  unusedLicenseWaste: 920_000,
-  savingsSparkline: [0, 600_000, 1_400_000, 2_600_000, 3_800_000, 4_800_000, 5_600_000, 6_200_000],
+  unusedLicenseWaste: 1_000_000,
+  savingsSparkline: [0, 650_000, 1_500_000, 2_800_000, 4_000_000, 5_000_000, 5_700_000, 6_200_000],
   scoreSparkline: [55, 60, 65, 70, 76, 82, 86, 89],
-  workflowSparkline: [0, 4, 10, 16, 22, 28, 34, 38],
-  licenseSparkline: [920_000, 800_000, 680_000, 540_000, 400_000, 280_000, 180_000, 120_000],
+  workflowSparkline: [0, 5, 12, 20, 26, 32, 38, 44],
+  licenseSparkline: [1_000_000, 870_000, 740_000, 590_000, 440_000, 310_000, 200_000, 120_000],
   headcountImpactSparkline: [0, -2, -6, -12, -18, -26, -32, -38],
 };
 
@@ -2307,21 +2307,21 @@ const nbHealthLicenses: License[] = [
 ];
 
 const nbHealthWorkflowSummary = {
-  total: 38,
+  total: 44,
   fullyAutomatable: 14,
-  humanInLoop: 16,
+  humanInLoop: 20,
   humanRequired: 8,
-  currentLaborSpend: 14_400_000,
+  currentLaborSpend: 13_200_000,
   potentialSavings: 6_200_000,
 };
 
 const nbHealthRoiSummary = {
   techStackSavings: 1_400_000,
-  workflowAutomation: 2_800_000,
-  licenseRecovery: 1_200_000,
-  implementationCosts: 2_200_000,
+  workflowAutomation: 2_600_000,
+  licenseRecovery: 1_100_000,
+  implementationCosts: 2_400_000,
   netYear1: 6_200_000,
-  year2Projected: 10_800_000,
+  year2Projected: 10_300_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -2511,11 +2511,11 @@ const eeFinanceKpis = {
   techScoreAfter: 95,
   workflowsAnalyzed: 34,
   automationReady: 18,
-  unusedLicenseWaste: 680_000,
+  unusedLicenseWaste: 880_000,
   savingsSparkline: [0, 520_000, 1_200_000, 2_100_000, 3_200_000, 4_000_000, 4_700_000, 5_200_000],
   scoreSparkline: [74, 77, 80, 83, 87, 90, 93, 95],
   workflowSparkline: [0, 4, 8, 14, 20, 26, 30, 34],
-  licenseSparkline: [680_000, 580_000, 480_000, 380_000, 280_000, 200_000, 140_000, 100_000],
+  licenseSparkline: [880_000, 760_000, 640_000, 500_000, 360_000, 260_000, 160_000, 100_000],
   headcountImpactSparkline: [0, -2, -6, -12, -18, -24, -28, -32],
 };
 
@@ -2598,15 +2598,15 @@ const eeFinanceLicenses: License[] = [
 const eeFinanceWorkflowSummary = {
   total: 34,
   fullyAutomatable: 18,
-  humanInLoop: 10,
-  humanRequired: 6,
+  humanInLoop: 8,
+  humanRequired: 10,
   currentLaborSpend: 8_400_000,
   potentialSavings: 5_200_000,
 };
 
 const eeFinanceRoiSummary = {
   techStackSavings: 1_200_000,
-  workflowAutomation: 2_400_000,
+  workflowAutomation: 1_800_000,
   licenseRecovery: 680_000,
   implementationCosts: 1_480_000,
   netYear1: 5_200_000,
@@ -2644,12 +2644,12 @@ const eeSocialKpis = {
   techScoreBefore: 68,
   techScoreAfter: 93,
   workflowsAnalyzed: 42,
-  automationReady: 22,
-  unusedLicenseWaste: 920_000,
+  automationReady: 18,
+  unusedLicenseWaste: 1_120_000,
   savingsSparkline: [0, 680_000, 1_600_000, 2_800_000, 4_000_000, 5_200_000, 6_100_000, 6_800_000],
   scoreSparkline: [68, 71, 75, 79, 83, 87, 90, 93],
   workflowSparkline: [0, 5, 10, 18, 26, 32, 38, 42],
-  licenseSparkline: [920_000, 800_000, 680_000, 540_000, 400_000, 300_000, 220_000, 160_000],
+  licenseSparkline: [1_120_000, 960_000, 800_000, 640_000, 480_000, 340_000, 220_000, 130_000],
   headcountImpactSparkline: [0, -3, -8, -16, -26, -38, -48, -56],
 };
 
@@ -2731,18 +2731,18 @@ const eeSocialLicenses: License[] = [
 
 const eeSocialWorkflowSummary = {
   total: 42,
-  fullyAutomatable: 22,
-  humanInLoop: 12,
-  humanRequired: 8,
-  currentLaborSpend: 12_600_000,
+  fullyAutomatable: 18,
+  humanInLoop: 8,
+  humanRequired: 12,
+  currentLaborSpend: 11_600_000,
   potentialSavings: 6_800_000,
 };
 
 const eeSocialRoiSummary = {
-  techStackSavings: 1_600_000,
-  workflowAutomation: 3_200_000,
+  techStackSavings: 1_400_000,
+  workflowAutomation: 2_400_000,
   licenseRecovery: 920_000,
-  implementationCosts: 2_120_000,
+  implementationCosts: 1_920_000,
   netYear1: 6_800_000,
   year2Projected: 10_200_000,
 };
@@ -2778,7 +2778,7 @@ const eeEconomicKpis = {
   techScoreBefore: 76,
   techScoreAfter: 95,
   workflowsAnalyzed: 26,
-  automationReady: 14,
+  automationReady: 12,
   unusedLicenseWaste: 420_000,
   savingsSparkline: [0, 340_000, 800_000, 1_400_000, 2_100_000, 2_700_000, 3_100_000, 3_400_000],
   scoreSparkline: [76, 79, 82, 85, 88, 91, 93, 95],
@@ -2865,16 +2865,16 @@ const eeEconomicLicenses: License[] = [
 
 const eeEconomicWorkflowSummary = {
   total: 26,
-  fullyAutomatable: 14,
-  humanInLoop: 8,
-  humanRequired: 4,
+  fullyAutomatable: 12,
+  humanInLoop: 6,
+  humanRequired: 8,
   currentLaborSpend: 6_200_000,
   potentialSavings: 3_400_000,
 };
 
 const eeEconomicRoiSummary = {
   techStackSavings: 800_000,
-  workflowAutomation: 1_600_000,
+  workflowAutomation: 1_400_000,
   licenseRecovery: 420_000,
   implementationCosts: 1_020_000,
   netYear1: 3_400_000,
@@ -3001,18 +3001,18 @@ const eeRiaWorkflowSummary = {
   total: 24,
   fullyAutomatable: 14,
   humanInLoop: 6,
-  humanRequired: 4,
+  humanRequired: 6,
   currentLaborSpend: 5_800_000,
   potentialSavings: 3_200_000,
 };
 
 const eeRiaRoiSummary = {
   techStackSavings: 800_000,
-  workflowAutomation: 1_400_000,
+  workflowAutomation: 1_200_000,
   licenseRecovery: 380_000,
   implementationCosts: 980_000,
   netYear1: 3_200_000,
-  year2Projected: 4_800_000,
+  year2Projected: 4_900_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
