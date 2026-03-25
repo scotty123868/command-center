@@ -19,7 +19,6 @@ import {
   getCompanyProfile,
   type OpportunityStatus,
 } from '../data/constants';
-import { config } from '../data/config';
 import { useCompany } from '../data/CompanyContext';
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
