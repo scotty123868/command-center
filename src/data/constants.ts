@@ -1776,7 +1776,7 @@ const northbridgeWorkflowSummary = {
   humanInLoop: 94,
   humanRequired: 42,
   currentLaborSpend: 48_000_000,
-  potentialSavings: 24_800_000,
+  potentialSavings: 8_200_000,
 };
 
 const northbridgeRoiSummary = {
@@ -1910,7 +1910,7 @@ const nbAerospaceWorkflowSummary = {
   humanInLoop: 28,
   humanRequired: 12,
   currentLaborSpend: 10_200_000,
-  potentialSavings: 6_200_000,
+  potentialSavings: 1_600_000,
 };
 
 const nbAerospaceRoiSummary = {
@@ -2044,7 +2044,7 @@ const nbEnergyWorkflowSummary = {
   humanInLoop: 30,
   humanRequired: 14,
   currentLaborSpend: 14_400_000,
-  potentialSavings: 7_400_000,
+  potentialSavings: 2_400_000,
 };
 
 const nbEnergyRoiSummary = {
@@ -2178,7 +2178,7 @@ const nbFinancialWorkflowSummary = {
   humanInLoop: 16,
   humanRequired: 8,
   currentLaborSpend: 10_200_000,
-  potentialSavings: 5_000_000,
+  potentialSavings: 1_600_000,
 };
 
 const nbFinancialRoiSummary = {
@@ -2312,7 +2312,7 @@ const nbHealthWorkflowSummary = {
   humanInLoop: 20,
   humanRequired: 8,
   currentLaborSpend: 13_200_000,
-  potentialSavings: 6_200_000,
+  potentialSavings: 2_600_000,
 };
 
 const nbHealthRoiSummary = {
@@ -2467,7 +2467,7 @@ const estoniaWorkflowSummary = {
   humanInLoop: 28,
   humanRequired: 36,
   currentLaborSpend: 32_000_000,
-  potentialSavings: 18_600_000,
+  potentialSavings: 6_800_000,
 };
 
 const estoniaRoiSummary = {
@@ -2601,7 +2601,7 @@ const eeFinanceWorkflowSummary = {
   humanInLoop: 8,
   humanRequired: 10,
   currentLaborSpend: 8_400_000,
-  potentialSavings: 5_200_000,
+  potentialSavings: 1_800_000,
 };
 
 const eeFinanceRoiSummary = {
@@ -2735,7 +2735,7 @@ const eeSocialWorkflowSummary = {
   humanInLoop: 8,
   humanRequired: 12,
   currentLaborSpend: 11_600_000,
-  potentialSavings: 6_800_000,
+  potentialSavings: 2_400_000,
 };
 
 const eeSocialRoiSummary = {
@@ -2869,7 +2869,7 @@ const eeEconomicWorkflowSummary = {
   humanInLoop: 6,
   humanRequired: 8,
   currentLaborSpend: 6_200_000,
-  potentialSavings: 3_400_000,
+  potentialSavings: 1_400_000,
 };
 
 const eeEconomicRoiSummary = {
@@ -3003,7 +3003,7 @@ const eeRiaWorkflowSummary = {
   humanInLoop: 6,
   humanRequired: 6,
   currentLaborSpend: 5_800_000,
-  potentialSavings: 3_200_000,
+  potentialSavings: 1_200_000,
 };
 
 const eeRiaRoiSummary = {
