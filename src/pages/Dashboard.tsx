@@ -16,6 +16,7 @@ import {
   getRoiSummary,
   getCurrentStack,
   getLicenses,
+  getCompanyProfile,
   type OpportunityStatus,
 } from '../data/constants';
 import { config } from '../data/config';
@@ -470,8 +471,10 @@ function DrillDownPanel({ type, onClose }: { type: DrillDownType; onClose: () =>
 export default function Dashboard() {
   const { company, companies, setCompanyId } = useCompany();
   const companyKpis = getKpis(company.id);
+  const companyProfile = getCompanyProfile(company.id);
   const companyRoadmap = getRoadmapPhases(company.id);
   const companyOpps = getTopOpportunities(company.id);
+  const companyRoi = getRoiSummary(company.id);
 
   // Sub-entities for parent companies (conglomerate / sovereign)
   const childEntities = companies.filter((c) => c.parentId === company.id);
@@ -533,12 +536,18 @@ export default function Dashboard() {
                 If No Action Is Taken — 3-Year Projection
               </h2>
               <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-                {[
-                  { label: 'Wasted License Spend', value: '$6.3M', sub: '$2.1M x 3 years' },
-                  { label: 'Lost Productivity', value: '$9.3M', sub: '$3.1M x 3 years' },
-                  { label: 'Missed AI Advantage', value: '$12.6M', sub: 'Compounding tech debt' },
-                  { label: 'Total Cost of Inaction', value: '$28.2M', sub: 'Sum + opportunity cost' },
-                ].map((metric, i) => (
+                {(() => {
+                  const waste3y = companyKpis.unusedLicenseWaste * 3;
+                  const prod3y = companyRoi.workflowAutomation * 3;
+                  const missed3y = companyKpis.totalSavings * 3;
+                  const total = waste3y + prod3y + missed3y;
+                  return [
+                    { label: 'Wasted License Spend', value: fmtCompact(waste3y), sub: `${fmtCompact(companyKpis.unusedLicenseWaste)} x 3 years` },
+                    { label: 'Lost Productivity', value: fmtCompact(prod3y), sub: `${fmtCompact(companyRoi.workflowAutomation)} x 3 years` },
+                    { label: 'Missed AI Advantage', value: fmtCompact(missed3y), sub: 'Compounding tech debt' },
+                    { label: 'Total Cost of Inaction', value: fmtCompact(total), sub: 'Sum + opportunity cost' },
+                  ];
+                })().map((metric, i) => (
                   <motion.div
                     key={metric.label}
                     initial={{ opacity: 0, y: 10 }}
@@ -599,11 +608,11 @@ export default function Dashboard() {
             <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-500">
               AI Readiness Score
             </p>
-            <p className="mt-1 text-[12px] text-red-500 font-medium">
-              Critical — requires foundational investment
+            <p className={`mt-1 text-[12px] font-medium ${companyProfile.aiReadinessScore >= 70 ? 'text-emerald-600' : companyProfile.aiReadinessScore >= 50 ? 'text-amber-600' : 'text-red-500'}`}>
+              {companyProfile.aiReadinessScore >= 70 ? 'Strong — ready for advanced AI' : companyProfile.aiReadinessScore >= 50 ? 'Developing — foundation in place' : 'Critical — requires foundational investment'}
             </p>
           </div>
-          <ReadinessGauge score={config.aiReadinessScore} />
+          <ReadinessGauge score={companyProfile.aiReadinessScore} />
         </div>
       </motion.section>
 
@@ -977,7 +986,11 @@ export default function Dashboard() {
             <div className="h-full w-1/4 rounded-full bg-[#4285F4]" />
           </div>
           <span className="shrink-0 text-[12px] font-medium text-gray-500">
-            Phase 1 of 4 — Tech Stack Audit + Quick Wins
+            {(() => {
+              const activeIdx = companyRoadmap.findIndex(p => p.status === 'active');
+              const phase = activeIdx >= 0 ? companyRoadmap[activeIdx] : companyRoadmap[0];
+              return `Phase ${activeIdx >= 0 ? activeIdx + 1 : 1} of ${companyRoadmap.length} — ${phase?.title || 'Planning'}`;
+            })()}
           </span>
         </div>
       </motion.section>

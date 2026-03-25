@@ -128,6 +128,17 @@ function WaterfallTooltip({ active, payload }: any) {
   );
 }
 
+// ─── Break-even month finder ────────────────────────────────────────────────
+
+function findBreakEvenMonth(timeline: ReturnType<typeof buildTimeline>): string | null {
+  let cumNet = 0;
+  for (const d of timeline) {
+    cumNet += d.net;
+    if (cumNet >= 0) return d.month;
+  }
+  return null;
+}
+
 // ─── Custom Timeline Tooltip ────────────────────────────────────────────────
 
 function TimelineTooltip({ active, payload, label }: any) {
@@ -152,6 +163,7 @@ export default function ROISummary() {
   const metrics = buildMetrics(roiSummary);
   const waterfallChartData = buildWaterfallData(roiSummary);
   const timelineData = buildTimeline(roiSummary);
+  const breakEvenMonth = findBreakEvenMonth(timelineData);
 
   return (
     <div className="space-y-10">
@@ -302,19 +314,21 @@ export default function ROISummary() {
               iconType="circle"
               wrapperStyle={{ fontSize: 13 }}
             />
-            <ReferenceLine
-              x="May"
-              stroke="#4285F4"
-              strokeDasharray="6 4"
-              strokeWidth={1.5}
-              label={{
-                value: 'Break-even',
-                position: 'top',
-                fill: '#4285F4',
-                fontSize: 12,
-                fontWeight: 600,
-              }}
-            />
+            {breakEvenMonth && (
+              <ReferenceLine
+                x={breakEvenMonth}
+                stroke="#4285F4"
+                strokeDasharray="6 4"
+                strokeWidth={1.5}
+                label={{
+                  value: 'Break-even',
+                  position: 'top',
+                  fill: '#4285F4',
+                  fontSize: 12,
+                  fontWeight: 600,
+                }}
+              />
+            )}
             <Area
               type="monotone"
               dataKey="cost"
