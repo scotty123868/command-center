@@ -32,7 +32,7 @@ export const kpis = {
   techScoreAfter: 87,
   workflowsAnalyzed: 47,
   automationReady: 12,
-  unusedLicenseWaste: 2_100_000,
+  unusedLicenseWaste: 2_101_000,
   savingsSparkline: [0, 80_000, 180_000, 340_000, 520_000, 780_000, 1_100_000, 1_540_000, 2_020_000, 2_680_000, 3_400_000, 4_200_000],
   scoreSparkline: [34, 36, 39, 44, 50, 57, 63, 69, 74, 79, 83, 87],
   workflowSparkline: [0, 4, 9, 15, 21, 27, 32, 36, 39, 42, 45, 47],
@@ -538,7 +538,7 @@ export const workflows: Workflow[] = [
     aiSolution: 'Switch to Ramp: AI auto-categorizes, auto-matches receipts, auto-approves within policy. Employees snap a photo, Ramp does the rest.',
     routing: 'Fully Automatable',
     routingQuote: 'Nobody should spend two hours a month on expense reports in 2026',
-    costShift: 'Concur $340K + Labor $180K → Ramp $100K + Labor $0 = $240K saved',
+    costShift: 'Concur $340K → Ramp $100K = $240K saved (+ $180K labor productivity gains)',
     savings: 240_000,
     automationPercent: 90,
     details: 'Currently using Concur, 200 employees submitting expenses. Average 2 hours/month per employee on expense reports = 4,800 hrs/yr wasted.',
@@ -747,7 +747,7 @@ export const workflows: Workflow[] = [
 ];
 
 export const workflowSummary = {
-  total: 48,
+  total: 47,
   fullyAutomatable: 18,
   humanInLoop: 22,
   humanRequired: 8,
@@ -778,7 +778,7 @@ export const licenses: License[] = [
   { vendor: 'Slack Enterprise', totalLicenses: 450, active90d: 380, inactive: 70, annualWaste: 84_000, action: 'Downgrade 70 inactive to free tier', costPerLicense: 1_200, department: 'IT / All Departments (cross-OpCo)', lastAuditDate: '2026-01-10', trend: [92, 90, 88, 87, 86, 84], complianceRisk: false },
   { vendor: 'Zoom Enterprise', totalLicenses: 300, active90d: 195, inactive: 105, annualWaste: 126_000, action: 'Reclaim 105 seats, evaluate Slack huddles consolidation', costPerLicense: 1_200, department: 'IT / All Departments (cross-OpCo)', lastAuditDate: '2025-10-18', trend: [85, 80, 76, 72, 68, 65], complianceRisk: false },
   { vendor: 'Adobe Creative Suite', totalLicenses: 45, active90d: 12, inactive: 33, annualWaste: 198_000, action: 'Reclaim 33 seats — restrict to Marketing & Design only', costPerLicense: 6_000, department: 'Marketing (historically provisioned to all managers)', lastAuditDate: '2025-07-22', trend: [62, 52, 44, 38, 31, 27], complianceRisk: true },
-  { vendor: 'Concur', totalLicenses: 200, active90d: 200, inactive: 0, annualWaste: 340_000, action: 'Replace → Ramp (full platform swap Q2)', costPerLicense: 1_700, department: 'Finance / All Departments', lastAuditDate: '2026-02-01', trend: [100, 100, 100, 100, 100, 100], complianceRisk: false },
+  { vendor: 'Concur', totalLicenses: 200, active90d: 200, inactive: 200, annualWaste: 340_000, action: 'Replace → Ramp (full platform swap Q2)', costPerLicense: 1_700, department: 'Finance / All Departments', lastAuditDate: '2026-02-01', trend: [100, 100, 100, 100, 100, 100], complianceRisk: false },
 ];
 
 // ─── Transformation Stories ─────────────────────────────────────────────────
@@ -970,7 +970,7 @@ const oakwoodKpis = {
   techScoreAfter: 78,
   workflowsAnalyzed: 38,
   automationReady: 9,
-  unusedLicenseWaste: 1_600_000,
+  unusedLicenseWaste: 1_601_000,
   savingsSparkline: [0, 60_000, 150_000, 290_000, 460_000, 680_000, 960_000, 1_300_000, 1_720_000, 2_280_000, 3_000_000, 3_800_000],
   scoreSparkline: [41, 43, 46, 50, 54, 58, 62, 66, 70, 73, 76, 78],
   workflowSparkline: [0, 3, 7, 12, 17, 22, 26, 30, 33, 35, 37, 38],
@@ -1201,7 +1201,7 @@ const pinnacleKpis = {
   techScoreAfter: 71,
   workflowsAnalyzed: 24,
   automationReady: 6,
-  unusedLicenseWaste: 640_000,
+  unusedLicenseWaste: 634_000,
   savingsSparkline: [0, 30_000, 80_000, 160_000, 270_000, 410_000, 580_000, 790_000, 1_040_000, 1_340_000, 1_600_000, 1_900_000],
   scoreSparkline: [28, 30, 33, 37, 41, 46, 51, 56, 60, 64, 68, 71],
   workflowSparkline: [0, 2, 5, 8, 11, 14, 16, 18, 20, 22, 23, 24],
@@ -1659,13 +1659,13 @@ const northbridgeAiReadinessBreakdown = [
 ];
 
 const northbridgeKpis = {
-  totalSavings: 24_800_000,
+  totalSavings: 11_000_000,
   techScoreBefore: 52,
   techScoreAfter: 88,
   workflowsAnalyzed: 184,
   automationReady: 48,
-  unusedLicenseWaste: 4_200_000,
-  savingsSparkline: [0, 2_400_000, 6_200_000, 11_800_000, 16_400_000, 20_100_000, 22_800_000, 24_800_000],
+  unusedLicenseWaste: 9_040_000,
+  savingsSparkline: [0, 1_100_000, 2_750_000, 4_950_000, 6_600_000, 8_250_000, 9_900_000, 11_000_000],
   scoreSparkline: [52, 58, 64, 70, 76, 82, 86, 88],
   workflowSparkline: [0, 22, 48, 82, 110, 140, 168, 184],
   licenseSparkline: [4_200_000, 3_600_000, 2_800_000, 2_100_000, 1_400_000, 900_000, 600_000, 480_000],
@@ -1784,8 +1784,8 @@ const northbridgeRoiSummary = {
   workflowAutomation: 8_200_000,
   licenseRecovery: 4_600_000,
   implementationCosts: 8_200_000,
-  netYear1: 24_800_000,
-  year2Projected: 42_000_000,
+  netYear1: 11_000_000,
+  year2Projected: 18_700_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -1815,13 +1815,13 @@ const nbAerospaceAiReadinessBreakdown = [
 ];
 
 const nbAerospaceKpis = {
-  totalSavings: 6_200_000,
+  totalSavings: 3_000_000,
   techScoreBefore: 46,
   techScoreAfter: 85,
   workflowsAnalyzed: 52,
   automationReady: 10,
   unusedLicenseWaste: 820_000,
-  savingsSparkline: [0, 600_000, 1_400_000, 2_600_000, 3_800_000, 4_800_000, 5_600_000, 6_200_000],
+  savingsSparkline: [0, 300_000, 750_000, 1_200_000, 1_650_000, 2_100_000, 2_550_000, 3_000_000],
   scoreSparkline: [46, 52, 58, 64, 70, 76, 82, 85],
   workflowSparkline: [0, 6, 12, 22, 30, 38, 46, 52],
   licenseSparkline: [820_000, 720_000, 600_000, 480_000, 360_000, 260_000, 180_000, 120_000],
@@ -1918,8 +1918,8 @@ const nbAerospaceRoiSummary = {
   workflowAutomation: 1_600_000,
   licenseRecovery: 1_200_000,
   implementationCosts: 1_800_000,
-  netYear1: 6_200_000,
-  year2Projected: 10_500_000,
+  netYear1: 3_000_000,
+  year2Projected: 5_100_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -1949,13 +1949,13 @@ const nbEnergyAiReadinessBreakdown = [
 ];
 
 const nbEnergyKpis = {
-  totalSavings: 7_400_000,
+  totalSavings: 3_400_000,
   techScoreBefore: 38,
   techScoreAfter: 84,
   workflowsAnalyzed: 52,
   automationReady: 12,
-  unusedLicenseWaste: 1_480_000,
-  savingsSparkline: [0, 800_000, 1_800_000, 3_200_000, 4_600_000, 5_800_000, 6_800_000, 7_400_000],
+  unusedLicenseWaste: 1_100_000,
+  savingsSparkline: [0, 340_000, 850_000, 1_530_000, 2_040_000, 2_550_000, 3_060_000, 3_400_000],
   scoreSparkline: [38, 44, 50, 58, 64, 72, 78, 84],
   workflowSparkline: [0, 6, 14, 22, 30, 38, 46, 52],
   licenseSparkline: [1_480_000, 1_280_000, 1_060_000, 840_000, 640_000, 440_000, 280_000, 160_000],
@@ -2052,8 +2052,8 @@ const nbEnergyRoiSummary = {
   workflowAutomation: 2_400_000,
   licenseRecovery: 1_400_000,
   implementationCosts: 2_200_000,
-  netYear1: 7_400_000,
-  year2Projected: 12_800_000,
+  netYear1: 3_400_000,
+  year2Projected: 5_780_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -2083,13 +2083,13 @@ const nbFinancialAiReadinessBreakdown = [
 ];
 
 const nbFinancialKpis = {
-  totalSavings: 5_000_000,
+  totalSavings: 1_900_000,
   techScoreBefore: 62,
   techScoreAfter: 91,
   workflowsAnalyzed: 36,
   automationReady: 12,
   unusedLicenseWaste: 680_000,
-  savingsSparkline: [0, 500_000, 1_200_000, 2_200_000, 3_200_000, 4_000_000, 4_600_000, 5_000_000],
+  savingsSparkline: [0, 190_000, 475_000, 855_000, 1_140_000, 1_425_000, 1_710_000, 1_900_000],
   scoreSparkline: [62, 66, 70, 76, 80, 84, 88, 91],
   workflowSparkline: [0, 4, 9, 16, 22, 28, 32, 36],
   licenseSparkline: [680_000, 600_000, 500_000, 400_000, 300_000, 220_000, 160_000, 100_000],
@@ -2186,8 +2186,8 @@ const nbFinancialRoiSummary = {
   workflowAutomation: 1_600_000,
   licenseRecovery: 900_000,
   implementationCosts: 1_800_000,
-  netYear1: 5_000_000,
-  year2Projected: 8_400_000,
+  netYear1: 1_900_000,
+  year2Projected: 3_230_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -2217,13 +2217,13 @@ const nbHealthAiReadinessBreakdown = [
 ];
 
 const nbHealthKpis = {
-  totalSavings: 6_200_000,
+  totalSavings: 2_700_000,
   techScoreBefore: 55,
   techScoreAfter: 89,
   workflowsAnalyzed: 44,
   automationReady: 14,
-  unusedLicenseWaste: 1_000_000,
-  savingsSparkline: [0, 650_000, 1_500_000, 2_800_000, 4_000_000, 5_000_000, 5_700_000, 6_200_000],
+  unusedLicenseWaste: 920_000,
+  savingsSparkline: [0, 270_000, 675_000, 1_215_000, 1_620_000, 2_025_000, 2_430_000, 2_700_000],
   scoreSparkline: [55, 60, 65, 70, 76, 82, 86, 89],
   workflowSparkline: [0, 5, 12, 20, 26, 32, 38, 44],
   licenseSparkline: [1_000_000, 870_000, 740_000, 590_000, 440_000, 310_000, 200_000, 120_000],
@@ -2320,8 +2320,8 @@ const nbHealthRoiSummary = {
   workflowAutomation: 2_600_000,
   licenseRecovery: 1_100_000,
   implementationCosts: 2_400_000,
-  netYear1: 6_200_000,
-  year2Projected: 10_300_000,
+  netYear1: 2_700_000,
+  year2Projected: 4_590_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -2351,13 +2351,13 @@ const estoniaAiReadinessBreakdown = [
 ];
 
 const estoniaKpis = {
-  totalSavings: 18_600_000,
+  totalSavings: 8_000_000,
   techScoreBefore: 68,
   techScoreAfter: 94,
   workflowsAnalyzed: 126,
   automationReady: 62,
-  unusedLicenseWaste: 2_800_000,
-  savingsSparkline: [0, 1_800_000, 4_600_000, 8_200_000, 12_100_000, 15_400_000, 17_200_000, 18_600_000],
+  unusedLicenseWaste: 3_000_000,
+  savingsSparkline: [0, 800_000, 2_000_000, 3_600_000, 4_800_000, 6_000_000, 7_200_000, 8_000_000],
   scoreSparkline: [68, 72, 76, 80, 84, 88, 92, 94],
   workflowSparkline: [0, 16, 34, 58, 78, 96, 112, 126],
   licenseSparkline: [2_800_000, 2_400_000, 1_800_000, 1_300_000, 900_000, 600_000, 400_000, 320_000],
@@ -2475,8 +2475,8 @@ const estoniaRoiSummary = {
   workflowAutomation: 6_800_000,
   licenseRecovery: 2_400_000,
   implementationCosts: 5_400_000,
-  netYear1: 18_600_000,
-  year2Projected: 28_000_000,
+  netYear1: 8_000_000,
+  year2Projected: 13_600_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -2506,13 +2506,13 @@ const eeFinanceAiReadinessBreakdown = [
 ];
 
 const eeFinanceKpis = {
-  totalSavings: 5_200_000,
+  totalSavings: 2_200_000,
   techScoreBefore: 74,
   techScoreAfter: 95,
   workflowsAnalyzed: 34,
   automationReady: 18,
-  unusedLicenseWaste: 880_000,
-  savingsSparkline: [0, 520_000, 1_200_000, 2_100_000, 3_200_000, 4_000_000, 4_700_000, 5_200_000],
+  unusedLicenseWaste: 680_000,
+  savingsSparkline: [0, 220_000, 550_000, 990_000, 1_320_000, 1_650_000, 1_980_000, 2_200_000],
   scoreSparkline: [74, 77, 80, 83, 87, 90, 93, 95],
   workflowSparkline: [0, 4, 8, 14, 20, 26, 30, 34],
   licenseSparkline: [880_000, 760_000, 640_000, 500_000, 360_000, 260_000, 160_000, 100_000],
@@ -2609,8 +2609,8 @@ const eeFinanceRoiSummary = {
   workflowAutomation: 1_800_000,
   licenseRecovery: 680_000,
   implementationCosts: 1_480_000,
-  netYear1: 5_200_000,
-  year2Projected: 7_800_000,
+  netYear1: 2_200_000,
+  year2Projected: 3_740_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -2640,13 +2640,13 @@ const eeSocialAiReadinessBreakdown = [
 ];
 
 const eeSocialKpis = {
-  totalSavings: 6_800_000,
+  totalSavings: 2_800_000,
   techScoreBefore: 68,
   techScoreAfter: 93,
   workflowsAnalyzed: 42,
   automationReady: 18,
-  unusedLicenseWaste: 1_120_000,
-  savingsSparkline: [0, 680_000, 1_600_000, 2_800_000, 4_000_000, 5_200_000, 6_100_000, 6_800_000],
+  unusedLicenseWaste: 920_000,
+  savingsSparkline: [0, 280_000, 700_000, 1_260_000, 1_680_000, 2_100_000, 2_520_000, 2_800_000],
   scoreSparkline: [68, 71, 75, 79, 83, 87, 90, 93],
   workflowSparkline: [0, 5, 10, 18, 26, 32, 38, 42],
   licenseSparkline: [1_120_000, 960_000, 800_000, 640_000, 480_000, 340_000, 220_000, 130_000],
@@ -2743,8 +2743,8 @@ const eeSocialRoiSummary = {
   workflowAutomation: 2_400_000,
   licenseRecovery: 920_000,
   implementationCosts: 1_920_000,
-  netYear1: 6_800_000,
-  year2Projected: 10_200_000,
+  netYear1: 2_800_000,
+  year2Projected: 4_760_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -2774,13 +2774,13 @@ const eeEconomicAiReadinessBreakdown = [
 ];
 
 const eeEconomicKpis = {
-  totalSavings: 3_400_000,
+  totalSavings: 1_600_000,
   techScoreBefore: 76,
   techScoreAfter: 95,
   workflowsAnalyzed: 26,
   automationReady: 12,
   unusedLicenseWaste: 420_000,
-  savingsSparkline: [0, 340_000, 800_000, 1_400_000, 2_100_000, 2_700_000, 3_100_000, 3_400_000],
+  savingsSparkline: [0, 160_000, 400_000, 720_000, 960_000, 1_200_000, 1_440_000, 1_600_000],
   scoreSparkline: [76, 79, 82, 85, 88, 91, 93, 95],
   workflowSparkline: [0, 3, 6, 10, 16, 20, 24, 26],
   licenseSparkline: [420_000, 360_000, 300_000, 240_000, 180_000, 130_000, 90_000, 60_000],
@@ -2877,8 +2877,8 @@ const eeEconomicRoiSummary = {
   workflowAutomation: 1_400_000,
   licenseRecovery: 420_000,
   implementationCosts: 1_020_000,
-  netYear1: 3_400_000,
-  year2Projected: 5_100_000,
+  netYear1: 1_600_000,
+  year2Projected: 2_720_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -2908,13 +2908,13 @@ const eeRiaAiReadinessBreakdown = [
 ];
 
 const eeRiaKpis = {
-  totalSavings: 3_200_000,
+  totalSavings: 1_400_000,
   techScoreBefore: 78,
   techScoreAfter: 96,
   workflowsAnalyzed: 24,
   automationReady: 14,
   unusedLicenseWaste: 380_000,
-  savingsSparkline: [0, 320_000, 740_000, 1_300_000, 1_900_000, 2_500_000, 2_900_000, 3_200_000],
+  savingsSparkline: [0, 140_000, 350_000, 630_000, 840_000, 1_050_000, 1_260_000, 1_400_000],
   scoreSparkline: [78, 81, 84, 87, 90, 92, 94, 96],
   workflowSparkline: [0, 3, 6, 10, 14, 18, 22, 24],
   licenseSparkline: [380_000, 320_000, 260_000, 200_000, 150_000, 110_000, 80_000, 50_000],
@@ -3011,8 +3011,8 @@ const eeRiaRoiSummary = {
   workflowAutomation: 1_200_000,
   licenseRecovery: 380_000,
   implementationCosts: 980_000,
-  netYear1: 3_200_000,
-  year2Projected: 4_900_000,
+  netYear1: 1_400_000,
+  year2Projected: 2_380_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
