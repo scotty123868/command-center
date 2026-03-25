@@ -30,13 +30,13 @@ export const kpis = {
   totalSavings: 4_200_000,
   techScoreBefore: 34,
   techScoreAfter: 87,
-  workflowsAnalyzed: 47,
+  workflowsAnalyzed: 48,
   automationReady: 12,
   unusedLicenseWaste: 2_101_000,
   savingsSparkline: [0, 80_000, 180_000, 340_000, 520_000, 780_000, 1_100_000, 1_540_000, 2_020_000, 2_680_000, 3_400_000, 4_200_000],
   scoreSparkline: [34, 36, 39, 44, 50, 57, 63, 69, 74, 79, 83, 87],
   workflowSparkline: [0, 4, 9, 15, 21, 27, 32, 36, 39, 42, 45, 47],
-  licenseSparkline: [2_100_000, 2_050_000, 1_940_000, 1_780_000, 1_580_000, 1_380_000, 1_180_000, 1_020_000, 920_000, 860_000, 830_000, 810_000],
+  licenseSparkline: [2_101_000, 2_050_000, 1_940_000, 1_780_000, 1_580_000, 1_380_000, 1_180_000, 1_020_000, 920_000, 860_000, 830_000, 810_000],
   headcountImpactSparkline: [0, 0, -2, -4, -7, -11, -14, -18, -21, -24, -26, -28],
 };
 
@@ -747,7 +747,7 @@ export const workflows: Workflow[] = [
 ];
 
 export const workflowSummary = {
-  total: 47,
+  total: 48,
   fullyAutomatable: 18,
   humanInLoop: 22,
   humanRequired: 8,
@@ -974,7 +974,7 @@ const oakwoodKpis = {
   savingsSparkline: [0, 60_000, 150_000, 290_000, 460_000, 680_000, 960_000, 1_300_000, 1_720_000, 2_280_000, 3_000_000, 3_800_000],
   scoreSparkline: [41, 43, 46, 50, 54, 58, 62, 66, 70, 73, 76, 78],
   workflowSparkline: [0, 3, 7, 12, 17, 22, 26, 30, 33, 35, 37, 38],
-  licenseSparkline: [1_600_000, 1_560_000, 1_480_000, 1_360_000, 1_200_000, 1_050_000, 920_000, 810_000, 730_000, 680_000, 650_000, 630_000],
+  licenseSparkline: [1_601_000, 1_560_000, 1_480_000, 1_360_000, 1_200_000, 1_050_000, 920_000, 810_000, 730_000, 680_000, 650_000, 630_000],
   headcountImpactSparkline: [0, 0, -1, -3, -5, -8, -11, -14, -17, -19, -21, -23],
 };
 
@@ -1205,7 +1205,7 @@ const pinnacleKpis = {
   savingsSparkline: [0, 30_000, 80_000, 160_000, 270_000, 410_000, 580_000, 790_000, 1_040_000, 1_340_000, 1_600_000, 1_900_000],
   scoreSparkline: [28, 30, 33, 37, 41, 46, 51, 56, 60, 64, 68, 71],
   workflowSparkline: [0, 2, 5, 8, 11, 14, 16, 18, 20, 22, 23, 24],
-  licenseSparkline: [640_000, 625_000, 595_000, 550_000, 495_000, 440_000, 390_000, 345_000, 310_000, 285_000, 268_000, 255_000],
+  licenseSparkline: [634_000, 625_000, 595_000, 550_000, 495_000, 440_000, 390_000, 345_000, 310_000, 285_000, 268_000, 255_000],
   headcountImpactSparkline: [0, 0, -1, -2, -3, -5, -7, -9, -10, -12, -13, -14],
 };
 
@@ -1905,7 +1905,7 @@ const nbAerospaceLicenses: License[] = [
 ];
 
 const nbAerospaceWorkflowSummary = {
-  total: 52,
+  total: 50,
   fullyAutomatable: 10,
   humanInLoop: 28,
   humanRequired: 12,
@@ -1958,7 +1958,7 @@ const nbEnergyKpis = {
   savingsSparkline: [0, 340_000, 850_000, 1_530_000, 2_040_000, 2_550_000, 3_060_000, 3_400_000],
   scoreSparkline: [38, 44, 50, 58, 64, 72, 78, 84],
   workflowSparkline: [0, 6, 14, 22, 30, 38, 46, 52],
-  licenseSparkline: [1_480_000, 1_280_000, 1_060_000, 840_000, 640_000, 440_000, 280_000, 160_000],
+  licenseSparkline: [1_100_000, 960_000, 800_000, 640_000, 480_000, 340_000, 240_000, 160_000],
   headcountImpactSparkline: [0, -3, -8, -16, -24, -32, -38, -42],
 };
 
@@ -2039,7 +2039,7 @@ const nbEnergyLicenses: License[] = [
 ];
 
 const nbEnergyWorkflowSummary = {
-  total: 52,
+  total: 56,
   fullyAutomatable: 12,
   humanInLoop: 30,
   humanRequired: 14,
@@ -2226,7 +2226,7 @@ const nbHealthKpis = {
   savingsSparkline: [0, 270_000, 675_000, 1_215_000, 1_620_000, 2_025_000, 2_430_000, 2_700_000],
   scoreSparkline: [55, 60, 65, 70, 76, 82, 86, 89],
   workflowSparkline: [0, 5, 12, 20, 26, 32, 38, 44],
-  licenseSparkline: [1_000_000, 870_000, 740_000, 590_000, 440_000, 310_000, 200_000, 120_000],
+  licenseSparkline: [920_000, 800_000, 680_000, 540_000, 400_000, 280_000, 180_000, 120_000],
   headcountImpactSparkline: [0, -2, -6, -12, -18, -26, -32, -38],
 };
 
@@ -2307,7 +2307,7 @@ const nbHealthLicenses: License[] = [
 ];
 
 const nbHealthWorkflowSummary = {
-  total: 44,
+  total: 42,
   fullyAutomatable: 14,
   humanInLoop: 20,
   humanRequired: 8,
@@ -2360,7 +2360,7 @@ const estoniaKpis = {
   savingsSparkline: [0, 800_000, 2_000_000, 3_600_000, 4_800_000, 6_000_000, 7_200_000, 8_000_000],
   scoreSparkline: [68, 72, 76, 80, 84, 88, 92, 94],
   workflowSparkline: [0, 16, 34, 58, 78, 96, 112, 126],
-  licenseSparkline: [2_800_000, 2_400_000, 1_800_000, 1_300_000, 900_000, 600_000, 400_000, 320_000],
+  licenseSparkline: [3_000_000, 2_600_000, 2_000_000, 1_500_000, 1_000_000, 650_000, 420_000, 320_000],
   headcountImpactSparkline: [0, -4, -12, -28, -46, -68, -88, -102],
 };
 
@@ -2515,7 +2515,7 @@ const eeFinanceKpis = {
   savingsSparkline: [0, 220_000, 550_000, 990_000, 1_320_000, 1_650_000, 1_980_000, 2_200_000],
   scoreSparkline: [74, 77, 80, 83, 87, 90, 93, 95],
   workflowSparkline: [0, 4, 8, 14, 20, 26, 30, 34],
-  licenseSparkline: [880_000, 760_000, 640_000, 500_000, 360_000, 260_000, 160_000, 100_000],
+  licenseSparkline: [680_000, 590_000, 500_000, 390_000, 280_000, 200_000, 140_000, 100_000],
   headcountImpactSparkline: [0, -2, -6, -12, -18, -24, -28, -32],
 };
 
@@ -2596,7 +2596,7 @@ const eeFinanceLicenses: License[] = [
 ];
 
 const eeFinanceWorkflowSummary = {
-  total: 34,
+  total: 36,
   fullyAutomatable: 18,
   humanInLoop: 8,
   humanRequired: 10,
@@ -2649,7 +2649,7 @@ const eeSocialKpis = {
   savingsSparkline: [0, 280_000, 700_000, 1_260_000, 1_680_000, 2_100_000, 2_520_000, 2_800_000],
   scoreSparkline: [68, 71, 75, 79, 83, 87, 90, 93],
   workflowSparkline: [0, 5, 10, 18, 26, 32, 38, 42],
-  licenseSparkline: [1_120_000, 960_000, 800_000, 640_000, 480_000, 340_000, 220_000, 130_000],
+  licenseSparkline: [920_000, 800_000, 670_000, 530_000, 390_000, 280_000, 190_000, 130_000],
   headcountImpactSparkline: [0, -3, -8, -16, -26, -38, -48, -56],
 };
 
@@ -2730,7 +2730,7 @@ const eeSocialLicenses: License[] = [
 ];
 
 const eeSocialWorkflowSummary = {
-  total: 42,
+  total: 38,
   fullyAutomatable: 18,
   humanInLoop: 8,
   humanRequired: 12,
@@ -2998,7 +2998,7 @@ const eeRiaLicenses: License[] = [
 ];
 
 const eeRiaWorkflowSummary = {
-  total: 24,
+  total: 26,
   fullyAutomatable: 14,
   humanInLoop: 6,
   humanRequired: 6,
