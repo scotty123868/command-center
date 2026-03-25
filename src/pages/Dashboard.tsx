@@ -48,17 +48,17 @@ type TimelineData = {
 
 const allTimelineStops: Record<string, Record<number, TimelineData>> = {
   meridian: {
-    0: { savings: 0, scoreBefore: 34, scoreAfter: 34, workflows: 0, automationReady: 0, waste: 2_100_000 },
+    0: { savings: 0, scoreBefore: 34, scoreAfter: 34, workflows: 0, automationReady: 0, waste: 2_101_000 },
     6: { savings: 1_800_000, scoreBefore: 34, scoreAfter: 62, workflows: 27, automationReady: 7, waste: 1_400_000 },
     12: { savings: 4_200_000, scoreBefore: 34, scoreAfter: 87, workflows: 47, automationReady: 12, waste: 800_000 },
   },
   oakwood: {
-    0: { savings: 0, scoreBefore: 41, scoreAfter: 41, workflows: 0, automationReady: 0, waste: 1_600_000 },
+    0: { savings: 0, scoreBefore: 41, scoreAfter: 41, workflows: 0, automationReady: 0, waste: 1_601_000 },
     6: { savings: 1_600_000, scoreBefore: 41, scoreAfter: 58, workflows: 22, automationReady: 5, waste: 1_100_000 },
     12: { savings: 3_800_000, scoreBefore: 41, scoreAfter: 78, workflows: 38, automationReady: 9, waste: 620_000 },
   },
   pinnacle: {
-    0: { savings: 0, scoreBefore: 28, scoreAfter: 28, workflows: 0, automationReady: 0, waste: 640_000 },
+    0: { savings: 0, scoreBefore: 28, scoreAfter: 28, workflows: 0, automationReady: 0, waste: 634_000 },
     6: { savings: 800_000, scoreBefore: 28, scoreAfter: 48, workflows: 14, automationReady: 3, waste: 420_000 },
     12: { savings: 1_900_000, scoreBefore: 28, scoreAfter: 71, workflows: 24, automationReady: 6, waste: 280_000 },
   },
@@ -84,8 +84,8 @@ const allTimelineStops: Record<string, Record<number, TimelineData>> = {
   },
   'nb-energy': {
     0: { savings: 0, scoreBefore: 38, scoreAfter: 38, workflows: 0, automationReady: 0, waste: 1_100_000 },
-    6: { savings: 1_700_000, scoreBefore: 38, scoreAfter: 62, workflows: 26, automationReady: 7, waste: 550_000 },
-    12: { savings: 3_400_000, scoreBefore: 38, scoreAfter: 84, workflows: 52, automationReady: 14, waste: 160_000 },
+    6: { savings: 1_700_000, scoreBefore: 38, scoreAfter: 62, workflows: 26, automationReady: 6, waste: 550_000 },
+    12: { savings: 3_400_000, scoreBefore: 38, scoreAfter: 84, workflows: 52, automationReady: 12, waste: 160_000 },
   },
   'nb-financial': {
     0: { savings: 0, scoreBefore: 62, scoreAfter: 62, workflows: 0, automationReady: 0, waste: 680_000 },
@@ -94,8 +94,8 @@ const allTimelineStops: Record<string, Record<number, TimelineData>> = {
   },
   'nb-health': {
     0: { savings: 0, scoreBefore: 55, scoreAfter: 55, workflows: 0, automationReady: 0, waste: 920_000 },
-    6: { savings: 1_350_000, scoreBefore: 55, scoreAfter: 72, workflows: 22, automationReady: 6, waste: 460_000 },
-    12: { savings: 2_700_000, scoreBefore: 55, scoreAfter: 89, workflows: 44, automationReady: 12, waste: 120_000 },
+    6: { savings: 1_350_000, scoreBefore: 55, scoreAfter: 72, workflows: 22, automationReady: 7, waste: 460_000 },
+    12: { savings: 2_700_000, scoreBefore: 55, scoreAfter: 89, workflows: 44, automationReady: 14, waste: 120_000 },
   },
   'ee-finance': {
     0: { savings: 0, scoreBefore: 74, scoreAfter: 74, workflows: 0, automationReady: 0, waste: 680_000 },
