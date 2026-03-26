@@ -61,227 +61,251 @@ interface CompanyData {
   automations: Automation[];
 }
 
-// ─── Company Data ───────────────────────────────────────────────────────────
+// ─── Division Data ─────────────────────────────────────────────────────────
 
-const companies: CompanyData[] = [
+const divisions: CompanyData[] = [
   {
-    name: 'Meridian Industrial',
-    industry: 'PE-Backed Industrial Services',
-    employees: 1850,
+    name: 'Herzog Contracting Corp',
+    industry: 'Rail & Highway Construction',
+    employees: 1200,
     revenue: '$340M',
-    aiScoreBefore: 34,
-    aiScoreAfter: 87,
-    totalSavings: '$4.2M/yr',
+    aiScoreBefore: 32,
+    aiScoreAfter: 78,
+    totalSavings: '$2.1M/yr',
     metrics: [
-      { label: 'License Waste Reduced', value: '62%', trend: 62, trendPositive: true, sparkline: [12, 22, 31, 40, 48, 55, 62] },
-      { label: 'Workflows Automated', value: '18', trend: 38, trendPositive: true, sparkline: [2, 5, 8, 11, 13, 16, 18] },
-      { label: 'Data Latency', value: 'Real-time', trend: -98, trendPositive: true, sparkline: [45, 38, 28, 18, 8, 2, 0.1] },
-      { label: 'First-Visit Resolution', value: '68%', trend: 209, trendPositive: true, sparkline: [22, 30, 38, 46, 54, 62, 68] },
-      { label: 'Cross-OpCo Visibility', value: '100%', trend: 100, trendPositive: true, sparkline: [0, 18, 35, 55, 72, 88, 100] },
-      { label: 'Equipment Utilization', value: '84%', trend: 37.7, trendPositive: true, sparkline: [61, 65, 69, 73, 77, 81, 84] },
+      { label: 'License Waste Reduced', value: '68%', trend: 68, trendPositive: true, sparkline: [10, 20, 30, 40, 50, 60, 68] },
+      { label: 'Workflows Automated', value: '22', trend: 100, trendPositive: true, sparkline: [0, 3, 6, 10, 14, 18, 22] },
+      { label: 'Equipment Utilization', value: '82%', trend: 34, trendPositive: true, sparkline: [61, 65, 69, 73, 77, 80, 82] },
+      { label: 'Project Estimation Speed', value: '2.5x', trend: 150, trendPositive: true, sparkline: [1, 1.3, 1.6, 1.9, 2.1, 2.3, 2.5] },
+      { label: 'Dispatch Efficiency', value: '+42%', trend: 42, trendPositive: true, sparkline: [0, 8, 16, 24, 30, 36, 42] },
+      { label: 'Subcontractor Compliance', value: '96%', trend: 33, trendPositive: true, sparkline: [72, 76, 80, 84, 88, 92, 96] },
     ],
     savings: [
-      { category: 'License Optimization', amount: 1800 },
-      { category: 'Workflow Automation', amount: 920 },
-      { category: 'Data Consolidation', amount: 640 },
-      { category: 'Field Service Efficiency', amount: 540 },
-      { category: 'Reporting Automation', amount: 300 },
+      { category: 'License Reclamation', amount: 980 },
+      { category: 'Project Estimation AI', amount: 520 },
+      { category: 'Equipment Dispatch', amount: 380 },
+      { category: 'Paving Automation', amount: 220 },
     ],
     beforeAfter: [
-      { label: 'License Utilization', before: '24%', after: '94%' },
-      { label: 'Cross-OpCo Reporting', before: '45 days', after: 'Real-time' },
-      { label: 'Equipment Utilization', before: '61%', after: '84%' },
-      { label: 'Manual Workflows', before: '73%', after: '18%' },
+      { label: 'License Utilization', before: '32%', after: '92%' },
+      { label: 'Project Estimation', before: '2 weeks', after: '3 days' },
+      { label: 'Equipment Idle Rate', before: '18%', after: '6%' },
+      { label: 'Manual Workflows', before: '78%', after: '22%' },
     ],
     automations: [
       { name: 'License Reclamation Engine', status: 'live', department: 'IT' },
-      { name: 'Cross-OpCo Data Pipeline', status: 'live', department: 'Analytics' },
-      { name: 'Field Dispatch Optimization', status: 'live', department: 'Operations' },
-      { name: 'Predictive Maintenance Alerts', status: 'piloting', department: 'Maintenance' },
-      { name: 'Unified Procurement Workflow', status: 'planned', department: 'Procurement' },
+      { name: 'GPS Fleet Intelligence', status: 'live', department: 'Operations' },
+      { name: 'AI Project Estimation', status: 'piloting', department: 'Estimating' },
+      { name: 'Paving Operations Automation', status: 'planned', department: 'Field Ops' },
     ],
   },
   {
-    name: 'Oakwood Insurance',
-    industry: 'Regional Carrier',
-    employees: 800,
-    revenue: '$400M GWP',
-    aiScoreBefore: 41,
-    aiScoreAfter: 82,
-    totalSavings: '$2.1M/yr',
+    name: 'Herzog Railroad Services',
+    industry: 'Railroad Maintenance & Equipment',
+    employees: 380,
+    revenue: '$120M',
+    aiScoreBefore: 36,
+    aiScoreAfter: 80,
+    totalSavings: '$820K/yr',
     metrics: [
-      { label: 'Claims Processing', value: '5 min', trend: -88.9, trendPositive: true, sparkline: [45, 36, 28, 18, 12, 7, 5] },
-      { label: 'License Waste Recovered', value: '$2.1M', trend: 100, trendPositive: true, sparkline: [0, 350, 720, 1100, 1500, 1800, 2100] },
-      { label: 'Fraud Detection Rate', value: '2.3%', trend: 187.5, trendPositive: true, sparkline: [0.8, 1.0, 1.3, 1.6, 1.8, 2.1, 2.3] },
-      { label: 'Call Center Automation', value: '60%', trend: 60, trendPositive: true, sparkline: [5, 15, 25, 35, 44, 52, 60] },
-      { label: 'Policy Processing Speed', value: '3.2x', trend: 220, trendPositive: true, sparkline: [1, 1.4, 1.8, 2.2, 2.6, 2.9, 3.2] },
-      { label: 'Customer Satisfaction', value: '91%', trend: 18, trendPositive: true, sparkline: [77, 80, 83, 85, 87, 89, 91] },
+      { label: 'Maintenance Scheduling', value: 'AI-driven', trend: 100, trendPositive: true, sparkline: [0, 15, 32, 50, 68, 85, 100] },
+      { label: 'Car Repair Tracking', value: 'Digital', trend: 100, trendPositive: true, sparkline: [0, 20, 40, 60, 75, 90, 100] },
+      { label: 'License Waste Reduced', value: '62%', trend: 62, trendPositive: true, sparkline: [8, 18, 28, 38, 48, 56, 62] },
+      { label: 'Crew Idle Time', value: '-18%', trend: -18, trendPositive: true, sparkline: [22, 20, 18, 15, 12, 8, 4] },
+      { label: 'Equipment Uptime', value: '94%', trend: 18, trendPositive: true, sparkline: [76, 80, 84, 87, 90, 92, 94] },
+      { label: 'Leasing Optimization', value: '$200K saved', trend: 100, trendPositive: true, sparkline: [0, 30, 60, 100, 140, 170, 200] },
     ],
     savings: [
-      { category: 'License Consolidation', amount: 860 },
-      { category: 'Claims Automation', amount: 520 },
-      { category: 'Fraud Prevention', amount: 380 },
-      { category: 'Call Center AI', amount: 240 },
-      { category: 'Document Processing', amount: 100 },
+      { category: 'Maintenance AI', amount: 240 },
+      { category: 'License Reclamation', amount: 200 },
+      { category: 'Car Repair Tracking', amount: 180 },
+      { category: 'Leasing Optimization', amount: 200 },
     ],
     beforeAfter: [
-      { label: 'Claims Processing', before: '45 min', after: '5 min' },
-      { label: 'License Spend', before: '$3.4M', after: '$1.3M' },
-      { label: 'Fraud Detection', before: '0.8%', after: '2.3%' },
-      { label: 'Customer Wait Time', before: '12 min', after: '30 sec' },
+      { label: 'Maintenance Planning', before: 'Manual/weekly', after: 'AI real-time' },
+      { label: 'Car Repair Records', before: 'Paper-based', after: 'Digital + AI' },
+      { label: 'License Utilization', before: '38%', after: '90%' },
+      { label: 'Crew Idle Time', before: '22%', after: '4%' },
     ],
     automations: [
-      { name: 'AI Claims Triage', status: 'live', department: 'Claims' },
-      { name: 'Fraud Detection Model', status: 'live', department: 'Risk' },
-      { name: 'Policy Document Parser', status: 'live', department: 'Underwriting' },
-      { name: 'Voice-to-Text Call Summaries', status: 'piloting', department: 'Service' },
-      { name: 'Automated Renewal Engine', status: 'planned', department: 'Sales' },
+      { name: 'AI Maintenance Scheduler', status: 'live', department: 'Maintenance' },
+      { name: 'Digital Car Repair Tracking', status: 'live', department: 'Operations' },
+      { name: 'Predictive Equipment Maintenance', status: 'piloting', department: 'Fleet' },
+      { name: 'AI Leasing Demand Forecast', status: 'planned', department: 'Management' },
     ],
   },
   {
-    name: 'Pinnacle Healthcare',
-    industry: 'Health Services',
-    employees: 420,
+    name: 'Herzog Services (Rail Testing)',
+    industry: 'Ultrasonic Rail Testing',
+    employees: 220,
+    revenue: '$65M',
+    aiScoreBefore: 42,
+    aiScoreAfter: 84,
+    totalSavings: '$680K/yr',
+    metrics: [
+      { label: 'Defect Detection Rate', value: '99%', trend: 8.8, trendPositive: true, sparkline: [91, 93, 95, 96, 97, 98, 99] },
+      { label: 'False Positive Rate', value: '11%', trend: -67.6, trendPositive: true, sparkline: [34, 28, 22, 18, 14, 12, 11] },
+      { label: 'FRA Reporting', value: 'Automated', trend: 100, trendPositive: true, sparkline: [0, 18, 36, 54, 72, 88, 100] },
+      { label: 'Track-Miles/Day', value: '100', trend: 25, trendPositive: true, sparkline: [80, 84, 88, 92, 95, 98, 100] },
+      { label: 'Analyst Review Time', value: '-79%', trend: -79, trendPositive: true, sparkline: [210, 160, 120, 90, 65, 50, 45] },
+      { label: 'LIDAR Utilization', value: '85%', trend: 85, trendPositive: true, sparkline: [5, 18, 32, 48, 62, 74, 85] },
+    ],
+    savings: [
+      { category: 'AI Defect Detection', amount: 280 },
+      { category: 'License Reclamation', amount: 140 },
+      { category: 'FRA Reporting Automation', amount: 120 },
+      { category: 'LIDAR Ballast Analysis', amount: 140 },
+    ],
+    beforeAfter: [
+      { label: 'Defect Detection', before: '91%', after: '99%' },
+      { label: 'False Positive Rate', before: '34%', after: '11%' },
+      { label: 'Analyst Time/Segment', before: '3.5 hours', after: '45 minutes' },
+      { label: 'LIDAR Analysis', before: 'Unused', after: '85% automated' },
+    ],
+    automations: [
+      { name: 'AI Track Defect Detection', status: 'live', department: 'Rail Testing' },
+      { name: 'Automated FRA Reporting', status: 'live', department: 'Compliance' },
+      { name: 'LIDAR Ballast Analysis', status: 'piloting', department: 'Engineering' },
+      { name: 'Predictive Degradation Models', status: 'planned', department: 'Analytics' },
+    ],
+  },
+  {
+    name: 'Herzog Technologies',
+    industry: 'Signal & PTC Systems',
+    employees: 310,
     revenue: '$95M',
-    aiScoreBefore: 38,
-    aiScoreAfter: 79,
-    totalSavings: '$1.4M/yr',
+    aiScoreBefore: 48,
+    aiScoreAfter: 86,
+    totalSavings: '$740K/yr',
     metrics: [
-      { label: 'Call Center Headcount', value: '14', trend: -60, trendPositive: true, sparkline: [35, 30, 26, 22, 19, 16, 14] },
-      { label: 'CSAT Improvement', value: '+23%', trend: 23, trendPositive: true, sparkline: [0, 4, 8, 12, 16, 20, 23] },
-      { label: 'Agent Turnover', value: '12%', trend: -70, trendPositive: true, sparkline: [40, 34, 28, 22, 18, 15, 12] },
-      { label: 'Knowledge Base Coverage', value: '98%', trend: 48.5, trendPositive: true, sparkline: [66, 72, 78, 84, 90, 95, 98] },
-      { label: 'Avg Handle Time', value: '3.4 min', trend: -58.5, trendPositive: true, sparkline: [8.2, 7.0, 6.0, 5.1, 4.4, 3.8, 3.4] },
-      { label: 'First-Call Resolution', value: '89%', trend: 45.9, trendPositive: true, sparkline: [61, 66, 72, 77, 82, 86, 89] },
+      { label: 'PTC System Monitoring', value: 'Real-time', trend: 100, trendPositive: true, sparkline: [0, 18, 36, 54, 72, 88, 100] },
+      { label: 'Signal Design Speed', value: '2.1x', trend: 110, trendPositive: true, sparkline: [1, 1.2, 1.4, 1.6, 1.8, 2.0, 2.1] },
+      { label: 'License Waste Reduced', value: '65%', trend: 65, trendPositive: true, sparkline: [8, 18, 28, 38, 48, 58, 65] },
+      { label: 'GIS Data Quality', value: '98%', trend: 22, trendPositive: true, sparkline: [80, 84, 88, 92, 94, 96, 98] },
+      { label: 'Project Estimation', value: '+35% accuracy', trend: 35, trendPositive: true, sparkline: [0, 5, 12, 18, 24, 30, 35] },
+      { label: 'Compliance Automation', value: '88%', trend: 88, trendPositive: true, sparkline: [5, 18, 32, 48, 62, 76, 88] },
     ],
     savings: [
-      { category: 'Staffing Optimization', amount: 620 },
-      { category: 'AI Knowledge Base', amount: 340 },
-      { category: 'Process Automation', amount: 240 },
-      { category: 'Training Reduction', amount: 120 },
-      { category: 'Quality Monitoring', amount: 80 },
+      { category: 'License Reclamation', amount: 220 },
+      { category: 'PTC Data Integration', amount: 200 },
+      { category: 'Signal Design AI', amount: 180 },
+      { category: 'GIS Automation', amount: 140 },
     ],
     beforeAfter: [
-      { label: 'Agent Headcount', before: '35', after: '14' },
-      { label: 'Annual Turnover', before: '40%', after: '12%' },
-      { label: 'First-Call Resolution', before: '61%', after: '89%' },
-      { label: 'Avg Handle Time', before: '8.2 min', after: '3.4 min' },
+      { label: 'PTC Monitoring', before: 'Batch reports', after: 'Real-time AI' },
+      { label: 'Signal Design Time', before: '6 weeks', after: '2.5 weeks' },
+      { label: 'License Utilization', before: '48%', after: '92%' },
+      { label: 'GIS Data Entry', before: 'Manual', after: 'Auto-ingest' },
     ],
     automations: [
-      { name: 'AI Call Routing & Triage', status: 'live', department: 'Service' },
-      { name: 'Knowledge Base Auto-Update', status: 'live', department: 'Operations' },
-      { name: 'Sentiment Analysis Dashboard', status: 'live', department: 'QA' },
-      { name: 'Predictive Staffing Model', status: 'piloting', department: 'HR' },
-      { name: 'Patient Follow-Up Automation', status: 'planned', department: 'Care' },
+      { name: 'PTC Performance Monitoring', status: 'live', department: 'Engineering' },
+      { name: 'AI Signal Design Assistant', status: 'live', department: 'Design' },
+      { name: 'GIS Auto-Ingest Pipeline', status: 'piloting', department: 'GIS' },
+      { name: 'Digital Twin Signal Corridors', status: 'planned', department: 'Engineering' },
     ],
   },
   {
-    name: 'Atlas Manufacturing',
-    industry: 'PE-Backed, 4 OpCos',
-    employees: 2100,
-    revenue: '$320M',
-    aiScoreBefore: 29,
-    aiScoreAfter: 81,
-    totalSavings: '$3.6M/yr',
+    name: 'Herzog Transit Services',
+    industry: 'Passenger Rail Operations',
+    employees: 480,
+    revenue: '$110M',
+    aiScoreBefore: 40,
+    aiScoreAfter: 82,
+    totalSavings: '$860K/yr',
     metrics: [
-      { label: 'Duplicate Purchases Down', value: '85%', trend: -85, trendPositive: true, sparkline: [100, 82, 65, 48, 32, 20, 15] },
-      { label: 'Inventory Visibility', value: '100%', trend: 100, trendPositive: true, sparkline: [0, 18, 38, 58, 75, 90, 100] },
-      { label: 'Equipment Utilization Up', value: '+38%', trend: 38, trendPositive: true, sparkline: [0, 6, 12, 19, 25, 32, 38] },
-      { label: 'Maintenance Costs Down', value: '28%', trend: -28, trendPositive: true, sparkline: [100, 92, 85, 80, 76, 73, 72] },
-      { label: 'Cross-OpCo Procurement', value: '$1.2M saved', trend: 100, trendPositive: true, sparkline: [0, 180, 380, 580, 780, 1000, 1200] },
-      { label: 'Physical Count Accuracy', value: '98.8%', trend: 8.6, trendPositive: true, sparkline: [91.7, 93, 94.5, 96, 97, 98, 98.8] },
+      { label: 'Schedule Optimization', value: '+28% efficiency', trend: 28, trendPositive: true, sparkline: [0, 4, 8, 14, 18, 24, 28] },
+      { label: 'Vehicle Uptime', value: '96%', trend: 14, trendPositive: true, sparkline: [82, 84, 87, 90, 92, 94, 96] },
+      { label: 'License Waste Reduced', value: '72%', trend: 72, trendPositive: true, sparkline: [5, 16, 28, 40, 52, 64, 72] },
+      { label: 'Passenger Satisfaction', value: '+18%', trend: 18, trendPositive: true, sparkline: [0, 3, 6, 9, 12, 15, 18] },
+      { label: 'Energy Efficiency', value: '+12%', trend: 12, trendPositive: true, sparkline: [0, 2, 4, 6, 8, 10, 12] },
+      { label: 'Delay Prediction', value: '92% accuracy', trend: 92, trendPositive: true, sparkline: [20, 36, 52, 66, 78, 86, 92] },
     ],
     savings: [
-      { category: 'Procurement Consolidation', amount: 1200 },
-      { category: 'Inventory Optimization', amount: 840 },
-      { category: 'Maintenance Efficiency', amount: 680 },
-      { category: 'Equipment Utilization', amount: 560 },
-      { category: 'Reporting Automation', amount: 320 },
+      { category: 'Schedule Optimization', amount: 280 },
+      { category: 'License Reclamation', amount: 240 },
+      { category: 'Predictive Maintenance', amount: 200 },
+      { category: 'Passenger Analytics', amount: 140 },
     ],
     beforeAfter: [
-      { label: 'Inventory Visibility', before: '0%', after: '100%' },
-      { label: 'Duplicate Purchases', before: '$1.4M', after: '$210K' },
-      { label: 'Physical Count Discrepancy', before: '8.3%', after: '1.2%' },
-      { label: 'Equipment Utilization', before: '61%', after: '84%' },
+      { label: 'Schedule Planning', before: 'Manual/weekly', after: 'AI real-time' },
+      { label: 'Vehicle Downtime', before: '18%', after: '4%' },
+      { label: 'License Utilization', before: '40%', after: '92%' },
+      { label: 'Delay Notification', before: 'Reactive', after: 'Predictive AI' },
     ],
     automations: [
-      { name: 'Unified Inventory Platform', status: 'live', department: 'Supply Chain' },
-      { name: 'Cross-OpCo Purchase Matching', status: 'live', department: 'Procurement' },
-      { name: 'Predictive Maintenance System', status: 'live', department: 'Maintenance' },
-      { name: 'Equipment Telemetry Dashboard', status: 'piloting', department: 'Operations' },
-      { name: 'Automated Vendor Negotiation', status: 'planned', department: 'Procurement' },
+      { name: 'AI Transit Scheduler', status: 'live', department: 'Operations' },
+      { name: 'Predictive Vehicle Maintenance', status: 'live', department: 'Maintenance' },
+      { name: 'Passenger Flow Analytics', status: 'piloting', department: 'Planning' },
+      { name: 'Energy Optimization AI', status: 'planned', department: 'Operations' },
     ],
   },
   {
-    name: 'Northbridge Industries',
-    industry: 'Diversified Industrial Conglomerate',
-    employees: 42000,
-    revenue: '$18.2B',
-    aiScoreBefore: 52,
-    aiScoreAfter: 88,
-    totalSavings: '$24.8M/yr',
+    name: 'Herzog Energy',
+    industry: 'Energy Infrastructure',
+    employees: 120,
+    revenue: '$45M',
+    aiScoreBefore: 34,
+    aiScoreAfter: 76,
+    totalSavings: '$360K/yr',
     metrics: [
-      { label: 'Cross-OpCo Procurement', value: '$5.2M saved', trend: 100, trendPositive: true, sparkline: [0, 800, 1600, 2400, 3200, 4200, 5200] },
-      { label: 'Workflows Automated', value: '184', trend: 283, trendPositive: true, sparkline: [0, 22, 48, 82, 110, 140, 184] },
-      { label: 'License Waste Reduced', value: '89%', trend: 89, trendPositive: true, sparkline: [0, 18, 36, 52, 68, 80, 89] },
-      { label: 'Predictive Maintenance', value: '94% uptime', trend: 18, trendPositive: true, sparkline: [76, 80, 84, 87, 90, 92, 94] },
-      { label: 'Data Unification', value: '12/12 OpCos', trend: 100, trendPositive: true, sparkline: [4, 5, 7, 8, 10, 11, 12] },
-      { label: 'Employee AI Adoption', value: '78%', trend: 78, trendPositive: true, sparkline: [8, 18, 32, 46, 58, 68, 78] },
+      { label: 'Project Mgmt', value: 'Digital', trend: 100, trendPositive: true, sparkline: [0, 18, 36, 54, 72, 88, 100] },
+      { label: 'Compliance Automation', value: '82%', trend: 82, trendPositive: true, sparkline: [5, 16, 30, 44, 58, 70, 82] },
+      { label: 'License Waste Reduced', value: '58%', trend: 58, trendPositive: true, sparkline: [5, 14, 24, 34, 42, 50, 58] },
+      { label: 'Equipment Tracking', value: 'Real-time', trend: 100, trendPositive: true, sparkline: [0, 15, 32, 50, 68, 85, 100] },
+      { label: 'Cost Estimation', value: '+22% accuracy', trend: 22, trendPositive: true, sparkline: [0, 4, 8, 12, 16, 19, 22] },
+      { label: 'Resource Sharing', value: '15% of fleet', trend: 15, trendPositive: true, sparkline: [0, 2, 4, 7, 10, 12, 15] },
     ],
     savings: [
-      { category: 'Process Automation', amount: 8200 },
-      { category: 'Verification Catches', amount: 6400 },
-      { category: 'Adoption Uplift', amount: 5600 },
-      { category: 'License Recovery', amount: 4600 },
+      { category: 'Project Digitization', amount: 120 },
+      { category: 'License Reclamation', amount: 100 },
+      { category: 'Compliance Automation', amount: 80 },
+      { category: 'Equipment Tracking', amount: 60 },
     ],
     beforeAfter: [
-      { label: 'Data Unification', before: '4 of 12 OpCos', after: '12 of 12 OpCos' },
-      { label: 'Procurement Savings', before: '$0', after: '$5.2M/yr' },
-      { label: 'Workflow Automation', before: '48 manual', after: '184 automated' },
-      { label: 'License Utilization', before: '58%', after: '94%' },
+      { label: 'Project Tracking', before: 'Spreadsheets', after: 'Procore + AI' },
+      { label: 'Compliance', before: 'Manual checklists', after: '82% automated' },
+      { label: 'License Utilization', before: '34%', after: '88%' },
+      { label: 'Equipment Visibility', before: 'End-of-day', after: 'Real-time GPS' },
     ],
     automations: [
-      { name: 'Cross-OpCo Procurement AI', status: 'live', department: 'Procurement' },
-      { name: 'Predictive Maintenance Fleet', status: 'live', department: 'Manufacturing' },
-      { name: 'Financial Close Automation', status: 'live', department: 'Finance' },
-      { name: 'Supply Chain Optimization', status: 'piloting', department: 'Logistics' },
-      { name: 'Clinical Trial Data Pipeline', status: 'planned', department: 'Health Sciences' },
+      { name: 'Procore Project Management', status: 'live', department: 'Projects' },
+      { name: 'Compliance Auto-Tracking', status: 'live', department: 'Compliance' },
+      { name: 'AI Cost Estimation', status: 'piloting', department: 'Estimating' },
+      { name: 'Cross-Division Resource Share', status: 'planned', department: 'Operations' },
     ],
   },
   {
-    name: 'Republic of Estonia',
-    industry: 'Digital Government',
-    employees: 28500,
-    revenue: '€12.4B budget',
-    aiScoreBefore: 68,
-    aiScoreAfter: 94,
-    totalSavings: '€18.6M/yr',
+    name: 'Green Group LLC',
+    industry: 'Environmental Services',
+    employees: 90,
+    revenue: '$25M',
+    aiScoreBefore: 30,
+    aiScoreAfter: 72,
+    totalSavings: '$240K/yr',
     metrics: [
-      { label: 'Tax Compliance Auto', value: '94% accuracy', trend: 94, trendPositive: true, sparkline: [42, 56, 68, 78, 84, 90, 94] },
-      { label: 'Citizen Services AI', value: '24/7', trend: 100, trendPositive: true, sparkline: [0, 15, 32, 50, 68, 85, 100] },
-      { label: 'Workflows Automated', value: '126', trend: 103, trendPositive: true, sparkline: [0, 16, 34, 58, 78, 96, 126] },
-      { label: 'Cross-Ministry Data', value: '8/8 connected', trend: 100, trendPositive: true, sparkline: [3, 4, 5, 6, 7, 7, 8] },
-      { label: 'Legacy Systems Retired', value: '24 of 42', trend: 57, trendPositive: true, sparkline: [0, 4, 8, 12, 16, 20, 24] },
-      { label: 'Civil Servant Adoption', value: '82%', trend: 82, trendPositive: true, sparkline: [12, 24, 38, 52, 64, 74, 82] },
+      { label: 'Compliance Automation', value: '78%', trend: 78, trendPositive: true, sparkline: [5, 16, 28, 42, 56, 68, 78] },
+      { label: 'Waste Routing', value: 'AI-optimized', trend: 100, trendPositive: true, sparkline: [0, 18, 36, 54, 72, 88, 100] },
+      { label: 'License Waste Reduced', value: '55%', trend: 55, trendPositive: true, sparkline: [5, 12, 22, 32, 40, 48, 55] },
+      { label: 'Field Inspections', value: 'Mobile', trend: 100, trendPositive: true, sparkline: [0, 20, 40, 60, 75, 90, 100] },
+      { label: 'Report Generation', value: '-65% time', trend: -65, trendPositive: true, sparkline: [100, 82, 68, 55, 45, 38, 35] },
+      { label: 'Sensor Monitoring', value: '24/7 AI', trend: 100, trendPositive: true, sparkline: [0, 15, 32, 50, 68, 85, 100] },
     ],
     savings: [
-      { category: 'Process Automation', amount: 6800 },
-      { category: 'Adoption Uplift', amount: 5200 },
-      { category: 'Verification Catches', amount: 4200 },
-      { category: 'License Recovery', amount: 2400 },
+      { category: 'Compliance Automation', amount: 120 },
+      { category: 'License Reclamation', amount: 60 },
+      { category: 'Waste Logistics AI', amount: 60 },
     ],
     beforeAfter: [
-      { label: 'Tax Processing', before: '14 days manual', after: 'Real-time AI' },
-      { label: 'Citizen Wait Time', before: '3-5 days', after: '< 2 minutes' },
-      { label: 'Cross-Ministry Data', before: '3 of 8 connected', after: '8 of 8 connected' },
-      { label: 'Legacy Systems', before: '42 active', after: '18 remaining' },
+      { label: 'Compliance Records', before: 'Paper files', after: 'Digital + AI alerts' },
+      { label: 'Waste Routing', before: 'Manual planning', after: 'AI-optimized' },
+      { label: 'License Utilization', before: '30%', after: '86%' },
+      { label: 'Field Inspections', before: 'Paper forms', after: 'Mobile app + GPS' },
     ],
     automations: [
-      { name: 'Tax Compliance AI Engine', status: 'live', department: 'Tax & Customs' },
-      { name: 'Citizen Services Chatbot', status: 'live', department: 'Citizen Services' },
-      { name: 'Healthcare Records Integration', status: 'live', department: 'TEHIK' },
-      { name: 'Cross-Ministry Data Platform', status: 'piloting', department: 'RIA' },
-      { name: 'EU Interoperability Gateway', status: 'planned', department: 'Digital Office' },
+      { name: 'Environmental Compliance Engine', status: 'live', department: 'Compliance' },
+      { name: 'AI Waste Logistics Routing', status: 'live', department: 'Operations' },
+      { name: 'Predictive Environmental Risk', status: 'piloting', department: 'Compliance' },
+      { name: 'Automated EPA Reporting', status: 'planned', department: 'Compliance' },
     ],
   },
 ];
@@ -381,9 +405,9 @@ function SavingsTooltip({ active, payload }: { active?: boolean; payload?: Array
   );
 }
 
-// ─── Company Dashboard ──────────────────────────────────────────────────────
+// ─── Division Dashboard ─────────────────────────────────────────────────────
 
-function CompanyDashboard({ company }: { company: CompanyData }) {
+function DivisionDashboard({ company }: { company: CompanyData }) {
   const savingsData = company.savings.map((s) => ({
     category: s.category,
     amount: s.amount,
@@ -391,7 +415,7 @@ function CompanyDashboard({ company }: { company: CompanyData }) {
 
   return (
     <div className="space-y-6">
-      {/* Section 1: Company Overview Bar */}
+      {/* Section 1: Division Overview Bar */}
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
         <div className="flex flex-wrap items-center justify-between gap-6">
           <div className="flex items-center gap-6">
@@ -552,18 +576,18 @@ export default function Stories() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.25 }}
       >
-        <h1 className="text-3xl font-bold text-[#1B1B1B]">Company Dashboards</h1>
+        <h1 className="text-3xl font-bold text-[#1B1B1B]">Division Performance</h1>
         <p className="text-[#6B7280] mt-1 text-lg">
-          Transformation results by client company
+          Transformation results across all 7 Herzog divisions
         </p>
       </motion.div>
 
-      {/* Company Switcher Tab Bar */}
+      {/* Division Switcher Tab Bar */}
       <div className="border-b border-gray-200">
-        <nav className="flex gap-1 -mb-px overflow-x-auto scrollbar-hide" style={{ WebkitOverflowScrolling: 'touch' }} aria-label="Company tabs">
-          {companies.map((company, index) => (
+        <nav className="flex gap-1 -mb-px overflow-x-auto scrollbar-hide" style={{ WebkitOverflowScrolling: 'touch' }} aria-label="Division tabs">
+          {divisions.map((division, index) => (
             <button
-              key={company.name}
+              key={division.name}
               onClick={() => setActiveIndex(index)}
               className={`relative whitespace-nowrap px-5 py-3 text-sm font-medium transition-colors ${
                 activeIndex === index
@@ -573,7 +597,7 @@ export default function Stories() {
             >
               <span className="flex items-center gap-2">
                 <Building2 className="w-4 h-4" />
-                {company.name}
+                {division.name}
               </span>
               {activeIndex === index && (
                 <motion.div
@@ -596,7 +620,7 @@ export default function Stories() {
           exit={{ opacity: 0, y: -12 }}
           transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
         >
-          <CompanyDashboard company={companies[activeIndex]} />
+          <DivisionDashboard company={divisions[activeIndex]} />
         </motion.div>
       </AnimatePresence>
     </div>

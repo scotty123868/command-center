@@ -2982,6 +2982,851 @@ const eeRiaRoiSummary = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
+// ─── HCC — Herzog Contracting Corp (Herzog Division) ─────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const hccCompanyProfile = {
+  name: 'Herzog Contracting Corp',
+  industry: 'Rail & Highway Construction',
+  employees: 1_200,
+  revenue: '$340M',
+  opCos: 1,
+  opCoNames: ['Herzog Contracting Corp'],
+  techSpend: '$4.8M/yr',
+  aiReadinessScore: 32,
+  holdingPeriod: 'Herzog Companies Division',
+  ebitdaMargin: '10.5%',
+  targetEbitdaMargin: '17%',
+};
+
+const hccAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 20, maxScore: 100, status: 'Critical Gap — project data trapped in Primavera P6, equipment data in custom dispatch, no unified view across active job sites' },
+  { category: 'Process Maturity', score: 36, maxScore: 100, status: 'Below Average — field operations largely manual, project estimation based on tribal knowledge, paving and grading ops use paper checklists' },
+  { category: 'Tech Stack Modernity', score: 28, maxScore: 100, status: 'Legacy-Heavy — Primavera P6 for scheduling, heavy CAD for design, custom dispatch from 2009, no mobile-first tools for field crews' },
+  { category: 'Change Readiness', score: 40, maxScore: 100, status: 'Moderate — division GM supports modernization but 1,200 field workers are accustomed to existing workflows' },
+  { category: 'Skills & Training', score: 22, maxScore: 100, status: 'Critical Gap — strong construction expertise but near-zero digital skills among field supervisors and crew leads' },
+];
+
+const hccKpis = {
+  totalSavings: 2_100_000,
+  techScoreBefore: 32,
+  techScoreAfter: 78,
+  workflowsAnalyzed: 22,
+  automationReady: 6,
+  unusedLicenseWaste: 980_000,
+  savingsSparkline: [0, 210_000, 480_000, 820_000, 1_200_000, 1_600_000, 1_850_000, 2_100_000],
+  scoreSparkline: [32, 38, 44, 50, 58, 64, 72, 78],
+  workflowSparkline: [0, 3, 6, 10, 13, 16, 19, 22],
+  licenseSparkline: [980_000, 880_000, 760_000, 640_000, 520_000, 400_000, 300_000, 220_000],
+  headcountImpactSparkline: [0, 0, -1, -3, -5, -8, -10, -12],
+};
+
+const hccRoadmapPhases = [
+  {
+    quarter: 'Q1 2026',
+    title: 'License Audit & Project Data Consolidation',
+    items: ['Primavera P6 seat reclamation', 'AutoCAD license audit', 'GPS fleet data unification'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 1, task: 'Primavera P6 usage audit — identify 60+ inactive seats across project managers', owner: 'IT Director' },
+      { week: 2, task: 'AutoCAD/Civil 3D license review — reclaim seats from non-engineering staff', owner: 'IT Director' },
+      { week: 3, task: 'GPS fleet data assessment — map Trimble data streams for 400+ HCC vehicles', owner: 'Fleet Manager' },
+      { week: 4, task: 'Project estimation workflow mapping — document current tribal-knowledge-based process', owner: 'VP Operations' },
+    ],
+  },
+  {
+    quarter: 'Q2 2026',
+    title: 'Field Operations Quick Wins',
+    items: ['Mobile field reporting', 'Equipment dispatch optimization', 'Subcontractor portal'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 5, task: 'Deploy Procore mobile for field crew daily logs and progress reporting', owner: 'VP Operations' },
+      { week: 6, task: 'Samsara equipment dispatch pilot — 200 HCC vehicles', owner: 'Fleet Manager' },
+      { week: 7, task: 'Subcontractor management portal — digital submittals and change orders', owner: 'Project Controls Manager' },
+      { week: 8, task: 'AI-assisted project estimation pilot using historical bid data', owner: 'VP Operations' },
+    ],
+  },
+  {
+    quarter: 'Q3 2026',
+    title: 'AI-Powered Construction Operations',
+    items: ['Predictive equipment maintenance', 'Material logistics optimization', 'Automated compliance reporting'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 9, task: 'Predictive maintenance models for heavy construction equipment fleet', owner: 'Fleet Manager' },
+      { week: 10, task: 'Material and ballast logistics AI — optimize delivery routing across job sites', owner: 'VP Operations' },
+      { week: 11, task: 'Automated DOT compliance reporting for highway construction projects', owner: 'Safety Director' },
+      { week: 12, task: 'Cross-division equipment sharing dashboard with HRSI and HTI', owner: 'Fleet Manager' },
+    ],
+  },
+  {
+    quarter: 'Q4 2026',
+    title: 'Full Digital Construction Platform',
+    items: ['AI project scheduling', 'Digital twin for active projects', 'Year 2 roadmap'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 13, task: 'AI-powered project scheduling replacing manual Primavera P6 updates', owner: 'VP Operations' },
+      { week: 14, task: 'Digital twin pilot for major rail construction corridor', owner: 'VP Operations' },
+      { week: 15, task: 'ROI validation: $2.1M Year 1 savings confirmed', owner: 'Division GM' },
+      { week: 16, task: 'Year 2 roadmap presentation to CEO Brad Lager', owner: 'Division GM' },
+    ],
+  },
+];
+
+const hccTopOpportunities: Opportunity[] = [
+  { name: 'Project Estimation AI', category: 'Workflow Automation', savings: 520_000, effort: 'High', status: 'identified', priority: 10, timeToValue: 16, confidence: 76 },
+  { name: 'Equipment Dispatch Optimization', category: 'Data Infrastructure', savings: 380_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 84 },
+  { name: 'License Reclamation (P6 + CAD)', category: 'License Audit', savings: 480_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
+  { name: 'Paving Operations Automation', category: 'Workflow Automation', savings: 320_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 14, confidence: 78 },
+  { name: 'Subcontractor Management Portal', category: 'Tech Stack', savings: 240_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 8, confidence: 82 },
+  { name: 'Material Logistics AI', category: 'Workflow Automation', savings: 160_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 12, confidence: 74 },
+];
+
+const hccCurrentStack: CurrentTool[] = [
+  { name: 'Primavera P6', category: 'Project Management', annualCost: 280_000, users: 120, score: 4, integrationComplexity: 'High', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Rail construction scheduling', 'Resource allocation', 'Critical path analysis'] },
+  { name: 'AutoCAD Civil 3D', category: 'Engineering Design', annualCost: 440_000, users: 55, score: 5, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Low', dependencies: ['Highway design', 'Grading plans', 'Rail alignment'] },
+  { name: 'Custom Dispatch', category: 'Fleet Management', annualCost: 340_000, users: 180, score: 3, integrationComplexity: 'High', migrationWeeks: 20, riskLevel: 'High', dependencies: ['Crew dispatch', 'Equipment tracking', 'Work orders'] },
+  { name: 'Trimble GPS Fleet', category: 'GPS/Telematics', annualCost: 190_000, users: 400, score: 5, integrationComplexity: 'Low', migrationWeeks: 6, riskLevel: 'Low', dependencies: ['Vehicle tracking', 'Geofencing', 'Route optimization'] },
+];
+
+const hccLicenses: License[] = [
+  { vendor: 'Primavera P6', totalLicenses: 120, active90d: 60, inactive: 60, annualWaste: 210_000, action: 'Reclaim 60 inactive seats — restrict to active PMs only', costPerLicense: 3_500, department: 'Project Management', lastAuditDate: '2025-10-15', trend: [82, 76, 70, 65, 60, 50], complianceRisk: false },
+  { vendor: 'AutoCAD Civil 3D', totalLicenses: 55, active90d: 25, inactive: 30, annualWaste: 240_000, action: 'Reclaim 30 seats from non-engineering staff', costPerLicense: 8_000, department: 'Engineering & Design', lastAuditDate: '2025-08-20', trend: [68, 60, 54, 50, 46, 45], complianceRisk: true },
+  { vendor: 'Microsoft 365', totalLicenses: 1_200, active90d: 800, inactive: 400, annualWaste: 320_000, action: 'Reclaim 400 seats + downgrade field crews E5→E3', costPerLicense: 800, department: 'IT / All Staff', lastAuditDate: '2025-09-15', trend: [78, 72, 68, 66, 66, 67], complianceRisk: false },
+  { vendor: 'Trimble Business Center', totalLicenses: 40, active90d: 15, inactive: 25, annualWaste: 210_000, action: 'Reclaim 25 seats from inactive survey crews', costPerLicense: 8_400, department: 'Survey & GPS', lastAuditDate: '2025-07-22', trend: [62, 54, 46, 40, 38, 38], complianceRisk: false },
+];
+
+const hccWorkflowSummary = {
+  total: 22,
+  fullyAutomatable: 6,
+  humanInLoop: 10,
+  humanRequired: 6,
+  currentLaborSpend: 3_200_000,
+  potentialSavings: 1_400_000,
+};
+
+const hccRoiSummary = {
+  techStackSavings: 800_000,
+  workflowAutomation: 1_400_000,
+  licenseRecovery: 980_000,
+  implementationCosts: 1_080_000,
+  netYear1: 2_100_000,
+  year2Projected: 3_200_000,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── HRSI — Herzog Railroad Services (Herzog Division) ───────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const hrsiCompanyProfile = {
+  name: 'Herzog Railroad Services',
+  industry: 'Railroad Maintenance & Equipment',
+  employees: 380,
+  revenue: '$120M',
+  opCos: 1,
+  opCoNames: ['Herzog Railroad Services'],
+  techSpend: '$1.8M/yr',
+  aiReadinessScore: 36,
+  holdingPeriod: 'Herzog Companies Division',
+  ebitdaMargin: '12.2%',
+  targetEbitdaMargin: '19%',
+};
+
+const hrsiAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 28, maxScore: 100, status: 'Below Average — Class 1 railroad maintenance data in custom dispatch system, car repair records in separate database, no unified view' },
+  { category: 'Process Maturity', score: 40, maxScore: 100, status: 'Moderate — some automation in railroad car repair tracking, but maintenance scheduling and leasing management still largely manual' },
+  { category: 'Tech Stack Modernity', score: 32, maxScore: 100, status: 'Legacy — custom dispatch system from 2009 handles most operations, supplemented by spreadsheets for car leasing' },
+  { category: 'Change Readiness', score: 44, maxScore: 100, status: 'Moderate — field supervisors receptive to mobile tools, but 380 crew members spread across multiple states' },
+  { category: 'Skills & Training', score: 30, maxScore: 100, status: 'Below Average — strong mechanical/railroad skills but limited digital capability among field crews' },
+];
+
+const hrsiKpis = {
+  totalSavings: 820_000,
+  techScoreBefore: 36,
+  techScoreAfter: 80,
+  workflowsAnalyzed: 8,
+  automationReady: 2,
+  unusedLicenseWaste: 380_000,
+  savingsSparkline: [0, 80_000, 180_000, 320_000, 480_000, 600_000, 720_000, 820_000],
+  scoreSparkline: [36, 42, 48, 55, 62, 68, 75, 80],
+  workflowSparkline: [0, 1, 2, 3, 4, 5, 7, 8],
+  licenseSparkline: [380_000, 340_000, 300_000, 260_000, 220_000, 180_000, 140_000, 100_000],
+  headcountImpactSparkline: [0, 0, -1, -1, -2, -3, -4, -5],
+};
+
+const hrsiRoadmapPhases = [
+  {
+    quarter: 'Q1 2026',
+    title: 'Maintenance Data Consolidation',
+    items: ['Custom dispatch assessment', 'Car repair tracking digitization', 'License audit'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 1, task: 'Custom dispatch system assessment — document all railroad maintenance workflows', owner: 'Division Manager' },
+      { week: 2, task: 'Car repair tracking digitization — migrate from paper-based to digital records', owner: 'Maintenance Director' },
+      { week: 3, task: 'Leasing management process mapping — identify automation opportunities', owner: 'Division Manager' },
+      { week: 4, task: 'License audit across HRSI — identify unused Kronos and dispatch seats', owner: 'IT Lead' },
+    ],
+  },
+  {
+    quarter: 'Q2 2026',
+    title: 'AI-Powered Maintenance Scheduling',
+    items: ['Predictive maintenance pilot', 'Mobile crew tools', 'Equipment leasing optimization'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 5, task: 'Predictive maintenance model for railroad equipment fleet', owner: 'Maintenance Director' },
+      { week: 6, task: 'Mobile crew management app deployment for 380 field employees', owner: 'IT Lead' },
+      { week: 7, task: 'Equipment leasing optimization using AI demand forecasting', owner: 'Division Manager' },
+      { week: 8, task: 'Samsara fleet intelligence deployment for HRSI vehicles', owner: 'Fleet Manager' },
+    ],
+  },
+  {
+    quarter: 'Q3 2026', title: 'Scale & Integration', items: ['Cross-division data sharing', 'Automated compliance'], status: 'upcoming' as const,
+    weekPlan: [
+      { week: 9, task: 'Cross-division equipment sharing with HCC fleet', owner: 'Division Manager' },
+      { week: 10, task: 'FRA compliance automation for maintenance records', owner: 'Safety Director' },
+      { week: 11, task: 'AI car repair prioritization based on fleet utilization data', owner: 'Maintenance Director' },
+      { week: 12, task: 'Q3 close: validation of maintenance cost reductions', owner: 'Division Manager' },
+    ],
+  },
+  {
+    quarter: 'Q4 2026', title: 'Full AI-Native Operations', items: ['Automated dispatch', 'Year 2 planning'], status: 'upcoming' as const,
+    weekPlan: [
+      { week: 13, task: 'Full AI dispatch replacing legacy custom system for HRSI', owner: 'IT Lead' },
+      { week: 14, task: 'Knowledge transfer and training for all 380 employees', owner: 'Division Manager' },
+      { week: 15, task: 'ROI validation: $820K Year 1 savings confirmed', owner: 'Division Manager' },
+      { week: 16, task: 'Year 2 roadmap and continuous improvement plan', owner: 'Division Manager' },
+    ],
+  },
+];
+
+const hrsiTopOpportunities: Opportunity[] = [
+  { name: 'Maintenance Scheduling AI', category: 'Workflow Automation', savings: 240_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 82 },
+  { name: 'Car Repair Tracking Automation', category: 'Workflow Automation', savings: 180_000, effort: 'Medium', status: 'in-progress', priority: 8, timeToValue: 8, confidence: 86 },
+  { name: 'License Reclamation', category: 'License Audit', savings: 200_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 95 },
+  { name: 'Equipment Leasing Optimization', category: 'Workflow Automation', savings: 200_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 14, confidence: 78 },
+];
+
+const hrsiCurrentStack: CurrentTool[] = [
+  { name: 'Custom Dispatch', category: 'Fleet Management', annualCost: 200_000, users: 120, score: 3, integrationComplexity: 'High', migrationWeeks: 18, riskLevel: 'High', dependencies: ['Crew dispatch', 'Equipment tracking', 'Work orders'] },
+  { name: 'Kronos/UKG', category: 'Workforce', annualCost: 120_000, users: 380, score: 4, integrationComplexity: 'Medium', migrationWeeks: 10, riskLevel: 'Medium', dependencies: ['Time tracking', 'FRA compliance', 'Payroll'] },
+  { name: 'SAP ERP', category: 'Finance', annualCost: 160_000, users: 40, score: 3, integrationComplexity: 'High', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Financial reporting', 'AP/AR', 'Cost accounting'] },
+];
+
+const hrsiLicenses: License[] = [
+  { vendor: 'Custom Dispatch', totalLicenses: 120, active90d: 80, inactive: 40, annualWaste: 160_000, action: 'Migrate to Samsara — reclaim all legacy dispatch seats', costPerLicense: 4_000, department: 'Operations', lastAuditDate: '2025-11-10', trend: [78, 72, 68, 65, 64, 67], complianceRisk: false },
+  { vendor: 'Kronos/UKG', totalLicenses: 380, active90d: 280, inactive: 100, annualWaste: 30_000, action: 'Reclaim 100 inactive crew seats', costPerLicense: 300, department: 'HR / All Staff', lastAuditDate: '2026-01-10', trend: [86, 82, 78, 74, 74, 74], complianceRisk: false },
+  { vendor: 'SAP ERP', totalLicenses: 40, active90d: 20, inactive: 20, annualWaste: 80_000, action: 'Reclaim 20 seats — consolidate to finance team', costPerLicense: 4_000, department: 'Finance', lastAuditDate: '2025-11-02', trend: [72, 66, 58, 52, 50, 50], complianceRisk: false },
+  { vendor: 'Microsoft 365', totalLicenses: 380, active90d: 240, inactive: 140, annualWaste: 110_000, action: 'Reclaim 140 seats + downgrade field crews', costPerLicense: 786, department: 'IT / All Staff', lastAuditDate: '2025-09-15', trend: [76, 70, 66, 63, 63, 63], complianceRisk: false },
+];
+
+const hrsiWorkflowSummary = {
+  total: 8,
+  fullyAutomatable: 2,
+  humanInLoop: 4,
+  humanRequired: 2,
+  currentLaborSpend: 1_100_000,
+  potentialSavings: 480_000,
+};
+
+const hrsiRoiSummary = {
+  techStackSavings: 280_000,
+  workflowAutomation: 480_000,
+  licenseRecovery: 380_000,
+  implementationCosts: 320_000,
+  netYear1: 820_000,
+  year2Projected: 1_250_000,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── HSI — Herzog Services / Rail Testing (Herzog Division) ──────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const hsiCompanyProfile = {
+  name: 'Herzog Services (Rail Testing)',
+  industry: 'Ultrasonic Rail Testing',
+  employees: 220,
+  revenue: '$65M',
+  opCos: 1,
+  opCoNames: ['Herzog Services'],
+  techSpend: '$1.2M/yr',
+  aiReadinessScore: 42,
+  holdingPeriod: 'Herzog Companies Division',
+  ebitdaMargin: '14.8%',
+  targetEbitdaMargin: '22%',
+};
+
+const hsiAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 48, maxScore: 100, status: 'Moderate — TAM-4 system generates rich ultrasonic and geometry data, but 2TB/month sits largely unanalyzed in siloed databases' },
+  { category: 'Process Maturity', score: 44, maxScore: 100, status: 'Moderate — advanced testing equipment in use, but defect analysis and FRA reporting still heavily manual' },
+  { category: 'Tech Stack Modernity', score: 38, maxScore: 100, status: 'Mixed — TAM-4 is specialized but aging, Video Track Chart review is entirely manual, LIDAR data underutilized' },
+  { category: 'Change Readiness', score: 46, maxScore: 100, status: 'Good — testing engineers are data-oriented and receptive to AI-augmented inspection workflows' },
+  { category: 'Skills & Training', score: 34, maxScore: 100, status: 'Below Average — strong rail testing expertise but limited ML/data science capability for automated defect detection' },
+];
+
+const hsiKpis = {
+  totalSavings: 680_000,
+  techScoreBefore: 42,
+  techScoreAfter: 84,
+  workflowsAnalyzed: 6,
+  automationReady: 2,
+  unusedLicenseWaste: 240_000,
+  savingsSparkline: [0, 60_000, 150_000, 280_000, 400_000, 520_000, 610_000, 680_000],
+  scoreSparkline: [42, 48, 54, 60, 66, 72, 78, 84],
+  workflowSparkline: [0, 1, 2, 3, 4, 5, 5, 6],
+  licenseSparkline: [240_000, 220_000, 190_000, 160_000, 130_000, 100_000, 80_000, 60_000],
+  headcountImpactSparkline: [0, 0, -1, -1, -2, -3, -3, -4],
+};
+
+const hsiRoadmapPhases = [
+  {
+    quarter: 'Q1 2026', title: 'Rail Testing Data Unification', items: ['TAM-4 data lake ingestion', 'LIDAR data pipeline', 'FRA reporting assessment'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 1, task: 'TAM-4 data export and Databricks ingestion pipeline for 3 years of testing history', owner: 'Testing Director' },
+      { week: 2, task: 'LIDAR point cloud storage and processing infrastructure setup', owner: 'Data Engineer' },
+      { week: 3, task: 'Ultrasonic inspection data consolidation from separate flaw detection databases', owner: 'Testing Director' },
+      { week: 4, task: 'FRA Form 6180 reporting process mapping and automation scoping', owner: 'Compliance Manager' },
+    ],
+  },
+  {
+    quarter: 'Q2 2026', title: 'AI Defect Detection Pilot', items: ['Computer vision training', 'Ultrasonic AI', 'Shadow mode validation'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 5, task: 'Train YOLOv8 computer vision model on 240K labeled track defect images', owner: 'ML Engineer' },
+      { week: 6, task: 'Ultrasonic flaw detection AI using deep learning on historical scan data', owner: 'ML Engineer' },
+      { week: 7, task: 'Shadow mode: run AI pipeline in parallel with human analysts on 2,000+ track-miles', owner: 'Testing Director' },
+      { week: 8, task: 'Validation: target >92% defect detection accuracy, <5% miss rate on critical flaws', owner: 'Testing Director' },
+    ],
+  },
+  {
+    quarter: 'Q3 2026', title: 'Production AI Inspection', items: ['AI-enhanced geometry cars', 'Automated FRA reporting'], status: 'upcoming' as const,
+    weekPlan: [
+      { week: 9, task: 'Deploy AI-enhanced inspection on all 4 geometry cars with human verification', owner: 'Testing Director' },
+      { week: 10, task: 'Automated FRA compliance report generation from digital inspection data', owner: 'Compliance Manager' },
+      { week: 11, task: 'Multi-modal fusion: integrate geometry, ultrasonic, visual, and LIDAR data', owner: 'ML Engineer' },
+      { week: 12, task: 'Predictive track degradation models forecasting maintenance 6-8 weeks ahead', owner: 'ML Engineer' },
+    ],
+  },
+  {
+    quarter: 'Q4 2026', title: 'Full AI-Native Rail Testing', items: ['Autonomous inspection scaling', 'Year 2 roadmap'], status: 'upcoming' as const,
+    weekPlan: [
+      { week: 13, task: 'Scale autonomous inspection to all testing corridors', owner: 'Testing Director' },
+      { week: 14, task: 'Automated work order generation for railroad client maintenance departments', owner: 'Testing Director' },
+      { week: 15, task: 'ROI validation: $680K Year 1 savings confirmed', owner: 'Division GM' },
+      { week: 16, task: 'Year 2 roadmap and advanced AI capabilities planning', owner: 'Division GM' },
+    ],
+  },
+];
+
+const hsiTopOpportunities: Opportunity[] = [
+  { name: 'AI Defect Detection (Vision + Ultrasonic)', category: 'Workflow Automation', savings: 280_000, effort: 'High', status: 'identified', priority: 10, timeToValue: 16, confidence: 82 },
+  { name: 'Automated FRA Reporting', category: 'Workflow Automation', savings: 120_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 90 },
+  { name: 'License Reclamation', category: 'License Audit', savings: 140_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
+  { name: 'LIDAR Ballast Analysis Automation', category: 'Workflow Automation', savings: 140_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 18, confidence: 74 },
+];
+
+const hsiCurrentStack: CurrentTool[] = [
+  { name: 'TAM-4 Rail Testing', category: 'Rail Inspection', annualCost: 240_000, users: 45, score: 4, integrationComplexity: 'Medium', migrationWeeks: 12, riskLevel: 'Medium', dependencies: ['Track geometry', 'Defect detection', 'FRA compliance'] },
+  { name: 'Trimble Business Center', category: 'Survey/GPS', annualCost: 160_000, users: 20, score: 5, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['Survey data', 'LIDAR processing', 'GIS mapping'] },
+  { name: 'Custom Video Track Chart', category: 'Inspection', annualCost: 80_000, users: 20, score: 3, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Medium', dependencies: ['Visual inspection', 'Defect correlation', 'Analyst review'] },
+];
+
+const hsiLicenses: License[] = [
+  { vendor: 'TAM-4 Rail Testing', totalLicenses: 45, active90d: 30, inactive: 15, annualWaste: 90_000, action: 'Reclaim 15 inactive analyst seats — consolidate to active testing crews', costPerLicense: 6_000, department: 'Rail Testing Operations', lastAuditDate: '2025-10-20', trend: [80, 74, 68, 66, 66, 67], complianceRisk: false },
+  { vendor: 'Trimble Business Center', totalLicenses: 20, active90d: 10, inactive: 10, annualWaste: 80_000, action: 'Reclaim 10 seats from inactive survey engineers', costPerLicense: 8_000, department: 'Survey & GPS', lastAuditDate: '2025-07-22', trend: [65, 58, 52, 50, 50, 50], complianceRisk: false },
+  { vendor: 'Microsoft 365', totalLicenses: 220, active90d: 130, inactive: 90, annualWaste: 70_000, action: 'Reclaim 90 seats + downgrade field technicians', costPerLicense: 778, department: 'IT / All Staff', lastAuditDate: '2025-09-15', trend: [72, 66, 62, 59, 59, 59], complianceRisk: false },
+];
+
+const hsiWorkflowSummary = {
+  total: 6,
+  fullyAutomatable: 2,
+  humanInLoop: 3,
+  humanRequired: 1,
+  currentLaborSpend: 850_000,
+  potentialSavings: 380_000,
+};
+
+const hsiRoiSummary = {
+  techStackSavings: 220_000,
+  workflowAutomation: 380_000,
+  licenseRecovery: 240_000,
+  implementationCosts: 160_000,
+  netYear1: 680_000,
+  year2Projected: 1_020_000,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── HTI — Herzog Technologies (Herzog Division) ─────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const htiCompanyProfile = {
+  name: 'Herzog Technologies',
+  industry: 'Signal & PTC Systems',
+  employees: 310,
+  revenue: '$95M',
+  opCos: 1,
+  opCoNames: ['Herzog Technologies'],
+  techSpend: '$2.4M/yr',
+  aiReadinessScore: 48,
+  holdingPeriod: 'Herzog Companies Division',
+  ebitdaMargin: '13.5%',
+  targetEbitdaMargin: '20%',
+};
+
+const htiAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 52, maxScore: 100, status: 'Moderate — PTC event logs and signal system data are digital but trapped in proprietary formats with limited API access' },
+  { category: 'Process Maturity', score: 50, maxScore: 100, status: 'Moderate — PTC deployment follows structured processes, but GIS data management and signal design still use legacy workflows' },
+  { category: 'Tech Stack Modernity', score: 48, maxScore: 100, status: 'Mixed — builds modern PTC/signal systems for clients but internal tools are aging; proprietary signal design software' },
+  { category: 'Change Readiness', score: 52, maxScore: 100, status: 'Good — most tech-forward division, engineering team actively interested in AI for signal design optimization' },
+  { category: 'Skills & Training', score: 38, maxScore: 100, status: 'Developing — strong signal/PTC engineering talent, some data analysis capability, but limited AI/ML skills' },
+];
+
+const htiKpis = {
+  totalSavings: 740_000,
+  techScoreBefore: 48,
+  techScoreAfter: 86,
+  workflowsAnalyzed: 10,
+  automationReady: 3,
+  unusedLicenseWaste: 420_000,
+  savingsSparkline: [0, 70_000, 170_000, 300_000, 440_000, 560_000, 660_000, 740_000],
+  scoreSparkline: [48, 54, 60, 66, 72, 78, 82, 86],
+  workflowSparkline: [0, 1, 2, 4, 5, 7, 8, 10],
+  licenseSparkline: [420_000, 380_000, 340_000, 300_000, 260_000, 200_000, 160_000, 120_000],
+  headcountImpactSparkline: [0, 0, -1, -2, -3, -4, -5, -6],
+};
+
+const htiRoadmapPhases = [
+  {
+    quarter: 'Q1 2026', title: 'PTC Data & Signal System Assessment', items: ['PTC event log analysis', 'Signal design tool audit', 'GIS data consolidation'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 1, task: 'PTC event log extraction and analysis — identify patterns in system performance data', owner: 'Chief Engineer' },
+      { week: 2, task: 'Signal design software audit — evaluate proprietary tools vs modern alternatives', owner: 'Engineering Manager' },
+      { week: 3, task: 'GIS data consolidation — unify geographic and track data from multiple projects', owner: 'GIS Manager' },
+      { week: 4, task: 'License audit — identify unused CAD, GIS, and signal design tool seats', owner: 'IT Lead' },
+    ],
+  },
+  {
+    quarter: 'Q2 2026', title: 'AI Signal Design & PTC Optimization', items: ['AI-assisted signal placement', 'PTC performance monitoring', 'GIS automation'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 5, task: 'AI-assisted signal placement optimization using historical project data', owner: 'Chief Engineer' },
+      { week: 6, task: 'PTC performance monitoring dashboard with anomaly detection', owner: 'Engineering Manager' },
+      { week: 7, task: 'GIS data management automation — auto-ingest field survey data', owner: 'GIS Manager' },
+      { week: 8, task: 'Automated signal testing documentation and compliance reporting', owner: 'Engineering Manager' },
+    ],
+  },
+  {
+    quarter: 'Q3 2026', title: 'Scale & Integration', items: ['Cross-division PTC data', 'Predictive signal maintenance'], status: 'upcoming' as const,
+    weekPlan: [
+      { week: 9, task: 'Cross-division PTC data integration with HSI testing results', owner: 'Chief Engineer' },
+      { week: 10, task: 'Predictive signal system maintenance using ML on performance data', owner: 'Engineering Manager' },
+      { week: 11, task: 'Automated project estimation for signal installation projects', owner: 'Project Manager' },
+      { week: 12, task: 'Digital twin pilot for signal corridor design', owner: 'Chief Engineer' },
+    ],
+  },
+  {
+    quarter: 'Q4 2026', title: 'Full AI-Native Signal Operations', items: ['AI signal design platform', 'Year 2 roadmap'], status: 'upcoming' as const,
+    weekPlan: [
+      { week: 13, task: 'Full AI-native signal design platform deployment', owner: 'Chief Engineer' },
+      { week: 14, task: 'Legacy system decommission — retire proprietary design tools', owner: 'IT Lead' },
+      { week: 15, task: 'ROI validation: $740K Year 1 savings confirmed', owner: 'Division GM' },
+      { week: 16, task: 'Year 2 roadmap and advanced capabilities planning', owner: 'Division GM' },
+    ],
+  },
+];
+
+const htiTopOpportunities: Opportunity[] = [
+  { name: 'PTC System Data Integration', category: 'Data Infrastructure', savings: 200_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 14, confidence: 78 },
+  { name: 'AI Signal Design Optimization', category: 'Workflow Automation', savings: 180_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 76 },
+  { name: 'License Reclamation (CAD + GIS)', category: 'License Audit', savings: 220_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 95 },
+  { name: 'GIS Data Management Automation', category: 'Workflow Automation', savings: 140_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 82 },
+];
+
+const htiCurrentStack: CurrentTool[] = [
+  { name: 'Proprietary Signal Design', category: 'Engineering', annualCost: 320_000, users: 80, score: 4, integrationComplexity: 'High', migrationWeeks: 20, riskLevel: 'High', dependencies: ['Signal placement', 'Circuit design', 'PTC integration'] },
+  { name: 'ArcGIS Pro', category: 'GIS', annualCost: 180_000, users: 40, score: 6, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Low', dependencies: ['Geographic data', 'Track mapping', 'Field surveys'] },
+  { name: 'AutoCAD Electrical', category: 'CAD', annualCost: 240_000, users: 60, score: 5, integrationComplexity: 'Medium', migrationWeeks: 10, riskLevel: 'Medium', dependencies: ['Electrical design', 'Signal schematics', 'Panel layouts'] },
+];
+
+const htiLicenses: License[] = [
+  { vendor: 'AutoCAD Electrical', totalLicenses: 60, active90d: 35, inactive: 25, annualWaste: 200_000, action: 'Reclaim 25 seats from non-active designers', costPerLicense: 8_000, department: 'Signal Engineering', lastAuditDate: '2025-08-20', trend: [72, 66, 60, 58, 58, 58], complianceRisk: false },
+  { vendor: 'ArcGIS Pro', totalLicenses: 40, active90d: 22, inactive: 18, annualWaste: 126_000, action: 'Reclaim 18 seats — restrict to active GIS analysts', costPerLicense: 7_000, department: 'GIS & Survey', lastAuditDate: '2025-09-10', trend: [68, 62, 56, 55, 55, 55], complianceRisk: false },
+  { vendor: 'Microsoft 365', totalLicenses: 310, active90d: 190, inactive: 120, annualWaste: 94_000, action: 'Reclaim 120 seats + downgrade field technicians', costPerLicense: 783, department: 'IT / All Staff', lastAuditDate: '2025-09-15', trend: [74, 68, 64, 61, 61, 61], complianceRisk: false },
+];
+
+const htiWorkflowSummary = {
+  total: 10,
+  fullyAutomatable: 3,
+  humanInLoop: 5,
+  humanRequired: 2,
+  currentLaborSpend: 1_000_000,
+  potentialSavings: 400_000,
+};
+
+const htiRoiSummary = {
+  techStackSavings: 320_000,
+  workflowAutomation: 400_000,
+  licenseRecovery: 420_000,
+  implementationCosts: 400_000,
+  netYear1: 740_000,
+  year2Projected: 1_120_000,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── HTSI — Herzog Transit Services (Herzog Division) ────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const htsiCompanyProfile = {
+  name: 'Herzog Transit Services',
+  industry: 'Passenger Rail Operations',
+  employees: 480,
+  revenue: '$110M',
+  opCos: 1,
+  opCoNames: ['Herzog Transit Services'],
+  techSpend: '$2.2M/yr',
+  aiReadinessScore: 40,
+  holdingPeriod: 'Herzog Companies Division',
+  ebitdaMargin: '11.0%',
+  targetEbitdaMargin: '18%',
+};
+
+const htsiAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 42, maxScore: 100, status: 'Moderate — transit scheduling systems produce real-time data, but passenger operations data not integrated with maintenance systems' },
+  { category: 'Process Maturity', score: 38, maxScore: 100, status: 'Below Average — transit scheduling partially automated, but maintenance planning and passenger flow analysis are manual' },
+  { category: 'Tech Stack Modernity', score: 36, maxScore: 100, status: 'Mixed — modern fare collection systems coexist with aging maintenance tracking and crew management tools' },
+  { category: 'Change Readiness', score: 48, maxScore: 100, status: 'Good — transit operators accustomed to technology; passenger service pressure drives willingness to adopt new tools' },
+  { category: 'Skills & Training', score: 32, maxScore: 100, status: 'Below Average — strong transit operations expertise but limited analytics capability for ridership and maintenance optimization' },
+];
+
+const htsiKpis = {
+  totalSavings: 860_000,
+  techScoreBefore: 40,
+  techScoreAfter: 82,
+  workflowsAnalyzed: 10,
+  automationReady: 3,
+  unusedLicenseWaste: 480_000,
+  savingsSparkline: [0, 80_000, 200_000, 340_000, 500_000, 640_000, 760_000, 860_000],
+  scoreSparkline: [40, 46, 52, 58, 64, 70, 76, 82],
+  workflowSparkline: [0, 1, 2, 4, 5, 7, 8, 10],
+  licenseSparkline: [480_000, 430_000, 380_000, 320_000, 260_000, 200_000, 150_000, 110_000],
+  headcountImpactSparkline: [0, 0, -1, -2, -3, -5, -6, -7],
+};
+
+const htsiRoadmapPhases = [
+  {
+    quarter: 'Q1 2026', title: 'Transit Data & Operations Assessment', items: ['Ridership data analysis', 'Maintenance system audit', 'Schedule optimization scoping'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 1, task: 'Ridership data analysis — consolidate passenger count and fare data across all routes', owner: 'Operations Director' },
+      { week: 2, task: 'Transit vehicle maintenance system audit — assess current tracking and scheduling tools', owner: 'Maintenance Manager' },
+      { week: 3, task: 'Crew scheduling process mapping — document manual scheduling for 480 employees', owner: 'Operations Director' },
+      { week: 4, task: 'License audit — identify unused transit scheduling and maintenance software seats', owner: 'IT Lead' },
+    ],
+  },
+  {
+    quarter: 'Q2 2026', title: 'AI Transit Scheduling & Maintenance', items: ['AI schedule optimization', 'Predictive vehicle maintenance', 'Passenger analytics'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 5, task: 'AI-powered transit schedule optimization using ridership demand data', owner: 'Operations Director' },
+      { week: 6, task: 'Predictive vehicle maintenance model for transit fleet', owner: 'Maintenance Manager' },
+      { week: 7, task: 'Passenger flow analytics dashboard for real-time operations decisions', owner: 'Operations Director' },
+      { week: 8, task: 'Mobile crew management app for transit operators and dispatchers', owner: 'IT Lead' },
+    ],
+  },
+  {
+    quarter: 'Q3 2026', title: 'Passenger Experience & Efficiency', items: ['Real-time passenger info', 'Energy optimization'], status: 'upcoming' as const,
+    weekPlan: [
+      { week: 9, task: 'Real-time passenger information system with AI delay predictions', owner: 'Operations Director' },
+      { week: 10, task: 'Transit vehicle energy optimization using driving pattern analysis', owner: 'Maintenance Manager' },
+      { week: 11, task: 'Automated compliance reporting for transit authority requirements', owner: 'Compliance Manager' },
+      { week: 12, task: 'Cross-division data integration with HRSI maintenance capabilities', owner: 'Operations Director' },
+    ],
+  },
+  {
+    quarter: 'Q4 2026', title: 'Full AI-Native Transit Operations', items: ['Autonomous scheduling', 'Year 2 roadmap'], status: 'upcoming' as const,
+    weekPlan: [
+      { week: 13, task: 'Full autonomous transit scheduling with human oversight', owner: 'Operations Director' },
+      { week: 14, task: 'Knowledge transfer and training for all 480 employees', owner: 'Operations Director' },
+      { week: 15, task: 'ROI validation: $860K Year 1 savings confirmed', owner: 'Division GM' },
+      { week: 16, task: 'Year 2 roadmap for advanced transit AI capabilities', owner: 'Division GM' },
+    ],
+  },
+];
+
+const htsiTopOpportunities: Opportunity[] = [
+  { name: 'Transit Schedule Optimization', category: 'Workflow Automation', savings: 280_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 14, confidence: 80 },
+  { name: 'Predictive Vehicle Maintenance', category: 'Workflow Automation', savings: 200_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 82 },
+  { name: 'License Reclamation', category: 'License Audit', savings: 240_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
+  { name: 'Passenger Flow Analytics', category: 'Data Infrastructure', savings: 140_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 78 },
+];
+
+const htsiCurrentStack: CurrentTool[] = [
+  { name: 'Transit Scheduling System', category: 'Operations', annualCost: 280_000, users: 60, score: 4, integrationComplexity: 'High', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Route scheduling', 'Crew assignments', 'Service planning'] },
+  { name: 'Vehicle Maintenance Tracker', category: 'Maintenance', annualCost: 160_000, users: 40, score: 3, integrationComplexity: 'Medium', migrationWeeks: 10, riskLevel: 'Medium', dependencies: ['Maintenance scheduling', 'Parts inventory', 'Compliance records'] },
+  { name: 'Fare Collection System', category: 'Revenue', annualCost: 180_000, users: 480, score: 6, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['Fare processing', 'Ridership data', 'Revenue reporting'] },
+  { name: 'Kronos/UKG', category: 'Workforce', annualCost: 140_000, users: 480, score: 4, integrationComplexity: 'Medium', migrationWeeks: 10, riskLevel: 'Medium', dependencies: ['Time tracking', 'Crew scheduling', 'Payroll'] },
+];
+
+const htsiLicenses: License[] = [
+  { vendor: 'Transit Scheduling System', totalLicenses: 60, active90d: 30, inactive: 30, annualWaste: 210_000, action: 'Reclaim 30 inactive seats — restrict to active dispatchers and planners', costPerLicense: 7_000, department: 'Transit Operations', lastAuditDate: '2025-11-15', trend: [72, 66, 58, 52, 50, 50], complianceRisk: false },
+  { vendor: 'Vehicle Maintenance Tracker', totalLicenses: 40, active90d: 22, inactive: 18, annualWaste: 90_000, action: 'Reclaim 18 seats — migrate to predictive maintenance platform', costPerLicense: 5_000, department: 'Maintenance', lastAuditDate: '2025-10-20', trend: [68, 62, 56, 55, 55, 55], complianceRisk: false },
+  { vendor: 'Microsoft 365', totalLicenses: 480, active90d: 300, inactive: 180, annualWaste: 180_000, action: 'Reclaim 180 seats + downgrade operators to basic tier', costPerLicense: 1_000, department: 'IT / All Staff', lastAuditDate: '2025-09-15', trend: [76, 70, 64, 62, 62, 63], complianceRisk: false },
+];
+
+const htsiWorkflowSummary = {
+  total: 10,
+  fullyAutomatable: 3,
+  humanInLoop: 5,
+  humanRequired: 2,
+  currentLaborSpend: 1_400_000,
+  potentialSavings: 520_000,
+};
+
+const htsiRoiSummary = {
+  techStackSavings: 360_000,
+  workflowAutomation: 520_000,
+  licenseRecovery: 480_000,
+  implementationCosts: 500_000,
+  netYear1: 860_000,
+  year2Projected: 1_300_000,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── HE — Herzog Energy (Herzog Division) ────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const heCompanyProfile = {
+  name: 'Herzog Energy',
+  industry: 'Energy Infrastructure',
+  employees: 120,
+  revenue: '$45M',
+  opCos: 1,
+  opCoNames: ['Herzog Energy'],
+  techSpend: '$0.8M/yr',
+  aiReadinessScore: 34,
+  holdingPeriod: 'Herzog Companies Division',
+  ebitdaMargin: '10.0%',
+  targetEbitdaMargin: '16%',
+};
+
+const heAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 26, maxScore: 100, status: 'Below Average — newer division still building data systems, project data in spreadsheets, no centralized asset tracking' },
+  { category: 'Process Maturity', score: 34, maxScore: 100, status: 'Below Average — energy project management follows basic templates, compliance tracking is manual, equipment logs on paper' },
+  { category: 'Tech Stack Modernity', score: 30, maxScore: 100, status: 'Basic — relies on Excel and shared drives, minimal purpose-built software for energy infrastructure management' },
+  { category: 'Change Readiness', score: 42, maxScore: 100, status: 'Moderate — small team is agile and open to new tools, but limited bandwidth for major technology transitions' },
+  { category: 'Skills & Training', score: 28, maxScore: 100, status: 'Below Average — strong energy engineering expertise but minimal digital tool proficiency among field crews' },
+];
+
+const heKpis = {
+  totalSavings: 360_000,
+  techScoreBefore: 34,
+  techScoreAfter: 76,
+  workflowsAnalyzed: 4,
+  automationReady: 1,
+  unusedLicenseWaste: 180_000,
+  savingsSparkline: [0, 30_000, 80_000, 140_000, 210_000, 270_000, 320_000, 360_000],
+  scoreSparkline: [34, 40, 46, 52, 58, 64, 70, 76],
+  workflowSparkline: [0, 0, 1, 1, 2, 3, 3, 4],
+  licenseSparkline: [180_000, 165_000, 148_000, 130_000, 110_000, 90_000, 70_000, 55_000],
+  headcountImpactSparkline: [0, 0, 0, -1, -1, -2, -2, -3],
+};
+
+const heRoadmapPhases = [
+  {
+    quarter: 'Q1 2026', title: 'Foundation & License Audit', items: ['Asset tracking setup', 'Project data digitization', 'Compliance mapping'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 1, task: 'Energy asset tracking system evaluation and selection', owner: 'Division Manager' },
+      { week: 2, task: 'Project data digitization — migrate from spreadsheets to structured database', owner: 'Project Manager' },
+      { week: 3, task: 'Environmental and energy compliance process mapping', owner: 'Compliance Lead' },
+      { week: 4, task: 'License audit — identify unused software seats across 120 employees', owner: 'IT Lead' },
+    ],
+  },
+  {
+    quarter: 'Q2 2026', title: 'Digital Project Management', items: ['Procore deployment', 'Equipment tracking', 'Compliance automation'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 5, task: 'Procore deployment for energy infrastructure project management', owner: 'Project Manager' },
+      { week: 6, task: 'Samsara equipment tracking for energy division fleet', owner: 'Division Manager' },
+      { week: 7, task: 'Automated compliance reporting for energy regulatory requirements', owner: 'Compliance Lead' },
+      { week: 8, task: 'Mobile field tools for energy crew daily reporting', owner: 'IT Lead' },
+    ],
+  },
+  {
+    quarter: 'Q3 2026', title: 'AI Integration', items: ['Predictive project scheduling', 'Cross-division resource sharing'], status: 'upcoming' as const,
+    weekPlan: [
+      { week: 9, task: 'AI-assisted project scheduling for energy infrastructure builds', owner: 'Project Manager' },
+      { week: 10, task: 'Cross-division resource sharing with HCC construction fleet', owner: 'Division Manager' },
+      { week: 11, task: 'Energy project cost optimization using historical data analysis', owner: 'Project Manager' },
+      { week: 12, task: 'Q3 validation of project management efficiency gains', owner: 'Division Manager' },
+    ],
+  },
+  {
+    quarter: 'Q4 2026', title: 'Optimization & Growth', items: ['Full platform integration', 'Year 2 roadmap'], status: 'upcoming' as const,
+    weekPlan: [
+      { week: 13, task: 'Full integration with parent company data lake and reporting', owner: 'IT Lead' },
+      { week: 14, task: 'Training completion for all 120 employees on new tools', owner: 'Division Manager' },
+      { week: 15, task: 'ROI validation: $360K Year 1 savings confirmed', owner: 'Division Manager' },
+      { week: 16, task: 'Year 2 roadmap and growth strategy for energy division', owner: 'Division Manager' },
+    ],
+  },
+];
+
+const heTopOpportunities: Opportunity[] = [
+  { name: 'Energy Project Management Digitization', category: 'Workflow Automation', savings: 120_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 84 },
+  { name: 'Compliance Automation', category: 'Workflow Automation', savings: 80_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 86 },
+  { name: 'License Reclamation', category: 'License Audit', savings: 100_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 95 },
+  { name: 'Equipment Tracking Optimization', category: 'Data Infrastructure', savings: 60_000, effort: 'Low', status: 'identified', priority: 7, timeToValue: 6, confidence: 88 },
+];
+
+const heCurrentStack: CurrentTool[] = [
+  { name: 'Excel/SharePoint', category: 'Project Management', annualCost: 60_000, users: 40, score: 2, integrationComplexity: 'Low', migrationWeeks: 8, riskLevel: 'Low', dependencies: ['Project tracking', 'Cost estimation', 'Resource planning'] },
+  { name: 'SAP ERP (shared)', category: 'Finance', annualCost: 80_000, users: 15, score: 3, integrationComplexity: 'High', migrationWeeks: 12, riskLevel: 'Medium', dependencies: ['Financial reporting', 'AP/AR', 'Cost accounting'] },
+  { name: 'Kronos/UKG', category: 'Workforce', annualCost: 40_000, users: 120, score: 4, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Low', dependencies: ['Time tracking', 'Crew scheduling', 'Payroll'] },
+];
+
+const heLicenses: License[] = [
+  { vendor: 'Microsoft 365', totalLicenses: 120, active90d: 70, inactive: 50, annualWaste: 40_000, action: 'Reclaim 50 inactive seats + downgrade field crews', costPerLicense: 800, department: 'IT / All Staff', lastAuditDate: '2025-09-15', trend: [74, 68, 62, 58, 58, 58], complianceRisk: false },
+  { vendor: 'SAP ERP', totalLicenses: 15, active90d: 5, inactive: 10, annualWaste: 40_000, action: 'Reclaim 10 seats — consolidate to finance only', costPerLicense: 4_000, department: 'Finance', lastAuditDate: '2025-11-02', trend: [60, 50, 40, 33, 33, 33], complianceRisk: false },
+  { vendor: 'AutoCAD', totalLicenses: 20, active90d: 7, inactive: 13, annualWaste: 100_000, action: 'Reclaim 13 seats from non-engineering staff', costPerLicense: 7_692, department: 'Engineering', lastAuditDate: '2025-08-20', trend: [55, 45, 38, 35, 35, 35], complianceRisk: false },
+];
+
+const heWorkflowSummary = {
+  total: 4,
+  fullyAutomatable: 1,
+  humanInLoop: 2,
+  humanRequired: 1,
+  currentLaborSpend: 480_000,
+  potentialSavings: 220_000,
+};
+
+const heRoiSummary = {
+  techStackSavings: 120_000,
+  workflowAutomation: 220_000,
+  licenseRecovery: 180_000,
+  implementationCosts: 160_000,
+  netYear1: 360_000,
+  year2Projected: 540_000,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── GG — Green Group LLC (Herzog Division) ──────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const ggCompanyProfile = {
+  name: 'Green Group LLC',
+  industry: 'Environmental Services',
+  employees: 90,
+  revenue: '$25M',
+  opCos: 1,
+  opCoNames: ['Green Group LLC'],
+  techSpend: '$0.4M/yr',
+  aiReadinessScore: 30,
+  holdingPeriod: 'Herzog Companies Division',
+  ebitdaMargin: '9.5%',
+  targetEbitdaMargin: '15%',
+};
+
+const ggAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 18, maxScore: 100, status: 'Critical Gap — environmental monitoring data in standalone databases, compliance records on paper, no integration with parent systems' },
+  { category: 'Process Maturity', score: 32, maxScore: 100, status: 'Below Average — environmental compliance follows manual checklists, waste management logistics planned by hand' },
+  { category: 'Tech Stack Modernity', score: 24, maxScore: 100, status: 'Basic — relies heavily on Excel, paper forms, and standalone environmental monitoring tools with no API access' },
+  { category: 'Change Readiness', score: 38, maxScore: 100, status: 'Moderate — small team willing to adopt new tools, but compliance-heavy work requires careful validation of any changes' },
+  { category: 'Skills & Training', score: 26, maxScore: 100, status: 'Below Average — strong environmental science expertise but limited technology adoption beyond basic office tools' },
+];
+
+const ggKpis = {
+  totalSavings: 240_000,
+  techScoreBefore: 30,
+  techScoreAfter: 72,
+  workflowsAnalyzed: 2,
+  automationReady: 1,
+  unusedLicenseWaste: 120_000,
+  savingsSparkline: [0, 20_000, 50_000, 90_000, 140_000, 180_000, 210_000, 240_000],
+  scoreSparkline: [30, 36, 42, 48, 54, 60, 66, 72],
+  workflowSparkline: [0, 0, 0, 1, 1, 1, 2, 2],
+  licenseSparkline: [120_000, 110_000, 98_000, 86_000, 72_000, 58_000, 44_000, 32_000],
+  headcountImpactSparkline: [0, 0, 0, 0, -1, -1, -1, -2],
+};
+
+const ggRoadmapPhases = [
+  {
+    quarter: 'Q1 2026', title: 'Environmental Compliance Digitization', items: ['Compliance records digitization', 'Waste management assessment', 'License audit'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 1, task: 'Environmental compliance records digitization — migrate from paper to digital', owner: 'Compliance Manager' },
+      { week: 2, task: 'Waste management logistics process mapping and optimization scoping', owner: 'Operations Manager' },
+      { week: 3, task: 'Environmental monitoring data consolidation from standalone sensors', owner: 'Compliance Manager' },
+      { week: 4, task: 'License audit — identify unused software across 90 employees', owner: 'IT Contact' },
+    ],
+  },
+  {
+    quarter: 'Q2 2026', title: 'Digital Compliance Platform', items: ['Automated compliance tracking', 'Waste logistics optimization'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 5, task: 'Automated environmental compliance tracking and alerting system', owner: 'Compliance Manager' },
+      { week: 6, task: 'Waste management logistics optimization — AI routing for waste collection', owner: 'Operations Manager' },
+      { week: 7, task: 'Mobile field inspection app for environmental site assessments', owner: 'Operations Manager' },
+      { week: 8, task: 'Integration with parent company reporting systems', owner: 'IT Contact' },
+    ],
+  },
+  {
+    quarter: 'Q3 2026', title: 'AI Environmental Monitoring', items: ['Predictive environmental analytics', 'Automated reporting'], status: 'upcoming' as const,
+    weekPlan: [
+      { week: 9, task: 'Predictive environmental risk assessment using sensor data and ML', owner: 'Compliance Manager' },
+      { week: 10, task: 'Automated regulatory reporting for EPA and state environmental agencies', owner: 'Compliance Manager' },
+      { week: 11, task: 'Cross-division environmental data sharing for HCC construction projects', owner: 'Operations Manager' },
+      { week: 12, task: 'Q3 efficiency validation and savings tracking', owner: 'Operations Manager' },
+    ],
+  },
+  {
+    quarter: 'Q4 2026', title: 'Optimization & Growth', items: ['Full digital platform', 'Year 2 roadmap'], status: 'upcoming' as const,
+    weekPlan: [
+      { week: 13, task: 'Full digital environmental services platform operational', owner: 'Operations Manager' },
+      { week: 14, task: 'Training completion for all 90 employees', owner: 'Operations Manager' },
+      { week: 15, task: 'ROI validation: $240K Year 1 savings confirmed', owner: 'Division GM' },
+      { week: 16, task: 'Year 2 roadmap for advanced environmental AI capabilities', owner: 'Division GM' },
+    ],
+  },
+];
+
+const ggTopOpportunities: Opportunity[] = [
+  { name: 'Environmental Compliance Automation', category: 'Workflow Automation', savings: 120_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 10, confidence: 84 },
+  { name: 'Waste Logistics AI Routing', category: 'Workflow Automation', savings: 60_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 12, confidence: 76 },
+  { name: 'License Reclamation', category: 'License Audit', savings: 60_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 95 },
+];
+
+const ggCurrentStack: CurrentTool[] = [
+  { name: 'Excel/SharePoint', category: 'Project Management', annualCost: 30_000, users: 30, score: 2, integrationComplexity: 'Low', migrationWeeks: 6, riskLevel: 'Low', dependencies: ['Project tracking', 'Compliance logs', 'Waste manifests'] },
+  { name: 'Environmental Monitoring', category: 'Compliance', annualCost: 60_000, users: 15, score: 4, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Medium', dependencies: ['Sensor data', 'Air quality', 'Water sampling'] },
+  { name: 'Kronos/UKG', category: 'Workforce', annualCost: 28_000, users: 90, score: 4, integrationComplexity: 'Medium', migrationWeeks: 6, riskLevel: 'Low', dependencies: ['Time tracking', 'Crew scheduling', 'Payroll'] },
+];
+
+const ggLicenses: License[] = [
+  { vendor: 'Microsoft 365', totalLicenses: 90, active90d: 50, inactive: 40, annualWaste: 32_000, action: 'Reclaim 40 inactive seats + downgrade field crews', costPerLicense: 800, department: 'IT / All Staff', lastAuditDate: '2025-09-15', trend: [72, 66, 60, 56, 56, 56], complianceRisk: false },
+  { vendor: 'Environmental Monitoring', totalLicenses: 15, active90d: 8, inactive: 7, annualWaste: 28_000, action: 'Reclaim 7 inactive sensor monitoring seats', costPerLicense: 4_000, department: 'Environmental Services', lastAuditDate: '2025-10-20', trend: [68, 60, 54, 53, 53, 53], complianceRisk: false },
+  { vendor: 'AutoCAD LT', totalLicenses: 10, active90d: 3, inactive: 7, annualWaste: 60_000, action: 'Reclaim 7 seats — only 3 active drafters', costPerLicense: 8_571, department: 'Engineering', lastAuditDate: '2025-08-20', trend: [50, 40, 32, 30, 30, 30], complianceRisk: false },
+];
+
+const ggWorkflowSummary = {
+  total: 2,
+  fullyAutomatable: 1,
+  humanInLoop: 1,
+  humanRequired: 0,
+  currentLaborSpend: 320_000,
+  potentialSavings: 200_000,
+};
+
+const ggRoiSummary = {
+  techStackSavings: 100_000,
+  workflowAutomation: 200_000,
+  licenseRecovery: 120_000,
+  implementationCosts: 180_000,
+  netYear1: 240_000,
+  year2Projected: 380_000,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
 // ─── Company Data Lookup Maps ──────────────────────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -2989,6 +3834,13 @@ type CompanyId = string;
 
 const companyProfiles: Record<string, typeof companyProfile> = {
   meridian: companyProfile,
+  hcc: hccCompanyProfile,
+  hrsi: hrsiCompanyProfile,
+  hsi: hsiCompanyProfile,
+  hti: htiCompanyProfile,
+  htsi: htsiCompanyProfile,
+  he: heCompanyProfile,
+  gg: ggCompanyProfile,
   oakwood: oakwoodCompanyProfile,
   pinnacle: pinnacleCompanyProfile,
   atlas: atlasCompanyProfile,
@@ -3006,6 +3858,13 @@ const companyProfiles: Record<string, typeof companyProfile> = {
 
 const companyAiReadiness: Record<string, typeof aiReadinessBreakdown> = {
   meridian: aiReadinessBreakdown,
+  hcc: hccAiReadinessBreakdown,
+  hrsi: hrsiAiReadinessBreakdown,
+  hsi: hsiAiReadinessBreakdown,
+  hti: htiAiReadinessBreakdown,
+  htsi: htsiAiReadinessBreakdown,
+  he: heAiReadinessBreakdown,
+  gg: ggAiReadinessBreakdown,
   oakwood: oakwoodAiReadinessBreakdown,
   pinnacle: pinnacleAiReadinessBreakdown,
   atlas: atlasAiReadinessBreakdown,
@@ -3023,6 +3882,13 @@ const companyAiReadiness: Record<string, typeof aiReadinessBreakdown> = {
 
 const companyKpis: Record<string, typeof kpis> = {
   meridian: kpis,
+  hcc: hccKpis,
+  hrsi: hrsiKpis,
+  hsi: hsiKpis,
+  hti: htiKpis,
+  htsi: htsiKpis,
+  he: heKpis,
+  gg: ggKpis,
   oakwood: oakwoodKpis,
   pinnacle: pinnacleKpis,
   atlas: atlasKpis,
@@ -3040,6 +3906,13 @@ const companyKpis: Record<string, typeof kpis> = {
 
 const companyRoadmapPhases: Record<string, typeof roadmapPhases> = {
   meridian: roadmapPhases,
+  hcc: hccRoadmapPhases,
+  hrsi: hrsiRoadmapPhases,
+  hsi: hsiRoadmapPhases,
+  hti: htiRoadmapPhases,
+  htsi: htsiRoadmapPhases,
+  he: heRoadmapPhases,
+  gg: ggRoadmapPhases,
   oakwood: oakwoodRoadmapPhases,
   pinnacle: pinnacleRoadmapPhases,
   atlas: atlasRoadmapPhases,
@@ -3057,6 +3930,13 @@ const companyRoadmapPhases: Record<string, typeof roadmapPhases> = {
 
 const companyTopOpportunities: Record<string, Opportunity[]> = {
   meridian: topOpportunities,
+  hcc: hccTopOpportunities,
+  hrsi: hrsiTopOpportunities,
+  hsi: hsiTopOpportunities,
+  hti: htiTopOpportunities,
+  htsi: htsiTopOpportunities,
+  he: heTopOpportunities,
+  gg: ggTopOpportunities,
   oakwood: oakwoodTopOpportunities,
   pinnacle: pinnacleTopOpportunities,
   atlas: atlasTopOpportunities,
@@ -3074,6 +3954,13 @@ const companyTopOpportunities: Record<string, Opportunity[]> = {
 
 const companyCurrentStack: Record<string, CurrentTool[]> = {
   meridian: currentStack,
+  hcc: hccCurrentStack,
+  hrsi: hrsiCurrentStack,
+  hsi: hsiCurrentStack,
+  hti: htiCurrentStack,
+  htsi: htsiCurrentStack,
+  he: heCurrentStack,
+  gg: ggCurrentStack,
   oakwood: oakwoodCurrentStack,
   pinnacle: pinnacleCurrentStack,
   atlas: atlasCurrentStack,
@@ -3091,6 +3978,13 @@ const companyCurrentStack: Record<string, CurrentTool[]> = {
 
 const companyLicenses: Record<string, License[]> = {
   meridian: licenses,
+  hcc: hccLicenses,
+  hrsi: hrsiLicenses,
+  hsi: hsiLicenses,
+  hti: htiLicenses,
+  htsi: htsiLicenses,
+  he: heLicenses,
+  gg: ggLicenses,
   oakwood: oakwoodLicenses,
   pinnacle: pinnacleLicenses,
   atlas: atlasLicenses,
@@ -3108,6 +4002,13 @@ const companyLicenses: Record<string, License[]> = {
 
 const companyWorkflowSummaries: Record<string, typeof workflowSummary> = {
   meridian: workflowSummary,
+  hcc: hccWorkflowSummary,
+  hrsi: hrsiWorkflowSummary,
+  hsi: hsiWorkflowSummary,
+  hti: htiWorkflowSummary,
+  htsi: htsiWorkflowSummary,
+  he: heWorkflowSummary,
+  gg: ggWorkflowSummary,
   oakwood: oakwoodWorkflowSummary,
   pinnacle: pinnacleWorkflowSummary,
   atlas: atlasWorkflowSummary,
@@ -3125,6 +4026,13 @@ const companyWorkflowSummaries: Record<string, typeof workflowSummary> = {
 
 const companyRoiSummaries: Record<string, typeof roiSummary> = {
   meridian: roiSummary,
+  hcc: hccRoiSummary,
+  hrsi: hrsiRoiSummary,
+  hsi: hsiRoiSummary,
+  hti: htiRoiSummary,
+  htsi: htsiRoiSummary,
+  he: heRoiSummary,
+  gg: ggRoiSummary,
   oakwood: oakwoodRoiSummary,
   pinnacle: pinnacleRoiSummary,
   atlas: atlasRoiSummary,

@@ -77,6 +77,41 @@ const allTimelineStops: Record<string, Record<number, TimelineData>> = {
     6: { savings: 4_000_000, scoreBefore: 68, scoreAfter: 80, workflows: 58, automationReady: 32, waste: 1_500_000 },
     12: { savings: 8_000_000, scoreBefore: 68, scoreAfter: 94, workflows: 126, automationReady: 62, waste: 320_000 },
   },
+  hcc: {
+    0: { savings: 0, scoreBefore: 32, scoreAfter: 32, workflows: 0, automationReady: 0, waste: 980_000 },
+    6: { savings: 1_050_000, scoreBefore: 32, scoreAfter: 55, workflows: 11, automationReady: 3, waste: 520_000 },
+    12: { savings: 2_100_000, scoreBefore: 32, scoreAfter: 78, workflows: 22, automationReady: 6, waste: 220_000 },
+  },
+  hrsi: {
+    0: { savings: 0, scoreBefore: 36, scoreAfter: 36, workflows: 0, automationReady: 0, waste: 380_000 },
+    6: { savings: 410_000, scoreBefore: 36, scoreAfter: 58, workflows: 4, automationReady: 1, waste: 200_000 },
+    12: { savings: 820_000, scoreBefore: 36, scoreAfter: 80, workflows: 8, automationReady: 2, waste: 100_000 },
+  },
+  hsi: {
+    0: { savings: 0, scoreBefore: 42, scoreAfter: 42, workflows: 0, automationReady: 0, waste: 240_000 },
+    6: { savings: 340_000, scoreBefore: 42, scoreAfter: 63, workflows: 3, automationReady: 1, waste: 130_000 },
+    12: { savings: 680_000, scoreBefore: 42, scoreAfter: 84, workflows: 6, automationReady: 2, waste: 60_000 },
+  },
+  hti: {
+    0: { savings: 0, scoreBefore: 48, scoreAfter: 48, workflows: 0, automationReady: 0, waste: 420_000 },
+    6: { savings: 370_000, scoreBefore: 48, scoreAfter: 67, workflows: 5, automationReady: 2, waste: 220_000 },
+    12: { savings: 740_000, scoreBefore: 48, scoreAfter: 86, workflows: 10, automationReady: 3, waste: 120_000 },
+  },
+  htsi: {
+    0: { savings: 0, scoreBefore: 40, scoreAfter: 40, workflows: 0, automationReady: 0, waste: 480_000 },
+    6: { savings: 430_000, scoreBefore: 40, scoreAfter: 61, workflows: 5, automationReady: 2, waste: 260_000 },
+    12: { savings: 860_000, scoreBefore: 40, scoreAfter: 82, workflows: 10, automationReady: 3, waste: 110_000 },
+  },
+  he: {
+    0: { savings: 0, scoreBefore: 34, scoreAfter: 34, workflows: 0, automationReady: 0, waste: 180_000 },
+    6: { savings: 180_000, scoreBefore: 34, scoreAfter: 55, workflows: 2, automationReady: 1, waste: 100_000 },
+    12: { savings: 360_000, scoreBefore: 34, scoreAfter: 76, workflows: 4, automationReady: 1, waste: 55_000 },
+  },
+  gg: {
+    0: { savings: 0, scoreBefore: 30, scoreAfter: 30, workflows: 0, automationReady: 0, waste: 120_000 },
+    6: { savings: 120_000, scoreBefore: 30, scoreAfter: 51, workflows: 1, automationReady: 0, waste: 65_000 },
+    12: { savings: 240_000, scoreBefore: 30, scoreAfter: 72, workflows: 2, automationReady: 1, waste: 32_000 },
+  },
   'nb-aerospace': {
     0: { savings: 0, scoreBefore: 46, scoreAfter: 46, workflows: 0, automationReady: 0, waste: 820_000 },
     6: { savings: 1_500_000, scoreBefore: 46, scoreAfter: 66, workflows: 26, automationReady: 5, waste: 420_000 },
@@ -625,7 +660,7 @@ export default function Dashboard() {
           <div className="flex items-center gap-2 mb-5">
             <Building2 className="h-5 w-5 text-gray-400" />
             <h2 className="text-[15px] font-semibold text-gray-900">
-              {company.category === 'sovereign' ? 'Agencies' : 'Operating Companies'}
+              Operating Companies
             </h2>
             <span className="rounded-full bg-gray-100 px-2 py-0.5 text-[11px] font-medium text-gray-500">
               {childEntities.length}
@@ -638,8 +673,7 @@ export default function Dashboard() {
               const roiPct = subRoi.implementationCosts > 0
                 ? Math.round((subRoi.netYear1 / subRoi.implementationCosts) * 100)
                 : 0;
-              const isSovereign = company.category === 'sovereign';
-              const badgeBg = isSovereign ? 'bg-emerald-100 text-emerald-700' : 'bg-purple-100 text-purple-700';
+              const badgeBg = 'bg-purple-100 text-purple-700';
 
               return (
                 <motion.div
