@@ -82,6 +82,11 @@ export default function LicenseAudit() {
 
   return (
     <div className="space-y-10">
+      {/* Preliminary Estimate Banner */}
+      <span className="text-xs text-slate-400 bg-slate-100 px-3 py-1 rounded inline-block">
+        Preliminary Estimate — Based on Industry Benchmarks
+      </span>
+
       {/* ── Hero Section ──────────────────────────────────────────────────── */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}

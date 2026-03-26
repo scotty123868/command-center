@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, X, Building2, ChevronRight } from 'lucide-react';
+import AnalysisOverlay, { RunAnalysisButton } from '../components/AnalysisOverlay';
 import {
   AreaChart,
   Area,
@@ -537,8 +538,34 @@ export default function Dashboard() {
   // Feature 3: Drill-down panel
   const [activeDrillDown, setActiveDrillDown] = useState<DrillDownType>(null);
 
+  // Analysis overlay state
+  const [analysisComplete, setAnalysisComplete] = useState(() => sessionStorage.getItem('analysis-complete') === 'true');
+  const [showOverlay, setShowOverlay] = useState(false);
+
+  const handleAnalysisComplete = useCallback(() => {
+    setShowOverlay(false);
+    setAnalysisComplete(true);
+  }, []);
+
   return (
     <div className="space-y-8">
+      {/* Analysis Overlay */}
+      <AnimatePresence>
+        {showOverlay && <AnalysisOverlay onComplete={handleAnalysisComplete} />}
+      </AnimatePresence>
+
+      {/* Preliminary Estimate Banner */}
+      <div className="flex items-center justify-between">
+        <span className="text-xs text-slate-400 bg-slate-100 px-3 py-1 rounded">
+          Preliminary Estimate — Based on Industry Benchmarks
+        </span>
+      </div>
+
+      {/* Run Analysis Button (shown only before analysis) */}
+      {!analysisComplete && (
+        <RunAnalysisButton onStart={() => setShowOverlay(true)} />
+      )}
+
       {/* ── Feature 1: Cost of Inaction Toggle ──────────────────── */}
       <div className="flex items-center gap-3">
         <button

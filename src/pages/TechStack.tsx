@@ -137,6 +137,11 @@ export default function TechStack() {
 
   return (
     <div className="space-y-12">
+      {/* Preliminary Estimate Banner */}
+      <span className="text-xs text-slate-400 bg-slate-100 px-3 py-1 rounded inline-block">
+        Preliminary Estimate — Based on Industry Benchmarks
+      </span>
+
       {/* ─── Section 1 : Stack Health Overview ─────────────────────────────── */}
       <section>
         <motion.h2

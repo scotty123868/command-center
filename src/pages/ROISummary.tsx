@@ -167,14 +167,26 @@ export default function ROISummary() {
 
   return (
     <div className="space-y-10">
-      {/* ── Generate Board Report Button ──────────────────────────────── */}
-      <div className="flex justify-end">
+      {/* Preliminary Estimate Banner */}
+      <span className="text-xs text-slate-400 bg-slate-100 px-3 py-1 rounded inline-block">
+        Preliminary Estimate — Based on Industry Benchmarks
+      </span>
+
+      {/* ── Generate Board Report Buttons ──────────────────────────────── */}
+      <div className="flex justify-end gap-3">
         <button
-          onClick={openBoardReport}
-          className="inline-flex items-center gap-2 rounded-xl bg-[#4285F4] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-[#3367D6]"
+          onClick={() => window.open('/board-report', '_blank')}
+          className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-blue-500 cursor-pointer"
         >
           <FileDown size={16} />
           Generate Board Report
+        </button>
+        <button
+          onClick={openBoardReport}
+          className="inline-flex items-center gap-2 rounded-xl bg-gray-100 px-5 py-2.5 text-sm font-semibold text-gray-700 shadow-sm transition-colors duration-200 hover:bg-gray-200 cursor-pointer"
+        >
+          <FileDown size={16} />
+          Quick Export
         </button>
       </div>
 

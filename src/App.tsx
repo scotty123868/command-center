@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { Search, Menu } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { config } from './data/config';
@@ -14,6 +14,8 @@ import ROISummary from './pages/ROISummary';
 import Assessment from './pages/Assessment';
 import DataFlow from './pages/DataFlow';
 import Integrations from './pages/Integrations';
+import ExecutiveBriefing from './pages/ExecutiveBriefing';
+import BoardReportPage from './pages/BoardReport';
 
 const routeTitles: Record<string, string> = {
   '/dashboard': 'Dashboard',
@@ -25,6 +27,8 @@ const routeTitles: Record<string, string> = {
   '/stories': 'Company Dashboards',
   '/roi-summary': 'ROI Summary',
   '/assessment': 'AI Assistant',
+  '/executive-briefing': 'Executive Briefing',
+  '/board-report': 'Board Report',
 };
 
 function TopBar({ onMenuClick }: { onMenuClick: () => void }) {
@@ -97,31 +101,60 @@ function AnimatedRoutes() {
           <Route path="/stories" element={<Stories />} />
           <Route path="/roi-summary" element={<ROISummary />} />
           <Route path="/assessment" element={<Assessment />} />
-          <Route path="*" element={<Navigate to="/dashboard" replace />} />
+          <Route path="/executive-briefing" element={<ExecutiveBriefing />} />
+          <Route path="/board-report" element={<BoardReportPage />} />
+          <Route path="*" element={<Navigate to="/executive-briefing" replace />} />
         </Routes>
       </motion.div>
     </AnimatePresence>
   );
 }
 
+// Full-bleed routes: no sidebar, no top bar, no padding
+const FULL_BLEED_ROUTES = ['/assessment', '/executive-briefing', '/board-report'];
+
 export default function App() {
   const location = useLocation();
-  const isFullBleed = location.pathname === '/assessment';
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const isFullBleed = FULL_BLEED_ROUTES.includes(location.pathname);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const closeSidebar = useCallback(() => setSidebarOpen(false), []);
+
+  // Demo reset: clear sessionStorage and redirect
+  useEffect(() => {
+    if (searchParams.get('reset') === 'true') {
+      const keysToRemove: string[] = [];
+      for (let i = 0; i < sessionStorage.length; i++) {
+        const key = sessionStorage.key(i);
+        if (key && (key.startsWith('analysis') || key.startsWith('tour'))) {
+          keysToRemove.push(key);
+        }
+      }
+      keysToRemove.forEach((k) => sessionStorage.removeItem(k));
+      navigate('/executive-briefing', { replace: true });
+    }
+  }, [searchParams, navigate]);
 
   // Close sidebar on route change (mobile)
   useEffect(() => {
     setSidebarOpen(false);
   }, [location.pathname]);
 
+  // Board report page: standalone, no chrome at all
+  if (location.pathname === '/board-report') {
+    return <AnimatedRoutes />;
+  }
+
   return (
     <div className="flex h-screen overflow-hidden">
-      {/* Desktop sidebar — always visible at lg+ */}
-      <div className="hidden lg:flex">
-        <Sidebar />
-      </div>
+      {/* Desktop sidebar — always visible at lg+ (hidden on full-bleed) */}
+      {!isFullBleed && (
+        <div className="hidden lg:flex">
+          <Sidebar />
+        </div>
+      )}
 
       {/* Mobile sidebar overlay */}
       <AnimatePresence>
@@ -153,7 +186,7 @@ export default function App() {
       </AnimatePresence>
 
       <main className="flex-1 flex flex-col overflow-hidden bg-[#F8F9FB]">
-        <TopBar onMenuClick={() => setSidebarOpen(true)} />
+        {!isFullBleed && <TopBar onMenuClick={() => setSidebarOpen(true)} />}
         {isFullBleed ? (
           <div className="flex-1 overflow-hidden">
             <AnimatedRoutes />

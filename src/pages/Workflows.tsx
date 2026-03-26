@@ -295,6 +295,11 @@ export default function Workflows() {
 
   return (
     <div className="space-y-8">
+      {/* Preliminary Estimate Banner */}
+      <span className="text-xs text-slate-400 bg-slate-100 px-3 py-1 rounded inline-block">
+        Preliminary Estimate — Based on Industry Benchmarks
+      </span>
+
       {/* ── page title ── */}
       <div>
         <h1 className="text-2xl font-bold text-gray-900">Workflow Scoping Documents</h1>

@@ -15,10 +15,12 @@ import {
   X,
   Building2,
   Check,
+  Presentation,
 } from 'lucide-react';
 import { useCompany } from '../data/CompanyContext';
 
 const analysisItems = [
+  { to: '/executive-briefing', icon: Presentation, label: 'Executive Briefing' },
   { to: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
   { to: '/tech-stack', icon: Layers, label: 'Tech Stack Mapping' },
   { to: '/workflows', icon: GitBranch, label: 'Workflow Automation' },
