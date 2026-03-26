@@ -1,38 +1,19 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ChevronDown, Zap } from 'lucide-react';
+import { ArrowRight, TrendingDown, Clock, AlertTriangle, DollarSign, Users, Cpu } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-
-// ─── Division Data ──────────────────────────────────────────────────────────
-
-const divisions = [
-  { name: 'Herzog Contracting Corp', tag: 'Rail & Highway Construction', score: 32 },
-  { name: 'Herzog Railroad Services', tag: 'Railroad Maintenance & Equipment', score: 36 },
-  { name: 'Herzog Services', tag: 'Ultrasonic Rail Testing', score: 42 },
-  { name: 'Herzog Technologies', tag: 'Signal & PTC Systems', score: 48 },
-  { name: 'Herzog Transit Services', tag: 'Passenger Rail Operations', score: 40 },
-  { name: 'Herzog Energy', tag: 'Energy Infrastructure', score: 34 },
-  { name: 'Green Group LLC', tag: 'Environmental Services', score: 30 },
-];
-
-function scoreColor(score: number) {
-  if (score > 40) return 'text-emerald-400';
-  if (score >= 30) return 'text-amber-400';
-  return 'text-red-400';
-}
-
 // ─── Animated Section Wrapper ──────────────────────────────────────────────
 
-function FadeSection({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+      initial={{ opacity: 0, y: 24 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+      transition={{ duration: 0.5, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
       {children}
@@ -44,182 +25,166 @@ function FadeSection({ children, className = '', delay = 0 }: { children: React.
 
 export default function ExecutiveBriefing() {
   const navigate = useNavigate();
+  const companyName = 'Herzog Companies';
 
   return (
-    <div className="min-h-screen bg-[#16161A] text-white overflow-y-auto overflow-x-hidden">
-      {/* ── Hero Section ──────────────────────────────────────────── */}
-      <section className="relative flex flex-col items-center justify-center min-h-screen px-6 text-center">
-        {/* UpSkiller AI logo */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex items-center gap-2 mb-16"
-        >
-          <div className="w-7 h-7 rounded-lg bg-[#4285F4]/90 flex items-center justify-center">
-            <Zap className="w-3.5 h-3.5 text-white" strokeWidth={2.2} fill="currentColor" />
+    <div className="space-y-8 pb-16">
+      {/* Preliminary Estimate Banner */}
+      <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-2 flex items-center gap-2">
+        <AlertTriangle className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
+        <span className="text-xs text-amber-700">Preliminary Estimate — Based on Industry Benchmarks</span>
+      </div>
+
+      {/* ── Hero: The Headline Finding ──────────────────────────────── */}
+      <div className="bg-[#16161A] rounded-2xl px-10 py-14 text-white">
+        <FadeIn>
+          <p className="text-xs uppercase tracking-[0.2em] text-slate-500 mb-3">Assessment Summary</p>
+          <h1 className="text-4xl font-light leading-tight">
+            We found <span className="text-blue-400 font-normal">$5.8M</span> in annual
+            <br />optimization potential across {companyName}.
+          </h1>
+          <p className="text-slate-400 mt-4 text-lg max-w-2xl">
+            Across 7 divisions, 47+ software platforms, and 62 automatable workflows —
+            here's what's costing you money right now.
+          </p>
+        </FadeIn>
+      </div>
+
+      {/* ── Three Key Findings ──────────────────────────────────────── */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <FadeIn delay={0.05}>
+          <div className="bg-white rounded-xl border border-gray-100 p-6 h-full">
+            <div className="w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center mb-4">
+              <DollarSign className="w-5 h-5 text-red-500" />
+            </div>
+            <p className="text-sm font-medium text-gray-900 mb-1">License Waste</p>
+            <p className="text-3xl font-mono font-bold text-red-500">$2.8M</p>
+            <p className="text-sm text-gray-500 mt-2">
+              Software licenses actively paid for with fewer than 2 logins per month across all divisions.
+            </p>
           </div>
-          <span className="text-white/60 text-sm font-medium tracking-wide">UpSkiller AI</span>
-        </motion.div>
+        </FadeIn>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-5xl font-light text-white"
-        >
-          Herzog Companies
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-2xl text-slate-400 mt-4"
-        >
-          AI Readiness Assessment
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-base text-slate-500 mt-6 italic"
-        >
-          Building America's Infrastructure
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
-          className="text-sm text-slate-500 mt-4 tracking-wide"
-        >
-          $800M Revenue &middot; 2,800 Employees &middot; 7 Operating Divisions
-        </motion.p>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.4 }}
-          className="absolute bottom-12"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <ChevronDown className="w-6 h-6 text-slate-600" />
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* ── Industry Pressure ─────────────────────────────────────── */}
-      <section className="px-6 py-32 max-w-5xl mx-auto">
-        <FadeSection>
-          <p className="text-xs uppercase tracking-[0.2em] text-slate-600 mb-16 text-center">Industry Context</p>
-        </FadeSection>
-
-        <div className="flex flex-col md:flex-row items-start justify-between gap-16">
-          <FadeSection className="flex-1 text-center" delay={0}>
-            <p className="font-mono text-5xl font-light text-white">$2.4B</p>
-            <div className="w-12 h-px bg-slate-700 mx-auto my-6" />
-            <p className="text-sm text-slate-400 leading-relaxed max-w-[240px] mx-auto">
-              Annual FRA compliance burden across U.S. railroad industry
+        <FadeIn delay={0.1}>
+          <div className="bg-white rounded-xl border border-gray-100 p-6 h-full">
+            <div className="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center mb-4">
+              <Clock className="w-5 h-5 text-amber-500" />
+            </div>
+            <p className="text-sm font-medium text-gray-900 mb-1">Manual Processes</p>
+            <p className="text-3xl font-mono font-bold text-amber-500">62</p>
+            <p className="text-sm text-gray-500 mt-2">
+              Workflows currently requiring manual intervention that can be partially or fully automated.
             </p>
-          </FadeSection>
+          </div>
+        </FadeIn>
 
-          <FadeSection className="flex-1 text-center" delay={0.15}>
-            <p className="font-mono text-5xl font-light text-white">47%</p>
-            <div className="w-12 h-px bg-slate-700 mx-auto my-6" />
-            <p className="text-sm text-slate-400 leading-relaxed max-w-[240px] mx-auto">
-              Of railroad workforce eligible for retirement within 5 years
+        <FadeIn delay={0.15}>
+          <div className="bg-white rounded-xl border border-gray-100 p-6 h-full">
+            <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mb-4">
+              <Cpu className="w-5 h-5 text-blue-500" />
+            </div>
+            <p className="text-sm font-medium text-gray-900 mb-1">AI Readiness</p>
+            <p className="text-3xl font-mono font-bold text-blue-500">38<span className="text-lg text-gray-400">/100</span></p>
+            <p className="text-sm text-gray-500 mt-2">
+              Current readiness score. Industry leaders are at 65+. The gap represents both risk and opportunity.
             </p>
-          </FadeSection>
+          </div>
+        </FadeIn>
+      </div>
 
-          <FadeSection className="flex-1 text-center" delay={0.3}>
-            <p className="font-mono text-5xl font-light text-white">68%</p>
-            <div className="w-12 h-px bg-slate-700 mx-auto my-6" />
-            <p className="text-sm text-slate-400 leading-relaxed max-w-[240px] mx-auto">
-              Of Class 1 railroads actively investing in AI automation
-            </p>
-          </FadeSection>
+      {/* ── Industry Context: Why Now ──────────────────────────────── */}
+      <FadeIn delay={0.1}>
+        <div className="bg-white rounded-xl border border-gray-100 p-8">
+          <p className="text-xs uppercase tracking-[0.15em] text-gray-400 mb-6">Why This Matters Now</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="flex gap-4">
+              <div className="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0">
+                <AlertTriangle className="w-5 h-5 text-slate-600" />
+              </div>
+              <div>
+                <p className="text-sm font-medium text-gray-900">FRA Compliance Pressure</p>
+                <p className="text-sm text-gray-500 mt-1">
+                  Part 213 track geometry and Part 236 signal requirements are tightening. Manual compliance processes won't scale.
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0">
+                <Users className="w-5 h-5 text-slate-600" />
+              </div>
+              <div>
+                <p className="text-sm font-medium text-gray-900">Workforce Transition</p>
+                <p className="text-sm text-gray-500 mt-1">
+                  47% of railroad workers are eligible for retirement within 5 years. Institutional knowledge needs to be captured in systems.
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0">
+                <TrendingDown className="w-5 h-5 text-slate-600" />
+              </div>
+              <div>
+                <p className="text-sm font-medium text-gray-900">Competitive Gap</p>
+                <p className="text-sm text-gray-500 mt-1">
+                  68% of Class 1 railroads are investing in AI automation. The window to lead is closing.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
+      </FadeIn>
 
-      {/* ── The Opportunity ───────────────────────────────────────── */}
-      <section className="px-6 py-32 max-w-4xl mx-auto">
-        <FadeSection>
-          <p className="text-3xl text-white font-light leading-relaxed">
-            Your 7 divisions run 47+ software platforms.
-          </p>
-        </FadeSection>
-        <FadeSection delay={0.2}>
-          <p className="text-3xl text-blue-400 font-light leading-relaxed mt-4">
-            We identified $5.8M in annual optimization potential.
-          </p>
-        </FadeSection>
-        <FadeSection delay={0.35}>
-          <p className="text-sm text-slate-600 mt-8">
-            Preliminary estimate based on industry benchmarks
-          </p>
-        </FadeSection>
-      </section>
-
-      {/* ── Division Overview (horizontal scroll) ─────────────────── */}
-      <section className="py-32">
-        <FadeSection className="px-6 max-w-5xl mx-auto mb-12">
-          <p className="text-xs uppercase tracking-[0.2em] text-slate-600">Divisions</p>
-          <p className="text-2xl text-white font-light mt-2">AI Readiness by Division</p>
-        </FadeSection>
-
-        <div className="relative">
-          {/* Fade gradients */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #16161A, transparent)' }} />
-          <div className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #16161A, transparent)' }} />
-
-          <div
-            className="flex gap-5 px-16 overflow-x-auto pb-4"
-            style={{ scrollSnapType: 'x mandatory' }}
-          >
-            {divisions.map((div, i) => (
-              <motion.div
-                key={div.name}
-                initial={{ opacity: 0, x: 60 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="flex-shrink-0 w-[260px] rounded-xl border border-white/[0.06] bg-white/[0.03] p-6"
-                style={{ scrollSnapAlign: 'start' }}
-              >
-                <p className="text-[13px] font-medium text-white">{div.name}</p>
-                <p className="text-[11px] text-slate-500 mt-1">{div.tag}</p>
-                <div className="mt-6 flex items-end justify-between">
-                  <span className={`font-mono text-4xl font-bold ${scoreColor(div.score)}`}>
+      {/* ── Division Quick View ─────────────────────────────────────── */}
+      <FadeIn delay={0.1}>
+        <div className="bg-white rounded-xl border border-gray-100 p-8">
+          <div className="flex items-center justify-between mb-6">
+            <p className="text-xs uppercase tracking-[0.15em] text-gray-400">Division Readiness</p>
+            <button
+              onClick={() => navigate('/stories')}
+              className="text-xs text-blue-600 hover:text-blue-700 flex items-center gap-1 cursor-pointer"
+            >
+              View All <ArrowRight className="w-3 h-3" />
+            </button>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              { name: 'HCC', full: 'Herzog Contracting', score: 32, savings: '$2.1M' },
+              { name: 'HRSI', full: 'Railroad Services', score: 36, savings: '$820K' },
+              { name: 'HTI', full: 'Technologies', score: 48, savings: '$740K' },
+              { name: 'HTSI', full: 'Transit Services', score: 40, savings: '$860K' },
+            ].map((div) => (
+              <div key={div.name} className="rounded-lg border border-gray-100 p-4 hover:border-blue-200 hover:bg-blue-50/30 transition-colors cursor-pointer"
+                onClick={() => navigate('/stories')}>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-medium text-gray-400">{div.name}</span>
+                  <span className={`font-mono text-lg font-bold ${div.score >= 40 ? 'text-emerald-500' : div.score >= 30 ? 'text-amber-500' : 'text-red-500'}`}>
                     {div.score}
                   </span>
-                  <span className="text-[11px] text-slate-600">/100</span>
                 </div>
-              </motion.div>
+                <p className="text-sm font-medium text-gray-900">{div.full}</p>
+                <p className="text-xs text-gray-500 mt-1">{div.savings} potential savings</p>
+              </div>
             ))}
           </div>
+          <p className="text-xs text-gray-400 mt-4 text-center">+ 3 additional divisions analyzed</p>
         </div>
-      </section>
+      </FadeIn>
 
-      {/* ── CTA Section ───────────────────────────────────────────── */}
-      <section className="px-6 py-32 text-center">
-        <FadeSection>
+      {/* ── CTA: Explore the Assessment ─────────────────────────────── */}
+      <FadeIn delay={0.1}>
+        <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl p-8 text-white flex items-center justify-between">
+          <div>
+            <p className="text-lg font-medium">Ready to explore the full assessment?</p>
+            <p className="text-blue-200 text-sm mt-1">Dashboard, tech stack mapping, workflow analysis, ROI breakdown</p>
+          </div>
           <button
             onClick={() => navigate('/dashboard')}
-            className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 text-lg rounded-lg transition-colors duration-200 cursor-pointer"
+            className="bg-white text-blue-700 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors flex items-center gap-2 cursor-pointer flex-shrink-0"
           >
-            Explore Your Assessment
+            Open Dashboard <ArrowRight className="w-4 h-4" />
           </button>
-          <p className="text-sm text-slate-600 mt-8">
-            Prepared exclusively for Herzog Companies &middot; March 2026
-          </p>
-        </FadeSection>
-      </section>
+        </div>
+      </FadeIn>
     </div>
   );
 }

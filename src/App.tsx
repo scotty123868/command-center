@@ -103,7 +103,7 @@ function AnimatedRoutes() {
           <Route path="/assessment" element={<Assessment />} />
           <Route path="/executive-briefing" element={<ExecutiveBriefing />} />
           <Route path="/board-report" element={<BoardReportPage />} />
-          <Route path="*" element={<Navigate to="/executive-briefing" replace />} />
+          <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </motion.div>
     </AnimatePresence>
@@ -111,7 +111,7 @@ function AnimatedRoutes() {
 }
 
 // Full-bleed routes: no sidebar, no top bar, no padding
-const FULL_BLEED_ROUTES = ['/assessment', '/executive-briefing', '/board-report'];
+const FULL_BLEED_ROUTES = ['/assessment', '/board-report'];
 
 export default function App() {
   const location = useLocation();
@@ -133,7 +133,7 @@ export default function App() {
         }
       }
       keysToRemove.forEach((k) => sessionStorage.removeItem(k));
-      navigate('/executive-briefing', { replace: true });
+      navigate('/dashboard', { replace: true });
     }
   }, [searchParams, navigate]);
 
