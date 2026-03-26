@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from 'react';
 import type { ReactNode } from 'react';
 
 const companies = [
-  { id: 'meridian', name: 'Meridian Industrial Holdings', shortName: 'Meridian Industrial', initials: 'M', industry: 'Industrial Services', revenue: '$340M', employees: 1850, opCos: 4, category: 'company' as const, parentId: '' as string },
+  { id: 'meridian', name: 'Herzog Companies', shortName: 'Herzog Companies', initials: 'H', industry: 'Railroad & Infrastructure Construction', revenue: '$800M', employees: 2800, opCos: 7, category: 'company' as const, parentId: '' as string },
   { id: 'oakwood', name: 'Oakwood Insurance Group', shortName: 'Oakwood Insurance', initials: 'O', industry: 'Insurance', revenue: '$400M', employees: 800, opCos: 1, category: 'company' as const, parentId: '' },
   { id: 'pinnacle', name: 'Pinnacle Healthcare', shortName: 'Pinnacle Healthcare', initials: 'P', industry: 'Healthcare Services', revenue: '$95M', employees: 420, opCos: 1, category: 'company' as const, parentId: '' },
   { id: 'atlas', name: 'Atlas Manufacturing', shortName: 'Atlas Manufacturing', initials: 'A', industry: 'Manufacturing', revenue: '$320M', employees: 2100, opCos: 4, category: 'company' as const, parentId: '' },

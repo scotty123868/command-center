@@ -48,9 +48,9 @@ type TimelineData = {
 
 const allTimelineStops: Record<string, Record<number, TimelineData>> = {
   meridian: {
-    0: { savings: 0, scoreBefore: 34, scoreAfter: 34, workflows: 0, automationReady: 0, waste: 2_101_000 },
-    6: { savings: 1_800_000, scoreBefore: 34, scoreAfter: 62, workflows: 27, automationReady: 7, waste: 1_400_000 },
-    12: { savings: 4_200_000, scoreBefore: 34, scoreAfter: 87, workflows: 48, automationReady: 12, waste: 800_000 },
+    0: { savings: 0, scoreBefore: 38, scoreAfter: 38, workflows: 0, automationReady: 0, waste: 2_800_000 },
+    6: { savings: 2_500_000, scoreBefore: 38, scoreAfter: 64, workflows: 35, automationReady: 9, waste: 1_800_000 },
+    12: { savings: 5_800_000, scoreBefore: 38, scoreAfter: 86, workflows: 62, automationReady: 16, waste: 820_000 },
   },
   oakwood: {
     0: { savings: 0, scoreBefore: 41, scoreAfter: 41, workflows: 0, automationReady: 0, waste: 1_601_000 },

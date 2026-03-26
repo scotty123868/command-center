@@ -11,16 +11,16 @@ export interface CompanyConfig {
   userName: string;
 }
 
-// Default config — Meridian Industrial Holdings
+// Default config — Herzog Companies
 const defaultConfig: CompanyConfig = {
-  name: 'Meridian Industrial Holdings',
-  industry: 'Industrial Services (PE-backed)',
-  employees: 1850,
-  revenue: '$340M',
-  opCos: 4,
-  techSpend: '$8.2M/yr',
-  aiReadinessScore: 34,
-  logoInitials: 'M',
+  name: 'Herzog Companies',
+  industry: 'Railroad & Infrastructure Construction',
+  employees: 2800,
+  revenue: '$800M',
+  opCos: 7,
+  techSpend: '$12.4M/yr',
+  aiReadinessScore: 38,
+  logoInitials: 'H',
   userInitials: 'DD',
   userName: 'Daniel Ducic',
 };
