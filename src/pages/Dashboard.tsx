@@ -6,8 +6,6 @@ import AnalysisOverlay, { RunAnalysisButton } from '../components/AnalysisOverla
 import {
   AreaChart,
   Area,
-  RadialBarChart,
-  RadialBar,
   ResponsiveContainer,
   ScatterChart,
   Scatter,
@@ -52,11 +50,6 @@ const statusColors: Record<OpportunityStatus, { bg: string; text: string; dot: s
   identified: { bg: 'rgba(255,255,255,0.06)', text: 'var(--cc-text-secondary)', dot: 'var(--cc-text-tertiary)' },
 };
 
-const statusLabels: Record<OpportunityStatus, string> = {
-  automated: 'Automated',
-  'in-progress': 'In Progress',
-  identified: 'Identified',
-};
 
 // ─── Timeline Interpolation ────────────────────────────────────────────────
 
@@ -238,36 +231,6 @@ function Sparkline({
 
 // ─── AI Readiness Gauge (dark-themed) ───────────────────────────────────────
 
-function ReadinessGauge({ score }: { score: number }) {
-  const data = [{ value: score, fill: 'var(--cc-accent)' }];
-  return (
-    <div className="relative h-[100px] w-[100px]" style={{ filter: 'drop-shadow(0 0 8px var(--cc-accent-glow))' }}>
-      <ResponsiveContainer width="100%" height="100%">
-        <RadialBarChart
-          cx="50%"
-          cy="50%"
-          innerRadius="70%"
-          outerRadius="100%"
-          startAngle={225}
-          endAngle={-45}
-          barSize={8}
-          data={data}
-        >
-          <RadialBar
-            dataKey="value"
-            cornerRadius={4}
-            background={{ fill: 'rgba(255,255,255,0.06)' }}
-            isAnimationActive={false}
-          />
-        </RadialBarChart>
-      </ResponsiveContainer>
-      <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="font-mono text-[22px] font-bold" style={{ color: 'var(--cc-text)' }}>{score}</span>
-        <span className="text-[10px]" style={{ color: 'var(--cc-text-tertiary)' }}>/100</span>
-      </div>
-    </div>
-  );
-}
 
 // ─── KPI Card (dark-themed) ─────────────────────────────────────────────────
 
@@ -664,9 +627,8 @@ function ScatterTooltipContent({ active, payload }: { active?: boolean; payload?
 // ─── Dashboard ──────────────────────────────────────────────────────────────
 
 export default function Dashboard() {
-  const { company, companies, setCompanyId } = useCompany();
+  const { company, companies } = useCompany();
   const companyKpis = getKpis(company.id);
-  const companyProfile = getCompanyProfile(company.id);
   const companyRoadmap = getRoadmapPhases(company.id);
   const companyOpps = getTopOpportunities(company.id);
   const companyStack = getCurrentStack(company.id);

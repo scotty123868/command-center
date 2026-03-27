@@ -18,7 +18,6 @@ import {
   ArrowRight,
   ExternalLink,
   Wifi,
-  WifiOff,
   Brain,
   AlertTriangle,
   RotateCcw,

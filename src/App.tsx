@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
-import { Routes, Route, Navigate, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation, useSearchParams } from 'react-router-dom';
 import { Search, Menu, Moon, Sun } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { config } from './data/config';
@@ -135,7 +135,6 @@ const FULL_BLEED_ROUTES = ['/board-report'];
 
 export default function App() {
   const location = useLocation();
-  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const isFullBleed = FULL_BLEED_ROUTES.includes(location.pathname);
   const [sidebarOpen, setSidebarOpen] = useState(false);
