@@ -145,7 +145,9 @@ export default function App() {
 
   const closeSidebar = useCallback(() => setSidebarOpen(false), []);
 
-  // Demo reset: clear sessionStorage and redirect
+  // Demo reset: clear sessionStorage and force full page reload so
+  // components re-read clean storage (fixes Codex P2: mounted pages
+  // had already read stale sessionStorage before this effect ran)
   useEffect(() => {
     if (searchParams.get('reset') === 'true') {
       const keysToRemove: string[] = [];
@@ -156,9 +158,10 @@ export default function App() {
         }
       }
       keysToRemove.forEach((k) => sessionStorage.removeItem(k));
-      navigate('/dashboard', { replace: true });
+      // Full reload ensures all components re-initialize from clean storage
+      window.location.replace('/dashboard');
     }
-  }, [searchParams, navigate]);
+  }, [searchParams]);
 
   // Close sidebar on route change (mobile)
   useEffect(() => {
