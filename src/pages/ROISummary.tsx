@@ -9,6 +9,9 @@ import {
   BarChart3,
   DollarSign,
   FileDown,
+  FileText,
+  PieChart,
+  Presentation,
 } from 'lucide-react';
 import { openBoardReport } from '../components/BoardReport';
 import {
@@ -424,6 +427,84 @@ export default function ROISummary() {
           <p className="text-gray-600 leading-relaxed max-w-3xl">
             With a total implementation investment of {fmtCompact(roiSummary.implementationCosts)}, the program reaches break-even around month {Math.ceil(roiSummary.implementationCosts / (roiSummary.netYear1 / 12))}. Year 1 net savings of {fmtCompact(roiSummary.netYear1)} represent a {Math.round((roiSummary.netYear1 / roiSummary.implementationCosts) * 100)}% ROI. As automation scales and AI-native tools mature in Year 2, implementation costs drop to near-zero maintenance while savings compound to a projected {fmtCompact(roiSummary.year2Projected)} annually.
           </p>
+        </div>
+      </motion.div>
+
+      {/* ── Section 6: Board Report Preview ─────────────────────────── */}
+      <motion.div
+        className="rounded-2xl border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] bg-white p-8"
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.3 }}
+      >
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h2 className="text-lg font-semibold text-gray-800">Board Report Preview</h2>
+            <p className="text-sm text-gray-500 mt-1">Executive-ready report with key findings and recommendations</p>
+          </div>
+          <button
+            onClick={() => window.open('/board-report', '_blank')}
+            className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all duration-200 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-600/30 cursor-pointer"
+          >
+            <FileDown size={16} />
+            Generate Board Report
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {/* Page 1 Preview */}
+          <div className="rounded-xl border border-gray-100 bg-gray-50/50 p-5 hover:shadow-md transition-shadow duration-200">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center">
+                <Presentation size={18} className="text-blue-500" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-gray-800">Executive Summary</p>
+                <p className="text-[11px] text-gray-400">Page 1</p>
+              </div>
+            </div>
+            <ul className="space-y-1.5 text-xs text-gray-500">
+              <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-blue-400" />Total savings opportunity</li>
+              <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-blue-400" />Implementation timeline</li>
+              <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-blue-400" />Key recommendations</li>
+            </ul>
+          </div>
+
+          {/* Page 2 Preview */}
+          <div className="rounded-xl border border-gray-100 bg-gray-50/50 p-5 hover:shadow-md transition-shadow duration-200">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-9 h-9 rounded-lg bg-emerald-50 flex items-center justify-center">
+                <PieChart size={18} className="text-emerald-500" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-gray-800">Financial Analysis</p>
+                <p className="text-[11px] text-gray-400">Page 2</p>
+              </div>
+            </div>
+            <ul className="space-y-1.5 text-xs text-gray-500">
+              <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-emerald-400" />Savings waterfall breakdown</li>
+              <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-emerald-400" />Payback period analysis</li>
+              <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-emerald-400" />Year 1 vs Year 2 projections</li>
+            </ul>
+          </div>
+
+          {/* Page 3 Preview */}
+          <div className="rounded-xl border border-gray-100 bg-gray-50/50 p-5 hover:shadow-md transition-shadow duration-200">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-9 h-9 rounded-lg bg-purple-50 flex items-center justify-center">
+                <FileText size={18} className="text-purple-500" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-gray-800">Action Plan</p>
+                <p className="text-[11px] text-gray-400">Page 3</p>
+              </div>
+            </div>
+            <ul className="space-y-1.5 text-xs text-gray-500">
+              <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-purple-400" />Division-by-division roadmap</li>
+              <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-purple-400" />Quick wins vs. strategic bets</li>
+              <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-purple-400" />Next steps and timeline</li>
+            </ul>
+          </div>
         </div>
       </motion.div>
     </div>

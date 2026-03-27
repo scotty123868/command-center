@@ -23,7 +23,7 @@ const routeTitles: Record<string, string> = {
   '/workflows': 'Workflow Automation',
   '/license-audit': 'License Audit',
   '/data-flow': 'Data Flow Intelligence',
-  '/integrations': 'Integrations',
+  '/integrations': 'Integration Hub',
   '/stories': 'Company Dashboards',
   '/roi-summary': 'ROI Summary',
   '/assessment': 'AI Assistant',
