@@ -188,7 +188,7 @@ function WaterfallChartSection({ waterfallChartData }: { waterfallChartData: Ret
           <XAxis
             dataKey="name"
             tick={{ fontSize: 12, fill: '#6B7280' }}
-            axisLine={{ stroke: '#E5E7EB' }}
+            axisLine={{ stroke: 'rgba(255,255,255,0.06)' }}
             tickLine={false}
           />
           <YAxis
@@ -356,7 +356,7 @@ export default function ROISummary() {
             <XAxis
               dataKey="month"
               tick={{ fontSize: 12, fill: '#6B7280' }}
-              axisLine={{ stroke: '#E5E7EB' }}
+              axisLine={{ stroke: 'rgba(255,255,255,0.06)' }}
               tickLine={false}
             />
             <YAxis

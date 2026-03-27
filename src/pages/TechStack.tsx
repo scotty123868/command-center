@@ -137,7 +137,7 @@ export default function TechStack() {
     { label: 'Critical', pct: 50, color: '#EF4444' },
     { label: 'Poor', pct: 17, color: '#F59E0B' },
     { label: 'Fair', pct: 17, color: '#10B981' },
-    { label: 'Unused', pct: 16, color: '#E5E7EB' },
+    { label: 'Unused', pct: 16, color: '#3A3A44' },
   ];
 
   // Find migration weeks for each recommendation from currentStack
