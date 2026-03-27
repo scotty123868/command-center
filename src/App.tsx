@@ -14,7 +14,6 @@ import ROISummary from './pages/ROISummary';
 import Assessment from './pages/Assessment';
 import DataFlow from './pages/DataFlow';
 import Integrations from './pages/Integrations';
-import ExecutiveBriefing from './pages/ExecutiveBriefing';
 import BoardReportPage from './pages/BoardReport';
 
 const routeTitles: Record<string, string> = {
@@ -27,7 +26,6 @@ const routeTitles: Record<string, string> = {
   '/stories': 'Division Performance',
   '/roi-summary': 'ROI Summary',
   '/assessment': 'AI Assistant',
-  '/executive-briefing': 'Executive Briefing',
   '/board-report': 'Board Report',
 };
 
@@ -102,7 +100,6 @@ function AnimatedRoutes() {
           <Route path="/roi-summary" element={<ROISummary />} />
           <Route path="/assessment" element={<Assessment />} />
           <Route path="/ai-assistant" element={<Navigate to="/assessment" replace />} />
-          <Route path="/executive-briefing" element={<ExecutiveBriefing />} />
           <Route path="/board-report" element={<BoardReportPage />} />
           <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Routes>

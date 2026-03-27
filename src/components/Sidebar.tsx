@@ -14,7 +14,6 @@ import {
   X,
   Building2,
   Check,
-  Presentation,
   ExternalLink,
   Network,
 } from 'lucide-react';
@@ -38,7 +37,6 @@ const insightsItems = [
 
 const platformItems = [
   { to: '/integrations', icon: Plug, label: 'Integration Hub' },
-  { to: '/executive-briefing', icon: Presentation, label: 'Executive Briefing' },
 ];
 
 function NavItem({ to, icon: Icon, label, onNavClick }: { to: string; icon: React.ElementType; label: string; onNavClick?: () => void }) {
@@ -334,7 +332,7 @@ export default function Sidebar({ onNavClick, onClose }: { onNavClick?: () => vo
           rel="noopener noreferrer"
           className="flex items-center gap-1.5 text-xs text-slate-500 hover:text-blue-400 transition-colors"
         >
-          Switch to Operations
+          View Live Operations →
           <ExternalLink className="w-3 h-3" strokeWidth={2} />
         </a>
       </div>

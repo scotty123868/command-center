@@ -552,6 +552,15 @@ export default function Dashboard() {
     setAnalysisComplete(true);
   }, []);
 
+  // Live sync timer
+  const [syncSeconds, setSyncSeconds] = useState(() => Math.floor(Math.random() * 26) + 5);
+  useEffect(() => {
+    const id = setInterval(() => {
+      setSyncSeconds((s) => (s >= 60 ? 0 : s + 1));
+    }, 1000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <div className="space-y-8">
       {/* Analysis Overlay */}
@@ -559,10 +568,14 @@ export default function Dashboard() {
         {showOverlay && <AnalysisOverlay onComplete={handleAnalysisComplete} />}
       </AnimatePresence>
 
-      {/* Preliminary Estimate Banner */}
+      {/* Preliminary Estimate Banner + Sync Timer */}
       <div className="flex items-center justify-between">
         <span className="text-xs text-slate-400 bg-slate-100 px-3 py-1 rounded">
           Preliminary Estimate — Based on Industry Benchmarks
+        </span>
+        <span className="text-[11px] text-gray-400 font-mono flex items-center gap-1.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          Last synced: {syncSeconds}s ago
         </span>
       </div>
 
@@ -1170,6 +1183,31 @@ export default function Dashboard() {
                 })}
               </tbody>
             </table>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* ── Competitive Framing ────────────────────────────────── */}
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="rounded-xl bg-gray-900 px-6 py-5 mt-4"
+      >
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="w-1 h-8 rounded-full bg-gray-700" />
+            <div>
+              <p className="text-[12px] text-gray-500">Traditional consulting</p>
+              <p className="text-[13px] text-gray-400">12 weeks, $500K &rarr; PowerPoint deck</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="w-1 h-8 rounded-full bg-blue-500" />
+            <div>
+              <p className="text-[12px] text-blue-400">UpSkiller AI</p>
+              <p className="text-[13px] text-white">5 days to first insights, &lt;$750/month &rarr; Live platform</p>
+            </div>
           </div>
         </div>
       </motion.section>
