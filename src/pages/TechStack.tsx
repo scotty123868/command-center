@@ -25,16 +25,29 @@ const scoreLabel = (s: number) =>
 
 const cardBg = (s: number) =>
   s <= 3
-    ? 'bg-red-50 border-l-4 border-l-red-400'
+    ? 'border-l-4 border-l-red-400'
     : s <= 5
-    ? 'bg-amber-50'
-    : 'bg-green-50';
+    ? ''
+    : '';
+
+const cardBgStyle = (s: number) =>
+  s <= 3
+    ? { background: 'var(--cc-red-dim)' }
+    : s <= 5
+    ? { background: 'var(--cc-yellow-dim)' }
+    : { background: 'var(--cc-green-dim)' };
 
 const complexityColor = (c: string) =>
-  c === 'High' ? 'bg-red-100 text-red-700' : c === 'Medium' ? 'bg-amber-100 text-amber-700' : 'bg-green-100 text-green-700';
+  c === 'High' ? 'text-red-400' : c === 'Medium' ? 'text-amber-400' : 'text-green-400';
+
+const complexityStyle = (c: string) =>
+  c === 'High' ? { background: 'var(--cc-red-dim)' } : c === 'Medium' ? { background: 'var(--cc-yellow-dim)' } : { background: 'var(--cc-green-dim)' };
 
 const riskColor = (r: string) =>
-  r === 'Critical' ? 'bg-red-600 text-white' : r === 'High' ? 'bg-red-100 text-red-700' : r === 'Medium' ? 'bg-amber-100 text-amber-700' : 'bg-green-100 text-green-700';
+  r === 'Critical' ? 'bg-red-600 text-white' : r === 'High' ? 'text-red-400' : r === 'Medium' ? 'text-amber-400' : 'text-green-400';
+
+const riskStyle = (r: string) =>
+  r === 'Critical' ? {} : r === 'High' ? { background: 'var(--cc-red-dim)' } : r === 'Medium' ? { background: 'var(--cc-yellow-dim)' } : { background: 'var(--cc-green-dim)' };
 
 /* ── Radial Gauge (tiny) ─────────────────────────────────────────────────── */
 
@@ -52,7 +65,7 @@ function RadialGauge({ score, size = 40 }: { score: number; size?: number }) {
         cy={size / 2}
         r={radius}
         fill="none"
-        stroke="#E5E7EB"
+        stroke="rgba(255,255,255,0.1)"
         strokeWidth={3}
       />
       <circle
@@ -138,7 +151,7 @@ export default function TechStack() {
   return (
     <div className="space-y-12">
       {/* Preliminary Estimate Banner */}
-      <span className="text-xs text-slate-400 bg-slate-100 px-3 py-1 rounded inline-block">
+      <span className="text-xs px-3 py-1 rounded inline-block" style={{ color: 'var(--cc-text-secondary)', background: 'var(--cc-bg-card)' }}>
         Preliminary Estimate — Based on Industry Benchmarks
       </span>
 
@@ -148,7 +161,7 @@ export default function TechStack() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="text-2xl font-bold text-gray-900 mb-6"
+          className="text-2xl font-bold mb-6" style={{ color: 'var(--cc-text)' }}
         >
           Stack Health Overview
         </motion.h2>
@@ -158,12 +171,12 @@ export default function TechStack() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 mb-6"
+          className="rounded-2xl shadow-sm p-6 mb-6" style={{ background: 'var(--cc-bg-card)', borderColor: 'var(--cc-border)', border: '1px solid var(--cc-border)' }}
         >
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-3">
-              <Shield className="w-5 h-5 text-gray-400" />
-              <span className="text-sm font-medium text-gray-600">Overall Tech Stack Health</span>
+              <Shield className="w-5 h-5" style={{ color: 'var(--cc-text-tertiary)' }} />
+              <span className="text-sm font-medium" style={{ color: 'var(--cc-text-secondary)' }}>Overall Tech Stack Health</span>
             </div>
             <span className="text-2xl font-bold text-red-500 font-mono">{overallScore}/100</span>
           </div>
@@ -178,7 +191,7 @@ export default function TechStack() {
           </div>
           <div className="flex gap-6 mt-3">
             {segments.slice(0, 3).map((seg) => (
-              <div key={seg.label} className="flex items-center gap-1.5 text-xs text-gray-500">
+              <div key={seg.label} className="flex items-center gap-1.5 text-xs" style={{ color: 'var(--cc-text-secondary)' }}>
                 <span className="w-2 h-2 rounded-full" style={{ backgroundColor: seg.color }} />
                 {seg.label}
               </div>
@@ -194,9 +207,10 @@ export default function TechStack() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.04, duration: 0.25 }}
-              className={`rounded-2xl border border-gray-100 shadow-sm p-4 ${cardBg(tool.score)}`}
+              className={`rounded-2xl shadow-sm p-4 ${cardBg(tool.score)}`}
+              style={{ ...cardBgStyle(tool.score), border: '1px solid var(--cc-border)' }}
             >
-              <p className="text-xs font-medium text-gray-500 truncate mb-2">{tool.name}</p>
+              <p className="text-xs font-medium truncate mb-2" style={{ color: 'var(--cc-text-secondary)' }}>{tool.name}</p>
               <div className="flex items-center justify-between">
                 <RadialGauge score={tool.score} size={38} />
                 <span
@@ -217,7 +231,7 @@ export default function TechStack() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="text-2xl font-bold text-gray-900 mb-6"
+          className="text-2xl font-bold mb-6" style={{ color: 'var(--cc-text)' }}
         >
           AI-Native Migration Map
         </motion.h2>
@@ -235,22 +249,22 @@ export default function TechStack() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.04, duration: 0.3 }}
-                className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-200 p-6 md:p-8"
+                className="rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-200 p-6 md:p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
               >
                 <div className="grid grid-cols-1 md:grid-cols-[2fr_auto_2fr_auto] gap-6 items-center">
                   {/* CURRENT — left 40% */}
                   <div>
-                    <p className="text-[10px] font-semibold tracking-widest text-gray-400 uppercase mb-2">
+                    <p className="text-[10px] font-semibold tracking-widest uppercase mb-2">
                       Current
                     </p>
-                    <h4 className="font-bold text-gray-900 text-lg">{rec.current.name}</h4>
-                    <p className="text-sm text-gray-500 mt-1 leading-relaxed">{rec.current.description}</p>
+                    <h4 className="font-bold text-lg" style={{ color: 'var(--cc-text)' }}>{rec.current.name}</h4>
+                    <p className="text-sm mt-1 leading-relaxed" style={{ color: 'var(--cc-text-secondary)' }}>{rec.current.description}</p>
                     <div className="flex flex-wrap items-center gap-2 mt-3">
-                      <span className="text-xs font-mono text-gray-600 bg-gray-100 px-2 py-0.5 rounded">
+                      <span className="text-xs font-mono px-2 py-0.5 rounded" style={{ color: 'var(--cc-text-secondary)', background: 'var(--cc-bg-input)' }}>
                         {fmt(rec.current.cost)}/yr
                       </span>
                       {rec.current.users > 0 && (
-                        <span className="text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded">
+                        <span className="text-xs px-2 py-0.5 rounded" style={{ color: 'var(--cc-text-secondary)', background: 'var(--cc-bg-input)' }}>
                           {rec.current.users} users
                         </span>
                       )}
@@ -265,10 +279,10 @@ export default function TechStack() {
                       </span>
                       {matchedTool && (
                         <>
-                          <span className={`text-[10px] font-semibold px-2 py-0.5 rounded ${complexityColor(matchedTool.integrationComplexity)}`}>
+                          <span className={`text-[10px] font-semibold px-2 py-0.5 rounded ${complexityColor(matchedTool.integrationComplexity)}`} style={complexityStyle(matchedTool.integrationComplexity)}>
                             {matchedTool.integrationComplexity} complexity
                           </span>
-                          <span className={`text-[10px] font-semibold px-2 py-0.5 rounded ${riskColor(matchedTool.riskLevel)}`}>
+                          <span className={`text-[10px] font-semibold px-2 py-0.5 rounded ${riskColor(matchedTool.riskLevel)}`} style={riskStyle(matchedTool.riskLevel)}>
                             {matchedTool.riskLevel} risk
                           </span>
                         </>
@@ -284,7 +298,7 @@ export default function TechStack() {
                     >
                       <ArrowRight className="w-7 h-7 text-blue-500" />
                     </motion.div>
-                    <span className="text-[10px] font-medium text-gray-400 bg-gray-50 px-2 py-0.5 rounded-full flex items-center gap-1">
+                    <span className="text-[10px] font-medium px-2 py-0.5 rounded-full flex items-center gap-1" style={{ color: 'var(--cc-text-tertiary)', background: 'var(--cc-bg-input)' }}>
                       <Clock className="w-3 h-3" />
                       ~{weeks} weeks
                     </span>
@@ -292,15 +306,15 @@ export default function TechStack() {
 
                   {/* RECOMMENDED — right 40% */}
                   <div>
-                    <p className="text-[10px] font-semibold tracking-widest text-gray-400 uppercase mb-2">
+                    <p className="text-[10px] font-semibold tracking-widest uppercase mb-2">
                       Recommended
                     </p>
-                    <h4 className="font-bold text-gray-900 text-lg">
-                      <span className="text-green-600">{rec.recommended.name}</span>
+                    <h4 className="font-bold text-lg" style={{ color: 'var(--cc-text)' }}>
+                      <span className="text-green-400">{rec.recommended.name}</span>
                     </h4>
-                    <p className="text-sm text-gray-500 mt-1 leading-relaxed">{rec.recommended.description}</p>
+                    <p className="text-sm mt-1 leading-relaxed" style={{ color: 'var(--cc-text-secondary)' }}>{rec.recommended.description}</p>
                     <div className="mt-3">
-                      <span className="text-xs font-mono text-gray-600 bg-gray-100 px-2 py-0.5 rounded">
+                      <span className="text-xs font-mono px-2 py-0.5 rounded" style={{ color: 'var(--cc-text-secondary)', background: 'var(--cc-bg-input)' }}>
                         {fmt(rec.recommended.cost)}/yr
                       </span>
                     </div>
@@ -308,7 +322,7 @@ export default function TechStack() {
 
                   {/* SAVINGS — far right */}
                   <div className="text-right md:min-w-[110px]">
-                    <p className="text-[10px] font-semibold tracking-widest text-gray-400 uppercase mb-1">
+                    <p className="text-[10px] font-semibold tracking-widest uppercase mb-1" style={{ color: 'var(--cc-text-tertiary)' }}>
                       Annual Savings
                     </p>
                     <span className="text-2xl font-bold font-mono text-green-500">
@@ -328,7 +342,7 @@ export default function TechStack() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="text-2xl font-bold text-gray-900 mb-6"
+          className="text-2xl font-bold mb-6" style={{ color: 'var(--cc-text)' }}
         >
           ROI Calculator
         </motion.h2>
@@ -337,14 +351,14 @@ export default function TechStack() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 md:p-8"
+          className="rounded-2xl shadow-sm p-6 md:p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Left: Inputs */}
             <div className="space-y-8">
               {/* Spend slider */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--cc-text)' }}>
                   Current Annual IT Spend
                 </label>
                 <input
@@ -356,16 +370,16 @@ export default function TechStack() {
                   onChange={(e) => setSpend(Number(e.target.value))}
                   className="w-full accent-blue-500 h-2 rounded-full cursor-pointer"
                 />
-                <div className="flex justify-between text-xs text-gray-400 mt-1">
+                <div className="flex justify-between text-xs mt-1" style={{ color: 'var(--cc-text-tertiary)' }}>
                   <span>$1M</span>
-                  <span className="text-base font-bold text-gray-900">{fmt(spend)}</span>
+                  <span className="text-base font-bold" style={{ color: 'var(--cc-text)' }}>{fmt(spend)}</span>
                   <span>$10M</span>
                 </div>
               </div>
 
               {/* Employee slider */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--cc-text)' }}>
                   Number of Employees
                 </label>
                 <input
@@ -377,9 +391,9 @@ export default function TechStack() {
                   onChange={(e) => setEmployees(Number(e.target.value))}
                   className="w-full accent-blue-500 h-2 rounded-full cursor-pointer"
                 />
-                <div className="flex justify-between text-xs text-gray-400 mt-1">
+                <div className="flex justify-between text-xs mt-1" style={{ color: 'var(--cc-text-tertiary)' }}>
                   <span>50</span>
-                  <span className="text-base font-bold text-gray-900">
+                  <span className="text-base font-bold" style={{ color: 'var(--cc-text)' }}>
                     {employees.toLocaleString()}
                   </span>
                   <span>5,000</span>
@@ -388,11 +402,11 @@ export default function TechStack() {
 
               {/* Industry select */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Industry</label>
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--cc-text)' }}>Industry</label>
                 <select
                   value={industry}
                   onChange={(e) => setIndustry(e.target.value)}
-                  className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-gray-900 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white"
+                  className="w-full rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none" style={{ background: 'var(--cc-bg-input)', border: '1px solid var(--cc-border)', color: 'var(--cc-text)' }}
                 >
                   {Object.keys(industryMult).map((ind) => (
                     <option key={ind} value={ind}>
@@ -407,7 +421,7 @@ export default function TechStack() {
             <div className="flex flex-col items-center justify-center gap-6">
               {/* Big projected number */}
               <div className="text-center">
-                <p className="text-sm font-medium text-gray-500 mb-1">Projected Annual Savings</p>
+                <p className="text-sm font-medium mb-1" style={{ color: 'var(--cc-text-secondary)' }}>Projected Annual Savings</p>
                 <p className="text-5xl font-extrabold text-green-500 font-mono">{fmt(projected)}</p>
                 <div className="flex items-center justify-center gap-1 mt-2 text-green-600">
                   <TrendingUp className="w-4 h-4" />
@@ -438,14 +452,16 @@ export default function TechStack() {
                     formatter={(value) => fmtFull(value as number)}
                     contentStyle={{
                       borderRadius: '8px',
-                      border: '1px solid #E5E7EB',
+                      border: '1px solid var(--cc-border)',
                       fontSize: '13px',
+                      background: 'var(--cc-bg-card)',
+                      color: 'var(--cc-text)',
                     }}
                   />
                 </PieChart>
               </ResponsiveContainer>
 
-              <div className="flex gap-8 text-sm">
+              <div className="flex gap-8 text-sm" style={{ color: 'var(--cc-text-secondary)' }}>
                 <div className="flex items-center gap-2">
                   <span className="inline-block w-3 h-3 rounded-full bg-blue-500" />
                   Optimized Spend
@@ -465,7 +481,7 @@ export default function TechStack() {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 0.1 }}
-        className="rounded-2xl bg-[#F0F4FF] p-8"
+        className="rounded-2xl p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
       >
         <div className="flex items-start gap-4">
           <div className="flex-shrink-0 mt-0.5">
@@ -477,30 +493,30 @@ export default function TechStack() {
                 Critical Gap
               </span>
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">
+            <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--cc-text)' }}>
               No data lake infrastructure detected
             </h3>
-            <p className="text-gray-600 leading-relaxed max-w-3xl">
+            <p className="leading-relaxed max-w-3xl" style={{ color: 'var(--cc-text-secondary)' }}>
               Your organization currently has no unified data infrastructure. Without a data lake,
               73% of planned AI initiatives are impossible to execute and cross-division visibility
               remains zero. We recommend implementing{' '}
-              <span className="font-semibold text-gray-900">Databricks Lakehouse</span> as the
+              <span className="font-semibold" style={{ color: 'var(--cc-text)' }}>Databricks Lakehouse</span> as the
               foundational layer — connecting all operating company systems, enabling real-time
               analytics, ML workloads, and enterprise-wide decision support.
             </p>
             <div className="flex flex-wrap items-center gap-6 mt-4">
-              <p className="text-sm font-semibold text-gray-700">
+              <p className="text-sm font-semibold" style={{ color: 'var(--cc-text)' }}>
                 Estimated implementation:{' '}
                 <span className="font-mono text-orange-600">$200,000</span>
               </p>
-              <p className="text-sm font-semibold text-gray-700">
+              <p className="text-sm font-semibold" style={{ color: 'var(--cc-text)' }}>
                 Projected ROI:{' '}
                 <span className="font-mono text-green-500">6x in year one</span>
               </p>
               <p className="text-sm font-semibold text-gray-700 flex items-center gap-1">
                 <Zap className="w-4 h-4 text-amber-500" />
                 Timeline:{' '}
-                <span className="font-mono text-gray-900">16 weeks</span>
+                <span className="font-mono" style={{ color: 'var(--cc-text)' }}>16 weeks</span>
               </p>
             </div>
           </div>

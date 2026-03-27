@@ -20,40 +20,43 @@ const fmt = (n: number) =>
 
 const levelMeta: Record<
   AutomationLevel,
-  { dot: string; bg: string; text: string; label: string; color: string }
+  { dot: string; bg: string; text: string; label: string; color: string; bgStyle: React.CSSProperties }
 > = {
   full: {
     dot: 'bg-emerald-500',
-    bg: 'bg-emerald-50',
-    text: 'text-emerald-700',
+    bg: '',
+    text: 'text-emerald-400',
     label: 'Fully Automatable',
     color: '#10B981',
+    bgStyle: { background: 'var(--cc-green-dim)' },
   },
   'human-in-loop': {
     dot: 'bg-amber-500',
-    bg: 'bg-amber-50',
-    text: 'text-amber-700',
+    bg: '',
+    text: 'text-amber-400',
     label: 'Human-in-the-Loop',
     color: '#F59E0B',
+    bgStyle: { background: 'var(--cc-yellow-dim)' },
   },
   'human-required': {
     dot: 'bg-red-500',
-    bg: 'bg-red-50',
-    text: 'text-red-700',
+    bg: '',
+    text: 'text-red-400',
     label: 'Human-Required',
     color: '#EF4444',
+    bgStyle: { background: 'var(--cc-red-dim)' },
   },
 };
 
 /* ── section header ──────────────────────────────────── */
 
-function SectionHeader({ label, color = 'border-gray-200' }: { label: string; color?: string }) {
+function SectionHeader({ label }: { label: string; color?: string }) {
   return (
     <div className="flex items-center gap-3 pt-6 pb-2">
-      <span className="shrink-0 text-[10px] font-bold uppercase tracking-[0.15em] text-gray-400">
+      <span className="shrink-0 text-[10px] font-bold uppercase tracking-[0.15em]" style={{ color: 'var(--cc-text-tertiary)' }}>
         {label}
       </span>
-      <div className={`h-px flex-1 ${color}`} style={{ backgroundColor: 'rgba(0,0,0,0.06)' }} />
+      <div className="h-px flex-1" style={{ backgroundColor: 'var(--cc-border)' }} />
     </div>
   );
 }
@@ -72,7 +75,7 @@ function DonutStat({ value, label, size = 80, strokeWidth = 7, color = '#4285F4'
   return (
     <div className="flex items-center gap-4">
       <svg width={size} height={size} className="shrink-0">
-        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="#F3F4F6" strokeWidth={strokeWidth} />
+        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth={strokeWidth} />
         <circle
           cx={size / 2} cy={size / 2} r={r} fill="none"
           stroke={color} strokeWidth={strokeWidth}
@@ -82,8 +85,8 @@ function DonutStat({ value, label, size = 80, strokeWidth = 7, color = '#4285F4'
         />
       </svg>
       <div>
-        <p className="text-2xl font-bold text-gray-900">{value}</p>
-        <p className="text-xs text-gray-500">{label}</p>
+        <p className="text-2xl font-bold" style={{ color: 'var(--cc-text)' }}>{value}</p>
+        <p className="text-xs" style={{ color: 'var(--cc-text-secondary)' }}>{label}</p>
       </div>
     </div>
   );
@@ -104,29 +107,29 @@ function WorkflowCard({ wf, index }: { wf: Workflow; index: number }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.04 + index * 0.025, duration: 0.3 }}
-      className="rounded-2xl border border-gray-100 bg-white shadow-sm overflow-hidden"
+      className="rounded-2xl shadow-sm overflow-hidden" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
     >
       {/* ── collapsed row ── */}
       <button
         onClick={() => setOpen(!open)}
-        className="flex w-full items-center gap-4 px-7 py-5 text-left hover:bg-gray-50/50 transition-colors"
+        className="flex w-full items-center gap-4 px-7 py-5 text-left transition-colors" style={{ color: 'var(--cc-text)' }}
       >
         <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${meta.dot}`} />
-        <span className="flex-1 text-[15px] font-semibold text-gray-900 truncate">{wf.name}</span>
-        <span className={`rounded-full px-2.5 py-0.5 text-[10px] font-semibold ${meta.bg} ${meta.text}`}>
+        <span className="flex-1 text-[15px] font-semibold truncate" style={{ color: 'var(--cc-text)' }}>{wf.name}</span>
+        <span className={`rounded-full px-2.5 py-0.5 text-[10px] font-semibold ${meta.text}`} style={meta.bgStyle}>
           {wf.routing}
         </span>
         <span className="text-sm font-bold text-emerald-600 tabular-nums">{fmt(wf.savings)}/yr</span>
 
         {/* mini automation bar */}
         <div className="hidden sm:flex items-center gap-2 w-32">
-          <div className="h-1.5 flex-1 rounded-full bg-gray-100 overflow-hidden">
+          <div className="h-1.5 flex-1 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
             <div
               className="h-full rounded-full"
               style={{ width: `${wf.automationPercent}%`, backgroundColor: meta.color }}
             />
           </div>
-          <span className="text-[10px] font-semibold text-gray-400 tabular-nums w-7 text-right">
+          <span className="text-[10px] font-semibold tabular-nums w-7 text-right">
             {wf.automationPercent}%
           </span>
         </div>
@@ -150,10 +153,10 @@ function WorkflowCard({ wf, index }: { wf: Workflow; index: number }) {
             <div className="px-8 pb-8 pt-2">
               {/* ── CURRENT PROCESS ── */}
               <SectionHeader label="Current Process" />
-              <div className="border-l-2 border-gray-200 pl-5 mt-2 space-y-1.5">
+              <div className="border-l-2 pl-5 mt-2 space-y-1.5" style={{ borderColor: 'var(--cc-border)' }}>
                 {wf.currentProcess.map((step, i) => (
-                  <div key={i} className="flex gap-3 text-sm text-gray-700 leading-relaxed">
-                    <span className="shrink-0 text-[11px] font-semibold text-gray-400 tabular-nums w-5 text-right pt-0.5">
+                  <div key={i} className="flex gap-3 text-sm leading-relaxed" style={{ color: 'var(--cc-text-secondary)' }}>
+                    <span className="shrink-0 text-[11px] font-semibold tabular-nums w-5 text-right pt-0.5">
                       {i + 1}.
                     </span>
                     <span>{step}</span>
@@ -163,9 +166,9 @@ function WorkflowCard({ wf, index }: { wf: Workflow; index: number }) {
 
               {/* ── BOTTLENECKS ── */}
               <SectionHeader label="Bottlenecks Identified" />
-              <div className="border-l-2 border-red-200 pl-5 mt-2 space-y-1.5">
+              <div className="border-l-2 border-red-800/40 pl-5 mt-2 space-y-1.5">
                 {wf.bottlenecks.map((b, i) => (
-                  <div key={i} className="flex gap-2.5 text-sm text-gray-700 leading-relaxed">
+                  <div key={i} className="flex gap-2.5 text-sm leading-relaxed" style={{ color: 'var(--cc-text-secondary)' }}>
                     <span className="shrink-0 mt-1 h-1.5 w-1.5 rounded-full bg-red-400" />
                     <span>{b}</span>
                   </div>
@@ -174,24 +177,24 @@ function WorkflowCard({ wf, index }: { wf: Workflow; index: number }) {
 
               {/* ── AI ARCHITECTURE ── */}
               <SectionHeader label="Proposed AI Architecture" />
-              <div className="mt-2 rounded-xl border border-blue-100 bg-blue-50/60 px-5 py-4 border-l-4 border-l-blue-400">
-                <p className="text-sm leading-relaxed text-gray-700">{wf.aiArchitecture}</p>
+              <div className="mt-2 rounded-xl px-5 py-4 border-l-4 border-l-blue-400" style={{ background: 'var(--cc-accent-glow)', border: '1px solid rgba(66,133,244,0.15)' }}>
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--cc-text-secondary)' }}>{wf.aiArchitecture}</p>
               </div>
 
               {/* ── IMPLEMENTATION PLAN ── */}
               <SectionHeader label="Implementation Plan" />
-              <div className="border-l-2 border-emerald-200 pl-5 mt-2 space-y-3">
+              <div className="border-l-2 border-emerald-800/40 pl-5 mt-2 space-y-3">
                 {wf.implementationPlan.map((p, i) => (
                   <div key={i} className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-3">
                     <div className="flex items-center gap-2 shrink-0">
                       <span className="text-[11px] font-bold text-emerald-600">Phase {i + 1}</span>
-                      <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold text-emerald-700 tabular-nums">
+                      <span className="rounded-full px-2 py-0.5 text-[10px] font-semibold text-emerald-400 tabular-nums" style={{ background: 'var(--cc-green-dim)' }}>
                         {p.weeks} wks
                       </span>
                     </div>
                     <div>
-                      <span className="text-sm font-semibold text-gray-800">{p.phase}</span>
-                      <span className="text-sm text-gray-500"> — {p.description}</span>
+                      <span className="text-sm font-semibold" style={{ color: 'var(--cc-text)' }}>{p.phase}</span>
+                      <span className="text-sm" style={{ color: 'var(--cc-text-secondary)' }}> — {p.description}</span>
                     </div>
                   </div>
                 ))}
@@ -199,9 +202,9 @@ function WorkflowCard({ wf, index }: { wf: Workflow; index: number }) {
 
               {/* ── RISK ASSESSMENT ── */}
               <SectionHeader label="Risk Assessment" />
-              <div className="border-l-2 border-amber-200 pl-5 mt-2 space-y-1.5">
+              <div className="border-l-2 border-amber-800/40 pl-5 mt-2 space-y-1.5">
                 {wf.risks.map((r, i) => (
-                  <div key={i} className="flex gap-2.5 text-sm text-gray-700 leading-relaxed">
+                  <div key={i} className="flex gap-2.5 text-sm leading-relaxed" style={{ color: 'var(--cc-text-secondary)' }}>
                     <AlertTriangle size={13} className="shrink-0 mt-0.5 text-amber-500" />
                     <span>{r}</span>
                   </div>
@@ -210,10 +213,10 @@ function WorkflowCard({ wf, index }: { wf: Workflow; index: number }) {
 
               {/* ── DEPENDENCIES ── */}
               <SectionHeader label="Dependencies" />
-              <div className="border-l-2 border-gray-200 pl-5 mt-2 space-y-1.5">
+              <div className="border-l-2 pl-5 mt-2 space-y-1.5" style={{ borderColor: 'var(--cc-border)' }}>
                 {wf.dependencies.map((d, i) => (
-                  <div key={i} className="flex gap-2.5 text-sm text-gray-700 leading-relaxed">
-                    <Link2 size={13} className="shrink-0 mt-0.5 text-gray-400" />
+                  <div key={i} className="flex gap-2.5 text-sm leading-relaxed" style={{ color: 'var(--cc-text-secondary)' }}>
+                    <Link2 size={13} className="shrink-0 mt-0.5" style={{ color: 'var(--cc-text-tertiary)' }} />
                     <span>{d}</span>
                   </div>
                 ))}
@@ -222,24 +225,24 @@ function WorkflowCard({ wf, index }: { wf: Workflow; index: number }) {
               {/* ── COST MODEL ── */}
               <SectionHeader label="Cost Model" />
               <div className="mt-3 space-y-3">
-                <p className="text-xs font-medium text-gray-500 mb-2">{wf.costShift}</p>
+                <p className="text-xs font-medium mb-2" style={{ color: 'var(--cc-text-secondary)' }}>{wf.costShift}</p>
                 {/* current cost bar */}
                 <div className="space-y-1.5">
                   <div className="flex items-center justify-between text-[11px]">
-                    <span className="text-gray-500">Current</span>
-                    <span className="font-semibold text-gray-700 tabular-nums">{fmt(wf.currentCost)}/yr</span>
+                    <span style={{ color: 'var(--cc-text-secondary)' }}>Current</span>
+                    <span className="font-semibold tabular-nums">{fmt(wf.currentCost)}/yr</span>
                   </div>
-                  <div className="h-3 w-full rounded-full bg-gray-100 overflow-hidden">
+                  <div className="h-3 w-full rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
                     <div className="h-full rounded-full bg-gray-400" style={{ width: '100%' }} />
                   </div>
                 </div>
                 {/* reduced cost bar */}
                 <div className="space-y-1.5">
                   <div className="flex items-center justify-between text-[11px]">
-                    <span className="text-gray-500">After AI</span>
-                    <span className="font-semibold text-gray-700 tabular-nums">{fmt(reducedCost)}/yr</span>
+                    <span style={{ color: 'var(--cc-text-secondary)' }}>After AI</span>
+                    <span className="font-semibold tabular-nums">{fmt(reducedCost)}/yr</span>
                   </div>
-                  <div className="relative h-3 w-full rounded-full bg-gray-100 overflow-hidden">
+                  <div className="relative h-3 w-full rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
                     <div
                       className="h-full rounded-full bg-emerald-500"
                       style={{ width: `${Math.max(0, (reducedCost / maxCost) * 100)}%` }}
@@ -261,14 +264,14 @@ function WorkflowCard({ wf, index }: { wf: Workflow; index: number }) {
                 {/* automation bar */}
                 <div className="pt-2">
                   <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-400">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.15em]" style={{ color: 'var(--cc-text-tertiary)' }}>
                       Automation Coverage
                     </span>
                     <span className="text-xs font-bold tabular-nums" style={{ color: meta.color }}>
                       {wf.automationPercent}%
                     </span>
                   </div>
-                  <div className="h-2.5 w-full rounded-full bg-gray-100 overflow-hidden">
+                  <div className="h-2.5 w-full rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
                     <motion.div
                       className="h-full rounded-full"
                       style={{ backgroundColor: meta.color }}
@@ -296,14 +299,14 @@ export default function Workflows() {
   return (
     <div className="space-y-8">
       {/* Preliminary Estimate Banner */}
-      <span className="text-xs text-slate-400 bg-slate-100 px-3 py-1 rounded inline-block">
+      <span className="text-xs px-3 py-1 rounded inline-block" style={{ color: 'var(--cc-text-secondary)', background: 'var(--cc-bg-card)' }}>
         Preliminary Estimate — Based on Industry Benchmarks
       </span>
 
       {/* ── page title ── */}
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Workflow Scoping Documents</h1>
-        <p className="mt-1 text-sm text-gray-500">
+        <h1 className="text-2xl font-bold" style={{ color: 'var(--cc-text)' }}>Workflow Scoping Documents</h1>
+        <p className="mt-1 text-sm" style={{ color: 'var(--cc-text-secondary)' }}>
           AI automation discovery across {workflowSummary.total} workflows — detailed scoping, architecture, and implementation plans.
         </p>
       </div>
@@ -315,7 +318,7 @@ export default function Workflows() {
 
         {/* type split — stacked bar */}
         <div className="flex-1 min-w-[260px]">
-          <p className="text-xs text-gray-500 mb-2">Split by Automation Type</p>
+          <p className="text-xs mb-2" style={{ color: 'var(--cc-text-secondary)' }}>Split by Automation Type</p>
           <div className="flex h-5 w-full overflow-hidden rounded-full">
             <div
               className="flex items-center justify-center text-[10px] font-bold text-white"
@@ -336,7 +339,7 @@ export default function Workflows() {
               {workflowSummary.humanRequired}
             </div>
           </div>
-          <div className="flex gap-4 mt-1.5 text-[10px] text-gray-500">
+          <div className="flex gap-4 mt-1.5 text-[10px]" style={{ color: 'var(--cc-text-secondary)' }}>
             <span className="flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-emerald-500" />Full</span>
             <span className="flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-amber-500" />Human-in-Loop</span>
             <span className="flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-red-500" />Human-Required</span>
@@ -348,7 +351,7 @@ export default function Workflows() {
       </div>
 
       {/* ── workflow scoping cards ── */}
-      <p className="text-xs text-gray-400 bg-gray-50 px-3 py-1.5 rounded-lg inline-block">
+      <p className="text-xs px-3 py-1.5 rounded-lg inline-block" style={{ color: 'var(--cc-text-tertiary)', background: 'var(--cc-bg-card)' }}>
         Showing top {workflows.length} of {workflowSummary.total} workflows analyzed
       </p>
       <div className="space-y-3">

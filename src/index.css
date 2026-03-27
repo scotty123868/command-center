@@ -20,6 +20,58 @@
   --font-mono: 'SF Mono', 'JetBrains Mono', 'Fira Code', monospace;
 }
 
+/* ── Dark Theme CSS Variables ─────────────────────────────── */
+
+:root {
+  --cc-bg: #0F0F13;
+  --cc-bg-elevated: #16161A;
+  --cc-bg-card: #1E1E24;
+  --cc-bg-card-hover: #252530;
+  --cc-bg-input: #1A1A22;
+  --cc-text: #F0F0F4;
+  --cc-text-secondary: #9CA3AF;
+  --cc-text-tertiary: #6B7280;
+  --cc-text-muted: #4A4A54;
+  --cc-border: rgba(255, 255, 255, 0.06);
+  --cc-border-hover: rgba(255, 255, 255, 0.12);
+  --cc-accent: #4285F4;
+  --cc-accent-glow: rgba(66, 133, 244, 0.25);
+  --cc-green: #10B981;
+  --cc-green-dim: rgba(16, 185, 129, 0.15);
+  --cc-red: #EF4444;
+  --cc-red-dim: rgba(239, 68, 68, 0.15);
+  --cc-yellow: #F59E0B;
+  --cc-yellow-dim: rgba(245, 158, 11, 0.15);
+  --cc-topbar-bg: rgba(15, 15, 19, 0.85);
+  --cc-scrollbar: rgba(255, 255, 255, 0.1);
+  --cc-scrollbar-hover: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="light"] {
+  --cc-bg: #F8F9FB;
+  --cc-bg-elevated: #FFFFFF;
+  --cc-bg-card: #FFFFFF;
+  --cc-bg-card-hover: #F5F5FA;
+  --cc-bg-input: #F3F4F6;
+  --cc-text: #1B1B1B;
+  --cc-text-secondary: #6B7280;
+  --cc-text-tertiary: #9CA3AF;
+  --cc-text-muted: #D1D5DB;
+  --cc-border: #E5E7EB;
+  --cc-border-hover: #D1D5DB;
+  --cc-accent: #4285F4;
+  --cc-accent-glow: rgba(66, 133, 244, 0.12);
+  --cc-green: #10B981;
+  --cc-green-dim: rgba(16, 185, 129, 0.08);
+  --cc-red: #EF4444;
+  --cc-red-dim: rgba(239, 68, 68, 0.08);
+  --cc-yellow: #F59E0B;
+  --cc-yellow-dim: rgba(245, 158, 11, 0.08);
+  --cc-topbar-bg: rgba(255, 255, 255, 0.85);
+  --cc-scrollbar: rgba(0, 0, 0, 0.12);
+  --cc-scrollbar-hover: rgba(0, 0, 0, 0.22);
+}
+
 /* ── Global smooth transitions (low specificity, overridable) ── */
 
 * {
@@ -44,8 +96,8 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #F8F9FB;
-  color: var(--color-text-primary);
+  background: var(--cc-bg);
+  color: var(--cc-text);
   line-height: 1.5;
   position: relative;
 }
@@ -57,20 +109,20 @@ body::before {
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.02;
+  opacity: 0.03;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
 }
 
-/* Subtle ambient glow — Apple-style top-right light */
+/* Subtle ambient glow — accent light */
 body::after {
   content: '';
   position: fixed;
   inset: 0;
   z-index: 9998;
   pointer-events: none;
-  background: radial-gradient(ellipse 60% 50% at 85% 5%, rgba(66, 133, 244, 0.04), transparent 70%);
+  background: radial-gradient(ellipse 60% 50% at 85% 5%, var(--cc-accent-glow), transparent 70%);
 }
 
 #root {
@@ -81,12 +133,12 @@ body::after {
 /* ── Selection ────────────────────────────────────────────── */
 
 ::selection {
-  background: rgba(66, 133, 244, 0.2);
+  background: rgba(66, 133, 244, 0.3);
   color: inherit;
 }
 
 ::-moz-selection {
-  background: rgba(66, 133, 244, 0.2);
+  background: rgba(66, 133, 244, 0.3);
   color: inherit;
 }
 
@@ -110,13 +162,13 @@ body::after {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.12);
+  background: var(--cc-scrollbar);
   border-radius: 100px;
   transition: background 0.2s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.22);
+  background: var(--cc-scrollbar-hover);
 }
 
 ::-webkit-scrollbar-corner {
@@ -126,7 +178,7 @@ body::after {
 /* Firefox scrollbar */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.12) transparent;
+  scrollbar-color: var(--cc-scrollbar) transparent;
 }
 
 /* ── Hide scrollbar utility ──────────────────────────────── */
@@ -155,7 +207,7 @@ a:hover {
 
 input::placeholder,
 textarea::placeholder {
-  color: #9CA3AF;
+  color: var(--cc-text-tertiary);
   opacity: 1;
 }
 
@@ -170,12 +222,111 @@ body {
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11', 'salt';
 }
 
-/* ── Premium card elevation ──────────────────────────────── */
+/* ── Dark theme card styling ─────────────────────────────── */
+
+.cc-card {
+  background: var(--cc-bg-card);
+  border: 1px solid var(--cc-border);
+  border-radius: 16px;
+  transition: all 0.2s ease;
+}
+
+.cc-card:hover {
+  border-color: var(--cc-border-hover);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2), 0 0 0 1px var(--cc-border-hover);
+}
+
+/* ── Skeleton shimmer for loading cascade ─────────────────── */
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.cc-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--cc-bg-card) 25%,
+    var(--cc-bg-card-hover) 50%,
+    var(--cc-bg-card) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 12px;
+}
+
+/* ── Accent glow utility ──────────────────────────────────── */
+
+.cc-glow {
+  box-shadow: 0 0 20px var(--cc-accent-glow), 0 0 60px rgba(66, 133, 244, 0.08);
+}
+
+.cc-glow-green {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.2), 0 0 60px rgba(16, 185, 129, 0.05);
+}
+
+.cc-glow-red {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.2), 0 0 60px rgba(239, 68, 68, 0.05);
+}
+
+/* ── Premium card elevation (dark theme) ──────────────────── */
 .rounded-xl, .rounded-2xl {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.2s ease;
 }
 
 .rounded-xl:hover, .rounded-2xl:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* ── Dot grid background pattern ──────────────────────────── */
+
+.cc-dotgrid {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ── Status indicator pulse ───────────────────────────────── */
+
+@keyframes pulse-live {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.cc-pulse {
+  animation: pulse-live 2s ease-in-out infinite;
+}
+
+/* ── Range slider styling (dark theme) ────────────────────── */
+
+.cc-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+  background: var(--cc-bg-card);
+}
+
+.cc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--cc-accent);
+  border: 2px solid var(--cc-bg);
+  box-shadow: 0 0 10px var(--cc-accent-glow);
+  cursor: pointer;
+}
+
+.cc-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--cc-accent);
+  border: 2px solid var(--cc-bg);
+  box-shadow: 0 0 10px var(--cc-accent-glow);
+  cursor: pointer;
 }

@@ -1,8 +1,9 @@
 import { useState, useCallback, useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
-import { Search, Menu } from 'lucide-react';
+import { Search, Menu, Moon, Sun } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { config } from './data/config';
+import { useTheme } from './hooks/useTheme';
 import Sidebar from './components/Sidebar';
 import SearchModal from './components/SearchModal';
 import Dashboard from './pages/Dashboard';
@@ -31,41 +32,62 @@ const routeTitles: Record<string, string> = {
 
 function TopBar({ onMenuClick }: { onMenuClick: () => void }) {
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
   const pageTitle = routeTitles[location.pathname] || 'Dashboard';
 
   return (
-    <header className="sticky top-0 z-10 bg-white/80 backdrop-blur-xl" style={{ boxShadow: '0 1px 2px rgba(0,0,0,0.03)' }}>
+    <header
+      className="sticky top-0 z-10 backdrop-blur-xl"
+      style={{
+        background: 'var(--cc-topbar-bg)',
+        borderBottom: '1px solid var(--cc-border)',
+      }}
+    >
       <div className="flex items-center justify-between px-4 lg:px-10 h-14">
         {/* Left — Hamburger (mobile) + Page title */}
         <div className="flex items-center gap-3">
           <button
             onClick={onMenuClick}
-            className="flex h-8 w-8 items-center justify-center rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition-colors lg:hidden"
+            className="flex h-8 w-8 items-center justify-center rounded-lg transition-colors lg:hidden"
+            style={{ color: 'var(--cc-text-secondary)' }}
           >
             <Menu className="h-5 w-5" strokeWidth={1.8} />
           </button>
-          <span className="text-[13px] font-medium text-gray-500">{pageTitle}</span>
+          <span className="text-[13px] font-medium" style={{ color: 'var(--cc-text-secondary)' }}>{pageTitle}</span>
         </div>
 
-        {/* Right — Search + Avatar */}
-        <div className="flex items-center gap-4">
-          {/* Search bar (visual only) — hidden on mobile */}
+        {/* Right — Search + Theme Toggle + Avatar */}
+        <div className="flex items-center gap-3">
+          {/* Search bar — hidden on mobile */}
           <div className="relative hidden lg:block">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-[14px] h-[14px] text-gray-400 pointer-events-none" strokeWidth={2} />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-[14px] h-[14px] pointer-events-none" style={{ color: 'var(--cc-text-tertiary)' }} strokeWidth={2} />
             <input
               type="text"
               readOnly
               placeholder="Search across analysis..."
-              className="w-[260px] h-8 pl-8 pr-14 rounded-lg bg-gray-50 border border-transparent text-[13px] text-gray-600 placeholder:text-gray-400 focus:outline-none focus:border-blue-100 focus:ring-1 focus:ring-blue-100 focus:bg-white transition-all duration-200 cursor-pointer"
+              className="w-[260px] h-8 pl-8 pr-14 rounded-lg border border-transparent text-[13px] focus:outline-none transition-all duration-200 cursor-pointer"
+              style={{
+                background: 'var(--cc-bg-input)',
+                color: 'var(--cc-text)',
+                borderColor: 'var(--cc-border)',
+              }}
               onClick={() => {
                 window.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', metaKey: true, bubbles: true }));
               }}
             />
-            {/* Keyboard shortcut hint */}
-            <span className="absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-gray-200/60 text-[10px] font-medium text-gray-400 leading-none">
+            <span className="absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] font-medium leading-none" style={{ background: 'var(--cc-border)', color: 'var(--cc-text-tertiary)' }}>
               <span className="text-[11px]">{'\u2318'}</span>K
             </span>
           </div>
+
+          {/* Theme toggle */}
+          <button
+            onClick={toggleTheme}
+            className="flex h-8 w-8 items-center justify-center rounded-lg transition-colors"
+            style={{ color: 'var(--cc-text-tertiary)' }}
+          >
+            {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </button>
 
           {/* User avatar */}
           <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center flex-shrink-0 cursor-default">
@@ -118,6 +140,9 @@ export default function App() {
   const isFullBleed = FULL_BLEED_ROUTES.includes(location.pathname);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  // Initialize dark theme on mount
+  useTheme();
+
   const closeSidebar = useCallback(() => setSidebarOpen(false), []);
 
   // Demo reset: clear sessionStorage and redirect
@@ -146,7 +171,7 @@ export default function App() {
   }
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex h-screen overflow-hidden" style={{ background: 'var(--cc-bg)' }}>
       {/* Desktop sidebar — always visible at lg+ (hidden on full-bleed) */}
       {!isFullBleed && (
         <div className="hidden lg:flex">
@@ -165,7 +190,7 @@ export default function App() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-black/40 lg:hidden"
+              className="fixed inset-0 z-40 bg-black/60 lg:hidden"
               onClick={closeSidebar}
             />
             {/* Sidebar panel */}
@@ -183,7 +208,7 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      <main className="flex-1 flex flex-col overflow-hidden bg-[#F8F9FB]">
+      <main className="flex-1 flex flex-col overflow-hidden" style={{ background: 'var(--cc-bg)' }}>
         {!isFullBleed && <TopBar onMenuClick={() => setSidebarOpen(true)} />}
         {isFullBleed ? (
           <div className="flex-1 overflow-hidden">
