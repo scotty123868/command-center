@@ -5,7 +5,6 @@ import {
   Layers,
   GitBranch,
   FileSearch,
-  Network,
   Plug,
   BookOpen,
   TrendingUp,
@@ -19,20 +18,22 @@ import {
 } from 'lucide-react';
 import { useCompany } from '../data/CompanyContext';
 
-const analysisItems = [
-  { to: '/executive-briefing', icon: Presentation, label: 'Executive Briefing' },
+const assessmentItems = [
   { to: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
   { to: '/tech-stack', icon: Layers, label: 'Tech Stack Mapping' },
   { to: '/workflows', icon: GitBranch, label: 'Workflow Automation' },
   { to: '/license-audit', icon: FileSearch, label: 'License Audit' },
-  { to: '/data-flow', icon: Network, label: 'Data Flow Intelligence' },
-  { to: '/integrations', icon: Plug, label: 'Integrations' },
 ];
 
 const insightsItems = [
   { to: '/stories', icon: BookOpen, label: 'Division Performance' },
   { to: '/roi-summary', icon: TrendingUp, label: 'ROI Summary' },
   { to: '/assessment', icon: Sparkles, label: 'AI Assistant' },
+];
+
+const platformItems = [
+  { to: '/integrations', icon: Plug, label: 'Integration Hub' },
+  { to: '/executive-briefing', icon: Presentation, label: 'Executive Briefing' },
 ];
 
 function NavItem({ to, icon: Icon, label, onNavClick }: { to: string; icon: React.ElementType; label: string; onNavClick?: () => void }) {
@@ -292,9 +293,9 @@ export default function Sidebar({ onNavClick, onClose }: { onNavClick?: () => vo
 
       {/* ── Navigation ────────────────────────────── */}
       <nav className="flex-1 flex flex-col px-3 overflow-y-auto">
-        <SectionLabel>Analysis</SectionLabel>
+        <SectionLabel>Assessment</SectionLabel>
         <div className="flex flex-col gap-0.5">
-          {analysisItems.map((item) => (
+          {assessmentItems.map((item) => (
             <NavItem key={item.to} {...item} onNavClick={onNavClick} />
           ))}
         </div>
@@ -305,6 +306,16 @@ export default function Sidebar({ onNavClick, onClose }: { onNavClick?: () => vo
         <SectionLabel>Insights</SectionLabel>
         <div className="flex flex-col gap-0.5">
           {insightsItems.map((item) => (
+            <NavItem key={item.to} {...item} onNavClick={onNavClick} />
+          ))}
+        </div>
+
+        {/* Divider between groups */}
+        <div className="mx-2 my-2 h-px bg-white/[0.06]" />
+
+        <SectionLabel>Platform</SectionLabel>
+        <div className="flex flex-col gap-0.5">
+          {platformItems.map((item) => (
             <NavItem key={item.to} {...item} onNavClick={onNavClick} />
           ))}
         </div>
