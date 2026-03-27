@@ -221,7 +221,7 @@ function Sparkline({
 function ReadinessGauge({ score }: { score: number }) {
   const data = [{ value: score, fill: '#4285F4' }];
   return (
-    <div className="relative h-[100px] w-[100px]">
+    <div className="relative h-[100px] w-[100px]" style={{ filter: 'drop-shadow(0 0 8px rgba(66, 133, 244, 0.25))' }}>
       <ResponsiveContainer width="100%" height="100%">
         <RadialBarChart
           cx="50%"
@@ -259,6 +259,7 @@ function KpiCard({
   sparklineId,
   delay = 0,
   onClick,
+  accentBorder,
 }: {
   label: string;
   children: React.ReactNode;
@@ -267,6 +268,7 @@ function KpiCard({
   sparklineId: string;
   delay?: number;
   onClick?: () => void;
+  accentBorder?: string;
 }) {
   return (
     <motion.div
@@ -275,7 +277,7 @@ function KpiCard({
       transition={{ duration: 0.4, delay }}
       whileHover={{ y: -2, scale: 1.02, boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}
       onClick={onClick}
-      className={`group relative flex flex-col justify-between rounded-2xl border border-gray-100 bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-200 ${onClick ? 'cursor-pointer' : ''}`}
+      className={`group relative flex flex-col justify-between rounded-2xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-md transition-all duration-200 ${accentBorder || ''} ${onClick ? 'cursor-pointer' : ''}`}
     >
       {/* Gradient border on hover */}
       <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ background: 'linear-gradient(135deg, rgba(66,133,244,0.12), rgba(16,185,129,0.08), rgba(66,133,244,0.04))', mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', maskComposite: 'exclude', WebkitMaskComposite: 'xor', padding: '1px', borderRadius: 'inherit' }} />
@@ -775,8 +777,9 @@ export default function Dashboard() {
           sparklineId="savings"
           delay={0.05}
           onClick={() => setActiveDrillDown('savings')}
+          accentBorder="border-t-2 border-t-emerald-500"
         >
-          <p className="font-mono text-[32px] font-bold leading-none text-emerald-600">
+          <p className="font-mono text-3xl font-bold leading-none text-emerald-600">
             {fmtCompact(tlData.savings)}
             <span className="text-[14px] font-semibold text-gray-400">/yr</span>
           </p>
@@ -789,13 +792,14 @@ export default function Dashboard() {
           sparklineId="score"
           delay={0.1}
           onClick={() => setActiveDrillDown('score')}
+          accentBorder="border-t-2 border-t-blue-500"
         >
           <div className="flex items-baseline gap-1.5">
-            <span className="font-mono text-[32px] font-bold leading-none text-gray-400">
+            <span className="font-mono text-3xl font-bold leading-none text-gray-400">
               {tlData.scoreBefore}
             </span>
             <ArrowRight className="h-4 w-4 text-gray-300" />
-            <span className="font-mono text-[32px] font-bold leading-none text-[#4285F4]">
+            <span className="font-mono text-3xl font-bold leading-none text-[#4285F4]">
               {tlData.scoreAfter}
             </span>
           </div>
@@ -808,9 +812,10 @@ export default function Dashboard() {
           sparklineId="workflows"
           delay={0.15}
           onClick={() => setActiveDrillDown('workflows')}
+          accentBorder="border-t-2 border-t-amber-500"
         >
           <div className="flex items-baseline gap-3">
-            <span className="font-mono text-[32px] font-bold leading-none text-[#111827]">
+            <span className="font-mono text-3xl font-bold leading-none text-[#111827]">
               {tlData.workflows}
             </span>
             <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-700">
@@ -826,8 +831,9 @@ export default function Dashboard() {
           sparklineId="license"
           delay={0.2}
           onClick={() => setActiveDrillDown('licenses')}
+          accentBorder="border-t-2 border-t-red-500"
         >
-          <p className="font-mono text-[32px] font-bold leading-none text-red-500">
+          <p className="font-mono text-3xl font-bold leading-none text-red-500">
             {fmtCompact(tlData.waste)}
             <span className="text-[14px] font-semibold text-gray-400">/yr</span>
           </p>

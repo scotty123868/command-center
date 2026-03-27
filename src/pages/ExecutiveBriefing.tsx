@@ -90,7 +90,7 @@ export default function ExecutiveBriefing() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   return (
-    <div ref={scrollRef} className="relative space-y-8 pb-4">
+    <div ref={scrollRef} className="relative space-y-10 pb-4">
       {/* Scroll progress line */}
       <div className="absolute left-0 top-0 bottom-0 w-px bg-gray-100 hidden lg:block" style={{ marginLeft: '-1px' }}>
         <motion.div
@@ -100,9 +100,9 @@ export default function ExecutiveBriefing() {
       </div>
 
       {/* Preliminary Estimate Banner */}
-      <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-2 flex items-center gap-2">
-        <AlertTriangle className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
-        <span className="text-xs text-amber-700">Preliminary Estimate — Based on Industry Benchmarks</span>
+      <div className="bg-amber-50/80 border border-amber-200/60 rounded-lg px-4 py-2 flex items-center gap-2">
+        <AlertTriangle className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
+        <span className="text-xs text-amber-800/80">Preliminary Estimate — Based on Industry Benchmarks</span>
       </div>
 
       {/* ── Hero: The Headline Finding ──────────────────────────────── */}
@@ -119,7 +119,7 @@ export default function ExecutiveBriefing() {
         <FadeIn>
           <p className="relative text-xs uppercase tracking-[0.2em] text-slate-500 mb-3">Assessment Summary</p>
           <h1 className="relative text-4xl font-light leading-tight">
-            We found <span className="text-blue-400 font-normal">$5.8M</span> in annual
+            We found <span className="text-6xl lg:text-7xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">$5.8M</span> in annual
             <br />optimization potential across {companyName}.
           </h1>
           <p className="relative text-slate-400 mt-4 text-lg max-w-2xl">
@@ -137,7 +137,7 @@ export default function ExecutiveBriefing() {
               <DollarSign className="w-5 h-5 text-red-500" />
             </div>
             <p className="text-sm font-medium text-gray-900 mb-1">License Waste</p>
-            <AnimatedMoney value={2_800_000} className="text-3xl font-mono font-bold text-red-500" />
+            <AnimatedMoney value={2_800_000} className="text-4xl font-mono font-bold text-red-500" />
             <p className="text-sm text-gray-500 mt-2">
               Software licenses actively paid for with fewer than 2 logins per month across all divisions.
             </p>
@@ -150,7 +150,7 @@ export default function ExecutiveBriefing() {
               <Clock className="w-5 h-5 text-amber-500" />
             </div>
             <p className="text-sm font-medium text-gray-900 mb-1">Manual Processes</p>
-            <AnimatedStat value={62} className="text-3xl font-mono font-bold text-amber-500" />
+            <AnimatedStat value={62} className="text-4xl font-mono font-bold text-amber-500" />
             <p className="text-sm text-gray-500 mt-2">
               Workflows currently requiring manual intervention that can be partially or fully automated.
             </p>
@@ -163,7 +163,7 @@ export default function ExecutiveBriefing() {
               <Cpu className="w-5 h-5 text-blue-500" />
             </div>
             <p className="text-sm font-medium text-gray-900 mb-1">AI Readiness</p>
-            <p className="text-3xl font-mono font-bold text-blue-500">
+            <p className="text-4xl font-mono font-bold text-blue-500">
               <AnimatedStat value={38} /><span className="text-lg text-gray-400">/100</span>
             </p>
             <p className="text-sm text-gray-500 mt-2">

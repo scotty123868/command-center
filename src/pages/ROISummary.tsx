@@ -230,7 +230,7 @@ export default function ROISummary() {
   const breakEvenMonth = findBreakEvenMonth(timelineData);
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-12">
       {/* Preliminary Estimate Banner */}
       <span className="text-xs text-slate-400 bg-slate-100 px-3 py-1 rounded inline-block">
         Preliminary Estimate — Based on Industry Benchmarks
