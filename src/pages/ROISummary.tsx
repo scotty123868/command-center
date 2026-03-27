@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import {
   Cpu,
   Workflow,
@@ -161,6 +162,63 @@ function TimelineTooltip({ active, payload, label }: any) {
   );
 }
 
+// ─── Waterfall Chart Section (animated) ─────────────────────────────────────
+
+function WaterfallChartSection({ waterfallChartData }: { waterfallChartData: ReturnType<typeof buildWaterfallData> }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
+  return (
+    <motion.div
+      ref={ref}
+      className="rounded-2xl bg-white border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] p-6"
+      initial={{ opacity: 0, y: 24 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+      transition={{ delay: 0.25, duration: 0.4 }}
+    >
+      <h2 className="text-lg font-semibold text-gray-800 mb-6">
+        Savings Waterfall
+      </h2>
+      <ResponsiveContainer width="100%" height={350}>
+        <BarChart
+          data={waterfallChartData}
+          margin={{ top: 10, right: 20, left: 10, bottom: 5 }}
+        >
+          <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+          <XAxis
+            dataKey="name"
+            tick={{ fontSize: 12, fill: '#6B7280' }}
+            axisLine={{ stroke: '#E5E7EB' }}
+            tickLine={false}
+          />
+          <YAxis
+            tickFormatter={fmtAxisM}
+            tick={{ fontSize: 12, fill: '#6B7280' }}
+            axisLine={false}
+            tickLine={false}
+          />
+          <Tooltip content={<WaterfallTooltip />} />
+          {/* Invisible base bar */}
+          <Bar dataKey="base" stackId="stack" fill="transparent" />
+          {/* Visible colored segment */}
+          <Bar
+            dataKey="segment"
+            stackId="stack"
+            radius={[4, 4, 0, 0]}
+            isAnimationActive={isInView}
+            animationDuration={800}
+            animationBegin={0}
+          >
+            {waterfallChartData.map((entry, idx) => (
+              <Cell key={idx} fill={entry.fill} />
+            ))}
+          </Bar>
+        </BarChart>
+      </ResponsiveContainer>
+    </motion.div>
+  );
+}
+
 // ─── Page Component ─────────────────────────────────────────────────────────
 
 export default function ROISummary() {
@@ -182,10 +240,12 @@ export default function ROISummary() {
       <div className="flex justify-end gap-3">
         <button
           onClick={() => window.open('/board-report', '_blank')}
-          className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-blue-500 cursor-pointer"
+          className="group relative inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all duration-300 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-600/30 cursor-pointer overflow-hidden"
         >
-          <FileDown size={16} />
-          Generate Board Report
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: 'linear-gradient(110deg, transparent 25%, rgba(255,255,255,0.2) 50%, transparent 75%)', animation: 'shimmer 2s ease-in-out infinite' }} />
+          <style>{`@keyframes shimmer { 0%, 100% { transform: translateX(-100%); } 50% { transform: translateX(100%); } }`}</style>
+          <FileDown size={16} className="relative" />
+          <span className="relative">Generate Board Report</span>
         </button>
         <button
           onClick={openBoardReport}
@@ -207,12 +267,12 @@ export default function ROISummary() {
           Total Estimated Impact
         </p>
         <h1
-          className="font-mono font-bold leading-none"
-          style={{ fontSize: 64, color: '#4285F4' }}
+          className="font-mono font-bold leading-none bg-clip-text text-transparent"
+          style={{ fontSize: 80, backgroundImage: 'linear-gradient(135deg, #10B981 0%, #059669 40%, #047857 100%)' }}
         >
           {fmtCompact(roiSummary.netYear1)}
         </h1>
-        <p className="mt-2 text-lg text-gray-500">estimated annual savings</p>
+        <p className="mt-3 text-lg text-gray-500">estimated annual savings</p>
       </motion.div>
 
       {/* ── Section 2: Breakdown Cards ────────────────────────────────── */}
@@ -222,13 +282,14 @@ export default function ROISummary() {
           return (
             <motion.div
               key={m.label}
-              className="rounded-2xl bg-white border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] p-5 flex flex-col gap-3"
+              className="group rounded-2xl bg-white border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] p-5 flex flex-col gap-3 transition-all duration-200 hover:shadow-md hover:border-gray-200"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: (i + 1) * 0.05, duration: 0.3 }}
+              transition={{ delay: (i + 1) * 0.08, duration: 0.4 }}
+              whileHover={{ y: -2, scale: 1.02 }}
             >
               <div
-                className="flex items-center justify-center w-10 h-10 rounded-lg"
+                className="flex items-center justify-center w-10 h-10 rounded-lg transition-transform duration-200 group-hover:scale-110"
                 style={{ backgroundColor: m.color + '14' }}
               >
                 <Icon size={20} style={{ color: m.color }} />
@@ -247,45 +308,7 @@ export default function ROISummary() {
       </div>
 
       {/* ── Section 3: Waterfall Chart ────────────────────────────────── */}
-      <motion.div
-        className="rounded-2xl bg-white border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] p-6"
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.25, duration: 0.3 }}
-      >
-        <h2 className="text-lg font-semibold text-gray-800 mb-6">
-          Savings Waterfall
-        </h2>
-        <ResponsiveContainer width="100%" height={350}>
-          <BarChart
-            data={waterfallChartData}
-            margin={{ top: 10, right: 20, left: 10, bottom: 5 }}
-          >
-            <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
-            <XAxis
-              dataKey="name"
-              tick={{ fontSize: 12, fill: '#6B7280' }}
-              axisLine={{ stroke: '#E5E7EB' }}
-              tickLine={false}
-            />
-            <YAxis
-              tickFormatter={fmtAxisM}
-              tick={{ fontSize: 12, fill: '#6B7280' }}
-              axisLine={false}
-              tickLine={false}
-            />
-            <Tooltip content={<WaterfallTooltip />} />
-            {/* Invisible base bar */}
-            <Bar dataKey="base" stackId="stack" fill="transparent" />
-            {/* Visible colored segment */}
-            <Bar dataKey="segment" stackId="stack" radius={[4, 4, 0, 0]}>
-              {waterfallChartData.map((entry, idx) => (
-                <Cell key={idx} fill={entry.fill} />
-              ))}
-            </Bar>
-          </BarChart>
-        </ResponsiveContainer>
-      </motion.div>
+      <WaterfallChartSection waterfallChartData={waterfallChartData} />
 
       {/* ── Cross-link to Last Mile Impact ────────────────────────────── */}
       <a
@@ -458,10 +481,11 @@ export default function ROISummary() {
           </div>
           <button
             onClick={() => window.open('/board-report', '_blank')}
-            className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all duration-200 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-600/30 cursor-pointer"
+            className="group relative inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all duration-300 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-600/30 cursor-pointer overflow-hidden"
           >
-            <FileDown size={16} />
-            Generate Board Report
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: 'linear-gradient(110deg, transparent 25%, rgba(255,255,255,0.2) 50%, transparent 75%)', animation: 'shimmer 2s ease-in-out infinite' }} />
+            <FileDown size={16} className="relative" />
+            <span className="relative">Generate Board Report</span>
           </button>
         </div>
 

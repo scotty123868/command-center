@@ -48,8 +48,8 @@ function NavItem({ to, icon: Icon, label, onNavClick }: { to: string; icon: Reac
         [
           'group relative flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-[250ms] ease-out',
           isActive
-            ? 'text-white bg-white/[0.08]'
-            : 'text-[#6B7280] hover:text-[#A0A0A8]',
+            ? 'text-white bg-white/[0.08] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]'
+            : 'text-[#6B7280] hover:text-[#A0A0A8] hover:bg-white/[0.03]',
         ].join(' ')
       }
     >
@@ -69,7 +69,7 @@ function NavItem({ to, icon: Icon, label, onNavClick }: { to: string; icon: Reac
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <span className="block px-3 mt-5 mb-1.5 text-[10px] font-semibold uppercase tracking-widest text-[#4A4A50] select-none">
+    <span className="block px-3 mt-5 mb-2 text-[9px] font-bold uppercase tracking-[0.18em] text-[#55555D] select-none">
       {children}
     </span>
   );
@@ -304,7 +304,7 @@ export default function Sidebar({ onNavClick, onClose }: { onNavClick?: () => vo
         </div>
 
         {/* Divider between groups */}
-        <div className="mx-2 my-2 h-px bg-white/[0.06]" />
+        <div className="mx-2 my-3 h-px bg-white/[0.08]" />
 
         <SectionLabel>Insights</SectionLabel>
         <div className="flex flex-col gap-0.5">
@@ -314,7 +314,7 @@ export default function Sidebar({ onNavClick, onClose }: { onNavClick?: () => vo
         </div>
 
         {/* Divider between groups */}
-        <div className="mx-2 my-2 h-px bg-white/[0.06]" />
+        <div className="mx-2 my-3 h-px bg-white/[0.08]" />
 
         <SectionLabel>Platform</SectionLabel>
         <div className="flex flex-col gap-0.5">

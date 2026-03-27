@@ -273,10 +273,12 @@ function KpiCard({
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay }}
-      whileHover={{ y: -1, boxShadow: '0 4px 12px rgba(0,0,0,0.06)' }}
+      whileHover={{ y: -2, scale: 1.02, boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}
       onClick={onClick}
-      className={`flex flex-col justify-between rounded-2xl border border-gray-100 bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)] ${onClick ? 'cursor-pointer' : ''}`}
+      className={`group relative flex flex-col justify-between rounded-2xl border border-gray-100 bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-200 ${onClick ? 'cursor-pointer' : ''}`}
     >
+      {/* Gradient border on hover */}
+      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ background: 'linear-gradient(135deg, rgba(66,133,244,0.12), rgba(16,185,129,0.08), rgba(66,133,244,0.04))', mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', maskComposite: 'exclude', WebkitMaskComposite: 'xor', padding: '1px', borderRadius: 'inherit' }} />
       <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-500">
         {label}
       </p>
@@ -569,7 +571,7 @@ export default function Dashboard() {
       )}
 
       {/* ── Feature 1: Cost of Inaction Toggle ──────────────────── */}
-      <div className="flex items-center gap-3">
+      <div className={`flex items-center gap-3 rounded-xl px-4 py-3 transition-all duration-500 ${showCostOfInaction ? 'bg-amber-50/80 shadow-[0_0_20px_rgba(245,158,11,0.1)]' : ''}`}>
         <button
           onClick={() => setShowCostOfInaction(!showCostOfInaction)}
           className={`relative inline-flex h-5 w-9 shrink-0 items-center rounded-full transition-colors duration-200 ${
@@ -582,7 +584,7 @@ export default function Dashboard() {
             }`}
           />
         </button>
-        <span className="text-[12px] font-medium text-gray-600">Show Cost of Inaction</span>
+        <span className={`text-[12px] font-medium transition-colors duration-300 ${showCostOfInaction ? 'text-amber-800' : 'text-gray-600'}`}>Show Cost of Inaction</span>
       </div>
 
       <AnimatePresence>
@@ -639,7 +641,7 @@ export default function Dashboard() {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className={`flex flex-col gap-6 rounded-2xl border bg-white p-4 lg:p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)] lg:flex-row lg:items-center lg:justify-between transition-all duration-700 ${
+        className={`flex flex-col gap-6 rounded-2xl border bg-gradient-to-r from-slate-50/80 to-white p-4 lg:p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)] lg:flex-row lg:items-center lg:justify-between transition-all duration-700 ${
           companyFlash
             ? 'border-blue-400 ring-2 ring-blue-200 shadow-[0_0_20px_rgba(66,133,244,0.15)]'
             : 'border-gray-100'
