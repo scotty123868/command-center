@@ -62,7 +62,7 @@ const gaps: GapDetail[] = [
     name: 'Centralized Equipment Catalog',
     sources: 'SAP MM, FileMaker, 47 Excel files, Access DB',
     gapLabel: 'No centralized equipment catalog',
-    blocked: 'Cross-OpCo equipment sharing, predictive maintenance',
+    blocked: 'Cross-Division equipment sharing, predictive maintenance',
     impact: '$890K/yr',
     impactNum: 890000,
     sourceList: [
@@ -74,7 +74,7 @@ const gaps: GapDetail[] = [
     missingLayer:
       'No single source of truth for equipment inventory, location, condition, or maintenance history. Asset IDs are inconsistent across systems, preventing cross-referencing.',
     blockedCapabilities: [
-      'Cross-OpCo equipment sharing and utilization optimization',
+      'Cross-Division equipment sharing and utilization optimization',
       'Predictive maintenance using sensor + history data',
       'Depreciation and capex planning models',
       'Field technician mobile lookup',
@@ -96,7 +96,7 @@ const gaps: GapDetail[] = [
       'Primavera P6 (project-based client records)',
     ],
     missingLayer:
-      'No 360-degree customer view exists. The same customer may appear in multiple OpCos under different names, with no deduplication or relationship mapping.',
+      'No 360-degree customer view exists. The same customer may appear in multiple divisions under different names, with no deduplication or relationship mapping.',
     blockedCapabilities: [
       'Cross-sell modeling across operating companies',
       'Customer churn prediction and retention scoring',
@@ -458,7 +458,7 @@ export default function DataFlow() {
         </h2>
 
         <div className="rounded-2xl border border-gray-100 bg-white shadow-sm p-8">
-          {/* OpCo Badges */}
+          {/* Division Badges */}
           <div className="flex flex-wrap items-center justify-center gap-4">
             {['HCC — Rail & Highway Construction', 'HRSI — Railroad Services', 'HSI — Rail Testing', 'HTI — Signal & PTC', 'HTSI — Transit Services', 'HE — Energy', 'GG — Environmental'].map(
               (name, i) => (

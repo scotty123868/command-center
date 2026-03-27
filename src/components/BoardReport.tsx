@@ -143,7 +143,7 @@ function generateReportHTML(): string {
     <div class="company-name">${config.name}</div>
     <div class="company-meta">
       <div><strong>${config.employees.toLocaleString()}</strong> Employees</div>
-      <div><strong>${config.opCos}</strong> OpCos</div>
+      <div><strong>${config.opCos}</strong> Divisions</div>
       <div>AI Readiness: <strong class="red">${config.aiReadinessScore}/100</strong></div>
     </div>
   </div>
@@ -214,7 +214,7 @@ function generateReportHTML(): string {
         </tr>
         <tr>
           <td>2</td>
-          <td class="bold">Cross-OpCo Inventory Visibility</td>
+          <td class="bold">Cross-Division Inventory Visibility</td>
           <td>Data Infrastructure</td>
           <td class="num green">$890k/yr</td>
           <td class="num">81%</td>
@@ -253,7 +253,7 @@ function generateReportHTML(): string {
       <div class="q-label">Q2 2026</div>
       <div class="q-desc">Workflow Automation Pilots &mdash; Claims intake AI, call center deployment, expense management migration</div>
       <div class="q-label">Q3 2026</div>
-      <div class="q-desc">Scale + Integrate &mdash; Cross-OpCo data platform, predictive maintenance rollout, AI-native CRM migration</div>
+      <div class="q-desc">Scale + Integrate &mdash; Cross-Division data platform, predictive maintenance rollout, AI-native CRM migration</div>
       <div class="q-label">Q4 2026</div>
       <div class="q-desc">Optimize + Compound &mdash; Full automation scaling, continuous optimization, Year 2 planning</div>
     </div>

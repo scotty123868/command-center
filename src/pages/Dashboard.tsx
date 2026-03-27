@@ -389,7 +389,7 @@ function WorkflowsDrillDown() {
   return (
     <div>
       <h3 className="text-[15px] font-semibold text-gray-900">Workflow Analysis</h3>
-      <p className="mt-1 text-[12px] text-gray-500">{wfSummary.total} workflows analyzed across all OpCos</p>
+      <p className="mt-1 text-[12px] text-gray-500">{wfSummary.total} workflows analyzed across all divisions</p>
       <div className="mt-6 space-y-3">
         <div className="flex items-center justify-between rounded-xl bg-emerald-50 px-4 py-3">
           <span className="text-[13px] text-emerald-800">Fully Automatable</span>

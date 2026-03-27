@@ -482,7 +482,7 @@ export default function TechStack() {
             </h3>
             <p className="text-gray-600 leading-relaxed max-w-3xl">
               Your organization currently has no unified data infrastructure. Without a data lake,
-              73% of planned AI initiatives are impossible to execute and cross-OpCo visibility
+              73% of planned AI initiatives are impossible to execute and cross-division visibility
               remains zero. We recommend implementing{' '}
               <span className="font-semibold text-gray-900">Databricks Lakehouse</span> as the
               foundational layer — connecting all operating company systems, enabling real-time
