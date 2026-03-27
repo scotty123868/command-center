@@ -5,7 +5,7 @@ type Theme = 'dark' | 'light';
 export function useTheme() {
   const [theme, setThemeState] = useState<Theme>(() => {
     const stored = sessionStorage.getItem('cc-theme');
-    return (stored === 'light' ? 'light' : 'dark') as Theme;
+    return (stored === 'dark' ? 'dark' : 'light') as Theme;
   });
 
   useEffect(() => {

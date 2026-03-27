@@ -20,34 +20,9 @@
   --font-mono: 'SF Mono', 'JetBrains Mono', 'Fira Code', monospace;
 }
 
-/* ── Dark Theme CSS Variables ─────────────────────────────── */
+/* ── Theme CSS Variables (light default) ──────────────────── */
 
 :root {
-  --cc-bg: #0F0F13;
-  --cc-bg-elevated: #16161A;
-  --cc-bg-card: #1E1E24;
-  --cc-bg-card-hover: #252530;
-  --cc-bg-input: #1A1A22;
-  --cc-text: #F0F0F4;
-  --cc-text-secondary: #9CA3AF;
-  --cc-text-tertiary: #6B7280;
-  --cc-text-muted: #4A4A54;
-  --cc-border: rgba(255, 255, 255, 0.06);
-  --cc-border-hover: rgba(255, 255, 255, 0.12);
-  --cc-accent: #4285F4;
-  --cc-accent-glow: rgba(66, 133, 244, 0.25);
-  --cc-green: #10B981;
-  --cc-green-dim: rgba(16, 185, 129, 0.15);
-  --cc-red: #EF4444;
-  --cc-red-dim: rgba(239, 68, 68, 0.15);
-  --cc-yellow: #F59E0B;
-  --cc-yellow-dim: rgba(245, 158, 11, 0.15);
-  --cc-topbar-bg: rgba(15, 15, 19, 0.85);
-  --cc-scrollbar: rgba(255, 255, 255, 0.1);
-  --cc-scrollbar-hover: rgba(255, 255, 255, 0.2);
-}
-
-[data-theme="light"] {
   --cc-bg: #F8F9FB;
   --cc-bg-elevated: #FFFFFF;
   --cc-bg-card: #FFFFFF;
@@ -70,6 +45,31 @@
   --cc-topbar-bg: rgba(255, 255, 255, 0.85);
   --cc-scrollbar: rgba(0, 0, 0, 0.12);
   --cc-scrollbar-hover: rgba(0, 0, 0, 0.22);
+}
+
+[data-theme="dark"] {
+  --cc-bg: #0F0F13;
+  --cc-bg-elevated: #16161A;
+  --cc-bg-card: #1E1E24;
+  --cc-bg-card-hover: #252530;
+  --cc-bg-input: #1A1A22;
+  --cc-text: #F0F0F4;
+  --cc-text-secondary: #9CA3AF;
+  --cc-text-tertiary: #6B7280;
+  --cc-text-muted: #4A4A54;
+  --cc-border: rgba(255, 255, 255, 0.06);
+  --cc-border-hover: rgba(255, 255, 255, 0.12);
+  --cc-accent: #4285F4;
+  --cc-accent-glow: rgba(66, 133, 244, 0.25);
+  --cc-green: #10B981;
+  --cc-green-dim: rgba(16, 185, 129, 0.15);
+  --cc-red: #EF4444;
+  --cc-red-dim: rgba(239, 68, 68, 0.15);
+  --cc-yellow: #F59E0B;
+  --cc-yellow-dim: rgba(245, 158, 11, 0.15);
+  --cc-topbar-bg: rgba(15, 15, 19, 0.85);
+  --cc-scrollbar: rgba(255, 255, 255, 0.1);
+  --cc-scrollbar-hover: rgba(255, 255, 255, 0.2);
 }
 
 /* ── Global smooth transitions (low specificity, overridable) ── */
@@ -282,8 +282,12 @@ body {
 /* ── Dot grid background pattern ──────────────────────────── */
 
 .cc-dotgrid {
-  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
   background-size: 24px 24px;
+}
+
+[data-theme="dark"] .cc-dotgrid {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
 }
 
 /* ── Status indicator pulse ───────────────────────────────── */
