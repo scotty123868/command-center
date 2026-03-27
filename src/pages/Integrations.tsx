@@ -16,7 +16,10 @@ import {
   Zap,
   Server,
   ArrowRight,
+  ExternalLink,
 } from 'lucide-react';
+
+const LASTMILE_URL = 'https://lastmile-beige.vercel.app';
 
 /* -- Data Sources --------------------------------------------------------- */
 
@@ -366,6 +369,17 @@ export default function Integrations() {
           <span>{completedCount} of {dataSources.length} systems complete</span>
         </div>
       </motion.div>
+
+      {/* ── Cross-link to Last Mile Connectors ────────────────────── */}
+      <a
+        href={`${LASTMILE_URL}/connectors`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1.5 text-sm text-blue-500 hover:text-blue-400 transition-colors"
+      >
+        View live system connections
+        <ExternalLink className="w-3.5 h-3.5" strokeWidth={2} />
+      </a>
     </div>
   );
 }

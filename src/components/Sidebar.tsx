@@ -15,8 +15,11 @@ import {
   Building2,
   Check,
   Presentation,
+  ExternalLink,
 } from 'lucide-react';
 import { useCompany } from '../data/CompanyContext';
+
+const LASTMILE_URL = 'https://lastmile-beige.vercel.app';
 
 const assessmentItems = [
   { to: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
@@ -321,6 +324,18 @@ export default function Sidebar({ onNavClick, onClose }: { onNavClick?: () => vo
         </div>
       </nav>
 
+      {/* ── Cross-link to Last Mile ────────────────── */}
+      <div className="px-4 py-3 border-t border-white/[0.06]">
+        <a
+          href={LASTMILE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1.5 text-xs text-slate-500 hover:text-blue-400 transition-colors"
+        >
+          Switch to Operations
+          <ExternalLink className="w-3 h-3" strokeWidth={2} />
+        </a>
+      </div>
     </aside>
   );
 }

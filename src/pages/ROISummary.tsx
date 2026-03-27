@@ -12,6 +12,7 @@ import {
   FileText,
   PieChart,
   Presentation,
+  ExternalLink,
 } from 'lucide-react';
 import { openBoardReport } from '../components/BoardReport';
 import {
@@ -31,6 +32,8 @@ import {
 } from 'recharts';
 import { getRoiSummary } from '../data/constants';
 import { useCompany } from '../data/CompanyContext';
+
+const LASTMILE_URL = 'https://lastmile-beige.vercel.app';
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
@@ -283,6 +286,17 @@ export default function ROISummary() {
           </BarChart>
         </ResponsiveContainer>
       </motion.div>
+
+      {/* ── Cross-link to Last Mile Impact ────────────────────────────── */}
+      <a
+        href={`${LASTMILE_URL}/impact`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1.5 text-sm text-blue-500 hover:text-blue-400 transition-colors"
+      >
+        See verified impact data
+        <ExternalLink className="w-3.5 h-3.5" strokeWidth={2} />
+      </a>
 
       {/* ── Section 4: Timeline Chart ─────────────────────────────────── */}
       <motion.div

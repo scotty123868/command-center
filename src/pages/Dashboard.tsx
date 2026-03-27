@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, X, Building2, ChevronRight } from 'lucide-react';
+import { ArrowRight, X, Building2, ChevronRight, ExternalLink } from 'lucide-react';
 import AnalysisOverlay, { RunAnalysisButton } from '../components/AnalysisOverlay';
 import {
   AreaChart,
@@ -21,6 +21,8 @@ import {
   type OpportunityStatus,
 } from '../data/constants';
 import { useCompany } from '../data/CompanyContext';
+
+const LASTMILE_URL = 'https://lastmile-beige.vercel.app';
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
@@ -834,6 +836,17 @@ export default function Dashboard() {
           </p>
         </KpiCard>
       </div>
+
+      {/* ── Cross-link to Last Mile ────────────────────────────── */}
+      <a
+        href={LASTMILE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1.5 text-sm text-blue-500 hover:text-blue-400 transition-colors"
+      >
+        View live operations monitoring
+        <ExternalLink className="w-3.5 h-3.5" strokeWidth={2} />
+      </a>
 
       {/* ── Feature 2: Timeline Scrubber ────────────────────────── */}
       <motion.section
