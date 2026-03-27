@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { companyProfile } from '../data/constants';
+import { companyProfile, roiSummary } from '../data/constants';
 
 const divisions = [
   { name: 'Herzog Contracting Corp', score: 32, savings: '$2.1M', workflows: 22, topOpp: 'GPS fleet data consolidation' },
@@ -11,13 +11,16 @@ const divisions = [
   { name: 'Green Group LLC', score: 30, savings: '$240K', workflows: 2, topOpp: 'Environmental compliance automation' },
 ];
 
+const fmtDollar = (n: number) => `$${n.toLocaleString()}`;
+const gross = roiSummary.techStackSavings + roiSummary.workflowAutomation + roiSummary.licenseRecovery;
+
 const roiBreakdown = [
-  { label: 'Tech Stack Optimization (Verification)', value: '$1,400,000' },
-  { label: 'Workflow Automation', value: '$1,600,000' },
-  { label: 'License Recovery (Adoption)', value: '$2,800,000' },
-  { label: 'Total Gross Savings', value: '$5,800,000', bold: true },
-  { label: 'Implementation Costs', value: '($1,200,000)', negative: true },
-  { label: 'Net Year 1 Savings', value: '$4,600,000', bold: true },
+  { label: 'Tech Stack Optimization (Verification)', value: fmtDollar(roiSummary.techStackSavings) },
+  { label: 'Workflow Automation', value: fmtDollar(roiSummary.workflowAutomation) },
+  { label: 'License Recovery (Adoption)', value: fmtDollar(roiSummary.licenseRecovery) },
+  { label: 'Total Gross Savings', value: fmtDollar(gross), bold: true },
+  { label: 'Implementation Costs', value: `(${fmtDollar(roiSummary.implementationCosts)})`, negative: true },
+  { label: 'Net Year 1 Savings', value: fmtDollar(roiSummary.netYear1), bold: true },
 ];
 
 export default function BoardReportPage() {

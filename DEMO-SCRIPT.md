@@ -6,8 +6,8 @@
 
 ## Pre-Meeting Setup
 
-- [ ] Open Command Center in Tab 1: `[vercel-url]?reset=true` (clears demo state)
-- [ ] Open Lastmile in Tab 2: `[vercel-url]` (pre-loaded to Overview)
+- [ ] Open Command Center in Tab 1: `command-center-herzog.vercel.app?reset=true` (clears demo state)
+- [ ] Open Lastmile in Tab 2: `lastmile-herzog.vercel.app` (pre-loaded to Overview)
 - [ ] Print 2 copies of one-page Executive Summary (from Board Report PDF)
 - [ ] Have pricing sheet in folder (not visible until asked)
 - [ ] Test both URLs load correctly on meeting WiFi
@@ -162,14 +162,14 @@
 
 > "What you've seen today is our preliminary model. The real assessment connects to your actual systems and gives you exact numbers. Based on what we've seen in comparable railroad operations, the assessment alone typically identifies 3-5x its cost in savings within the first 60 days."
 
-> "We have capacity to start [SPECIFIC DATE]. Should we lock that in?"
+> "We have capacity to start the week of April 7th. Should we lock that in?"
 
 ---
 
 ## Pivot Strategies
 
 ### If Brad asks about pricing:
-> "The assessment is a [PRICE] fixed engagement over [X] weeks. The platform subscription follows based on what we find. The assessment typically pays for itself within the first quarter."
+> "The assessment is a fixed-fee engagement over 8 weeks. The platform subscription follows based on what we find. The assessment typically pays for itself within the first quarter."
 
 ### If CTO asks about integration:
 > "We connect to your existing systems through MCP — Model Context Protocol. Let me show you."
@@ -194,7 +194,7 @@
 > "The real value of the assessment is replacing these estimates with your actual data."
 
 ### If they ask "who else have you done this for?":
-> "We've deployed the platform in [X industry]. The railroad-specific work you see here is what we built because we see the opportunity in this industry and wanted to prove we understand the domain before asking for your time."
+> "We've deployed the platform in railroad and heavy infrastructure. The railroad-specific work you see here is what we built because we see the opportunity in this industry and wanted to prove we understand the domain before asking for your time."
 
 ### If they want to close immediately:
 > "Great. Here's what we need from your IT team to get started: API access to your license management system, read-only access to Primavera project data, and a 30-minute call with each division's IT lead. We can have the first division assessed within two weeks."

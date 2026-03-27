@@ -229,10 +229,10 @@ export default function ExecutiveBriefing() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { name: 'HCC', full: 'Herzog Contracting', score: 32, savings: '$2.1M' },
-              { name: 'HRSI', full: 'Railroad Services', score: 36, savings: '$820K' },
-              { name: 'HTI', full: 'Technologies', score: 48, savings: '$740K' },
-              { name: 'HTSI', full: 'Transit Services', score: 40, savings: '$860K' },
+              { name: 'HCC', full: 'Herzog Contracting', score: 32, savings: '$2.1M', divIndex: 0 },
+              { name: 'HRSI', full: 'Railroad Services', score: 36, savings: '$820K', divIndex: 1 },
+              { name: 'HTI', full: 'Technologies', score: 48, savings: '$740K', divIndex: 3 },
+              { name: 'HTSI', full: 'Transit Services', score: 40, savings: '$860K', divIndex: 4 },
             ].map((div, i) => (
               <motion.div
                 key={div.name}
@@ -241,7 +241,7 @@ export default function ExecutiveBriefing() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.06 }}
                 className="rounded-lg border border-gray-100 p-4 hover:border-blue-200 hover:bg-blue-50/30 hover:shadow-md backdrop-blur-sm transition-all duration-300 cursor-pointer"
-                onClick={() => navigate('/stories')}
+                onClick={() => navigate(`/stories?div=${div.divIndex}`)}
               >
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-xs font-medium text-gray-400">{div.name}</span>

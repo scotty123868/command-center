@@ -304,14 +304,14 @@ export default function Workflows() {
       <div>
         <h1 className="text-2xl font-bold text-gray-900">Workflow Scoping Documents</h1>
         <p className="mt-1 text-sm text-gray-500">
-          AI automation discovery across 47 workflows — detailed scoping, architecture, and implementation plans.
+          AI automation discovery across {workflowSummary.total} workflows — detailed scoping, architecture, and implementation plans.
         </p>
       </div>
 
       {/* ── discovery summary row ── */}
       <div className="flex items-center gap-10 flex-wrap">
         {/* total workflows donut */}
-        <DonutStat value="47" label="Workflows Analyzed" color="#4285F4" />
+        <DonutStat value={String(workflowSummary.total)} label="Workflows Analyzed" color="#4285F4" />
 
         {/* type split — stacked bar */}
         <div className="flex-1 min-w-[260px]">
@@ -319,21 +319,21 @@ export default function Workflows() {
           <div className="flex h-5 w-full overflow-hidden rounded-full">
             <div
               className="flex items-center justify-center text-[10px] font-bold text-white"
-              style={{ width: `${(18 / 47) * 100}%`, backgroundColor: '#10B981' }}
+              style={{ width: `${(workflowSummary.fullyAutomatable / workflowSummary.total) * 100}%`, backgroundColor: '#10B981' }}
             >
-              18
+              {workflowSummary.fullyAutomatable}
             </div>
             <div
               className="flex items-center justify-center text-[10px] font-bold text-white"
-              style={{ width: `${(21 / 47) * 100}%`, backgroundColor: '#F59E0B' }}
+              style={{ width: `${(workflowSummary.humanInLoop / workflowSummary.total) * 100}%`, backgroundColor: '#F59E0B' }}
             >
-              21
+              {workflowSummary.humanInLoop}
             </div>
             <div
               className="flex items-center justify-center text-[10px] font-bold text-white"
-              style={{ width: `${(8 / 47) * 100}%`, backgroundColor: '#EF4444' }}
+              style={{ width: `${(workflowSummary.humanRequired / workflowSummary.total) * 100}%`, backgroundColor: '#EF4444' }}
             >
-              8
+              {workflowSummary.humanRequired}
             </div>
           </div>
           <div className="flex gap-4 mt-1.5 text-[10px] text-gray-500">
@@ -349,7 +349,7 @@ export default function Workflows() {
 
       {/* ── workflow scoping cards ── */}
       <p className="text-xs text-gray-400 bg-gray-50 px-3 py-1.5 rounded-lg inline-block">
-        Showing top {workflows.length} of 47 workflows analyzed
+        Showing top {workflows.length} of {workflowSummary.total} workflows analyzed
       </p>
       <div className="space-y-3">
         {workflows.map((wf: Workflow, i: number) => (

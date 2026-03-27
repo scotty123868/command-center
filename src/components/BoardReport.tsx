@@ -1,4 +1,5 @@
 import { config } from '../data/config';
+import { roiSummary } from '../data/constants';
 
 const today = new Date().toLocaleDateString('en-US', {
   year: 'numeric',
@@ -6,12 +7,35 @@ const today = new Date().toLocaleDateString('en-US', {
   day: 'numeric',
 });
 
+/** Escape HTML entities to prevent XSS from URL-injected config values */
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+const fmtMoney = (n: number) =>
+  n >= 1_000_000 ? `$${(n / 1_000_000).toFixed(1)}M` : `$${Math.round(n / 1_000)}K`;
+
 function generateReportHTML(): string {
+  const safeName = escapeHtml(config.name);
+  const safeEmployees = escapeHtml(config.employees.toLocaleString());
+  const safeOpCos = escapeHtml(String(config.opCos));
+  const safeAiScore = escapeHtml(String(config.aiReadinessScore));
+  const safeToday = escapeHtml(today);
+
+  const gross = roiSummary.techStackSavings + roiSummary.workflowAutomation + roiSummary.licenseRecovery;
+  const net = roiSummary.netYear1;
+  const roi = Math.round((net / roiSummary.implementationCosts) * 100);
+  const breakeven = ((roiSummary.implementationCosts / gross) * 12).toFixed(1);
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Board Report — ${config.name}</title>
+  <title>Board Report — ${safeName}</title>
   <style>
     @page { margin: 0.6in; size: letter; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -134,17 +158,17 @@ function generateReportHTML(): string {
     </div>
     <div class="header-right">
       <div class="report-title">Board Report &mdash; AI Transformation Analysis</div>
-      <div>${today}</div>
+      <div>${safeToday}</div>
     </div>
   </div>
 
   <!-- Company Bar -->
   <div class="company-bar">
-    <div class="company-name">${config.name}</div>
+    <div class="company-name">${safeName}</div>
     <div class="company-meta">
-      <div><strong>${config.employees.toLocaleString()}</strong> Employees</div>
-      <div><strong>${config.opCos}</strong> Divisions</div>
-      <div>AI Readiness: <strong class="red">${config.aiReadinessScore}/100</strong></div>
+      <div><strong>${safeEmployees}</strong> Employees</div>
+      <div><strong>${safeOpCos}</strong> Divisions</div>
+      <div>AI Readiness: <strong class="red">${safeAiScore}/100</strong></div>
     </div>
   </div>
 
@@ -152,12 +176,12 @@ function generateReportHTML(): string {
   <div class="section">
     <div class="section-title">Executive Summary</div>
     <p>
-      UpSkiller AI conducted a comprehensive AI transformation analysis of ${config.name}, evaluating
-      47 workflows, 23 software tools, and 1,850+ employee roles across ${config.opCos} operating companies.
-      The analysis identified <strong>$4.2M in annualized savings</strong> through tech stack optimization,
-      workflow automation, and license reclamation. With an implementation investment of $2.8M, the program
-      achieves <strong>break-even in 4.2 months</strong> and delivers a <strong>150% Year 1 ROI</strong>.
-      Year 2 projected savings compound to $6.1M as automation scales and maintenance costs approach zero.
+      UpSkiller AI conducted a comprehensive AI transformation analysis of ${safeName}, evaluating
+      47 workflows, 23 software tools, and 1,850+ employee roles across ${safeOpCos} operating companies.
+      The analysis identified <strong>${fmtMoney(net)} in annualized net savings</strong> through tech stack optimization,
+      workflow automation, and license reclamation. With an implementation investment of ${fmtMoney(roiSummary.implementationCosts)}, the program
+      achieves <strong>break-even in ${breakeven} months</strong> and delivers a <strong>${roi}% Year 1 ROI</strong>.
+      Year 2 projected savings compound to ${fmtMoney(roiSummary.year2Projected)} as automation scales and maintenance costs approach zero.
     </p>
   </div>
 
@@ -228,7 +252,7 @@ function generateReportHTML(): string {
         </tr>
         <tr>
           <td>4</td>
-          <td class="bold">Call Center AI (Tier 1 Deflection)</td>
+          <td class="bold">Crew Scheduling &amp; Dispatch AI</td>
           <td>Workflow Automation</td>
           <td class="num green">$580k/yr</td>
           <td class="num">88%</td>
@@ -251,7 +275,7 @@ function generateReportHTML(): string {
       <div class="q-label">Q1 2026</div>
       <div class="q-desc">Tech Stack Audit + Quick Wins &mdash; License reclamation, vendor scoring, quick-win automation identification</div>
       <div class="q-label">Q2 2026</div>
-      <div class="q-desc">Workflow Automation Pilots &mdash; Claims intake AI, call center deployment, expense management migration</div>
+      <div class="q-desc">Workflow Automation Pilots &mdash; Crew scheduling AI, FRA compliance reporting, equipment fleet management</div>
       <div class="q-label">Q3 2026</div>
       <div class="q-desc">Scale + Integrate &mdash; Cross-Division data platform, predictive maintenance rollout, AI-native CRM migration</div>
       <div class="q-label">Q4 2026</div>
@@ -264,29 +288,29 @@ function generateReportHTML(): string {
     <div class="section-title">Savings Waterfall</div>
     <div class="waterfall-row">
       <span>Tech Stack Optimization</span>
-      <span class="num green">+ $1.8M</span>
+      <span class="num green">+ ${fmtMoney(roiSummary.techStackSavings)}</span>
     </div>
     <div class="waterfall-row">
       <span>Workflow Automation</span>
-      <span class="num green">+ $3.1M</span>
+      <span class="num green">+ ${fmtMoney(roiSummary.workflowAutomation)}</span>
     </div>
     <div class="waterfall-row">
       <span>License Recovery</span>
-      <span class="num green">+ $2.1M</span>
+      <span class="num green">+ ${fmtMoney(roiSummary.licenseRecovery)}</span>
     </div>
     <div class="waterfall-row">
       <span>Implementation Costs</span>
-      <span class="num red">&minus; $2.8M</span>
+      <span class="num red">&minus; ${fmtMoney(roiSummary.implementationCosts)}</span>
     </div>
     <div class="waterfall-row total">
       <span>Net Year 1 Savings</span>
-      <span class="num blue">$4.2M</span>
+      <span class="num blue">${fmtMoney(net)}</span>
     </div>
   </div>
 
   <!-- Footer -->
   <div class="footer">
-    Confidential &mdash; Prepared by UpSkiller AI Command Center &mdash; ${today}
+    Confidential &mdash; Prepared by UpSkiller AI Command Center &mdash; ${safeToday}
   </div>
 </body>
 </html>`;

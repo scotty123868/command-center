@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   TrendingUp,
@@ -454,18 +455,20 @@ function DivisionDashboard({ company }: { company: CompanyData }) {
               <div>
                 <p className="text-2xl font-bold text-[#1B1B1B]">{metric.value}</p>
                 <div className="flex items-center gap-1 mt-1">
-                  {metric.trendPositive ? (
-                    <TrendingUp className="w-3.5 h-3.5 text-[#10B981]" />
-                  ) : (
-                    <TrendingDown className="w-3.5 h-3.5 text-[#EF4444]" />
-                  )}
-                  <span
-                    className={`text-xs font-semibold ${
-                      metric.trendPositive ? 'text-[#10B981]' : 'text-[#EF4444]'
-                    }`}
-                  >
-                    {metric.trend > 0 ? '+' : ''}{Math.abs(metric.trend).toFixed(0)}%
-                  </span>
+                  {(() => {
+                    const isGood = metric.trendPositive;
+                    const isDown = metric.trend < 0;
+                    const color = isGood ? 'text-[#10B981]' : 'text-[#EF4444]';
+                    const Icon = isDown ? TrendingDown : TrendingUp;
+                    return (
+                      <>
+                        <Icon className={`w-3.5 h-3.5 ${color}`} />
+                        <span className={`text-xs font-semibold ${color}`}>
+                          {metric.trend > 0 ? '+' : ''}{Math.abs(metric.trend).toFixed(0)}%
+                        </span>
+                      </>
+                    );
+                  })()}
                 </div>
               </div>
               <Sparkline data={metric.sparkline} />
@@ -561,7 +564,10 @@ function DivisionDashboard({ company }: { company: CompanyData }) {
 // ─── Page ───────────────────────────────────────────────────────────────────
 
 export default function Stories() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [searchParams] = useSearchParams();
+  const divParam = searchParams.get('div');
+  const initialIndex = divParam !== null ? Math.min(Math.max(0, parseInt(divParam, 10) || 0), divisions.length - 1) : 0;
+  const [activeIndex, setActiveIndex] = useState(initialIndex);
 
   return (
     <div className="space-y-6">

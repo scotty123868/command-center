@@ -381,9 +381,9 @@ function WorkflowsDrillDown() {
   const { company } = useCompany();
   const wfSummary = getWorkflowSummary(company.id);
   const topWorkflows = [
-    { name: 'Claims Intake Processing', savings: '$420K/yr', level: 'Full Automation' },
-    { name: 'Call Center Tier-1 Resolution', savings: '$380K/yr', level: 'Human-in-Loop' },
-    { name: 'AP/AR Invoice Matching', savings: '$310K/yr', level: 'Full Automation' },
+    { name: 'Track Inspection & Maintenance Planning', savings: '$420K/yr', level: 'Full Automation' },
+    { name: 'Crew Scheduling & Dispatch', savings: '$380K/yr', level: 'Human-in-Loop' },
+    { name: 'Equipment Fleet Management', savings: '$310K/yr', level: 'Full Automation' },
   ];
 
   return (
@@ -513,7 +513,6 @@ export default function Dashboard() {
   const companyProfile = getCompanyProfile(company.id);
   const companyRoadmap = getRoadmapPhases(company.id);
   const companyOpps = getTopOpportunities(company.id);
-  const companyRoi = getRoiSummary(company.id);
 
   // Sub-entities for parent companies (conglomerate / sovereign)
   const childEntities = companies.filter((c) => c.parentId === company.id);
@@ -602,15 +601,15 @@ export default function Dashboard() {
               </h2>
               <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
                 {(() => {
-                  const waste3y = companyKpis.unusedLicenseWaste * 3;
-                  const prod3y = companyRoi.workflowAutomation * 3;
-                  const missed3y = companyKpis.totalSavings * 3;
-                  const total = waste3y + prod3y + missed3y;
+                  const year1 = companyKpis.totalSavings;
+                  const year2 = Math.round(companyKpis.totalSavings * 1.15);
+                  const year3 = Math.round(companyKpis.totalSavings * 1.35);
+                  const total = year1 + year2 + year3;
                   return [
-                    { label: 'Wasted License Spend', value: fmtCompact(waste3y), sub: `${fmtCompact(companyKpis.unusedLicenseWaste)} x 3 years` },
-                    { label: 'Lost Productivity', value: fmtCompact(prod3y), sub: `${fmtCompact(companyRoi.workflowAutomation)} x 3 years` },
-                    { label: 'Missed AI Advantage', value: fmtCompact(missed3y), sub: 'Compounding tech debt' },
-                    { label: 'Total Cost of Inaction', value: fmtCompact(total), sub: 'Sum + opportunity cost' },
+                    { label: 'Year 1 Opportunity Cost', value: fmtCompact(year1), sub: 'Total savings forgone' },
+                    { label: 'Year 2 (15% compounding)', value: fmtCompact(year2), sub: 'Inflation + regulatory increases' },
+                    { label: 'Year 3 (35% compounding)', value: fmtCompact(year3), sub: 'Compounding tech debt' },
+                    { label: 'Total Cost of Inaction', value: fmtCompact(total), sub: '3-year cumulative loss' },
                   ];
                 })().map((metric, i) => (
                   <motion.div
