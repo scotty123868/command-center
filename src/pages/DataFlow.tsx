@@ -192,22 +192,22 @@ const statCards = [
 
 const colorMap = {
   blue: {
-    bg: 'bg-blue-50',
-    border: 'border-blue-200',
-    text: 'text-blue-700',
-    icon: 'text-blue-500',
+    bg: 'rgba(66,133,244,0.1)',
+    border: 'rgba(66,133,244,0.3)',
+    text: 'text-blue-400',
+    icon: 'text-blue-400',
   },
   green: {
-    bg: 'bg-green-50',
-    border: 'border-green-200',
-    text: 'text-green-700',
-    icon: 'text-green-500',
+    bg: 'var(--cc-green-dim)',
+    border: 'rgba(16,185,129,0.3)',
+    text: 'text-emerald-400',
+    icon: 'text-emerald-400',
   },
   red: {
-    bg: 'bg-red-50',
-    border: 'border-red-200',
-    text: 'text-red-700',
-    icon: 'text-red-500',
+    bg: 'var(--cc-red-dim)',
+    border: 'rgba(239,68,68,0.3)',
+    text: 'text-red-400',
+    icon: 'text-red-400',
   },
 };
 
@@ -227,10 +227,10 @@ export default function DataFlow() {
 
       {/* ── Section 1: Header ─────────────────────────────────────────────── */}
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">
+        <h1 className="text-2xl font-bold" style={{ color: 'var(--cc-text)' }}>
           Data Flow Intelligence
         </h1>
-        <p className="mt-1 text-gray-500">
+        <p className="mt-1" style={{ color: 'var(--cc-text-secondary)' }}>
           Automated detection of data connectivity gaps across your organization
         </p>
 
@@ -244,7 +244,8 @@ export default function DataFlow() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.08 }}
-                className={`rounded-2xl border ${c.border} ${c.bg} p-5 shadow-sm`}
+                className="rounded-2xl p-5 shadow-sm"
+                style={{ background: c.bg, border: `1px solid ${c.border}` }}
               >
                 <div className="flex items-center gap-3">
                   <Icon className={`h-5 w-5 ${c.icon}`} />
@@ -260,7 +261,7 @@ export default function DataFlow() {
 
       {/* ── Section 2: Data Gap Map ───────────────────────────────────────── */}
       <div>
-        <h2 className="text-lg font-semibold text-gray-900 mb-4">
+        <h2 className="text-lg font-semibold mb-4" style={{ color: 'var(--cc-text)' }}>
           Critical Data Gap Map
         </h2>
 
@@ -271,13 +272,13 @@ export default function DataFlow() {
               initial={{ opacity: 0, x: -16 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: i * 0.07 }}
-              className="rounded-2xl border border-gray-100 bg-white shadow-sm overflow-hidden"
+              className="rounded-2xl shadow-sm overflow-hidden" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
             >
               <div className="grid grid-cols-12 items-center gap-4 px-5 py-4">
                 {/* Source Systems */}
                 <div className="col-span-3 flex items-start gap-2">
                   <Database className="mt-0.5 h-4 w-4 shrink-0 text-blue-500" />
-                  <span className="text-sm text-gray-700">{gap.sources}</span>
+                  <span className="text-sm" style={{ color: 'var(--cc-text)' }}>{gap.sources}</span>
                 </div>
 
                 {/* Gap Indicator */}
@@ -287,7 +288,7 @@ export default function DataFlow() {
                     animate={{ scale: [1, 1.3, 1] }}
                     transition={{ repeat: Infinity, duration: 2 }}
                   />
-                  <span className="rounded-md border border-dashed border-red-300 bg-red-50 px-3 py-1 text-xs font-semibold text-red-600">
+                  <span className="rounded-md border border-dashed border-red-800/40 px-3 py-1 text-xs font-semibold text-red-400" style={{ background: 'var(--cc-red-dim)' }}>
                     GAP
                   </span>
                   <span className="text-xs text-red-500 max-w-[180px] truncate">
@@ -297,8 +298,8 @@ export default function DataFlow() {
 
                 {/* Blocked Capability */}
                 <div className="col-span-4 flex items-start gap-2">
-                  <Lock className="mt-0.5 h-4 w-4 shrink-0 text-gray-400" />
-                  <span className="text-sm text-gray-500">{gap.blocked}</span>
+                  <Lock className="mt-0.5 h-4 w-4 shrink-0" style={{ color: 'var(--cc-text-tertiary)' }} />
+                  <span className="text-sm" style={{ color: 'var(--cc-text-secondary)' }}>{gap.blocked}</span>
                 </div>
 
                 {/* Impact */}
@@ -325,7 +326,7 @@ export default function DataFlow() {
 
       {/* ── Section 3: Expandable Gap Details ─────────────────────────────── */}
       <div>
-        <h2 className="text-lg font-semibold text-gray-900 mb-4">
+        <h2 className="text-lg font-semibold mb-4" style={{ color: 'var(--cc-text)' }}>
           Gap Details
         </h2>
 
@@ -335,19 +336,19 @@ export default function DataFlow() {
             return (
               <div
                 key={gap.id}
-                className="rounded-2xl border border-gray-100 bg-white shadow-sm overflow-hidden"
+                className="rounded-2xl shadow-sm overflow-hidden" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
               >
                 {/* Collapsed Header */}
                 <button
                   onClick={() => toggle(gap.id)}
-                  className="flex w-full items-center justify-between px-5 py-4 text-left hover:bg-gray-50 transition-colors"
+                  className="flex w-full items-center justify-between px-5 py-4 text-left transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-red-50">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg" style={{ background: 'var(--cc-red-dim)' }}>
                       <AlertTriangle className="h-4 w-4 text-red-500" />
                     </div>
                     <div>
-                      <span className="text-sm font-semibold text-gray-900">
+                      <span className="text-sm font-semibold" style={{ color: 'var(--cc-text)' }}>
                         {gap.name}
                       </span>
                       <span className="ml-3 font-mono text-xs font-semibold text-red-500">
@@ -356,9 +357,9 @@ export default function DataFlow() {
                     </div>
                   </div>
                   {isOpen ? (
-                    <ChevronUp className="h-5 w-5 text-gray-400" />
+                    <ChevronUp className="h-5 w-5" style={{ color: 'var(--cc-text-tertiary)' }} />
                   ) : (
-                    <ChevronDown className="h-5 w-5 text-gray-400" />
+                    <ChevronDown className="h-5 w-5" style={{ color: 'var(--cc-text-tertiary)' }} />
                   )}
                 </button>
 
@@ -372,17 +373,17 @@ export default function DataFlow() {
                       transition={{ duration: 0.25 }}
                       className="overflow-hidden"
                     >
-                      <div className="border-t border-gray-100 px-5 py-5 space-y-5">
+                      <div className="px-5 py-5 space-y-5" style={{ borderTop: '1px solid var(--cc-border)' }}>
                         {/* Source Systems */}
                         <div>
-                          <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">
+                          <p className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: 'var(--cc-text-tertiary)' }}>
                             Source Systems
                           </p>
                           <ul className="space-y-1">
                             {gap.sourceList.map((s, i) => (
                               <li
                                 key={i}
-                                className="flex items-center gap-2 text-sm text-gray-600"
+                                className="flex items-center gap-2 text-sm"
                               >
                                 <Database className="h-3.5 w-3.5 text-blue-400" />
                                 {s}
@@ -393,26 +394,25 @@ export default function DataFlow() {
 
                         {/* Missing Data Layer */}
                         <div className="border-l-4 border-red-400 pl-4">
-                          <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">
+                          <p className="text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: 'var(--cc-text-tertiary)' }}>
                             Missing Data Layer
                           </p>
-                          <p className="text-sm text-gray-700">
-                            {gap.missingLayer}
+                          <p className="text-sm" style={{ color: 'var(--cc-text)' }}>                            {gap.missingLayer}
                           </p>
                         </div>
 
                         {/* Blocked Capabilities */}
                         <div>
-                          <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">
+                          <p className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: 'var(--cc-text-tertiary)' }}>
                             Blocked Capabilities
                           </p>
                           <ul className="space-y-1">
                             {gap.blockedCapabilities.map((b, i) => (
                               <li
                                 key={i}
-                                className="flex items-center gap-2 text-sm text-gray-600"
+                                className="flex items-center gap-2 text-sm"
                               >
-                                <Lock className="h-3.5 w-3.5 text-gray-400" />
+                                <Lock className="h-3.5 w-3.5" style={{ color: 'var(--cc-text-tertiary)' }} />
                                 {b}
                               </li>
                             ))}
@@ -421,16 +421,15 @@ export default function DataFlow() {
 
                         {/* Recommended Solution */}
                         <div className="border-l-4 border-green-400 pl-4">
-                          <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">
+                          <p className="text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: 'var(--cc-text-tertiary)' }}>
                             Recommended Solution
                           </p>
-                          <p className="text-sm text-gray-700">
-                            {gap.recommendedSolution}
+                          <p className="text-sm" style={{ color: 'var(--cc-text)' }}>                            {gap.recommendedSolution}
                           </p>
                         </div>
 
                         {/* Impact Callout */}
-                        <div className="rounded-xl bg-red-50 border border-red-100 px-4 py-3 flex items-center gap-3">
+                        <div className="rounded-xl px-4 py-3 flex items-center gap-3" style={{ background: 'var(--cc-red-dim)', border: '1px solid rgba(239,68,68,0.2)' }}>
                           <BarChart3 className="h-5 w-5 text-red-500" />
                           <div>
                             <span className="text-xs text-red-500 font-medium">
@@ -453,11 +452,11 @@ export default function DataFlow() {
 
       {/* ── Section 4: Recommended Architecture ───────────────────────────── */}
       <div>
-        <h2 className="text-lg font-semibold text-gray-900 mb-4">
+        <h2 className="text-lg font-semibold mb-4" style={{ color: 'var(--cc-text)' }}>
           Proposed: Unified Data Architecture
         </h2>
 
-        <div className="rounded-2xl border border-gray-100 bg-white shadow-sm p-8">
+        <div className="rounded-2xl shadow-sm p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}>
           {/* Division Badges */}
           <div className="flex flex-wrap items-center justify-center gap-4">
             {['HCC — Rail & Highway Construction', 'HRSI — Railroad Services', 'HSI — Rail Testing', 'HTI — Signal & PTC', 'HTSI — Transit Services', 'HE — Energy', 'GG — Environmental'].map(
@@ -467,7 +466,7 @@ export default function DataFlow() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + i * 0.08 }}
-                  className="rounded-xl bg-green-50 border border-green-200 px-4 py-2 text-sm font-medium text-green-700"
+                  className="rounded-xl px-4 py-2 text-sm font-medium text-green-400" style={{ background: 'var(--cc-green-dim)', border: '1px solid rgba(16,185,129,0.2)' }}
                 >
                   {name}
                 </motion.div>
@@ -545,13 +544,13 @@ export default function DataFlow() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.1 + i * 0.1 }}
-                className="rounded-xl border border-green-100 bg-green-50 p-4 text-center"
+                className="rounded-xl p-4 text-center" style={{ background: 'var(--cc-green-dim)', border: '1px solid rgba(16,185,129,0.15)' }}
               >
                 <benefit.icon className="mx-auto h-6 w-6 text-green-600 mb-2" />
-                <p className="text-sm font-semibold text-gray-900">
+                <p className="text-sm font-semibold" style={{ color: 'var(--cc-text)' }}>
                   {benefit.title}
                 </p>
-                <p className="mt-1 text-xs text-gray-500">{benefit.desc}</p>
+                <p className="mt-1 text-xs" style={{ color: 'var(--cc-text-secondary)' }}>{benefit.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -561,11 +560,11 @@ export default function DataFlow() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.4 }}
-            className="mt-6 rounded-xl bg-gray-50 border border-gray-200 px-6 py-4 text-center"
+            className="mt-6 rounded-xl px-6 py-4 text-center" style={{ background: 'var(--cc-bg-input)', border: '1px solid var(--cc-border)' }}
           >
-            <span className="text-sm text-gray-500">
+            <span className="text-sm" style={{ color: 'var(--cc-text-secondary)' }}>
               Investment:{' '}
-              <span className="font-mono font-semibold text-gray-900">
+              <span className="font-mono font-semibold" style={{ color: 'var(--cc-text)' }}>
                 $200K
               </span>{' '}
               &middot; Annual Return:{' '}

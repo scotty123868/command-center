@@ -122,15 +122,15 @@ function WaterfallTooltip({ active, payload }: any) {
   const d = payload[0]?.payload;
   if (!d) return null;
   return (
-    <div className="rounded-lg border border-gray-100 bg-white px-3 py-2 shadow-md text-sm">
-      <p className="font-semibold text-gray-800">{d.name}</p>
+    <div className="rounded-lg px-3 py-2 shadow-md text-sm" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}>
+      <p className="font-semibold" style={{ color: 'var(--cc-text)' }}>{d.name}</p>
       {d.value !== 0 && (
         <p style={{ color: d.fill }}>
           {d.value > 0 ? '+' : ''}
           {fmtCompact(d.value)}
         </p>
       )}
-      <p className="text-gray-500">Total: {fmtCompact(d.total)}</p>
+      <p style={{ color: 'var(--cc-text-secondary)' }}>Total: {fmtCompact(d.total)}</p>
     </div>
   );
 }
@@ -151,8 +151,8 @@ function findBreakEvenMonth(timeline: ReturnType<typeof buildTimeline>): string 
 function TimelineTooltip({ active, payload, label }: any) {
   if (!active || !payload?.length) return null;
   return (
-    <div className="rounded-lg border border-gray-100 bg-white px-3 py-2 shadow-md text-sm">
-      <p className="font-semibold text-gray-800 mb-1">{label}</p>
+    <div className="rounded-lg px-3 py-2 shadow-md text-sm" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}>
+      <p className="font-semibold mb-1" style={{ color: 'var(--cc-text)' }}>{label}</p>
       {payload.map((p: any) => (
         <p key={p.dataKey} style={{ color: p.color }}>
           {p.name}: {fmtAxisK(p.value)}
@@ -171,12 +171,12 @@ function WaterfallChartSection({ waterfallChartData }: { waterfallChartData: Ret
   return (
     <motion.div
       ref={ref}
-      className="rounded-2xl bg-white border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] p-6"
+      className="rounded-2xl shadow-sm p-6" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
       initial={{ opacity: 0, y: 24 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
       transition={{ delay: 0.25, duration: 0.4 }}
     >
-      <h2 className="text-lg font-semibold text-gray-800 mb-6">
+      <h2 className="text-lg font-semibold mb-6">
         Savings Waterfall
       </h2>
       <ResponsiveContainer width="100%" height={350}>
@@ -184,7 +184,7 @@ function WaterfallChartSection({ waterfallChartData }: { waterfallChartData: Ret
           data={waterfallChartData}
           margin={{ top: 10, right: 20, left: 10, bottom: 5 }}
         >
-          <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+          <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" />
           <XAxis
             dataKey="name"
             tick={{ fontSize: 12, fill: '#6B7280' }}
@@ -232,7 +232,7 @@ export default function ROISummary() {
   return (
     <div className="space-y-12">
       {/* Preliminary Estimate Banner */}
-      <span className="text-xs text-slate-400 bg-slate-100 px-3 py-1 rounded inline-block">
+      <span className="text-xs px-3 py-1 rounded inline-block" style={{ color: 'var(--cc-text-secondary)', background: 'var(--cc-bg-card)' }}>
         Preliminary Estimate — Based on Industry Benchmarks
       </span>
 
@@ -249,7 +249,7 @@ export default function ROISummary() {
         </button>
         <button
           onClick={openBoardReport}
-          className="inline-flex items-center gap-2 rounded-xl bg-gray-100 px-5 py-2.5 text-sm font-semibold text-gray-700 shadow-sm transition-colors duration-200 hover:bg-gray-200 cursor-pointer"
+          className="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold shadow-sm transition-colors duration-200 cursor-pointer" style={{ background: 'var(--cc-bg-card)', color: 'var(--cc-text)', border: '1px solid var(--cc-border)' }}
         >
           <FileDown size={16} />
           Quick Export
@@ -263,7 +263,7 @@ export default function ROISummary() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <p className="text-sm font-medium uppercase tracking-widest text-gray-400 mb-2">
+        <p className="text-sm font-medium uppercase tracking-widest mb-2" style={{ color: 'var(--cc-text-tertiary)' }}>
           Projected Net Impact
         </p>
         <h1
@@ -272,11 +272,11 @@ export default function ROISummary() {
         >
           {fmtCompact(roiSummary.netYear1)}
         </h1>
-        <p className="mt-3 text-lg text-gray-500">after implementation costs</p>
-        <p className="mt-1 text-sm text-gray-400">
+        <p className="mt-3 text-lg" style={{ color: 'var(--cc-text-secondary)' }}>after implementation costs</p>
+        <p className="mt-1 text-sm" style={{ color: 'var(--cc-text-tertiary)' }}>
           Gross savings: {fmtCompact(roiSummary.techStackSavings + roiSummary.workflowAutomation + roiSummary.licenseRecovery)} &mdash; Implementation: {fmtCompact(roiSummary.implementationCosts)}
         </p>
-        <p className="mt-2 text-xs text-gray-400 italic">
+        <p className="mt-2 text-xs italic" style={{ color: 'var(--cc-text-tertiary)' }}>
           Based on industry benchmarks and preliminary assessment data
         </p>
       </motion.div>
@@ -288,7 +288,7 @@ export default function ROISummary() {
           return (
             <motion.div
               key={m.label}
-              className="group rounded-2xl bg-white border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] p-5 flex flex-col gap-3 transition-all duration-200 hover:shadow-md hover:border-gray-200"
+              className="group rounded-2xl p-5 flex flex-col gap-3 transition-all duration-200 hover:shadow-md" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: (i + 1) * 0.08, duration: 0.4 }}
@@ -300,7 +300,7 @@ export default function ROISummary() {
               >
                 <Icon size={20} style={{ color: m.color }} />
               </div>
-              <p className="text-sm text-gray-500">{m.label}</p>
+              <p className="text-sm" style={{ color: 'var(--cc-text-secondary)' }}>{m.label}</p>
               <p
                 className="text-2xl font-bold font-mono"
                 style={{ color: m.color }}
@@ -329,12 +329,12 @@ export default function ROISummary() {
 
       {/* ── Section 4: Timeline Chart ─────────────────────────────────── */}
       <motion.div
-        className="rounded-2xl bg-white border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] p-6"
+        className="rounded-2xl shadow-sm p-6" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.3 }}
       >
-        <h2 className="text-lg font-semibold text-gray-800 mb-6">
+        <h2 className="text-lg font-semibold mb-6">
           Implementation Timeline &amp; Cost Curve
         </h2>
         <ResponsiveContainer width="100%" height={350}>
@@ -352,7 +352,7 @@ export default function ROISummary() {
                 <stop offset="100%" stopColor="#10B981" stopOpacity={0.05} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+            <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" />
             <XAxis
               dataKey="month"
               tick={{ fontSize: 12, fill: '#6B7280' }}
@@ -418,8 +418,8 @@ export default function ROISummary() {
 
       {/* ── Section 5: Payback Analysis Panel ─────────────────────────── */}
       <motion.div
-        className="rounded-2xl border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] overflow-hidden"
-        style={{ backgroundColor: '#F0F4FF' }}
+        className="rounded-2xl shadow-sm overflow-hidden"
+        style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.35, duration: 0.3 }}
@@ -429,45 +429,45 @@ export default function ROISummary() {
             <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#4285F4]/10">
               <BarChart3 size={20} className="text-[#4285F4]" />
             </div>
-            <h2 className="text-lg font-semibold text-gray-800">Payback Analysis</h2>
+            <h2 className="text-lg font-semibold">Payback Analysis</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] p-5 text-center">
+            <div className="rounded-2xl p-5 text-center" style={{ background: 'var(--cc-bg-input)', border: '1px solid var(--cc-border)' }}>
               <div className="flex items-center justify-center gap-2 mb-2">
                 <Clock size={16} className="text-[#4285F4]" />
-                <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                <p className="text-xs font-semibold uppercase tracking-wider">
                   Payback Period
                 </p>
               </div>
               <p className="text-3xl font-mono font-bold text-[#4285F4]">{(roiSummary.implementationCosts / (roiSummary.netYear1 / 12)).toFixed(1)}</p>
-              <p className="text-sm text-gray-500 mt-1">months</p>
+              <p className="text-sm mt-1">months</p>
             </div>
 
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] p-5 text-center">
+            <div className="rounded-2xl p-5 text-center" style={{ background: 'var(--cc-bg-input)', border: '1px solid var(--cc-border)' }}>
               <div className="flex items-center justify-center gap-2 mb-2">
                 <TrendingUp size={16} className="text-[#10B981]" />
-                <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                <p className="text-xs font-semibold uppercase tracking-wider">
                   Year 1 Net ROI
                 </p>
               </div>
               <p className="text-3xl font-mono font-bold text-[#10B981]">{Math.round((roiSummary.netYear1 / roiSummary.implementationCosts) * 100)}%</p>
-              <p className="text-sm text-gray-500 mt-1">return on investment</p>
+              <p className="text-sm mt-1">return on investment</p>
             </div>
 
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] p-5 text-center">
+            <div className="rounded-2xl p-5 text-center" style={{ background: 'var(--cc-bg-input)', border: '1px solid var(--cc-border)' }}>
               <div className="flex items-center justify-center gap-2 mb-2">
                 <DollarSign size={16} className="text-[#10B981]" />
-                <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                <p className="text-xs font-semibold uppercase tracking-wider">
                   Year 2 Projected
                 </p>
               </div>
               <p className="text-3xl font-mono font-bold text-[#10B981]">{fmtCompact(roiSummary.year2Projected)}</p>
-              <p className="text-sm text-gray-500 mt-1">annual savings</p>
+              <p className="text-sm mt-1">annual savings</p>
             </div>
           </div>
 
-          <p className="text-gray-600 leading-relaxed max-w-3xl">
+          <p className="leading-relaxed max-w-3xl" style={{ color: 'var(--cc-text-secondary)' }}>
             With a total implementation investment of {fmtCompact(roiSummary.implementationCosts)}, the program reaches break-even around month {Math.ceil(roiSummary.implementationCosts / (roiSummary.netYear1 / 12))}. Year 1 net savings of {fmtCompact(roiSummary.netYear1)} represent a {Math.round((roiSummary.netYear1 / roiSummary.implementationCosts) * 100)}% ROI. As automation scales and AI-native tools mature in Year 2, implementation costs drop to near-zero maintenance while savings compound to a projected {fmtCompact(roiSummary.year2Projected)} annually.
           </p>
         </div>
@@ -475,15 +475,15 @@ export default function ROISummary() {
 
       {/* ── Section 6: Board Report Preview ─────────────────────────── */}
       <motion.div
-        className="rounded-2xl border border-gray-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] bg-white p-8"
+        className="rounded-2xl shadow-sm p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.3 }}
       >
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h2 className="text-lg font-semibold text-gray-800">Board Report Preview</h2>
-            <p className="text-sm text-gray-500 mt-1">Executive-ready report with key findings and recommendations</p>
+            <h2 className="text-lg font-semibold">Board Report Preview</h2>
+            <p className="text-sm mt-1">Executive-ready report with key findings and recommendations</p>
           </div>
           <button
             onClick={() => window.open('/board-report', '_blank')}
@@ -497,17 +497,17 @@ export default function ROISummary() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {/* Page 1 Preview */}
-          <div className="rounded-xl border border-gray-100 bg-gray-50/50 p-5 hover:shadow-md transition-shadow duration-200">
+          <div className="rounded-xl p-5 hover:shadow-md transition-shadow duration-200" style={{ background: 'var(--cc-bg-input)', border: '1px solid var(--cc-border)' }}>
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center">
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: 'var(--cc-accent-glow)' }}>
                 <Presentation size={18} className="text-blue-500" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-gray-800">Executive Summary</p>
-                <p className="text-[11px] text-gray-400">Page 1</p>
+                <p className="text-sm font-semibold">Executive Summary</p>
+                <p className="text-[11px]">Page 1</p>
               </div>
             </div>
-            <ul className="space-y-1.5 text-xs text-gray-500">
+            <ul className="space-y-1.5 text-xs">
               <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-blue-400" />Total savings opportunity</li>
               <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-blue-400" />Implementation timeline</li>
               <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-blue-400" />Key recommendations</li>
@@ -515,17 +515,17 @@ export default function ROISummary() {
           </div>
 
           {/* Page 2 Preview */}
-          <div className="rounded-xl border border-gray-100 bg-gray-50/50 p-5 hover:shadow-md transition-shadow duration-200">
+          <div className="rounded-xl p-5 hover:shadow-md transition-shadow duration-200" style={{ background: 'var(--cc-bg-input)', border: '1px solid var(--cc-border)' }}>
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-9 h-9 rounded-lg bg-emerald-50 flex items-center justify-center">
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: 'var(--cc-green-dim)' }}>
                 <PieChart size={18} className="text-emerald-500" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-gray-800">Financial Analysis</p>
-                <p className="text-[11px] text-gray-400">Page 2</p>
+                <p className="text-sm font-semibold">Financial Analysis</p>
+                <p className="text-[11px]">Page 2</p>
               </div>
             </div>
-            <ul className="space-y-1.5 text-xs text-gray-500">
+            <ul className="space-y-1.5 text-xs">
               <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-emerald-400" />Savings waterfall breakdown</li>
               <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-emerald-400" />Payback period analysis</li>
               <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-emerald-400" />Year 1 vs Year 2 projections</li>
@@ -533,17 +533,17 @@ export default function ROISummary() {
           </div>
 
           {/* Page 3 Preview */}
-          <div className="rounded-xl border border-gray-100 bg-gray-50/50 p-5 hover:shadow-md transition-shadow duration-200">
+          <div className="rounded-xl p-5 hover:shadow-md transition-shadow duration-200" style={{ background: 'var(--cc-bg-input)', border: '1px solid var(--cc-border)' }}>
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-9 h-9 rounded-lg bg-purple-50 flex items-center justify-center">
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: 'rgba(139,92,246,0.15)' }}>
                 <FileText size={18} className="text-purple-500" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-gray-800">Action Plan</p>
-                <p className="text-[11px] text-gray-400">Page 3</p>
+                <p className="text-sm font-semibold">Action Plan</p>
+                <p className="text-[11px]">Page 3</p>
               </div>
             </div>
-            <ul className="space-y-1.5 text-xs text-gray-500">
+            <ul className="space-y-1.5 text-xs">
               <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-purple-400" />Division-by-division roadmap</li>
               <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-purple-400" />Quick wins vs. strategic bets</li>
               <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-purple-400" />Next steps and timeline</li>

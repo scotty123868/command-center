@@ -109,7 +109,7 @@ function AIMessage({
     return parts.map((part, i) => {
       if (part.startsWith('**') && part.endsWith('**')) {
         return (
-          <span key={i} className="font-semibold text-gray-900">
+          <span key={i} className="font-semibold" style={{ color: 'var(--cc-text)' }}>
             {part.slice(2, -2)}
           </span>
         );
@@ -130,15 +130,15 @@ function AIMessage({
         <span className="text-[11px] font-bold text-white">AI</span>
       </div>
 
-      <div className="max-w-[75%] rounded-2xl rounded-bl-md bg-white border border-gray-200 px-5 py-4 shadow-sm">
+      <div className="max-w-[75%] rounded-2xl rounded-bl-md px-5 py-4 shadow-sm" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}>
         {/* Main text */}
-        <div className="text-[14px] leading-relaxed text-gray-700 whitespace-pre-line">
+        <div className="text-[14px] leading-relaxed whitespace-pre-line" style={{ color: 'var(--cc-text-secondary)' }}>
           {content.split('\n').map((line, i) => (
             <span key={i}>
               {i > 0 && <br />}
               {line.startsWith('- ') ? (
                 <span className="flex gap-2">
-                  <span className="text-gray-400">-</span>
+                  <span style={{ color: 'var(--cc-text-tertiary)' }}>-</span>
                   <span>{renderText(line.slice(2))}</span>
                 </span>
               ) : (
@@ -150,14 +150,14 @@ function AIMessage({
 
         {/* Data table */}
         {table && (
-          <div className="mt-4 overflow-hidden rounded-xl border border-gray-100">
+          <div className="mt-4 overflow-hidden rounded-xl" style={{ border: '1px solid var(--cc-border)' }}>
             <table className="w-full text-[13px]">
               <thead>
-                <tr className="bg-gray-50">
+                <tr style={{ background: 'var(--cc-bg-input)' }}>
                   {table.headers.map((h) => (
                     <th
                       key={h}
-                      className="px-4 py-2.5 text-left text-[10px] font-semibold uppercase tracking-wider text-gray-500"
+                      className="px-4 py-2.5 text-left text-[10px] font-semibold uppercase tracking-wider" style={{ color: 'var(--cc-text-secondary)' }}
                     >
                       {h}
                     </th>
@@ -166,15 +166,16 @@ function AIMessage({
               </thead>
               <tbody>
                 {table.rows.map((row, i) => (
-                  <tr key={i} className="border-t border-gray-50">
+                  <tr key={i} style={{ borderTop: '1px solid var(--cc-border)' }}>
                     {row.map((cell, j) => (
                       <td
                         key={j}
                         className={`px-4 py-2.5 ${
                           j === 1
-                            ? 'font-mono font-semibold text-red-500'
-                            : 'text-gray-700'
+                            ? 'font-mono font-semibold text-red-400'
+                            : ''
                         }`}
+                        style={j !== 1 ? { color: 'var(--cc-text-secondary)' } : undefined}
                       >
                         {cell}
                       </td>
@@ -183,7 +184,7 @@ function AIMessage({
                 ))}
               </tbody>
             </table>
-            <div className="bg-red-50 px-4 py-2.5 text-[12px] font-semibold text-red-700">
+            <div className="px-4 py-2.5 text-[12px] font-semibold text-red-400" style={{ background: 'var(--cc-red-dim)' }}>
               Total recoverable: $2.8M/yr
             </div>
           </div>
@@ -195,12 +196,12 @@ function AIMessage({
             {list.items.map((item, i) => (
               <div
                 key={i}
-                className="rounded-xl border border-gray-100 bg-gray-50/50 px-4 py-3"
+                className="rounded-xl px-4 py-3" style={{ background: 'var(--cc-bg-elevated)', border: '1px solid var(--cc-border)' }}
               >
-                <p className="text-[13px] font-semibold text-gray-900">
+                <p className="text-[13px] font-semibold" style={{ color: 'var(--cc-text)' }}>
                   {item.title}
                 </p>
-                <p className="mt-1 text-[12px] leading-relaxed text-gray-500">
+                <p className="mt-1 text-[12px] leading-relaxed" style={{ color: 'var(--cc-text-secondary)' }}>
                   {item.detail}
                 </p>
               </div>
@@ -223,18 +224,18 @@ function TypingIndicator({ delay }: { delay: number }) {
       <div className="w-8 h-8 rounded-full bg-[#4285F4] flex items-center justify-center flex-shrink-0">
         <span className="text-[11px] font-bold text-white">AI</span>
       </div>
-      <div className="rounded-2xl rounded-bl-md bg-white border border-gray-200 px-5 py-4 shadow-sm">
+      <div className="rounded-2xl rounded-bl-md px-5 py-4 shadow-sm" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}>
         <div className="flex items-center gap-1.5">
           <span
-            className="w-2 h-2 rounded-full bg-gray-300"
+            className="w-2 h-2 rounded-full bg-gray-500"
             style={{ animation: 'pulse 1.4s ease-in-out infinite' }}
           />
           <span
-            className="w-2 h-2 rounded-full bg-gray-300"
+            className="w-2 h-2 rounded-full bg-gray-500"
             style={{ animation: 'pulse 1.4s ease-in-out 0.2s infinite' }}
           />
           <span
-            className="w-2 h-2 rounded-full bg-gray-300"
+            className="w-2 h-2 rounded-full bg-gray-500"
             style={{ animation: 'pulse 1.4s ease-in-out 0.4s infinite' }}
           />
         </div>
@@ -269,12 +270,12 @@ export default function Assessment() {
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="flex-shrink-0 px-6 pt-2 pb-4 border-b border-gray-100"
+        className="flex-shrink-0 px-6 pt-2 pb-4 border-b" style={{ borderColor: 'var(--cc-border)' }}
       >
-        <h1 className="text-[20px] font-bold text-gray-900 tracking-tight">
+        <h1 className="text-[20px] font-bold tracking-tight" style={{ color: 'var(--cc-text)' }}>
           AI Assistant
         </h1>
-        <p className="text-[13px] text-gray-500 mt-0.5">
+        <p className="text-[13px] mt-0.5" style={{ color: 'var(--cc-text-secondary)' }}>
           Ask questions about your data, get recommendations, explore
           optimization strategies
         </p>
@@ -310,7 +311,7 @@ export default function Assessment() {
             transition={{ duration: 0.4, delay: delayCounter + 0.2 }}
             className="pt-4"
           >
-            <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-3">
+            <p className="text-[11px] font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--cc-text-tertiary)' }}>
               Suggested questions
             </p>
             <div className="flex flex-wrap gap-2">
@@ -318,7 +319,7 @@ export default function Assessment() {
                 <button
                   key={q}
                   type="button"
-                  className="px-4 py-2 rounded-full border border-gray-200 bg-white text-[13px] font-medium text-gray-600 hover:border-[#4285F4] hover:text-[#4285F4] hover:bg-blue-50/50 transition-all duration-200 cursor-pointer shadow-sm"
+                  className="px-4 py-2 rounded-full text-[13px] font-medium hover:border-[#4285F4] hover:text-[#4285F4] transition-all duration-200 cursor-pointer shadow-sm" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)', color: 'var(--cc-text-secondary)' }}
                 >
                   {q}
                 </button>
@@ -333,14 +334,14 @@ export default function Assessment() {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.3 }}
-        className="flex-shrink-0 border-t border-gray-100 bg-white px-6 py-4"
+        className="flex-shrink-0 border-t px-6 py-4" style={{ borderColor: 'var(--cc-border)', background: 'var(--cc-bg-card)' }}
       >
         <div className="max-w-3xl mx-auto relative">
           <input
             type="text"
             readOnly
             placeholder="Ask about your data..."
-            className="w-full h-12 pl-5 pr-14 rounded-xl bg-gray-50 border border-gray-200 text-[14px] text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#4285F4]/20 focus:border-[#4285F4]/40 transition-all duration-200 shadow-sm cursor-text"
+            className="w-full h-12 pl-5 pr-14 rounded-xl text-[14px] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#4285F4]/20 focus:border-[#4285F4]/40 transition-all duration-200 shadow-sm cursor-text" style={{ background: 'var(--cc-bg-elevated)', border: '1px solid var(--cc-border)', color: 'var(--cc-text)' }}
           />
           <button
             type="button"

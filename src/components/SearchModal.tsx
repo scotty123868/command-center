@@ -14,17 +14,24 @@ interface SearchResult {
 }
 
 const iconMap = {
-  workflow: { Icon: Zap, color: 'text-violet-500 bg-violet-50' },
-  tool: { Icon: Wrench, color: 'text-blue-500 bg-blue-50' },
-  story: { Icon: BookOpen, color: 'text-amber-500 bg-amber-50' },
-  opportunity: { Icon: TrendingUp, color: 'text-emerald-500 bg-emerald-50' },
+  workflow: { Icon: Zap, color: 'text-violet-400', bgStyle: { background: 'rgba(139,92,246,0.15)' } as React.CSSProperties },
+  tool: { Icon: Wrench, color: 'text-blue-400', bgStyle: { background: 'rgba(66,133,244,0.15)' } as React.CSSProperties },
+  story: { Icon: BookOpen, color: 'text-amber-400', bgStyle: { background: 'rgba(245,158,11,0.15)' } as React.CSSProperties },
+  opportunity: { Icon: TrendingUp, color: 'text-emerald-400', bgStyle: { background: 'rgba(16,185,129,0.15)' } as React.CSSProperties },
 };
 
 const categoryBadge: Record<string, string> = {
-  workflow: 'bg-violet-100 text-violet-700',
-  tool: 'bg-blue-100 text-blue-700',
-  story: 'bg-amber-100 text-amber-700',
-  opportunity: 'bg-emerald-100 text-emerald-700',
+  workflow: 'text-violet-400',
+  tool: 'text-blue-400',
+  story: 'text-amber-400',
+  opportunity: 'text-emerald-400',
+};
+
+const categoryBadgeBg: Record<string, React.CSSProperties> = {
+  workflow: { background: 'rgba(139,92,246,0.15)' },
+  tool: { background: 'rgba(66,133,244,0.15)' },
+  story: { background: 'rgba(245,158,11,0.15)' },
+  opportunity: { background: 'rgba(16,185,129,0.15)' },
 };
 
 function buildIndex(): SearchResult[] {
@@ -189,7 +196,7 @@ export default function SearchModal() {
 
           {/* Modal */}
           <motion.div
-            className="relative w-full max-w-xl rounded-2xl bg-white shadow-2xl overflow-hidden"
+            className="relative w-full max-w-xl rounded-2xl shadow-2xl overflow-hidden" style={{ background: 'var(--cc-bg-card)' }}
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
@@ -197,76 +204,77 @@ export default function SearchModal() {
             onKeyDown={handleKeyDown}
           >
             {/* Search input */}
-            <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-100">
-              <Search className="w-5 h-5 text-gray-400 flex-shrink-0" />
+            <div className="flex items-center gap-3 px-4 py-3 border-b" style={{ borderColor: 'var(--cc-border)' }}>
+              <Search className="w-5 h-5 flex-shrink-0" style={{ color: 'var(--cc-text-tertiary)' }} />
               <input
                 ref={inputRef}
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search workflows, tools, stories..."
-                className="flex-1 text-sm text-gray-900 placeholder:text-gray-400 outline-none bg-transparent"
+                className="flex-1 text-sm placeholder:text-gray-400 outline-none bg-transparent" style={{ color: 'var(--cc-text)' }}
               />
               <button
                 onClick={close}
-                className="flex items-center justify-center w-6 h-6 rounded bg-gray-100 hover:bg-gray-200 transition-colors"
+                className="flex items-center justify-center w-6 h-6 rounded transition-colors" style={{ background: 'var(--cc-bg-elevated)' }}
               >
-                <X className="w-3.5 h-3.5 text-gray-500" />
+                <X className="w-3.5 h-3.5" style={{ color: 'var(--cc-text-secondary)' }} />
               </button>
             </div>
 
             {/* Results */}
             <div ref={listRef} className="max-h-[360px] overflow-y-auto py-2">
               {results.length === 0 ? (
-                <div className="px-4 py-8 text-center text-sm text-gray-400">
+                <div className="px-4 py-8 text-center text-sm" style={{ color: 'var(--cc-text-tertiary)' }}>
                   No results found for "{query}"
                 </div>
               ) : (
                 <>
                   {!query.trim() && (
-                    <div className="px-4 pt-1 pb-1.5 text-[11px] font-medium text-gray-400 uppercase tracking-wider">
+                    <div className="px-4 pt-1 pb-1.5 text-[11px] font-medium uppercase tracking-wider" style={{ color: 'var(--cc-text-tertiary)' }}>
                       Recent
                     </div>
                   )}
                   {Object.entries(grouped).map(([category, group]) => (
                     <div key={category}>
                       {query.trim() && (
-                        <div className="px-4 pt-3 pb-1.5 text-[11px] font-medium text-gray-400 uppercase tracking-wider">
+                        <div className="px-4 pt-3 pb-1.5 text-[11px] font-medium uppercase tracking-wider" style={{ color: 'var(--cc-text-tertiary)' }}>
                           {category}
                         </div>
                       )}
                       {group.items.map((result, i) => {
                         const globalIdx = group.globalIndices[i];
                         const isActive = globalIdx === activeIndex;
-                        const { Icon, color } = iconMap[result.icon];
+                        const { Icon, color, bgStyle } = iconMap[result.icon];
                         return (
                           <button
                             key={result.id}
                             data-active={isActive}
                             onClick={() => selectResult(result)}
-                            className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors ${
-                              isActive ? 'bg-gray-50' : 'hover:bg-gray-50'
-                            }`}
+                            className="w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors"
+                            style={isActive ? { background: 'var(--cc-bg-elevated)' } : undefined}
                           >
                             <div
                               className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${color}`}
+                              style={bgStyle}
                             >
                               <Icon className="w-4 h-4" />
                             </div>
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center gap-2">
-                                <span className="text-sm font-medium text-gray-900 truncate">
+                                <span className="text-sm font-medium truncate" style={{ color: 'var(--cc-text)' }}>
                                   {result.name}
                                 </span>
                                 <span
                                   className={`text-[10px] font-medium px-1.5 py-0.5 rounded-full flex-shrink-0 ${
                                     categoryBadge[result.icon]
                                   }`}
+                                  style={categoryBadgeBg[result.icon]}
                                 >
                                   {result.category}
                                 </span>
                               </div>
-                              <p className="text-xs text-gray-400 truncate mt-0.5">
+                              <p className="text-xs truncate mt-0.5" style={{ color: 'var(--cc-text-tertiary)' }}>
                                 {result.description}
                               </p>
                             </div>
@@ -280,21 +288,21 @@ export default function SearchModal() {
             </div>
 
             {/* Footer */}
-            <div className="flex items-center gap-4 px-4 py-2.5 border-t border-gray-100 text-[11px] text-gray-400">
+            <div className="flex items-center gap-4 px-4 py-2.5 border-t text-[11px]" style={{ borderColor: 'var(--cc-border)', color: 'var(--cc-text-tertiary)' }}>
               <span>
-                <kbd className="px-1.5 py-0.5 rounded bg-gray-100 text-gray-500 font-mono text-[10px]">
+                <kbd className="px-1.5 py-0.5 rounded font-mono text-[10px]" style={{ background: 'var(--cc-bg-elevated)', color: 'var(--cc-text-secondary)' }}>
                   ↑↓
                 </kbd>{' '}
                 navigate
               </span>
               <span>
-                <kbd className="px-1.5 py-0.5 rounded bg-gray-100 text-gray-500 font-mono text-[10px]">
+                <kbd className="px-1.5 py-0.5 rounded font-mono text-[10px]" style={{ background: 'var(--cc-bg-elevated)', color: 'var(--cc-text-secondary)' }}>
                   ↵
                 </kbd>{' '}
                 select
               </span>
               <span>
-                <kbd className="px-1.5 py-0.5 rounded bg-gray-100 text-gray-500 font-mono text-[10px]">
+                <kbd className="px-1.5 py-0.5 rounded font-mono text-[10px]" style={{ background: 'var(--cc-bg-elevated)', color: 'var(--cc-text-secondary)' }}>
                   esc
                 </kbd>{' '}
                 close

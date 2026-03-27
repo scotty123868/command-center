@@ -342,7 +342,7 @@ function AiGauge({ before, after }: { before: number; after: number }) {
     <div className="flex items-center gap-3">
       <div className="relative w-16 h-16">
         <svg viewBox="0 0 64 64" className="w-full h-full -rotate-90">
-          <circle cx="32" cy="32" r={radius} fill="none" stroke="#E5E7EB" strokeWidth="5" />
+          <circle cx="32" cy="32" r={radius} fill="none" stroke="var(--cc-border)" strokeWidth="5" />
           <motion.circle
             cx="32"
             cy="32"
@@ -358,14 +358,14 @@ function AiGauge({ before, after }: { before: number; after: number }) {
           />
         </svg>
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-sm font-bold text-[#1B1B1B]">{after}</span>
+          <span className="text-sm font-bold" style={{ color: 'var(--cc-text)' }}>{after}</span>
         </div>
       </div>
-      <div className="text-xs text-[#6B7280]">
+      <div className="text-xs" style={{ color: 'var(--cc-text-secondary)' }}>
         <div>AI Readiness</div>
         <div className="flex items-center gap-1">
-          <span className="text-[#9CA3AF] font-mono">{before}</span>
-          <ArrowRight className="w-3 h-3 text-[#9CA3AF]" />
+          <span className="font-mono" style={{ color: 'var(--cc-text-tertiary)' }}>{before}</span>
+          <ArrowRight className="w-3 h-3" style={{ color: 'var(--cc-text-tertiary)' }} />
           <span className="text-[#4285F4] font-bold font-mono">{after}</span>
         </div>
       </div>
@@ -379,7 +379,7 @@ function StatusDot({ status }: { status: 'live' | 'piloting' | 'planned' }) {
   const colors = {
     live: 'bg-[#10B981]',
     piloting: 'bg-amber-400',
-    planned: 'bg-gray-300',
+    planned: 'bg-gray-500',
   };
   const labels = {
     live: 'Live',
@@ -387,7 +387,7 @@ function StatusDot({ status }: { status: 'live' | 'piloting' | 'planned' }) {
     planned: 'Planned',
   };
   return (
-    <span className="inline-flex items-center gap-1.5 text-xs font-medium text-[#6B7280]">
+    <span className="inline-flex items-center gap-1.5 text-xs font-medium" style={{ color: 'var(--cc-text-secondary)' }}>
       <span className={`w-2 h-2 rounded-full ${colors[status]}`} />
       {labels[status]}
     </span>
@@ -399,8 +399,8 @@ function StatusDot({ status }: { status: 'live' | 'piloting' | 'planned' }) {
 function SavingsTooltip({ active, payload }: { active?: boolean; payload?: Array<{ value: number }> }) {
   if (!active || !payload?.length) return null;
   return (
-    <div className="bg-white border border-gray-200 rounded-lg px-3 py-2 shadow-lg text-sm">
-      <span className="font-semibold text-[#1B1B1B]">${payload[0].value}K</span>
+    <div className="rounded-lg px-3 py-2 shadow-lg text-sm" style={{ background: 'var(--cc-bg-card)', borderColor: 'var(--cc-border)', borderWidth: 1, borderStyle: 'solid' }}>
+      <span className="font-semibold" style={{ color: 'var(--cc-text)' }}>${payload[0].value}K</span>
     </div>
   );
 }
@@ -416,19 +416,19 @@ function DivisionDashboard({ company }: { company: CompanyData }) {
   return (
     <div className="space-y-6">
       {/* Section 1: Division Overview Bar */}
-      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+      <div className="rounded-2xl shadow-sm p-6" style={{ background: 'var(--cc-bg-card)', borderColor: 'var(--cc-border)', borderWidth: 1, borderStyle: 'solid' }}>
         <div className="flex flex-wrap items-center justify-between gap-6">
           <div className="flex items-center gap-6">
             <div>
-              <h2 className="text-2xl font-bold text-[#1B1B1B]">{company.name}</h2>
-              <p className="text-sm text-[#6B7280]">{company.industry}</p>
+              <h2 className="text-2xl font-bold" style={{ color: 'var(--cc-text)' }}>{company.name}</h2>
+              <p className="text-sm" style={{ color: 'var(--cc-text-secondary)' }}>{company.industry}</p>
             </div>
-            <div className="hidden sm:flex items-center gap-6 pl-6 border-l border-gray-200">
-              <div className="flex items-center gap-2 text-sm text-[#6B7280]">
+            <div className="hidden sm:flex items-center gap-6 pl-6 border-l" style={{ borderColor: 'var(--cc-border)' }}>
+              <div className="flex items-center gap-2 text-sm" style={{ color: 'var(--cc-text-secondary)' }}>
                 <Users className="w-4 h-4" />
-                <span className="font-semibold text-[#1B1B1B]">{company.employees.toLocaleString()}</span>
+                <span className="font-semibold" style={{ color: 'var(--cc-text)' }}>{company.employees.toLocaleString()}</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-[#6B7280]">
+              <div className="flex items-center gap-2 text-sm" style={{ color: 'var(--cc-text-secondary)' }}>
                 <Zap className="w-4 h-4 text-[#10B981]" />
                 <span className="font-semibold text-[#10B981]">{company.totalSavings} identified</span>
               </div>
@@ -446,14 +446,14 @@ function DivisionDashboard({ company }: { company: CompanyData }) {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.2, delay: i * 0.04 }}
-            className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5"
+            className="rounded-2xl shadow-sm p-5" style={{ background: 'var(--cc-bg-card)', borderColor: 'var(--cc-border)', borderWidth: 1, borderStyle: 'solid' }}
           >
-            <p className="text-xs font-medium text-[#6B7280] uppercase tracking-wide mb-2">
+            <p className="text-xs font-medium uppercase tracking-wide mb-2" style={{ color: 'var(--cc-text-secondary)' }}>
               {metric.label}
             </p>
             <div className="flex items-end justify-between">
               <div>
-                <p className="text-2xl font-bold text-[#1B1B1B]">{metric.value}</p>
+                <p className="text-2xl font-bold" style={{ color: 'var(--cc-text)' }}>{metric.value}</p>
                 <div className="flex items-center gap-1 mt-1">
                   {(() => {
                     const isGood = metric.trendPositive;
@@ -478,8 +478,8 @@ function DivisionDashboard({ company }: { company: CompanyData }) {
       </div>
 
       {/* Section 3: Savings Breakdown */}
-      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
-        <h3 className="text-sm font-semibold text-[#1B1B1B] uppercase tracking-wide mb-4">
+      <div className="rounded-2xl shadow-sm p-6" style={{ background: 'var(--cc-bg-card)', borderColor: 'var(--cc-border)', borderWidth: 1, borderStyle: 'solid' }}>
+        <h3 className="text-sm font-semibold uppercase tracking-wide mb-4" style={{ color: 'var(--cc-text)' }}>
           Savings Breakdown ($K)
         </h3>
         <div className="h-56">
@@ -500,22 +500,22 @@ function DivisionDashboard({ company }: { company: CompanyData }) {
       </div>
 
       {/* Section 4: Before & After Comparison */}
-      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
-        <h3 className="text-sm font-semibold text-[#1B1B1B] uppercase tracking-wide mb-4">
+      <div className="rounded-2xl shadow-sm p-6" style={{ background: 'var(--cc-bg-card)', borderColor: 'var(--cc-border)', borderWidth: 1, borderStyle: 'solid' }}>
+        <h3 className="text-sm font-semibold uppercase tracking-wide mb-4" style={{ color: 'var(--cc-text)' }}>
           Before &amp; After
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {company.beforeAfter.map((item) => (
             <div
               key={item.label}
-              className="rounded-xl border border-gray-100 bg-[#FAFBFF] p-4 text-center"
+              className="rounded-xl p-4 text-center" style={{ background: 'var(--cc-bg-elevated)', borderColor: 'var(--cc-border)', borderWidth: 1, borderStyle: 'solid' }}
             >
-              <p className="text-xs font-medium text-[#6B7280] uppercase tracking-wide mb-3">
+              <p className="text-xs font-medium uppercase tracking-wide mb-3" style={{ color: 'var(--cc-text-secondary)' }}>
                 {item.label}
               </p>
               <div className="flex items-center justify-center gap-2">
                 <span className="text-lg font-bold font-mono text-[#EF4444]/70">{item.before}</span>
-                <ArrowRight className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                <ArrowRight className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--cc-text-tertiary)' }} />
                 <span className="text-lg font-bold font-mono text-[#10B981]">{item.after}</span>
               </div>
             </div>
@@ -524,30 +524,30 @@ function DivisionDashboard({ company }: { company: CompanyData }) {
       </div>
 
       {/* Section 5: Active Automations */}
-      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
-        <h3 className="text-sm font-semibold text-[#1B1B1B] uppercase tracking-wide mb-4">
+      <div className="rounded-2xl shadow-sm p-6" style={{ background: 'var(--cc-bg-card)', borderColor: 'var(--cc-border)', borderWidth: 1, borderStyle: 'solid' }}>
+        <h3 className="text-sm font-semibold uppercase tracking-wide mb-4" style={{ color: 'var(--cc-text)' }}>
           Active Automations
         </h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-gray-100">
-                <th className="text-left py-2 pr-4 text-xs font-semibold text-[#6B7280] uppercase tracking-wide">
+              <tr className="border-b" style={{ borderColor: 'var(--cc-border)' }}>
+                <th className="text-left py-2 pr-4 text-xs font-semibold uppercase tracking-wide" style={{ color: 'var(--cc-text-secondary)' }}>
                   Workflow
                 </th>
-                <th className="text-left py-2 pr-4 text-xs font-semibold text-[#6B7280] uppercase tracking-wide">
+                <th className="text-left py-2 pr-4 text-xs font-semibold uppercase tracking-wide" style={{ color: 'var(--cc-text-secondary)' }}>
                   Department
                 </th>
-                <th className="text-left py-2 text-xs font-semibold text-[#6B7280] uppercase tracking-wide">
+                <th className="text-left py-2 text-xs font-semibold uppercase tracking-wide" style={{ color: 'var(--cc-text-secondary)' }}>
                   Status
                 </th>
               </tr>
             </thead>
             <tbody>
               {company.automations.map((a) => (
-                <tr key={a.name} className="border-b border-gray-50 last:border-0">
-                  <td className="py-2.5 pr-4 font-medium text-[#1B1B1B]">{a.name}</td>
-                  <td className="py-2.5 pr-4 text-[#6B7280]">{a.department}</td>
+                <tr key={a.name} className="border-b last:border-0">
+                  <td className="py-2.5 pr-4 font-medium" style={{ color: 'var(--cc-text)' }}>{a.name}</td>
+                  <td className="py-2.5 pr-4" style={{ color: 'var(--cc-text-secondary)' }}>{a.department}</td>
                   <td className="py-2.5">
                     <StatusDot status={a.status} />
                   </td>
@@ -579,14 +579,14 @@ export default function Stories() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.25 }}
       >
-        <h1 className="text-3xl font-bold text-[#1B1B1B]">Division Performance</h1>
-        <p className="text-[#6B7280] mt-1 text-lg">
+        <h1 className="text-3xl font-bold" style={{ color: 'var(--cc-text)' }}>Division Performance</h1>
+        <p className="mt-1 text-lg" style={{ color: 'var(--cc-text-secondary)' }}>
           Transformation results across all 7 Herzog divisions
         </p>
       </motion.div>
 
       {/* Division Switcher Tab Bar */}
-      <div className="border-b border-gray-200">
+      <div className="border-b" style={{ borderColor: 'var(--cc-border)' }}>
         <nav className="flex gap-1 -mb-px overflow-x-auto scrollbar-hide" style={{ WebkitOverflowScrolling: 'touch' }} aria-label="Division tabs">
           {divisions.map((division, index) => (
             <button
@@ -595,8 +595,9 @@ export default function Stories() {
               className={`relative whitespace-nowrap px-5 py-3 text-sm font-medium transition-colors ${
                 activeIndex === index
                   ? 'text-[#4285F4] font-semibold'
-                  : 'text-[#6B7280] hover:text-[#1B1B1B]'
+                  : ''
               }`}
+              style={activeIndex !== index ? { color: 'var(--cc-text-secondary)' } : undefined}
             >
               <span className="flex items-center gap-2">
                 <Building2 className="w-4 h-4" />

@@ -513,7 +513,7 @@ export default function TechStack() {
                 Projected ROI:{' '}
                 <span className="font-mono text-green-500">6x in year one</span>
               </p>
-              <p className="text-sm font-semibold text-gray-700 flex items-center gap-1">
+              <p className="text-sm font-semibold flex items-center gap-1" style={{ color: 'var(--cc-text)' }}>
                 <Zap className="w-4 h-4 text-amber-500" />
                 Timeline:{' '}
                 <span className="font-mono" style={{ color: 'var(--cc-text)' }}>16 weeks</span>

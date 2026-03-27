@@ -28,10 +28,17 @@ function fmtFull(n: number): string {
 }
 
 function actionColor(action: string): string {
-  if (action.startsWith('Reclaim')) return 'bg-emerald-100 text-emerald-700';
-  if (action.startsWith('Replace')) return 'bg-blue-100 text-blue-700';
-  if (action.startsWith('Downgrade')) return 'bg-yellow-100 text-yellow-700';
-  return 'bg-gray-100 text-gray-600';
+  if (action.startsWith('Reclaim')) return 'text-emerald-400';
+  if (action.startsWith('Replace')) return 'text-blue-400';
+  if (action.startsWith('Downgrade')) return 'text-yellow-400';
+  return 'text-gray-400';
+}
+
+function actionBgStyle(action: string): React.CSSProperties {
+  if (action.startsWith('Reclaim')) return { background: 'var(--cc-green-dim)' };
+  if (action.startsWith('Replace')) return { background: 'var(--cc-accent-glow)' };
+  if (action.startsWith('Downgrade')) return { background: 'var(--cc-yellow-dim)' };
+  return { background: 'var(--cc-bg-input)' };
 }
 
 function usagePct(l: License): number {
@@ -83,7 +90,7 @@ export default function LicenseAudit() {
   return (
     <div className="space-y-10">
       {/* Preliminary Estimate Banner */}
-      <span className="text-xs text-slate-400 bg-slate-100 px-3 py-1 rounded inline-block">
+      <span className="text-xs px-3 py-1 rounded inline-block" style={{ color: 'var(--cc-text-secondary)', background: 'var(--cc-bg-card)' }}>
         Preliminary Estimate — Based on Industry Benchmarks
       </span>
 
@@ -92,20 +99,20 @@ export default function LicenseAudit() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.25 }}
-        className="bg-white rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04)] border border-gray-100 p-8 flex flex-col lg:flex-row items-center gap-10"
+        className="rounded-2xl shadow-sm p-8 flex flex-col lg:flex-row items-center gap-10" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
       >
         {/* Left — hero number */}
         <div className="flex-1 text-center lg:text-left">
           <div className="flex items-center justify-center lg:justify-start gap-3 mb-3">
             <ShieldAlert className="w-7 h-7 text-[#EF4444]" />
-            <span className="text-sm font-semibold uppercase tracking-wider text-gray-500">
+            <span className="text-sm font-semibold uppercase tracking-wider" style={{ color: 'var(--cc-text-secondary)' }}>
               License Waste Summary
             </span>
           </div>
           <p className="text-5xl md:text-6xl font-mono font-bold text-[#EF4444] leading-none">
             {fmt(totalWaste)}/yr
           </p>
-          <p className="mt-3 text-lg text-gray-500">in recoverable license waste</p>
+          <p className="mt-3 text-lg" style={{ color: 'var(--cc-text-secondary)' }}>in recoverable license waste</p>
         </div>
 
         {/* Right — donut chart */}
@@ -128,7 +135,7 @@ export default function LicenseAudit() {
               </Pie>
               <Tooltip
                 formatter={(value) => fmtFull(value as number)}
-                contentStyle={{ borderRadius: 8, border: 'none', boxShadow: '0 2px 8px rgba(0,0,0,.12)' }}
+                contentStyle={{ borderRadius: 8, border: '1px solid var(--cc-border)', boxShadow: '0 2px 8px rgba(0,0,0,.3)', background: 'var(--cc-bg-card)', color: 'var(--cc-text)' }}
               />
               <Legend
                 verticalAlign="bottom"
@@ -146,17 +153,17 @@ export default function LicenseAudit() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.25, delay: 0.08 }}
-        className="bg-white rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04)] border border-gray-100 overflow-hidden"
+        className="rounded-2xl shadow-sm overflow-hidden" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
       >
         <div className="px-8 pt-6 pb-4">
-          <h2 className="text-xl font-semibold text-gray-900">License Inventory</h2>
-          <p className="text-sm text-gray-500 mt-1">Click any row for detailed breakdown</p>
+          <h2 className="text-xl font-semibold" style={{ color: 'var(--cc-text)' }}>License Inventory</h2>
+          <p className="text-sm mt-1" style={{ color: 'var(--cc-text-secondary)' }}>Click any row for detailed breakdown</p>
         </div>
 
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-gray-100 text-left text-xs font-semibold uppercase tracking-wider text-gray-500">
+              <tr className="text-left text-xs font-semibold uppercase tracking-wider" style={{ borderBottom: '1px solid var(--cc-border)', color: 'var(--cc-text-secondary)' }}>
                 <th className="px-8 py-3">Vendor</th>
                 <th className="px-4 py-3">Dept</th>
                 <th className="px-4 py-3 text-right">Total</th>
@@ -175,19 +182,18 @@ export default function LicenseAudit() {
                   <React.Fragment key={l.vendor}>
                     <tr
                       onClick={() => toggle(i)}
-                      className={`cursor-pointer transition-colors border-b border-gray-100 ${
-                        i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'
-                      } hover:bg-[#F0F4FF]`}
+                      className="cursor-pointer transition-colors"
+                      style={{ borderBottom: '1px solid var(--cc-border)', background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)' }}
                     >
-                      <td className="px-8 py-4 font-semibold text-gray-900">{l.vendor}</td>
-                      <td className="px-4 py-4 text-gray-600">{l.department}</td>
-                      <td className="px-4 py-4 text-right font-mono text-gray-700">
+                      <td className="px-8 py-4 font-semibold" style={{ color: 'var(--cc-text)' }}>{l.vendor}</td>
+                      <td className="px-4 py-4" style={{ color: 'var(--cc-text-secondary)' }}>{l.department}</td>
+                      <td className="px-4 py-4 text-right font-mono" style={{ color: 'var(--cc-text)' }}>
                         {l.totalLicenses.toLocaleString()}
                       </td>
-                      <td className="px-4 py-4 text-right font-mono text-gray-700">
+                      <td className="px-4 py-4 text-right font-mono" style={{ color: 'var(--cc-text)' }}>
                         {l.active90d.toLocaleString()}
                       </td>
-                      <td className="px-4 py-4 text-right font-mono text-gray-700">
+                      <td className="px-4 py-4 text-right font-mono" style={{ color: 'var(--cc-text)' }}>
                         {l.inactive.toLocaleString()}
                       </td>
                       <td className="px-4 py-4 text-right font-mono font-semibold text-[#EF4444]">
@@ -201,11 +207,12 @@ export default function LicenseAudit() {
                       <td className="px-4 py-4 text-center">
                         <span
                           className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${actionColor(l.action)}`}
+                          style={actionBgStyle(l.action)}
                         >
                           {l.action}
                         </span>
                       </td>
-                      <td className="px-4 py-4 text-gray-400">
+                      <td className="px-4 py-4" style={{ color: 'var(--cc-text-tertiary)' }}>
                         {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                       </td>
                     </tr>
@@ -222,13 +229,13 @@ export default function LicenseAudit() {
                               transition={{ duration: 0.25 }}
                               className="overflow-hidden"
                             >
-                              <div className="px-8 py-6 bg-[#F0F4FF] border-b border-gray-100 grid md:grid-cols-4 gap-6">
+                              <div className="px-8 py-6 grid md:grid-cols-4 gap-6" style={{ background: 'var(--cc-bg-input)', borderBottom: '1px solid var(--cc-border)' }}>
                                 {/* Usage bar */}
                                 <div>
-                                  <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2">
+                                  <p className="text-xs font-semibold uppercase tracking-wider mb-2">
                                     Usage (90-day)
                                   </p>
-                                  <div className="w-full h-4 bg-gray-200 rounded-full overflow-hidden">
+                                  <div className="w-full h-4 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
                                     <div
                                       className="h-full rounded-full"
                                       style={{
@@ -242,48 +249,48 @@ export default function LicenseAudit() {
                                       }}
                                     />
                                   </div>
-                                  <p className="mt-1 text-sm font-mono text-gray-600">
+                                  <p className="mt-1 text-sm font-mono" style={{ color: 'var(--cc-text-secondary)' }}>
                                     {usagePct(l)}% active ({l.active90d} / {l.totalLicenses})
                                   </p>
                                 </div>
 
                                 {/* Cost per license */}
                                 <div>
-                                  <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2">
+                                  <p className="text-xs font-semibold uppercase tracking-wider mb-2">
                                     Cost per License
                                   </p>
-                                  <p className="text-2xl font-mono font-bold text-gray-900">
+                                  <p className="text-2xl font-mono font-bold" style={{ color: 'var(--cc-text)' }}>
                                     {fmtFull(l.costPerLicense)}
                                   </p>
-                                  <p className="text-sm text-gray-500 mt-1">per seat / year</p>
+                                  <p className="text-sm mt-1" style={{ color: 'var(--cc-text-secondary)' }}>per seat / year</p>
                                 </div>
 
                                 {/* Recommendation */}
                                 <div>
-                                  <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2">
+                                  <p className="text-xs font-semibold uppercase tracking-wider mb-2">
                                     Recommended Action
                                   </p>
-                                  <p className="text-sm text-gray-700 leading-relaxed">
+                                  <p className="text-sm leading-relaxed" style={{ color: 'var(--cc-text-secondary)' }}>
                                     {actionDescription(l)}
                                   </p>
                                 </div>
 
                                 {/* Compliance risk */}
                                 <div>
-                                  <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2">
+                                  <p className="text-xs font-semibold uppercase tracking-wider mb-2">
                                     Compliance Risk
                                   </p>
                                   {l.complianceRisk ? (
                                     <div className="flex items-center gap-2">
                                       <AlertTriangle size={16} className="text-red-500" />
-                                      <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-red-50 text-red-700">
+                                      <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold text-red-400" style={{ background: 'var(--cc-red-dim)' }}>
                                         Compliance Risk
                                       </span>
                                     </div>
                                   ) : (
-                                    <p className="text-sm text-gray-400">No compliance risk identified</p>
+                                    <p className="text-sm" style={{ color: 'var(--cc-text-tertiary)' }}>No compliance risk identified</p>
                                   )}
-                                  <p className="text-xs text-gray-400 mt-2">
+                                  <p className="text-xs mt-2" style={{ color: 'var(--cc-text-tertiary)' }}>
                                     Last audited: {l.lastAuditDate}
                                   </p>
                                 </div>
