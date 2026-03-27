@@ -80,21 +80,64 @@
 
 ---
 
-## Act 3: "It's Already Working" (7-9 min)
+## Act 3: "How It Actually Works" — The CTO Moment (7-11 min)
 
-**Switch to Tab 2 — Lastmile (already loaded)**
+**This is where you win the CTO. Show the platform infrastructure.**
 
-> "This is what the operational view looks like once deployed."
+### 3A: Integration Hub (Command Center — Tab 1)
 
-*Keep this section SHORT — 90 seconds max*
+**Navigate to Integration Hub in the Platform section**
 
-> "Real-time monitoring of track geometry analysis, crew dispatch optimization, equipment utilization. Each division's adoption is tracked independently."
+> "Let me show you how this actually works under the hood."
 
-**Click into Impact page → show verified savings per division**
+- Show the 8 connected data sources with coverage percentages
+- > "We connect to your systems through MCP — Model Context Protocol. SAP, Primavera, Kronos, PTC — all your existing platforms."
+- Show the Assessment Methodology cards
+- Show the Data Security panel
+- > "Everything runs in your VPC. No data leaves your network. SOC 2 Type II certified."
 
-> "The impact page shows verified results — not projections, but measured savings from AI-assisted operations."
+### 3B: AI Infrastructure (Lastmile — Tab 2)
 
-**If CTO asks questions, let them drive. If not, move to Act 4.**
+**Switch to Tab 2 → Navigate to AI Infrastructure**
+
+> "Command Center is the assessment — day one. This is the ongoing platform."
+
+- Show the 5-stage pipeline: CONNECT → INGEST → ANALYZE → VERIFY → DEPLOY
+- > "This is the full architecture. What you saw in Command Center is stage one."
+- Show the Technology Stack panel (GPT-4o, Claude, custom models, Kafka, K8s)
+- Show the Deployment Architecture diagram
+- > "This runs inside your infrastructure. On-premise or your cloud."
+
+### 3C: System Connectors
+
+**Navigate to System Connectors**
+
+- Show the 8 active MCP connections with real-time status
+- > "Primavera P6 — last sync 7 minutes ago, 1,247 active projects mapped."
+- Show the pending connections table
+- > "Your custom dispatch system is next — we just need IT credentials."
+
+### 3D: AI Reliability (The Trust Layer)
+
+**Navigate to AI Reliability**
+
+- Show the 94.2% trust score
+- > "Every AI output is tested continuously. PTC Signal Verification is at 99.1% accuracy."
+- Show the Human-in-the-Loop queue
+- > "When the AI isn't confident enough, it flags for human review. Your FRA safety standards are never compromised."
+
+### 3E: Adoption Dashboard (The CEO's Weekly View)
+
+**Navigate to Adoption Dashboard**
+
+- Show the 38% overall adoption bar → "This is your progress bar."
+- Show division breakdown → "HTI is leading at 52%. Green Group needs attention."
+- Show the AI tools grid → "Track Geometry AI has 89 users running 340 analyses per week."
+- Show the blockers → "Custom dispatch is the main bottleneck."
+
+> "This is the page you'd check every week. It tells you exactly where AI adoption stands across all 7 divisions."
+
+**If CTO asks questions, let them drive the rest of Act 3. If time is short, skip 3E.**
 
 ---
 
@@ -129,9 +172,19 @@
 > "The assessment is a [PRICE] fixed engagement over [X] weeks. The platform subscription follows based on what we find. The assessment typically pays for itself within the first quarter."
 
 ### If CTO asks about integration:
-> "We connect to your existing systems — SAP, Primavera, your PTC platforms, Kronos for workforce data. No rip-and-replace. Our connectors sit alongside your current tools."
+> "We connect to your existing systems through MCP — Model Context Protocol. Let me show you."
 
-*Navigate to Tech Stack Mapping page to show the migration map*
+*Navigate to Integration Hub (Command Center) or System Connectors (Lastmile) to show live connections*
+
+> "SAP, Primavera, Kronos, PTC — all your existing platforms. No rip-and-replace. Our connectors sit alongside your current tools."
+
+### If CTO asks about AI safety/reliability:
+*Navigate to AI Reliability page*
+> "Every AI output is tested against 847 test cases daily. FRA-critical workflows require 95%+ confidence — below that, it flags for human review. PTC Signal Verification is at 99.1% accuracy — we're submitting for FRA certification."
+
+### If CTO asks "can you really connect to Primavera P6?":
+*Navigate to System Connectors → Primavera card*
+> "We already have the connector built. 87% schema coverage. Full integration takes about 3 days once we have credentials."
 
 ### If they seem skeptical about the numbers:
 > "Fair question. These are estimates based on industry benchmarks. Let me show you how we calculated them."
