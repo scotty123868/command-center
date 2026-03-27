@@ -654,10 +654,6 @@ export default function Dashboard() {
           </h1>
           <div className="flex flex-wrap items-center gap-2">
             <span className="rounded-full bg-gray-50 px-3 py-1 text-[12px] font-medium text-gray-600">
-              {company.revenue} Revenue
-            </span>
-            <span className="text-gray-300">&middot;</span>
-            <span className="rounded-full bg-gray-50 px-3 py-1 text-[12px] font-medium text-gray-600">
               {company.employees.toLocaleString()} Employees
             </span>
             <span className="text-gray-300">&middot;</span>
@@ -759,7 +755,7 @@ export default function Dashboard() {
                     <span className="text-[11px] text-gray-500">
                       {sub.employees.toLocaleString()} employees
                     </span>
-                    <span className="text-[11px] text-gray-500">{sub.revenue}</span>
+                    <span className="text-[11px] text-gray-500">{sub.industry}</span>
                     <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-700">
                       {roiPct}% ROI
                     </span>

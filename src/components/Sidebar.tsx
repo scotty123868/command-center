@@ -249,7 +249,7 @@ export default function Sidebar({ onNavClick, onClose }: { onNavClick?: () => vo
                               {c.shortName}
                             </span>
                             <span className="text-[10px] text-[#6B6B73] truncate block">
-                              {c.industry} · {c.revenue}
+                              {c.industry} · {c.employees.toLocaleString()} emp
                             </span>
                           </div>
                           {isSelected && (

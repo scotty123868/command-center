@@ -6,7 +6,6 @@ import {
   ArrowRight,
   Building2,
   Users,
-  DollarSign,
   Zap,
 } from 'lucide-react';
 import {
@@ -51,7 +50,6 @@ interface CompanyData {
   name: string;
   industry: string;
   employees: number;
-  revenue: string;
   aiScoreBefore: number;
   aiScoreAfter: number;
   totalSavings: string;
@@ -68,7 +66,7 @@ const divisions: CompanyData[] = [
     name: 'Herzog Contracting Corp',
     industry: 'Rail & Highway Construction',
     employees: 1200,
-    revenue: '$340M',
+
     aiScoreBefore: 32,
     aiScoreAfter: 78,
     totalSavings: '$2.1M/yr',
@@ -103,7 +101,7 @@ const divisions: CompanyData[] = [
     name: 'Herzog Railroad Services',
     industry: 'Railroad Maintenance & Equipment',
     employees: 380,
-    revenue: '$120M',
+
     aiScoreBefore: 36,
     aiScoreAfter: 80,
     totalSavings: '$820K/yr',
@@ -138,7 +136,7 @@ const divisions: CompanyData[] = [
     name: 'Herzog Services (Rail Testing)',
     industry: 'Ultrasonic Rail Testing',
     employees: 220,
-    revenue: '$65M',
+
     aiScoreBefore: 42,
     aiScoreAfter: 84,
     totalSavings: '$680K/yr',
@@ -173,7 +171,7 @@ const divisions: CompanyData[] = [
     name: 'Herzog Technologies',
     industry: 'Signal & PTC Systems',
     employees: 310,
-    revenue: '$95M',
+
     aiScoreBefore: 48,
     aiScoreAfter: 86,
     totalSavings: '$740K/yr',
@@ -208,7 +206,7 @@ const divisions: CompanyData[] = [
     name: 'Herzog Transit Services',
     industry: 'Passenger Rail Operations',
     employees: 480,
-    revenue: '$110M',
+
     aiScoreBefore: 40,
     aiScoreAfter: 82,
     totalSavings: '$860K/yr',
@@ -243,7 +241,7 @@ const divisions: CompanyData[] = [
     name: 'Herzog Energy',
     industry: 'Energy Infrastructure',
     employees: 120,
-    revenue: '$45M',
+
     aiScoreBefore: 34,
     aiScoreAfter: 76,
     totalSavings: '$360K/yr',
@@ -278,7 +276,7 @@ const divisions: CompanyData[] = [
     name: 'Green Group LLC',
     industry: 'Environmental Services',
     employees: 90,
-    revenue: '$25M',
+
     aiScoreBefore: 30,
     aiScoreAfter: 72,
     totalSavings: '$240K/yr',
@@ -424,10 +422,6 @@ function DivisionDashboard({ company }: { company: CompanyData }) {
               <p className="text-sm text-[#6B7280]">{company.industry}</p>
             </div>
             <div className="hidden sm:flex items-center gap-6 pl-6 border-l border-gray-200">
-              <div className="flex items-center gap-2 text-sm text-[#6B7280]">
-                <DollarSign className="w-4 h-4" />
-                <span className="font-semibold text-[#1B1B1B]">{company.revenue}</span>
-              </div>
               <div className="flex items-center gap-2 text-sm text-[#6B7280]">
                 <Users className="w-4 h-4" />
                 <span className="font-semibold text-[#1B1B1B]">{company.employees.toLocaleString()}</span>

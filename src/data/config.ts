@@ -2,7 +2,6 @@ export interface CompanyConfig {
   name: string;
   industry: string;
   employees: number;
-  revenue: string;
   opCos: number;
   techSpend: string;
   aiReadinessScore: number;
@@ -16,7 +15,6 @@ const defaultConfig: CompanyConfig = {
   name: 'Herzog Companies',
   industry: 'Railroad & Infrastructure Construction',
   employees: 2800,
-  revenue: '$800M',
   opCos: 7,
   techSpend: '$12.4M/yr',
   aiReadinessScore: 38,
@@ -32,7 +30,6 @@ function getConfigFromUrl(): Partial<CompanyConfig> {
   if (params.get('company')) overrides.name = params.get('company')!;
   if (params.get('industry')) overrides.industry = params.get('industry')!;
   if (params.get('employees')) overrides.employees = parseInt(params.get('employees')!);
-  if (params.get('revenue')) overrides.revenue = params.get('revenue')!;
   if (params.get('initials')) overrides.logoInitials = params.get('initials')!;
   if (params.get('opCos')) overrides.opCos = parseInt(params.get('opCos')!);
   if (params.get('techSpend')) overrides.techSpend = params.get('techSpend')!;

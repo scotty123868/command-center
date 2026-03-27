@@ -142,7 +142,6 @@ function generateReportHTML(): string {
   <div class="company-bar">
     <div class="company-name">${config.name}</div>
     <div class="company-meta">
-      <div><strong>${config.revenue}</strong> Revenue</div>
       <div><strong>${config.employees.toLocaleString()}</strong> Employees</div>
       <div><strong>${config.opCos}</strong> OpCos</div>
       <div>AI Readiness: <strong class="red">${config.aiReadinessScore}/100</strong></div>
