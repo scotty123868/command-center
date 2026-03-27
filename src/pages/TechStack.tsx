@@ -84,13 +84,13 @@ function RadialGauge({ score, size = 40 }: { score: number; size?: number }) {
 /* ── industry multipliers ────────────────────────────────────────────────── */
 
 const industryMult: Record<string, number> = {
-  Insurance: 0.38,
-  Healthcare: 0.34,
+  'Railroad & Infrastructure': 0.32,
+  'Transportation Services': 0.34,
   Manufacturing: 0.30,
-  'Financial Services': 0.36,
-  Technology: 0.32,
-  'Diversified Industrial': 0.28,
-  'Digital Government': 0.42,
+  'Energy Infrastructure': 0.28,
+  'Environmental Services': 0.26,
+  Construction: 0.30,
+  'Transit Operations': 0.34,
 };
 
 /* ══════════════════════════════════════════════════════════════════════════ */
@@ -101,8 +101,8 @@ export default function TechStack() {
 
   /* ROI calculator state */
   const [spend, setSpend] = useState(3_200_000);
-  const [employees, setEmployees] = useState(450);
-  const [industry, setIndustry] = useState('Insurance');
+  const [employees, setEmployees] = useState(2800);
+  const [industry, setIndustry] = useState('Railroad & Infrastructure');
 
   const projected = useMemo(() => {
     const base = spend * (industryMult[industry] ?? 0.33);

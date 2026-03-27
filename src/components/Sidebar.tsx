@@ -16,6 +16,7 @@ import {
   Check,
   Presentation,
   ExternalLink,
+  Network,
 } from 'lucide-react';
 import { useCompany } from '../data/CompanyContext';
 
@@ -26,6 +27,7 @@ const assessmentItems = [
   { to: '/tech-stack', icon: Layers, label: 'Tech Stack Mapping' },
   { to: '/workflows', icon: GitBranch, label: 'Workflow Automation' },
   { to: '/license-audit', icon: FileSearch, label: 'License Audit' },
+  { to: '/data-flow', icon: Network, label: 'Data Flow Intelligence' },
 ];
 
 const insightsItems = [

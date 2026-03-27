@@ -24,7 +24,7 @@ const routeTitles: Record<string, string> = {
   '/license-audit': 'License Audit',
   '/data-flow': 'Data Flow Intelligence',
   '/integrations': 'Integration Hub',
-  '/stories': 'Company Dashboards',
+  '/stories': 'Division Performance',
   '/roi-summary': 'ROI Summary',
   '/assessment': 'AI Assistant',
   '/executive-briefing': 'Executive Briefing',
@@ -101,6 +101,7 @@ function AnimatedRoutes() {
           <Route path="/stories" element={<Stories />} />
           <Route path="/roi-summary" element={<ROISummary />} />
           <Route path="/assessment" element={<Assessment />} />
+          <Route path="/ai-assistant" element={<Navigate to="/assessment" replace />} />
           <Route path="/executive-briefing" element={<ExecutiveBriefing />} />
           <Route path="/board-report" element={<BoardReportPage />} />
           <Route path="*" element={<Navigate to="/dashboard" replace />} />
@@ -111,7 +112,7 @@ function AnimatedRoutes() {
 }
 
 // Full-bleed routes: no sidebar, no top bar, no padding
-const FULL_BLEED_ROUTES = ['/assessment', '/board-report'];
+const FULL_BLEED_ROUTES = ['/board-report'];
 
 export default function App() {
   const location = useLocation();

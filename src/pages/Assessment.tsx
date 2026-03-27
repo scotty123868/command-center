@@ -19,13 +19,13 @@ const conversation: Message[] = [
   {
     role: 'ai',
     content:
-      'I analyzed your full tech stack across all 4 OpCos. Here are the top three areas of recoverable spend:',
+      'I analyzed your full tech stack across all 7 divisions (HCC, HRSI, HSI, HTI, HTSI, Herzog Energy, Green Group). Here are the top three areas of recoverable spend:',
     table: {
       headers: ['Tool', 'Annual Waste', 'Root Cause'],
       rows: [
-        ['Microsoft 365', '$680K', '340 unused licenses across 3 OpCos'],
-        ['Salesforce CRM', '$445K', '89 inactive seats, duplicate orgs'],
-        ['Concur Expense', '$340K', 'Legacy contract; recommend Ramp migration'],
+        ['SAP ERP', '$680K', '340 unused licenses across 5 divisions'],
+        ['Primavera P6', '$445K', '89 inactive seats, duplicate project instances'],
+        ['Kronos/UKG Workforce', '$340K', 'Legacy contract; underutilized scheduling modules'],
       ],
     },
   },
@@ -42,35 +42,35 @@ const conversation: Message[] = [
         {
           title: '1. License Management & Provisioning',
           detail:
-            '85% automatable | $1.2M annual savings | 3-week implementation. Currently manual across all OpCos with 12+ hours/week spent on provisioning. Low complexity, high-confidence win.',
+            '85% automatable | $1.2M annual savings | 3-week implementation. Currently manual across all 7 divisions with 12+ hours/week spent on provisioning. Low complexity, high-confidence win.',
         },
         {
-          title: '2. Call Center Tier-1 Resolution',
+          title: '2. Equipment Dispatch & GPS Fleet Optimization',
           detail:
-            '60% automatable | $580K annual savings | 18-week implementation. AI agent can handle password resets, status checks, and FAQ routing. Requires careful prompt engineering and escalation rules.',
+            '60% automatable | $580K annual savings | 18-week implementation. AI agent can optimize Trimble GPS Fleet routing, Custom Dispatch System scheduling, and crew allocation across HCC and HRSI.',
         },
         {
-          title: '3. Expense Report Processing',
+          title: '3. FRA Compliance & Track Inspection Reporting',
           detail:
-            '90% automatable | $240K annual savings | 8-week implementation. Replace Concur with Ramp + AI receipt matching. Already proven at scale in similar PE portfolios.',
+            '90% automatable | $240K annual savings | 8-week implementation. Integrate TAM-4 Geometry Car data with PTC Signal Systems telemetry for automated FRA compliance reporting. Already proven at scale in railroad operations.',
         },
       ],
     },
   },
   {
     role: 'user',
-    content: 'What would it take to build a data lake connecting all 4 OpCos?',
+    content: 'What would it take to build a data lake connecting all 7 divisions?',
   },
   {
     role: 'ai',
     content:
-      'Great question. Unifying your data is the highest-leverage long-term investment. Here\'s the recommended approach:\n\n**Architecture:** Databricks Lakehouse on Azure (aligns with your existing M365 footprint)\n\n**Data Connectors Needed:**\n- SAP ERP (OpCo 1 & 2) via SAP CDC connector\n- FileMaker Pro (OpCo 3) via REST API export\n- Excel/Access databases (OpCo 4) via scheduled ETL\n- Salesforce (all OpCos) via Fivetran\n\n**Key Challenge:** Entity resolution across OpCos. Customer "Acme Corp" exists in 3 different systems with different IDs. You\'ll need a master data management (MDM) layer.\n\n**Timeline:** 20 weeks to production-ready MVP\n**Investment:** ~$200K (infrastructure + implementation)\n**Projected ROI:** 19x over 3 years ($3.8M in cross-sell identification, duplicate elimination, and consolidated reporting)\n\nThis is Phase 3 on your transformation roadmap. I recommend completing the license audit and workflow automation first to fund this initiative.',
+      'Great question. Unifying your data is the highest-leverage long-term investment. Here\'s the recommended approach:\n\n**Architecture:** Databricks Lakehouse on Azure (aligns with your existing M365 footprint)\n\n**Data Connectors Needed:**\n- SAP ERP (HCC, HRSI, HTI) via SAP CDC connector\n- Primavera P6 (HCC, Herzog Energy) via REST API export\n- Custom Dispatch System (built 2009) via scheduled ETL\n- Trimble GPS Fleet Tracking (HCC, HRSI) via API integration\n- TAM-4 Geometry Car Data (HSI) via streaming pipeline\n- PTC Signal Telemetry (HTI) via real-time connector\n- FRA Compliance Database via regulatory data pipeline\n\n**Key Challenge:** Entity resolution across divisions. Equipment "Track Loader #2847" exists in 3 different systems with different IDs. You\'ll need a master data management (MDM) layer.\n\n**Timeline:** 20 weeks to production-ready MVP\n**Investment:** ~$200K (infrastructure + implementation)\n**Projected ROI:** 19x over 3 years ($3.8M in cross-division equipment sharing, duplicate elimination, and consolidated reporting)\n\nThis is Phase 3 on your transformation roadmap. I recommend completing the license audit and workflow automation first to fund this initiative.',
   },
 ];
 
 const suggestedQuestions = [
-  'Show me cross-OpCo data gaps',
-  'Compare Salesforce vs Day.ai migration',
+  'Show me cross-division data gaps',
+  'Compare SAP ERP consolidation options',
   "What's our AI readiness score?",
   'Generate Q1 board report',
 ];
@@ -184,7 +184,7 @@ function AIMessage({
               </tbody>
             </table>
             <div className="bg-red-50 px-4 py-2.5 text-[12px] font-semibold text-red-700">
-              Total recoverable: $2.1M/yr
+              Total recoverable: $2.8M/yr
             </div>
           </div>
         )}
@@ -263,7 +263,7 @@ export default function Assessment() {
   let delayCounter = 0;
 
   return (
-    <div className="flex flex-col" style={{ height: 'calc(100vh - 56px)' }}>
+    <div className="flex flex-col" style={{ height: 'calc(100vh - 160px)' }}>
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -8 }}

@@ -821,7 +821,7 @@ export default function Dashboard() {
         </KpiCard>
 
         <KpiCard
-          label="License Waste"
+          label={timelineMonth === 0 ? 'License Waste (Current)' : `License Waste (Month ${timelineMonth})`}
           sparklineData={companyKpis.licenseSparkline}
           sparklineColor="#EF4444"
           sparklineId="license"
@@ -832,6 +832,11 @@ export default function Dashboard() {
             {fmtCompact(tlData.waste)}
             <span className="text-[14px] font-semibold text-gray-400">/yr</span>
           </p>
+          {timelineMonth > 0 && (
+            <p className="text-[10px] text-gray-400 mt-1">
+              Started at {fmtCompact(companyKpis.unusedLicenseWaste)} &middot; {fmtCompact(companyKpis.unusedLicenseWaste - tlData.waste)} recovered
+            </p>
+          )}
         </KpiCard>
       </div>
 
@@ -1024,7 +1029,7 @@ export default function Dashboard() {
             const isActive = phase.status === 'active';
             return (
               <div
-                key={phase.quarter}
+                key={`mobile-${phase.quarter}`}
                 className={`rounded-xl border p-5 ${
                   isActive ? 'border-[#4285F4]/30 bg-blue-50/40' : 'border-gray-100'
                 }`}

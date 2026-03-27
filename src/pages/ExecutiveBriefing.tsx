@@ -90,7 +90,7 @@ export default function ExecutiveBriefing() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   return (
-    <div ref={scrollRef} className="relative space-y-8 pb-16">
+    <div ref={scrollRef} className="relative space-y-8 pb-4">
       {/* Scroll progress line */}
       <div className="absolute left-0 top-0 bottom-0 w-px bg-gray-100 hidden lg:block" style={{ marginLeft: '-1px' }}>
         <motion.div

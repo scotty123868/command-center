@@ -348,6 +348,9 @@ export default function Workflows() {
       </div>
 
       {/* ── workflow scoping cards ── */}
+      <p className="text-xs text-gray-400 bg-gray-50 px-3 py-1.5 rounded-lg inline-block">
+        Showing top {workflows.length} of 47 workflows analyzed
+      </p>
       <div className="space-y-3">
         {workflows.map((wf: Workflow, i: number) => (
           <WorkflowCard key={wf.name} wf={wf} index={i} />

@@ -13,6 +13,7 @@ import {
   BarChart3,
   ShieldCheck,
 } from 'lucide-react';
+import PreliminaryBanner from '../components/PreliminaryBanner';
 
 /* ── Gap Data ────────────────────────────────────────────────────────────── */
 
@@ -40,10 +41,10 @@ const gaps: GapDetail[] = [
     impact: '$400K/yr',
     impactNum: 400000,
     sourceList: [
-      'QuickBooks Enterprise (OpCo 1)',
-      'Sage Intacct (OpCo 2)',
-      'NetSuite (OpCo 3)',
-      'Legacy Great Plains (OpCo 4)',
+      'SAP ERP (HCC, HRSI, HTI)',
+      'Primavera P6 (HCC, Herzog Energy)',
+      'Custom Dispatch System (built 2009)',
+      'FRA Compliance Database (HSI)',
     ],
     missingLayer:
       'No unified chart of accounts or general ledger aggregation layer exists. Each entity closes books independently with different timelines, account structures, and reporting standards.',
@@ -54,7 +55,7 @@ const gaps: GapDetail[] = [
       'Board-ready financial dashboards',
     ],
     recommendedSolution:
-      'Deploy a unified chart of accounts in Databricks Lakehouse with automated ETL from all 4 systems. Estimated implementation: 8-12 weeks.',
+      'Deploy a unified chart of accounts in Databricks Lakehouse with automated ETL from SAP ERP, Primavera P6, and legacy systems. Estimated implementation: 8-12 weeks.',
   },
   {
     id: 2,
@@ -65,10 +66,10 @@ const gaps: GapDetail[] = [
     impact: '$890K/yr',
     impactNum: 890000,
     sourceList: [
-      'SAP MM (partial — OpCo 2 only)',
-      'FileMaker Pro (OpCo 1 fleet tracking)',
-      '47 Excel spreadsheets across field offices',
-      'Microsoft Access DB (legacy maintenance logs)',
+      'Trimble GPS Fleet Tracking (HCC, HRSI)',
+      'Custom Dispatch System (equipment scheduling)',
+      'TAM-4 Geometry Car Data (HSI rail testing)',
+      'Kronos/UKG Workforce (maintenance crew logs)',
     ],
     missingLayer:
       'No single source of truth for equipment inventory, location, condition, or maintenance history. Asset IDs are inconsistent across systems, preventing cross-referencing.',
@@ -90,9 +91,9 @@ const gaps: GapDetail[] = [
     impact: '$340K/yr',
     impactNum: 340000,
     sourceList: [
-      'Salesforce CRM (OpCo 1 — 60% adoption)',
-      'Google Sheets (OpCo 2-4 customer lists)',
-      'Email threads and attachments (deal history)',
+      'SAP ERP (partial customer data — HCC only)',
+      'PTC Signal Telemetry (HTI client deployments)',
+      'Primavera P6 (project-based client records)',
     ],
     missingLayer:
       'No 360-degree customer view exists. The same customer may appear in multiple OpCos under different names, with no deduplication or relationship mapping.',
@@ -222,6 +223,8 @@ export default function DataFlow() {
 
   return (
     <div className="space-y-12 pb-16">
+      <PreliminaryBanner />
+
       {/* ── Section 1: Header ─────────────────────────────────────────────── */}
       <div>
         <h1 className="text-2xl font-bold text-gray-900">
@@ -457,7 +460,7 @@ export default function DataFlow() {
         <div className="rounded-2xl border border-gray-100 bg-white shadow-sm p-8">
           {/* OpCo Badges */}
           <div className="flex flex-wrap items-center justify-center gap-4">
-            {['OpCo 1 — Mechanical', 'OpCo 2 — Electrical', 'OpCo 3 — Plumbing', 'OpCo 4 — HVAC'].map(
+            {['HCC — Rail & Highway Construction', 'HRSI — Railroad Services', 'HSI — Rail Testing', 'HTI — Signal & PTC', 'HTSI — Transit Services', 'HE — Energy', 'GG — Environmental'].map(
               (name, i) => (
                 <motion.div
                   key={name}

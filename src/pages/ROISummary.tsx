@@ -264,7 +264,7 @@ export default function ROISummary() {
         transition={{ duration: 0.3 }}
       >
         <p className="text-sm font-medium uppercase tracking-widest text-gray-400 mb-2">
-          Total Estimated Impact
+          Net Year 1 Impact
         </p>
         <h1
           className="font-mono font-bold leading-none bg-clip-text text-transparent"
@@ -272,7 +272,10 @@ export default function ROISummary() {
         >
           {fmtCompact(roiSummary.netYear1)}
         </h1>
-        <p className="mt-3 text-lg text-gray-500">estimated annual savings</p>
+        <p className="mt-3 text-lg text-gray-500">after implementation costs</p>
+        <p className="mt-1 text-sm text-gray-400">
+          Gross savings: {fmtCompact(roiSummary.techStackSavings + roiSummary.workflowAutomation + roiSummary.licenseRecovery)} &mdash; Implementation: {fmtCompact(roiSummary.implementationCosts)}
+        </p>
       </motion.div>
 
       {/* ── Section 2: Breakdown Cards ────────────────────────────────── */}

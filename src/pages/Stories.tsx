@@ -18,6 +18,7 @@ import {
   LineChart,
   Line,
 } from 'recharts';
+import PreliminaryBanner from '../components/PreliminaryBanner';
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
@@ -564,6 +565,8 @@ export default function Stories() {
 
   return (
     <div className="space-y-6">
+      <PreliminaryBanner />
+
       {/* Page Header */}
       <motion.div
         initial={{ opacity: 0, y: -12 }}
