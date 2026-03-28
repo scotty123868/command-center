@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { Brain, X, Send, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { config } from '../data/config';
+import { useCompany } from '../data/CompanyContext';
 
 interface ChatMessage {
   role: 'user' | 'assistant';
@@ -56,6 +57,7 @@ function getCannedResponse(message: string): string {
 }
 
 export default function FloatingAtlas() {
+  const { company } = useCompany();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
@@ -98,7 +100,7 @@ export default function FloatingAtlas() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           messages: [...messages, userMsg].map(m => ({ role: m.role, content: m.content })),
-          companyContext: `Company: ${config.name}, Industry: ${config.industry}`,
+          companyContext: `Company: ${company.name}, Industry: ${config.industry}, Division: ${company.shortName}`,
         }),
       });
 
@@ -183,7 +185,7 @@ export default function FloatingAtlas() {
                   <div className="text-[13px] font-semibold flex items-center gap-1.5" style={{ color: 'var(--cc-text)' }}>
                     Atlas AI
                     <span style={{ color: 'var(--cc-text-muted)' }}>&middot;</span>
-                    <span className="text-[12px] font-normal" style={{ color: 'var(--cc-text-tertiary)' }}>{config.name}</span>
+                    <span className="text-[12px] font-normal" style={{ color: 'var(--cc-text-tertiary)' }}>{company.shortName}</span>
                   </div>
                   <div className="text-[10px] font-medium flex items-center gap-1" style={{ color: '#22c55e' }}>
                     <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#22c55e' }} />

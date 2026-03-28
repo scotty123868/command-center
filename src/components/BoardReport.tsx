@@ -1,5 +1,5 @@
 import { config } from '../data/config';
-import { getRoiSummary, getKpis, getWorkflowSummary, getLicenses } from '../data/constants';
+import { getRoiSummary, getKpis, getWorkflowSummary, getLicenses, getCompanyProfile } from '../data/constants';
 
 const today = new Date().toLocaleDateString('en-US', {
   year: 'numeric',
@@ -107,9 +107,10 @@ function generateReportHTML(companyId = 'meridian', scenario: ScenarioKey = 'bas
   const wfSummary = getWorkflowSummary(companyId);
   const licenses = getLicenses(companyId);
   const totalLicenseWaste = licenses.reduce((sum, l) => sum + l.annualWaste, 0);
-  const safeName = escapeHtml(config.name);
-  const safeEmployees = escapeHtml(config.employees.toLocaleString());
-  const safeOpCos = escapeHtml(String(config.opCos));
+  const profile = getCompanyProfile(companyId);
+  const safeName = escapeHtml(profile.name || config.name);
+  const safeEmployees = escapeHtml((profile.employees || config.employees).toLocaleString());
+  const safeOpCos = escapeHtml(String(profile.opCos || config.opCos));
   const safeAiScore = escapeHtml(String(config.aiReadinessScore));
   const safeToday = escapeHtml(today);
 
@@ -297,9 +298,9 @@ function generateReportHTML(companyId = 'meridian', scenario: ScenarioKey = 'bas
         </tr>
         <tr>
           <td>Annual Tech Spend</td>
-          <td class="num">${fmtMoney(roiSummary.techStackSavings + roiSummary.workflowAutomation + roiSummary.licenseRecovery + roiSummary.netYear1)}</td>
-          <td class="num blue">${fmtMoney(roiSummary.netYear1)}</td>
-          <td class="num green">-${fmtMoney(roiSummary.techStackSavings + roiSummary.workflowAutomation + roiSummary.licenseRecovery - roiSummary.implementationCosts)} savings</td>
+          <td class="num">${fmtMoney(gross)}</td>
+          <td class="num blue">${fmtMoney(roiSummary.implementationCosts)}</td>
+          <td class="num green">-${fmtMoney(net)} net savings</td>
         </tr>
         <tr>
           <td>Workflow Automation Rate</td>
@@ -466,7 +467,8 @@ export async function downloadBoardReportPDF(companyId = 'meridian', scenario: S
   document.body.appendChild(reportContent);
 
   const dateStr = new Date().toISOString().split('T')[0];
-  const companySlug = config.name.replace(/\s+/g, '-');
+  const profile = getCompanyProfile(companyId);
+  const companySlug = (profile.name || config.name).replace(/\s+/g, '-');
   const scenarioSuffix = scenario !== 'base' ? `-${scenario}` : '';
   const filename = `UpSkiller-Board-Report-${companySlug}${scenarioSuffix}-${dateStr}.pdf`;
 

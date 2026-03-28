@@ -37,7 +37,7 @@ export default function BoardReportPage() {
   const handleDownload = async () => {
     setDownloading(true);
     try {
-      await downloadBoardReportPDF();
+      await downloadBoardReportPDF(company.id);
     } finally {
       setDownloading(false);
     }

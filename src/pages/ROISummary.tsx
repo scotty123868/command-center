@@ -162,13 +162,18 @@ function buildWaterfallData(roi: ReturnType<typeof getScenarioROI>) {
 
 function buildTimeline(roi: ReturnType<typeof getScenarioROI>) {
   const totalCost = roi.implementationCosts;
-  const costPcts = [0.14, 0.18, 0.21, 0.14, 0.11, 0.07, 0.05, 0.04, 0.03, 0.015, 0.007, 0.003];
-  const savPcts = [0, 0.015, 0.035, 0.06, 0.08, 0.10, 0.10, 0.11, 0.11, 0.12, 0.12, 0.13];
+  const n = roi.rolloutMonths;
   const totalSav = roi.techStackSavings + roi.workflowAutomation + roi.licenseRecovery;
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const allMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan+', 'Feb+', 'Mar+', 'Apr+', 'May+', 'Jun+'];
+  const months = allMonths.slice(0, n);
   return months.map((month, i) => {
-    const cost = Math.round(totalCost * costPcts[i]);
-    const savings = Math.round(totalSav * savPcts[i]);
+    // Front-load costs, ramp savings
+    const costWeight = Math.max(0, 1 - i / (n * 0.6));
+    const savWeight = Math.min(1, i / (n * 0.7));
+    const costNorm = costWeight / months.reduce((s, _, j) => s + Math.max(0, 1 - j / (n * 0.6)), 0);
+    const savNorm = savWeight / months.reduce((s, _, j) => s + Math.min(1, j / (n * 0.7)), 0);
+    const cost = Math.round(totalCost * costNorm);
+    const savings = Math.round(totalSav * savNorm);
     return { month, cost, savings, net: savings - cost };
   });
 }
@@ -786,7 +791,7 @@ export default function ROISummary() {
                   Payback Period
                 </p>
               </div>
-              <p className="text-3xl font-mono font-bold text-[#4285F4]">{(roiSummary.implementationCosts / (roiSummary.netYear1 / 12)).toFixed(1)}</p>
+              <p className="text-3xl font-mono font-bold text-[#4285F4]">{((roiSummary.implementationCosts / ((roiSummary.techStackSavings + roiSummary.workflowAutomation + roiSummary.licenseRecovery) / 12))).toFixed(1)}</p>
               <p className="text-sm mt-1">months</p>
             </div>
 
@@ -814,7 +819,7 @@ export default function ROISummary() {
           </div>
 
           <p className="leading-relaxed max-w-3xl" style={{ color: 'var(--cc-text-secondary)' }}>
-            With a total implementation investment of {fmtCompact(roiSummary.implementationCosts)}, the program reaches break-even around month {Math.ceil(roiSummary.implementationCosts / (roiSummary.netYear1 / 12))}. Year 1 net savings of {fmtCompact(roiSummary.netYear1)} represent a {Math.round((roiSummary.netYear1 / roiSummary.implementationCosts) * 100)}% ROI. As automation scales and AI-native tools mature in Year 2, implementation costs drop to near-zero maintenance while savings compound to a projected {fmtCompact(roiSummary.year2Projected)} annually.
+            With a total implementation investment of {fmtCompact(roiSummary.implementationCosts)}, the program reaches break-even around month {Math.ceil(roiSummary.implementationCosts / ((roiSummary.techStackSavings + roiSummary.workflowAutomation + roiSummary.licenseRecovery) / 12))}. Year 1 net savings of {fmtCompact(roiSummary.netYear1)} represent a {Math.round((roiSummary.netYear1 / roiSummary.implementationCosts) * 100)}% ROI. As automation scales and AI-native tools mature in Year 2, implementation costs drop to near-zero maintenance while savings compound to a projected {fmtCompact(roiSummary.year2Projected)} annually.
           </p>
         </div>
       </motion.div>
