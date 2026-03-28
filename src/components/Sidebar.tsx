@@ -16,6 +16,7 @@ import {
   Check,
   ExternalLink,
   Network,
+  GitCompareArrows,
 } from 'lucide-react';
 import { useCompany } from '../data/CompanyContext';
 
@@ -31,6 +32,7 @@ const assessmentItems = [
 
 const insightsItems = [
   { to: '/stories', icon: BookOpen, label: 'Division Performance' },
+  { to: '/compare', icon: GitCompareArrows, label: 'Division Comparison' },
   { to: '/roi-summary', icon: TrendingUp, label: 'ROI Summary' },
   { to: '/assessment', icon: Sparkles, label: 'AI Assistant' },
 ];
