@@ -17,6 +17,7 @@ import Assessment from './pages/Assessment';
 import DataFlow from './pages/DataFlow';
 import Integrations from './pages/Integrations';
 import BoardReportPage from './pages/BoardReport';
+import Compare from './pages/Compare';
 
 const routeTitles: Record<string, string> = {
   '/dashboard': 'Dashboard',
@@ -29,6 +30,7 @@ const routeTitles: Record<string, string> = {
   '/roi-summary': 'ROI Summary',
   '/assessment': 'AI Assistant',
   '/board-report': 'Board Report',
+  '/compare': 'Division Comparison',
 };
 
 function TopBar({ onMenuClick }: { onMenuClick: () => void }) {
@@ -134,6 +136,7 @@ function AnimatedRoutes() {
           <Route path="/roi-summary" element={<ROISummary />} />
           <Route path="/assessment" element={<Assessment />} />
           <Route path="/ai-assistant" element={<Navigate to="/assessment" replace />} />
+          <Route path="/compare" element={<Compare />} />
           <Route path="/board-report" element={<BoardReportPage />} />
           <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Routes>
