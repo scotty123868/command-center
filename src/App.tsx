@@ -18,6 +18,7 @@ import DataFlow from './pages/DataFlow';
 import Integrations from './pages/Integrations';
 import BoardReportPage from './pages/BoardReport';
 import Compare from './pages/Compare';
+import FloatingAtlas from './components/FloatingAtlas';
 
 const routeTitles: Record<string, string> = {
   '/dashboard': 'Dashboard',
@@ -240,6 +241,7 @@ export default function App() {
         )}
       </main>
       <SearchModal />
+      <FloatingAtlas />
     </div>
   );
 }
