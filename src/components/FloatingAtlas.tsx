@@ -90,7 +90,8 @@ export default function FloatingAtlas() {
     if (!text.trim() || isTyping) return;
 
     const userMsg: ChatMessage = { role: 'user', content: text.trim() };
-    setMessages(prev => [...prev, userMsg]);
+    // Add user message AND empty assistant placeholder atomically to prevent race
+    setMessages(prev => [...prev, userMsg, { role: 'assistant', content: '' }]);
     setInput('');
     setIsTyping(true);
 
@@ -111,7 +112,6 @@ export default function FloatingAtlas() {
 
       const decoder = new TextDecoder();
       let assistantContent = '';
-      setMessages(prev => [...prev, { role: 'assistant', content: '' }]);
 
       let buffer = '';
       while (true) {
