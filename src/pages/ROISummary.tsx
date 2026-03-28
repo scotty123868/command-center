@@ -15,7 +15,7 @@ import {
   Presentation,
   ExternalLink,
 } from 'lucide-react';
-import { openBoardReport } from '../components/BoardReport';
+import { openBoardReport, downloadBoardReportPDF } from '../components/BoardReport';
 import {
   BarChart,
   Bar,
@@ -238,20 +238,20 @@ export default function ROISummary() {
       {/* ── Generate Board Report Buttons ──────────────────────────────── */}
       <div className="flex justify-end gap-3">
         <button
-          onClick={() => window.open(`/board-report${window.location.search}`, '_blank')}
+          onClick={() => void downloadBoardReportPDF()}
           className="group relative inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all duration-300 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-600/30 cursor-pointer overflow-hidden"
         >
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: 'linear-gradient(110deg, transparent 25%, rgba(255,255,255,0.2) 50%, transparent 75%)', animation: 'shimmer 2s ease-in-out infinite' }} />
           <style>{`@keyframes shimmer { 0%, 100% { transform: translateX(-100%); } 50% { transform: translateX(100%); } }`}</style>
           <FileDown size={16} className="relative" />
-          <span className="relative">Generate Board Report</span>
+          <span className="relative">Download PDF</span>
         </button>
         <button
           onClick={() => openBoardReport(company.id)}
           className="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold shadow-sm transition-colors duration-200 cursor-pointer" style={{ background: 'var(--cc-bg-card)', color: 'var(--cc-text)', border: '1px solid var(--cc-border)' }}
         >
           <FileDown size={16} />
-          Quick Export
+          Preview Report
         </button>
       </div>
 
@@ -485,12 +485,12 @@ export default function ROISummary() {
             <p className="text-sm mt-1">Executive-ready report with key findings and recommendations</p>
           </div>
           <button
-            onClick={() => window.open(`/board-report${window.location.search}`, '_blank')}
+            onClick={() => void downloadBoardReportPDF()}
             className="group relative inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all duration-300 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-600/30 cursor-pointer overflow-hidden"
           >
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: 'linear-gradient(110deg, transparent 25%, rgba(255,255,255,0.2) 50%, transparent 75%)', animation: 'shimmer 2s ease-in-out infinite' }} />
             <FileDown size={16} className="relative" />
-            <span className="relative">Generate Board Report</span>
+            <span className="relative">Download PDF</span>
           </button>
         </div>
 

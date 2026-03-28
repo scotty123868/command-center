@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import { getCompanyProfile, getKpis, getRoiSummary, getRoadmapPhases } from '../data/constants';
 import { useCompany } from '../data/CompanyContext';
+import { downloadBoardReportPDF } from '../components/BoardReport';
 
 const fmtDollar = (n: number) => {
   if (n >= 1_000_000) return `$${(n / 1_000_000).toFixed(1)}M`;
@@ -31,13 +32,16 @@ export default function BoardReportPage() {
       };
     });
 
-  useEffect(() => {
-    document.title = `Technology Assessment — ${companyProfile.name}`;
-    const timer = setTimeout(() => {
-      window.print();
-    }, 1200);
-    return () => clearTimeout(timer);
-  }, []);
+  const [downloading, setDownloading] = useState(false);
+
+  const handleDownload = async () => {
+    setDownloading(true);
+    try {
+      await downloadBoardReportPDF();
+    } finally {
+      setDownloading(false);
+    }
+  };
 
   const pageFooter = (pageNum: number) => (
     <div style={{
@@ -121,7 +125,50 @@ export default function BoardReportPage() {
           background: linear-gradient(90deg, #1e3a5f, #2563eb 40%, transparent 100%);
           margin-bottom: 16px;
         }
+        .download-bar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 1000;
+          background: #16161A;
+          padding: 12px 24px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 16px;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .download-bar button {
+          border: none;
+          border-radius: 8px;
+          padding: 10px 24px;
+          font-size: 14px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: background 0.2s;
+          color: #fff;
+        }
+        .download-bar .btn-primary { background: #4285F4; }
+        .download-bar .btn-primary:hover { background: #3367D6; }
+        .download-bar .btn-primary:disabled { background: #555; cursor: wait; }
+        .download-bar .btn-secondary { background: #334155; }
+        .download-bar .btn-secondary:hover { background: #475569; }
+        .download-bar span { color: #94a3b8; font-size: 13px; }
+        @media print {
+          .download-bar { display: none !important; }
+        }
       `}</style>
+
+      <div className="download-bar">
+        <span>Board Report Preview</span>
+        <button className="btn-primary" onClick={() => void handleDownload()} disabled={downloading}>
+          {downloading ? 'Generating PDF...' : 'Download PDF'}
+        </button>
+        <button className="btn-secondary" onClick={() => window.print()}>
+          Print
+        </button>
+      </div>
 
       {/* ═══════════════════════════════════════════════════════════════════
           PAGE 1: COVER
