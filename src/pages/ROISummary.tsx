@@ -546,12 +546,12 @@ export default function ROISummary() {
   );
 
   const handleDownloadPDF = useCallback(() => {
-    void downloadBoardReportPDF();
-  }, []);
+    void downloadBoardReportPDF(company.id, scenario);
+  }, [company.id, scenario]);
 
   const handleOpenReport = useCallback(() => {
-    openBoardReport(company.id);
-  }, [company.id]);
+    openBoardReport(company.id, scenario);
+  }, [company.id, scenario]);
 
   return (
     <div className="space-y-12">

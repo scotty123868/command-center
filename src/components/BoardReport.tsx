@@ -20,8 +20,89 @@ function escapeHtml(str: string): string {
 const fmtMoney = (n: number) =>
   n >= 1_000_000 ? `$${(n / 1_000_000).toFixed(1)}M` : `$${Math.round(n / 1_000)}K`;
 
-function generateReportHTML(companyId = 'meridian'): string {
-  const roiSummary = getRoiSummary(companyId);
+type ScenarioKey = 'conservative' | 'base' | 'aggressive';
+
+interface ScenarioMeta {
+  label: string;
+  adoption: string;
+  rollout: string;
+  savingsMultiplier: number;
+}
+
+const SCENARIO_META: Record<ScenarioKey, ScenarioMeta> = {
+  conservative: { label: 'Conservative', adoption: '60%', rollout: '18-month', savingsMultiplier: 0.55 },
+  base: { label: 'Base Case', adoption: '80%', rollout: '12-month', savingsMultiplier: 1.0 },
+  aggressive: { label: 'Aggressive', adoption: '95%', rollout: '8-month', savingsMultiplier: 1.4 },
+};
+
+function applyScenario(
+  baseRoi: ReturnType<typeof getRoiSummary>,
+  scenario: ScenarioKey
+) {
+  const m = SCENARIO_META[scenario].savingsMultiplier;
+  return {
+    techStackSavings: Math.round(baseRoi.techStackSavings * m),
+    workflowAutomation: Math.round(baseRoi.workflowAutomation * m),
+    licenseRecovery: Math.round(baseRoi.licenseRecovery * m),
+    implementationCosts: baseRoi.implementationCosts,
+    netYear1: Math.round(
+      (baseRoi.techStackSavings + baseRoi.workflowAutomation + baseRoi.licenseRecovery) * m -
+        baseRoi.implementationCosts
+    ),
+    year2Projected: Math.round(baseRoi.year2Projected * m),
+  };
+}
+
+function buildScenarioComparisonHTML(baseRoi: ReturnType<typeof getRoiSummary>, activeScenario: ScenarioKey): string {
+  const keys: ScenarioKey[] = ['conservative', 'base', 'aggressive'];
+  const rows = keys.map((key) => {
+    const roi = applyScenario(baseRoi, key);
+    const gross = roi.techStackSavings + roi.workflowAutomation + roi.licenseRecovery;
+    const payback = ((roi.implementationCosts / gross) * 12).toFixed(1);
+    const year1Pct = Math.round((roi.netYear1 / roi.implementationCosts) * 100);
+    const npv3yr = Math.round(roi.netYear1 + roi.year2Projected * 2 * 0.9);
+    return { key, label: SCENARIO_META[key].label, adoption: SCENARIO_META[key].adoption, rollout: SCENARIO_META[key].rollout, net: fmtMoney(roi.netYear1), roi: `${year1Pct}%`, payback: `${payback} mo`, npv: fmtMoney(npv3yr), impl: fmtMoney(roi.implementationCosts) };
+  });
+
+  return `
+  <div class="section">
+    <div class="section-title">Scenario Analysis &mdash; ${escapeHtml(SCENARIO_META[activeScenario].label)} Selected</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Metric</th>
+          ${rows.map(r => `<th style="${r.key === activeScenario ? 'background:#E0F2FE;color:#1D4ED8;' : ''}">${escapeHtml(r.label)}<br/><span style="font-weight:400;text-transform:none;letter-spacing:0;">${escapeHtml(r.adoption)} / ${escapeHtml(r.rollout)}</span></th>`).join('')}
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Year 1 Net Savings</td>
+          ${rows.map(r => `<td class="num ${r.key === activeScenario ? 'blue bold' : ''}" style="${r.key === activeScenario ? 'background:#F0F9FF;' : ''}">${r.net}</td>`).join('')}
+        </tr>
+        <tr>
+          <td>Year 1 ROI</td>
+          ${rows.map(r => `<td class="num ${r.key === activeScenario ? 'blue bold' : ''}" style="${r.key === activeScenario ? 'background:#F0F9FF;' : ''}">${r.roi}</td>`).join('')}
+        </tr>
+        <tr>
+          <td>Payback Period</td>
+          ${rows.map(r => `<td class="num ${r.key === activeScenario ? 'blue bold' : ''}" style="${r.key === activeScenario ? 'background:#F0F9FF;' : ''}">${r.payback}</td>`).join('')}
+        </tr>
+        <tr>
+          <td>3-Year NPV</td>
+          ${rows.map(r => `<td class="num ${r.key === activeScenario ? 'blue bold' : ''}" style="${r.key === activeScenario ? 'background:#F0F9FF;' : ''}">${r.npv}</td>`).join('')}
+        </tr>
+        <tr>
+          <td>Implementation Cost</td>
+          ${rows.map(r => `<td class="num" style="${r.key === activeScenario ? 'background:#F0F9FF;' : ''}">${r.impl}</td>`).join('')}
+        </tr>
+      </tbody>
+    </table>
+  </div>`;
+}
+
+function generateReportHTML(companyId = 'meridian', scenario: ScenarioKey = 'base'): string {
+  const baseRoi = getRoiSummary(companyId);
+  const roiSummary = applyScenario(baseRoi, scenario);
   const kpis = getKpis(companyId);
   const wfSummary = getWorkflowSummary(companyId);
   const licenses = getLicenses(companyId);
@@ -36,6 +117,9 @@ function generateReportHTML(companyId = 'meridian'): string {
   const net = roiSummary.netYear1;
   const roi = Math.round((net / roiSummary.implementationCosts) * 100);
   const breakeven = ((roiSummary.implementationCosts / gross) * 12).toFixed(1);
+
+  const scenarioLabel = escapeHtml(SCENARIO_META[scenario].label);
+
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,6 +218,13 @@ function generateReportHTML(companyId = 'meridian'): string {
     }
     .q-desc { color: #444; padding: 4px 0; }
 
+    /* Scenario badge */
+    .scenario-badge {
+      display: inline-block; padding: 3px 10px; border-radius: 4px;
+      font-size: 11px; font-weight: 600; color: #1D4ED8; background: #DBEAFE;
+      margin-left: 8px; vertical-align: middle;
+    }
+
     /* Footer */
     .footer {
       margin-top: 28px; padding-top: 12px; border-top: 1px solid #E5E7EB;
@@ -162,7 +253,7 @@ function generateReportHTML(companyId = 'meridian'): string {
       </div>
     </div>
     <div class="header-right">
-      <div class="report-title">Board Report &mdash; AI Transformation Analysis</div>
+      <div class="report-title">Board Report &mdash; AI Transformation Analysis <span class="scenario-badge">${scenarioLabel} Scenario</span></div>
       <div>${safeToday}</div>
     </div>
   </div>
@@ -183,7 +274,7 @@ function generateReportHTML(companyId = 'meridian'): string {
     <p>
       UpSkiller AI conducted a comprehensive AI transformation analysis of ${safeName}, evaluating
       ${wfSummary.total} workflows, 23 software tools, and 1,850+ employee roles across ${safeOpCos} operating companies.
-      The analysis identified <strong>${fmtMoney(net)} in annualized net savings</strong> through tech stack optimization,
+      The analysis identified <strong>${fmtMoney(net)} in annualized net savings</strong> (${scenarioLabel} scenario) through tech stack optimization,
       workflow automation, and license reclamation. With an implementation investment of ${fmtMoney(roiSummary.implementationCosts)}, the program
       achieves <strong>break-even in ${breakeven} months</strong> and delivers a <strong>${roi}% Year 1 ROI</strong>.
       Year 2 projected savings compound to ${fmtMoney(roiSummary.year2Projected)} as automation scales and maintenance costs approach zero.
@@ -273,6 +364,9 @@ function generateReportHTML(companyId = 'meridian'): string {
     </table>
   </div>
 
+  <!-- Scenario Comparison -->
+  ${buildScenarioComparisonHTML(baseRoi, scenario)}
+
   <!-- Implementation Timeline -->
   <div class="section">
     <div class="section-title">Implementation Timeline</div>
@@ -290,7 +384,7 @@ function generateReportHTML(companyId = 'meridian'): string {
 
   <!-- Savings Waterfall -->
   <div class="section">
-    <div class="section-title">Savings Waterfall</div>
+    <div class="section-title">Savings Waterfall (${scenarioLabel})</div>
     <div class="waterfall-row">
       <span>Tech Stack Optimization</span>
       <span class="num green">+ ${fmtMoney(roiSummary.techStackSavings)}</span>
@@ -321,21 +415,21 @@ function generateReportHTML(companyId = 'meridian'): string {
 </html>`;
 }
 
-export function openBoardReport(companyId = 'meridian') {
+export function openBoardReport(companyId = 'meridian', scenario: ScenarioKey = 'base') {
   const reportWindow = window.open('', '_blank');
   if (reportWindow) {
-    reportWindow.document.write(generateReportHTML(companyId));
+    reportWindow.document.write(generateReportHTML(companyId, scenario));
     reportWindow.document.close();
   }
 }
 
-export async function downloadBoardReportPDF() {
+export async function downloadBoardReportPDF(companyId = 'meridian', scenario: ScenarioKey = 'base') {
   const html2pdfModule = await import('html2pdf.js');
   const html2pdf = html2pdfModule.default;
 
   // Create a hidden container with the report HTML
   const container = document.createElement('div');
-  container.innerHTML = generateReportHTML();
+  container.innerHTML = generateReportHTML(companyId, scenario);
 
   // Extract just the body content
   const bodyEl = container.querySelector('body');
@@ -373,7 +467,8 @@ export async function downloadBoardReportPDF() {
 
   const dateStr = new Date().toISOString().split('T')[0];
   const companySlug = config.name.replace(/\s+/g, '-');
-  const filename = `UpSkiller-Board-Report-${companySlug}-${dateStr}.pdf`;
+  const scenarioSuffix = scenario !== 'base' ? `-${scenario}` : '';
+  const filename = `UpSkiller-Board-Report-${companySlug}${scenarioSuffix}-${dateStr}.pdf`;
 
   // Use Record<string, unknown> cast to include pagebreak which is supported
   // at runtime but missing from the shipped type declarations
