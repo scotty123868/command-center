@@ -636,23 +636,8 @@ export default function Dashboard() {
   // Sub-entities for parent companies
   const childEntities = companies.filter((c) => c.parentId === company.id);
 
-  // Loading cascade state
-  const [loading, setLoading] = useState(true);
-  const [prevLoadCompanyId, setPrevLoadCompanyId] = useState(company.id);
-
-  useEffect(() => {
-    if (company.id !== prevLoadCompanyId) {
-      setPrevLoadCompanyId(company.id);
-      setLoading(true);
-    }
-  }, [company.id, prevLoadCompanyId]);
-
-  useEffect(() => {
-    if (loading) {
-      const timer = setTimeout(() => setLoading(false), 1500);
-      return () => clearTimeout(timer);
-    }
-  }, [loading]);
+  // Loading state — no artificial delay
+  const [loading] = useState(false);
 
   // Cost of Inaction toggle
   const [showCostOfInaction, setShowCostOfInaction] = useState(false);
@@ -692,14 +677,8 @@ export default function Dashboard() {
   const selectedSavings = Math.round(baseSavings * timelineMultiplier * divisionMultiplier * automationAggr);
   const totalPossibleSavings = companyOpps.reduce((s, o) => s + o.savings, 0);
 
-  // Live sync timer
-  const [syncSeconds, setSyncSeconds] = useState(() => Math.floor(Math.random() * 26) + 5);
-  useEffect(() => {
-    const id = setInterval(() => {
-      setSyncSeconds((s) => (s >= 60 ? 0 : s + 1));
-    }, 1000);
-    return () => clearInterval(id);
-  }, []);
+  // Static sync display — data is pre-loaded
+  const syncSeconds = 12;
 
   // Toggle an opportunity on/off
   const toggleOpp = (name: string) => {
@@ -727,13 +706,17 @@ export default function Dashboard() {
     identified: '#6B7280',
   };
 
-  // ─── Radar Chart Data ────────────────────────────────────────────────────
-  const radarData = companyAiBreakdown.map(d => ({
-    category: d.category.replace('Data Infrastructure', 'Data Infra').replace('Process Maturity', 'Process').replace('Tech Stack Modernity', 'Tech Stack').replace('Change Readiness', 'Change').replace('Skills & Training', 'Skills'),
-    current: d.score,
-    target: Math.min(95, d.score + 40 + Math.round(Math.random() * 10)),
-    industry: 55 + Math.round(Math.random() * 10),
-  }));
+  // ─── Radar Chart Data (deterministic from company data) ──────────────────
+  const radarData = companyAiBreakdown.map((d, idx) => {
+    // Deterministic seed: use score and index to create stable "random-looking" offsets
+    const seedOffset = ((d.score * 7 + idx * 13) % 11);
+    return {
+      category: d.category.replace('Data Infrastructure', 'Data Infra').replace('Process Maturity', 'Process').replace('Tech Stack Modernity', 'Tech Stack').replace('Change Readiness', 'Change').replace('Skills & Training', 'Skills'),
+      current: d.score,
+      target: Math.min(95, d.score + 40 + seedOffset),
+      industry: 55 + ((d.score * 3 + idx * 7) % 11),
+    };
+  });
 
   // ─── AI Insight Cards Data ────────────────────────────────────────────────
   const mostExpensiveLegacy = [...companyStack].sort((a, b) => b.annualCost - a.annualCost)[0];

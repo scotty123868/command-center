@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useCallback, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import type { ReactNode } from 'react';
 
 const companies = [
@@ -12,6 +13,8 @@ const companies = [
   { id: 'gg', name: 'Green Group LLC', shortName: 'Green Group', initials: 'GG', industry: 'Environmental Services', employees: 90, opCos: 1, category: 'company' as const, parentId: 'meridian', accentColor: '#059669' },
 ];
 
+const validIds = new Set(companies.map(c => c.id));
+
 type Company = typeof companies[number];
 
 interface CompanyContextType {
@@ -23,11 +26,37 @@ interface CompanyContextType {
 const CompanyContext = createContext<CompanyContextType | null>(null);
 
 export function CompanyProvider({ children }: { children: ReactNode }) {
-  const [selectedId, setSelectedId] = useState('meridian');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const paramCompany = searchParams.get('company');
+  const initialId = paramCompany && validIds.has(paramCompany) ? paramCompany : 'meridian';
+
+  const [selectedId, setSelectedId] = useState(initialId);
   const company = companies.find(c => c.id === selectedId) || companies[0];
 
+  // Sync URL param when company changes
+  const setCompanyId = useCallback((id: string) => {
+    setSelectedId(id);
+    setSearchParams(prev => {
+      const next = new URLSearchParams(prev);
+      if (id === 'meridian') {
+        next.delete('company');
+      } else {
+        next.set('company', id);
+      }
+      return next;
+    }, { replace: true });
+  }, [setSearchParams]);
+
+  // Sync state from URL on initial load or URL change
+  useEffect(() => {
+    const urlCompany = searchParams.get('company');
+    if (urlCompany && validIds.has(urlCompany) && urlCompany !== selectedId) {
+      setSelectedId(urlCompany);
+    }
+  }, [searchParams]); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
-    <CompanyContext.Provider value={{ company, companies, setCompanyId: setSelectedId }}>
+    <CompanyContext.Provider value={{ company, companies, setCompanyId }}>
       {children}
     </CompanyContext.Provider>
   );

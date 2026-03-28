@@ -2,7 +2,8 @@ import { useEffect, useState, useRef, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, X, Zap, Wrench, BookOpen, TrendingUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { workflows, currentStack, transformationStories, topOpportunities } from '../data/constants';
+import { workflows, getCurrentStack, transformationStories, getTopOpportunities } from '../data/constants';
+import { useCompany } from '../data/CompanyContext';
 
 interface SearchResult {
   id: string;
@@ -34,8 +35,10 @@ const categoryBadgeBg: Record<string, React.CSSProperties> = {
   opportunity: { background: 'rgba(16,185,129,0.15)' },
 };
 
-function buildIndex(): SearchResult[] {
+function buildIndex(companyId: string): SearchResult[] {
   const items: SearchResult[] = [];
+  const companyStack = getCurrentStack(companyId);
+  const companyOpps = getTopOpportunities(companyId);
 
   workflows.forEach((w, i) => {
     items.push({
@@ -48,7 +51,7 @@ function buildIndex(): SearchResult[] {
     });
   });
 
-  currentStack.forEach((t, i) => {
+  companyStack.forEach((t, i) => {
     items.push({
       id: `tool-${i}`,
       name: t.name,
@@ -70,7 +73,7 @@ function buildIndex(): SearchResult[] {
     });
   });
 
-  topOpportunities.forEach((o, i) => {
+  companyOpps.forEach((o, i) => {
     items.push({
       id: `opportunity-${i}`,
       name: o.name,
@@ -84,17 +87,21 @@ function buildIndex(): SearchResult[] {
   return items;
 }
 
-const allItems = buildIndex();
-
-const recentItems = [allItems[0], allItems[6], allItems[10], allItems[14]].filter(Boolean);
-
 export default function SearchModal() {
+  const { company } = useCompany();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [activeIndex, setActiveIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+
+  // Rebuild index when company changes
+  const allItems = useMemo(() => buildIndex(company.id), [company.id]);
+  const recentItems = useMemo(
+    () => [allItems[0], allItems[6], allItems[10], allItems[14]].filter(Boolean),
+    [allItems],
+  );
 
   const results = useMemo(() => {
     if (!query.trim()) return recentItems;
@@ -105,7 +112,7 @@ export default function SearchModal() {
         item.description.toLowerCase().includes(q) ||
         item.category.toLowerCase().includes(q),
     );
-  }, [query]);
+  }, [query, allItems, recentItems]);
 
   const close = useCallback(() => {
     setOpen(false);

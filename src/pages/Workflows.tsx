@@ -5,7 +5,7 @@ import {
   AlertTriangle,
   Link2,
 } from 'lucide-react';
-import { workflows, getWorkflowSummary } from '../data/constants';
+import { workflows as allWorkflows, getWorkflowSummary } from '../data/constants';
 import type { Workflow, AutomationLevel } from '../data/constants';
 import { useCompany } from '../data/CompanyContext';
 
@@ -296,6 +296,14 @@ export default function Workflows() {
   const { company } = useCompany();
   const workflowSummary = getWorkflowSummary(company.id);
 
+  // For child companies, show a proportional subset of workflows sorted by savings
+  const companyWorkflows = (() => {
+    if (company.id === 'meridian' || !company.parentId) return allWorkflows;
+    // Show top N workflows proportional to this company's workflow count
+    const sorted = [...allWorkflows].sort((a, b) => b.savings - a.savings);
+    return sorted.slice(0, Math.min(sorted.length, workflowSummary.total));
+  })();
+
   return (
     <div className="space-y-8">
       {/* Preliminary Estimate Banner */}
@@ -352,10 +360,10 @@ export default function Workflows() {
 
       {/* ── workflow scoping cards ── */}
       <p className="text-xs px-3 py-1.5 rounded-lg inline-block" style={{ color: 'var(--cc-text-tertiary)', background: 'var(--cc-bg-card)' }}>
-        Showing top {workflows.length} of {workflowSummary.total} workflows analyzed
+        Showing top {companyWorkflows.length} of {workflowSummary.total} workflows analyzed
       </p>
       <div className="space-y-3">
-        {workflows.map((wf: Workflow, i: number) => (
+        {companyWorkflows.map((wf: Workflow, i: number) => (
           <WorkflowCard key={wf.name} wf={wf} index={i} />
         ))}
       </div>

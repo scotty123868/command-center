@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, AlertTriangle, TrendingUp, Shield, Clock, Zap } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
-import { getCurrentStack, recommendations } from '../data/constants';
+import { getCurrentStack, recommendations as allRecommendations } from '../data/constants';
 import type { CurrentTool, Recommendation } from '../data/constants';
 import { useCompany } from '../data/CompanyContext';
 
@@ -112,6 +112,45 @@ export default function TechStack() {
   const { company } = useCompany();
   const currentStack = getCurrentStack(company.id);
 
+  // Filter recommendations to match tools in this company's stack
+  const recommendations = useMemo(() => {
+    const stackNames = new Set(currentStack.map(t => t.name.toLowerCase()));
+    const filtered = allRecommendations.filter(rec =>
+      stackNames.has(rec.current.name.toLowerCase()) ||
+      // Also include "No Data Lake" which applies to all companies
+      rec.current.name === 'No Data Lake'
+    );
+    return filtered.length > 0 ? filtered : allRecommendations;
+  }, [currentStack]);
+
+  // Compute overall score from company's stack (average of tool scores, normalized to /100)
+  const overallScore = useMemo(() => {
+    if (currentStack.length === 0) return 34;
+    const avg = currentStack.reduce((sum, t) => sum + t.score, 0) / currentStack.length;
+    return Math.round(avg * 10); // scores are out of 10, normalize to 100
+  }, [currentStack]);
+
+  // Compute segments from actual stack scores
+  const segments = useMemo(() => {
+    if (currentStack.length === 0) return [
+      { label: 'Critical', pct: 50, color: '#EF4444' },
+      { label: 'Poor', pct: 17, color: '#F59E0B' },
+      { label: 'Fair', pct: 17, color: '#10B981' },
+      { label: 'Unused', pct: 16, color: '#3A3A44' },
+    ];
+    const total = currentStack.length;
+    const critical = currentStack.filter(t => t.score <= 3).length;
+    const poor = currentStack.filter(t => t.score > 3 && t.score <= 5).length;
+    const fair = currentStack.filter(t => t.score > 5).length;
+    const unused = 0;
+    return [
+      { label: 'Critical', pct: Math.round((critical / total) * 100), color: '#EF4444' },
+      { label: 'Poor', pct: Math.round((poor / total) * 100), color: '#F59E0B' },
+      { label: 'Fair', pct: Math.round((fair / total) * 100) || (100 - Math.round((critical / total) * 100) - Math.round((poor / total) * 100)), color: '#10B981' },
+      { label: 'Unused', pct: unused, color: '#3A3A44' },
+    ];
+  }, [currentStack]);
+
   /* ROI calculator state */
   const [spend, setSpend] = useState(3_200_000);
   const [employees, setEmployees] = useState(2800);
@@ -131,14 +170,6 @@ export default function TechStack() {
   ];
 
   const DONUT_COLORS = ['#4285F4', '#10B981'];
-
-  const overallScore = 34;
-  const segments = [
-    { label: 'Critical', pct: 50, color: '#EF4444' },
-    { label: 'Poor', pct: 17, color: '#F59E0B' },
-    { label: 'Fair', pct: 17, color: '#10B981' },
-    { label: 'Unused', pct: 16, color: '#3A3A44' },
-  ];
 
   // Find migration weeks for each recommendation from currentStack
   const getMigrationWeeks = (currentName: string): number => {

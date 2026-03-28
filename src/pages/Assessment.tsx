@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
 
@@ -250,16 +250,70 @@ function TypingIndicator({ delay }: { delay: number }) {
   );
 }
 
+// ─── Canned responses for interactive suggestions ──────────────────────────
+
+const cannedResponses: Record<string, Message> = {
+  'Show me cross-division data gaps': {
+    role: 'ai',
+    content:
+      'Here are the most critical cross-division data gaps I identified:\n\n**1. No Unified Equipment Registry** — Equipment exists in 3+ systems with different IDs. "Track Loader #2847" in SAP is "TL-2847" in dispatch and "Asset 991847" in Trimble GPS.\n\n**2. GPS/LIDAR Data Silos** — HSI generates 2TB/month of rail testing data that sits unanalyzed. No pipeline connects this to HCC project planning or HTI signal maintenance.\n\n**3. Zero Cross-Division Crew Visibility** — Each division schedules independently. HCC crew idle in Kansas while HRSI is short-staffed 80 miles away.\n\n**4. Financial Reporting Lag** — SAP batch exports create a 3-day month-end close process. No real-time cost visibility across divisions.\n\nA Databricks Lakehouse would resolve all four gaps within 16 weeks of implementation.',
+  },
+  'Compare SAP ERP consolidation options': {
+    role: 'ai',
+    content:
+      'I compared three ERP consolidation paths for your 7-division structure:\n\n**Option A: NetSuite Cloud ERP** (Recommended)\n- Cost: $240K/yr (vs $520K SAP)\n- Multi-subsidiary support handles all 7 divisions natively\n- Real-time consolidation eliminates 3-day month-end close\n- Native REST API for Samsara/Procore/Databricks integration\n- Migration: 16 weeks with parallel run\n\n**Option B: SAP S/4HANA Cloud**\n- Cost: $680K/yr (higher than current)\n- Preserves existing ABAP customizations\n- Longer migration: 32+ weeks\n- Better for organizations committed to SAP ecosystem\n\n**Option C: Keep SAP + Add Integration Layer**\n- Cost: $520K + $120K middleware\n- Lowest disruption, but technical debt compounds\n- Does not solve month-end close or API gap\n\nRecommendation: Option A (NetSuite) saves $280K/yr and unblocks real-time data integration across all divisions.',
+  },
+  "What's our AI readiness score?": {
+    role: 'ai',
+    content:
+      'Your overall AI Readiness Score is **38/100** (Critical). Here is the breakdown by dimension:\n\n**Data Infrastructure: 25/100** — Siloed systems across 7 divisions, no unified data lake, GPS/LIDAR data not centralized\n\n**Process Maturity: 44/100** — Some automation in rail testing (TAM-4, GPS ballast trains) but most field ops are manual\n\n**Tech Stack Modernity: 32/100** — Custom dispatch system (2009), aging TAM-4 software, SAP on-premise with no cloud integration\n\n**Change Readiness: 48/100** — CEO Brad Lager committed to transformation, but field crews and division GMs resistant to workflow changes\n\n**Skills & Training: 28/100** — Strong mechanical/railroad expertise but near-zero data science or AI capability\n\nWith the recommended transformation roadmap, your projected score improves to **86/100** within 12 months.',
+  },
+  'Generate Q1 board report': {
+    role: 'ai',
+    content:
+      'I can generate a comprehensive board report for Q1 2026. Navigate to the **Board Report** page in the sidebar to view and print the full report.\n\nThe report includes:\n- Executive summary with $5.8M net savings projection\n- Division-by-division performance analysis\n- Year 1 savings waterfall breakdown\n- 4-quarter implementation roadmap\n- Recommended next steps for board approval\n\nThe report is formatted for print and PDF export.',
+  },
+};
+
 // ─── Main Component ─────────────────────────────────────────────────────────
 
 export default function Assessment() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [inputValue, setInputValue] = useState('');
+  const [extraMessages, setExtraMessages] = useState<Message[]>([]);
+  const [isTyping, setIsTyping] = useState(false);
+  const [usedSuggestions, setUsedSuggestions] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
-  }, []);
+  }, [extraMessages, isTyping]);
+
+  const handleSend = (text: string) => {
+    if (!text.trim()) return;
+    const userMsg: Message = { role: 'user', content: text };
+    setExtraMessages((prev) => [...prev, userMsg]);
+    setInputValue('');
+    setIsTyping(true);
+
+    const cannedReply = cannedResponses[text];
+    setTimeout(() => {
+      setIsTyping(false);
+      const aiMsg: Message = cannedReply ?? {
+        role: 'ai',
+        content: `That's a great question about "${text}". Based on our analysis of your tech stack and 62 mapped workflows, I'd recommend exploring the relevant section in the Command Center sidebar for detailed data. The AI assessment covers all 7 divisions with specific recommendations for each.`,
+      };
+      setExtraMessages((prev) => [...prev, aiMsg]);
+    }, 1200);
+  };
+
+  const handleSuggestionClick = (q: string) => {
+    setUsedSuggestions((prev) => new Set(prev).add(q));
+    handleSend(q);
+  };
+
+  const remainingSuggestions = suggestedQuestions.filter((q) => !usedSuggestions.has(q));
 
   let delayCounter = 0;
 
@@ -301,31 +355,52 @@ export default function Assessment() {
             );
           })}
 
+          {/* Extra messages from user interaction */}
+          {extraMessages.map((msg, i) => {
+            if (msg.role === 'user') {
+              return <UserMessage key={`extra-${i}`} content={msg.content} delay={0} />;
+            }
+            return (
+              <AIMessage
+                key={`extra-${i}`}
+                content={msg.content}
+                table={msg.table}
+                list={msg.list}
+                delay={0}
+              />
+            );
+          })}
+
           {/* Typing indicator */}
-          <TypingIndicator delay={delayCounter} />
+          {(extraMessages.length === 0 || isTyping) && (
+            <TypingIndicator delay={extraMessages.length === 0 ? delayCounter : 0} />
+          )}
 
           {/* Suggested questions */}
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: delayCounter + 0.2 }}
-            className="pt-4"
-          >
-            <p className="text-[11px] font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--cc-text-tertiary)' }}>
-              Suggested questions
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {suggestedQuestions.map((q) => (
-                <button
-                  key={q}
-                  type="button"
-                  className="px-4 py-2 rounded-full text-[13px] font-medium hover:border-[#4285F4] hover:text-[#4285F4] transition-all duration-200 cursor-pointer shadow-sm" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)', color: 'var(--cc-text-secondary)' }}
-                >
-                  {q}
-                </button>
-              ))}
-            </div>
-          </motion.div>
+          {remainingSuggestions.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: extraMessages.length > 0 ? 0 : delayCounter + 0.2 }}
+              className="pt-4"
+            >
+              <p className="text-[11px] font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--cc-text-tertiary)' }}>
+                Suggested questions
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {remainingSuggestions.map((q) => (
+                  <button
+                    key={q}
+                    type="button"
+                    onClick={() => handleSuggestionClick(q)}
+                    className="px-4 py-2 rounded-full text-[13px] font-medium hover:border-[#4285F4] hover:text-[#4285F4] transition-all duration-200 cursor-pointer shadow-sm" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)', color: 'var(--cc-text-secondary)' }}
+                  >
+                    {q}
+                  </button>
+                ))}
+              </div>
+            </motion.div>
+          )}
         </div>
       </div>
 
@@ -339,12 +414,17 @@ export default function Assessment() {
         <div className="max-w-3xl mx-auto relative">
           <input
             type="text"
-            readOnly
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' && !isTyping) handleSend(inputValue);
+            }}
             placeholder="Ask about your data..."
             className="w-full h-12 pl-5 pr-14 rounded-xl text-[14px] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#4285F4]/20 focus:border-[#4285F4]/40 transition-all duration-200 shadow-sm cursor-text" style={{ background: 'var(--cc-bg-elevated)', border: '1px solid var(--cc-border)', color: 'var(--cc-text)' }}
           />
           <button
             type="button"
+            onClick={() => { if (!isTyping) handleSend(inputValue); }}
             className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-[#4285F4] flex items-center justify-center hover:bg-[#3574DB] transition-colors duration-150"
           >
             <ArrowUp className="w-4 h-4 text-white" strokeWidth={2.5} />
