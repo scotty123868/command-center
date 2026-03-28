@@ -29,9 +29,15 @@ function getConfigFromUrl(): Partial<CompanyConfig> {
   const overrides: Partial<CompanyConfig> = {};
   if (params.get('company')) overrides.name = params.get('company')!;
   if (params.get('industry')) overrides.industry = params.get('industry')!;
-  if (params.get('employees')) overrides.employees = parseInt(params.get('employees')!);
+  if (params.get('employees')) {
+    const n = parseInt(params.get('employees')!, 10);
+    if (!isNaN(n)) overrides.employees = n;
+  }
   if (params.get('initials')) overrides.logoInitials = params.get('initials')!;
-  if (params.get('opCos')) overrides.opCos = parseInt(params.get('opCos')!);
+  if (params.get('opCos')) {
+    const n = parseInt(params.get('opCos')!, 10);
+    if (!isNaN(n)) overrides.opCos = n;
+  }
   if (params.get('techSpend')) overrides.techSpend = params.get('techSpend')!;
   if (params.get('userInitials')) overrides.userInitials = params.get('userInitials')!;
   if (params.get('userName')) overrides.userName = params.get('userName')!;

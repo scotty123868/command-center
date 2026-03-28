@@ -273,7 +273,7 @@ function generateReportHTML(companyId = 'meridian', scenario: ScenarioKey = 'bas
     <div class="section-title">Executive Summary</div>
     <p>
       UpSkiller AI conducted a comprehensive AI transformation analysis of ${safeName}, evaluating
-      ${wfSummary.total} workflows, 23 software tools, and 1,850+ employee roles across ${safeOpCos} operating companies.
+      ${wfSummary.total} workflows, 23 software tools, and 1,850+ employee roles across ${safeOpCos} divisions.
       The analysis identified <strong>${fmtMoney(net)} in annualized net savings</strong> (${scenarioLabel} scenario) through tech stack optimization,
       workflow automation, and license reclamation. With an implementation investment of ${fmtMoney(roiSummary.implementationCosts)}, the program
       achieves <strong>break-even in ${breakeven} months</strong> and delivers a <strong>${roi}% Year 1 ROI</strong>.

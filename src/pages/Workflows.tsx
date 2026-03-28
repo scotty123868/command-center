@@ -119,12 +119,13 @@ function SectionHeader({ label }: { label: string; color?: string }) {
 
 /* ── donut stat ──────────────────────────────────────── */
 
-function DonutStat({ value, label, size = 80, strokeWidth = 7, color = '#4285F4' }: {
+function DonutStat({ value, label, size = 80, strokeWidth = 7, color = '#4285F4', percent = 85 }: {
   value: string;
   label: string;
   size?: number;
   strokeWidth?: number;
   color?: string;
+  percent?: number;
 }) {
   const r = (size - strokeWidth) / 2;
   const circ = 2 * Math.PI * r;
@@ -135,7 +136,7 @@ function DonutStat({ value, label, size = 80, strokeWidth = 7, color = '#4285F4'
         <circle
           cx={size / 2} cy={size / 2} r={r} fill="none"
           stroke={color} strokeWidth={strokeWidth}
-          strokeDasharray={circ} strokeDashoffset={circ * 0.15}
+          strokeDasharray={circ} strokeDashoffset={circ * (1 - percent / 100)}
           strokeLinecap="round"
           transform={`rotate(-90 ${size / 2} ${size / 2})`}
         />

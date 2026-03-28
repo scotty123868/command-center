@@ -387,7 +387,7 @@ export default function Assessment() {
               className="flex items-center gap-2 px-4 py-3 rounded-xl text-[13px]" style={{ background: 'rgba(239, 68, 68, 0.1)', border: '1px solid rgba(239, 68, 68, 0.2)', color: '#ef4444' }}
             >
               <AlertCircle className="w-4 h-4 flex-shrink-0" />
-              <span>Connection issue, try again.</span>
+              <span>{error}</span>
             </motion.div>
           )}
 

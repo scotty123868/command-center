@@ -88,8 +88,8 @@ export function useAtlasChat(options: UseAtlasChatOptions = {}) {
               });
             }
           } catch (e) {
-            // Skip malformed JSON lines
-            if (e instanceof Error && e.message !== 'Stream interrupted') continue;
+            // Skip malformed JSON lines, but re-throw application errors
+            if (e instanceof SyntaxError) continue;
             throw e;
           }
         }

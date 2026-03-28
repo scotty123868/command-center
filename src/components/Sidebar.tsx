@@ -264,7 +264,7 @@ export default function Sidebar({ onNavClick, onClose }: { onNavClick?: () => vo
                               key={sub.id}
                               type="button"
                               onClick={() => { setCompanyId(sub.id); setDropdownOpen(false); }}
-                              className={`w-full flex items-center gap-2 pl-8 pr-3 py-1.5 text-left transition-colors hover:bg-white/[0.06] ${
+                              className={`w-full flex items-center gap-2 pl-8 pr-3 py-1.5 text-left transition-colors hover:bg-white/[0.06] cursor-pointer ${
                                 isSubSelected ? 'bg-white/[0.04]' : ''
                               }`}
                             >
