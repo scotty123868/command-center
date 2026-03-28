@@ -196,7 +196,8 @@ export default function BoardReportPage() {
           <h2 style={{ fontSize: '22px', fontWeight: 600, marginBottom: '24px', color: '#111827' }}>
             Division Summary
           </h2>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
+          <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+          <table className="report-table" style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px', minWidth: '480px' }}>
             <thead>
               <tr style={{ borderBottom: '2px solid #e2e8f0' }}>
                 <th style={{ textAlign: 'left', padding: '10px 8px', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#64748b' }}>Division</th>
@@ -218,6 +219,7 @@ export default function BoardReportPage() {
               ))}
             </tbody>
           </table>
+          </div>
 
           <div className="report-footer">
             Preliminary Estimate — Based on Industry Benchmarks &middot; Prepared by UpSkiller AI &middot; March 2026

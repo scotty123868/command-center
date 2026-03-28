@@ -237,7 +237,7 @@ export default function ROISummary() {
       </span>
 
       {/* ── Generate Board Report Buttons ──────────────────────────────── */}
-      <div className="flex justify-end gap-3">
+      <div className="flex flex-col sm:flex-row justify-end gap-3">
         <button
           onClick={() => void downloadBoardReportPDF()}
           className="group relative inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all duration-300 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-600/30 cursor-pointer overflow-hidden"
@@ -267,8 +267,8 @@ export default function ROISummary() {
           Projected Net Impact
         </p>
         <h1
-          className="font-mono font-bold leading-none bg-clip-text text-transparent"
-          style={{ fontSize: 80, backgroundImage: 'linear-gradient(135deg, #10B981 0%, #059669 40%, #047857 100%)' }}
+          className="font-mono font-bold leading-none bg-clip-text text-transparent text-5xl sm:text-6xl md:text-[80px]"
+          style={{ backgroundImage: 'linear-gradient(135deg, #10B981 0%, #059669 40%, #047857 100%)' }}
         >
           {fmtCompact(roiSummary.netYear1)}
         </h1>
@@ -480,7 +480,7 @@ export default function ROISummary() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.3 }}
       >
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div>
             <h2 className="text-lg font-semibold text-gray-800">Board Report Preview</h2>
             <p className="text-sm text-gray-500 mt-1">Executive-ready report with key findings and recommendations</p>

@@ -491,7 +491,7 @@ function DrillDownPanel({ type, onClose }: { type: DrillDownType; onClose: () =>
             animate={{ x: 0 }}
             exit={{ x: 420 }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            className="fixed right-0 top-0 z-50 h-full w-[420px] overflow-y-auto rounded-l-2xl bg-white p-8 shadow-2xl"
+            className="fixed right-0 top-0 z-50 h-full w-full sm:w-[420px] overflow-y-auto rounded-l-2xl bg-white p-6 sm:p-8 shadow-2xl"
           >
             <button
               onClick={onClose}
