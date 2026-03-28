@@ -23,9 +23,9 @@ const conversation: Message[] = [
     table: {
       headers: ['Tool', 'Annual Waste', 'Root Cause'],
       rows: [
-        ['SAP ERP', '$680K', '340 unused licenses across 5 divisions'],
-        ['Primavera P6', '$445K', '89 inactive seats, duplicate project instances'],
-        ['Kronos/UKG Workforce', '$340K', 'Legacy contract; underutilized scheduling modules'],
+        ['SAP ERP', '$360K', '90 unused licenses across all divisions'],
+        ['Primavera P6', '$350K', '100 inactive seats, restrict to active project managers only'],
+        ['Kronos/UKG Workforce', '$180K', '600 inactive seats; legacy contract underutilization'],
       ],
     },
   },
@@ -36,7 +36,7 @@ const conversation: Message[] = [
   {
     role: 'ai',
     content:
-      'Based on effort-vs-impact analysis across 47 mapped workflows, here are the top 3 automation candidates ranked by net ROI:',
+      'Based on effort-vs-impact analysis across 62 mapped workflows, here are the top 3 automation candidates ranked by net ROI:',
     list: {
       items: [
         {
