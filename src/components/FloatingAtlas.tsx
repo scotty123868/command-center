@@ -140,7 +140,12 @@ export default function FloatingAtlas() {
     } catch {
       const response = getCannedResponse(text);
       await new Promise(r => setTimeout(r, 600 + Math.random() * 800));
-      setMessages(prev => [...prev, { role: 'assistant', content: response }]);
+      // Replace the empty placeholder instead of appending a second message
+      setMessages(prev => {
+        const updated = [...prev];
+        updated[updated.length - 1] = { role: 'assistant', content: response };
+        return updated;
+      });
     } finally {
       setIsTyping(false);
     }

@@ -364,12 +364,19 @@ export default function Workflows() {
   const { company } = useCompany();
   const workflowSummary = getWorkflowSummary(company.id);
 
-  // For child companies, show a proportional subset of workflows sorted by savings
+  // For child companies, show a stable, unique subset of workflows based on division
   const companyWorkflows = (() => {
     if (company.id === 'meridian' || !company.parentId) return allWorkflows;
-    // Show top N workflows proportional to this company's workflow count
-    const sorted = [...allWorkflows].sort((a, b) => b.savings - a.savings);
-    return sorted.slice(0, Math.min(sorted.length, workflowSummary.total));
+    // Simple hash to get a stable offset per division so each sees different workflows
+    const hash = company.id.split('').reduce((h, c) => ((h << 5) - h + c.charCodeAt(0)) | 0, 0);
+    const offset = Math.abs(hash) % allWorkflows.length;
+    const count = Math.min(allWorkflows.length, workflowSummary.total);
+    // Pick workflows starting from the division's offset, wrapping around
+    const result: typeof allWorkflows = [];
+    for (let i = 0; i < count; i++) {
+      result.push(allWorkflows[(offset + i) % allWorkflows.length]);
+    }
+    return result;
   })();
 
   return (

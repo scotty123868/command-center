@@ -111,7 +111,7 @@ function generateReportHTML(companyId = 'meridian', scenario: ScenarioKey = 'bas
   const safeName = escapeHtml(profile.name || config.name);
   const safeEmployees = escapeHtml((profile.employees || config.employees).toLocaleString());
   const safeOpCos = escapeHtml(String(profile.opCos || config.opCos));
-  const safeAiScore = escapeHtml(String(config.aiReadinessScore));
+  const safeAiScore = escapeHtml(String(profile.aiReadinessScore ?? config.aiReadinessScore));
   const safeToday = escapeHtml(today);
 
   const gross = roiSummary.techStackSavings + roiSummary.workflowAutomation + roiSummary.licenseRecovery;
