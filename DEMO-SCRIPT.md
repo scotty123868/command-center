@@ -7,7 +7,7 @@
 ## Pre-Meeting Setup
 
 - [ ] Open Command Center in Tab 1: `command-center-herzog.vercel.app?reset=true` (clears demo state)
-- [ ] Open Lastmile in Tab 2: `lastmile-herzog.vercel.app` (pre-loaded to Overview)
+- [ ] Open Lastmile in Tab 2: `lastmile-musing-gauss.vercel.app` (pre-loaded to Overview)
 - [ ] Print 2 copies of one-page Executive Summary (from Board Report PDF)
 - [ ] Have pricing sheet in folder (not visible until asked)
 - [ ] Test both URLs load correctly on meeting WiFi
@@ -33,7 +33,7 @@
 
 ## Act 1: "We Understand Your Business" (2-4 min)
 
-**Open Tab 1 — Command Center lands on Executive Briefing (full-screen, dark, immersive)**
+**Open Tab 1 — Command Center lands on Dashboard (full-screen, dark, immersive)**
 
 > "We built this specifically for Herzog. Not a template — a model of your actual operating structure."
 
