@@ -337,7 +337,7 @@ export default function Integrations() {
               transition={{ duration: 0.3, delay: 0.25 + i * 0.06 }}
               className="rounded-2xl p-6 cursor-pointer hover:shadow-lg transition-shadow"
               style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)', borderLeft: `3px solid ${accentColor}` }}
-              onClick={() => window.open(`${LASTMILE_URL}/agents`, '_blank')}
+              onClick={() => window.open(`${LASTMILE_URL}/agents?company=${company.id}`, '_blank')}
             >
               {/* Header */}
               <div className="mb-5 flex items-center justify-between">
@@ -420,6 +420,16 @@ export default function Integrations() {
             </motion.div>
           ))}
         </div>
+        <a
+          href={`${LASTMILE_URL}/agents?company=${company.id}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3 inline-flex items-center gap-1.5 text-[12px] transition-colors"
+          style={{ color: 'var(--cc-text-tertiary)' }}
+        >
+          View in Last Mile
+          <ExternalLink className="w-3 h-3" strokeWidth={2} />
+        </a>
       </motion.div>
 
       {/* -- Section 1: Assessment Data Sources ----------------------------- */}
@@ -635,7 +645,7 @@ export default function Integrations() {
 
       {/* -- Cross-link to Last Mile Connectors ----------------------------- */}
       <a
-        href={`${LASTMILE_URL}/connectors`}
+        href={`${LASTMILE_URL}/connectors?company=${company.id}`}
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center gap-1.5 text-sm transition-colors"

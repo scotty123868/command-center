@@ -326,7 +326,7 @@ export default function Sidebar({ onNavClick, onClose }: { onNavClick?: () => vo
       {/* ── Cross-link to Last Mile ────────────────── */}
       <div className="px-4 py-3 border-t border-white/[0.06]">
         <a
-          href={LASTMILE_URL}
+          href={`${LASTMILE_URL}?company=${company.id}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-1.5 text-xs text-slate-500 hover:text-blue-400 transition-colors"

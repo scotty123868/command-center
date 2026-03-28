@@ -317,7 +317,7 @@ export default function ROISummary() {
 
       {/* ── Cross-link to Last Mile Impact ────────────────────────────── */}
       <a
-        href={`${LASTMILE_URL}/impact`}
+        href={`${LASTMILE_URL}/impact?company=${company.id}`}
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center gap-1.5 text-sm text-blue-500 hover:text-blue-400 transition-colors"

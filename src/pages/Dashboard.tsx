@@ -570,7 +570,7 @@ function DivisionDrawer({
 
             {/* View Full Analysis link */}
             <a
-              href={LASTMILE_URL}
+              href={`${LASTMILE_URL}/agents?company=${entity.id}`}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 flex items-center gap-1.5 text-[13px] font-medium transition-colors"
@@ -1083,17 +1083,29 @@ export default function Dashboard() {
         </KpiCard>
       </motion.div>
 
-      {/* ── Cross-link to Last Mile ────────────────────────────── */}
-      <a
-        href={LASTMILE_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-1.5 text-sm transition-colors"
-        style={{ color: 'var(--cc-accent)' }}
-      >
-        View live operations monitoring
-        <ExternalLink className="w-3.5 h-3.5" strokeWidth={2} />
-      </a>
+      {/* ── Cross-links to Last Mile ────────────────────────────── */}
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+        <a
+          href={`${LASTMILE_URL}/agents?company=${company.id}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1.5 text-[13px] transition-colors"
+          style={{ color: 'var(--cc-text-tertiary)' }}
+        >
+          View AI Agents in Last Mile
+          <ExternalLink className="w-3 h-3" strokeWidth={2} />
+        </a>
+        <a
+          href={`${LASTMILE_URL}/operations?company=${company.id}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1.5 text-[13px] transition-colors"
+          style={{ color: 'var(--cc-text-tertiary)' }}
+        >
+          View live operations
+          <ExternalLink className="w-3 h-3" strokeWidth={2} />
+        </a>
+      </div>
 
       {/* ── Timeline Scrubber (dark-themed) ────────────────────── */}
       <motion.section
