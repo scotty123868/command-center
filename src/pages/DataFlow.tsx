@@ -289,7 +289,38 @@ export default function DataFlow() {
               transition={{ delay: i * 0.07 }}
               className="rounded-2xl shadow-sm overflow-hidden" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
             >
-              <div className="grid grid-cols-12 items-center gap-4 px-5 py-4">
+              {/* Mobile layout */}
+              <div className="flex flex-col gap-3 px-5 py-4 sm:hidden">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2 min-w-0 flex-1">
+                    <Database className="h-4 w-4 shrink-0 text-blue-500" />
+                    <span className="text-sm truncate" style={{ color: 'var(--cc-text)' }}>{gap.name}</span>
+                  </div>
+                  <span className="font-mono text-sm font-semibold text-red-600 shrink-0 ml-3">
+                    {gap.impact}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <motion.div
+                    className="h-2.5 w-2.5 rounded-full bg-red-500 shrink-0"
+                    animate={{ scale: [1, 1.3, 1] }}
+                    transition={{ repeat: Infinity, duration: 2 }}
+                  />
+                  <span className="rounded-md border border-dashed border-red-800/40 px-2 py-0.5 text-[10px] font-semibold text-red-400 shrink-0" style={{ background: 'var(--cc-red-dim)' }}>
+                    GAP
+                  </span>
+                  <span className="text-xs text-red-500 truncate">
+                    {gap.gapLabel}
+                  </span>
+                </div>
+                <div className="flex items-start gap-2 text-xs" style={{ color: 'var(--cc-text-secondary)' }}>
+                  <Lock className="mt-0.5 h-3.5 w-3.5 shrink-0" style={{ color: 'var(--cc-text-tertiary)' }} />
+                  <span>Blocked: {gap.blocked}</span>
+                </div>
+              </div>
+
+              {/* Desktop layout */}
+              <div className="hidden sm:grid grid-cols-12 items-center gap-4 px-5 py-4">
                 {/* Source Systems */}
                 <div className="col-span-3 flex items-start gap-2">
                   <Database className="mt-0.5 h-4 w-4 shrink-0 text-blue-500" />

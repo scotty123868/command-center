@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, X, Building2, ChevronRight, ExternalLink, Lightbulb, Sparkles, Target } from 'lucide-react';
 import AnimatedCounter from '../components/AnimatedCounter';
@@ -488,6 +489,8 @@ function DivisionDrawer({
   entity: { id: string; name: string; shortName: string; initials: string; industry: string; employees: number } | null;
   onClose: () => void;
 }) {
+  // useNavigate must be called before any early returns (hooks rule)
+  const drawerNavigate = useNavigate();
   if (!entity) return null;
   const subKpis = getKpis(entity.id);
   const subOpps = getTopOpportunities(entity.id).slice(0, 5);
@@ -513,7 +516,7 @@ function DivisionDrawer({
             animate={{ x: 0 }}
             exit={{ x: 480 }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            className="fixed right-0 top-0 z-50 h-full w-[480px] overflow-y-auto rounded-l-2xl p-8 shadow-2xl"
+            className="fixed right-0 top-0 z-50 h-full w-full sm:w-[480px] overflow-y-auto rounded-l-2xl p-6 sm:p-8 shadow-2xl"
             style={{ background: 'var(--cc-bg-card)', borderLeft: '1px solid var(--cc-border)' }}
           >
             <button
@@ -568,17 +571,30 @@ function DivisionDrawer({
               </div>
             </div>
 
-            {/* View Full Analysis link */}
-            <a
-              href={`${LASTMILE_URL}/agents?company=${entity.id}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 flex items-center gap-1.5 text-[13px] font-medium transition-colors"
-              style={{ color: 'var(--cc-accent)' }}
-            >
-              View Full Analysis
-              <ArrowRight className="w-4 h-4" />
-            </a>
+            {/* Cross-links */}
+            <div className="mt-6 flex flex-col gap-2">
+              <button
+                onClick={() => {
+                  onClose();
+                  drawerNavigate('/roi-summary');
+                }}
+                className="flex items-center gap-1.5 text-[13px] font-medium transition-colors cursor-pointer"
+                style={{ color: 'var(--cc-accent)' }}
+              >
+                View ROI Analysis
+                <ArrowRight className="w-4 h-4" />
+              </button>
+              <a
+                href={`${LASTMILE_URL}/agents?company=${entity.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-[12px] transition-colors"
+                style={{ color: 'var(--cc-text-tertiary)' }}
+              >
+                View AI Agents in Last Mile
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
           </motion.div>
         </>
       )}
@@ -626,6 +642,7 @@ function ScatterTooltipContent({ active, payload }: { active?: boolean; payload?
 // ─── Dashboard ──────────────────────────────────────────────────────────────
 
 export default function Dashboard() {
+  const navigate = useNavigate();
   const { company, companies } = useCompany();
   const companyKpis = getKpis(company.id);
   const companyRoadmap = getRoadmapPhases(company.id);
@@ -878,14 +895,15 @@ export default function Dashboard() {
               </h2>
               <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
                 {(() => {
+                  const companyRoi = getRoiSummary(company.id);
                   const year1 = companyKpis.totalSavings;
-                  const year2 = Math.round(companyKpis.totalSavings * 1.15);
-                  const year3 = Math.round(companyKpis.totalSavings * 1.35);
+                  const year2 = companyRoi.year2Projected;
+                  const year3 = Math.round(companyRoi.year2Projected * 1.18);
                   const total = year1 + year2 + year3;
                   return [
                     { label: 'Year 1 Opportunity Cost', value: fmtCompact(year1), sub: 'Total savings forgone' },
-                    { label: 'Year 2 (15% compounding)', value: fmtCompact(year2), sub: 'Inflation + regulatory increases' },
-                    { label: 'Year 3 (35% compounding)', value: fmtCompact(year3), sub: 'Compounding tech debt' },
+                    { label: 'Year 2 Projected', value: fmtCompact(year2), sub: 'Automation scaling + maintenance drop' },
+                    { label: 'Year 3 Projected', value: fmtCompact(year3), sub: 'Full maturity compounding' },
                     { label: 'Total Cost of Inaction', value: fmtCompact(total), sub: '3-year cumulative loss' },
                   ];
                 })().map((metric, i) => (
@@ -1340,9 +1358,9 @@ export default function Dashboard() {
         >
           <h2 className="text-[15px] font-semibold mb-1" style={{ color: 'var(--cc-text)' }}>Priority Matrix</h2>
           <p className="text-[12px] mb-4" style={{ color: 'var(--cc-text-secondary)' }}>Impact vs Effort — bubble size = savings</p>
-          <div className="relative h-[320px]">
+          <div className="relative h-[280px] sm:h-[320px] overflow-hidden">
             <ResponsiveContainer width="100%" height="100%">
-              <ScatterChart margin={{ top: 20, right: 20, bottom: 30, left: 10 }}>
+              <ScatterChart margin={{ top: 20, right: 12, bottom: 30, left: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" />
                 <XAxis
                   type="number"
@@ -1564,13 +1582,15 @@ export default function Dashboard() {
       >
         <h2 className="text-[15px] font-semibold mb-5" style={{ color: 'var(--cc-text)' }}>AI-Generated Insights</h2>
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-          {/* Insight 1: Most expensive legacy system */}
+          {/* Insight 1: Most expensive legacy system → Tech Stack page */}
           {mostExpensiveLegacy && (
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.62 }}
-              className="rounded-2xl p-5"
+              whileHover={{ y: -2 }}
+              onClick={() => navigate('/tech-stack')}
+              className="rounded-2xl p-5 cursor-pointer transition-shadow hover:shadow-lg"
               style={{
                 background: 'var(--cc-bg-card)',
                 border: '1px solid var(--cc-border)',
@@ -1587,16 +1607,21 @@ export default function Dashboard() {
                 <span className="font-mono font-semibold" style={{ color: 'var(--cc-yellow)' }}>{mostExpensiveLegacy.score}/10</span>.
                 Migration complexity is {mostExpensiveLegacy.integrationComplexity.toLowerCase()}.
               </p>
+              <p className="mt-2 flex items-center gap-1 text-[11px] font-medium" style={{ color: 'var(--cc-accent)' }}>
+                View Tech Stack Analysis <ArrowRight className="w-3 h-3" />
+              </p>
             </motion.div>
           )}
 
-          {/* Insight 2: Highest savings opportunity */}
+          {/* Insight 2: Highest savings opportunity → Workflows page */}
           {highestSavingsOpp && (
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.68 }}
-              className="rounded-2xl p-5"
+              whileHover={{ y: -2 }}
+              onClick={() => navigate('/workflows')}
+              className="rounded-2xl p-5 cursor-pointer transition-shadow hover:shadow-lg"
               style={{
                 background: 'var(--cc-bg-card)',
                 border: '1px solid var(--cc-border)',
@@ -1613,16 +1638,21 @@ export default function Dashboard() {
                 <span className="font-mono font-semibold">{highestSavingsOpp.confidence}%</span> confidence.
                 Time to value: {highestSavingsOpp.timeToValue} weeks.
               </p>
+              <p className="mt-2 flex items-center gap-1 text-[11px] font-medium" style={{ color: 'var(--cc-accent)' }}>
+                View Workflow Analysis <ArrowRight className="w-3 h-3" />
+              </p>
             </motion.div>
           )}
 
-          {/* Insight 3: Best AI-ready dimension */}
+          {/* Insight 3: Best AI-ready dimension → Data Flow page */}
           {bestAiDimension && (
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.74 }}
-              className="rounded-2xl p-5"
+              whileHover={{ y: -2 }}
+              onClick={() => navigate('/data-flow')}
+              className="rounded-2xl p-5 cursor-pointer transition-shadow hover:shadow-lg"
               style={{
                 background: 'var(--cc-bg-card)',
                 border: '1px solid var(--cc-border)',
@@ -1637,6 +1667,9 @@ export default function Dashboard() {
                 <span style={{ color: 'var(--cc-text)' }} className="font-semibold">{bestAiDimension.category}</span> is the strongest AI readiness dimension at{' '}
                 <span className="font-mono font-semibold" style={{ color: 'var(--cc-accent)' }}>{bestAiDimension.score}/{bestAiDimension.maxScore}</span>.
                 This can serve as the foundation for accelerating adoption in weaker areas.
+              </p>
+              <p className="mt-2 flex items-center gap-1 text-[11px] font-medium" style={{ color: 'var(--cc-accent)' }}>
+                View Data Flow Intelligence <ArrowRight className="w-3 h-3" />
               </p>
             </motion.div>
           )}
