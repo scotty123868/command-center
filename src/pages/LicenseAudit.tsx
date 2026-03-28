@@ -47,13 +47,15 @@ function usagePct(l: License): number {
 
 function actionDescription(l: License): string {
   const pct = usagePct(l);
-  if (l.action === 'Reclaim')
+  if (l.action.startsWith('Reclaim'))
     return `${l.inactive} licenses have had zero activity in 90+ days. Reclaiming these seats saves ${fmt(l.annualWaste)}/yr with no impact on active users (${pct}% utilization).`;
-  if (l.action.startsWith('Replace'))
-    return `Current tool shows low utilization or better alternatives exist. Migrating to ${l.action.replace('Replace → ', '')} consolidates spend and improves capability while saving ${fmt(l.annualWaste)}/yr.`;
-  if (l.action === 'Downgrade')
+  if (l.action.startsWith('Replace') || l.action.startsWith('Migrate'))
+    return `Current tool shows low utilization or better alternatives exist. Migrating consolidates spend and improves capability while saving ${fmt(l.annualWaste)}/yr.`;
+  if (l.action.startsWith('Downgrade'))
     return `${l.inactive} users on Enterprise tier have usage patterns consistent with a lower plan. Downgrading these seats preserves access while saving ${fmt(l.annualWaste)}/yr.`;
-  return '';
+  if (l.action.startsWith('Decommission'))
+    return `Legacy system with ${l.inactive} unused seats. Decommissioning saves ${fmt(l.annualWaste)}/yr and reduces maintenance burden.`;
+  return `${l.action} — saves ${fmt(l.annualWaste)}/yr.`;
 }
 
 function TrendSparkline({ data }: { data: number[] }) {
