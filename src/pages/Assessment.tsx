@@ -119,8 +119,6 @@ function AIMessage({
   list?: Message['list'];
   delay: number;
 }) {
-  }
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 12 }}
