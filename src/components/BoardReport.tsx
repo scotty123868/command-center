@@ -1,5 +1,5 @@
 import { config } from '../data/config';
-import { getRoiSummary } from '../data/constants';
+import { getRoiSummary, getKpis, getWorkflowSummary, getLicenses } from '../data/constants';
 
 const today = new Date().toLocaleDateString('en-US', {
   year: 'numeric',
@@ -22,6 +22,10 @@ const fmtMoney = (n: number) =>
 
 function generateReportHTML(companyId = 'meridian'): string {
   const roiSummary = getRoiSummary(companyId);
+  const kpis = getKpis(companyId);
+  const wfSummary = getWorkflowSummary(companyId);
+  const licenses = getLicenses(companyId);
+  const totalLicenseWaste = licenses.reduce((sum, l) => sum + l.annualWaste, 0);
   const safeName = escapeHtml(config.name);
   const safeEmployees = escapeHtml(config.employees.toLocaleString());
   const safeOpCos = escapeHtml(String(config.opCos));
@@ -178,7 +182,7 @@ function generateReportHTML(companyId = 'meridian'): string {
     <div class="section-title">Executive Summary</div>
     <p>
       UpSkiller AI conducted a comprehensive AI transformation analysis of ${safeName}, evaluating
-      47 workflows, 23 software tools, and 1,850+ employee roles across ${safeOpCos} operating companies.
+      ${wfSummary.total} workflows, 23 software tools, and 1,850+ employee roles across ${safeOpCos} operating companies.
       The analysis identified <strong>${fmtMoney(net)} in annualized net savings</strong> through tech stack optimization,
       workflow automation, and license reclamation. With an implementation investment of ${fmtMoney(roiSummary.implementationCosts)}, the program
       achieves <strong>break-even in ${breakeven} months</strong> and delivers a <strong>${roi}% Year 1 ROI</strong>.
@@ -196,27 +200,27 @@ function generateReportHTML(companyId = 'meridian'): string {
       <tbody>
         <tr>
           <td>Tech Stack Score</td>
-          <td class="num">34 / 100</td>
-          <td class="num blue">87 / 100</td>
-          <td class="num green">+156% improvement</td>
+          <td class="num">${kpis.techScoreBefore} / 100</td>
+          <td class="num blue">${kpis.techScoreAfter} / 100</td>
+          <td class="num green">+${Math.round(((kpis.techScoreAfter - kpis.techScoreBefore) / kpis.techScoreBefore) * 100)}% improvement</td>
         </tr>
         <tr>
           <td>Annual Tech Spend</td>
-          <td class="num">$8.2M</td>
-          <td class="num blue">$5.4M</td>
-          <td class="num green">-$2.8M savings</td>
+          <td class="num">${fmtMoney(roiSummary.techStackSavings + roiSummary.workflowAutomation + roiSummary.licenseRecovery + roiSummary.netYear1)}</td>
+          <td class="num blue">${fmtMoney(roiSummary.netYear1)}</td>
+          <td class="num green">-${fmtMoney(roiSummary.techStackSavings + roiSummary.workflowAutomation + roiSummary.licenseRecovery - roiSummary.implementationCosts)} savings</td>
         </tr>
         <tr>
           <td>Workflow Automation Rate</td>
           <td class="num">0%</td>
-          <td class="num blue">62%</td>
-          <td class="num green">12 of 47 workflows</td>
+          <td class="num blue">${Math.round((wfSummary.fullyAutomatable / wfSummary.total) * 100)}%</td>
+          <td class="num green">${wfSummary.fullyAutomatable} of ${wfSummary.total} workflows</td>
         </tr>
         <tr>
           <td>License Utilization</td>
           <td class="num">54%</td>
           <td class="num blue">94%</td>
-          <td class="num green">$2.1M waste eliminated</td>
+          <td class="num green">${fmtMoney(totalLicenseWaste)} waste eliminated</td>
         </tr>
       </tbody>
     </table>
