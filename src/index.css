@@ -385,3 +385,29 @@ body {
   box-shadow: 0 0 10px var(--cc-accent-glow);
   cursor: pointer;
 }
+
+/* ── Mobile responsiveness ─────────────────────────────── */
+
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+
+  .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  span > a, .text-\[10px\] a, .text-\[11px\] a {
+    min-height: auto;
+    min-width: auto;
+  }
+
+  .recharts-responsive-container {
+    max-width: 100%;
+  }
+}

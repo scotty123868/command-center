@@ -127,7 +127,7 @@ export default function Integrations() {
 
       {/* -- Summary stats --------------------------------------------------- */}
       <motion.div
-        className="grid grid-cols-3 gap-5"
+        className="grid grid-cols-1 sm:grid-cols-3 gap-5"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3 }}

@@ -125,7 +125,7 @@ export default function Sidebar({ onNavClick, onClose }: { onNavClick?: () => vo
       {onClose && (
         <button
           onClick={onClose}
-          className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white/60 hover:bg-white/20 hover:text-white transition-colors lg:hidden"
+          className="absolute right-3 top-3 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white/60 hover:bg-white/20 hover:text-white transition-colors lg:hidden"
         >
           <X className="h-4 w-4" strokeWidth={2} />
         </button>

@@ -157,13 +157,13 @@ export default function LicenseAudit() {
         transition={{ duration: 0.25, delay: 0.08 }}
         className="rounded-2xl shadow-sm overflow-hidden" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
       >
-        <div className="px-8 pt-6 pb-4">
+        <div className="px-4 sm:px-8 pt-6 pb-4">
           <h2 className="text-xl font-semibold" style={{ color: 'var(--cc-text)' }}>License Inventory</h2>
           <p className="text-sm mt-1" style={{ color: 'var(--cc-text-secondary)' }}>Click any row for detailed breakdown</p>
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+          <table className="w-full min-w-[640px] text-sm">
             <thead>
               <tr className="text-left text-xs font-semibold uppercase tracking-wider" style={{ borderBottom: '1px solid var(--cc-border)', color: 'var(--cc-text-secondary)' }}>
                 <th className="px-8 py-3">Vendor</th>
@@ -231,7 +231,7 @@ export default function LicenseAudit() {
                               transition={{ duration: 0.25 }}
                               className="overflow-hidden"
                             >
-                              <div className="px-8 py-6 grid md:grid-cols-4 gap-6" style={{ background: 'var(--cc-bg-input)', borderBottom: '1px solid var(--cc-border)' }}>
+                              <div className="px-4 sm:px-8 py-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6" style={{ background: 'var(--cc-bg-input)', borderBottom: '1px solid var(--cc-border)' }}>
                                 {/* Usage bar */}
                                 <div>
                                   <p className="text-xs font-semibold uppercase tracking-wider mb-2">

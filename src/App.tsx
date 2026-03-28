@@ -52,7 +52,7 @@ function TopBar({ onMenuClick }: { onMenuClick: () => void }) {
         <div className="flex items-center gap-3">
           <button
             onClick={onMenuClick}
-            className="flex h-8 w-8 items-center justify-center rounded-lg transition-colors lg:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-lg transition-colors lg:hidden"
             style={{ color: 'var(--cc-text-secondary)' }}
           >
             <Menu className="h-5 w-5" strokeWidth={1.8} />
