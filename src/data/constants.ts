@@ -30,8 +30,9 @@ export const kpis = {
   techScoreBefore: 38,
   techScoreAfter: 86,
   workflowsAnalyzed: 62,
-  automationReady: 16,
+  automationReady: 18,
   unusedLicenseWaste: 2_800_000,
+
   savingsSparkline: [0, 120_000, 310_000, 580_000, 920_000, 1_400_000, 2_000_000, 2_700_000, 3_500_000, 4_400_000, 5_100_000, 5_800_000],
   scoreSparkline: [38, 40, 44, 49, 55, 61, 67, 72, 77, 81, 84, 86],
   workflowSparkline: [0, 5, 11, 18, 25, 32, 38, 44, 49, 54, 58, 62],
@@ -759,11 +760,11 @@ export const workflows: Workflow[] = [
 
 export const workflowSummary = {
   total: 62,
-  fullyAutomatable: 16,
-  humanInLoop: 32,
+  fullyAutomatable: 18,
+  humanInLoop: 30,
   humanRequired: 14,
   currentLaborSpend: 8_200_000,
-  potentialSavings: 3_800_000,
+  potentialSavings: 3_600_000,
 };
 
 // ─── License Audit Data ─────────────────────────────────────────────────────
@@ -934,9 +935,9 @@ export const transformationStories: TransformationStory[] = [
 
 export const roiSummary = {
   techStackSavings: 2_200_000,
-  workflowAutomation: 3_800_000,
+  workflowAutomation: 3_600_000,
   licenseRecovery: 2_800_000,
-  implementationCosts: 3_000_000,
+  implementationCosts: 2_800_000,
   netYear1: 5_800_000,
   year2Projected: 8_700_000,
 };

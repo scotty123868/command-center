@@ -232,8 +232,8 @@ export default function BoardReportPage() {
 
         <p style={{ fontSize: '12.5px', color: '#334155', marginBottom: '20px', lineHeight: 1.7 }}>
           UpSkiller AI conducted a comprehensive technology and AI readiness assessment of {companyProfile.name},
-          evaluating {companyKpis.workflowsAnalyzed} workflows, 47 software platforms, and {companyProfile.employees.toLocaleString()} employee
-          roles across {companyProfile.opCos} operating divisions. The assessment reveals significant opportunity for
+          evaluating {companyKpis.workflowsAnalyzed} workflows across {companyProfile.employees.toLocaleString()} employee
+          roles and {companyProfile.opCos} operating divisions. The assessment reveals significant opportunity for
           operational improvement through technology modernization and AI adoption.
         </p>
 
@@ -259,7 +259,7 @@ export default function BoardReportPage() {
           {[
             `Total annualized net savings of ${fmtDollar(roiSummary.netYear1)}, with Year 2 projections of ${fmtDollar(roiSummary.year2Projected)} as automation scales`,
             `AI Readiness Score improvement from ${companyKpis.techScoreBefore}/100 (Critical) to ${companyKpis.techScoreAfter}/100 (Advanced) across all divisions`,
-            `${fmtDollar(companyKpis.unusedLicenseWaste)} in annual license waste identified across 47 software platforms — immediate reclamation opportunity`,
+            `${fmtDollar(companyKpis.unusedLicenseWaste)} in annual license waste identified — immediate reclamation opportunity`,
             `${companyKpis.automationReady} of ${companyKpis.workflowsAnalyzed} workflows identified as automation-ready, targeting field operations, scheduling, and compliance`,
             `${roi}% Year 1 ROI on ${fmtDollar(roiSummary.implementationCosts)} implementation investment, with break-even at ${((roiSummary.implementationCosts / gross) * 12).toFixed(1)} months`,
           ].map((item, i) => (
