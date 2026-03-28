@@ -1,9 +1,10 @@
 import { useState, useCallback, useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation, useSearchParams } from 'react-router-dom';
-import { Search, Menu, Moon, Sun } from 'lucide-react';
+import { Search, Menu, Moon, Sun, Volume2, VolumeX } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { config } from './data/config';
 import { useTheme } from './hooks/useTheme';
+import { useSound } from './hooks/useSound';
 import Sidebar from './components/Sidebar';
 import SearchModal from './components/SearchModal';
 import Dashboard from './pages/Dashboard';
@@ -33,6 +34,7 @@ const routeTitles: Record<string, string> = {
 function TopBar({ onMenuClick }: { onMenuClick: () => void }) {
   const location = useLocation();
   const { theme, toggleTheme } = useTheme();
+  const { isMuted, toggleMute } = useSound();
   const pageTitle = routeTitles[location.pathname] || 'Dashboard';
 
   return (
@@ -79,6 +81,16 @@ function TopBar({ onMenuClick }: { onMenuClick: () => void }) {
               <span className="text-[11px]">{'\u2318'}</span>K
             </span>
           </div>
+
+          {/* Sound toggle */}
+          <button
+            onClick={toggleMute}
+            className="flex h-8 w-8 items-center justify-center rounded-lg transition-colors"
+            style={{ color: 'var(--cc-text-tertiary)' }}
+            title={isMuted ? 'Unmute sounds' : 'Mute sounds'}
+          >
+            {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
+          </button>
 
           {/* Theme toggle */}
           <button
