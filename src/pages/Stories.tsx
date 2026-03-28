@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -582,6 +582,11 @@ export default function Stories() {
     ? Math.min(Math.max(0, parseInt(divParam, 10) || 0), visibleDivisions.length - 1)
     : 0;
   const [activeIndex, setActiveIndex] = useState(defaultIndex);
+
+  // Reset activeIndex when visibleDivisions changes (e.g., company switch)
+  useEffect(() => {
+    setActiveIndex(0);
+  }, [visibleDivisions.length, company.id]);
 
   return (
     <div className="space-y-6">
