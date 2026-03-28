@@ -4,10 +4,42 @@ import {
   ChevronDown,
   AlertTriangle,
   Link2,
+  Clock,
+  Zap,
+  Timer,
 } from 'lucide-react';
 import { workflows as allWorkflows, getWorkflowSummary } from '../data/constants';
 import type { Workflow, AutomationLevel } from '../data/constants';
 import { useCompany } from '../data/CompanyContext';
+
+/* ── Time Savings Data (Palantir-style "Minutes Not Days") ── */
+
+interface TimeSaving {
+  manualTime: string;
+  automatedTime: string;
+  savingsPercent: string;
+}
+
+const workflowTimeSavings: Record<string, TimeSaving> = {
+  'Track Inspection & Maintenance Planning': { manualTime: '3.5 hours', automatedTime: '12 min', savingsPercent: '94.3%' },
+  'Crew Scheduling & Dispatch': { manualTime: '4 hours', automatedTime: '12 seconds', savingsPercent: '99.9%' },
+  'Equipment Fleet Management': { manualTime: '2 days', automatedTime: '15 min', savingsPercent: '99.5%' },
+  'Safety Compliance & Reporting': { manualTime: '8 hours', automatedTime: '3 min', savingsPercent: '99.4%' },
+  'Project Estimation & Bidding': { manualTime: '3 days', automatedTime: '2 hours', savingsPercent: '97.2%' },
+  'Material & Ballast Logistics': { manualTime: '45 min', automatedTime: '30 sec', savingsPercent: '98.9%' },
+  'Rail Testing & Flaw Detection': { manualTime: '1 week', automatedTime: '45 min', savingsPercent: '98.7%' },
+  // Fallback for any other workflow
+  'License Audit & Reclamation': { manualTime: '2 days', automatedTime: '15 min', savingsPercent: '99.5%' },
+  'Compliance Report Generation': { manualTime: '8 hours', automatedTime: '3 min', savingsPercent: '99.4%' },
+  'Invoice Processing': { manualTime: '45 min', automatedTime: '30 sec', savingsPercent: '98.9%' },
+  'Employee Onboarding': { manualTime: '3 days', automatedTime: '2 hours', savingsPercent: '97.2%' },
+  'Incident Response': { manualTime: '4 hours', automatedTime: '12 min', savingsPercent: '95.0%' },
+  'Vendor Assessment': { manualTime: '1 week', automatedTime: '45 min', savingsPercent: '98.7%' },
+};
+
+function getTimeSaving(workflowName: string): TimeSaving {
+  return workflowTimeSavings[workflowName] ?? { manualTime: '4 hours', automatedTime: '15 min', savingsPercent: '93.8%' };
+}
 
 /* ── helpers ─────────────────────────────────────────── */
 
@@ -47,6 +79,30 @@ const levelMeta: Record<
     bgStyle: { background: 'var(--cc-red-dim)' },
   },
 };
+
+/* ── time savings badge (inline in workflow card) ────── */
+
+function TimeSavingsBadge({ wf }: { wf: Workflow }) {
+  const ts = getTimeSaving(wf.name);
+  return (
+    <div className="flex items-center gap-3 px-4 py-3 rounded-xl mt-3" style={{ background: 'rgba(16, 185, 129, 0.06)', border: '1px solid rgba(16, 185, 129, 0.12)' }}>
+      <Timer size={14} className="text-emerald-500 shrink-0" />
+      <div className="flex items-center gap-2 flex-wrap text-[12px]">
+        <span className="flex items-center gap-1">
+          <span className="text-red-400/80 line-through font-medium">Manual: {ts.manualTime}</span>
+        </span>
+        <span style={{ color: 'var(--cc-text-tertiary)' }}>&rarr;</span>
+        <span className="flex items-center gap-1">
+          <Zap size={11} className="text-emerald-400" />
+          <span className="text-emerald-400 font-semibold">Automated: {ts.automatedTime}</span>
+        </span>
+        <span className="ml-1 rounded-full px-2 py-0.5 text-[10px] font-bold text-emerald-300" style={{ background: 'rgba(16, 185, 129, 0.15)' }}>
+          {ts.savingsPercent} faster
+        </span>
+      </div>
+    </div>
+  );
+}
 
 /* ── section header ──────────────────────────────────── */
 
@@ -121,6 +177,14 @@ function WorkflowCard({ wf, index }: { wf: Workflow; index: number }) {
         </span>
         <span className="text-sm font-bold text-emerald-600 tabular-nums">{fmt(wf.savings)}/yr</span>
 
+        {/* mini time savings indicator */}
+        <div className="hidden sm:flex items-center gap-1.5">
+          <Zap size={10} className="text-emerald-400" />
+          <span className="text-[10px] font-semibold text-emerald-400 tabular-nums">
+            {getTimeSaving(wf.name).savingsPercent} faster
+          </span>
+        </div>
+
         {/* mini automation bar */}
         <div className="hidden sm:flex items-center gap-2 w-32">
           <div className="h-1.5 flex-1 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
@@ -151,6 +215,9 @@ function WorkflowCard({ wf, index }: { wf: Workflow; index: number }) {
             className="overflow-hidden"
           >
             <div className="px-8 pb-8 pt-2">
+              {/* ── TIME SAVINGS ── */}
+              <TimeSavingsBadge wf={wf} />
+
               {/* ── CURRENT PROCESS ── */}
               <SectionHeader label="Current Process" />
               <div className="border-l-2 pl-5 mt-2 space-y-1.5" style={{ borderColor: 'var(--cc-border)' }}>
@@ -318,6 +385,36 @@ export default function Workflows() {
           AI automation discovery across {workflowSummary.total} workflows — detailed scoping, architecture, and implementation plans.
         </p>
       </div>
+
+      {/* ── Time Savings Summary Banner ── */}
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.05, duration: 0.4 }}
+        className="rounded-2xl px-7 py-5 flex items-center gap-5 flex-wrap"
+        style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.08) 0%, rgba(59,130,246,0.06) 100%)', border: '1px solid rgba(16,185,129,0.15)' }}
+      >
+        <div className="flex items-center gap-3">
+          <div className="flex items-center justify-center w-10 h-10 rounded-xl" style={{ background: 'rgba(16,185,129,0.15)' }}>
+            <Clock size={20} className="text-emerald-400" />
+          </div>
+          <div>
+            <p className="text-[22px] font-bold text-emerald-400 leading-tight tabular-nums">2,847 hours</p>
+            <p className="text-[11px]" style={{ color: 'var(--cc-text-secondary)' }}>Total time saved this month</p>
+          </div>
+        </div>
+        <div className="h-10 w-px" style={{ background: 'rgba(255,255,255,0.08)' }} />
+        <div>
+          <p className="text-[18px] font-bold" style={{ color: 'var(--cc-text)' }}>16 FTEs</p>
+          <p className="text-[11px]" style={{ color: 'var(--cc-text-secondary)' }}>Equivalent headcount freed</p>
+        </div>
+        <div className="h-10 w-px hidden sm:block" style={{ background: 'rgba(255,255,255,0.08)' }} />
+        <div className="hidden sm:block">
+          <p className="text-[11px] leading-relaxed max-w-[280px]" style={{ color: 'var(--cc-text-tertiary)' }}>
+            Workflows that once took days now complete in minutes — freeing teams to focus on high-value decisions.
+          </p>
+        </div>
+      </motion.div>
 
       {/* ── discovery summary row ── */}
       <div className="flex items-center gap-10 flex-wrap">
