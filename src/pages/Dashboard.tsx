@@ -1,8 +1,7 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, X, Building2, ChevronRight, ExternalLink, Lightbulb, Sparkles, Target } from 'lucide-react';
 import AnimatedCounter from '../components/AnimatedCounter';
-import AnalysisOverlay, { RunAnalysisButton } from '../components/AnalysisOverlay';
 import {
   AreaChart,
   Area,
@@ -34,7 +33,7 @@ import {
 } from '../data/constants';
 import { useCompany } from '../data/CompanyContext';
 
-const LASTMILE_URL = 'https://lastmile-beige.vercel.app';
+import { LASTMILE_URL } from '../data/crosslinks';
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
@@ -693,15 +692,6 @@ export default function Dashboard() {
   const selectedSavings = Math.round(baseSavings * timelineMultiplier * divisionMultiplier * automationAggr);
   const totalPossibleSavings = companyOpps.reduce((s, o) => s + o.savings, 0);
 
-  // Analysis overlay state
-  const [analysisComplete, setAnalysisComplete] = useState(() => sessionStorage.getItem('analysis-complete') === 'true');
-  const [showOverlay, setShowOverlay] = useState(false);
-
-  const handleAnalysisComplete = useCallback(() => {
-    setShowOverlay(false);
-    setAnalysisComplete(true);
-  }, []);
-
   // Live sync timer
   const [syncSeconds, setSyncSeconds] = useState(() => Math.floor(Math.random() * 26) + 5);
   useEffect(() => {
@@ -775,11 +765,6 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-8">
-      {/* Analysis Overlay */}
-      <AnimatePresence>
-        {showOverlay && <AnalysisOverlay onComplete={handleAnalysisComplete} />}
-      </AnimatePresence>
-
       {/* ── 1. CINEMATIC HERO SECTION ────────────────────────────── */}
       <motion.section
         key={`hero-${company.id}`}
@@ -866,18 +851,6 @@ export default function Dashboard() {
           </div>
         </div>
       </motion.section>
-
-      {/* Preliminary Estimate Banner */}
-      <div className="flex items-center justify-between">
-        <span className="text-xs px-3 py-1 rounded" style={{ color: 'var(--cc-text-tertiary)', background: 'var(--cc-bg-elevated)' }}>
-          Preliminary Estimate — Based on Industry Benchmarks
-        </span>
-      </div>
-
-      {/* Run Analysis Button (shown only before analysis) */}
-      {!analysisComplete && (
-        <RunAnalysisButton onStart={() => setShowOverlay(true)} />
-      )}
 
       {/* ── Cost of Inaction Toggle ──────────────────────────────── */}
       <motion.div

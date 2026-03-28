@@ -18,8 +18,7 @@ import {
   Network,
 } from 'lucide-react';
 import { useCompany } from '../data/CompanyContext';
-
-const LASTMILE_URL = 'https://lastmile-beige.vercel.app';
+import { LASTMILE_URL } from '../data/crosslinks';
 
 const assessmentItems = [
   { to: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },

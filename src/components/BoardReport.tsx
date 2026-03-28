@@ -1,5 +1,5 @@
 import { config } from '../data/config';
-import { roiSummary } from '../data/constants';
+import { getRoiSummary } from '../data/constants';
 
 const today = new Date().toLocaleDateString('en-US', {
   year: 'numeric',
@@ -20,7 +20,8 @@ function escapeHtml(str: string): string {
 const fmtMoney = (n: number) =>
   n >= 1_000_000 ? `$${(n / 1_000_000).toFixed(1)}M` : `$${Math.round(n / 1_000)}K`;
 
-function generateReportHTML(): string {
+function generateReportHTML(companyId = 'meridian'): string {
+  const roiSummary = getRoiSummary(companyId);
   const safeName = escapeHtml(config.name);
   const safeEmployees = escapeHtml(config.employees.toLocaleString());
   const safeOpCos = escapeHtml(String(config.opCos));
@@ -316,10 +317,10 @@ function generateReportHTML(): string {
 </html>`;
 }
 
-export function openBoardReport() {
+export function openBoardReport(companyId = 'meridian') {
   const reportWindow = window.open('', '_blank');
   if (reportWindow) {
-    reportWindow.document.write(generateReportHTML());
+    reportWindow.document.write(generateReportHTML(companyId));
     reportWindow.document.close();
   }
 }

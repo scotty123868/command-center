@@ -14,6 +14,7 @@ import {
   ShieldCheck,
 } from 'lucide-react';
 import PreliminaryBanner from '../components/PreliminaryBanner';
+import { useCompany } from '../data/CompanyContext';
 
 /* ── Gap Data ────────────────────────────────────────────────────────────── */
 
@@ -215,8 +216,22 @@ const statIcons = [Server, Activity, AlertTriangle, BarChart3];
 
 /* ── Component ───────────────────────────────────────────────────────────── */
 
+// Map each gap to the divisions it's relevant to
+const gapDivisionMap: Record<number, string[]> = {
+  1: ['meridian', 'hcc', 'hrsi', 'hti', 'he'],       // Unified General Ledger — multi-division financial
+  2: ['meridian', 'hcc', 'hrsi', 'hsi', 'htsi'],      // Centralized Equipment Catalog — fleet heavy
+  3: ['meridian', 'hcc', 'hti', 'htsi'],               // Unified Customer Layer — client-facing
+  4: ['meridian', 'hcc', 'hrsi', 'hsi', 'gg'],         // Digital Field Data Capture — field ops
+  5: ['meridian', 'hcc', 'hrsi', 'hsi', 'hti', 'htsi', 'he', 'gg'], // License Telemetry — all
+  6: ['meridian', 'hsi', 'hti', 'gg', 'he'],           // Regulatory Data Pipeline — compliance heavy
+};
+
 export default function DataFlow() {
+  const { company } = useCompany();
   const [expandedGap, setExpandedGap] = useState<number | null>(null);
+  const filteredGaps = company.id === 'meridian'
+    ? gaps
+    : gaps.filter(g => gapDivisionMap[g.id]?.includes(company.id));
 
   const toggle = (id: number) =>
     setExpandedGap((prev) => (prev === id ? null : id));
@@ -266,7 +281,7 @@ export default function DataFlow() {
         </h2>
 
         <div className="space-y-3">
-          {gaps.map((gap, i) => (
+          {filteredGaps.map((gap, i) => (
             <motion.div
               key={gap.id}
               initial={{ opacity: 0, x: -16 }}
@@ -331,7 +346,7 @@ export default function DataFlow() {
         </h2>
 
         <div className="space-y-3">
-          {gaps.map((gap) => {
+          {filteredGaps.map((gap) => {
             const isOpen = expandedGap === gap.id;
             return (
               <div

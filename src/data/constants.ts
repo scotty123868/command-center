@@ -124,6 +124,52 @@ export const roadmapPhases = [
   },
 ];
 
+// ─── Integration Page Interfaces ──────────────────────────────────────────
+
+export interface AIAgent {
+  name: string;
+  subtitle: string;
+  accuracy: number;
+  metric2Label: string;
+  metric2Value: number;
+  metric3Label: string;
+  metric3Value: string;
+  overrideRate: number;
+  confidenceThreshold: number;
+  status: 'active' | 'piloting' | 'planned';
+  lastmileAgentId: string;
+}
+
+export interface IntegrationDataSource {
+  system: string;
+  division: string;
+  recordsAnalyzed: string;
+  coverage: number;
+  status: 'Complete' | 'In Progress' | 'Pending Access';
+}
+
+export interface IntegrationVendorHealth {
+  name: string;
+  status: 'green' | 'yellow' | 'red';
+  uptime: number;
+  latency: number;
+  lastChecked: string;
+  note?: string;
+}
+
+export interface IntegrationFailureMode {
+  vendor: string;
+  scenario: string;
+  recovery: string;
+  status: 'Passing' | 'Needs Attention';
+}
+
+export interface IntegrationMethodologyStep {
+  number: number;
+  title: string;
+  description: string;
+}
+
 // ─── Top Opportunities ─────────────────────────────────────────────────────
 
 export type OpportunityStatus = 'automated' | 'in-progress' | 'identified';
@@ -3801,6 +3847,346 @@ const ggRoiSummary = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
+// ─── AI Agents (per opco) ────────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const hccAiAgents: AIAgent[] = [
+  { name: 'Project Estimation AI', subtitle: 'Bid Accuracy', accuracy: 94.2, metric2Label: 'Bid Variance', metric2Value: 3.1, metric3Label: 'Avg Estimation Time', metric3Value: '2.4 hrs', overrideRate: 8.3, confidenceThreshold: 0.88, status: 'active', lastmileAgentId: 'project-estimation-ai' },
+  { name: 'Equipment Dispatch Optimizer', subtitle: 'Fleet Routing', accuracy: 91.7, metric2Label: 'Route Efficiency', metric2Value: 4.8, metric3Label: 'Dispatch Latency', metric3Value: '1.2s', overrideRate: 12.1, confidenceThreshold: 0.84, status: 'active', lastmileAgentId: 'equipment-dispatch-optimizer' },
+  { name: 'Paving Operations AI', subtitle: 'Asphalt Quality', accuracy: 89.4, metric2Label: 'Temp Deviation', metric2Value: 1.7, metric3Label: 'Compaction Accuracy', metric3Value: '97.1%', overrideRate: 15.6, confidenceThreshold: 0.82, status: 'active', lastmileAgentId: 'paving-operations-ai' },
+  { name: 'Safety Compliance Monitor', subtitle: 'OSHA/FRA', accuracy: 96.8, metric2Label: 'False Positive', metric2Value: 2.1, metric3Label: 'Alert Response Time', metric3Value: '4.8s', overrideRate: 5.2, confidenceThreshold: 0.91, status: 'active', lastmileAgentId: 'safety-compliance-monitor' },
+  { name: 'Subcontractor Scheduling AI', subtitle: 'Crew Coordination', accuracy: 86.3, metric2Label: 'Conflict Rate', metric2Value: 0.8, metric3Label: 'Schedule Lead Time', metric3Value: '3.6 days', overrideRate: 18.4, confidenceThreshold: 0.79, status: 'piloting', lastmileAgentId: 'subcontractor-scheduling-ai' },
+  { name: 'Material Demand Forecaster', subtitle: 'Supply Chain', accuracy: 83.9, metric2Label: 'Forecast Error', metric2Value: 6.2, metric3Label: 'Lead Time', metric3Value: '4.2 weeks', overrideRate: 21.7, confidenceThreshold: 0.76, status: 'piloting', lastmileAgentId: 'material-demand-forecaster' },
+  { name: 'Fleet Fuel Optimizer', subtitle: 'Fuel Efficiency', accuracy: 79.1, metric2Label: 'Fuel Waste', metric2Value: 8.4, metric3Label: 'Savings per Vehicle', metric3Value: '$127/mo', overrideRate: 24.3, confidenceThreshold: 0.72, status: 'planned', lastmileAgentId: 'fleet-fuel-optimizer' },
+];
+
+const hrsiAiAgents: AIAgent[] = [
+  { name: 'Predictive Maintenance AI', subtitle: 'Asset Reliability', accuracy: 93.6, metric2Label: 'False Alarm Rate', metric2Value: 3.4, metric3Label: 'Mean Prediction Lead', metric3Value: '6.2 weeks', overrideRate: 7.8, confidenceThreshold: 0.89, status: 'active', lastmileAgentId: 'predictive-maintenance-ai' },
+  { name: 'Car Repair Triage AI', subtitle: 'Repair Prioritization', accuracy: 90.2, metric2Label: 'Misclassification', metric2Value: 2.9, metric3Label: 'Triage Time', metric3Value: '0.8s', overrideRate: 11.4, confidenceThreshold: 0.85, status: 'active', lastmileAgentId: 'car-repair-triage-ai' },
+  { name: 'Crew Scheduling Optimizer', subtitle: 'Workforce', accuracy: 88.7, metric2Label: 'Overtime Excess', metric2Value: 5.3, metric3Label: 'Idle Time Reduction', metric3Value: '22.4%', overrideRate: 14.2, confidenceThreshold: 0.83, status: 'active', lastmileAgentId: 'crew-scheduling-optimizer' },
+  { name: 'Equipment Leasing Demand AI', subtitle: 'Lease Optimization', accuracy: 85.1, metric2Label: 'Demand Error', metric2Value: 7.6, metric3Label: 'Utilization Gain', metric3Value: '18.3%', overrideRate: 19.8, confidenceThreshold: 0.78, status: 'piloting', lastmileAgentId: 'equipment-leasing-demand-ai' },
+  { name: 'Track Geometry Analyzer', subtitle: 'Track Condition', accuracy: 87.4, metric2Label: 'Measurement Drift', metric2Value: 1.4, metric3Label: 'Analysis Throughput', metric3Value: '12 mi/hr', overrideRate: 16.9, confidenceThreshold: 0.81, status: 'piloting', lastmileAgentId: 'track-geometry-analyzer' },
+  { name: 'Parts Inventory Forecaster', subtitle: 'Spare Parts', accuracy: 80.6, metric2Label: 'Stockout Risk', metric2Value: 4.1, metric3Label: 'Reorder Lead Time', metric3Value: '3.1 weeks', overrideRate: 22.5, confidenceThreshold: 0.74, status: 'planned', lastmileAgentId: 'parts-inventory-forecaster' },
+];
+
+const hsiAiAgents: AIAgent[] = [
+  { name: 'RailSentry AI', subtitle: 'Defect Detection', accuracy: 97.1, metric2Label: 'False Positive', metric2Value: 1.3, metric3Label: 'Detection Latency', metric3Value: '0.4s', overrideRate: 5.7, confidenceThreshold: 0.92, status: 'active', lastmileAgentId: 'railsentry-ai' },
+  { name: 'FRA Compliance Auto-Reporter', subtitle: 'Regulatory Filing', accuracy: 95.3, metric2Label: 'Filing Error', metric2Value: 0.6, metric3Label: 'Report Generation', metric3Value: '3.2 min', overrideRate: 6.4, confidenceThreshold: 0.90, status: 'active', lastmileAgentId: 'fra-compliance-auto-reporter' },
+  { name: 'Track Condition Predictor', subtitle: 'Degradation Forecast', accuracy: 91.8, metric2Label: 'Prediction Variance', metric2Value: 2.7, metric3Label: 'Forecast Horizon', metric3Value: '8.4 weeks', overrideRate: 10.3, confidenceThreshold: 0.86, status: 'active', lastmileAgentId: 'track-condition-predictor' },
+  { name: 'Ultrasonic Signal Classifier', subtitle: 'Signal Analysis', accuracy: 88.2, metric2Label: 'Noise Rejection', metric2Value: 3.8, metric3Label: 'Classification Speed', metric3Value: '0.6s', overrideRate: 13.7, confidenceThreshold: 0.80, status: 'piloting', lastmileAgentId: 'ultrasonic-signal-classifier' },
+  { name: 'Route Optimization AI', subtitle: 'Testing Routes', accuracy: 84.6, metric2Label: 'Route Deviation', metric2Value: 5.9, metric3Label: 'Miles Saved/Week', metric3Value: '142 mi', overrideRate: 17.2, confidenceThreshold: 0.77, status: 'piloting', lastmileAgentId: 'route-optimization-ai' },
+  { name: 'Defect Pattern Analyzer', subtitle: 'Pattern Recognition', accuracy: 81.3, metric2Label: 'Pattern Misclass', metric2Value: 8.1, metric3Label: 'Analysis Depth', metric3Value: '36 months', overrideRate: 20.6, confidenceThreshold: 0.73, status: 'planned', lastmileAgentId: 'defect-pattern-analyzer' },
+];
+
+const htiAiAgents: AIAgent[] = [
+  { name: 'Signal Fault Predictor', subtitle: 'Fault Prevention', accuracy: 92.4, metric2Label: 'False Alert Rate', metric2Value: 2.3, metric3Label: 'Prediction Window', metric3Value: '5.6 days', overrideRate: 9.1, confidenceThreshold: 0.87, status: 'active', lastmileAgentId: 'signal-fault-predictor' },
+  { name: 'PTC Configuration Validator', subtitle: 'Config Audit', accuracy: 95.9, metric2Label: 'Config Mismatch', metric2Value: 0.4, metric3Label: 'Validation Time', metric3Value: '1.4s', overrideRate: 6.8, confidenceThreshold: 0.91, status: 'active', lastmileAgentId: 'ptc-configuration-validator' },
+  { name: 'Wayside Equipment Monitor', subtitle: 'Equipment Health', accuracy: 87.8, metric2Label: 'Sensor Drift', metric2Value: 3.2, metric3Label: 'Health Score Latency', metric3Value: '2.8s', overrideRate: 15.3, confidenceThreshold: 0.82, status: 'piloting', lastmileAgentId: 'wayside-equipment-monitor' },
+  { name: 'Installation Planning AI', subtitle: 'Project Scheduling', accuracy: 84.1, metric2Label: 'Schedule Slip', metric2Value: 6.7, metric3Label: 'Resource Utilization', metric3Value: '84.2%', overrideRate: 19.2, confidenceThreshold: 0.77, status: 'piloting', lastmileAgentId: 'installation-planning-ai' },
+  { name: 'Signal Design Optimizer', subtitle: 'Design Efficiency', accuracy: 82.7, metric2Label: 'Design Rework', metric2Value: 9.3, metric3Label: 'Layout Time', metric3Value: '3.8 hrs', overrideRate: 21.1, confidenceThreshold: 0.75, status: 'piloting', lastmileAgentId: 'signal-design-optimizer' },
+  { name: 'Compliance Audit AI', subtitle: 'FRA/PTC Compliance', accuracy: 78.4, metric2Label: 'Audit Gap', metric2Value: 4.6, metric3Label: 'Audit Cycle', metric3Value: '2.4 weeks', overrideRate: 24.8, confidenceThreshold: 0.71, status: 'planned', lastmileAgentId: 'compliance-audit-ai' },
+];
+
+const htsiAiAgents: AIAgent[] = [
+  { name: 'Passenger Demand Forecaster', subtitle: 'Ridership Prediction', accuracy: 93.1, metric2Label: 'Demand Error', metric2Value: 3.6, metric3Label: 'Forecast Window', metric3Value: '14 days', overrideRate: 8.7, confidenceThreshold: 0.88, status: 'active', lastmileAgentId: 'passenger-demand-forecaster' },
+  { name: 'Schedule Optimization AI', subtitle: 'Service Planning', accuracy: 90.8, metric2Label: 'Headway Variance', metric2Value: 1.9, metric3Label: 'Planning Horizon', metric3Value: '90 days', overrideRate: 11.6, confidenceThreshold: 0.85, status: 'active', lastmileAgentId: 'schedule-optimization-ai' },
+  { name: 'Fleet Maintenance Predictor', subtitle: 'Vehicle Health', accuracy: 92.0, metric2Label: 'Missed Failure', metric2Value: 2.4, metric3Label: 'Mean Prediction Lead', metric3Value: '4.7 weeks', overrideRate: 9.4, confidenceThreshold: 0.87, status: 'active', lastmileAgentId: 'fleet-maintenance-predictor' },
+  { name: 'Crew Rostering AI', subtitle: 'Crew Scheduling', accuracy: 86.9, metric2Label: 'Roster Conflict', metric2Value: 1.1, metric3Label: 'Roster Generation', metric3Value: '8.6 min', overrideRate: 16.3, confidenceThreshold: 0.80, status: 'piloting', lastmileAgentId: 'crew-rostering-ai' },
+  { name: 'On-Time Performance Optimizer', subtitle: 'OTP Analytics', accuracy: 85.4, metric2Label: 'OTP Deviation', metric2Value: 4.3, metric3Label: 'Recovery Time', metric3Value: '6.1 min', overrideRate: 17.8, confidenceThreshold: 0.79, status: 'piloting', lastmileAgentId: 'on-time-performance-optimizer' },
+  { name: 'Fare Revenue Analyzer', subtitle: 'Revenue Optimization', accuracy: 83.2, metric2Label: 'Revenue Leak', metric2Value: 5.7, metric3Label: 'Analysis Frequency', metric3Value: '4 hrs', overrideRate: 20.1, confidenceThreshold: 0.76, status: 'piloting', lastmileAgentId: 'fare-revenue-analyzer' },
+  { name: 'Safety Incident Predictor', subtitle: 'Risk Assessment', accuracy: 80.1, metric2Label: 'Risk Misclass', metric2Value: 7.2, metric3Label: 'Assessment Cycle', metric3Value: '12 hrs', overrideRate: 23.4, confidenceThreshold: 0.73, status: 'planned', lastmileAgentId: 'safety-incident-predictor' },
+];
+
+const heAiAgents: AIAgent[] = [
+  { name: 'Energy Demand Forecaster', subtitle: 'Load Prediction', accuracy: 94.7, metric2Label: 'Load Error', metric2Value: 2.6, metric3Label: 'Forecast Interval', metric3Value: '15 min', overrideRate: 7.4, confidenceThreshold: 0.89, status: 'active', lastmileAgentId: 'energy-demand-forecaster' },
+  { name: 'Grid Stability Monitor', subtitle: 'Grid Analytics', accuracy: 96.3, metric2Label: 'Stability Drift', metric2Value: 0.9, metric3Label: 'Alert Latency', metric3Value: '0.3s', overrideRate: 5.9, confidenceThreshold: 0.92, status: 'active', lastmileAgentId: 'grid-stability-monitor' },
+  { name: 'Solar Output Predictor', subtitle: 'Solar Forecasting', accuracy: 87.6, metric2Label: 'Irradiance Error', metric2Value: 4.4, metric3Label: 'Prediction Window', metric3Value: '48 hrs', overrideRate: 14.7, confidenceThreshold: 0.81, status: 'piloting', lastmileAgentId: 'solar-output-predictor' },
+  { name: 'Equipment Health AI', subtitle: 'Asset Monitoring', accuracy: 82.1, metric2Label: 'Degradation Miss', metric2Value: 6.8, metric3Label: 'Monitoring Interval', metric3Value: '5 min', overrideRate: 22.9, confidenceThreshold: 0.74, status: 'planned', lastmileAgentId: 'equipment-health-ai' },
+  { name: 'Regulatory Compliance AI', subtitle: 'FERC/NERC', accuracy: 79.8, metric2Label: 'Compliance Gap', metric2Value: 3.7, metric3Label: 'Audit Prep Time', metric3Value: '1.6 hrs', overrideRate: 25.0, confidenceThreshold: 0.70, status: 'planned', lastmileAgentId: 'regulatory-compliance-ai' },
+];
+
+const ggAiAgents: AIAgent[] = [
+  { name: 'Environmental Impact Predictor', subtitle: 'Impact Assessment', accuracy: 90.4, metric2Label: 'Impact Variance', metric2Value: 3.9, metric3Label: 'Assessment Time', metric3Value: '2.1 hrs', overrideRate: 12.8, confidenceThreshold: 0.84, status: 'active', lastmileAgentId: 'environmental-impact-predictor' },
+  { name: 'Waste Stream Optimizer', subtitle: 'Waste Routing', accuracy: 88.1, metric2Label: 'Route Inefficiency', metric2Value: 5.4, metric3Label: 'Diversion Rate Gain', metric3Value: '14.7%', overrideRate: 15.1, confidenceThreshold: 0.82, status: 'active', lastmileAgentId: 'waste-stream-optimizer' },
+  { name: 'EPA Compliance Monitor', subtitle: 'Regulatory Tracking', accuracy: 86.2, metric2Label: 'Filing Delay', metric2Value: 1.6, metric3Label: 'Compliance Score', metric3Value: '94.8%', overrideRate: 16.7, confidenceThreshold: 0.80, status: 'piloting', lastmileAgentId: 'epa-compliance-monitor' },
+  { name: 'Remediation Planning AI', subtitle: 'Cleanup Scheduling', accuracy: 81.9, metric2Label: 'Schedule Deviation', metric2Value: 7.8, metric3Label: 'Cost Accuracy', metric3Value: '88.3%', overrideRate: 23.1, confidenceThreshold: 0.74, status: 'planned', lastmileAgentId: 'remediation-planning-ai' },
+  { name: 'Air Quality Forecaster', subtitle: 'AQI Prediction', accuracy: 78.7, metric2Label: 'AQI Deviation', metric2Value: 9.1, metric3Label: 'Forecast Lead', metric3Value: '72 hrs', overrideRate: 24.6, confidenceThreshold: 0.71, status: 'planned', lastmileAgentId: 'air-quality-forecaster' },
+];
+
+const meridianAiAgents: AIAgent[] = [
+  { name: 'RailSentry AI', subtitle: 'Defect Detection', accuracy: 97.1, metric2Label: 'False Positive', metric2Value: 1.3, metric3Label: 'Detection Latency', metric3Value: '0.4s', overrideRate: 5.7, confidenceThreshold: 0.92, status: 'active', lastmileAgentId: 'railsentry-ai' },
+  { name: 'Project Estimation AI', subtitle: 'Bid Accuracy', accuracy: 94.2, metric2Label: 'Bid Variance', metric2Value: 3.1, metric3Label: 'Avg Estimation Time', metric3Value: '2.4 hrs', overrideRate: 8.3, confidenceThreshold: 0.88, status: 'active', lastmileAgentId: 'project-estimation-ai' },
+  { name: 'Predictive Maintenance AI', subtitle: 'Asset Reliability', accuracy: 93.6, metric2Label: 'False Alarm Rate', metric2Value: 3.4, metric3Label: 'Mean Prediction Lead', metric3Value: '6.2 weeks', overrideRate: 7.8, confidenceThreshold: 0.89, status: 'active', lastmileAgentId: 'predictive-maintenance-ai' },
+  { name: 'Schedule Optimization AI', subtitle: 'Service Planning', accuracy: 90.8, metric2Label: 'Headway Variance', metric2Value: 1.9, metric3Label: 'Planning Horizon', metric3Value: '90 days', overrideRate: 11.6, confidenceThreshold: 0.85, status: 'active', lastmileAgentId: 'schedule-optimization-ai' },
+  { name: 'Safety Compliance Monitor', subtitle: 'OSHA/FRA', accuracy: 96.8, metric2Label: 'False Positive', metric2Value: 2.1, metric3Label: 'Alert Response Time', metric3Value: '4.8s', overrideRate: 5.2, confidenceThreshold: 0.91, status: 'active', lastmileAgentId: 'safety-compliance-monitor' },
+  { name: 'Crew Scheduling Optimizer', subtitle: 'Workforce', accuracy: 88.7, metric2Label: 'Overtime Excess', metric2Value: 5.3, metric3Label: 'Idle Time Reduction', metric3Value: '22.4%', overrideRate: 14.2, confidenceThreshold: 0.83, status: 'active', lastmileAgentId: 'crew-scheduling-optimizer' },
+  { name: 'Passenger Demand Forecaster', subtitle: 'Ridership Prediction', accuracy: 93.1, metric2Label: 'Demand Error', metric2Value: 3.6, metric3Label: 'Forecast Window', metric3Value: '14 days', overrideRate: 8.7, confidenceThreshold: 0.88, status: 'active', lastmileAgentId: 'passenger-demand-forecaster' },
+  { name: 'Signal Fault Predictor', subtitle: 'Fault Prevention', accuracy: 92.4, metric2Label: 'False Alert Rate', metric2Value: 2.3, metric3Label: 'Prediction Window', metric3Value: '5.6 days', overrideRate: 9.1, confidenceThreshold: 0.87, status: 'active', lastmileAgentId: 'signal-fault-predictor' },
+];
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Data Sources (per opco) ─────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const hccDataSources: IntegrationDataSource[] = [
+  { system: 'Primavera P6', division: 'Project Management', recordsAnalyzed: '1,247 projects', coverage: 94, status: 'Complete' },
+  { system: 'AutoCAD Civil 3D', division: 'Engineering', recordsAnalyzed: '890 drawings', coverage: 87, status: 'Complete' },
+  { system: 'Trimble GPS Fleet', division: 'Fleet Operations', recordsAnalyzed: '400 vehicles tracked', coverage: 96, status: 'Complete' },
+  { system: 'Custom Dispatch System', division: 'HCC Operations', recordsAnalyzed: '18,420 dispatch records', coverage: 78, status: 'In Progress' },
+  { system: 'SAP ERP', division: 'HCC Finance', recordsAnalyzed: '6,847 financial records', coverage: 91, status: 'Complete' },
+  { system: 'Kronos/UKG', division: 'Workforce', recordsAnalyzed: '1,200 employees', coverage: 100, status: 'Complete' },
+];
+
+const hrsiDataSources: IntegrationDataSource[] = [
+  { system: 'Custom Dispatch System', division: 'Railroad Maintenance Ops', recordsAnalyzed: '9,340 work orders', coverage: 76, status: 'In Progress' },
+  { system: 'SAP ERP', division: 'HRSI Finance', recordsAnalyzed: '3,218 financial records', coverage: 92, status: 'Complete' },
+  { system: 'Kronos/UKG', division: 'Workforce', recordsAnalyzed: '380 employees', coverage: 100, status: 'Complete' },
+  { system: 'Samsara Fleet', division: 'Vehicle Telematics', recordsAnalyzed: '180 vehicles tracked', coverage: 88, status: 'Complete' },
+  { system: 'Car Repair Database', division: 'Maintenance', recordsAnalyzed: '12,400 repair records', coverage: 83, status: 'In Progress' },
+];
+
+const hsiDataSources: IntegrationDataSource[] = [
+  { system: 'TAM-4 Rail Testing', division: 'Track Inspection', recordsAnalyzed: '36 months of test data', coverage: 97, status: 'Complete' },
+  { system: 'FRA RISPC Database', division: 'Regulatory', recordsAnalyzed: '12,400 inspections', coverage: 95, status: 'Complete' },
+  { system: 'Trimble GPS Track', division: 'Geospatial', recordsAnalyzed: '4,200 track-miles', coverage: 93, status: 'Complete' },
+  { system: 'Ultrasonic Sensor Archive', division: 'Defect Imaging', recordsAnalyzed: '240,000 images', coverage: 89, status: 'In Progress' },
+  { system: 'Kronos/UKG', division: 'Workforce', recordsAnalyzed: '220 employees', coverage: 100, status: 'Complete' },
+];
+
+const htiDataSources: IntegrationDataSource[] = [
+  { system: 'PTC Signal Systems', division: 'Signal Operations', recordsAnalyzed: '4,200 track-miles monitored', coverage: 91, status: 'Complete' },
+  { system: 'Wayside Data Logger', division: 'Field Equipment', recordsAnalyzed: '8,400 events/day', coverage: 86, status: 'In Progress' },
+  { system: 'Signal Design CAD', division: 'Engineering', recordsAnalyzed: '1,800 signal designs', coverage: 94, status: 'Complete' },
+  { system: 'ArcGIS Pro', division: 'Asset Mapping', recordsAnalyzed: '2,100 wayside assets', coverage: 90, status: 'Complete' },
+  { system: 'SAP ERP', division: 'HTI Finance', recordsAnalyzed: '2,940 financial records', coverage: 88, status: 'Complete' },
+];
+
+const htsiDataSources: IntegrationDataSource[] = [
+  { system: 'Trapeze OPS', division: 'Scheduling & Dispatch', recordsAnalyzed: '14,800 service runs', coverage: 95, status: 'Complete' },
+  { system: 'Samsara Fleet', division: 'Vehicle Telematics', recordsAnalyzed: '120 vehicles tracked', coverage: 92, status: 'Complete' },
+  { system: 'Kronos/UKG', division: 'Workforce', recordsAnalyzed: '480 employees', coverage: 100, status: 'Complete' },
+  { system: 'Fare Collection System', division: 'Revenue', recordsAnalyzed: '2.4M transactions', coverage: 87, status: 'In Progress' },
+  { system: 'Transit Asset Management', division: 'Asset Lifecycle', recordsAnalyzed: '800 transit assets', coverage: 84, status: 'In Progress' },
+];
+
+const heDataSources: IntegrationDataSource[] = [
+  { system: 'Energy SCADA', division: 'Grid Operations', recordsAnalyzed: '48,000 sensor tags', coverage: 96, status: 'Complete' },
+  { system: 'Solar Monitoring Platform', division: 'Renewable Energy', recordsAnalyzed: '12 sites monitored', coverage: 89, status: 'Complete' },
+  { system: 'SAP ERP', division: 'HE Finance', recordsAnalyzed: '1,620 financial records', coverage: 93, status: 'Complete' },
+  { system: 'Grid Management System', division: 'Power Infrastructure', recordsAnalyzed: '3,400 grid segments', coverage: 82, status: 'In Progress' },
+  { system: 'Kronos/UKG', division: 'Workforce', recordsAnalyzed: '120 employees', coverage: 100, status: 'Complete' },
+];
+
+const ggDataSources: IntegrationDataSource[] = [
+  { system: 'Environmental Monitoring', division: 'Field Sensors', recordsAnalyzed: '42 monitoring sites', coverage: 91, status: 'Complete' },
+  { system: 'Waste Tracking System', division: 'Waste Operations', recordsAnalyzed: '1,800 manifests', coverage: 85, status: 'In Progress' },
+  { system: 'EPA Compliance DB', division: 'Regulatory', recordsAnalyzed: '2,140 regulatory filings', coverage: 94, status: 'Complete' },
+  { system: 'SAP ERP', division: 'GG Finance', recordsAnalyzed: '1,180 financial records', coverage: 90, status: 'Complete' },
+  { system: 'Kronos/UKG', division: 'Workforce', recordsAnalyzed: '90 employees', coverage: 100, status: 'Complete' },
+];
+
+const meridianDataSources: IntegrationDataSource[] = [
+  { system: 'SAP S/4HANA', division: 'Enterprise ERP', recordsAnalyzed: '24,847 work orders', coverage: 92, status: 'Complete' },
+  { system: 'Trimble GPS Fleet (All Divisions)', division: 'Fleet Operations', recordsAnalyzed: '700+ vehicles', coverage: 94, status: 'Complete' },
+  { system: 'Kronos/UKG (All Divisions)', division: 'Workforce', recordsAnalyzed: '2,800 employees', coverage: 100, status: 'Complete' },
+  { system: 'Databricks Data Lake', division: 'Cross-Division Analytics', recordsAnalyzed: '7 division feeds consolidated', coverage: 86, status: 'In Progress' },
+  { system: 'Samsara IoT Platform', division: 'Telematics', recordsAnalyzed: '300+ connected assets', coverage: 88, status: 'Complete' },
+  { system: 'Custom Dispatch (Legacy)', division: 'Field Operations', recordsAnalyzed: '27,760 dispatch records', coverage: 73, status: 'Pending Access' },
+];
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Vendor Health (per opco) ────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const hccVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'Primavera P6', status: 'green', uptime: 99.7, latency: 42, lastChecked: '2026-03-27T08:14:00Z' },
+  { name: 'AutoCAD Civil 3D', status: 'green', uptime: 99.4, latency: 68, lastChecked: '2026-03-27T08:12:00Z' },
+  { name: 'Trimble GPS Fleet', status: 'yellow', uptime: 97.8, latency: 186, lastChecked: '2026-03-27T08:10:00Z', note: 'Elevated latency during peak dispatch hours' },
+  { name: 'Custom Dispatch System', status: 'red', uptime: 94.2, latency: 890, lastChecked: '2026-03-27T08:08:00Z', note: 'Legacy system — frequent timeouts under load' },
+  { name: 'SAP ERP (HCC)', status: 'green', uptime: 99.6, latency: 54, lastChecked: '2026-03-27T08:15:00Z' },
+  { name: 'Kronos/UKG (HCC)', status: 'green', uptime: 99.3, latency: 38, lastChecked: '2026-03-27T08:13:00Z' },
+];
+
+const hrsiVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'Custom Dispatch System', status: 'red', uptime: 94.8, latency: 742, lastChecked: '2026-03-27T07:58:00Z', note: 'Legacy system — intermittent API failures' },
+  { name: 'SAP ERP (HRSI)', status: 'green', uptime: 99.5, latency: 61, lastChecked: '2026-03-27T08:02:00Z' },
+  { name: 'Kronos/UKG (HRSI)', status: 'green', uptime: 99.2, latency: 44, lastChecked: '2026-03-27T08:04:00Z' },
+  { name: 'Samsara Fleet', status: 'green', uptime: 99.8, latency: 28, lastChecked: '2026-03-27T08:06:00Z' },
+  { name: 'Car Repair Database', status: 'yellow', uptime: 97.1, latency: 312, lastChecked: '2026-03-27T07:56:00Z', note: 'Slow query performance on historical records' },
+];
+
+const hsiVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'TAM-4 Rail Testing', status: 'green', uptime: 99.1, latency: 78, lastChecked: '2026-03-27T08:18:00Z' },
+  { name: 'FRA RISPC Database', status: 'green', uptime: 99.6, latency: 52, lastChecked: '2026-03-27T08:16:00Z' },
+  { name: 'Trimble GPS Track', status: 'green', uptime: 99.3, latency: 64, lastChecked: '2026-03-27T08:20:00Z' },
+  { name: 'Ultrasonic Sensor Archive', status: 'yellow', uptime: 96.4, latency: 428, lastChecked: '2026-03-27T08:14:00Z', note: 'High latency on large image batch retrieval' },
+  { name: 'Kronos/UKG (HSI)', status: 'green', uptime: 99.4, latency: 36, lastChecked: '2026-03-27T08:22:00Z' },
+];
+
+const htiVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'PTC Signal Systems', status: 'green', uptime: 99.9, latency: 18, lastChecked: '2026-03-27T08:24:00Z' },
+  { name: 'Wayside Data Logger', status: 'yellow', uptime: 97.3, latency: 247, lastChecked: '2026-03-27T08:22:00Z', note: 'Intermittent data gaps from remote wayside units' },
+  { name: 'Signal Design CAD', status: 'green', uptime: 99.2, latency: 86, lastChecked: '2026-03-27T08:20:00Z' },
+  { name: 'ArcGIS Pro', status: 'green', uptime: 99.0, latency: 112, lastChecked: '2026-03-27T08:18:00Z' },
+  { name: 'SAP ERP (HTI)', status: 'green', uptime: 99.4, latency: 58, lastChecked: '2026-03-27T08:26:00Z' },
+];
+
+const htsiVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'Trapeze OPS', status: 'green', uptime: 99.5, latency: 46, lastChecked: '2026-03-27T08:28:00Z' },
+  { name: 'Samsara Fleet (HTSI)', status: 'green', uptime: 99.7, latency: 32, lastChecked: '2026-03-27T08:30:00Z' },
+  { name: 'Kronos/UKG (HTSI)', status: 'green', uptime: 99.1, latency: 41, lastChecked: '2026-03-27T08:26:00Z' },
+  { name: 'Fare Collection System', status: 'yellow', uptime: 96.8, latency: 364, lastChecked: '2026-03-27T08:24:00Z', note: 'Payment gateway latency spikes during rush hour' },
+  { name: 'Transit Asset Management', status: 'yellow', uptime: 97.6, latency: 198, lastChecked: '2026-03-27T08:22:00Z', note: 'Pending API v2 migration' },
+];
+
+const heVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'Energy SCADA', status: 'green', uptime: 99.8, latency: 22, lastChecked: '2026-03-27T08:32:00Z' },
+  { name: 'Solar Monitoring Platform', status: 'green', uptime: 98.9, latency: 94, lastChecked: '2026-03-27T08:30:00Z' },
+  { name: 'SAP ERP (HE)', status: 'green', uptime: 99.3, latency: 56, lastChecked: '2026-03-27T08:34:00Z' },
+  { name: 'Grid Management System', status: 'yellow', uptime: 97.4, latency: 276, lastChecked: '2026-03-27T08:28:00Z', note: 'Legacy SCADA bridge causing intermittent delays' },
+  { name: 'Kronos/UKG (HE)', status: 'green', uptime: 99.6, latency: 34, lastChecked: '2026-03-27T08:36:00Z' },
+];
+
+const ggVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'Environmental Monitoring', status: 'green', uptime: 98.7, latency: 118, lastChecked: '2026-03-27T08:38:00Z' },
+  { name: 'Waste Tracking System', status: 'yellow', uptime: 96.2, latency: 342, lastChecked: '2026-03-27T08:36:00Z', note: 'Manifest sync delays with third-party haulers' },
+  { name: 'EPA Compliance DB', status: 'green', uptime: 99.1, latency: 72, lastChecked: '2026-03-27T08:40:00Z' },
+  { name: 'SAP ERP (GG)', status: 'green', uptime: 99.5, latency: 48, lastChecked: '2026-03-27T08:42:00Z' },
+  { name: 'Kronos/UKG (GG)', status: 'green', uptime: 99.4, latency: 38, lastChecked: '2026-03-27T08:44:00Z' },
+];
+
+const meridianVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'SAP S/4HANA', status: 'green', uptime: 99.7, latency: 48, lastChecked: '2026-03-27T08:46:00Z' },
+  { name: 'Trimble GPS Fleet (Enterprise)', status: 'green', uptime: 99.4, latency: 74, lastChecked: '2026-03-27T08:44:00Z' },
+  { name: 'Kronos/UKG (Enterprise)', status: 'green', uptime: 99.3, latency: 42, lastChecked: '2026-03-27T08:48:00Z' },
+  { name: 'Databricks Data Lake', status: 'yellow', uptime: 98.1, latency: 156, lastChecked: '2026-03-27T08:42:00Z', note: 'Ingestion pipeline backpressure during nightly ETL' },
+  { name: 'Samsara IoT Platform', status: 'green', uptime: 99.8, latency: 26, lastChecked: '2026-03-27T08:50:00Z' },
+  { name: 'Custom Dispatch (Legacy)', status: 'red', uptime: 94.6, latency: 820, lastChecked: '2026-03-27T08:40:00Z', note: 'Scheduled for decommission Q4 — unstable under cross-division load' },
+];
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Failure Modes (per opco) ────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const hccFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'Primavera P6', scenario: 'API token expiration during multi-project sync', recovery: 'Auto-refresh token with 15-min buffer before expiry', status: 'Passing' },
+  { vendor: 'Custom Dispatch System', scenario: 'Database connection pool exhaustion under peak dispatch', recovery: 'Circuit breaker with 30s cooldown, queue overflow to backup', status: 'Needs Attention' },
+  { vendor: 'Trimble GPS Fleet', scenario: 'GPS signal loss in tunnel/bridge construction zones', recovery: 'Dead reckoning interpolation with last-known-good coordinates', status: 'Passing' },
+  { vendor: 'AutoCAD Civil 3D', scenario: 'Large drawing file transfer timeout (>500MB)', recovery: 'Chunked upload with resume capability and checksum validation', status: 'Passing' },
+  { vendor: 'SAP ERP (HCC)', scenario: 'Month-end financial close locks preventing real-time reads', recovery: 'Read from reporting replica during close window', status: 'Passing' },
+];
+
+const hrsiFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'Custom Dispatch System', scenario: 'Legacy API returns malformed JSON on edge-case equipment IDs', recovery: 'Input sanitization layer with fallback to manual dispatch queue', status: 'Needs Attention' },
+  { vendor: 'Car Repair Database', scenario: 'Slow query timeout on historical repair record aggregation', recovery: 'Pre-computed materialized views refreshed nightly', status: 'Needs Attention' },
+  { vendor: 'Samsara Fleet', scenario: 'Cellular dead zones causing telemetry gaps on rural rail corridors', recovery: 'On-device buffering with store-and-forward sync', status: 'Passing' },
+  { vendor: 'Kronos/UKG (HRSI)', scenario: 'Payroll integration failure during bi-weekly processing', recovery: 'Retry queue with 3x exponential backoff, manual override alert', status: 'Passing' },
+];
+
+const hsiFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'Ultrasonic Sensor Archive', scenario: 'Image batch upload fails on corrupted sensor frames', recovery: 'Frame-level validation with corrupt frame isolation and re-scan flag', status: 'Passing' },
+  { vendor: 'TAM-4 Rail Testing', scenario: 'Real-time data stream disconnect during active testing run', recovery: 'Automatic reconnect with gap detection and backfill from on-board storage', status: 'Passing' },
+  { vendor: 'FRA RISPC Database', scenario: 'Regulatory submission rejected due to schema version mismatch', recovery: 'Schema version detection with auto-transform to current FRA format', status: 'Needs Attention' },
+  { vendor: 'Trimble GPS Track', scenario: 'Coordinate projection mismatch between NAD83 and WGS84 systems', recovery: 'Automatic projection detection and transform before data merge', status: 'Passing' },
+];
+
+const htiFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'PTC Signal Systems', scenario: 'Signal state change event lost during network congestion', recovery: 'Redundant event sourcing with acknowledgment-based delivery', status: 'Passing' },
+  { vendor: 'Wayside Data Logger', scenario: 'Remote unit firmware mismatch after partial OTA update', recovery: 'Firmware version check on reconnect with forced rollback capability', status: 'Needs Attention' },
+  { vendor: 'Signal Design CAD', scenario: 'Design file version conflict during concurrent engineering edits', recovery: 'Pessimistic locking with merge conflict resolution workflow', status: 'Passing' },
+  { vendor: 'ArcGIS Pro', scenario: 'Geospatial layer sync failure on large asset dataset (>2K assets)', recovery: 'Incremental delta sync with spatial index partitioning', status: 'Passing' },
+];
+
+const htsiFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'Trapeze OPS', scenario: 'Schedule import fails on non-standard GTFS-realtime feed format', recovery: 'GTFS format normalizer with validation report before import', status: 'Passing' },
+  { vendor: 'Fare Collection System', scenario: 'Payment gateway timeout during peak ridership periods', recovery: 'Offline fare acceptance with batch reconciliation post-recovery', status: 'Needs Attention' },
+  { vendor: 'Transit Asset Management', scenario: 'Asset lifecycle data sync lag exceeding 24-hour threshold', recovery: 'Priority sync queue for critical assets, background sync for rest', status: 'Needs Attention' },
+  { vendor: 'Samsara Fleet (HTSI)', scenario: 'Vehicle health telemetry flood during fleet-wide diagnostic cycle', recovery: 'Rate limiter with priority queuing for critical health alerts', status: 'Passing' },
+];
+
+const heFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'Energy SCADA', scenario: 'Sensor tag data overflow during grid instability event', recovery: 'Adaptive sampling rate with priority tag buffering', status: 'Passing' },
+  { vendor: 'Grid Management System', scenario: 'Legacy SCADA bridge protocol translation failure', recovery: 'Protocol fallback chain with OPC-UA as primary, Modbus as backup', status: 'Needs Attention' },
+  { vendor: 'Solar Monitoring Platform', scenario: 'Cloud-edge sync failure during inverter firmware updates', recovery: 'Edge-local data retention with automatic sync on reconnect', status: 'Passing' },
+  { vendor: 'SAP ERP (HE)', scenario: 'Energy billing data mismatch between SCADA metering and ERP', recovery: 'Automated reconciliation report with variance threshold alerts', status: 'Passing' },
+];
+
+const ggFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'Environmental Monitoring', scenario: 'Sensor calibration drift detected on remote field units', recovery: 'Auto-calibration check with data quality flag and maintenance alert', status: 'Passing' },
+  { vendor: 'Waste Tracking System', scenario: 'Manifest sync failure with third-party waste hauler API', recovery: 'Manifest queue with retry and manual reconciliation workflow', status: 'Needs Attention' },
+  { vendor: 'EPA Compliance DB', scenario: 'Regulatory schema update breaks existing submission format', recovery: 'Schema version detection with backward-compatible transform layer', status: 'Passing' },
+  { vendor: 'SAP ERP (GG)', scenario: 'Project cost allocation mismatch across remediation sites', recovery: 'Cross-site cost reconciliation with automated allocation rules', status: 'Passing' },
+];
+
+const meridianFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'SAP S/4HANA', scenario: 'Cross-division data consolidation timeout during monthly roll-up', recovery: 'Parallel division processing with staged consolidation and retry', status: 'Passing' },
+  { vendor: 'Custom Dispatch (Legacy)', scenario: 'Complete system outage affecting all field dispatch operations', recovery: 'Failover to Samsara-based dispatch with manual crew notification', status: 'Needs Attention' },
+  { vendor: 'Databricks Data Lake', scenario: 'ETL pipeline failure on schema evolution across divisions', recovery: 'Schema registry with backward-compatible evolution and dead-letter queue', status: 'Passing' },
+  { vendor: 'Trimble GPS Fleet (Enterprise)', scenario: 'Fleet-wide GPS drift during solar storm event', recovery: 'Multi-constellation GNSS fallback with Galileo/GLONASS augmentation', status: 'Passing' },
+  { vendor: 'Samsara IoT Platform', scenario: 'IoT device certificate expiration across fleet', recovery: 'Automated certificate rotation with 30-day advance renewal', status: 'Passing' },
+];
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Methodology Steps (per opco) ───────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const hccMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'Fleet Asset Discovery', description: 'Inventory all 400+ fleet vehicles, heavy equipment, and GPS-tracked assets across HCC construction sites and rail corridors.' },
+  { number: 2, title: 'Field Workflow Mapping', description: 'Map 18 critical construction workflows from bid estimation through project closeout, identifying manual handoffs and data gaps.' },
+  { number: 3, title: 'Construction Tech Audit', description: 'Assess Primavera P6, AutoCAD Civil 3D, Trimble, and custom dispatch system for integration readiness, API maturity, and data quality.' },
+  { number: 4, title: 'Project ROI Modeling', description: 'Model AI-driven savings across fleet utilization, bid accuracy, paving quality, and safety compliance for HCC\'s $180M annual project volume.' },
+];
+
+const hrsiMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'Equipment Registry Scan', description: 'Catalog all railroad maintenance equipment, leased rolling stock, and repair facility assets across HRSI operations.' },
+  { number: 2, title: 'Maintenance Workflow Analysis', description: 'Analyze 12 core maintenance workflows from car repair triage through equipment return, mapping crew scheduling bottlenecks.' },
+  { number: 3, title: 'Railroad Tech Stack Audit', description: 'Evaluate custom dispatch, SAP ERP, Samsara fleet, and car repair database for data completeness and integration capability.' },
+  { number: 4, title: 'Service ROI Modeling', description: 'Quantify predictive maintenance savings, crew utilization gains, and parts inventory optimization for HRSI\'s 380-employee operation.' },
+];
+
+const hsiMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'Sensor Data Inventory', description: 'Catalog 240K+ ultrasonic images, TAM-4 test data, and GPS track geometry data across HSI\'s testing fleet and archive systems.' },
+  { number: 2, title: 'Inspection Workflow Analysis', description: 'Map end-to-end rail inspection process from route planning through FRA defect reporting, identifying AI augmentation points.' },
+  { number: 3, title: 'Testing Platform Audit', description: 'Assess TAM-4 software, ultrasonic sensor systems, FRA RISPC database, and Trimble GPS for ML training data readiness.' },
+  { number: 4, title: 'Compliance ROI Modeling', description: 'Model RailSentry AI defect detection improvements, FRA compliance automation savings, and route optimization gains across 4,200 track-miles.' },
+];
+
+const htiMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'Signal System Inventory', description: 'Document all PTC installations, wayside equipment, signal controllers, and communication infrastructure across HTI\'s 4,200 track-mile territory.' },
+  { number: 2, title: 'PTC Workflow Mapping', description: 'Map signal installation, configuration validation, and maintenance workflows from design through field commissioning.' },
+  { number: 3, title: 'Signal Tech Stack Audit', description: 'Evaluate PTC systems, wayside data loggers, Signal Design CAD, and ArcGIS for real-time monitoring and predictive analytics readiness.' },
+  { number: 4, title: 'Infrastructure ROI Modeling', description: 'Quantify signal fault prediction savings, PTC configuration validation gains, and installation planning optimization for HTI\'s 310-person team.' },
+];
+
+const htsiMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'Ridership Data Analysis', description: 'Analyze passenger demand patterns, fare collection data, and service utilization across HTSI\'s transit operations and 2.4M annual transactions.' },
+  { number: 2, title: 'Transit Schedule Mapping', description: 'Map scheduling, crew rostering, and fleet deployment workflows from demand forecasting through real-time service adjustments.' },
+  { number: 3, title: 'Operations Platform Audit', description: 'Assess Trapeze OPS, Samsara fleet, fare collection, and transit asset management systems for AI-powered service optimization.' },
+  { number: 4, title: 'Service ROI Modeling', description: 'Model on-time performance improvements, crew scheduling optimization, and fare revenue gains for HTSI\'s 480-employee passenger rail operation.' },
+];
+
+const heMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'SCADA/Grid Discovery', description: 'Inventory 48,000 sensor tags, 12 solar sites, and grid management infrastructure across Herzog Energy\'s generation and distribution assets.' },
+  { number: 2, title: 'Energy Workflow Mapping', description: 'Map load forecasting, grid stability monitoring, solar output prediction, and equipment maintenance workflows across the energy portfolio.' },
+  { number: 3, title: 'Infrastructure Tech Audit', description: 'Evaluate SCADA systems, solar monitoring platform, grid management, and SAP ERP for real-time AI analytics and predictive maintenance readiness.' },
+  { number: 4, title: 'Renewable ROI Modeling', description: 'Quantify demand forecasting improvements, grid stability gains, solar output optimization, and FERC/NERC compliance automation for HE\'s 120-person team.' },
+];
+
+const ggMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'Compliance Data Inventory', description: 'Catalog environmental monitoring data from 42 sites, waste manifests, EPA filings, and remediation project records across Green Group operations.' },
+  { number: 2, title: 'Environmental Workflow Mapping', description: 'Map impact assessment, waste stream routing, EPA compliance reporting, and remediation planning workflows from field sampling through regulatory submission.' },
+  { number: 3, title: 'Monitoring Tech Audit', description: 'Assess environmental monitoring sensors, waste tracking system, EPA compliance database, and SAP ERP for AI-powered environmental analytics readiness.' },
+  { number: 4, title: 'Remediation ROI Modeling', description: 'Model compliance automation savings, waste routing optimization, air quality forecasting improvements, and remediation scheduling gains for GG\'s 90-person team.' },
+];
+
+const meridianMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'License Discovery', description: 'Comprehensive audit of software licenses across all 7 divisions — identify unused seats, redundant tools, and consolidation opportunities across 2,800 employees.' },
+  { number: 2, title: 'Workflow Mapping', description: 'Map 62 critical workflows across rail construction, testing, signals, transit, energy, and environmental divisions to identify automation candidates.' },
+  { number: 3, title: 'Tech Stack Health', description: 'Assess the full enterprise tech stack — SAP S/4HANA, Primavera P6, Trimble, custom dispatch, and division-specific tools — for AI readiness and integration maturity.' },
+  { number: 4, title: 'ROI Modeling', description: 'Model Year 1 savings of $5.8M across license reclamation, workflow automation, fleet intelligence, and AI-native railroad operations transformation.' },
+];
+
+// ═══════════════════════════════════════════════════════════════════════════════
 // ─── Company Data Lookup Maps ──────────────────────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -4022,6 +4408,61 @@ const companyRoiSummaries: Record<string, typeof roiSummary> = {
   'ee-ria': eeRiaRoiSummary,
 };
 
+const companyAiAgents: Record<string, AIAgent[]> = {
+  meridian: meridianAiAgents,
+  hcc: hccAiAgents,
+  hrsi: hrsiAiAgents,
+  hsi: hsiAiAgents,
+  hti: htiAiAgents,
+  htsi: htsiAiAgents,
+  he: heAiAgents,
+  gg: ggAiAgents,
+};
+
+const companyDataSources: Record<string, IntegrationDataSource[]> = {
+  meridian: meridianDataSources,
+  hcc: hccDataSources,
+  hrsi: hrsiDataSources,
+  hsi: hsiDataSources,
+  hti: htiDataSources,
+  htsi: htsiDataSources,
+  he: heDataSources,
+  gg: ggDataSources,
+};
+
+const companyVendorHealth: Record<string, IntegrationVendorHealth[]> = {
+  meridian: meridianVendorHealth,
+  hcc: hccVendorHealth,
+  hrsi: hrsiVendorHealth,
+  hsi: hsiVendorHealth,
+  hti: htiVendorHealth,
+  htsi: htsiVendorHealth,
+  he: heVendorHealth,
+  gg: ggVendorHealth,
+};
+
+const companyFailureModes: Record<string, IntegrationFailureMode[]> = {
+  meridian: meridianFailureModes,
+  hcc: hccFailureModes,
+  hrsi: hrsiFailureModes,
+  hsi: hsiFailureModes,
+  hti: htiFailureModes,
+  htsi: htsiFailureModes,
+  he: heFailureModes,
+  gg: ggFailureModes,
+};
+
+const companyMethodologySteps: Record<string, IntegrationMethodologyStep[]> = {
+  meridian: meridianMethodologySteps,
+  hcc: hccMethodologySteps,
+  hrsi: hrsiMethodologySteps,
+  hsi: hsiMethodologySteps,
+  hti: htiMethodologySteps,
+  htsi: htsiMethodologySteps,
+  he: heMethodologySteps,
+  gg: ggMethodologySteps,
+};
+
 // ═══════════════════════════════════════════════════════════════════════════════
 // ─── Lookup Functions ──────────────────────────────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -4060,4 +4501,24 @@ export function getWorkflowSummary(companyId: CompanyId) {
 
 export function getRoiSummary(companyId: CompanyId) {
   return companyRoiSummaries[companyId] ?? companyRoiSummaries.meridian;
+}
+
+export function getAiAgents(companyId: CompanyId) {
+  return companyAiAgents[companyId] ?? companyAiAgents.meridian;
+}
+
+export function getDataSources(companyId: CompanyId) {
+  return companyDataSources[companyId] ?? companyDataSources.meridian;
+}
+
+export function getVendorHealth(companyId: CompanyId) {
+  return companyVendorHealth[companyId] ?? companyVendorHealth.meridian;
+}
+
+export function getFailureModes(companyId: CompanyId) {
+  return companyFailureModes[companyId] ?? companyFailureModes.meridian;
+}
+
+export function getMethodologySteps(companyId: CompanyId) {
+  return companyMethodologySteps[companyId] ?? companyMethodologySteps.meridian;
 }

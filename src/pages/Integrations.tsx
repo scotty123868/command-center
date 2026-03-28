@@ -23,158 +23,29 @@ import {
   RotateCcw,
 } from 'lucide-react';
 
-const LASTMILE_URL = 'https://lastmile-beige.vercel.app';
+import { LASTMILE_URL } from '../data/crosslinks';
+import { useCompany } from '../data/CompanyContext';
+import {
+  getAiAgents,
+  getDataSources,
+  getVendorHealth,
+  getFailureModes,
+  getMethodologySteps,
+  type IntegrationDataSource,
+  type IntegrationVendorHealth,
+} from '../data/constants';
 
-/* -- Data Sources --------------------------------------------------------- */
+/* -- Data imported from constants.ts via getters ------------------------------ */
 
-interface DataSource {
-  system: string;
-  division: string;
-  recordsAnalyzed: string;
-  coverage: number;
-  status: 'Complete' | 'In Progress' | 'Pending Access';
-}
+/* Methodology icons mapped by step number */
+const methodologyIcons: Record<number, React.ElementType> = { 1: Search, 2: FileText, 3: Cpu, 4: BarChart3 };
 
-const dataSources: DataSource[] = [
-  { system: 'SAP S/4HANA', division: 'All', recordsAnalyzed: '24,847 work orders', coverage: 94, status: 'Complete' },
-  { system: 'Primavera P6', division: 'HCC', recordsAnalyzed: '1,247 projects', coverage: 87, status: 'Complete' },
-  { system: 'Trimble Fleet GPS', division: 'HCC, HTSI', recordsAnalyzed: '342 vehicles', coverage: 92, status: 'Complete' },
-  { system: 'Kronos Workforce', division: 'All', recordsAnalyzed: '2,800 employees', coverage: 81, status: 'Complete' },
-  { system: 'PTC Signal Systems', division: 'HTI', recordsAnalyzed: '4,200 track-miles', coverage: 73, status: 'In Progress' },
-  { system: 'Active Directory', division: 'All', recordsAnalyzed: '2,800 accounts', coverage: 100, status: 'Complete' },
-  { system: 'FRA RISPC Database', division: 'HSI', recordsAnalyzed: '12,400 inspections', coverage: 96, status: 'Complete' },
-  { system: 'Custom Dispatch', division: 'HCC', recordsAnalyzed: '\u2014', coverage: 45, status: 'Pending Access' },
-];
 
-/* -- Methodology Steps ---------------------------------------------------- */
 
-interface MethodologyStep {
-  number: number;
-  title: string;
-  description: string;
-  icon: React.ElementType;
-}
-
-const methodologySteps: MethodologyStep[] = [
-  {
-    number: 1,
-    title: 'License Discovery',
-    description: 'Scan Active Directory + vendor APIs to find all software licenses, identify unused seats',
-    icon: Search,
-  },
-  {
-    number: 2,
-    title: 'Workflow Mapping',
-    description: 'Interview data + system logs to map manual processes and automation opportunities',
-    icon: FileText,
-  },
-  {
-    number: 3,
-    title: 'Tech Stack Health',
-    description: 'Evaluate each platform\'s AI-readiness, integration capabilities, and replacement candidates',
-    icon: Cpu,
-  },
-  {
-    number: 4,
-    title: 'ROI Modeling',
-    description: 'Cross-reference savings opportunities with implementation costs and industry benchmarks',
-    icon: BarChart3,
-  },
-];
-
-/* -- Vendor Health Data --------------------------------------------------- */
-
-interface VendorHealth {
-  name: string;
-  status: 'green' | 'yellow' | 'red';
-  uptime: number;
-  latency: number;
-  lastChecked: string;
-  note?: string;
-}
-
-const vendorHealthData: VendorHealth[] = [
-  { name: 'Databricks Lakehouse', status: 'green', uptime: 99.7, latency: 42, lastChecked: '2 min ago' },
-  { name: 'Samsara Fleet', status: 'green', uptime: 99.9, latency: 18, lastChecked: '1 min ago' },
-  { name: 'SAP ERP', status: 'yellow', uptime: 98.2, latency: 340, lastChecked: '5 min ago', note: 'Legacy on-premise' },
-  { name: 'Primavera P6', status: 'yellow', uptime: 97.8, latency: 520, lastChecked: '3 min ago', note: 'Scheduled for replacement' },
-  { name: 'Kronos/UKG', status: 'green', uptime: 99.5, latency: 85, lastChecked: '1 min ago' },
-  { name: 'Salesforce CRM', status: 'green', uptime: 99.8, latency: 55, lastChecked: '30 sec ago' },
-  { name: 'PTC Systems', status: 'green', uptime: 99.1, latency: 120, lastChecked: '4 min ago' },
-  { name: 'FRA Compliance DB', status: 'red', uptime: 94.2, latency: 890, lastChecked: '12 min ago', note: 'Manual sync required' },
-];
-
-/* -- Failure Mode Data ---------------------------------------------------- */
-
-interface FailureMode {
-  vendor: string;
-  scenario: string;
-  recovery: string;
-  status: 'Passing' | 'Needs Attention';
-}
-
-const failureModes: FailureMode[] = [
-  { vendor: 'Databricks', scenario: 'Connection timeout', recovery: 'Auto-retry 3x, exponential backoff', status: 'Passing' },
-  { vendor: 'SAP ERP', scenario: 'Auth token expiry', recovery: 'Auto-refresh, fallback read-only', status: 'Passing' },
-  { vendor: 'Samsara', scenario: 'GPS data gap >5min', recovery: 'Alert + interpolation', status: 'Passing' },
-  { vendor: 'PTC', scenario: 'Signal data corruption', recovery: 'Checksum validation, quarantine', status: 'Passing' },
-  { vendor: 'FRA DB', scenario: 'Sync failure', recovery: 'Queue + retry, manual escalation after 4h', status: 'Needs Attention' },
-  { vendor: 'Kronos', scenario: 'Payroll batch timeout', recovery: 'Partial commit, resume', status: 'Passing' },
-];
-
-/* -- AI Agent Reliability Data -------------------------------------------- */
-
-interface AIAgent {
-  name: string;
-  subtitle: string;
-  accuracy: number;
-  metric2Label: string;
-  metric2Value: number;
-  metric3Label: string;
-  metric3Value: string;
-  overrideRate: number;
-  confidenceThreshold: number;
-}
-
-const aiAgents: AIAgent[] = [
-  {
-    name: 'RailSentry AI',
-    subtitle: 'Rail Inspection',
-    accuracy: 94.2,
-    metric2Label: 'False Positive',
-    metric2Value: 3.1,
-    metric3Label: 'Mean Decision Time',
-    metric3Value: '2.4s',
-    overrideRate: 8.7,
-    confidenceThreshold: 0.85,
-  },
-  {
-    name: 'Crew Scheduling AI',
-    subtitle: 'Workforce Optimization',
-    accuracy: 91.8,
-    metric2Label: 'Conflict Rate',
-    metric2Value: 1.2,
-    metric3Label: 'Mean Schedule Time',
-    metric3Value: '12s',
-    overrideRate: 14.2,
-    confidenceThreshold: 0.78,
-  },
-  {
-    name: 'Predictive Maintenance',
-    subtitle: 'Asset Reliability',
-    accuracy: 88.4,
-    metric2Label: 'False Alarm Rate',
-    metric2Value: 5.8,
-    metric3Label: 'Lead Time',
-    metric3Value: '6.2 weeks',
-    overrideRate: 22.1,
-    confidenceThreshold: 0.72,
-  },
-];
 
 /* -- Status helpers ------------------------------------------------------- */
 
-function statusConfig(status: DataSource['status']) {
+function statusConfig(status: IntegrationDataSource['status']) {
   switch (status) {
     case 'Complete':
       return { icon: CheckCircle2, color: 'var(--cc-green)', bg: 'var(--cc-green-dim)', label: 'Complete' };
@@ -191,7 +62,7 @@ function coverageBarColor(coverage: number): string {
   return 'var(--cc-text-tertiary)';
 }
 
-function vendorStatusColor(status: VendorHealth['status']): string {
+function vendorStatusColor(status: IntegrationVendorHealth['status']): string {
   switch (status) {
     case 'green': return 'var(--cc-green)';
     case 'yellow': return 'var(--cc-yellow)';
@@ -199,7 +70,7 @@ function vendorStatusColor(status: VendorHealth['status']): string {
   }
 }
 
-function vendorStatusDimColor(status: VendorHealth['status']): string {
+function vendorStatusDimColor(status: IntegrationVendorHealth['status']): string {
   switch (status) {
     case 'green': return 'var(--cc-green-dim)';
     case 'yellow': return 'var(--cc-yellow-dim)';
@@ -231,9 +102,17 @@ const pulseKeyframes = `
 /* -- Component ------------------------------------------------------------ */
 
 export default function Integrations() {
-  const completedCount = dataSources.filter((d) => d.status === 'Complete').length;
-  const inProgressCount = dataSources.filter((d) => d.status === 'In Progress').length;
-  const pendingCount = dataSources.filter((d) => d.status === 'Pending Access').length;
+  const { company } = useCompany();
+  const aiAgents = getAiAgents(company.id);
+  const dataSources = getDataSources(company.id);
+  const vendorHealthData = getVendorHealth(company.id);
+  const failureModes = getFailureModes(company.id);
+  const methodologySteps = getMethodologySteps(company.id);
+  const accentColor = company.accentColor;
+
+  const completedCount = dataSources.filter((d: IntegrationDataSource) => d.status === 'Complete').length;
+  const inProgressCount = dataSources.filter((d: IntegrationDataSource) => d.status === 'In Progress').length;
+  const pendingCount = dataSources.filter((d: IntegrationDataSource) => d.status === 'Pending Access').length;
 
   return (
     <div className="space-y-10">
@@ -456,13 +335,23 @@ export default function Integrations() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.25 + i * 0.06 }}
-              className="rounded-2xl p-6"
-              style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
+              className="rounded-2xl p-6 cursor-pointer hover:shadow-lg transition-shadow"
+              style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)', borderLeft: `3px solid ${accentColor}` }}
+              onClick={() => window.open(`${LASTMILE_URL}/agents`, '_blank')}
             >
               {/* Header */}
-              <div className="mb-5">
-                <h3 className="text-sm font-semibold" style={{ color: 'var(--cc-text)' }}>{agent.name}</h3>
-                <p className="text-xs mt-0.5" style={{ color: 'var(--cc-text-tertiary)' }}>{agent.subtitle}</p>
+              <div className="mb-5 flex items-center justify-between">
+                <div>
+                  <h3 className="text-sm font-semibold" style={{ color: 'var(--cc-text)' }}>{agent.name}</h3>
+                  <p className="text-xs mt-0.5" style={{ color: 'var(--cc-text-tertiary)' }}>{agent.subtitle}</p>
+                </div>
+                <span className={`text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full ${
+                  agent.status === 'active' ? 'bg-emerald-500/10 text-emerald-400' :
+                  agent.status === 'piloting' ? 'bg-amber-500/10 text-amber-400' :
+                  'bg-slate-500/10 text-slate-400'
+                }`}>
+                  {agent.status}
+                </span>
               </div>
 
               {/* 4 Metrics */}
@@ -603,7 +492,7 @@ export default function Integrations() {
         <h2 className="text-lg font-semibold mb-4" style={{ color: 'var(--cc-text)' }}>Assessment Methodology</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {methodologySteps.map((step, i) => {
-            const StepIcon = step.icon;
+            const StepIcon = methodologyIcons[step.number] || Search;
             return (
               <motion.div
                 key={step.number}

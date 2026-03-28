@@ -33,8 +33,7 @@ import {
 } from 'recharts';
 import { getRoiSummary } from '../data/constants';
 import { useCompany } from '../data/CompanyContext';
-
-const LASTMILE_URL = 'https://lastmile-beige.vercel.app';
+import { LASTMILE_URL } from '../data/crosslinks';
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
@@ -248,7 +247,7 @@ export default function ROISummary() {
           <span className="relative">Generate Board Report</span>
         </button>
         <button
-          onClick={openBoardReport}
+          onClick={() => openBoardReport(company.id)}
           className="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold shadow-sm transition-colors duration-200 cursor-pointer" style={{ background: 'var(--cc-bg-card)', color: 'var(--cc-text)', border: '1px solid var(--cc-border)' }}
         >
           <FileDown size={16} />

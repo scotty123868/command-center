@@ -1,25 +1,36 @@
 import { useEffect } from 'react';
-import { companyProfile, kpis, roiSummary, roadmapPhases } from '../data/constants';
-
-const divisions = [
-  { name: 'Herzog Contracting Corp', abbrev: 'HCC', employees: 1_200, scoreBefore: 32, scoreAfter: 82, savings: '$2.1M', topOpp: 'GPS fleet data consolidation' },
-  { name: 'Herzog Railroad Services', abbrev: 'HRSI', employees: 480, scoreBefore: 36, scoreAfter: 84, savings: '$820K', topOpp: 'Crew scheduling optimization' },
-  { name: 'Herzog Services (Rail Testing)', abbrev: 'HSI', employees: 320, scoreBefore: 42, scoreAfter: 88, savings: '$680K', topOpp: 'RailSentry AI upgrade' },
-  { name: 'Herzog Technologies', abbrev: 'HTI', employees: 280, scoreBefore: 48, scoreAfter: 91, savings: '$740K', topOpp: 'PTC data integration' },
-  { name: 'Herzog Transit Services', abbrev: 'HTSI', employees: 260, scoreBefore: 40, scoreAfter: 86, savings: '$860K', topOpp: 'Transit scheduling AI' },
-  { name: 'Herzog Energy', abbrev: 'HE', employees: 160, scoreBefore: 34, scoreAfter: 80, savings: '$360K', topOpp: 'Equipment utilization dashboard' },
-  { name: 'Green Group LLC', abbrev: 'GG', employees: 100, scoreBefore: 30, scoreAfter: 78, savings: '$240K', topOpp: 'Environmental compliance automation' },
-];
+import { getCompanyProfile, getKpis, getRoiSummary, getRoadmapPhases } from '../data/constants';
+import { useCompany } from '../data/CompanyContext';
 
 const fmtDollar = (n: number) => {
   if (n >= 1_000_000) return `$${(n / 1_000_000).toFixed(1)}M`;
   return `$${Math.round(n / 1_000)}K`;
 };
 
-const gross = roiSummary.techStackSavings + roiSummary.workflowAutomation + roiSummary.licenseRecovery;
-const roi = Math.round((roiSummary.netYear1 / roiSummary.implementationCosts) * 100);
-
 export default function BoardReportPage() {
+  const { company, companies } = useCompany();
+  const companyProfile = getCompanyProfile(company.id);
+  const companyKpis = getKpis(company.id);
+  const roiSummary = getRoiSummary(company.id);
+  const roadmapPhases = getRoadmapPhases(company.id);
+  const gross = roiSummary.techStackSavings + roiSummary.workflowAutomation + roiSummary.licenseRecovery;
+  const roi = Math.round((roiSummary.netYear1 / roiSummary.implementationCosts) * 100);
+
+  const divisions = companies
+    .filter(c => c.parentId === 'meridian' && c.id !== 'meridian')
+    .map(c => {
+      const k = getKpis(c.id);
+      return {
+        name: c.name,
+        abbrev: c.initials,
+        employees: c.employees,
+        scoreBefore: k.techScoreBefore,
+        scoreAfter: k.techScoreAfter,
+        savings: k.totalSavings >= 1_000_000 ? `$${(k.totalSavings / 1_000_000).toFixed(1)}M` : `$${Math.round(k.totalSavings / 1_000)}K`,
+        topOpp: '',
+      };
+    });
+
   useEffect(() => {
     document.title = `Technology Assessment — ${companyProfile.name}`;
     const timer = setTimeout(() => {
@@ -221,7 +232,7 @@ export default function BoardReportPage() {
 
         <p style={{ fontSize: '12.5px', color: '#334155', marginBottom: '20px', lineHeight: 1.7 }}>
           UpSkiller AI conducted a comprehensive technology and AI readiness assessment of {companyProfile.name},
-          evaluating {kpis.workflowsAnalyzed} workflows, 47 software platforms, and {companyProfile.employees.toLocaleString()} employee
+          evaluating {companyKpis.workflowsAnalyzed} workflows, 47 software platforms, and {companyProfile.employees.toLocaleString()} employee
           roles across {companyProfile.opCos} operating divisions. The assessment reveals significant opportunity for
           operational improvement through technology modernization and AI adoption.
         </p>
@@ -247,9 +258,9 @@ export default function BoardReportPage() {
         }}>
           {[
             `Total annualized net savings of ${fmtDollar(roiSummary.netYear1)}, with Year 2 projections of ${fmtDollar(roiSummary.year2Projected)} as automation scales`,
-            `AI Readiness Score improvement from ${kpis.techScoreBefore}/100 (Critical) to ${kpis.techScoreAfter}/100 (Advanced) across all divisions`,
-            `${fmtDollar(kpis.unusedLicenseWaste)} in annual license waste identified across 47 software platforms — immediate reclamation opportunity`,
-            `${kpis.automationReady} of ${kpis.workflowsAnalyzed} workflows identified as automation-ready, targeting field operations, scheduling, and compliance`,
+            `AI Readiness Score improvement from ${companyKpis.techScoreBefore}/100 (Critical) to ${companyKpis.techScoreAfter}/100 (Advanced) across all divisions`,
+            `${fmtDollar(companyKpis.unusedLicenseWaste)} in annual license waste identified across 47 software platforms — immediate reclamation opportunity`,
+            `${companyKpis.automationReady} of ${companyKpis.workflowsAnalyzed} workflows identified as automation-ready, targeting field operations, scheduling, and compliance`,
             `${roi}% Year 1 ROI on ${fmtDollar(roiSummary.implementationCosts)} implementation investment, with break-even at ${((roiSummary.implementationCosts / gross) * 12).toFixed(1)} months`,
           ].map((item, i) => (
             <div key={i} style={{ display: 'flex', gap: '8px', marginBottom: '6px' }}>
@@ -461,12 +472,12 @@ export default function BoardReportPage() {
                 {companyProfile.employees.toLocaleString()}
               </td>
               <td style={{ padding: '8px 6px', fontFamily: "'SF Mono', Menlo, monospace" }}>
-                <span style={{ color: '#dc2626', fontWeight: 700 }}>{kpis.techScoreBefore}</span>
+                <span style={{ color: '#dc2626', fontWeight: 700 }}>{companyKpis.techScoreBefore}</span>
                 <span style={{ color: '#94a3b8', margin: '0 4px' }}>&rarr;</span>
-                <span style={{ color: '#059669', fontWeight: 700 }}>{kpis.techScoreAfter}</span>
+                <span style={{ color: '#059669', fontWeight: 700 }}>{companyKpis.techScoreAfter}</span>
               </td>
               <td style={{ padding: '8px 6px', textAlign: 'right', fontFamily: "'SF Mono', Menlo, monospace", fontWeight: 700, color: '#059669', fontSize: '12px' }}>
-                {fmtDollar(kpis.totalSavings)}
+                {fmtDollar(companyKpis.totalSavings)}
               </td>
               <td style={{ padding: '8px 6px', fontWeight: 600, color: '#0f172a', fontSize: '10.5px' }}>
                 &mdash;

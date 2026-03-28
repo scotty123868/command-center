@@ -2,6 +2,8 @@ import { useRef, useState, useEffect } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, TrendingDown, Clock, AlertTriangle, DollarSign, Users, Cpu } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useCompany } from '../data/CompanyContext';
+import { getKpis, getCompanyProfile, getAiReadinessBreakdown } from '../data/constants';
 
 // ─── Animated Counter ──────────────────────────────────────────────────────
 
@@ -84,7 +86,12 @@ function FadeIn({ children, className = '', delay = 0 }: { children: React.React
 
 export default function ExecutiveBriefing() {
   const navigate = useNavigate();
-  const companyName = 'Herzog Companies';
+  const { company } = useCompany();
+  const companyKpis = getKpis(company.id);
+  const companyProfile = getCompanyProfile(company.id);
+  const companyReadiness = getAiReadinessBreakdown(company.id);
+  const companyName = companyProfile.name;
+  const avgReadiness = Math.round(companyReadiness.reduce((sum, r) => sum + r.score, 0) / companyReadiness.length);
   const scrollRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: scrollRef, offset: ['start start', 'end end'] });
   const lineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
@@ -119,11 +126,11 @@ export default function ExecutiveBriefing() {
         <FadeIn>
           <p className="relative text-xs uppercase tracking-[0.2em] text-slate-500 mb-3">Assessment Summary</p>
           <h1 className="relative text-4xl font-light leading-tight">
-            We found <span className="text-6xl lg:text-7xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">$5.8M</span> in annual
+            We found <span className="text-6xl lg:text-7xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">{companyKpis.totalSavings >= 1_000_000 ? `$${(companyKpis.totalSavings / 1_000_000).toFixed(1)}M` : `$${Math.round(companyKpis.totalSavings / 1_000)}K`}</span> in annual
             <br />optimization potential across {companyName}.
           </h1>
           <p className="relative text-slate-400 mt-4 text-lg max-w-2xl">
-            Across 7 divisions, 47+ software platforms, and 62 automatable workflows —
+            Across {companyProfile.opCos > 1 ? `${companyProfile.opCos} divisions` : 'all operations'}, {companyKpis.workflowsAnalyzed} automatable workflows —
             here's what's costing you money right now.
           </p>
         </FadeIn>
@@ -137,7 +144,7 @@ export default function ExecutiveBriefing() {
               <DollarSign className="w-5 h-5 text-red-500" />
             </div>
             <p className="text-sm font-medium text-gray-900 mb-1">License Waste</p>
-            <AnimatedMoney value={2_800_000} className="text-4xl font-mono font-bold text-red-500" />
+            <AnimatedMoney value={companyKpis.unusedLicenseWaste} className="text-4xl font-mono font-bold text-red-500" />
             <p className="text-sm text-gray-500 mt-2">
               Software licenses actively paid for with fewer than 2 logins per month across all divisions.
             </p>
@@ -150,7 +157,7 @@ export default function ExecutiveBriefing() {
               <Clock className="w-5 h-5 text-amber-500" />
             </div>
             <p className="text-sm font-medium text-gray-900 mb-1">Manual Processes</p>
-            <AnimatedStat value={62} className="text-4xl font-mono font-bold text-amber-500" />
+            <AnimatedStat value={companyKpis.workflowsAnalyzed} className="text-4xl font-mono font-bold text-amber-500" />
             <p className="text-sm text-gray-500 mt-2">
               Workflows currently requiring manual intervention that can be partially or fully automated.
             </p>
@@ -164,7 +171,7 @@ export default function ExecutiveBriefing() {
             </div>
             <p className="text-sm font-medium text-gray-900 mb-1">AI Readiness</p>
             <p className="text-4xl font-mono font-bold text-blue-500">
-              <AnimatedStat value={38} /><span className="text-lg text-gray-400">/100</span>
+              <AnimatedStat value={avgReadiness} /><span className="text-lg text-gray-400">/100</span>
             </p>
             <p className="text-sm text-gray-500 mt-2">
               Current readiness score. Industry leaders are at 65+. The gap represents both risk and opportunity.
@@ -229,10 +236,10 @@ export default function ExecutiveBriefing() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { name: 'HCC', full: 'Herzog Contracting', score: 32, savings: '$2.1M', divIndex: 0 },
-              { name: 'HRSI', full: 'Railroad Services', score: 36, savings: '$820K', divIndex: 1 },
-              { name: 'HTI', full: 'Technologies', score: 48, savings: '$740K', divIndex: 3 },
-              { name: 'HTSI', full: 'Transit Services', score: 40, savings: '$860K', divIndex: 4 },
+              { name: 'HCC', full: 'Herzog Contracting', score: getKpis('hcc').techScoreBefore, savings: getKpis('hcc').totalSavings, divIndex: 0 },
+              { name: 'HRSI', full: 'Railroad Services', score: getKpis('hrsi').techScoreBefore, savings: getKpis('hrsi').totalSavings, divIndex: 1 },
+              { name: 'HTI', full: 'Technologies', score: getKpis('hti').techScoreBefore, savings: getKpis('hti').totalSavings, divIndex: 3 },
+              { name: 'HTSI', full: 'Transit Services', score: getKpis('htsi').techScoreBefore, savings: getKpis('htsi').totalSavings, divIndex: 4 },
             ].map((div, i) => (
               <motion.div
                 key={div.name}
@@ -250,7 +257,7 @@ export default function ExecutiveBriefing() {
                   </span>
                 </div>
                 <p className="text-sm font-medium text-gray-900">{div.full}</p>
-                <p className="text-xs text-gray-500 mt-1">{div.savings} potential savings</p>
+                <p className="text-xs text-gray-500 mt-1">{div.savings >= 1_000_000 ? `$${(div.savings / 1_000_000).toFixed(1)}M` : `$${Math.round(div.savings / 1_000)}K`} potential savings</p>
               </motion.div>
             ))}
           </div>

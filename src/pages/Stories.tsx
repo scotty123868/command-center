@@ -20,6 +20,7 @@ import {
   Line,
 } from 'recharts';
 import PreliminaryBanner from '../components/PreliminaryBanner';
+import { useCompany } from '../data/CompanyContext';
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
@@ -563,11 +564,24 @@ function DivisionDashboard({ company }: { company: CompanyData }) {
 
 // ─── Page ───────────────────────────────────────────────────────────────────
 
+// Map company IDs to division indices
+const companyToDivIndex: Record<string, number> = {
+  hcc: 0, hrsi: 1, hsi: 2, hti: 3, htsi: 4, he: 5, gg: 6,
+};
+
 export default function Stories() {
+  const { company } = useCompany();
   const [searchParams] = useSearchParams();
   const divParam = searchParams.get('div');
-  const initialIndex = divParam !== null ? Math.min(Math.max(0, parseInt(divParam, 10) || 0), divisions.length - 1) : 0;
-  const [activeIndex, setActiveIndex] = useState(initialIndex);
+
+  // If a specific opco is selected, show only that division; otherwise show all
+  const isSpecificOpco = company.id !== 'meridian' && companyToDivIndex[company.id] !== undefined;
+  const visibleDivisions = isSpecificOpco ? [divisions[companyToDivIndex[company.id]]] : divisions;
+
+  const defaultIndex = divParam !== null
+    ? Math.min(Math.max(0, parseInt(divParam, 10) || 0), visibleDivisions.length - 1)
+    : 0;
+  const [activeIndex, setActiveIndex] = useState(defaultIndex);
 
   return (
     <div className="space-y-6">
@@ -581,14 +595,14 @@ export default function Stories() {
       >
         <h1 className="text-3xl font-bold" style={{ color: 'var(--cc-text)' }}>Division Performance</h1>
         <p className="mt-1 text-lg" style={{ color: 'var(--cc-text-secondary)' }}>
-          Transformation results across all 7 Herzog divisions
+          {isSpecificOpco ? `Transformation results for ${company.name}` : `Transformation results across all ${divisions.length} Herzog divisions`}
         </p>
       </motion.div>
 
       {/* Division Switcher Tab Bar */}
       <div className="border-b" style={{ borderColor: 'var(--cc-border)' }}>
         <nav className="flex gap-1 -mb-px overflow-x-auto scrollbar-hide" style={{ WebkitOverflowScrolling: 'touch' }} aria-label="Division tabs">
-          {divisions.map((division, index) => (
+          {visibleDivisions.map((division, index) => (
             <button
               key={division.name}
               onClick={() => setActiveIndex(index)}
@@ -624,7 +638,7 @@ export default function Stories() {
           exit={{ opacity: 0, y: -12 }}
           transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
         >
-          <DivisionDashboard company={divisions[activeIndex]} />
+          <DivisionDashboard company={visibleDivisions[activeIndex]} />
         </motion.div>
       </AnimatePresence>
     </div>
