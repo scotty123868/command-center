@@ -1348,19 +1348,46 @@ export default function Dashboard() {
 
       {/* ── 5. PRIORITY MATRIX + 6. RADAR CHART (side by side) ──── */}
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-        {/* Priority Matrix (Scatter Plot) */}
+        {/* Priority Matrix */}
         <motion.section
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.4 }}
-          className="rounded-2xl p-6"
+          className="rounded-2xl p-5 sm:p-6"
           style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
         >
           <h2 className="text-[15px] font-semibold mb-1" style={{ color: 'var(--cc-text)' }}>Priority Matrix</h2>
           <p className="text-[12px] mb-4" style={{ color: 'var(--cc-text-secondary)' }}>Impact vs Effort — bubble size = savings</p>
-          <div className="relative h-[280px] sm:h-[320px] overflow-hidden">
+
+          {/* Mobile: list layout (scatter charts don't work on 375px) */}
+          <div className="sm:hidden space-y-2">
+            {[...scatterData].sort((a, b) => b.savings - a.savings).map((entry) => (
+              <div
+                key={entry.name}
+                className="flex items-center gap-3 rounded-lg px-3 py-2.5"
+                style={{ background: 'var(--cc-bg-elevated)', border: '1px solid var(--cc-border)' }}
+              >
+                <div
+                  className="w-3 h-3 rounded-full shrink-0"
+                  style={{ background: scatterColors[entry.status] || '#6B7280' }}
+                />
+                <div className="flex-1 min-w-0">
+                  <p className="text-[12px] font-medium truncate" style={{ color: 'var(--cc-text)' }}>{entry.name}</p>
+                  <p className="text-[10px]" style={{ color: 'var(--cc-text-tertiary)' }}>
+                    Effort: {entry.effort}
+                  </p>
+                </div>
+                <span className="font-mono text-[12px] font-semibold shrink-0" style={{ color: 'var(--cc-green)' }}>
+                  {fmtCompact(entry.savings)}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: scatter chart */}
+          <div className="hidden sm:block relative h-[320px]">
             <ResponsiveContainer width="100%" height="100%">
-              <ScatterChart margin={{ top: 20, right: 12, bottom: 30, left: 0 }}>
+              <ScatterChart margin={{ top: 20, right: 20, bottom: 30, left: 10 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" />
                 <XAxis
                   type="number"
@@ -1401,6 +1428,7 @@ export default function Dashboard() {
             <div className="absolute bottom-8 left-12 text-[9px] font-medium" style={{ color: 'var(--cc-text-muted)', opacity: 0.5 }}>LOW IMPACT / LOW EFFORT</div>
             <div className="absolute bottom-8 right-4 text-[9px] font-medium" style={{ color: 'var(--cc-red)', opacity: 0.5 }}>LOW IMPACT / HIGH EFFORT</div>
           </div>
+
           {/* Legend */}
           <div className="mt-3 flex items-center gap-4">
             {[{ label: 'Automated', color: '#10B981' }, { label: 'In Progress', color: '#F59E0B' }, { label: 'Identified', color: '#6B7280' }].map(l => (
@@ -1422,7 +1450,31 @@ export default function Dashboard() {
         >
           <h2 className="text-[15px] font-semibold mb-1" style={{ color: 'var(--cc-text)' }}>AI Readiness Benchmark</h2>
           <p className="text-[12px] mb-4" style={{ color: 'var(--cc-text-secondary)' }}>Current vs target vs industry average</p>
-          <div className="h-[320px]">
+          {/* Mobile: list layout */}
+          <div className="sm:hidden space-y-2">
+            {radarData.map((d) => (
+              <div key={d.category} className="rounded-lg px-3 py-2.5" style={{ background: 'var(--cc-bg-elevated)', border: '1px solid var(--cc-border)' }}>
+                <div className="flex items-center justify-between mb-1.5">
+                  <span className="text-[12px] font-medium" style={{ color: 'var(--cc-text)' }}>{d.category}</span>
+                  <span className="font-mono text-[12px] font-semibold" style={{ color: d.current < 40 ? 'var(--cc-red)' : d.current < 60 ? 'var(--cc-yellow)' : 'var(--cc-green)' }}>
+                    {d.current}/100
+                  </span>
+                </div>
+                <div className="h-1.5 rounded-full" style={{ background: 'var(--cc-border)' }}>
+                  <div className="h-full rounded-full relative" style={{ width: `${d.current}%`, background: d.current < 40 ? '#EF4444' : d.current < 60 ? '#F59E0B' : '#10B981' }}>
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-0.5 h-3 rounded-full" style={{ background: '#4285F4', left: `${((d.target - d.current) / d.current) * 100}%` }} />
+                  </div>
+                </div>
+                <div className="flex justify-between mt-1">
+                  <span className="text-[9px]" style={{ color: 'var(--cc-text-muted)' }}>Target: {d.target}</span>
+                  <span className="text-[9px]" style={{ color: 'var(--cc-text-muted)' }}>Industry: {d.industry}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: radar chart */}
+          <div className="hidden sm:block h-[320px]">
             <ResponsiveContainer width="100%" height="100%">
               <RadarChart data={radarData} cx="50%" cy="50%" outerRadius="70%">
                 <PolarGrid stroke="rgba(255,255,255,0.08)" />
@@ -1434,6 +1486,7 @@ export default function Dashboard() {
               </RadarChart>
             </ResponsiveContainer>
           </div>
+
           {/* Legend */}
           <div className="mt-2 flex items-center justify-center gap-6">
             {[{ label: 'Current', color: '#EF4444' }, { label: 'Target', color: '#4285F4' }, { label: 'Industry Avg', color: '#6B7280' }].map(l => (
@@ -1494,8 +1547,52 @@ export default function Dashboard() {
         <h2 className="text-[15px] font-semibold mb-1" style={{ color: 'var(--cc-text)' }}>Transformation Roadmap</h2>
         <p className="text-[12px] mb-6" style={{ color: 'var(--cc-text-secondary)' }}>12-month implementation timeline</p>
 
-        {/* Gantt bars */}
-        <div className="space-y-4">
+        {/* Mobile: vertical timeline */}
+        <div className="sm:hidden space-y-3">
+          {companyRoadmap.map((phase, i) => {
+            const isActive = phase.status === 'active';
+            return (
+              <motion.div
+                key={phase.quarter}
+                initial={{ opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.57 + i * 0.06 }}
+                className="flex gap-3"
+              >
+                <div className="flex flex-col items-center">
+                  <div
+                    className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0"
+                    style={{
+                      background: isActive ? 'var(--cc-accent)' : 'var(--cc-bg-elevated)',
+                      color: isActive ? '#fff' : 'var(--cc-text-tertiary)',
+                      border: isActive ? 'none' : '1px solid var(--cc-border)',
+                    }}
+                  >
+                    {phase.quarter.replace('Q', '')}
+                  </div>
+                  {i < companyRoadmap.length - 1 && (
+                    <div className="w-px flex-1 my-1" style={{ background: isActive ? 'var(--cc-accent)' : 'var(--cc-border)' }} />
+                  )}
+                </div>
+                <div className="pb-3 flex-1 min-w-0">
+                  <p className="text-[12px] font-semibold" style={{ color: isActive ? 'var(--cc-text)' : 'var(--cc-text-secondary)' }}>
+                    {phase.title}
+                  </p>
+                  <div className="mt-1 flex flex-wrap gap-x-3 gap-y-0.5">
+                    {phase.items.map(item => (
+                      <span key={item} className="text-[10px]" style={{ color: isActive ? 'var(--cc-text-secondary)' : 'var(--cc-text-muted)' }}>
+                        &bull; {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Desktop: Gantt bars */}
+        <div className="hidden sm:block space-y-4">
           {companyRoadmap.map((phase, i) => {
             const isActive = phase.status === 'active';
             const quarterWidth = '25%';
