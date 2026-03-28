@@ -15,7 +15,7 @@ import {
   Presentation,
   ExternalLink,
 } from 'lucide-react';
-import { openBoardReport } from '../components/BoardReport';
+import { openBoardReport, downloadBoardReportPDF } from '../components/BoardReport';
 import {
   BarChart,
   Bar,
@@ -239,20 +239,20 @@ export default function ROISummary() {
       {/* ── Generate Board Report Buttons ──────────────────────────────── */}
       <div className="flex justify-end gap-3">
         <button
-          onClick={() => window.open('/board-report', '_blank')}
+          onClick={() => void downloadBoardReportPDF()}
           className="group relative inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all duration-300 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-600/30 cursor-pointer overflow-hidden"
         >
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: 'linear-gradient(110deg, transparent 25%, rgba(255,255,255,0.2) 50%, transparent 75%)', animation: 'shimmer 2s ease-in-out infinite' }} />
           <style>{`@keyframes shimmer { 0%, 100% { transform: translateX(-100%); } 50% { transform: translateX(100%); } }`}</style>
           <FileDown size={16} className="relative" />
-          <span className="relative">Generate Board Report</span>
+          <span className="relative">Download PDF</span>
         </button>
         <button
           onClick={openBoardReport}
           className="inline-flex items-center gap-2 rounded-xl bg-gray-100 px-5 py-2.5 text-sm font-semibold text-gray-700 shadow-sm transition-colors duration-200 hover:bg-gray-200 cursor-pointer"
         >
           <FileDown size={16} />
-          Quick Export
+          Preview Report
         </button>
       </div>
 
@@ -337,10 +337,10 @@ export default function ROISummary() {
         <h2 className="text-lg font-semibold text-gray-800 mb-6">
           Implementation Timeline &amp; Cost Curve
         </h2>
-        <ResponsiveContainer width="100%" height={350}>
+        <ResponsiveContainer width="100%" height={280}>
           <AreaChart
             data={timelineData}
-            margin={{ top: 10, right: 20, left: 10, bottom: 5 }}
+            margin={{ top: 10, right: 10, left: 0, bottom: 5 }}
           >
             <defs>
               <linearGradient id="gradCost" x1="0" y1="0" x2="0" y2="1">
@@ -486,12 +486,12 @@ export default function ROISummary() {
             <p className="text-sm text-gray-500 mt-1">Executive-ready report with key findings and recommendations</p>
           </div>
           <button
-            onClick={() => window.open('/board-report', '_blank')}
+            onClick={() => void downloadBoardReportPDF()}
             className="group relative inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all duration-300 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-600/30 cursor-pointer overflow-hidden"
           >
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: 'linear-gradient(110deg, transparent 25%, rgba(255,255,255,0.2) 50%, transparent 75%)', animation: 'shimmer 2s ease-in-out infinite' }} />
             <FileDown size={16} className="relative" />
-            <span className="relative">Generate Board Report</span>
+            <span className="relative">Download PDF</span>
           </button>
         </div>
 

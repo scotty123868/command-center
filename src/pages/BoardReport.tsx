@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import { companyProfile, roiSummary } from '../data/constants';
+import { downloadBoardReportPDF } from '../components/BoardReport';
 
 const divisions = [
   { name: 'Herzog Contracting Corp', score: 32, savings: '$2.1M', workflows: 22, topOpp: 'GPS fleet data consolidation' },
@@ -24,12 +25,16 @@ const roiBreakdown = [
 ];
 
 export default function BoardReportPage() {
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      window.print();
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, []);
+  const [downloading, setDownloading] = useState(false);
+
+  const handleDownload = async () => {
+    setDownloading(true);
+    try {
+      await downloadBoardReportPDF();
+    } finally {
+      setDownloading(false);
+    }
+  };
 
   return (
     <>
@@ -55,11 +60,64 @@ export default function BoardReportPage() {
           border-top: 1px solid #e2e8f0;
           margin-top: 40px;
         }
+        @media (max-width: 640px) {
+          .report-body { padding: 48px 12px 24px !important; }
+          .report-body h1 { font-size: 24px !important; }
+          .report-body h2 { font-size: 18px !important; }
+          .report-grid-2 { grid-template-columns: 1fr !important; }
+          .report-cover { padding: 48px 20px !important; min-height: 70vh !important; }
+          .report-cover h1 { font-size: 26px !important; }
+          .report-cover p { font-size: 16px !important; }
+          .report-table { font-size: 11px; }
+          .report-table th, .report-table td { padding: 8px 6px !important; }
+          .download-bar { flex-wrap: wrap; gap: 8px; padding: 8px 12px; }
+          .download-bar button { padding: 8px 16px; font-size: 13px; }
+        }
+        .download-bar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 1000;
+          background: #16161A;
+          padding: 12px 24px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 16px;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .download-bar button {
+          border: none;
+          border-radius: 8px;
+          padding: 10px 24px;
+          font-size: 14px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: background 0.2s;
+          color: #fff;
+        }
+        .download-bar .btn-primary { background: #4285F4; }
+        .download-bar .btn-primary:hover { background: #3367D6; }
+        .download-bar .btn-primary:disabled { background: #555; cursor: wait; }
+        .download-bar .btn-secondary { background: #334155; }
+        .download-bar .btn-secondary:hover { background: #475569; }
+        .download-bar span { color: #94a3b8; font-size: 13px; }
       `}</style>
 
-      <div className="report-body" style={{ padding: '40px 32px' }}>
+      <div className="download-bar no-print">
+        <span>Board Report Preview</span>
+        <button className="btn-primary" onClick={() => void handleDownload()} disabled={downloading}>
+          {downloading ? 'Generating PDF...' : 'Download PDF'}
+        </button>
+        <button className="btn-secondary" onClick={() => window.print()}>
+          Print
+        </button>
+      </div>
+
+      <div className="report-body" style={{ padding: '60px 32px 40px' }}>
         {/* ── Cover Page ────────────────────────────────────────── */}
-        <div style={{ minHeight: '90vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', background: '#16161A', color: 'white', margin: '-40px -32px 0', padding: '80px 40px', borderRadius: '0' }}>
+        <div className="report-cover" style={{ minHeight: '90vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', background: '#16161A', color: 'white', margin: '-40px -32px 0', padding: '80px 40px', borderRadius: '0' }}>
           <div style={{ fontSize: '12px', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#64748b', marginBottom: '40px' }}>
             UpSkiller AI
           </div>
@@ -81,7 +139,7 @@ export default function BoardReportPage() {
           <h2 style={{ fontSize: '22px', fontWeight: 600, marginBottom: '24px', color: '#111827' }}>
             Executive Summary
           </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '32px' }}>
+          <div className="report-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '32px' }}>
             <div style={{ background: '#f8fafc', borderRadius: '12px', padding: '20px', border: '1px solid #e2e8f0' }}>
               <div style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#64748b', marginBottom: '8px' }}>
                 AI Readiness Score

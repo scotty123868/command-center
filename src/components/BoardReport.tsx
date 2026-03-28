@@ -323,3 +323,79 @@ export function openBoardReport() {
     reportWindow.document.close();
   }
 }
+
+export async function downloadBoardReportPDF() {
+  const html2pdfModule = await import('html2pdf.js');
+  const html2pdf = html2pdfModule.default;
+
+  // Create a hidden container with the report HTML
+  const container = document.createElement('div');
+  container.innerHTML = generateReportHTML();
+
+  // Extract just the body content
+  const bodyEl = container.querySelector('body');
+  const reportContent = document.createElement('div');
+  if (bodyEl) {
+    reportContent.innerHTML = bodyEl.innerHTML;
+  } else {
+    reportContent.innerHTML = container.innerHTML;
+  }
+
+  // Apply base styles on the wrapper
+  reportContent.style.fontFamily = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+  reportContent.style.color = '#1a1a1a';
+  reportContent.style.background = '#fff';
+  reportContent.style.maxWidth = '800px';
+  reportContent.style.margin = '0 auto';
+  reportContent.style.padding = '0';
+  reportContent.style.lineHeight = '1.5';
+
+  // Copy the report CSS into the wrapper
+  const styleEl = container.querySelector('style');
+  if (styleEl) {
+    reportContent.prepend(styleEl.cloneNode(true));
+  }
+
+  // Hide print-only elements
+  const noPrintEls = reportContent.querySelectorAll('.no-print, .print-btn');
+  noPrintEls.forEach((el) => ((el as HTMLElement).style.display = 'none'));
+
+  // Temporarily attach to DOM for html2pdf measurement
+  reportContent.style.position = 'absolute';
+  reportContent.style.left = '-9999px';
+  reportContent.style.top = '0';
+  document.body.appendChild(reportContent);
+
+  const dateStr = new Date().toISOString().split('T')[0];
+  const companySlug = config.name.replace(/\s+/g, '-');
+  const filename = `UpSkiller-Board-Report-${companySlug}-${dateStr}.pdf`;
+
+  // Use Record<string, unknown> cast to include pagebreak which is supported
+  // at runtime but missing from the shipped type declarations
+  const options: Record<string, unknown> = {
+    margin: 10,
+    filename,
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: {
+      scale: 2,
+      useCORS: true,
+      letterRendering: true,
+      logging: false,
+    },
+    jsPDF: {
+      unit: 'mm',
+      format: 'a4',
+      orientation: 'portrait',
+    },
+    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] },
+  };
+
+  try {
+    await html2pdf()
+      .set(options)
+      .from(reportContent)
+      .save();
+  } finally {
+    document.body.removeChild(reportContent);
+  }
+}
