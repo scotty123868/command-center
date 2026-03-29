@@ -28,7 +28,7 @@ KEY METRICS:
 - Total Projected Savings: $5.8M/yr
 - Tech Score: 38 → 86 (after transformation)
 - Workflows Analyzed: 62
-- Automation-Ready Workflows: 16
+- Automation-Ready Workflows: 18
 - Unused License Waste: $2.8M/yr
 
 TOP SAVINGS OPPORTUNITIES:

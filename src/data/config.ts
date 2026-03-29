@@ -18,7 +18,7 @@ const defaultConfig: CompanyConfig = {
   opCos: 7,
   techSpend: '$12.4M/yr',
   aiReadinessScore: 38,
-  logoInitials: 'H',
+  logoInitials: 'IC',
   userInitials: 'DD',
   userName: 'Daniel Ducic',
 };
