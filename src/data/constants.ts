@@ -976,11 +976,11 @@ const oakwoodKpis = {
   techScoreAfter: 78,
   workflowsAnalyzed: 38,
   automationReady: 9,
-  unusedLicenseWaste: 1_601_000,
+  unusedLicenseWaste: 1_600_000,
   savingsSparkline: [0, 60_000, 150_000, 290_000, 460_000, 680_000, 960_000, 1_300_000, 1_720_000, 2_280_000, 3_000_000, 3_800_000],
   scoreSparkline: [41, 43, 46, 50, 54, 58, 62, 66, 70, 73, 76, 78],
   workflowSparkline: [0, 3, 7, 12, 17, 22, 26, 30, 33, 35, 37, 38],
-  licenseSparkline: [1_601_000, 1_560_000, 1_480_000, 1_360_000, 1_200_000, 1_050_000, 920_000, 810_000, 730_000, 680_000, 650_000, 630_000],
+  licenseSparkline: [1_600_000, 1_560_000, 1_480_000, 1_360_000, 1_200_000, 1_050_000, 920_000, 810_000, 730_000, 680_000, 650_000, 630_000],
   headcountImpactSparkline: [0, 0, -1, -3, -5, -8, -11, -14, -17, -19, -21, -23],
 };
 
@@ -1155,7 +1155,7 @@ const oakwoodLicenses: License[] = [
   { vendor: 'Duck Creek', totalLicenses: 120, active90d: 88, inactive: 32, annualWaste: 192_000, action: 'Reclaim 32 inactive seats, optimize license tier', costPerLicense: 6_000, department: 'Underwriting & Policy Admin', lastAuditDate: '2025-09-20', trend: [85, 80, 76, 72, 68, 65], complianceRisk: false },
   { vendor: 'Guidewire', totalLicenses: 180, active90d: 155, inactive: 25, annualWaste: 200_000, action: 'Reclaim 25 seats, evaluate ClaimCenter cloud migration', costPerLicense: 8_000, department: 'Claims Operations', lastAuditDate: '2025-12-01', trend: [92, 90, 88, 87, 86, 84], complianceRisk: false },
   { vendor: 'Slack Enterprise', totalLicenses: 600, active90d: 480, inactive: 120, annualWaste: 144_000, action: 'Downgrade 120 inactive to free tier', costPerLicense: 1_200, department: 'IT / All Departments', lastAuditDate: '2026-01-05', trend: [90, 87, 84, 82, 80, 78], complianceRisk: false },
-  { vendor: 'Adobe Acrobat Pro', totalLicenses: 200, active90d: 90, inactive: 110, annualWaste: 264_000, action: 'Reclaim 110 seats — restrict to claims and legal only', costPerLicense: 2_400, department: 'Claims & Legal (provisioned company-wide)', lastAuditDate: '2025-08-18', trend: [70, 60, 52, 45, 40, 36], complianceRisk: true },
+  { vendor: 'Adobe Acrobat Pro', totalLicenses: 200, active90d: 90, inactive: 110, annualWaste: 263_000, action: 'Reclaim 110 seats — restrict to claims and legal only', costPerLicense: 2_400, department: 'Claims & Legal (provisioned company-wide)', lastAuditDate: '2025-08-18', trend: [70, 60, 52, 45, 40, 36], complianceRisk: true },
   { vendor: 'LexisNexis', totalLicenses: 50, active90d: 18, inactive: 32, annualWaste: 176_000, action: 'Reclaim 32 seats — restrict to SIU and underwriting', costPerLicense: 5_500, department: 'Special Investigations & Underwriting', lastAuditDate: '2025-07-30', trend: [68, 58, 50, 44, 38, 34], complianceRisk: false },
 ];
 
@@ -1206,11 +1206,11 @@ const pinnacleKpis = {
   techScoreAfter: 71,
   workflowsAnalyzed: 24,
   automationReady: 6,
-  unusedLicenseWaste: 634_000,
+  unusedLicenseWaste: 640_000,
   savingsSparkline: [0, 30_000, 80_000, 160_000, 270_000, 410_000, 580_000, 790_000, 1_040_000, 1_340_000, 1_600_000, 1_900_000],
   scoreSparkline: [28, 30, 33, 37, 41, 46, 51, 56, 60, 64, 68, 71],
   workflowSparkline: [0, 2, 5, 8, 11, 14, 16, 18, 20, 22, 23, 24],
-  licenseSparkline: [634_000, 625_000, 595_000, 550_000, 495_000, 440_000, 390_000, 345_000, 310_000, 285_000, 268_000, 255_000],
+  licenseSparkline: [640_000, 625_000, 595_000, 550_000, 495_000, 440_000, 390_000, 345_000, 310_000, 285_000, 268_000, 255_000],
   headcountImpactSparkline: [0, 0, -1, -2, -3, -5, -7, -9, -10, -12, -13, -14],
 };
 
@@ -1384,7 +1384,7 @@ const pinnacleLicenses: License[] = [
   { vendor: 'Microsoft Teams', totalLicenses: 420, active90d: 220, inactive: 200, annualWaste: 120_000, action: 'Downgrade 200 inactive to basic tier', costPerLicense: 600, department: 'IT / All Departments', lastAuditDate: '2025-11-10', trend: [82, 76, 70, 65, 58, 52], complianceRisk: false },
   { vendor: 'DocuSign', totalLicenses: 150, active90d: 65, inactive: 85, annualWaste: 102_000, action: 'Reclaim 85 seats — restrict to admin and legal', costPerLicense: 1_200, department: 'Admin & Legal (provisioned org-wide)', lastAuditDate: '2025-09-05', trend: [72, 64, 56, 50, 44, 40], complianceRisk: false },
   { vendor: 'ADP Modules', totalLicenses: 420, active90d: 380, inactive: 40, annualWaste: 48_000, action: 'Consolidate redundant modules, reclaim 40 inactive', costPerLicense: 1_200, department: 'HR', lastAuditDate: '2025-12-15', trend: [95, 93, 92, 91, 90, 89], complianceRisk: false },
-  { vendor: 'Zoom Healthcare', totalLicenses: 100, active90d: 42, inactive: 58, annualWaste: 70_000, action: 'Reclaim 58 seats — consolidate to Teams for non-telehealth', costPerLicense: 1_200, department: 'Clinical (telehealth) & Admin', lastAuditDate: '2025-08-28', trend: [78, 70, 62, 56, 48, 42], complianceRisk: true },
+  { vendor: 'Zoom Healthcare', totalLicenses: 100, active90d: 42, inactive: 58, annualWaste: 76_000, action: 'Reclaim 58 seats — consolidate to Teams for non-telehealth', costPerLicense: 1_200, department: 'Clinical (telehealth) & Admin', lastAuditDate: '2025-08-28', trend: [78, 70, 62, 56, 48, 42], complianceRisk: true },
   { vendor: 'Nuance PowerScribe', totalLicenses: 30, active90d: 12, inactive: 18, annualWaste: 54_000, action: 'Reclaim 18 seats — evaluate DAX Copilot replacement', costPerLicense: 3_000, department: 'Radiology', lastAuditDate: '2025-07-15', trend: [68, 58, 50, 44, 38, 34], complianceRisk: false },
 ];
 
@@ -1668,11 +1668,11 @@ const northbridgeKpis = {
   workflowsAnalyzed: 184,
   automationReady: 48,
   unusedLicenseWaste: 9_040_000,
-  savingsSparkline: [0, 1_100_000, 2_750_000, 4_950_000, 6_600_000, 8_250_000, 9_900_000, 11_000_000],
-  scoreSparkline: [52, 58, 64, 70, 76, 82, 86, 88],
-  workflowSparkline: [0, 22, 48, 82, 110, 140, 168, 184],
-  licenseSparkline: [9_040_000, 7_200_000, 5_400_000, 3_600_000, 2_100_000, 1_200_000, 700_000, 480_000],
-  headcountImpactSparkline: [0, -8, -22, -48, -80, -120, -156, -184],
+  savingsSparkline: [0, 700_000, 1_550_000, 2_600_000, 3_950_000, 5_250_000, 6_300_000, 7_350_000, 8_400_000, 9_450_000, 10_300_000, 11_000_000],
+  scoreSparkline: [52, 56, 60, 63, 67, 71, 75, 79, 82, 85, 87, 88],
+  workflowSparkline: [0, 14, 29, 46, 67, 87, 105, 124, 143, 160, 174, 184],
+  licenseSparkline: [9_040_000, 7_869_091, 6_709_091, 5_563_636, 4_418_182, 3_327_273, 2_372_727, 1_690_909, 1_154_545, 836_364, 620_000, 480_000],
+  headcountImpactSparkline: [0, -5, -12, -21, -36, -54, -74, -98, -123, -146, -166, -184],
 };
 
 const northbridgeRoadmapPhases = [
@@ -1820,14 +1820,14 @@ const nbAerospaceKpis = {
   totalSavings: 3_000_000,
   techScoreBefore: 46,
   techScoreAfter: 85,
-  workflowsAnalyzed: 52,
+  workflowsAnalyzed: 50,
   automationReady: 10,
-  unusedLicenseWaste: 820_000,
-  savingsSparkline: [0, 300_000, 750_000, 1_200_000, 1_650_000, 2_100_000, 2_550_000, 3_000_000],
-  scoreSparkline: [46, 52, 58, 64, 70, 76, 82, 85],
-  workflowSparkline: [0, 6, 12, 22, 30, 38, 46, 52],
-  licenseSparkline: [820_000, 720_000, 600_000, 480_000, 360_000, 260_000, 180_000, 120_000],
-  headcountImpactSparkline: [0, -2, -6, -12, -18, -24, -28, -32],
+  unusedLicenseWaste: 1_220_000,
+  savingsSparkline: [0, 190_909, 422_727, 709_091, 995_455, 1_281_818, 1_568_182, 1_854_545, 2_140_909, 2_427_273, 2_713_636, 3_000_000],
+  scoreSparkline: [46, 50, 54, 57, 61, 65, 69, 73, 77, 80, 83, 85],
+  workflowSparkline: [0, 4, 8, 11, 17, 23, 29, 34, 39, 44, 48, 52],
+  licenseSparkline: [1_220_000, 1_130_909, 1_030_909, 916_364, 801_818, 687_273, 572_727, 467_273, 369_091, 292_727, 230_909, 180_000],
+  headcountImpactSparkline: [0, -1, -3, -6, -9, -13, -17, -21, -24, -27, -29, -32],
 };
 
 const nbAerospaceRoadmapPhases = [
@@ -1875,7 +1875,7 @@ const nbAerospaceRoadmapPhases = [
     weekPlan: [
       { week: 13, task: 'Digital thread validation: full traceability from design → manufacture → field service', owner: 'Enterprise Architect' },
       { week: 14, task: 'FAA/EASA regulatory compliance automation: AI-assisted certification document generation', owner: 'Regulatory Affairs Director' },
-      { week: 15, task: 'Board presentation: $6.2M Year 1 savings confirmed, Year 2 roadmap ($10.5M target)', owner: 'OpCo General Manager' },
+      { week: 15, task: 'Board presentation: $3.0M Year 1 savings confirmed, Year 2 roadmap ($10.5M target)', owner: 'OpCo General Manager' },
       { week: 16, task: 'Hypercare and continuous improvement: AI model retraining, process optimization', owner: 'Quality Systems Director' },
     ],
   },
@@ -1900,9 +1900,9 @@ const nbAerospaceCurrentStack: CurrentTool[] = [
 ];
 
 const nbAerospaceLicenses: License[] = [
-  { vendor: 'Windchill PLM', totalLicenses: 480, active90d: 340, inactive: 140, annualWaste: 320_000, action: 'Reclaim 140 inactive seats + consolidate with TeamCenter users', costPerLicense: 2_280, department: 'Engineering / Product Design', lastAuditDate: '2026-01-20', trend: [82, 76, 72, 68, 66, 71], complianceRisk: false },
-  { vendor: 'IBM DOORS', totalLicenses: 200, active90d: 120, inactive: 80, annualWaste: 240_000, action: 'Migrate to modern ALM — reclaim all legacy seats', costPerLicense: 3_000, department: 'Systems Engineering', lastAuditDate: '2026-02-05', trend: [75, 68, 62, 58, 55, 60], complianceRisk: true },
-  { vendor: 'TeamCenter', totalLicenses: 360, active90d: 280, inactive: 80, annualWaste: 160_000, action: 'Reclaim 80 seats from non-engineering departments', costPerLicense: 2_000, department: 'Engineering / Simulation', lastAuditDate: '2026-01-10', trend: [88, 84, 80, 76, 74, 78], complianceRisk: false },
+  { vendor: 'Windchill PLM', totalLicenses: 480, active90d: 340, inactive: 140, annualWaste: 520_000, action: 'Reclaim 140 inactive seats + consolidate with TeamCenter users', costPerLicense: 2_280, department: 'Engineering / Product Design', lastAuditDate: '2026-01-20', trend: [82, 76, 72, 68, 66, 71], complianceRisk: false },
+  { vendor: 'IBM DOORS', totalLicenses: 200, active90d: 120, inactive: 80, annualWaste: 340_000, action: 'Migrate to modern ALM — reclaim all legacy seats', costPerLicense: 3_000, department: 'Systems Engineering', lastAuditDate: '2026-02-05', trend: [75, 68, 62, 58, 55, 60], complianceRisk: true },
+  { vendor: 'TeamCenter', totalLicenses: 360, active90d: 280, inactive: 80, annualWaste: 260_000, action: 'Reclaim 80 seats from non-engineering departments', costPerLicense: 2_000, department: 'Engineering / Simulation', lastAuditDate: '2026-01-10', trend: [88, 84, 80, 76, 74, 78], complianceRisk: false },
   { vendor: 'AMOS MRO', totalLicenses: 240, active90d: 200, inactive: 40, annualWaste: 100_000, action: 'Downgrade 40 inactive to read-only tier', costPerLicense: 2_500, department: 'MRO Operations', lastAuditDate: '2025-12-15', trend: [90, 88, 86, 84, 82, 83], complianceRisk: false },
 ];
 
@@ -1955,12 +1955,12 @@ const nbEnergyKpis = {
   techScoreAfter: 84,
   workflowsAnalyzed: 52,
   automationReady: 12,
-  unusedLicenseWaste: 1_100_000,
-  savingsSparkline: [0, 340_000, 850_000, 1_530_000, 2_040_000, 2_550_000, 3_060_000, 3_400_000],
-  scoreSparkline: [38, 44, 50, 58, 64, 72, 78, 84],
-  workflowSparkline: [0, 6, 14, 22, 30, 38, 46, 52],
-  licenseSparkline: [1_100_000, 960_000, 800_000, 640_000, 480_000, 340_000, 240_000, 160_000],
-  headcountImpactSparkline: [0, -3, -8, -16, -24, -32, -38, -42],
+  unusedLicenseWaste: 1_450_000,
+  savingsSparkline: [0, 216_364, 479_091, 803_636, 1_220_909, 1_622_727, 1_947_273, 2_271_818, 2_596_364, 2_920_909, 3_183_636, 3_400_000],
+  scoreSparkline: [38, 42, 46, 49, 54, 59, 63, 68, 73, 76, 80, 84],
+  workflowSparkline: [0, 4, 8, 13, 18, 23, 29, 34, 39, 44, 48, 52],
+  licenseSparkline: [1_450_000, 1_329_091, 1_202_727, 1_069_091, 935_455, 801_818, 668_182, 543_636, 428_182, 345_455, 273_636, 210_000],
+  headcountImpactSparkline: [0, -2, -4, -8, -12, -17, -23, -28, -33, -36, -39, -42],
 };
 
 const nbEnergyRoadmapPhases = [
@@ -2008,7 +2008,7 @@ const nbEnergyRoadmapPhases = [
     weekPlan: [
       { week: 13, task: 'Cross-system AI orchestration: unified grid, pipeline, and generation optimization', owner: 'Chief Technology Officer' },
       { week: 14, task: 'Customer experience AI: smart meter analytics and proactive outage communication', owner: 'Customer Operations Director' },
-      { week: 15, task: 'Board presentation: $7.4M Year 1 savings confirmed, Year 2 roadmap ($12.8M target)', owner: 'OpCo General Manager' },
+      { week: 15, task: 'Board presentation: $3.4M Year 1 savings confirmed, Year 2 roadmap ($12.8M target)', owner: 'OpCo General Manager' },
       { week: 16, task: 'Hypercare and continuous improvement: AI model retraining, NERC CIP re-certification', owner: 'OT Security Director' },
     ],
   },
@@ -2033,9 +2033,9 @@ const nbEnergyCurrentStack: CurrentTool[] = [
 ];
 
 const nbEnergyLicenses: License[] = [
-  { vendor: 'OSIsoft PI', totalLicenses: 600, active90d: 420, inactive: 180, annualWaste: 480_000, action: 'Reclaim 180 inactive seats + migrate to cloud-native historian', costPerLicense: 2_667, department: 'Operations / Engineering', lastAuditDate: '2026-01-25', trend: [80, 74, 70, 66, 64, 70], complianceRisk: false },
-  { vendor: 'GE SCADA', totalLicenses: 240, active90d: 180, inactive: 60, annualWaste: 280_000, action: 'Optimize license tiers — downgrade 60 to monitoring-only', costPerLicense: 4_667, department: 'Grid Operations', lastAuditDate: '2026-02-10', trend: [85, 80, 76, 72, 70, 75], complianceRisk: true },
-  { vendor: 'Esri ArcGIS', totalLicenses: 480, active90d: 360, inactive: 120, annualWaste: 200_000, action: 'Reclaim 120 seats from non-field departments', costPerLicense: 1_667, department: 'Field Operations / GIS', lastAuditDate: '2026-01-05', trend: [88, 84, 80, 76, 74, 75], complianceRisk: false },
+  { vendor: 'OSIsoft PI', totalLicenses: 600, active90d: 420, inactive: 180, annualWaste: 620_000, action: 'Reclaim 180 inactive seats + migrate to cloud-native historian', costPerLicense: 2_667, department: 'Operations / Engineering', lastAuditDate: '2026-01-25', trend: [80, 74, 70, 66, 64, 70], complianceRisk: false },
+  { vendor: 'GE SCADA', totalLicenses: 240, active90d: 180, inactive: 60, annualWaste: 400_000, action: 'Optimize license tiers — downgrade 60 to monitoring-only', costPerLicense: 4_667, department: 'Grid Operations', lastAuditDate: '2026-02-10', trend: [85, 80, 76, 72, 70, 75], complianceRisk: true },
+  { vendor: 'Esri ArcGIS', totalLicenses: 480, active90d: 360, inactive: 120, annualWaste: 290_000, action: 'Reclaim 120 seats from non-field departments', costPerLicense: 1_667, department: 'Field Operations / GIS', lastAuditDate: '2026-01-05', trend: [88, 84, 80, 76, 74, 75], complianceRisk: false },
   { vendor: 'Maximo', totalLicenses: 540, active90d: 440, inactive: 100, annualWaste: 140_000, action: 'Reclaim 100 inactive seats from seasonal contractors', costPerLicense: 1_400, department: 'Asset Management', lastAuditDate: '2025-12-20', trend: [90, 88, 84, 82, 80, 81], complianceRisk: false },
 ];
 
@@ -2088,12 +2088,12 @@ const nbFinancialKpis = {
   techScoreAfter: 91,
   workflowsAnalyzed: 36,
   automationReady: 12,
-  unusedLicenseWaste: 680_000,
-  savingsSparkline: [0, 190_000, 475_000, 855_000, 1_140_000, 1_425_000, 1_710_000, 1_900_000],
-  scoreSparkline: [62, 66, 70, 76, 80, 84, 88, 91],
-  workflowSparkline: [0, 4, 9, 16, 22, 28, 32, 36],
-  licenseSparkline: [680_000, 600_000, 500_000, 400_000, 300_000, 220_000, 160_000, 100_000],
-  headcountImpactSparkline: [0, -2, -4, -8, -14, -18, -24, -28],
+  unusedLicenseWaste: 930_000,
+  savingsSparkline: [0, 120_909, 267_727, 449_091, 682_273, 906_818, 1_088_182, 1_269_545, 1_450_909, 1_632_273, 1_779_091, 1_900_000],
+  scoreSparkline: [62, 65, 67, 70, 73, 77, 79, 82, 84, 87, 89, 91],
+  workflowSparkline: [0, 3, 5, 9, 13, 17, 21, 25, 28, 31, 33, 36],
+  licenseSparkline: [930_000, 860_000, 781_818, 692_727, 603_636, 514_545, 425_455, 350_000, 282_727, 231_818, 184_545, 140_000],
+  headcountImpactSparkline: [0, -1, -3, -4, -6, -9, -13, -16, -19, -22, -25, -28],
 };
 
 const nbFinancialRoadmapPhases = [
@@ -2141,7 +2141,7 @@ const nbFinancialRoadmapPhases = [
     weekPlan: [
       { week: 13, task: 'AI model governance framework: explainability, bias testing, and audit trails for all models', owner: 'Chief Risk Officer' },
       { week: 14, task: 'Regulatory AI validation: SEC/FINRA model risk management compliance certification', owner: 'Regulatory Technology Lead' },
-      { week: 15, task: 'Board presentation: $5.0M Year 1 savings confirmed, Year 2 roadmap ($8.4M target)', owner: 'OpCo General Manager' },
+      { week: 15, task: 'Board presentation: $1.9M Year 1 savings confirmed, Year 2 roadmap ($8.4M target)', owner: 'OpCo General Manager' },
       { week: 16, task: 'Hypercare and continuous improvement: model monitoring, drift detection, retraining cycles', owner: 'Quantitative Research Lead' },
     ],
   },
@@ -2166,9 +2166,9 @@ const nbFinancialCurrentStack: CurrentTool[] = [
 ];
 
 const nbFinancialLicenses: License[] = [
-  { vendor: 'Bloomberg Terminal', totalLicenses: 180, active90d: 140, inactive: 40, annualWaste: 320_000, action: 'Reclaim 40 inactive terminals + optimize to B-PIPE for data-only users', costPerLicense: 8_000, department: 'Trading / Research', lastAuditDate: '2026-01-15', trend: [88, 84, 80, 76, 74, 78], complianceRisk: false },
-  { vendor: 'Murex MX.3', totalLicenses: 120, active90d: 98, inactive: 22, annualWaste: 180_000, action: 'Reclaim 22 seats from non-trading support staff', costPerLicense: 8_180, department: 'Trading / Operations', lastAuditDate: '2026-02-01', trend: [90, 86, 82, 80, 78, 82], complianceRisk: false },
-  { vendor: 'Refinitiv Eikon', totalLicenses: 140, active90d: 100, inactive: 40, annualWaste: 120_000, action: 'Consolidate with Bloomberg where overlap exists', costPerLicense: 3_000, department: 'Research / Sales', lastAuditDate: '2026-01-20', trend: [82, 76, 72, 68, 66, 71], complianceRisk: false },
+  { vendor: 'Bloomberg Terminal', totalLicenses: 180, active90d: 140, inactive: 40, annualWaste: 440_000, action: 'Reclaim 40 inactive terminals + optimize to B-PIPE for data-only users', costPerLicense: 8_000, department: 'Trading / Research', lastAuditDate: '2026-01-15', trend: [88, 84, 80, 76, 74, 78], complianceRisk: false },
+  { vendor: 'Murex MX.3', totalLicenses: 120, active90d: 98, inactive: 22, annualWaste: 260_000, action: 'Reclaim 22 seats from non-trading support staff', costPerLicense: 8_180, department: 'Trading / Operations', lastAuditDate: '2026-02-01', trend: [90, 86, 82, 80, 78, 82], complianceRisk: false },
+  { vendor: 'Refinitiv Eikon', totalLicenses: 140, active90d: 100, inactive: 40, annualWaste: 170_000, action: 'Consolidate with Bloomberg where overlap exists', costPerLicense: 3_000, department: 'Research / Sales', lastAuditDate: '2026-01-20', trend: [82, 76, 72, 68, 66, 71], complianceRisk: false },
   { vendor: 'Calypso', totalLicenses: 80, active90d: 62, inactive: 18, annualWaste: 60_000, action: 'Reclaim 18 seats from legacy risk team members', costPerLicense: 3_333, department: 'Risk Management', lastAuditDate: '2025-12-10', trend: [86, 82, 78, 76, 74, 78], complianceRisk: true },
 ];
 
@@ -2221,12 +2221,12 @@ const nbHealthKpis = {
   techScoreAfter: 89,
   workflowsAnalyzed: 44,
   automationReady: 14,
-  unusedLicenseWaste: 920_000,
-  savingsSparkline: [0, 270_000, 675_000, 1_215_000, 1_620_000, 2_025_000, 2_430_000, 2_700_000],
-  scoreSparkline: [55, 60, 65, 70, 76, 82, 86, 89],
-  workflowSparkline: [0, 5, 12, 20, 26, 32, 38, 44],
-  licenseSparkline: [920_000, 800_000, 680_000, 540_000, 400_000, 280_000, 180_000, 120_000],
-  headcountImpactSparkline: [0, -2, -6, -12, -18, -26, -32, -38],
+  unusedLicenseWaste: 1_120_000,
+  savingsSparkline: [0, 171_818, 380_455, 638_182, 969_545, 1_288_636, 1_546_364, 1_804_091, 2_061_818, 2_319_545, 2_528_182, 2_700_000],
+  scoreSparkline: [55, 58, 61, 65, 68, 71, 75, 79, 82, 85, 87, 89],
+  workflowSparkline: [0, 3, 7, 11, 16, 21, 25, 29, 33, 36, 40, 44],
+  licenseSparkline: [1_120_000, 1_024_545, 929_091, 833_636, 727_273, 619_091, 510_909, 416_364, 329_091, 252_727, 194_545, 150_000],
+  headcountImpactSparkline: [0, -1, -3, -6, -9, -13, -17, -22, -27, -30, -34, -38],
 };
 
 const nbHealthRoadmapPhases = [
@@ -2274,7 +2274,7 @@ const nbHealthRoadmapPhases = [
     weekPlan: [
       { week: 13, task: 'GxP AI validation framework: computer system validation (CSV) for all production AI models', owner: 'Quality Assurance VP' },
       { week: 14, task: 'Enterprise AI governance: model risk management, change control, and audit trail compliance', owner: 'Chief Data Officer' },
-      { week: 15, task: 'Board presentation: $6.2M Year 1 savings confirmed, Year 2 roadmap ($10.8M target)', owner: 'OpCo General Manager' },
+      { week: 15, task: 'Board presentation: $2.7M Year 1 savings confirmed, Year 2 roadmap ($10.8M target)', owner: 'OpCo General Manager' },
       { week: 16, task: 'Hypercare and continuous improvement: AI model retraining, GxP re-validation cycles', owner: 'Clinical Systems Director' },
     ],
   },
@@ -2299,9 +2299,9 @@ const nbHealthCurrentStack: CurrentTool[] = [
 ];
 
 const nbHealthLicenses: License[] = [
-  { vendor: 'Veeva Vault', totalLicenses: 720, active90d: 540, inactive: 180, annualWaste: 380_000, action: 'Reclaim 180 inactive seats from completed trial teams', costPerLicense: 2_111, department: 'Clinical / Regulatory', lastAuditDate: '2026-01-18', trend: [85, 80, 76, 72, 70, 75], complianceRisk: false },
-  { vendor: 'LabWare LIMS', totalLicenses: 400, active90d: 280, inactive: 120, annualWaste: 260_000, action: 'Reclaim 120 seats + evaluate LIMS replacement', costPerLicense: 2_167, department: 'Lab Operations / QC', lastAuditDate: '2026-02-05', trend: [82, 76, 70, 66, 64, 70], complianceRisk: true },
-  { vendor: 'Medidata Rave', totalLicenses: 360, active90d: 280, inactive: 80, annualWaste: 180_000, action: 'Reclaim 80 seats from inactive study coordinators', costPerLicense: 2_250, department: 'Clinical Data Management', lastAuditDate: '2026-01-10', trend: [88, 84, 80, 78, 76, 78], complianceRisk: false },
+  { vendor: 'Veeva Vault', totalLicenses: 720, active90d: 540, inactive: 180, annualWaste: 480_000, action: 'Reclaim 180 inactive seats from completed trial teams', costPerLicense: 2_111, department: 'Clinical / Regulatory', lastAuditDate: '2026-01-18', trend: [85, 80, 76, 72, 70, 75], complianceRisk: false },
+  { vendor: 'LabWare LIMS', totalLicenses: 400, active90d: 280, inactive: 120, annualWaste: 320_000, action: 'Reclaim 120 seats + evaluate LIMS replacement', costPerLicense: 2_167, department: 'Lab Operations / QC', lastAuditDate: '2026-02-05', trend: [82, 76, 70, 66, 64, 70], complianceRisk: true },
+  { vendor: 'Medidata Rave', totalLicenses: 360, active90d: 280, inactive: 80, annualWaste: 220_000, action: 'Reclaim 80 seats from inactive study coordinators', costPerLicense: 2_250, department: 'Clinical Data Management', lastAuditDate: '2026-01-10', trend: [88, 84, 80, 78, 76, 78], complianceRisk: false },
   { vendor: 'Argus Safety', totalLicenses: 160, active90d: 120, inactive: 40, annualWaste: 100_000, action: 'Optimize license tiers — downgrade 40 to read-only', costPerLicense: 2_500, department: 'Drug Safety / PV', lastAuditDate: '2025-12-20', trend: [86, 82, 78, 76, 74, 75], complianceRisk: false },
 ];
 
@@ -2355,11 +2355,11 @@ const estoniaKpis = {
   workflowsAnalyzed: 126,
   automationReady: 62,
   unusedLicenseWaste: 3_000_000,
-  savingsSparkline: [0, 800_000, 2_000_000, 3_600_000, 4_800_000, 6_000_000, 7_200_000, 8_000_000],
-  scoreSparkline: [68, 72, 76, 80, 84, 88, 92, 94],
-  workflowSparkline: [0, 16, 34, 58, 78, 96, 112, 126],
-  licenseSparkline: [3_000_000, 2_600_000, 2_000_000, 1_500_000, 1_000_000, 650_000, 420_000, 320_000],
-  headcountImpactSparkline: [0, -4, -12, -28, -46, -68, -88, -102],
+  savingsSparkline: [0, 509_091, 1_127_273, 1_890_909, 2_872_727, 3_818_182, 4_581_818, 5_345_455, 6_109_091, 6_872_727, 7_490_909, 8_000_000],
+  scoreSparkline: [68, 71, 73, 76, 78, 81, 83, 86, 88, 91, 93, 94],
+  workflowSparkline: [0, 10, 21, 32, 47, 62, 74, 86, 97, 108, 117, 126],
+  licenseSparkline: [3_000_000, 2_745_455, 2_436_364, 2_054_545, 1_727_273, 1_409_091, 1_090_909, 840_909, 629_091, 482_727, 383_636, 320_000],
+  headcountImpactSparkline: [0, -3, -6, -11, -21, -31, -43, -56, -70, -83, -93, -102],
 };
 
 const estoniaRoadmapPhases = [
@@ -2424,7 +2424,7 @@ const estoniaRoadmapPhases = [
       { week: 21, task: 'EU AI Act compliance certification for all government AI systems', owner: 'Data Protection Officer' },
       { week: 22, task: 'Cross-border interoperability: connect Estonian X-Road AI gateway to EU eIDAS 2.0 framework', owner: 'CTO, Government Digital Office' },
       { week: 23, task: 'Pan-ministry AI adoption: 28,500 civil servants trained, all 126 workflows operational', owner: 'Chief Learning Officer' },
-      { week: 24, task: 'Annual review: €18.6M in savings confirmed, 94 AI readiness score achieved, EU showcase presentation', owner: 'CTO, Government Digital Office' },
+      { week: 24, task: 'Annual review: €8.0M in savings confirmed, 94 AI readiness score achieved, EU showcase presentation', owner: 'CTO, Government Digital Office' },
     ],
   },
 ];
@@ -2509,11 +2509,11 @@ const eeFinanceKpis = {
   workflowsAnalyzed: 34,
   automationReady: 18,
   unusedLicenseWaste: 680_000,
-  savingsSparkline: [0, 220_000, 550_000, 990_000, 1_320_000, 1_650_000, 1_980_000, 2_200_000],
-  scoreSparkline: [74, 77, 80, 83, 87, 90, 93, 95],
-  workflowSparkline: [0, 4, 8, 14, 20, 26, 30, 34],
-  licenseSparkline: [680_000, 590_000, 500_000, 390_000, 280_000, 200_000, 140_000, 100_000],
-  headcountImpactSparkline: [0, -2, -6, -12, -18, -24, -28, -32],
+  savingsSparkline: [0, 140_000, 310_000, 520_000, 790_000, 1_050_000, 1_260_000, 1_470_000, 1_680_000, 1_890_000, 2_060_000, 2_200_000],
+  scoreSparkline: [74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 95],
+  workflowSparkline: [0, 3, 5, 8, 11, 15, 19, 23, 26, 29, 31, 34],
+  licenseSparkline: [680_000, 622_727, 565_455, 508_182, 440_000, 370_000, 300_000, 243_636, 194_545, 156_364, 125_455, 100_000],
+  headcountImpactSparkline: [0, -1, -3, -6, -9, -13, -17, -21, -24, -27, -29, -32],
 };
 
 const eeFinanceRoadmapPhases = [
@@ -2562,7 +2562,7 @@ const eeFinanceRoadmapPhases = [
       { week: 13, task: 'End-to-end automated tax processing: 95% of returns processed without human intervention', owner: 'Tax IT Director' },
       { week: 14, task: 'EU DAC7/DAC8 automated reporting for platform economy and crypto-asset transactions', owner: 'International Tax Lead' },
       { week: 15, task: 'AI citizen tax assistant: natural language tax filing support in Estonian, Russian, English', owner: 'Citizen Services Lead' },
-      { week: 16, task: 'Annual review: €5.2M savings confirmed, AI readiness 95, EU compliance showcase', owner: 'CFO, Ministry of Finance' },
+      { week: 16, task: 'Annual review: €2.2M savings confirmed, AI readiness 95, EU compliance showcase', owner: 'CFO, Ministry of Finance' },
     ],
   },
 ];
@@ -2642,11 +2642,11 @@ const eeSocialKpis = {
   workflowsAnalyzed: 42,
   automationReady: 18,
   unusedLicenseWaste: 920_000,
-  savingsSparkline: [0, 280_000, 700_000, 1_260_000, 1_680_000, 2_100_000, 2_520_000, 2_800_000],
-  scoreSparkline: [68, 71, 75, 79, 83, 87, 90, 93],
-  workflowSparkline: [0, 5, 10, 18, 26, 32, 38, 42],
-  licenseSparkline: [920_000, 800_000, 670_000, 530_000, 390_000, 280_000, 190_000, 130_000],
-  headcountImpactSparkline: [0, -3, -8, -16, -26, -38, -48, -56],
+  savingsSparkline: [0, 178_182, 394_545, 661_818, 1_005_455, 1_336_364, 1_603_636, 1_870_909, 2_138_182, 2_405_455, 2_621_818, 2_800_000],
+  scoreSparkline: [68, 70, 72, 75, 77, 80, 82, 85, 87, 89, 91, 93],
+  workflowSparkline: [0, 3, 6, 10, 14, 19, 25, 29, 33, 36, 39, 42],
+  licenseSparkline: [920_000, 843_636, 764_545, 681_818, 593_636, 504_545, 415_455, 340_000, 271_818, 214_545, 168_182, 130_000],
+  headcountImpactSparkline: [0, -2, -4, -8, -12, -18, -24, -31, -39, -45, -51, -56],
 };
 
 const eeSocialRoadmapPhases = [
@@ -2695,7 +2695,7 @@ const eeSocialRoadmapPhases = [
       { week: 13, task: 'AI citizen health assistant: symptom checker, appointment booking, medication reminders', owner: 'Citizen Health Services Lead' },
       { week: 14, task: 'Automated referral processing: GP to specialist routing with AI-suggested pathways', owner: 'Primary Care IT Lead' },
       { week: 15, task: 'EU European Health Data Space (EHDS) compliance and cross-border health record exchange', owner: 'EU Compliance Officer' },
-      { week: 16, task: 'Annual review: €6.8M savings confirmed, 93 AI readiness, 42 workflows automated', owner: 'Deputy Minister, Social Affairs' },
+      { week: 16, task: 'Annual review: €2.8M savings confirmed, 93 AI readiness, 42 workflows automated', owner: 'Deputy Minister, Social Affairs' },
     ],
   },
 ];
@@ -2775,11 +2775,11 @@ const eeEconomicKpis = {
   workflowsAnalyzed: 26,
   automationReady: 12,
   unusedLicenseWaste: 420_000,
-  savingsSparkline: [0, 160_000, 400_000, 720_000, 960_000, 1_200_000, 1_440_000, 1_600_000],
-  scoreSparkline: [76, 79, 82, 85, 88, 91, 93, 95],
-  workflowSparkline: [0, 3, 6, 10, 16, 20, 24, 26],
-  licenseSparkline: [420_000, 360_000, 300_000, 240_000, 180_000, 130_000, 90_000, 60_000],
-  headcountImpactSparkline: [0, -1, -4, -8, -12, -18, -22, -26],
+  savingsSparkline: [0, 101_818, 225_455, 378_182, 574_545, 763_636, 916_364, 1_069_091, 1_221_818, 1_374_545, 1_498_182, 1_600_000],
+  scoreSparkline: [76, 78, 80, 82, 84, 86, 87, 89, 91, 92, 94, 95],
+  workflowSparkline: [0, 2, 4, 6, 8, 11, 15, 18, 20, 23, 25, 26],
+  licenseSparkline: [420_000, 381_818, 343_636, 305_455, 267_273, 229_091, 190_909, 157_273, 126_364, 100_909, 79_091, 60_000],
+  headcountImpactSparkline: [0, -1, -2, -4, -6, -9, -11, -15, -18, -21, -23, -26],
 };
 
 const eeEconomicRoadmapPhases = [
@@ -2828,7 +2828,7 @@ const eeEconomicRoadmapPhases = [
       { week: 13, task: 'Unified business services portal: single AI-powered entry point for all economic affairs services', owner: 'Digital Economy IT Lead' },
       { week: 14, task: 'Cross-border trade AI: automated documentation and compliance for 150+ trading partners', owner: 'Trade Compliance Director' },
       { week: 15, task: 'EU Digital Markets Act compliance monitoring: automated platform regulation enforcement', owner: 'EU Compliance Officer' },
-      { week: 16, task: 'Annual review: €3.4M savings confirmed, 95 AI readiness, trade digitization showcase', owner: 'Deputy Minister, Economic Affairs' },
+      { week: 16, task: 'Annual review: €1.6M savings confirmed, 95 AI readiness, trade digitization showcase', owner: 'Deputy Minister, Economic Affairs' },
     ],
   },
 ];
@@ -2908,11 +2908,11 @@ const eeRiaKpis = {
   workflowsAnalyzed: 24,
   automationReady: 14,
   unusedLicenseWaste: 380_000,
-  savingsSparkline: [0, 140_000, 350_000, 630_000, 840_000, 1_050_000, 1_260_000, 1_400_000],
-  scoreSparkline: [78, 81, 84, 87, 90, 92, 94, 96],
-  workflowSparkline: [0, 3, 6, 10, 14, 18, 22, 24],
-  licenseSparkline: [380_000, 320_000, 260_000, 200_000, 150_000, 110_000, 80_000, 50_000],
-  headcountImpactSparkline: [0, -1, -3, -6, -10, -14, -18, -20],
+  savingsSparkline: [0, 89_091, 197_273, 330_909, 502_727, 668_182, 801_818, 935_455, 1_069_091, 1_202_727, 1_310_909, 1_400_000],
+  scoreSparkline: [78, 80, 82, 84, 86, 88, 89, 91, 92, 93, 95, 96],
+  workflowSparkline: [0, 2, 4, 6, 8, 11, 13, 16, 18, 21, 23, 24],
+  licenseSparkline: [380_000, 341_818, 303_636, 265_455, 227_273, 190_909, 159_091, 131_818, 107_273, 88_182, 69_091, 50_000],
+  headcountImpactSparkline: [0, -1, -2, -3, -5, -7, -9, -12, -14, -17, -19, -20],
 };
 
 const eeRiaRoadmapPhases = [
@@ -2961,7 +2961,7 @@ const eeRiaRoadmapPhases = [
       { week: 13, task: 'AI cyber range: automated adversary simulation for continuous defense testing', owner: 'Red Team Lead' },
       { week: 14, task: 'Predictive defense posture: AI forecasting emerging threats based on global attack trends', owner: 'Threat Intelligence Lead' },
       { week: 15, task: 'National cyber resilience scoring: real-time security posture assessment across all government systems', owner: 'CISO' },
-      { week: 16, task: 'Annual review: €3.2M savings, 96 AI readiness, Estonia ranked #1 EU cyber resilience', owner: 'RIA Director General' },
+      { week: 16, task: 'Annual review: €1.4M savings, 96 AI readiness, Estonia ranked #1 EU cyber resilience', owner: 'RIA Director General' },
     ],
   },
 ];
@@ -3041,11 +3041,11 @@ const hccKpis = {
   workflowsAnalyzed: 22,
   automationReady: 6,
   unusedLicenseWaste: 980_000,
-  savingsSparkline: [0, 210_000, 480_000, 820_000, 1_200_000, 1_600_000, 1_850_000, 2_100_000],
-  scoreSparkline: [32, 38, 44, 50, 58, 64, 72, 78],
-  workflowSparkline: [0, 3, 6, 10, 13, 16, 19, 22],
-  licenseSparkline: [980_000, 880_000, 760_000, 640_000, 520_000, 400_000, 300_000, 220_000],
-  headcountImpactSparkline: [0, 0, -1, -3, -5, -8, -10, -12],
+  savingsSparkline: [0, 133_636, 283_636, 455_455, 665_455, 889_091, 1_130_909, 1_381_818, 1_622_727, 1_781_818, 1_940_909, 2_100_000],
+  scoreSparkline: [32, 36, 40, 43, 47, 51, 57, 61, 65, 70, 74, 78],
+  workflowSparkline: [0, 2, 4, 6, 8, 11, 12, 14, 16, 18, 20, 22],
+  licenseSparkline: [980_000, 916_364, 847_273, 770_909, 694_545, 618_182, 541_818, 465_455, 390_909, 327_273, 270_909, 220_000],
+  headcountImpactSparkline: [0, 0, 0, -1, -2, -3, -5, -6, -8, -9, -11, -12],
 };
 
 const hccRoadmapPhases = [
@@ -3172,11 +3172,11 @@ const hrsiKpis = {
   workflowsAnalyzed: 8,
   automationReady: 2,
   unusedLicenseWaste: 380_000,
-  savingsSparkline: [0, 80_000, 180_000, 320_000, 480_000, 600_000, 720_000, 820_000],
-  scoreSparkline: [36, 42, 48, 55, 62, 68, 75, 80],
-  workflowSparkline: [0, 1, 2, 3, 4, 5, 7, 8],
-  licenseSparkline: [380_000, 340_000, 300_000, 260_000, 220_000, 180_000, 140_000, 100_000],
-  headcountImpactSparkline: [0, 0, -1, -1, -2, -3, -4, -5],
+  savingsSparkline: [0, 50_909, 107_273, 170_909, 256_364, 349_091, 450_909, 534_545, 610_909, 687_273, 756_364, 820_000],
+  scoreSparkline: [36, 40, 44, 47, 52, 56, 61, 65, 69, 73, 77, 80],
+  workflowSparkline: [0, 1, 1, 2, 3, 3, 4, 4, 5, 6, 7, 8],
+  licenseSparkline: [380_000, 354_545, 329_091, 303_636, 278_182, 252_727, 227_273, 201_818, 176_364, 150_909, 125_455, 100_000],
+  headcountImpactSparkline: [0, 0, 0, -1, -1, -1, -2, -2, -3, -4, -4, -5],
 };
 
 const hrsiRoadmapPhases = [
@@ -3294,11 +3294,11 @@ const hsiKpis = {
   workflowsAnalyzed: 6,
   automationReady: 2,
   unusedLicenseWaste: 240_000,
-  savingsSparkline: [0, 60_000, 150_000, 280_000, 400_000, 520_000, 610_000, 680_000],
-  scoreSparkline: [42, 48, 54, 60, 66, 72, 78, 84],
-  workflowSparkline: [0, 1, 2, 3, 4, 5, 5, 6],
-  licenseSparkline: [240_000, 220_000, 190_000, 160_000, 130_000, 100_000, 80_000, 60_000],
-  headcountImpactSparkline: [0, 0, -1, -1, -2, -3, -3, -4],
+  savingsSparkline: [0, 38_182, 84_545, 141_818, 220_909, 301_818, 378_182, 454_545, 528_182, 585_455, 635_455, 680_000],
+  scoreSparkline: [42, 46, 50, 53, 57, 61, 65, 69, 73, 76, 80, 84],
+  workflowSparkline: [0, 1, 1, 2, 3, 3, 4, 4, 5, 5, 5, 6],
+  licenseSparkline: [240_000, 227_273, 211_818, 192_727, 173_636, 154_545, 135_455, 116_364, 98_182, 85_455, 72_727, 60_000],
+  headcountImpactSparkline: [0, 0, 0, -1, -1, -1, -2, -2, -3, -3, -3, -4],
 };
 
 const hsiRoadmapPhases = [
@@ -3411,11 +3411,11 @@ const htiKpis = {
   workflowsAnalyzed: 10,
   automationReady: 3,
   unusedLicenseWaste: 420_000,
-  savingsSparkline: [0, 70_000, 170_000, 300_000, 440_000, 560_000, 660_000, 740_000],
-  scoreSparkline: [48, 54, 60, 66, 72, 78, 82, 86],
-  workflowSparkline: [0, 1, 2, 4, 5, 7, 8, 10],
-  licenseSparkline: [420_000, 380_000, 340_000, 300_000, 260_000, 200_000, 160_000, 120_000],
-  headcountImpactSparkline: [0, 0, -1, -2, -3, -4, -5, -6],
+  savingsSparkline: [0, 44_545, 97_273, 160_909, 240_909, 325_455, 414_545, 494_545, 569_091, 632_727, 689_091, 740_000],
+  scoreSparkline: [48, 52, 56, 59, 63, 67, 71, 75, 78, 81, 83, 86],
+  workflowSparkline: [0, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+  licenseSparkline: [420_000, 394_545, 369_091, 343_636, 318_182, 292_727, 267_273, 232_727, 196_364, 170_909, 145_455, 120_000],
+  headcountImpactSparkline: [0, 0, 0, -1, -2, -2, -3, -3, -4, -5, -5, -6],
 };
 
 const htiRoadmapPhases = [
@@ -3528,11 +3528,11 @@ const htsiKpis = {
   workflowsAnalyzed: 10,
   automationReady: 3,
   unusedLicenseWaste: 480_000,
-  savingsSparkline: [0, 80_000, 200_000, 340_000, 500_000, 640_000, 760_000, 860_000],
-  scoreSparkline: [40, 46, 52, 58, 64, 70, 76, 82],
-  workflowSparkline: [0, 1, 2, 4, 5, 7, 8, 10],
-  licenseSparkline: [480_000, 430_000, 380_000, 320_000, 260_000, 200_000, 150_000, 110_000],
-  headcountImpactSparkline: [0, 0, -1, -2, -3, -5, -6, -7],
+  savingsSparkline: [0, 50_909, 112_727, 189_091, 276_364, 369_091, 470_909, 563_636, 650_909, 727_273, 796_364, 860_000],
+  scoreSparkline: [40, 44, 48, 51, 55, 59, 63, 67, 71, 74, 78, 82],
+  workflowSparkline: [0, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+  licenseSparkline: [480_000, 448_182, 416_364, 384_545, 347_273, 309_091, 270_909, 232_727, 195_455, 163_636, 135_455, 110_000],
+  headcountImpactSparkline: [0, 0, 0, -1, -2, -2, -3, -4, -5, -6, -6, -7],
 };
 
 const htsiRoadmapPhases = [
@@ -3646,11 +3646,11 @@ const heKpis = {
   workflowsAnalyzed: 4,
   automationReady: 1,
   unusedLicenseWaste: 180_000,
-  savingsSparkline: [0, 30_000, 80_000, 140_000, 210_000, 270_000, 320_000, 360_000],
-  scoreSparkline: [34, 40, 46, 52, 58, 64, 70, 76],
-  workflowSparkline: [0, 0, 1, 1, 2, 3, 3, 4],
-  licenseSparkline: [180_000, 165_000, 148_000, 130_000, 110_000, 90_000, 70_000, 55_000],
-  headcountImpactSparkline: [0, 0, 0, -1, -1, -2, -2, -3],
+  savingsSparkline: [0, 19_091, 43_636, 75_455, 112_727, 152_727, 197_273, 237_273, 274_545, 306_364, 334_545, 360_000],
+  scoreSparkline: [34, 38, 42, 45, 49, 53, 57, 61, 65, 68, 72, 76],
+  workflowSparkline: [0, 0, 0, 1, 1, 1, 2, 2, 3, 3, 3, 4],
+  licenseSparkline: [180_000, 170_455, 160_364, 149_545, 138_182, 126_364, 113_636, 100_909, 88_182, 75_455, 64_545, 55_000],
+  headcountImpactSparkline: [0, 0, 0, 0, -1, -1, -1, -1, -2, -2, -2, -3],
 };
 
 const heRoadmapPhases = [
@@ -3763,11 +3763,11 @@ const ggKpis = {
   workflowsAnalyzed: 2,
   automationReady: 1,
   unusedLicenseWaste: 120_000,
-  savingsSparkline: [0, 20_000, 50_000, 90_000, 140_000, 180_000, 210_000, 240_000],
-  scoreSparkline: [30, 36, 42, 48, 54, 60, 66, 72],
-  workflowSparkline: [0, 0, 0, 1, 1, 1, 2, 2],
-  licenseSparkline: [120_000, 110_000, 98_000, 86_000, 72_000, 58_000, 44_000, 32_000],
-  headcountImpactSparkline: [0, 0, 0, 0, -1, -1, -1, -2],
+  savingsSparkline: [0, 12_727, 28_182, 47_273, 71_818, 99_091, 130_909, 158_182, 182_727, 201_818, 220_909, 240_000],
+  scoreSparkline: [30, 34, 38, 41, 45, 49, 53, 57, 61, 64, 68, 72],
+  workflowSparkline: [0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2],
+  licenseSparkline: [120_000, 113_636, 106_727, 99_091, 91_455, 83_455, 74_545, 65_636, 56_727, 47_818, 39_636, 32_000],
+  headcountImpactSparkline: [0, 0, 0, 0, 0, 0, -1, -1, -1, -1, -1, -2],
 };
 
 const ggRoadmapPhases = [
