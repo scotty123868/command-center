@@ -328,38 +328,38 @@ function generateReportHTML(companyId = 'meridian', scenario: ScenarioKey = 'bas
       <tbody>
         <tr>
           <td>1</td>
+          <td class="bold">Predictive Track Maintenance</td>
+          <td>Workflow Automation</td>
+          <td class="num green">$1.4M/yr</td>
+          <td class="num">78%</td>
+        </tr>
+        <tr>
+          <td>2</td>
           <td class="bold">Unused License Reclamation</td>
           <td>License Audit</td>
           <td class="num green">$1.2M/yr</td>
           <td class="num">97%</td>
         </tr>
         <tr>
-          <td>2</td>
-          <td class="bold">Cross-Division Inventory Visibility</td>
-          <td>Data Infrastructure</td>
-          <td class="num green">$890k/yr</td>
-          <td class="num">81%</td>
-        </tr>
-        <tr>
           <td>3</td>
-          <td class="bold">Predictive Equipment Maintenance</td>
-          <td>Workflow Automation</td>
-          <td class="num green">$680k/yr</td>
-          <td class="num">68%</td>
+          <td class="bold">Fleet GPS Intelligence &amp; Utilization</td>
+          <td>Data Infrastructure</td>
+          <td class="num green">$980K/yr</td>
+          <td class="num">86%</td>
         </tr>
         <tr>
           <td>4</td>
-          <td class="bold">Crew Scheduling &amp; Dispatch AI</td>
+          <td class="bold">AI Rail Inspection (Ultrasonic + Vision)</td>
           <td>Workflow Automation</td>
-          <td class="num green">$580k/yr</td>
-          <td class="num">88%</td>
+          <td class="num green">$860K/yr</td>
+          <td class="num">82%</td>
         </tr>
         <tr>
           <td>5</td>
-          <td class="bold">Dev Workflow Automation</td>
-          <td>Tech Stack</td>
-          <td class="num green">$500k/yr</td>
-          <td class="num">72%</td>
+          <td class="bold">Crew Scheduling Optimization</td>
+          <td>Workflow Automation</td>
+          <td class="num green">$720K/yr</td>
+          <td class="num">84%</td>
         </tr>
       </tbody>
     </table>
