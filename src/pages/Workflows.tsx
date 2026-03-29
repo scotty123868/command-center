@@ -8,7 +8,7 @@ import {
   Zap,
   Timer,
 } from 'lucide-react';
-import { workflows as allWorkflows, getWorkflowSummary } from '../data/constants';
+import { getWorkflows, getWorkflowSummary } from '../data/constants';
 import type { Workflow, AutomationLevel } from '../data/constants';
 import { useCompany } from '../data/CompanyContext';
 
@@ -363,10 +363,11 @@ function WorkflowCard({ wf, index }: { wf: Workflow; index: number }) {
 export default function Workflows() {
   const { company } = useCompany();
   const workflowSummary = getWorkflowSummary(company.id);
+  const allWorkflows = getWorkflows(company.id);
 
   // For child companies, show a stable, unique subset of workflows based on division
   const companyWorkflows = (() => {
-    if (company.id === 'meridian' || !company.parentId) return allWorkflows;
+    if (!company.parentId) return allWorkflows;
     // Simple hash to get a stable offset per division so each sees different workflows
     const hash = company.id.split('').reduce((h, c) => ((h << 5) - h + c.charCodeAt(0)) | 0, 0);
     const offset = Math.abs(hash) % allWorkflows.length;

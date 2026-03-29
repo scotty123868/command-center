@@ -4188,6 +4188,2748 @@ const meridianMethodologySteps: IntegrationMethodologyStep[] = [
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════════
+// ─── AI Agents (Oakwood, Pinnacle, Atlas) ────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const oakwoodAiAgents: AIAgent[] = [
+  { name: 'Claims Triage AI', subtitle: 'Claims Routing', accuracy: 95.4, metric2Label: 'Misroute Rate', metric2Value: 1.8, metric3Label: 'Triage Latency', metric3Value: '0.6s', overrideRate: 6.2, confidenceThreshold: 0.91, status: 'active', lastmileAgentId: 'claims-triage-ai' },
+  { name: 'Underwriting Copilot', subtitle: 'Risk Assessment', accuracy: 93.1, metric2Label: 'Risk Mispricing', metric2Value: 2.4, metric3Label: 'Decision Time', metric3Value: '1.8s', overrideRate: 8.7, confidenceThreshold: 0.88, status: 'active', lastmileAgentId: 'underwriting-copilot' },
+  { name: 'Fraud Detection Engine', subtitle: 'Fraud Prevention', accuracy: 97.8, metric2Label: 'False Positive', metric2Value: 3.2, metric3Label: 'Detection Speed', metric3Value: '0.3s', overrideRate: 4.1, confidenceThreshold: 0.94, status: 'active', lastmileAgentId: 'fraud-detection-engine' },
+  { name: 'Policy Renewal Bot', subtitle: 'Retention Automation', accuracy: 89.6, metric2Label: 'Churn Misclass', metric2Value: 5.1, metric3Label: 'Renewal Lead Time', metric3Value: '30 days', overrideRate: 13.4, confidenceThreshold: 0.83, status: 'piloting', lastmileAgentId: 'policy-renewal-bot' },
+  { name: 'Loss Reserve Estimator', subtitle: 'Reserve Accuracy', accuracy: 86.3, metric2Label: 'Reserve Variance', metric2Value: 6.8, metric3Label: 'Estimation Cycle', metric3Value: '4.2 hrs', overrideRate: 17.2, confidenceThreshold: 0.79, status: 'piloting', lastmileAgentId: 'loss-reserve-estimator' },
+  { name: 'Subrogation Analyzer', subtitle: 'Recovery Optimization', accuracy: 82.7, metric2Label: 'Recovery Miss', metric2Value: 8.3, metric3Label: 'Analysis Time', metric3Value: '6.1 hrs', overrideRate: 21.6, confidenceThreshold: 0.75, status: 'planned', lastmileAgentId: 'subrogation-analyzer' },
+];
+
+const pinnacleAiAgents: AIAgent[] = [
+  { name: 'Clinical NLP Agent', subtitle: 'Medical Text Mining', accuracy: 96.2, metric2Label: 'Entity Miss Rate', metric2Value: 1.4, metric3Label: 'Processing Speed', metric3Value: '0.5s', overrideRate: 5.8, confidenceThreshold: 0.92, status: 'active', lastmileAgentId: 'clinical-nlp-agent' },
+  { name: 'Billing Code Optimizer', subtitle: 'Revenue Cycle', accuracy: 94.7, metric2Label: 'Code Error Rate', metric2Value: 2.1, metric3Label: 'Optimization Time', metric3Value: '1.2s', overrideRate: 7.3, confidenceThreshold: 0.90, status: 'active', lastmileAgentId: 'billing-code-optimizer' },
+  { name: 'Prior Auth Bot', subtitle: 'Authorization Automation', accuracy: 91.3, metric2Label: 'Denial Rate', metric2Value: 3.6, metric3Label: 'Auth Turnaround', metric3Value: '4.2 min', overrideRate: 10.8, confidenceThreshold: 0.86, status: 'active', lastmileAgentId: 'prior-auth-bot' },
+  { name: 'Scheduling AI', subtitle: 'Appointment Optimization', accuracy: 88.9, metric2Label: 'No-Show Mispredict', metric2Value: 4.8, metric3Label: 'Slot Utilization', metric3Value: '94.1%', overrideRate: 14.1, confidenceThreshold: 0.82, status: 'piloting', lastmileAgentId: 'scheduling-ai' },
+  { name: 'Readmission Risk Predictor', subtitle: 'Patient Outcomes', accuracy: 85.4, metric2Label: 'Risk Misclass', metric2Value: 6.2, metric3Label: 'Prediction Window', metric3Value: '30 days', overrideRate: 18.3, confidenceThreshold: 0.78, status: 'piloting', lastmileAgentId: 'readmission-risk-predictor' },
+  { name: 'Drug Interaction Checker', subtitle: 'Patient Safety', accuracy: 99.1, metric2Label: 'Missed Interaction', metric2Value: 0.3, metric3Label: 'Check Latency', metric3Value: '0.1s', overrideRate: 2.4, confidenceThreshold: 0.97, status: 'active', lastmileAgentId: 'drug-interaction-checker' },
+];
+
+const atlasAiAgents: AIAgent[] = [
+  { name: 'Production Optimizer', subtitle: 'Line Efficiency', accuracy: 94.8, metric2Label: 'Yield Loss', metric2Value: 1.9, metric3Label: 'Optimization Cycle', metric3Value: '2.4s', overrideRate: 7.1, confidenceThreshold: 0.90, status: 'active', lastmileAgentId: 'production-optimizer' },
+  { name: 'Quality Vision AI', subtitle: 'Visual Inspection', accuracy: 97.3, metric2Label: 'False Reject', metric2Value: 1.1, metric3Label: 'Inspection Speed', metric3Value: '0.2s', overrideRate: 4.6, confidenceThreshold: 0.93, status: 'active', lastmileAgentId: 'quality-vision-ai' },
+  { name: 'Supply Chain Predictor', subtitle: 'Demand Forecasting', accuracy: 91.6, metric2Label: 'Forecast Error', metric2Value: 3.7, metric3Label: 'Planning Horizon', metric3Value: '12 weeks', overrideRate: 10.2, confidenceThreshold: 0.86, status: 'active', lastmileAgentId: 'supply-chain-predictor' },
+  { name: 'Maintenance Prophet', subtitle: 'Predictive Maintenance', accuracy: 93.2, metric2Label: 'False Alarm Rate', metric2Value: 2.8, metric3Label: 'Prediction Lead', metric3Value: '3.6 weeks', overrideRate: 8.4, confidenceThreshold: 0.88, status: 'active', lastmileAgentId: 'maintenance-prophet' },
+  { name: 'Energy Consumption AI', subtitle: 'Utility Optimization', accuracy: 87.4, metric2Label: 'Consumption Error', metric2Value: 5.3, metric3Label: 'Savings Rate', metric3Value: '11.2%', overrideRate: 15.7, confidenceThreshold: 0.81, status: 'piloting', lastmileAgentId: 'energy-consumption-ai' },
+  { name: 'Digital Twin Simulator', subtitle: 'Process Modeling', accuracy: 84.1, metric2Label: 'Model Drift', metric2Value: 7.6, metric3Label: 'Simulation Speed', metric3Value: '8.4s', overrideRate: 19.3, confidenceThreshold: 0.77, status: 'planned', lastmileAgentId: 'digital-twin-simulator' },
+];
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── AI Agents (Northbridge + Subsidiaries) ──────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const northbridgeAiAgents: AIAgent[] = [
+  { name: 'Strategy AI', subtitle: 'Portfolio Analytics', accuracy: 92.6, metric2Label: 'Forecast Variance', metric2Value: 3.1, metric3Label: 'Analysis Cycle', metric3Value: '4.8 hrs', overrideRate: 9.4, confidenceThreshold: 0.87, status: 'active', lastmileAgentId: 'strategy-ai' },
+  { name: 'Compliance Aggregator', subtitle: 'Cross-Division Compliance', accuracy: 95.1, metric2Label: 'Gap Detection Miss', metric2Value: 1.7, metric3Label: 'Scan Frequency', metric3Value: '1 hr', overrideRate: 6.3, confidenceThreshold: 0.91, status: 'active', lastmileAgentId: 'compliance-aggregator' },
+  { name: 'Capital Allocator', subtitle: 'Investment Optimization', accuracy: 89.3, metric2Label: 'Allocation Error', metric2Value: 4.6, metric3Label: 'Rebalance Time', metric3Value: '12 min', overrideRate: 13.1, confidenceThreshold: 0.83, status: 'piloting', lastmileAgentId: 'capital-allocator' },
+  { name: 'Synergy Detector', subtitle: 'Cross-BU Opportunities', accuracy: 84.7, metric2Label: 'False Signal', metric2Value: 7.2, metric3Label: 'Scan Window', metric3Value: '24 hrs', overrideRate: 18.6, confidenceThreshold: 0.77, status: 'planned', lastmileAgentId: 'synergy-detector' },
+];
+
+const nbAerospaceAiAgents: AIAgent[] = [
+  { name: 'Certification AI', subtitle: 'FAA Compliance', accuracy: 96.7, metric2Label: 'Cert Gap Rate', metric2Value: 1.2, metric3Label: 'Review Cycle', metric3Value: '3.4 hrs', overrideRate: 5.4, confidenceThreshold: 0.93, status: 'active', lastmileAgentId: 'certification-ai' },
+  { name: 'Parts Tracker', subtitle: 'Supply Chain Visibility', accuracy: 93.8, metric2Label: 'Tracking Error', metric2Value: 2.3, metric3Label: 'Refresh Interval', metric3Value: '5 min', overrideRate: 8.1, confidenceThreshold: 0.89, status: 'active', lastmileAgentId: 'parts-tracker' },
+  { name: 'MRO Optimizer', subtitle: 'Maintenance Planning', accuracy: 91.2, metric2Label: 'Schedule Slip', metric2Value: 3.8, metric3Label: 'Turnaround Gain', metric3Value: '18.6%', overrideRate: 11.4, confidenceThreshold: 0.85, status: 'active', lastmileAgentId: 'mro-optimizer' },
+  { name: 'Flight Test Analyzer', subtitle: 'Test Data Mining', accuracy: 87.6, metric2Label: 'Anomaly Miss', metric2Value: 5.1, metric3Label: 'Analysis Time', metric3Value: '6.2 min', overrideRate: 15.2, confidenceThreshold: 0.81, status: 'piloting', lastmileAgentId: 'flight-test-analyzer' },
+  { name: 'AOG Predictor', subtitle: 'Aircraft-on-Ground Prevention', accuracy: 82.3, metric2Label: 'AOG Mispredict', metric2Value: 8.4, metric3Label: 'Prediction Lead', metric3Value: '5.8 days', overrideRate: 21.3, confidenceThreshold: 0.74, status: 'planned', lastmileAgentId: 'aog-predictor' },
+];
+
+const nbEnergyAiAgents: AIAgent[] = [
+  { name: 'Grid AI', subtitle: 'Grid Management', accuracy: 95.8, metric2Label: 'Load Forecast Error', metric2Value: 1.6, metric3Label: 'Response Time', metric3Value: '0.4s', overrideRate: 5.9, confidenceThreshold: 0.92, status: 'active', lastmileAgentId: 'grid-ai' },
+  { name: 'SCADA Monitor', subtitle: 'Infrastructure Health', accuracy: 94.1, metric2Label: 'Alert Miss Rate', metric2Value: 2.2, metric3Label: 'Monitor Interval', metric3Value: '10s', overrideRate: 7.6, confidenceThreshold: 0.89, status: 'active', lastmileAgentId: 'scada-monitor' },
+  { name: 'Outage Predictor', subtitle: 'Outage Prevention', accuracy: 90.7, metric2Label: 'False Alarm Rate', metric2Value: 4.1, metric3Label: 'Prediction Window', metric3Value: '6.4 hrs', overrideRate: 12.3, confidenceThreshold: 0.85, status: 'piloting', lastmileAgentId: 'outage-predictor' },
+  { name: 'Renewable Dispatch AI', subtitle: 'Clean Energy Optimization', accuracy: 86.4, metric2Label: 'Curtailment Error', metric2Value: 5.9, metric3Label: 'Dispatch Cycle', metric3Value: '30s', overrideRate: 16.8, confidenceThreshold: 0.80, status: 'piloting', lastmileAgentId: 'renewable-dispatch-ai' },
+  { name: 'Carbon Accounting AI', subtitle: 'Emissions Tracking', accuracy: 83.2, metric2Label: 'Emission Error', metric2Value: 7.3, metric3Label: 'Report Cycle', metric3Value: '24 hrs', overrideRate: 20.1, confidenceThreshold: 0.76, status: 'planned', lastmileAgentId: 'carbon-accounting-ai' },
+];
+
+const nbFinancialAiAgents: AIAgent[] = [
+  { name: 'KYC Engine', subtitle: 'Customer Verification', accuracy: 97.2, metric2Label: 'False Reject', metric2Value: 1.1, metric3Label: 'Verification Time', metric3Value: '2.4s', overrideRate: 4.3, confidenceThreshold: 0.94, status: 'active', lastmileAgentId: 'kyc-engine' },
+  { name: 'Trade Screener', subtitle: 'Compliance Screening', accuracy: 98.4, metric2Label: 'Missed Flag', metric2Value: 0.6, metric3Label: 'Screening Latency', metric3Value: '0.8s', overrideRate: 3.1, confidenceThreshold: 0.96, status: 'active', lastmileAgentId: 'trade-screener' },
+  { name: 'Fraud Detector', subtitle: 'Transaction Monitoring', accuracy: 96.1, metric2Label: 'False Positive', metric2Value: 2.8, metric3Label: 'Detection Speed', metric3Value: '0.2s', overrideRate: 5.6, confidenceThreshold: 0.92, status: 'active', lastmileAgentId: 'fraud-detector' },
+  { name: 'Credit Risk Modeler', subtitle: 'Risk Assessment', accuracy: 91.8, metric2Label: 'Default Mispredict', metric2Value: 3.4, metric3Label: 'Scoring Time', metric3Value: '1.6s', overrideRate: 10.2, confidenceThreshold: 0.86, status: 'piloting', lastmileAgentId: 'credit-risk-modeler' },
+  { name: 'AML Pattern Detector', subtitle: 'Anti-Money Laundering', accuracy: 88.6, metric2Label: 'Pattern Miss', metric2Value: 4.7, metric3Label: 'Scan Window', metric3Value: '15 min', overrideRate: 14.3, confidenceThreshold: 0.82, status: 'piloting', lastmileAgentId: 'aml-pattern-detector' },
+];
+
+const nbHealthAiAgents: AIAgent[] = [
+  { name: 'Trial Analyst', subtitle: 'Clinical Trial Analytics', accuracy: 93.4, metric2Label: 'Endpoint Miss', metric2Value: 2.6, metric3Label: 'Analysis Time', metric3Value: '8.3 min', overrideRate: 8.9, confidenceThreshold: 0.88, status: 'active', lastmileAgentId: 'trial-analyst' },
+  { name: 'Safety Monitor', subtitle: 'Adverse Event Detection', accuracy: 96.8, metric2Label: 'Event Miss Rate', metric2Value: 1.1, metric3Label: 'Detection Latency', metric3Value: '0.6s', overrideRate: 4.7, confidenceThreshold: 0.93, status: 'active', lastmileAgentId: 'safety-monitor' },
+  { name: 'QA Inspector', subtitle: 'Manufacturing QA', accuracy: 95.2, metric2Label: 'Defect Miss Rate', metric2Value: 1.8, metric3Label: 'Inspection Speed', metric3Value: '0.4s', overrideRate: 6.1, confidenceThreshold: 0.91, status: 'active', lastmileAgentId: 'qa-inspector' },
+  { name: 'Patient Stratifier', subtitle: 'Cohort Selection', accuracy: 89.7, metric2Label: 'Cohort Misclass', metric2Value: 4.3, metric3Label: 'Stratification Time', metric3Value: '3.2 min', overrideRate: 13.4, confidenceThreshold: 0.83, status: 'piloting', lastmileAgentId: 'patient-stratifier' },
+  { name: 'Supply Chain Forecaster', subtitle: 'Pharma Supply Chain', accuracy: 85.1, metric2Label: 'Demand Error', metric2Value: 6.7, metric3Label: 'Forecast Horizon', metric3Value: '8 weeks', overrideRate: 18.2, confidenceThreshold: 0.78, status: 'planned', lastmileAgentId: 'supply-chain-forecaster' },
+];
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── AI Agents (Estonia + Subsidiaries) ──────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const estoniaAiAgents: AIAgent[] = [
+  { name: 'Governance AI', subtitle: 'Policy Compliance', accuracy: 94.3, metric2Label: 'Policy Gap Rate', metric2Value: 2.1, metric3Label: 'Scan Cycle', metric3Value: '2.4 hrs', overrideRate: 7.8, confidenceThreshold: 0.89, status: 'active', lastmileAgentId: 'governance-ai' },
+  { name: 'X-Road Monitor', subtitle: 'Infrastructure Health', accuracy: 98.1, metric2Label: 'Service Miss', metric2Value: 0.7, metric3Label: 'Check Interval', metric3Value: '30s', overrideRate: 3.2, confidenceThreshold: 0.96, status: 'active', lastmileAgentId: 'x-road-monitor' },
+  { name: 'Citizen Portal AI', subtitle: 'Service Optimization', accuracy: 91.7, metric2Label: 'Routing Error', metric2Value: 3.4, metric3Label: 'Response Time', metric3Value: '1.2s', overrideRate: 10.6, confidenceThreshold: 0.86, status: 'active', lastmileAgentId: 'citizen-portal-ai' },
+  { name: 'Budget Forecast AI', subtitle: 'Fiscal Planning', accuracy: 87.9, metric2Label: 'Forecast Variance', metric2Value: 5.6, metric3Label: 'Planning Horizon', metric3Value: '12 months', overrideRate: 15.1, confidenceThreshold: 0.81, status: 'piloting', lastmileAgentId: 'budget-forecast-ai' },
+  { name: 'Legislative Impact Analyzer', subtitle: 'Policy Modeling', accuracy: 83.4, metric2Label: 'Impact Mispredict', metric2Value: 7.8, metric3Label: 'Analysis Time', metric3Value: '18 min', overrideRate: 19.7, confidenceThreshold: 0.76, status: 'planned', lastmileAgentId: 'legislative-impact-analyzer' },
+];
+
+const eeFinanceAiAgents: AIAgent[] = [
+  { name: 'Tax AI', subtitle: 'Tax Processing', accuracy: 96.4, metric2Label: 'Filing Error', metric2Value: 1.3, metric3Label: 'Processing Time', metric3Value: '0.8s', overrideRate: 5.2, confidenceThreshold: 0.93, status: 'active', lastmileAgentId: 'tax-ai' },
+  { name: 'Audit Bot', subtitle: 'Automated Auditing', accuracy: 93.7, metric2Label: 'Anomaly Miss', metric2Value: 2.4, metric3Label: 'Audit Cycle', metric3Value: '6.4 min', overrideRate: 8.4, confidenceThreshold: 0.89, status: 'active', lastmileAgentId: 'audit-bot' },
+  { name: 'Revenue Predictor', subtitle: 'Fiscal Forecasting', accuracy: 90.1, metric2Label: 'Forecast Error', metric2Value: 3.9, metric3Label: 'Prediction Window', metric3Value: '6 months', overrideRate: 12.1, confidenceThreshold: 0.84, status: 'piloting', lastmileAgentId: 'revenue-predictor' },
+  { name: 'VAT Fraud Detector', subtitle: 'Tax Compliance', accuracy: 95.8, metric2Label: 'False Positive', metric2Value: 2.7, metric3Label: 'Detection Speed', metric3Value: '1.4s', overrideRate: 6.1, confidenceThreshold: 0.91, status: 'active', lastmileAgentId: 'vat-fraud-detector' },
+  { name: 'Treasury Optimizer', subtitle: 'Cash Management', accuracy: 86.3, metric2Label: 'Liquidity Error', metric2Value: 5.8, metric3Label: 'Optimization Cycle', metric3Value: '4 hrs', overrideRate: 16.4, confidenceThreshold: 0.79, status: 'planned', lastmileAgentId: 'treasury-optimizer' },
+];
+
+const eeSocialAiAgents: AIAgent[] = [
+  { name: 'Benefits Engine', subtitle: 'Eligibility Processing', accuracy: 95.6, metric2Label: 'Eligibility Error', metric2Value: 1.6, metric3Label: 'Decision Time', metric3Value: '1.1s', overrideRate: 5.9, confidenceThreshold: 0.92, status: 'active', lastmileAgentId: 'benefits-engine' },
+  { name: 'Health Records AI', subtitle: 'Medical Data Processing', accuracy: 97.4, metric2Label: 'Record Mismatch', metric2Value: 0.9, metric3Label: 'Matching Speed', metric3Value: '0.3s', overrideRate: 3.8, confidenceThreshold: 0.95, status: 'active', lastmileAgentId: 'health-records-ai' },
+  { name: 'Case AI', subtitle: 'Case Management', accuracy: 92.1, metric2Label: 'Case Misroute', metric2Value: 3.2, metric3Label: 'Assignment Time', metric3Value: '2.4s', overrideRate: 9.7, confidenceThreshold: 0.87, status: 'active', lastmileAgentId: 'case-ai' },
+  { name: 'Welfare Fraud Detector', subtitle: 'Fraud Prevention', accuracy: 88.4, metric2Label: 'False Positive', metric2Value: 5.1, metric3Label: 'Scan Cycle', metric3Value: '4 hrs', overrideRate: 14.6, confidenceThreshold: 0.82, status: 'piloting', lastmileAgentId: 'welfare-fraud-detector' },
+  { name: 'Social Impact Modeler', subtitle: 'Policy Impact', accuracy: 83.7, metric2Label: 'Outcome Error', metric2Value: 7.4, metric3Label: 'Model Cycle', metric3Value: '48 hrs', overrideRate: 19.2, confidenceThreshold: 0.76, status: 'planned', lastmileAgentId: 'social-impact-modeler' },
+];
+
+const eeEconomicAiAgents: AIAgent[] = [
+  { name: 'Trade AI', subtitle: 'Trade Analytics', accuracy: 93.8, metric2Label: 'Trade Misclass', metric2Value: 2.3, metric3Label: 'Analysis Speed', metric3Value: '1.6s', overrideRate: 8.2, confidenceThreshold: 0.89, status: 'active', lastmileAgentId: 'trade-ai' },
+  { name: 'e-Residency Bot', subtitle: 'Application Processing', accuracy: 96.1, metric2Label: 'Processing Error', metric2Value: 1.4, metric3Label: 'Decision Time', metric3Value: '2.8s', overrideRate: 5.4, confidenceThreshold: 0.92, status: 'active', lastmileAgentId: 'e-residency-bot' },
+  { name: 'Registry AI', subtitle: 'Business Registration', accuracy: 94.6, metric2Label: 'Filing Error', metric2Value: 1.9, metric3Label: 'Registration Time', metric3Value: '3.4 min', overrideRate: 7.1, confidenceThreshold: 0.90, status: 'active', lastmileAgentId: 'registry-ai' },
+  { name: 'FDI Analyzer', subtitle: 'Investment Analytics', accuracy: 87.2, metric2Label: 'Sector Misclass', metric2Value: 5.6, metric3Label: 'Report Cycle', metric3Value: '12 hrs', overrideRate: 15.8, confidenceThreshold: 0.80, status: 'piloting', lastmileAgentId: 'fdi-analyzer' },
+  { name: 'Export Compliance AI', subtitle: 'Trade Compliance', accuracy: 91.4, metric2Label: 'Sanction Miss', metric2Value: 0.8, metric3Label: 'Screen Time', metric3Value: '0.6s', overrideRate: 10.3, confidenceThreshold: 0.86, status: 'active', lastmileAgentId: 'export-compliance-ai' },
+];
+
+const eeRiaAiAgents: AIAgent[] = [
+  { name: 'Threat Hunter', subtitle: 'Cyber Threat Detection', accuracy: 97.6, metric2Label: 'Threat Miss Rate', metric2Value: 0.8, metric3Label: 'Detection Speed', metric3Value: '0.1s', overrideRate: 3.6, confidenceThreshold: 0.95, status: 'active', lastmileAgentId: 'threat-hunter' },
+  { name: 'X-Road Health', subtitle: 'Service Monitoring', accuracy: 99.2, metric2Label: 'Downtime Miss', metric2Value: 0.3, metric3Label: 'Check Interval', metric3Value: '15s', overrideRate: 2.1, confidenceThreshold: 0.97, status: 'active', lastmileAgentId: 'x-road-health' },
+  { name: 'Incident AI', subtitle: 'Incident Response', accuracy: 94.8, metric2Label: 'Severity Misclass', metric2Value: 2.1, metric3Label: 'Response Time', metric3Value: '4.2s', overrideRate: 6.7, confidenceThreshold: 0.91, status: 'active', lastmileAgentId: 'incident-ai' },
+  { name: 'Vulnerability Scanner AI', subtitle: 'Vuln Detection', accuracy: 92.3, metric2Label: 'False Positive', metric2Value: 3.6, metric3Label: 'Scan Cycle', metric3Value: '30 min', overrideRate: 9.8, confidenceThreshold: 0.87, status: 'piloting', lastmileAgentId: 'vulnerability-scanner-ai' },
+  { name: 'Digital Identity Verifier', subtitle: 'eID Validation', accuracy: 98.7, metric2Label: 'Verification Error', metric2Value: 0.4, metric3Label: 'Verify Time', metric3Value: '0.3s', overrideRate: 2.8, confidenceThreshold: 0.96, status: 'active', lastmileAgentId: 'digital-identity-verifier' },
+];
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Data Sources (Oakwood, Pinnacle, Atlas) ─────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const oakwoodDataSources: IntegrationDataSource[] = [
+  { system: 'Guidewire PolicyCenter', division: 'Policy Administration', recordsAnalyzed: '2.4M active policies', coverage: 96, status: 'Complete' },
+  { system: 'Duck Creek Claims', division: 'Claims Management', recordsAnalyzed: '840,000 claims', coverage: 93, status: 'Complete' },
+  { system: 'Verisk Analytics', division: 'Risk & Actuarial', recordsAnalyzed: '1.8M risk assessments', coverage: 89, status: 'Complete' },
+  { system: 'Salesforce CRM', division: 'Agent & Customer', recordsAnalyzed: '620,000 customer records', coverage: 91, status: 'Complete' },
+  { system: 'Internal Data Warehouse', division: 'Enterprise Analytics', recordsAnalyzed: '14.2M transactions', coverage: 84, status: 'In Progress' },
+  { system: 'DocuSign CLM', division: 'Contract Management', recordsAnalyzed: '340,000 contracts', coverage: 78, status: 'In Progress' },
+];
+
+const pinnacleDataSources: IntegrationDataSource[] = [
+  { system: 'Epic EHR', division: 'Clinical Operations', recordsAnalyzed: '3.2M patient records', coverage: 97, status: 'Complete' },
+  { system: 'Athenahealth', division: 'Revenue Cycle', recordsAnalyzed: '1.6M billing records', coverage: 94, status: 'Complete' },
+  { system: 'Quest Diagnostics', division: 'Lab & Diagnostics', recordsAnalyzed: '4.8M lab results', coverage: 91, status: 'Complete' },
+  { system: 'Availity', division: 'Payer Connectivity', recordsAnalyzed: '2.1M auth requests', coverage: 88, status: 'Complete' },
+  { system: 'Cerner Scheduling', division: 'Patient Access', recordsAnalyzed: '890,000 appointments', coverage: 92, status: 'Complete' },
+  { system: 'Workday HCM', division: 'Workforce', recordsAnalyzed: '4,200 employees', coverage: 100, status: 'Complete' },
+];
+
+const atlasDataSources: IntegrationDataSource[] = [
+  { system: 'SAP S/4HANA', division: 'Enterprise ERP', recordsAnalyzed: '18,400 production orders', coverage: 95, status: 'Complete' },
+  { system: 'Siemens MES', division: 'Manufacturing Execution', recordsAnalyzed: '6.2M sensor readings', coverage: 93, status: 'Complete' },
+  { system: 'Oracle SCM', division: 'Supply Chain', recordsAnalyzed: '42,000 purchase orders', coverage: 90, status: 'Complete' },
+  { system: 'IBM Maximo', division: 'Asset Management', recordsAnalyzed: '8,400 equipment records', coverage: 87, status: 'In Progress' },
+  { system: 'Rockwell FactoryTalk', division: 'Automation & Control', recordsAnalyzed: '24,000 PLC tags', coverage: 91, status: 'Complete' },
+  { system: 'Kronos/UKG', division: 'Workforce', recordsAnalyzed: '3,600 employees', coverage: 100, status: 'Complete' },
+];
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Data Sources (Northbridge + Subsidiaries) ───────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const northbridgeDataSources: IntegrationDataSource[] = [
+  { system: 'SAP BPC', division: 'Corporate Finance', recordsAnalyzed: '12,400 consolidation entries', coverage: 94, status: 'Complete' },
+  { system: 'Workday HCM', division: 'Corporate HR', recordsAnalyzed: '18,000 employees', coverage: 98, status: 'Complete' },
+  { system: 'ServiceNow GRC', division: 'Risk & Compliance', recordsAnalyzed: '2,800 compliance records', coverage: 91, status: 'Complete' },
+  { system: 'Tableau Server', division: 'Enterprise Analytics', recordsAnalyzed: '4 BU data feeds', coverage: 86, status: 'In Progress' },
+  { system: 'Anaplan', division: 'Strategic Planning', recordsAnalyzed: '48 financial models', coverage: 82, status: 'In Progress' },
+];
+
+const nbAerospaceDataSources: IntegrationDataSource[] = [
+  { system: 'Siemens Teamcenter', division: 'PLM & Engineering', recordsAnalyzed: '24,000 part records', coverage: 96, status: 'Complete' },
+  { system: 'SAP ERP (Aerospace)', division: 'Finance & Procurement', recordsAnalyzed: '8,200 financial records', coverage: 93, status: 'Complete' },
+  { system: 'IFS MRO', division: 'Maintenance & Overhaul', recordsAnalyzed: '6,400 work orders', coverage: 89, status: 'Complete' },
+  { system: 'FAA ELOS Database', division: 'Certification', recordsAnalyzed: '1,200 cert records', coverage: 97, status: 'Complete' },
+  { system: 'Windchill Quality', division: 'Quality Assurance', recordsAnalyzed: '3,800 NCRs', coverage: 85, status: 'In Progress' },
+];
+
+const nbEnergyDataSources: IntegrationDataSource[] = [
+  { system: 'OSIsoft PI', division: 'SCADA & Telemetry', recordsAnalyzed: '86,000 sensor tags', coverage: 96, status: 'Complete' },
+  { system: 'ABB SCADA', division: 'Grid Operations', recordsAnalyzed: '12,400 grid nodes', coverage: 94, status: 'Complete' },
+  { system: 'SAP ERP (Energy)', division: 'Finance & Billing', recordsAnalyzed: '4.2M customer accounts', coverage: 91, status: 'Complete' },
+  { system: 'GE Digital APM', division: 'Asset Performance', recordsAnalyzed: '3,200 generation assets', coverage: 88, status: 'In Progress' },
+  { system: 'NERC Compliance DB', division: 'Regulatory', recordsAnalyzed: '1,800 compliance records', coverage: 95, status: 'Complete' },
+];
+
+const nbFinancialDataSources: IntegrationDataSource[] = [
+  { system: 'Temenos T24', division: 'Core Banking', recordsAnalyzed: '6.8M customer accounts', coverage: 97, status: 'Complete' },
+  { system: 'Refinitiv', division: 'Market Data', recordsAnalyzed: '2.4M instruments', coverage: 94, status: 'Complete' },
+  { system: 'Actimize AML', division: 'Compliance & AML', recordsAnalyzed: '18.6M transactions screened', coverage: 96, status: 'Complete' },
+  { system: 'Moody\'s Analytics', division: 'Credit Risk', recordsAnalyzed: '420,000 credit profiles', coverage: 91, status: 'Complete' },
+  { system: 'Bloomberg Terminal Feed', division: 'Trading & Research', recordsAnalyzed: '1.2M market events/day', coverage: 88, status: 'In Progress' },
+];
+
+const nbHealthDataSources: IntegrationDataSource[] = [
+  { system: 'Veeva Vault', division: 'Clinical Trials', recordsAnalyzed: '840 active trials', coverage: 96, status: 'Complete' },
+  { system: 'SAP ERP (Health)', division: 'Manufacturing & Finance', recordsAnalyzed: '6,200 batch records', coverage: 93, status: 'Complete' },
+  { system: 'FDA FAERS', division: 'Pharmacovigilance', recordsAnalyzed: '42,000 adverse events', coverage: 91, status: 'Complete' },
+  { system: 'TrackWise QMS', division: 'Quality Management', recordsAnalyzed: '12,400 CAPA records', coverage: 89, status: 'Complete' },
+  { system: 'LIMS System', division: 'Laboratory', recordsAnalyzed: '1.8M test results', coverage: 87, status: 'In Progress' },
+];
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Data Sources (Estonia + Subsidiaries) ───────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const estoniaDataSources: IntegrationDataSource[] = [
+  { system: 'X-Road Platform', division: 'National Data Exchange', recordsAnalyzed: '1.2B annual queries', coverage: 99, status: 'Complete' },
+  { system: 'eesti.ee Portal', division: 'Citizen Services', recordsAnalyzed: '1.3M registered users', coverage: 96, status: 'Complete' },
+  { system: 'Population Registry', division: 'Demographics', recordsAnalyzed: '1.34M citizen records', coverage: 100, status: 'Complete' },
+  { system: 'State Budget System', division: 'Fiscal Management', recordsAnalyzed: '8,400 budget items', coverage: 92, status: 'Complete' },
+  { system: 'RIHA Information System', division: 'IT Governance', recordsAnalyzed: '2,400 state IT systems', coverage: 88, status: 'In Progress' },
+];
+
+const eeFinanceDataSources: IntegrationDataSource[] = [
+  { system: 'EMTA Tax System', division: 'Tax Administration', recordsAnalyzed: '680,000 taxpayers', coverage: 98, status: 'Complete' },
+  { system: 'e-Customs Platform', division: 'Customs & Excise', recordsAnalyzed: '420,000 declarations', coverage: 95, status: 'Complete' },
+  { system: 'State Treasury System', division: 'Treasury Management', recordsAnalyzed: '2.4M payment records', coverage: 93, status: 'Complete' },
+  { system: 'Audit Trail Database', division: 'Internal Audit', recordsAnalyzed: '12,800 audit records', coverage: 89, status: 'Complete' },
+  { system: 'EU Reporting Gateway', division: 'EU Compliance', recordsAnalyzed: '840 regulatory filings', coverage: 91, status: 'Complete' },
+];
+
+const eeSocialDataSources: IntegrationDataSource[] = [
+  { system: 'SKAIS Social System', division: 'Benefits Administration', recordsAnalyzed: '480,000 beneficiaries', coverage: 97, status: 'Complete' },
+  { system: 'Health Insurance Fund', division: 'Health Coverage', recordsAnalyzed: '1.28M insured persons', coverage: 96, status: 'Complete' },
+  { system: 'Pension Registry', division: 'Pension Management', recordsAnalyzed: '620,000 pension records', coverage: 94, status: 'Complete' },
+  { system: 'Case Management DB', division: 'Social Services', recordsAnalyzed: '86,000 active cases', coverage: 90, status: 'Complete' },
+  { system: 'Unemployment Registry', division: 'Employment Services', recordsAnalyzed: '42,000 job seekers', coverage: 88, status: 'In Progress' },
+];
+
+const eeEconomicDataSources: IntegrationDataSource[] = [
+  { system: 'Trade Registry', division: 'Business Registration', recordsAnalyzed: '240,000 companies', coverage: 99, status: 'Complete' },
+  { system: 'e-Residency Platform', division: 'Digital Residency', recordsAnalyzed: '108,000 e-residents', coverage: 97, status: 'Complete' },
+  { system: 'Statistics Estonia', division: 'Economic Statistics', recordsAnalyzed: '4.2M data points', coverage: 93, status: 'Complete' },
+  { system: 'Investment Gateway', division: 'FDI Tracking', recordsAnalyzed: '2,400 investment records', coverage: 86, status: 'In Progress' },
+  { system: 'EU Funds Portal', division: 'Structural Funds', recordsAnalyzed: '1,800 grant applications', coverage: 91, status: 'Complete' },
+];
+
+const eeRiaDataSources: IntegrationDataSource[] = [
+  { system: 'X-Road Security Layer', division: 'Infrastructure Security', recordsAnalyzed: '48M daily auth events', coverage: 99, status: 'Complete' },
+  { system: 'CERT-EE Threat Feed', division: 'Cyber Threat Intel', recordsAnalyzed: '2.4M threat indicators', coverage: 96, status: 'Complete' },
+  { system: 'eID Infrastructure', division: 'Digital Identity', recordsAnalyzed: '1.34M active certificates', coverage: 98, status: 'Complete' },
+  { system: 'State Network Monitor', division: 'Network Operations', recordsAnalyzed: '12,000 network nodes', coverage: 94, status: 'Complete' },
+  { system: 'Incident Response DB', division: 'CSIRT Operations', recordsAnalyzed: '6,800 incidents/year', coverage: 91, status: 'Complete' },
+];
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Vendor Health (Oakwood, Pinnacle, Atlas) ────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const oakwoodVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'Guidewire PolicyCenter', status: 'green', uptime: 99.8, latency: 34, lastChecked: '2026-03-27T08:14:00Z' },
+  { name: 'Duck Creek Claims', status: 'green', uptime: 99.5, latency: 52, lastChecked: '2026-03-27T08:12:00Z' },
+  { name: 'Verisk Analytics', status: 'green', uptime: 99.3, latency: 78, lastChecked: '2026-03-27T08:10:00Z' },
+  { name: 'Salesforce CRM', status: 'green', uptime: 99.9, latency: 28, lastChecked: '2026-03-27T08:08:00Z' },
+  { name: 'Internal Data Warehouse', status: 'yellow', uptime: 97.6, latency: 246, lastChecked: '2026-03-27T08:06:00Z', note: 'ETL pipeline delays during nightly batch processing' },
+  { name: 'DocuSign CLM', status: 'green', uptime: 99.1, latency: 64, lastChecked: '2026-03-27T08:04:00Z' },
+];
+
+const pinnacleVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'Epic EHR', status: 'green', uptime: 99.9, latency: 22, lastChecked: '2026-03-27T08:14:00Z' },
+  { name: 'Athenahealth', status: 'green', uptime: 99.6, latency: 46, lastChecked: '2026-03-27T08:12:00Z' },
+  { name: 'Quest Diagnostics', status: 'yellow', uptime: 98.2, latency: 184, lastChecked: '2026-03-27T08:10:00Z', note: 'Intermittent HL7 FHIR endpoint latency spikes' },
+  { name: 'Availity', status: 'green', uptime: 99.4, latency: 56, lastChecked: '2026-03-27T08:08:00Z' },
+  { name: 'Cerner Scheduling', status: 'green', uptime: 99.2, latency: 68, lastChecked: '2026-03-27T08:06:00Z' },
+  { name: 'Workday HCM', status: 'green', uptime: 99.7, latency: 32, lastChecked: '2026-03-27T08:04:00Z' },
+];
+
+const atlasVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'SAP S/4HANA', status: 'green', uptime: 99.7, latency: 44, lastChecked: '2026-03-27T08:14:00Z' },
+  { name: 'Siemens MES', status: 'green', uptime: 99.4, latency: 36, lastChecked: '2026-03-27T08:12:00Z' },
+  { name: 'Oracle SCM', status: 'yellow', uptime: 98.1, latency: 198, lastChecked: '2026-03-27T08:10:00Z', note: 'Elevated response times during PO batch processing' },
+  { name: 'IBM Maximo', status: 'yellow', uptime: 97.4, latency: 264, lastChecked: '2026-03-27T08:08:00Z', note: 'Legacy SOAP API migration in progress' },
+  { name: 'Rockwell FactoryTalk', status: 'green', uptime: 99.6, latency: 18, lastChecked: '2026-03-27T08:06:00Z' },
+  { name: 'Kronos/UKG (Atlas)', status: 'green', uptime: 99.3, latency: 42, lastChecked: '2026-03-27T08:04:00Z' },
+];
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Vendor Health (Northbridge + Subsidiaries) ──────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const northbridgeVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'SAP BPC', status: 'green', uptime: 99.6, latency: 54, lastChecked: '2026-03-27T08:14:00Z' },
+  { name: 'Workday HCM', status: 'green', uptime: 99.8, latency: 32, lastChecked: '2026-03-27T08:12:00Z' },
+  { name: 'ServiceNow GRC', status: 'green', uptime: 99.4, latency: 48, lastChecked: '2026-03-27T08:10:00Z' },
+  { name: 'Tableau Server', status: 'yellow', uptime: 97.8, latency: 218, lastChecked: '2026-03-27T08:08:00Z', note: 'Cross-BU dashboard refresh slowdowns during peak hours' },
+  { name: 'Anaplan', status: 'green', uptime: 99.1, latency: 72, lastChecked: '2026-03-27T08:06:00Z' },
+];
+
+const nbAerospaceVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'Siemens Teamcenter', status: 'green', uptime: 99.7, latency: 42, lastChecked: '2026-03-27T08:14:00Z' },
+  { name: 'SAP ERP (Aerospace)', status: 'green', uptime: 99.5, latency: 56, lastChecked: '2026-03-27T08:12:00Z' },
+  { name: 'IFS MRO', status: 'green', uptime: 99.2, latency: 68, lastChecked: '2026-03-27T08:10:00Z' },
+  { name: 'FAA ELOS Database', status: 'green', uptime: 99.8, latency: 24, lastChecked: '2026-03-27T08:08:00Z' },
+  { name: 'Windchill Quality', status: 'yellow', uptime: 97.6, latency: 234, lastChecked: '2026-03-27T08:06:00Z', note: 'NCR sync delays with Teamcenter PLM' },
+];
+
+const nbEnergyVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'OSIsoft PI', status: 'green', uptime: 99.9, latency: 14, lastChecked: '2026-03-27T08:14:00Z' },
+  { name: 'ABB SCADA', status: 'green', uptime: 99.6, latency: 22, lastChecked: '2026-03-27T08:12:00Z' },
+  { name: 'SAP ERP (Energy)', status: 'green', uptime: 99.4, latency: 58, lastChecked: '2026-03-27T08:10:00Z' },
+  { name: 'GE Digital APM', status: 'yellow', uptime: 97.9, latency: 196, lastChecked: '2026-03-27T08:08:00Z', note: 'Asset model sync lag during fleet-wide recalculation' },
+  { name: 'NERC Compliance DB', status: 'green', uptime: 99.3, latency: 46, lastChecked: '2026-03-27T08:06:00Z' },
+];
+
+const nbFinancialVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'Temenos T24', status: 'green', uptime: 99.8, latency: 18, lastChecked: '2026-03-27T08:14:00Z' },
+  { name: 'Refinitiv', status: 'green', uptime: 99.6, latency: 12, lastChecked: '2026-03-27T08:12:00Z' },
+  { name: 'Actimize AML', status: 'green', uptime: 99.7, latency: 28, lastChecked: '2026-03-27T08:10:00Z' },
+  { name: 'Moody\'s Analytics', status: 'green', uptime: 99.3, latency: 64, lastChecked: '2026-03-27T08:08:00Z' },
+  { name: 'Bloomberg Terminal Feed', status: 'yellow', uptime: 98.4, latency: 148, lastChecked: '2026-03-27T08:06:00Z', note: 'Market data feed latency during high-volatility sessions' },
+];
+
+const nbHealthVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'Veeva Vault', status: 'green', uptime: 99.7, latency: 38, lastChecked: '2026-03-27T08:14:00Z' },
+  { name: 'SAP ERP (Health)', status: 'green', uptime: 99.5, latency: 52, lastChecked: '2026-03-27T08:12:00Z' },
+  { name: 'FDA FAERS', status: 'green', uptime: 99.1, latency: 86, lastChecked: '2026-03-27T08:10:00Z' },
+  { name: 'TrackWise QMS', status: 'yellow', uptime: 97.8, latency: 212, lastChecked: '2026-03-27T08:08:00Z', note: 'CAPA workflow sync delays with Veeva during batch releases' },
+  { name: 'LIMS System', status: 'yellow', uptime: 97.2, latency: 278, lastChecked: '2026-03-27T08:06:00Z', note: 'Legacy LIMS API rate limiting on high-throughput assays' },
+];
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Vendor Health (Estonia + Subsidiaries) ──────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const estoniaVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'X-Road Platform', status: 'green', uptime: 99.97, latency: 8, lastChecked: '2026-03-27T08:14:00Z' },
+  { name: 'eesti.ee Portal', status: 'green', uptime: 99.8, latency: 24, lastChecked: '2026-03-27T08:12:00Z' },
+  { name: 'Population Registry', status: 'green', uptime: 99.9, latency: 16, lastChecked: '2026-03-27T08:10:00Z' },
+  { name: 'State Budget System', status: 'green', uptime: 99.4, latency: 62, lastChecked: '2026-03-27T08:08:00Z' },
+  { name: 'RIHA Information System', status: 'yellow', uptime: 98.1, latency: 176, lastChecked: '2026-03-27T08:06:00Z', note: 'IT asset catalog sync delays during quarterly audits' },
+];
+
+const eeFinanceVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'EMTA Tax System', status: 'green', uptime: 99.9, latency: 18, lastChecked: '2026-03-27T08:14:00Z' },
+  { name: 'e-Customs Platform', status: 'green', uptime: 99.6, latency: 42, lastChecked: '2026-03-27T08:12:00Z' },
+  { name: 'State Treasury System', status: 'green', uptime: 99.7, latency: 28, lastChecked: '2026-03-27T08:10:00Z' },
+  { name: 'Audit Trail Database', status: 'green', uptime: 99.2, latency: 54, lastChecked: '2026-03-27T08:08:00Z' },
+  { name: 'EU Reporting Gateway', status: 'yellow', uptime: 98.4, latency: 164, lastChecked: '2026-03-27T08:06:00Z', note: 'EU gateway latency during cross-border reporting deadlines' },
+];
+
+const eeSocialVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'SKAIS Social System', status: 'green', uptime: 99.7, latency: 32, lastChecked: '2026-03-27T08:14:00Z' },
+  { name: 'Health Insurance Fund', status: 'green', uptime: 99.8, latency: 22, lastChecked: '2026-03-27T08:12:00Z' },
+  { name: 'Pension Registry', status: 'green', uptime: 99.5, latency: 38, lastChecked: '2026-03-27T08:10:00Z' },
+  { name: 'Case Management DB', status: 'yellow', uptime: 97.9, latency: 198, lastChecked: '2026-03-27T08:08:00Z', note: 'Case assignment queue backlog during benefit enrollment periods' },
+  { name: 'Unemployment Registry', status: 'yellow', uptime: 98.1, latency: 146, lastChecked: '2026-03-27T08:06:00Z', note: 'Job matching API response times elevated during peak posting hours' },
+];
+
+const eeEconomicVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'Trade Registry', status: 'green', uptime: 99.9, latency: 14, lastChecked: '2026-03-27T08:14:00Z' },
+  { name: 'e-Residency Platform', status: 'green', uptime: 99.7, latency: 28, lastChecked: '2026-03-27T08:12:00Z' },
+  { name: 'Statistics Estonia', status: 'green', uptime: 99.4, latency: 56, lastChecked: '2026-03-27T08:10:00Z' },
+  { name: 'Investment Gateway', status: 'yellow', uptime: 97.6, latency: 224, lastChecked: '2026-03-27T08:08:00Z', note: 'FDI data aggregation delays from partner country feeds' },
+  { name: 'EU Funds Portal', status: 'green', uptime: 99.2, latency: 68, lastChecked: '2026-03-27T08:06:00Z' },
+];
+
+const eeRiaVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'X-Road Security Layer', status: 'green', uptime: 99.99, latency: 4, lastChecked: '2026-03-27T08:14:00Z' },
+  { name: 'CERT-EE Threat Feed', status: 'green', uptime: 99.8, latency: 12, lastChecked: '2026-03-27T08:12:00Z' },
+  { name: 'eID Infrastructure', status: 'green', uptime: 99.95, latency: 8, lastChecked: '2026-03-27T08:10:00Z' },
+  { name: 'State Network Monitor', status: 'green', uptime: 99.6, latency: 18, lastChecked: '2026-03-27T08:08:00Z' },
+  { name: 'Incident Response DB', status: 'green', uptime: 99.4, latency: 34, lastChecked: '2026-03-27T08:06:00Z' },
+];
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Failure Modes (Oakwood, Pinnacle, Atlas) ────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const oakwoodFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'Guidewire PolicyCenter', scenario: 'Policy batch renewal job exceeds processing window during peak season', recovery: 'Parallel batch partitioning with priority queue for expiring policies', status: 'Passing' },
+  { vendor: 'Duck Creek Claims', scenario: 'Claims intake API overwhelmed during catastrophe event surge', recovery: 'Auto-scaling claims queue with overflow to async processing pipeline', status: 'Needs Attention' },
+  { vendor: 'Verisk Analytics', scenario: 'Risk model API timeout on complex multi-peril property assessments', recovery: 'Cached risk scores with background refresh and stale-data indicator', status: 'Passing' },
+  { vendor: 'Salesforce CRM', scenario: 'CRM sync failure during Salesforce maintenance windows', recovery: 'Bidirectional change buffer with automated reconciliation post-maintenance', status: 'Passing' },
+  { vendor: 'Internal Data Warehouse', scenario: 'ETL pipeline failure on schema changes from upstream policy systems', recovery: 'Schema evolution detection with auto-migration and dead-letter queue for failures', status: 'Needs Attention' },
+];
+
+const pinnacleFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'Epic EHR', scenario: 'HL7 FHIR API rate limiting during mass patient record migration', recovery: 'Adaptive rate throttling with exponential backoff and batch segmentation', status: 'Passing' },
+  { vendor: 'Athenahealth', scenario: 'Billing code sync failure between Epic and Athenahealth during coding updates', recovery: 'Code crosswalk validation layer with automated discrepancy alerts', status: 'Passing' },
+  { vendor: 'Quest Diagnostics', scenario: 'Lab result delivery delay due to HL7 message queue backlog', recovery: 'Priority queue for critical results with STAT flag bypass and SMS alerts', status: 'Needs Attention' },
+  { vendor: 'Availity', scenario: 'Prior auth submission timeout during payer system maintenance', recovery: 'Auth request queue with retry logic and manual override workflow for urgent cases', status: 'Passing' },
+  { vendor: 'Cerner Scheduling', scenario: 'Appointment slot sync conflict between Epic and Cerner calendars', recovery: 'Real-time slot locking with conflict detection and automated rebooking', status: 'Needs Attention' },
+];
+
+const atlasFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'SAP S/4HANA', scenario: 'Production order sync failure during MRP run with 10K+ items', recovery: 'Incremental MRP sync with chunked processing and rollback capability', status: 'Passing' },
+  { vendor: 'Siemens MES', scenario: 'Real-time sensor data flood during multi-line startup sequence', recovery: 'Adaptive sampling with edge buffering and priority tag forwarding', status: 'Passing' },
+  { vendor: 'Oracle SCM', scenario: 'Purchase order approval workflow timeout on complex multi-level BOM items', recovery: 'Parallel approval routing with auto-escalation and timeout override', status: 'Needs Attention' },
+  { vendor: 'IBM Maximo', scenario: 'Asset hierarchy sync failure between Maximo and SAP Plant Maintenance', recovery: 'Bidirectional asset reconciliation with conflict resolution rules engine', status: 'Needs Attention' },
+  { vendor: 'Rockwell FactoryTalk', scenario: 'PLC tag polling failure during firmware update window', recovery: 'Redundant OPC-UA connection with automatic failover to backup controller', status: 'Passing' },
+];
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Failure Modes (Northbridge + Subsidiaries) ──────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const northbridgeFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'SAP BPC', scenario: 'Cross-subsidiary consolidation timeout during quarterly close', recovery: 'Staged consolidation with parallel BU processing and incremental rollup', status: 'Passing' },
+  { vendor: 'Workday HCM', scenario: 'Employee data sync failure across 4 BU instances during reorganization', recovery: 'Org change event queue with sequential BU propagation and rollback', status: 'Passing' },
+  { vendor: 'ServiceNow GRC', scenario: 'Compliance scan timeout on cross-BU policy aggregation', recovery: 'Distributed scan with per-BU caching and incremental aggregation', status: 'Needs Attention' },
+  { vendor: 'Tableau Server', scenario: 'Dashboard refresh failure on large cross-BU dataset joins', recovery: 'Pre-materialized cross-BU views with incremental refresh scheduling', status: 'Needs Attention' },
+];
+
+const nbAerospaceFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'Siemens Teamcenter', scenario: 'PLM data sync failure during large assembly release with 5K+ parts', recovery: 'Chunked release propagation with dependency-aware ordering', status: 'Passing' },
+  { vendor: 'IFS MRO', scenario: 'Work order cascade failure when aircraft returns early from service', recovery: 'Dynamic work order resequencing with resource reallocation engine', status: 'Needs Attention' },
+  { vendor: 'FAA ELOS Database', scenario: 'Certification submission rejected due to ELOS format version mismatch', recovery: 'Format version detection with auto-transform and pre-submission validation', status: 'Passing' },
+  { vendor: 'Windchill Quality', scenario: 'NCR data sync lag between quality and PLM during audit periods', recovery: 'Priority sync queue for open NCRs with audit-mode acceleration', status: 'Needs Attention' },
+];
+
+const nbEnergyFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'OSIsoft PI', scenario: 'Historian data overflow during grid instability cascading event', recovery: 'Adaptive compression with priority tag buffering and overflow archive', status: 'Passing' },
+  { vendor: 'ABB SCADA', scenario: 'SCADA communication loss with remote substations during storm events', recovery: 'Store-and-forward at RTU level with automatic gap-fill on reconnect', status: 'Passing' },
+  { vendor: 'GE Digital APM', scenario: 'Asset model recalculation timeout on fleet-wide degradation update', recovery: 'Distributed recalculation with priority queuing for critical generation assets', status: 'Needs Attention' },
+  { vendor: 'NERC Compliance DB', scenario: 'CIP compliance evidence upload failure during audit preparation', recovery: 'Chunked upload with resume capability and pre-validation checks', status: 'Passing' },
+];
+
+const nbFinancialFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'Temenos T24', scenario: 'Core banking batch EOD processing failure during high-volume day', recovery: 'Checkpoint-based batch resume with parallel account processing', status: 'Passing' },
+  { vendor: 'Refinitiv', scenario: 'Market data feed disconnect during trading hours', recovery: 'Redundant feed with automatic failover and gap-fill from secondary source', status: 'Passing' },
+  { vendor: 'Actimize AML', scenario: 'AML scan backlog during month-end transaction surge', recovery: 'Elastic scan infrastructure with priority queuing for high-risk transactions', status: 'Needs Attention' },
+  { vendor: 'Moody\'s Analytics', scenario: 'Credit model API timeout on bulk portfolio reassessment', recovery: 'Batched reassessment with stale-score tolerance and priority customer refresh', status: 'Passing' },
+  { vendor: 'Bloomberg Terminal Feed', scenario: 'Data feed corruption during market volatility event', recovery: 'Feed integrity validation with automatic switchover to backup feed', status: 'Passing' },
+];
+
+const nbHealthFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'Veeva Vault', scenario: 'Clinical document sync failure during multi-site trial data lock', recovery: 'Document-level locking with staged sync and conflict resolution workflow', status: 'Passing' },
+  { vendor: 'FDA FAERS', scenario: 'Adverse event submission rejected due to MedDRA version mismatch', recovery: 'MedDRA version detection with auto-coding to current terminology', status: 'Needs Attention' },
+  { vendor: 'TrackWise QMS', scenario: 'CAPA escalation chain failure during batch release hold', recovery: 'Redundant notification channel with SMS fallback and auto-escalation timer', status: 'Passing' },
+  { vendor: 'LIMS System', scenario: 'Test result batch upload timeout on high-throughput assay data', recovery: 'Chunked upload with checksum validation and partial-batch acceptance', status: 'Needs Attention' },
+];
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Failure Modes (Estonia + Subsidiaries) ──────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const estoniaFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'X-Road Platform', scenario: 'X-Road message broker overload during cross-ministry data exchange peak', recovery: 'Auto-scaling message brokers with service-level priority queuing', status: 'Passing' },
+  { vendor: 'eesti.ee Portal', scenario: 'Citizen portal session overflow during tax filing deadline', recovery: 'Elastic session management with queue-based access control', status: 'Needs Attention' },
+  { vendor: 'Population Registry', scenario: 'Registry sync failure during census data integration update', recovery: 'Incremental sync with conflict detection and manual review queue', status: 'Passing' },
+  { vendor: 'RIHA Information System', scenario: 'IT system catalog update failure during quarterly compliance audit', recovery: 'Staged catalog refresh with rollback capability and audit-mode freeze', status: 'Passing' },
+];
+
+const eeFinanceFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'EMTA Tax System', scenario: 'Tax filing system overload during quarterly declaration deadline', recovery: 'Queue-based filing with priority for approaching-deadline submissions', status: 'Passing' },
+  { vendor: 'e-Customs Platform', scenario: 'Customs declaration processing failure on complex multi-commodity shipments', recovery: 'Declaration segmentation with per-commodity validation and partial acceptance', status: 'Passing' },
+  { vendor: 'State Treasury System', scenario: 'Payment batch processing timeout during government payroll cycle', recovery: 'Parallel payment processing with priority queuing for salary disbursements', status: 'Needs Attention' },
+  { vendor: 'EU Reporting Gateway', scenario: 'EU reporting submission failure due to schema version incompatibility', recovery: 'Schema version detection with auto-transform and pre-submission validation', status: 'Passing' },
+];
+
+const eeSocialFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'SKAIS Social System', scenario: 'Benefits recalculation timeout during annual indexation update', recovery: 'Batched recalculation with priority for pension payments and staged rollout', status: 'Passing' },
+  { vendor: 'Health Insurance Fund', scenario: 'Claims processing backlog during flu season surge', recovery: 'Elastic claims processing with auto-adjudication for routine claims', status: 'Needs Attention' },
+  { vendor: 'Case Management DB', scenario: 'Case assignment failure during social worker caseload rebalancing', recovery: 'Algorithmic load balancing with manual override and rollback capability', status: 'Passing' },
+  { vendor: 'Unemployment Registry', scenario: 'Job matching engine timeout on large employer batch posting', recovery: 'Async matching with incremental result delivery and employer notification', status: 'Needs Attention' },
+];
+
+const eeEconomicFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'Trade Registry', scenario: 'Company registration queue backlog during e-Residency application surge', recovery: 'Priority queue separation for domestic vs e-Residency registrations', status: 'Passing' },
+  { vendor: 'e-Residency Platform', scenario: 'Identity verification timeout with partner country biometric systems', recovery: 'Async verification with status polling and applicant notification workflow', status: 'Needs Attention' },
+  { vendor: 'Statistics Estonia', scenario: 'Data pipeline failure during cross-ministry statistical aggregation', recovery: 'Incremental aggregation with source-level caching and gap detection', status: 'Passing' },
+  { vendor: 'Investment Gateway', scenario: 'FDI tracking sync failure with international investment databases', recovery: 'Retry queue with partner-specific adapters and manual reconciliation fallback', status: 'Needs Attention' },
+];
+
+const eeRiaFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'X-Road Security Layer', scenario: 'Certificate chain validation failure during mass certificate rotation', recovery: 'Staged rotation with parallel old/new certificate acceptance window', status: 'Passing' },
+  { vendor: 'CERT-EE Threat Feed', scenario: 'Threat intelligence feed overload during coordinated cyber attack', recovery: 'Priority threat classification with critical-only mode and bulk processing queue', status: 'Passing' },
+  { vendor: 'eID Infrastructure', scenario: 'Digital signature validation bottleneck during election period', recovery: 'Distributed validation cluster with auto-scaling and cached certificate chains', status: 'Needs Attention' },
+  { vendor: 'State Network Monitor', scenario: 'Monitoring probe failure cascade across government network segments', recovery: 'Redundant probe deployment with automatic failover and gap detection', status: 'Passing' },
+  { vendor: 'Incident Response DB', scenario: 'Incident correlation engine overload during multi-vector attack', recovery: 'Tiered correlation with critical-first processing and analyst escalation queue', status: 'Passing' },
+];
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Methodology Steps (Oakwood, Pinnacle, Atlas) ───────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const oakwoodMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'Policy Portfolio Discovery', description: 'Inventory 2.4M active policies across all lines of business — property, casualty, specialty, and excess — mapping data flows between Guidewire, Duck Creek, and Verisk systems.' },
+  { number: 2, title: 'Claims Workflow Mapping', description: 'Map 24 critical claims workflows from FNOL through settlement, identifying manual bottlenecks in triage, adjudication, and subrogation processes.' },
+  { number: 3, title: 'InsurTech Stack Audit', description: 'Assess Guidewire PolicyCenter, Duck Creek Claims, Verisk Analytics, Salesforce CRM, and internal data warehouse for AI integration readiness and API maturity.' },
+  { number: 4, title: 'Underwriting ROI Modeling', description: 'Model AI-driven savings across claims triage automation, fraud detection, underwriting efficiency, and policy renewal retention for Oakwood\'s $4.2B premium portfolio.' },
+];
+
+const pinnacleMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'Clinical Data Inventory', description: 'Catalog 3.2M patient records across Epic EHR, 4.8M lab results from Quest Diagnostics, and 2.1M prior auth requests — mapping clinical data flows and interoperability gaps.' },
+  { number: 2, title: 'Patient Journey Mapping', description: 'Map 18 critical patient workflows from scheduling through discharge, identifying automation opportunities in clinical documentation, billing, and prior authorization.' },
+  { number: 3, title: 'Health IT Stack Audit', description: 'Assess Epic EHR, Athenahealth, Quest Diagnostics, Availity, and Cerner Scheduling for FHIR compliance, AI readiness, and clinical decision support integration.' },
+  { number: 4, title: 'Clinical ROI Modeling', description: 'Model AI-driven improvements in clinical NLP documentation, billing code optimization, prior auth automation, and scheduling efficiency for Pinnacle\'s 4,200-employee health system.' },
+];
+
+const atlasMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'Production Asset Inventory', description: 'Catalog 8,400 equipment records, 24,000 PLC tags, and 6.2M sensor data points across Atlas Manufacturing\'s production lines and supply chain operations.' },
+  { number: 2, title: 'Manufacturing Workflow Mapping', description: 'Map 32 critical production workflows from raw material receipt through finished goods shipment, identifying quality control bottlenecks and predictive maintenance opportunities.' },
+  { number: 3, title: 'Industrial Tech Stack Audit', description: 'Assess SAP S/4HANA, Siemens MES, Oracle SCM, IBM Maximo, and Rockwell FactoryTalk for real-time analytics, digital twin, and predictive maintenance readiness.' },
+  { number: 4, title: 'Production ROI Modeling', description: 'Model AI-driven savings in production optimization, quality defect reduction, supply chain forecasting, and predictive maintenance for Atlas\'s 3,600-employee manufacturing operation.' },
+];
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Methodology Steps (Northbridge + Subsidiaries) ─────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const northbridgeMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'Cross-BU Asset Discovery', description: 'Inventory technology assets, data platforms, and AI capabilities across all 4 business units — Aerospace, Energy, Financial Services, and Health Sciences — identifying consolidation and synergy opportunities.' },
+  { number: 2, title: 'Conglomerate Workflow Mapping', description: 'Map 14 critical cross-BU workflows including capital allocation, compliance aggregation, shared services, and strategic planning processes.' },
+  { number: 3, title: 'Enterprise Tech Stack Audit', description: 'Assess SAP BPC, Workday HCM, ServiceNow GRC, Tableau, and Anaplan for cross-BU integration maturity, data quality, and AI-driven strategic analytics readiness.' },
+  { number: 4, title: 'Portfolio ROI Modeling', description: 'Model AI-driven value across strategic capital allocation, cross-BU compliance automation, and synergy detection for Northbridge\'s $28B diversified portfolio.' },
+];
+
+const nbAerospaceMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'Fleet & Parts Inventory', description: 'Catalog 24,000 part records in Teamcenter PLM, 6,400 MRO work orders, and FAA certification records across NB Aerospace\'s defense and commercial aviation divisions.' },
+  { number: 2, title: 'MRO Workflow Mapping', description: 'Map 16 critical MRO workflows from aircraft induction through return-to-service, identifying AI augmentation points in parts tracking, certification, and turnaround optimization.' },
+  { number: 3, title: 'Aviation Tech Stack Audit', description: 'Assess Siemens Teamcenter, IFS MRO, FAA ELOS Database, and Windchill Quality for AS9100 compliance, digital thread readiness, and predictive maintenance integration.' },
+  { number: 4, title: 'Aerospace ROI Modeling', description: 'Model AI-driven savings in MRO turnaround reduction, parts availability optimization, and FAA certification acceleration for NB Aerospace\'s fleet operations.' },
+];
+
+const nbEnergyMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'Grid Infrastructure Discovery', description: 'Inventory 86,000 SCADA sensor tags, 12,400 grid nodes, and 3,200 generation assets across NB Energy\'s transmission, distribution, and renewable portfolio.' },
+  { number: 2, title: 'Energy Operations Mapping', description: 'Map 12 critical grid operations workflows from demand forecasting through outage restoration, identifying AI opportunities in grid stability and renewable dispatch.' },
+  { number: 3, title: 'Utility Tech Stack Audit', description: 'Assess OSIsoft PI, ABB SCADA, GE Digital APM, and NERC Compliance DB for real-time grid analytics, predictive maintenance, and regulatory automation readiness.' },
+  { number: 4, title: 'Grid ROI Modeling', description: 'Model AI-driven savings in outage prediction, renewable dispatch optimization, and NERC/FERC compliance automation for NB Energy\'s regulated utility operations.' },
+];
+
+const nbFinancialMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'Financial Data Discovery', description: 'Catalog 6.8M customer accounts, 18.6M screened transactions, and 420,000 credit profiles across NB Financial Services\' banking, trading, and compliance operations.' },
+  { number: 2, title: 'Banking Workflow Mapping', description: 'Map 20 critical financial workflows from customer onboarding through trade settlement, identifying automation opportunities in KYC, AML screening, and credit risk assessment.' },
+  { number: 3, title: 'FinTech Stack Audit', description: 'Assess Temenos T24, Refinitiv, Actimize AML, Moody\'s Analytics, and Bloomberg for real-time transaction monitoring, AI-driven risk modeling, and regulatory compliance readiness.' },
+  { number: 4, title: 'Financial ROI Modeling', description: 'Model AI-driven improvements in KYC processing speed, AML false-positive reduction, and credit risk prediction accuracy for NB Financial Services\' regulated banking operations.' },
+];
+
+const nbHealthMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'Clinical & Manufacturing Discovery', description: 'Catalog 840 active clinical trials in Veeva Vault, 12,400 CAPA records, and 1.8M lab test results across NB Health Sciences\' pharma R&D and manufacturing divisions.' },
+  { number: 2, title: 'Pharma Workflow Mapping', description: 'Map 14 critical workflows from drug discovery through commercial manufacturing, identifying AI augmentation in trial analysis, safety monitoring, and quality inspection.' },
+  { number: 3, title: 'Life Sciences Tech Audit', description: 'Assess Veeva Vault, FDA FAERS, TrackWise QMS, and LIMS for GxP compliance, clinical data analytics, and AI-driven pharmacovigilance readiness.' },
+  { number: 4, title: 'Health Sciences ROI Modeling', description: 'Model AI-driven savings in clinical trial acceleration, adverse event detection speed, and manufacturing quality improvement for NB Health Sciences\' regulated operations.' },
+];
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Methodology Steps (Estonia + Subsidiaries) ─────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const estoniaMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'Digital Government Discovery', description: 'Inventory 2,400 state IT systems in RIHA, X-Road service catalog, and citizen-facing digital services — mapping data flows across ministries and the 1.2B annual X-Road queries.' },
+  { number: 2, title: 'Governance Workflow Mapping', description: 'Map 18 critical cross-ministry workflows from policy drafting through citizen service delivery, identifying AI augmentation points in compliance monitoring and budget planning.' },
+  { number: 3, title: 'e-Government Tech Audit', description: 'Assess X-Road platform, eesti.ee portal, Population Registry, and RIHA for AI integration readiness, interoperability maturity, and data quality across the national digital infrastructure.' },
+  { number: 4, title: 'National ROI Modeling', description: 'Model AI-driven improvements in citizen service efficiency, cross-ministry data utilization, and governance automation for Estonia\'s 1.34M-citizen digital society.' },
+];
+
+const eeFinanceMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'Tax & Revenue Discovery', description: 'Catalog 680,000 taxpayer records, 420,000 customs declarations, and 2.4M treasury payments across the Ministry of Finance\'s tax administration and fiscal management systems.' },
+  { number: 2, title: 'Fiscal Workflow Mapping', description: 'Map 12 critical fiscal workflows from tax filing through treasury disbursement, identifying automation opportunities in audit selection, VAT compliance, and EU reporting.' },
+  { number: 3, title: 'Finance Tech Stack Audit', description: 'Assess EMTA Tax System, e-Customs Platform, State Treasury, and EU Reporting Gateway for AI-driven tax compliance, fraud detection, and fiscal forecasting readiness.' },
+  { number: 4, title: 'Fiscal ROI Modeling', description: 'Model AI-driven improvements in tax processing efficiency, VAT fraud detection, audit targeting accuracy, and treasury management optimization for Estonia\'s fiscal operations.' },
+];
+
+const eeSocialMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'Social Services Discovery', description: 'Catalog 480,000 benefit recipients, 1.28M health insurance records, and 86,000 active social cases across the Ministry of Social Affairs\' welfare and healthcare systems.' },
+  { number: 2, title: 'Welfare Workflow Mapping', description: 'Map 14 critical social service workflows from benefit application through case resolution, identifying automation in eligibility determination, health records matching, and case assignment.' },
+  { number: 3, title: 'Social Tech Stack Audit', description: 'Assess SKAIS, Health Insurance Fund, Pension Registry, and Case Management DB for AI-driven benefits processing, fraud prevention, and predictive social service readiness.' },
+  { number: 4, title: 'Social ROI Modeling', description: 'Model AI-driven improvements in benefit processing speed, health record interoperability, case management efficiency, and welfare fraud detection for Estonia\'s social safety net.' },
+];
+
+const eeEconomicMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'Economic Data Discovery', description: 'Catalog 240,000 registered companies, 108,000 e-Residents, and 4.2M statistical data points across the Ministry of Economic Affairs\' business and trade platforms.' },
+  { number: 2, title: 'Economic Workflow Mapping', description: 'Map 10 critical economic workflows from business registration through FDI tracking, identifying AI opportunities in trade analytics, e-Residency processing, and export compliance.' },
+  { number: 3, title: 'Economic Tech Stack Audit', description: 'Assess Trade Registry, e-Residency Platform, Statistics Estonia, and Investment Gateway for AI-driven business analytics, automated registration, and trade intelligence readiness.' },
+  { number: 4, title: 'Economic ROI Modeling', description: 'Model AI-driven improvements in business registration speed, e-Residency application processing, FDI analysis accuracy, and export compliance automation for Estonia\'s economic development.' },
+];
+
+const eeRiaMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'Cyber Infrastructure Discovery', description: 'Inventory X-Road security layer handling 48M daily auth events, 1.34M active eID certificates, and 12,000 monitored network nodes across RIA\'s national cybersecurity infrastructure.' },
+  { number: 2, title: 'Security Operations Mapping', description: 'Map 8 critical security workflows from threat detection through incident resolution, identifying AI augmentation in threat hunting, vulnerability scanning, and digital identity verification.' },
+  { number: 3, title: 'Cyber Tech Stack Audit', description: 'Assess X-Road Security Layer, CERT-EE Threat Feed, eID Infrastructure, and State Network Monitor for AI-driven threat intelligence, automated incident response, and zero-trust readiness.' },
+  { number: 4, title: 'Cybersecurity ROI Modeling', description: 'Model AI-driven improvements in threat detection speed, incident response time, X-Road availability, and digital identity verification throughput for RIA\'s national cyber defense operations.' },
+];
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Company-Specific Workflows ──────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// ─── Oakwood Insurance Workflows ─────────────────────────────────────────────
+
+const oakwoodWorkflows: Workflow[] = [
+  {
+    name: 'Claims Intake & Triage',
+    level: 'full',
+    currentFTEs: 12,
+    currentCost: 840_000,
+    volume: '4,200 claims/month across P&C and specialty lines',
+    currentTime: '35 min per claim initial triage',
+    aiSolution: 'AI-powered claims intake with NLP document parsing, automatic severity scoring, and intelligent routing to adjusters based on claim type, complexity, and adjuster expertise.',
+    routing: 'Fully Automatable',
+    routingQuote: 'Let AI read the FNOL so adjusters can start investigating',
+    costShift: 'Labor $840K → IT $180K + Labor $280K = $380K saved',
+    savings: 380_000,
+    automationPercent: 82,
+    details: '12 FTEs manually entering FNOL data from phone, email, and portal submissions. Average 35 minutes per claim for initial data entry and triage routing.',
+    currentProcess: [
+      'First Notice of Loss (FNOL) received via phone (45%), email (30%), web portal (15%), and agent submissions (10%) — no unified intake channel',
+      'Claims handlers manually key FNOL data into Guidewire ClaimCenter — average 12 minutes per claim for data entry alone',
+      'Triage coordinator reviews each claim to assign severity (1-5 scale) and route to appropriate adjuster team — P&C, specialty, or catastrophe',
+      'Supporting documents (police reports, medical records, photos) received separately and manually attached to claim file — average 3-day lag',
+      'Duplicate claim detection done manually by searching policyholder name and date of loss — estimated 4% duplicate rate undetected',
+    ],
+    bottlenecks: [
+      'Manual FNOL data entry consumes 45% of intake team time — purely clerical work with high error rate (8% rekeying errors)',
+      'Triage routing based on coordinator experience rather than data — suboptimal adjuster matching leads to 22% reassignment rate',
+      'Document lag: 3-day average delay between FNOL and complete claim file assembly delays investigation start',
+      'No automated fraud signals at intake — suspicious patterns only caught weeks later during investigation',
+    ],
+    aiArchitecture: 'Multi-channel NLP intake pipeline: (1) Speech-to-text transcription for phone FNOLs with entity extraction for claim details. (2) OCR + NLP for email and document parsing — automatically extract loss details, policy info, and claimant data. (3) ML severity scoring model trained on 5 years of claim outcomes to auto-assign priority. (4) Intelligent routing algorithm matching claim characteristics to adjuster expertise and current workload. (5) Fraud signal detection at intake using anomaly detection on claim patterns.',
+    implementationPlan: [
+      { phase: 'Data Pipeline & Model Training', weeks: 'Weeks 1-4', description: 'Connect all intake channels to unified NLP pipeline. Train entity extraction models on 50K historical FNOLs. Build severity scoring model on claim outcome data.' },
+      { phase: 'Shadow Mode Testing', weeks: 'Weeks 5-8', description: 'Run AI intake in parallel with manual process. Compare AI triage decisions vs human routing. Validate fraud signal accuracy against known fraud cases.' },
+      { phase: 'Graduated Deployment', weeks: 'Weeks 9-12', description: 'Deploy AI intake for web portal claims first (lowest complexity). Expand to email and phone channels. Human review for high-severity claims only.' },
+      { phase: 'Full Automation', weeks: 'Weeks 13-16', description: 'Fully automated intake for all channels. Real-time document assembly. Adjusters receive pre-populated claim files with AI-generated investigation recommendations.' },
+    ],
+    risks: [
+      'State regulatory requirements for claims acknowledgment timelines — AI must meet or exceed current response times',
+      'Phone FNOL transcription accuracy in noisy environments or with non-native speakers may require human fallback',
+      'Adjuster pushback on AI-assigned cases — must demonstrate better matching than current coordinator judgment',
+    ],
+    dependencies: [
+      'Guidewire ClaimCenter API access for real-time claim creation and routing',
+      'Telephony integration for call recording and real-time transcription',
+      'Historical claims data warehouse access for model training (minimum 3 years)',
+    ],
+  },
+  {
+    name: 'Policy Renewal Processing',
+    level: 'full',
+    currentFTEs: 8,
+    currentCost: 640_000,
+    volume: '12,000 renewals/quarter across all lines',
+    currentTime: '45 min per renewal review',
+    aiSolution: 'AI-automated renewal pipeline with risk reassessment, pricing optimization, and personalized retention offers generated from policyholder behavior analytics.',
+    routing: 'Fully Automatable',
+    routingQuote: 'Stop losing profitable policyholders to manual renewal backlogs',
+    costShift: 'Labor $640K → IT $140K + Labor $200K = $300K saved',
+    savings: 300_000,
+    automationPercent: 78,
+    details: '8 FTEs manually processing renewals 90 days before expiration. Current 18% non-renewal rate includes profitable policyholders lost to slow processing.',
+    currentProcess: [
+      'Renewal queue generated 90 days before policy expiration — exported from Guidewire as CSV and distributed to renewal team',
+      'Underwriters manually review loss history, claims frequency, and market conditions for each renewal',
+      'Pricing team recalculates premium using rating engine — manual data entry of updated risk factors takes 20 min per policy',
+      'Renewal offer generated and sent to policyholder/agent — average 15-day turnaround from queue to offer',
+      'Non-renewal decisions require manual documentation and state-specific notice compliance',
+    ],
+    bottlenecks: [
+      '15-day turnaround allows competitors to poach profitable accounts before renewal offer reaches policyholder',
+      'Flat renewal pricing (no personalization) — same rate increase applied regardless of policyholder loyalty or risk improvement',
+      'No predictive retention modeling — cannot identify which policyholders are at risk of switching carriers',
+      'Manual compliance tracking for state-specific non-renewal notice requirements (varies by state, 30-90 day windows)',
+    ],
+    aiArchitecture: 'Automated renewal engine: (1) Risk reassessment model ingesting real-time data (claims, credit, property, weather exposure) for dynamic repricing. (2) Retention prediction model identifying at-risk policyholders 120 days before expiration. (3) Price optimization engine balancing retention probability against profitability targets. (4) Automated compliance engine generating state-specific notices and tracking deadlines.',
+    implementationPlan: [
+      { phase: 'Model Development', weeks: 'Weeks 1-5', description: 'Train retention prediction model on 3 years of renewal/non-renewal outcomes. Build dynamic pricing engine with profitability constraints.' },
+      { phase: 'Pilot — Personal Lines', weeks: 'Weeks 6-10', description: 'Deploy automated renewal for personal auto and homeowners. Monitor retention rates vs control group.' },
+      { phase: 'Expand to Commercial', weeks: 'Weeks 11-14', description: 'Extend to commercial lines with underwriter oversight for policies over $50K premium.' },
+      { phase: 'Full Automation', weeks: 'Weeks 15-18', description: 'End-to-end automated renewal for all standard lines. Human review only for complex specialty policies and non-renewal decisions.' },
+    ],
+    risks: [
+      'State rate filing requirements — AI-generated pricing must comply with filed and approved rating algorithms',
+      'Agent channel conflict if AI offers differ from agent-quoted renewals',
+      'Retention offers that are too aggressive may erode profitability on marginal accounts',
+    ],
+    dependencies: [
+      'Guidewire PolicyCenter integration for real-time policy data',
+      'Third-party data feeds (credit scores, property valuations, weather risk) for dynamic repricing',
+      'State-by-state compliance rule engine for notice requirements',
+    ],
+  },
+  {
+    name: 'Underwriting Review & Decisioning',
+    level: 'human-in-loop',
+    currentFTEs: 15,
+    currentCost: 1_500_000,
+    volume: '2,800 new submissions/month',
+    currentTime: '2-4 hours per submission review',
+    aiSolution: 'AI-assisted underwriting with automated risk scoring, pre-filled applications, and decision recommendations. Human underwriters review AI recommendations for complex or high-value risks.',
+    routing: 'Human-in-the-Loop',
+    routingQuote: 'AI scores the risk, underwriters make the judgment calls',
+    costShift: 'Labor $1.5M → IT $320K + Labor $680K = $500K saved',
+    savings: 500_000,
+    automationPercent: 52,
+    details: '15 senior underwriters reviewing submissions manually. Average 2-4 hours per submission including data gathering, risk assessment, and pricing.',
+    currentProcess: [
+      'Submission received from agent/broker with application, loss runs, and supplemental documents — often incomplete',
+      'Underwriter manually gathers additional data: MVR reports, credit scores, property inspections, CLUE reports — average 45 min per submission',
+      'Risk assessment performed using rating manual and underwriter judgment — no predictive modeling on loss propensity',
+      'Pricing calculated using rating engine with manual factor adjustments — inconsistent application across underwriters',
+      'Quote issued to agent with terms, conditions, and pricing — average 5-day turnaround for standard risks',
+    ],
+    bottlenecks: [
+      '5-day quote turnaround loses business to faster competitors — industry benchmark is 24-48 hours for standard commercial',
+      'Inconsistent underwriting: same risk receives different pricing from different underwriters — 15% variance on comparable submissions',
+      'Data gathering consumes 35% of underwriter time — pure clerical work that delays the analysis',
+      'No portfolio-level view — individual underwriters cannot see how each decision affects overall book profitability',
+    ],
+    aiArchitecture: 'AI underwriting copilot: (1) Automated data enrichment pulling MVR, credit, property, and claims data in real-time. (2) ML risk scoring model trained on 10 years of policy/loss data predicting loss ratio by risk class. (3) Pricing recommendation engine ensuring consistency across underwriters while respecting appetite guidelines. (4) Portfolio optimization layer showing cumulative impact of each decision on book composition. Human underwriters review AI recommendations, approve/modify pricing, and handle complex risks requiring judgment.',
+    implementationPlan: [
+      { phase: 'Data Integration', weeks: 'Weeks 1-4', description: 'Connect all third-party data sources for automated enrichment. Build unified submission data model.' },
+      { phase: 'Risk Model Training', weeks: 'Weeks 5-10', description: 'Train predictive loss models on historical policy and claims data. Validate against known outcomes. Build pricing consistency engine.' },
+      { phase: 'Copilot Deployment', weeks: 'Weeks 11-16', description: 'Deploy AI copilot alongside underwriters. AI pre-fills data, scores risk, and recommends pricing. Underwriters approve or override.' },
+      { phase: 'Optimization & Expansion', weeks: 'Weeks 17-22', description: 'Add portfolio optimization. Expand to specialty lines. Auto-approve low-complexity standard risks.' },
+    ],
+    risks: [
+      'Regulatory scrutiny on AI-driven pricing decisions — must demonstrate non-discriminatory outcomes and fair lending compliance',
+      'Underwriter resistance to AI-recommended pricing that conflicts with their experience-based judgment',
+      'Model drift risk as market conditions change — requires continuous monitoring and retraining cadence',
+    ],
+    dependencies: [
+      'Historical underwriting data (minimum 10 years of policy-level loss data with all rating factors)',
+      'Third-party data API integrations (LexisNexis, TransUnion, CoreLogic, ISO)',
+      'Guidewire integration for seamless submission-to-quote workflow',
+    ],
+  },
+  {
+    name: 'Fraud Investigation & Detection',
+    level: 'human-in-loop',
+    currentFTEs: 6,
+    currentCost: 540_000,
+    volume: '380 SIU referrals/month',
+    currentTime: '12-40 hours per investigation',
+    aiSolution: 'ML fraud detection network analyzing claim patterns, provider networks, and claimant behavior. AI flags suspicious claims and generates investigation dossiers for SIU investigators.',
+    routing: 'Human-in-the-Loop',
+    routingQuote: 'AI catches the patterns humans miss in thousands of claims',
+    costShift: 'Labor $540K → IT $120K + Labor $240K = $180K saved',
+    savings: 180_000,
+    automationPercent: 45,
+    details: '6 SIU investigators handling 380 referrals/month. Current fraud detection relies on adjuster intuition and basic business rules — estimated 40% of fraud goes undetected.',
+    currentProcess: [
+      'Adjusters manually flag suspicious claims based on red flag checklists — subjective and inconsistent',
+      'SIU receives referrals and manually researches claimant history, provider patterns, and public records',
+      'Investigators conduct interviews, field inspections, and coordinate with law enforcement',
+      'Investigation findings compiled in manual reports with recommendations for claim denial or recovery',
+      'No systematic pattern analysis across claims — each investigation treated independently',
+    ],
+    bottlenecks: [
+      'Adjuster referral rate is only 3% of claims — industry estimates 10-15% of claims have fraudulent elements',
+      'Manual investigation averages 25 hours per case — SIU capacity limits investigations to highest-value referrals',
+      'No network analysis — organized fraud rings exploiting provider/claimant relationships go undetected',
+      'Delayed detection: average 45 days from claim filing to fraud identification, after significant payments made',
+    ],
+    aiArchitecture: 'Graph neural network fraud detection: (1) Social network analysis mapping claimant-provider-attorney relationships across entire claim portfolio. (2) Anomaly detection on claim patterns (timing, amounts, injury types, treatment patterns). (3) NLP analysis of claim narratives identifying scripted/templated fraud indicators. (4) Real-time scoring at FNOL providing fraud probability before any payment. Human SIU investigators review AI-flagged claims, conduct field investigations, and make final determinations.',
+    implementationPlan: [
+      { phase: 'Data Lake & Graph Build', weeks: 'Weeks 1-5', description: 'Build claims knowledge graph linking claimants, providers, attorneys, and addresses. Load 5 years of historical claims data.' },
+      { phase: 'Model Training', weeks: 'Weeks 6-10', description: 'Train fraud detection models on known fraud outcomes. Build network analysis algorithms. Develop real-time scoring pipeline.' },
+      { phase: 'Shadow Detection', weeks: 'Weeks 11-14', description: 'Run AI fraud detection in parallel with human referral process. Measure additional fraud identified by AI that humans missed.' },
+      { phase: 'Production Deployment', weeks: 'Weeks 15-18', description: 'AI scores all new claims at intake. Automated investigation dossiers for high-score claims. SIU investigators focus on AI-prioritized cases.' },
+    ],
+    risks: [
+      'False positive rate must be managed carefully — wrongly flagging legitimate claims damages customer relationships',
+      'State regulations on claims investigation timelines — AI must accelerate, not delay, the investigation process',
+      'Privacy considerations around social network analysis of claimant relationships',
+    ],
+    dependencies: [
+      'Complete historical claims database with fraud outcome labels',
+      'Provider network data and claims linkage across all lines of business',
+      'SIU case management system integration for investigation workflow',
+    ],
+  },
+  {
+    name: 'Customer Onboarding & Quoting',
+    level: 'full',
+    currentFTEs: 10,
+    currentCost: 700_000,
+    volume: '3,600 new quotes/month',
+    currentTime: '25 min per quote generation',
+    aiSolution: 'AI-powered instant quoting with automated data prefill, real-time risk assessment, and personalized coverage recommendations.',
+    routing: 'Fully Automatable',
+    routingQuote: 'From application to quote in seconds, not days',
+    costShift: 'Labor $700K → IT $160K + Labor $220K = $320K saved',
+    savings: 320_000,
+    automationPercent: 85,
+    details: '10 FTEs generating quotes manually. Current 25-minute process loses prospects to competitors offering instant quotes.',
+    currentProcess: [
+      'Prospect submits application via agent, web portal, or phone — data often incomplete requiring follow-up',
+      'Service team manually enters application data into rating engine — average 10 min per quote',
+      'Rating engine calculates premium — but requires manual override for non-standard risks (40% of quotes)',
+      'Quote document generated and sent to prospect via email — average 2-day turnaround',
+      'Follow-up calls to prospects who received quotes but have not bound — manual tracking in CRM',
+    ],
+    bottlenecks: [
+      '2-day quote turnaround loses 35% of prospects to competitors with instant quoting',
+      '40% of quotes require manual rating override — inconsistent pricing across agents',
+      'No coverage recommendation engine — agents sell what they know, not what the prospect needs',
+      'Quote-to-bind conversion rate of 22% is below industry average of 32% — attributed to slow response and generic offerings',
+    ],
+    aiArchitecture: 'Instant quoting engine: (1) Pre-fill application from public data sources (property records, DMV, business registrations) reducing manual input by 70%. (2) Real-time ML risk scoring replacing manual rating overrides. (3) Coverage recommendation engine analyzing prospect profile against loss propensity models. (4) Dynamic pricing optimized for conversion probability and profitability. (5) Automated follow-up sequences triggered by prospect engagement signals.',
+    implementationPlan: [
+      { phase: 'Data Enrichment Layer', weeks: 'Weeks 1-3', description: 'Connect public data sources for automated application prefill. Build prospect data enrichment pipeline.' },
+      { phase: 'Rating Engine Upgrade', weeks: 'Weeks 4-8', description: 'Replace manual override process with ML-based rating. Train pricing model on historical quote-to-bind data.' },
+      { phase: 'Instant Quote Deployment', weeks: 'Weeks 9-12', description: 'Deploy real-time quoting for personal lines. Sub-60-second quote generation for standard risks.' },
+      { phase: 'Commercial Lines Expansion', weeks: 'Weeks 13-16', description: 'Extend instant quoting to small commercial. Add coverage recommendation engine. Automated follow-up sequences.' },
+    ],
+    risks: [
+      'Instant quote accuracy must match or exceed manually reviewed quotes — cannot sacrifice accuracy for speed',
+      'Agent disintermediation concerns if direct-to-consumer quoting bypasses agency channel',
+      'Regulatory compliance with state-specific rating requirements in automated pricing',
+    ],
+    dependencies: [
+      'Third-party data APIs for application prefill (CoreLogic, LexisNexis, public records)',
+      'Rating engine API access for real-time premium calculation',
+      'CRM integration for automated prospect tracking and follow-up',
+    ],
+  },
+  {
+    name: 'Premium Calculation & Rating',
+    level: 'full',
+    currentFTEs: 5,
+    currentCost: 450_000,
+    volume: '18,000 rating transactions/month',
+    currentTime: '8 min per complex rating',
+    aiSolution: 'AI-enhanced rating engine with real-time data integration, dynamic factor adjustment, and automated compliance validation across all state jurisdictions.',
+    routing: 'Fully Automatable',
+    routingQuote: 'Real-time actuarial precision at every rating transaction',
+    costShift: 'Labor $450K → IT $100K + Labor $120K = $230K saved',
+    savings: 230_000,
+    automationPercent: 88,
+    details: '5 FTEs handling complex rating exceptions and manual factor adjustments. 18,000 transactions/month with 25% requiring manual intervention.',
+    currentProcess: [
+      'Standard ratings processed through Guidewire rating engine — automated for simple personal lines',
+      'Complex commercial risks require manual factor lookup and application — 25% of all ratings',
+      'Schedule rating credits/debits applied manually by underwriters based on subjective risk assessment',
+      'Multi-state policies require separate rating calculations per jurisdiction — manual compliance verification',
+      'Rating accuracy audited quarterly — current 3.2% error rate on manually adjusted ratings',
+    ],
+    bottlenecks: [
+      '25% of ratings require manual intervention creating bottleneck in quoting pipeline',
+      'Schedule rating inconsistency — same risk profile receives different credits from different underwriters',
+      'Multi-state compliance verification is manual and error-prone — 1.8% of ratings have state compliance issues',
+      'No real-time market data integration — competitive pricing intelligence updated quarterly rather than continuously',
+    ],
+    aiArchitecture: 'AI rating engine overlay: (1) ML-based schedule rating replacing subjective manual credits with data-driven factors. (2) Real-time regulatory compliance engine validating every rating against current state rules. (3) Competitive pricing intelligence using market data feeds. (4) Automated exception handling for complex commercial risks using ensemble models trained on historical underwriter decisions.',
+    implementationPlan: [
+      { phase: 'Rating Data Analysis', weeks: 'Weeks 1-3', description: 'Analyze 3 years of manual rating adjustments to train consistency models. Map all state regulatory requirements.' },
+      { phase: 'ML Rating Models', weeks: 'Weeks 4-8', description: 'Build ML schedule rating models. Develop compliance validation engine. Integrate competitive market data.' },
+      { phase: 'Pilot Deployment', weeks: 'Weeks 9-12', description: 'Deploy AI rating for personal auto and homeowners. Compare AI vs manual ratings. Target <1% error rate.' },
+      { phase: 'Full Rollout', weeks: 'Weeks 13-16', description: 'Extend to all commercial lines. Eliminate manual rating exceptions. Real-time compliance validation on every transaction.' },
+    ],
+    risks: [
+      'State DOI scrutiny on AI-driven rating factors — must demonstrate actuarial justification for all ML-derived variables',
+      'Rating accuracy is critical — errors result in regulatory fines and E&O exposure',
+      'Transition risk during parallel operation of manual and AI rating processes',
+    ],
+    dependencies: [
+      'Guidewire rating engine API for real-time integration',
+      'State regulatory filing database for compliance rules',
+      'Market pricing data feeds for competitive intelligence',
+    ],
+  },
+  {
+    name: 'Reinsurance Placement & Management',
+    level: 'human-in-loop',
+    currentFTEs: 4,
+    currentCost: 520_000,
+    volume: '24 treaty placements/year, $180M ceded premium',
+    currentTime: '3-6 weeks per placement cycle',
+    aiSolution: 'AI-optimized reinsurance portfolio management with automated exposure analysis, optimal cession modeling, and market intelligence for treaty negotiations.',
+    routing: 'Human-in-the-Loop',
+    routingQuote: 'AI models the optimal cession structure, brokers negotiate the deal',
+    costShift: 'Labor $520K → IT $80K + Labor $280K = $160K saved',
+    savings: 160_000,
+    automationPercent: 38,
+    details: '4 reinsurance specialists managing $180M in ceded premium. Treaty placement cycle averages 4 weeks with significant manual analysis.',
+    currentProcess: [
+      'Exposure analysis compiled manually from underwriting data — aggregated by geography, line of business, and peril',
+      'Cession modeling performed in Excel spreadsheets — testing various treaty structures against historical loss scenarios',
+      'Market submissions prepared manually and sent to reinsurance brokers — limited competitive analysis',
+      'Treaty terms negotiated with reinsurers — manual tracking of quotes, conditions, and counterparty credit',
+      'Ongoing treaty monitoring and bordereau reporting compiled manually from claims and policy data',
+    ],
+    bottlenecks: [
+      'Exposure aggregation takes 2 weeks per renewal — data scattered across policy admin, claims, and actuarial systems',
+      'Excel-based cession modeling cannot handle complex multi-layer structures efficiently — limits optimization',
+      'No real-time catastrophe exposure monitoring — aggregate positions updated quarterly',
+      'Bordereau preparation consumes 1 FTE full-time — manual data extraction and formatting for each reinsurer',
+    ],
+    aiArchitecture: 'AI reinsurance optimization: (1) Real-time exposure aggregation from policy and claims systems with geographic and peril decomposition. (2) Monte Carlo simulation engine for optimal cession structure modeling across unlimited treaty configurations. (3) Market intelligence dashboard tracking reinsurer pricing trends and capacity. (4) Automated bordereau generation from source systems. Human specialists review AI-recommended treaty structures, conduct negotiations, and manage reinsurer relationships.',
+    implementationPlan: [
+      { phase: 'Exposure Data Integration', weeks: 'Weeks 1-4', description: 'Build real-time exposure aggregation from policy admin and claims systems. Create catastrophe exposure model.' },
+      { phase: 'Optimization Engine', weeks: 'Weeks 5-10', description: 'Develop Monte Carlo cession optimization. Build market intelligence dashboard. Automate bordereau generation.' },
+      { phase: 'Treaty Renewal Pilot', weeks: 'Weeks 11-16', description: 'Apply AI optimization to next treaty renewal cycle. Compare AI-recommended vs traditional structure on net cost basis.' },
+      { phase: 'Ongoing Optimization', weeks: 'Weeks 17-20', description: 'Real-time exposure monitoring. Dynamic cession recommendations as portfolio composition changes.' },
+    ],
+    risks: [
+      'Reinsurer relationships are personal and trust-based — AI cannot replace relationship management',
+      'Catastrophe model accuracy depends on quality of geocoded exposure data — current data quality varies by line',
+      'Treaty contract language is nuanced — AI can optimize structure but legal review remains human-required',
+    ],
+    dependencies: [
+      'Policy admin system API for real-time exposure data',
+      'Catastrophe modeling platform (RMS/AIR) integration',
+      'Reinsurer market data feeds for pricing intelligence',
+    ],
+  },
+  {
+    name: 'Loss Adjustment & Settlement',
+    level: 'human-in-loop',
+    currentFTEs: 14,
+    currentCost: 1_120_000,
+    volume: '2,600 claim settlements/month',
+    currentTime: '4-8 hours per settlement evaluation',
+    aiSolution: 'AI-powered settlement recommendation engine analyzing comparable claims, medical cost benchmarks, and litigation risk to recommend optimal settlement ranges.',
+    routing: 'Human-in-the-Loop',
+    routingQuote: 'Data-driven settlement recommendations that reduce leakage and cycle time',
+    costShift: 'Labor $1.12M → IT $200K + Labor $580K = $340K saved',
+    savings: 340_000,
+    automationPercent: 48,
+    details: '14 adjusters evaluating and negotiating settlements. Current average settlement cycle of 45 days with significant leakage from inconsistent valuation.',
+    currentProcess: [
+      'Adjuster reviews claim file including medical records, repair estimates, and liability assessment',
+      'Settlement value estimated using adjuster experience and basic reserve guidelines — no comparable claim analysis',
+      'Authority levels require manual escalation: adjuster ($25K), supervisor ($100K), VP ($500K), executive ($500K+)',
+      'Negotiation with claimant/attorney conducted via phone and letter — no structured negotiation analytics',
+      'Settlement payment processing requires manual authorization chain and check/wire issuance',
+    ],
+    bottlenecks: [
+      'Settlement inconsistency: comparable claims receive 20-35% different valuations depending on assigned adjuster',
+      'Authority escalation delays: supervisor approval adds average 3 days, VP approval adds 7 days',
+      'No litigation risk scoring — cannot quantify probability and cost of litigated outcomes to inform settlement decisions',
+      'Manual payment processing adds 5-7 days after settlement agreement',
+    ],
+    aiArchitecture: 'AI settlement engine: (1) Comparable claim analysis using NLP similarity matching on claim characteristics, injuries, and jurisdictions. (2) Medical cost benchmarking against regional and provider-specific databases. (3) Litigation risk model predicting likelihood of suit and expected litigated outcome costs. (4) Optimal settlement range calculator balancing indemnity accuracy against claim cycle time. Human adjusters review AI-recommended ranges, conduct negotiations, and approve final settlements.',
+    implementationPlan: [
+      { phase: 'Claims Data Mining', weeks: 'Weeks 1-5', description: 'Build comparable claim database from 10 years of settlement history. Develop NLP similarity matching on claim narratives.' },
+      { phase: 'Settlement Models', weeks: 'Weeks 6-10', description: 'Train settlement recommendation model. Build litigation risk scorer. Integrate medical cost benchmarks.' },
+      { phase: 'Adjuster Copilot', weeks: 'Weeks 11-15', description: 'Deploy AI settlement recommendations alongside adjusters. Compare AI vs adjuster valuations. Measure consistency improvement.' },
+      { phase: 'Authority Optimization', weeks: 'Weeks 16-20', description: 'Automated authority routing for AI-validated settlements within acceptable ranges. Reduce cycle time for straightforward claims.' },
+    ],
+    risks: [
+      'State bad faith regulations require good-faith claims handling — AI recommendations must be defensible',
+      'Adjuster resistance to AI-recommended settlement values that differ from their experience-based judgment',
+      'Historical settlement data may contain systemic biases that need correction before model training',
+    ],
+    dependencies: [
+      'Complete claims settlement history with outcome data (minimum 10 years)',
+      'Medical cost benchmark databases (Milliman, Mitchell)',
+      'Claims management system integration for real-time recommendation delivery',
+    ],
+  },
+];
+
+// ─── Pinnacle Healthcare Workflows ───────────────────────────────────────────
+
+const pinnacleWorkflows: Workflow[] = [
+  {
+    name: 'Patient Intake & Registration',
+    level: 'full',
+    currentFTEs: 8,
+    currentCost: 480_000,
+    volume: '3,200 patient encounters/month',
+    currentTime: '18 min per patient registration',
+    aiSolution: 'AI-powered patient intake with automated insurance verification, pre-population from HIE data, and digital check-in kiosks reducing front desk workload by 75%.',
+    routing: 'Fully Automatable',
+    routingQuote: 'Patients check in, not check off boxes',
+    costShift: 'Labor $480K → IT $100K + Labor $140K = $240K saved',
+    savings: 240_000,
+    automationPercent: 80,
+    details: '8 FTEs handling manual patient registration with paper forms, manual insurance verification, and data entry into legacy EHR.',
+    currentProcess: [
+      'Patient arrives and fills out paper intake forms — demographics, insurance, medical history, consent forms',
+      'Front desk staff manually enters data into EHR system — average 12 minutes per patient',
+      'Insurance eligibility verified via phone or payer portal — average 6 minutes, frequent holds and portal timeouts',
+      'Copay and deductible calculated manually using benefit tables — errors discovered at billing stage',
+      'Paper forms scanned and attached to patient record — poor OCR quality requires manual verification',
+    ],
+    bottlenecks: [
+      'Paper-to-digital conversion error rate of 6% — demographics and insurance data entry errors cause downstream billing failures',
+      'Insurance verification phone holds average 8 minutes during peak hours — front desk staff unavailable for patient service',
+      'No pre-visit data collection — patients provide same information at every visit, averaging 18 min of unproductive wait time',
+      'Peak hour bottleneck: 8am-10am registration backlog creates average 25 min patient wait times',
+    ],
+    aiArchitecture: 'Digital intake platform: (1) Pre-visit digital forms sent via text/email 48 hours before appointment — auto-populated from patient history. (2) Real-time insurance eligibility verification via EDI 270/271 transactions. (3) AI-powered OCR for any remaining paper forms with 99%+ accuracy. (4) Kiosk check-in with biometric verification. (5) Automated copay calculation from benefit data with patient payment collection at check-in.',
+    implementationPlan: [
+      { phase: 'Digital Forms & Pre-Visit', weeks: 'Weeks 1-4', description: 'Deploy digital intake forms with pre-population from patient history. Build text/email notification system for pre-visit completion.' },
+      { phase: 'Insurance Automation', weeks: 'Weeks 5-8', description: 'Connect real-time eligibility verification. Automate copay calculation. Deploy patient payment collection.' },
+      { phase: 'Kiosk Deployment', weeks: 'Weeks 9-12', description: 'Install self-service kiosks at all locations. Train staff on new workflow. Monitor wait time reduction.' },
+      { phase: 'Full Optimization', weeks: 'Weeks 13-16', description: 'Add biometric check-in. Integrate with scheduling for arrival prediction. Reduce front desk to concierge role.' },
+    ],
+    risks: [
+      'HIPAA compliance for digital forms and text-based communications — must implement proper encryption and consent',
+      'Patient demographics (elderly patients) may resist digital-first intake — must maintain manual fallback',
+      'EHR integration complexity with legacy system — may require middleware layer',
+    ],
+    dependencies: [
+      'EHR system API or HL7/FHIR interface for patient data exchange',
+      'EDI clearinghouse connection for real-time eligibility (270/271 transactions)',
+      'Patient communication platform with HIPAA-compliant messaging',
+    ],
+  },
+  {
+    name: 'Clinical Documentation & Coding',
+    level: 'human-in-loop',
+    currentFTEs: 12,
+    currentCost: 960_000,
+    volume: '3,200 encounters/month requiring documentation',
+    currentTime: '15-45 min per encounter documentation',
+    aiSolution: 'Ambient AI clinical documentation with real-time transcription, auto-generated SOAP notes, and AI-assisted ICD-10/CPT coding with clinical validation.',
+    routing: 'Human-in-the-Loop',
+    routingQuote: 'Providers focus on patients while AI writes the notes',
+    costShift: 'Labor $960K → IT $220K + Labor $440K = $300K saved',
+    savings: 300_000,
+    automationPercent: 55,
+    details: '12 staff (6 providers spending documentation time + 6 coders). Providers spend average 2 hours/day on documentation — time taken from patient care.',
+    currentProcess: [
+      'Provider conducts patient encounter while mentally noting key findings for later documentation',
+      'After encounter (or at end of day), provider types SOAP notes into EHR — average 15 min per encounter for simple visits, 45 min for complex',
+      'Medical coders review documentation to assign ICD-10 diagnosis codes and CPT procedure codes — 8 min per encounter',
+      'Coding queries sent back to providers for clarification — average 15% of encounters require clarification adding 3-day delay',
+      'Completed documentation submitted for billing — average 5-day lag from encounter to billing-ready state',
+    ],
+    bottlenecks: [
+      'Provider documentation burden: 2 hours/day after-hours documentation causes burnout and reduces patient throughput by 20%',
+      'Coding accuracy: 12% of claims denied on first submission due to coding errors or insufficient documentation',
+      'Documentation lag: 5-day average from encounter to billing-ready status delays revenue by $180K in monthly cash flow',
+      'Coding query loop: 15% of encounters bounce between coder and provider, averaging 3 additional days',
+    ],
+    aiArchitecture: 'Ambient AI documentation: (1) Real-time encounter transcription using medical speech-to-text (ambient microphone in exam room, patient consent). (2) Auto-generated SOAP notes from encounter transcript using medical LLM fine-tuned on clinical documentation. (3) AI coding engine suggesting ICD-10 and CPT codes from documentation with CDI (Clinical Documentation Improvement) prompts. (4) Provider reviews and approves AI-generated notes and codes before submission. Compliance layer validates documentation completeness against payer-specific requirements.',
+    implementationPlan: [
+      { phase: 'Ambient Pilot', weeks: 'Weeks 1-5', description: 'Deploy ambient transcription in 3 exam rooms. Train medical LLM on practice-specific documentation patterns. Validate transcription accuracy.' },
+      { phase: 'Note Generation', weeks: 'Weeks 6-10', description: 'Deploy AI SOAP note generation. Providers review and edit AI drafts. Measure documentation time reduction.' },
+      { phase: 'AI Coding Integration', weeks: 'Weeks 11-15', description: 'Add AI-assisted ICD-10/CPT coding. Integrate CDI prompts. Measure first-pass coding accuracy improvement.' },
+      { phase: 'Full Deployment', weeks: 'Weeks 16-20', description: 'Expand to all exam rooms and providers. Integrate with billing system for same-day charge capture. Target <3% coding denial rate.' },
+    ],
+    risks: [
+      'HIPAA requirements for ambient recording — must obtain explicit patient consent and secure all audio/transcript data',
+      'Medical documentation accuracy is patient-safety critical — AI-generated notes must be thoroughly reviewed by providers',
+      'Provider adoption varies — some clinicians may prefer their established documentation workflow',
+    ],
+    dependencies: [
+      'EHR integration for note insertion and coding submission',
+      'HIPAA-compliant audio capture and storage infrastructure',
+      'Medical terminology model fine-tuned on practice specialty areas',
+    ],
+  },
+  {
+    name: 'Prior Authorization Processing',
+    level: 'full',
+    currentFTEs: 6,
+    currentCost: 420_000,
+    volume: '1,800 prior auth requests/month',
+    currentTime: '45 min per authorization request',
+    aiSolution: 'AI-automated prior authorization with payer-specific rule engines, automated clinical documentation assembly, and electronic submission with real-time status tracking.',
+    routing: 'Fully Automatable',
+    routingQuote: 'Eliminate the fax machine from the authorization process',
+    costShift: 'Labor $420K → IT $80K + Labor $120K = $220K saved',
+    savings: 220_000,
+    automationPercent: 82,
+    details: '6 FTEs manually processing prior auth requests. Current 45-minute process per request with 30% initial denial rate requiring appeals.',
+    currentProcess: [
+      'Provider orders procedure/medication requiring prior authorization — triggers manual process',
+      'Staff identifies payer-specific authorization requirements — checking multiple payer portals and phone systems',
+      'Clinical documentation gathered from patient record to support medical necessity — manual chart review and extraction',
+      'Authorization request submitted via fax (55%), payer portal (35%), or phone (10%)',
+      'Status tracking via manual follow-up calls — average 3 follow-up calls per request before determination',
+      'Denials require appeal preparation — manual compilation of additional clinical evidence, average 2 hours per appeal',
+    ],
+    bottlenecks: [
+      '45-minute manual process per authorization delays patient care by average 5 business days',
+      '30% initial denial rate — mostly due to incomplete clinical documentation submitted with request',
+      'Fax-based submission (55% of requests) — no tracking, frequent lost faxes requiring resubmission',
+      'Staff spends 40% of time on hold with payer phone systems for status checks',
+      'Appeal preparation (2 hours each) consumes disproportionate staff time for 30% of requests',
+    ],
+    aiArchitecture: 'Automated prior auth engine: (1) Payer rule engine mapping authorization requirements by procedure, diagnosis, and payer — auto-identifies when prior auth is needed. (2) AI clinical documentation assembler extracting relevant clinical evidence from EHR to meet medical necessity criteria. (3) Electronic submission via X12 278 transactions where available, with automated portal submission for remaining payers. (4) Real-time status tracking dashboard eliminating follow-up calls. (5) Automated appeal generation for denials with AI-assembled additional clinical evidence.',
+    implementationPlan: [
+      { phase: 'Payer Rule Mapping', weeks: 'Weeks 1-4', description: 'Map authorization requirements for top 20 payers covering 85% of volume. Build payer-specific rule engine.' },
+      { phase: 'Clinical Documentation AI', weeks: 'Weeks 5-8', description: 'Build AI engine to extract and assemble relevant clinical documentation from EHR. Train on historical approvals.' },
+      { phase: 'Electronic Submission', weeks: 'Weeks 9-12', description: 'Deploy electronic submission for payers supporting 278 transactions. Build automated portal submission for others.' },
+      { phase: 'Appeals & Optimization', weeks: 'Weeks 13-16', description: 'Add automated appeal generation. Deploy real-time tracking dashboard. Target 85% first-pass approval rate.' },
+    ],
+    risks: [
+      'Payer authorization requirements change frequently — rule engine requires continuous maintenance',
+      'Clinical documentation extraction must be accurate — incorrect evidence can result in inappropriate authorization',
+      'Some payers may not accept electronic submissions — fax fallback may remain necessary',
+    ],
+    dependencies: [
+      'EHR clinical data access for AI documentation assembly',
+      'EDI clearinghouse supporting X12 278 transactions',
+      'Payer portal APIs or RPA for payers without electronic submission',
+    ],
+  },
+  {
+    name: 'Billing & Claims Submission',
+    level: 'full',
+    currentFTEs: 5,
+    currentCost: 350_000,
+    volume: '3,200 claims/month submitted to payers',
+    currentTime: '12 min per claim preparation',
+    aiSolution: 'AI-powered clean claim submission with automated charge capture, real-time eligibility verification, and predictive denial prevention.',
+    routing: 'Fully Automatable',
+    routingQuote: 'Submit clean claims the first time, every time',
+    costShift: 'Labor $350K → IT $80K + Labor $100K = $170K saved',
+    savings: 170_000,
+    automationPercent: 85,
+    details: '5 billing staff preparing and submitting claims. Current 15% denial rate costs $420K/year in rework and delayed revenue.',
+    currentProcess: [
+      'Charge tickets received from providers — paper-based for 40% of encounters, requiring manual data entry',
+      'Billing staff verifies demographics, insurance, and coding accuracy before submission',
+      'Claims formatted per payer-specific requirements and submitted via clearinghouse',
+      'Remittance advices reviewed manually for payment accuracy and denial identification',
+      'Denied claims investigated and resubmitted — average 22 days to resolve denied claims',
+    ],
+    bottlenecks: [
+      '15% first-pass denial rate — above industry benchmark of 8%, costing $420K/year in rework',
+      'Paper charge tickets require manual data entry — 6% error rate in charge capture',
+      'Payer-specific billing rules not consistently applied — staff relies on institutional knowledge',
+      'Denial management is reactive — no predictive identification of claims likely to deny before submission',
+    ],
+    aiArchitecture: 'AI billing engine: (1) Automated charge capture from clinical documentation — no paper tickets required. (2) Pre-submission claim scrubbing with AI rules engine checking payer-specific requirements. (3) Predictive denial model flagging claims likely to deny before submission for correction. (4) Automated denial categorization and routing for efficient resolution. (5) Real-time financial dashboard tracking days in A/R, denial rates, and collection efficiency.',
+    implementationPlan: [
+      { phase: 'Charge Capture Automation', weeks: 'Weeks 1-4', description: 'Automate charge capture from clinical documentation. Eliminate paper charge tickets.' },
+      { phase: 'Claim Scrubbing AI', weeks: 'Weeks 5-8', description: 'Build pre-submission scrubbing engine. Train predictive denial model on historical denial data.' },
+      { phase: 'Submission Optimization', weeks: 'Weeks 9-12', description: 'Deploy AI scrubbing on all claims. Target <8% first-pass denial rate. Automate denial categorization.' },
+      { phase: 'Revenue Optimization', weeks: 'Weeks 13-16', description: 'Add financial dashboards. Automate denial follow-up workflows. Optimize collection efficiency.' },
+    ],
+    risks: [
+      'Coding compliance — automated charge capture must accurately reflect services rendered to avoid fraud risk',
+      'Payer contract terms for electronic submission formats — must support all major clearinghouse requirements',
+      'Transition from paper-based charge capture requires provider workflow changes',
+    ],
+    dependencies: [
+      'EHR clinical documentation access for automated charge capture',
+      'Clearinghouse integration for electronic claim submission and remittance',
+      'Historical denial data for predictive model training (minimum 2 years)',
+    ],
+  },
+  {
+    name: 'Appointment Scheduling & Optimization',
+    level: 'full',
+    currentFTEs: 4,
+    currentCost: 240_000,
+    volume: '4,800 appointments/month scheduled',
+    currentTime: '8 min per scheduling call',
+    aiSolution: 'AI-optimized scheduling with online self-service, predictive no-show management, and dynamic provider schedule optimization.',
+    routing: 'Fully Automatable',
+    routingQuote: 'Fill every appointment slot with the right patient',
+    costShift: 'Labor $240K → IT $60K + Labor $60K = $120K saved',
+    savings: 120_000,
+    automationPercent: 88,
+    details: '4 FTEs handling phone-based scheduling. 14% no-show rate costs $340K/year in lost revenue.',
+    currentProcess: [
+      'Patient calls to schedule appointment — staff checks provider availability manually in EHR',
+      'Appointment type matched to provider specialty and time slot — based on staff knowledge of provider preferences',
+      'Confirmation calls made manually 48 hours before appointment — reaches voicemail 60% of time',
+      'No-shows identified after the fact — slot goes unfilled with no recovery mechanism',
+      'Waitlist managed in spreadsheet — patients rarely contacted when cancellations occur',
+    ],
+    bottlenecks: [
+      '14% no-show rate: $340K/year in lost provider productivity — no predictive identification or intervention',
+      'Phone-only scheduling limits access — 35% of patients prefer online self-service (industry average)',
+      'Manual confirmation calls reach only 40% of patients live — ineffective for reducing no-shows',
+      'No dynamic optimization — provider schedules not adjusted based on demand patterns or patient acuity',
+    ],
+    aiArchitecture: 'AI scheduling platform: (1) Online self-service scheduling with intelligent provider matching based on clinical need. (2) Predictive no-show model scoring each appointment and triggering targeted interventions (reminders, transportation offers, overbooking for high-risk slots). (3) Dynamic schedule optimization adjusting template blocks based on demand patterns. (4) Automated waitlist management filling cancellations in real-time.',
+    implementationPlan: [
+      { phase: 'Online Scheduling', weeks: 'Weeks 1-4', description: 'Deploy patient self-service scheduling portal. Integrate with EHR schedule. Build provider matching algorithm.' },
+      { phase: 'No-Show Prevention', weeks: 'Weeks 5-8', description: 'Train predictive no-show model. Deploy multi-channel reminders (text, email, phone). Implement targeted interventions.' },
+      { phase: 'Dynamic Optimization', weeks: 'Weeks 9-12', description: 'Add schedule template optimization. Deploy automated waitlist management. Implement intelligent overbooking.' },
+      { phase: 'Full Optimization', weeks: 'Weeks 13-14', description: 'Optimize patient-provider matching. Add post-visit follow-up scheduling. Target <6% no-show rate.' },
+    ],
+    risks: [
+      'Patient preference for phone scheduling — must maintain phone option while incentivizing digital adoption',
+      'Overbooking strategy risks provider burnout if not carefully calibrated',
+      'EHR scheduling module limitations may constrain optimization capabilities',
+    ],
+    dependencies: [
+      'EHR scheduling API for real-time availability and appointment creation',
+      'Patient communication platform for multi-channel reminders',
+      'Historical appointment data for no-show prediction model (minimum 1 year)',
+    ],
+  },
+  {
+    name: 'Prescription Management & Refills',
+    level: 'human-in-loop',
+    currentFTEs: 3,
+    currentCost: 240_000,
+    volume: '2,400 prescription actions/month',
+    currentTime: '10 min per refill/new Rx processing',
+    aiSolution: 'AI-assisted prescription management with automated refill processing, drug interaction checking, and prior authorization integration.',
+    routing: 'Human-in-the-Loop',
+    routingQuote: 'AI handles the refill queue, providers approve the clinical decisions',
+    costShift: 'Labor $240K → IT $50K + Labor $120K = $70K saved',
+    savings: 70_000,
+    automationPercent: 45,
+    details: '3 staff processing prescription requests. Providers spend 30 min/day on refill approvals — time taken from patient care.',
+    currentProcess: [
+      'Refill requests received from pharmacies via fax (70%) and e-prescribing (30%)',
+      'Staff reviews patient chart for last visit date, medication history, and renewal eligibility',
+      'Provider approves or denies refill — adds to provider inbox queue, average 24-hour turnaround',
+      'Approved refills transmitted to pharmacy — fax-based refills require manual retransmission',
+      'Formulary issues and prior auths identified after prescription rejected by pharmacy — reactive process',
+    ],
+    bottlenecks: [
+      'Fax-based refill requests (70%) require manual processing — no structured data to automate',
+      'Provider refill queue backlog averages 24 hours — patients calling pharmacy before approval processed',
+      'Formulary checking is reactive — prescriptions rejected at pharmacy trigger time-consuming therapeutic alternatives process',
+      'No proactive medication management — chronic disease patients run out of medications between visits',
+    ],
+    aiArchitecture: 'AI prescription management: (1) Automated refill processing for established medications meeting renewal criteria (last visit within 12 months, no contraindications). (2) Proactive formulary checking at prescribing with therapeutic alternative suggestions. (3) Drug-drug interaction AI checking against full medication list including OTC and supplements. (4) Provider reviews and approves AI-recommended refill actions and new prescriptions.',
+    implementationPlan: [
+      { phase: 'E-Prescribing Expansion', weeks: 'Weeks 1-4', description: 'Migrate remaining fax-based pharmacies to e-prescribing. Build structured refill request pipeline.' },
+      { phase: 'Auto-Refill Engine', weeks: 'Weeks 5-8', description: 'Deploy automated refill processing for qualifying medications. Provider reviews exceptions only.' },
+      { phase: 'Formulary Integration', weeks: 'Weeks 9-12', description: 'Add real-time formulary checking. Integrate prior authorization workflow. Deploy drug interaction AI.' },
+      { phase: 'Proactive Management', weeks: 'Weeks 13-16', description: 'Add medication adherence monitoring. Proactive refill reminders for chronic disease patients.' },
+    ],
+    risks: [
+      'Patient safety: automated refill processing must have robust clinical rules to prevent inappropriate renewals',
+      'State prescribing regulations vary — some require in-person visit within specific timeframes for certain medications',
+      'Provider liability for AI-recommended approvals — must maintain clear provider oversight and accountability',
+    ],
+    dependencies: [
+      'E-prescribing network (Surescripts) connectivity for all pharmacy partners',
+      'EHR medication list and clinical decision support integration',
+      'Formulary databases from major PBMs for real-time coverage checking',
+    ],
+  },
+  {
+    name: 'Referral Processing & Coordination',
+    level: 'full',
+    currentFTEs: 3,
+    currentCost: 210_000,
+    volume: '800 referrals/month to specialists',
+    currentTime: '20 min per referral processing',
+    aiSolution: 'AI-automated referral management with intelligent specialist matching, automated documentation transfer, and closed-loop tracking.',
+    routing: 'Fully Automatable',
+    routingQuote: 'Referrals that actually close the loop',
+    costShift: 'Labor $210K → IT $40K + Labor $60K = $110K saved',
+    savings: 110_000,
+    automationPercent: 78,
+    details: '3 FTEs processing referrals manually. 35% of referrals never completed by patients — no tracking or follow-up system.',
+    currentProcess: [
+      'Provider writes referral order in EHR — often generic (e.g., "refer to cardiology") without specific specialist',
+      'Referral staff faxes referral and clinical notes to specialist office — average 15 min per referral',
+      'Specialist office calls back to schedule — or does not, with no tracking mechanism',
+      'Patient responsible for scheduling their own specialist appointment in many cases',
+      'Referral completion status unknown unless specialist sends consultation note back (happens 60% of time)',
+    ],
+    bottlenecks: [
+      '35% referral leakage — patients never complete specialist visits, impacting care quality and downstream revenue',
+      'Fax-based referral process — no confirmation of receipt, frequent lost referrals requiring resubmission',
+      'No specialist quality/outcomes data — referrals based on provider personal relationships rather than patient outcomes',
+      'Closed-loop failure — 40% of specialist consultation notes never received by referring provider',
+    ],
+    aiArchitecture: 'AI referral platform: (1) Intelligent specialist matching based on clinical need, insurance network, patient location, and quality metrics. (2) Electronic referral transmission with automated documentation assembly. (3) Patient engagement — automated scheduling assistance and appointment reminders. (4) Closed-loop tracking — automated follow-up on incomplete referrals and consultation note receipt.',
+    implementationPlan: [
+      { phase: 'Electronic Referral Network', weeks: 'Weeks 1-4', description: 'Build electronic referral connections with top 20 specialist practices. Automate documentation transfer.' },
+      { phase: 'Patient Engagement', weeks: 'Weeks 5-8', description: 'Deploy patient referral tracking and scheduling assistance. Automated reminders for incomplete referrals.' },
+      { phase: 'Specialist Matching', weeks: 'Weeks 9-12', description: 'Build specialist quality/outcomes database. Deploy intelligent matching algorithm.' },
+      { phase: 'Closed-Loop Optimization', weeks: 'Weeks 13-16', description: 'Automated consultation note tracking. Alert referring provider on specialist findings. Reduce referral leakage to <15%.' },
+    ],
+    risks: [
+      'Specialist practice participation depends on their willingness to accept electronic referrals — some may resist',
+      'Patient engagement outreach must comply with communication consent preferences',
+      'Specialist quality data may be limited or sensitive to share — requires careful handling',
+    ],
+    dependencies: [
+      'EHR referral module API for order creation and tracking',
+      'Health information exchange (HIE) connectivity for specialist data sharing',
+      'Patient communication platform for referral tracking and reminders',
+    ],
+  },
+  {
+    name: 'Discharge Planning & Care Transitions',
+    level: 'human-in-loop',
+    currentFTEs: 4,
+    currentCost: 320_000,
+    volume: '600 discharges/month requiring coordination',
+    currentTime: '40 min per discharge plan preparation',
+    aiSolution: 'AI-generated discharge plans with automated medication reconciliation, follow-up scheduling, and patient-appropriate education materials.',
+    routing: 'Human-in-the-Loop',
+    routingQuote: 'AI prepares the plan, care coordinators ensure the transition',
+    costShift: 'Labor $320K → IT $60K + Labor $160K = $100K saved',
+    savings: 100_000,
+    automationPercent: 42,
+    details: '4 care coordinators preparing discharge plans. 22% readmission rate within 30 days — above target of 15%.',
+    currentProcess: [
+      'Provider enters discharge order with high-level instructions — specifics left to care coordinator',
+      'Care coordinator manually compiles discharge instructions, medication list, and follow-up appointments',
+      'Medication reconciliation performed manually — comparing admission meds, inpatient changes, and discharge orders',
+      'Discharge education delivered verbally to patient — comprehension varies significantly',
+      'Follow-up appointment scheduled manually — often by patient themselves after discharge',
+    ],
+    bottlenecks: [
+      '22% readmission rate driven by medication errors (34% of readmissions) and missed follow-up (28% of readmissions)',
+      'Medication reconciliation errors: 18% of discharge medication lists have discrepancies with inpatient orders',
+      'Patient education comprehension: studies show patients retain only 40% of verbal discharge instructions',
+      'Follow-up scheduling gap: 45% of patients do not have follow-up scheduled at time of discharge',
+    ],
+    aiArchitecture: 'AI discharge management: (1) Automated medication reconciliation comparing admission, inpatient, and discharge orders with AI-flagged discrepancies. (2) AI-generated discharge plans in patient-appropriate language (reading level, language preference). (3) Automated follow-up scheduling integrated with provider availability. (4) Post-discharge AI monitoring via text check-ins to identify early warning signs of complications. Care coordinators review AI-generated plans, address complex social determinant issues, and manage high-risk transitions.',
+    implementationPlan: [
+      { phase: 'Medication Reconciliation AI', weeks: 'Weeks 1-5', description: 'Build automated medication reconciliation engine. Flag discrepancies for pharmacist review. Target <2% reconciliation error rate.' },
+      { phase: 'Discharge Plan Generation', weeks: 'Weeks 6-10', description: 'Deploy AI discharge plan generator with patient-appropriate language. Integrate follow-up scheduling.' },
+      { phase: 'Post-Discharge Monitoring', weeks: 'Weeks 11-14', description: 'Launch text-based post-discharge check-ins. AI triage of responses to identify complications. Alert care team on high-risk signals.' },
+      { phase: 'Optimization', weeks: 'Weeks 15-18', description: 'Refine readmission prediction model. Optimize monitoring frequency and intervention triggers. Target <15% readmission rate.' },
+    ],
+    risks: [
+      'Medication reconciliation is patient-safety critical — AI must not miss dangerous interactions or duplications',
+      'Patient engagement with text-based monitoring varies by demographics — elderly patients may not respond',
+      'Post-discharge monitoring generates alerts requiring clinical judgment — must avoid alert fatigue',
+    ],
+    dependencies: [
+      'EHR medication module API for comprehensive medication data',
+      'Patient communication platform with HIPAA-compliant messaging',
+      'Provider scheduling system for automated follow-up appointment booking',
+    ],
+  },
+];
+
+// ─── Atlas Manufacturing Workflows ───────────────────────────────────────────
+
+const atlasWorkflows: Workflow[] = [
+  {
+    name: 'Purchase Order Processing',
+    level: 'full',
+    currentFTEs: 8,
+    currentCost: 560_000,
+    volume: '6,200 POs/month across 4 OpCos',
+    currentTime: '22 min per PO creation and approval',
+    aiSolution: 'AI-automated procurement with intelligent PO generation from demand signals, automated three-way matching, and dynamic vendor selection optimization.',
+    routing: 'Fully Automatable',
+    routingQuote: 'From requisition to PO in seconds, not days',
+    costShift: 'Labor $560K → IT $120K + Labor $180K = $260K saved',
+    savings: 260_000,
+    automationPercent: 82,
+    details: '8 FTEs across 4 OpCos manually creating POs, matching invoices, and processing approvals. Average 3-day PO cycle time.',
+    currentProcess: [
+      'Requisition submitted by production floor or inventory system — paper-based in 2 OpCos, digital in 2',
+      'Procurement staff manually creates PO in ERP — looking up vendor, pricing, and contract terms',
+      'PO routed for approval via email chain — approval authority based on dollar amount across 4 levels',
+      'Approved PO sent to vendor via email or fax — no electronic purchase order transmission',
+      'Three-way matching (PO, receipt, invoice) done manually in spreadsheets — average 15 min per transaction',
+    ],
+    bottlenecks: [
+      '3-day average PO cycle time causes production delays when materials needed urgently',
+      'Approval email chains: average 1.5 days for manager approval — longer if approver is traveling',
+      'Three-way matching backlog: 1,200 unmatched transactions at any time — $2.1M in unresolved invoice disputes',
+      'No spend analytics — cannot identify consolidation opportunities across 4 OpCos buying from same vendors',
+    ],
+    aiArchitecture: 'AI procurement engine: (1) Automated PO generation from MRP demand signals and inventory reorder points. (2) ML-based vendor selection optimizing for price, quality, delivery reliability, and risk. (3) Automated approval routing with AI-recommended urgency classification. (4) Real-time three-way matching with automated exception resolution. (5) Cross-OpCo spend analytics identifying consolidation opportunities.',
+    implementationPlan: [
+      { phase: 'PO Automation', weeks: 'Weeks 1-4', description: 'Automate PO generation from demand signals. Build electronic vendor transmission. Implement digital approval workflow.' },
+      { phase: 'Three-Way Matching', weeks: 'Weeks 5-8', description: 'Deploy automated matching engine. AI exception resolution for common discrepancies. Clear backlog of unmatched transactions.' },
+      { phase: 'Vendor Optimization', weeks: 'Weeks 9-12', description: 'Build vendor scoring model. Deploy cross-OpCo spend analytics. Identify consolidation opportunities.' },
+      { phase: 'Predictive Procurement', weeks: 'Weeks 13-16', description: 'Add demand forecasting for proactive ordering. Dynamic safety stock optimization. Target <1 day PO cycle time.' },
+    ],
+    risks: [
+      'ERP integration complexity across 4 different systems — may require middleware for unified procurement',
+      'Vendor resistance to electronic PO transmission — smaller suppliers may need onboarding support',
+      'Automated approval must respect delegation of authority policies — cannot bypass financial controls',
+    ],
+    dependencies: [
+      'ERP system APIs across all 4 OpCos for PO creation and invoice matching',
+      'Vendor master data consolidation across OpCos',
+      'MRP/inventory system integration for demand signals',
+    ],
+  },
+  {
+    name: 'Production Scheduling & Planning',
+    level: 'human-in-loop',
+    currentFTEs: 10,
+    currentCost: 800_000,
+    volume: '12 production lines across 4 OpCos',
+    currentTime: '6-8 hours weekly planning per line',
+    aiSolution: 'AI-optimized production scheduling with demand-driven planning, real-time constraint management, and cross-OpCo capacity balancing.',
+    routing: 'Human-in-the-Loop',
+    routingQuote: 'AI optimizes the schedule, planners handle the exceptions',
+    costShift: 'Labor $800K → IT $180K + Labor $340K = $280K saved',
+    savings: 280_000,
+    automationPercent: 48,
+    details: '10 production planners across 4 OpCos spending 6-8 hours weekly per line on scheduling. OEE averages 62% — well below 85% world-class benchmark.',
+    currentProcess: [
+      'Customer orders entered into ERP and translated to production requirements — manual bill of materials explosion',
+      'Planners build weekly production schedules in spreadsheets — considering machine capacity, material availability, and labor',
+      'Schedule changes from rush orders or material shortages require manual replanning — average 4 reschedules per week per line',
+      'Changeover sequences determined by planner experience — no optimization of setup time reduction',
+      'Cross-OpCo capacity sharing does not exist — each OpCo plans independently even when producing similar products',
+    ],
+    bottlenecks: [
+      'OEE at 62% — 23 points below world-class benchmark, driven by changeover time (18%) and unplanned downtime (12%)',
+      'Manual replanning: 4 reschedules/week per line, each taking 2-3 hours, consuming 40% of planner capacity',
+      'No changeover optimization — current sequences add estimated 15% unnecessary setup time',
+      'Zero cross-OpCo capacity visibility — orders rejected at one OpCo while another has idle capacity',
+    ],
+    aiArchitecture: 'AI production scheduler: (1) Demand-driven scheduling engine integrating customer orders, forecasts, and safety stock targets. (2) Constraint-based optimization considering machine capacity, material availability, labor skills, and maintenance windows. (3) ML-optimized changeover sequencing minimizing setup time using historical changeover data. (4) Cross-OpCo capacity balancing dashboard. (5) Real-time rescheduling engine automatically adjusting for disruptions. Production planners review AI schedules, handle customer escalations, and manage cross-functional coordination.',
+    implementationPlan: [
+      { phase: 'Data Integration', weeks: 'Weeks 1-5', description: 'Connect ERP, MES, and machine data across 4 OpCos. Build unified production data model. Capture changeover time data.' },
+      { phase: 'Scheduling Engine', weeks: 'Weeks 6-12', description: 'Deploy AI scheduling for 2 pilot production lines. Optimize changeover sequences. Measure OEE improvement.' },
+      { phase: 'Cross-OpCo Balancing', weeks: 'Weeks 13-18', description: 'Build capacity visibility dashboard. Enable cross-OpCo order routing. Deploy real-time rescheduling.' },
+      { phase: 'Full Deployment', weeks: 'Weeks 19-24', description: 'Expand to all 12 production lines. Add predictive maintenance integration. Target 78% OEE.' },
+    ],
+    risks: [
+      'Production data quality varies significantly across OpCos — garbage-in-garbage-out risk for AI scheduling',
+      'Planner resistance to AI-generated schedules — must demonstrate measurable OEE improvement quickly',
+      'Cross-OpCo capacity sharing requires executive mandate — OpCo GMs historically operate independently',
+    ],
+    dependencies: [
+      'MES integration across all 4 OpCos for real-time production data',
+      'ERP integration for order and material data',
+      'Machine connectivity for OEE data capture (IoT sensors on key equipment)',
+    ],
+  },
+  {
+    name: 'Quality Inspection & Control',
+    level: 'human-in-loop',
+    currentFTEs: 14,
+    currentCost: 980_000,
+    volume: '28,000 inspections/month across all OpCos',
+    currentTime: '8-25 min per inspection depending on type',
+    aiSolution: 'AI-powered visual inspection using computer vision, automated SPC analysis, and predictive quality models linking process parameters to defect outcomes.',
+    routing: 'Human-in-the-Loop',
+    routingQuote: 'AI inspects every unit, humans investigate the outliers',
+    costShift: 'Labor $980K → IT $220K + Labor $420K = $340K saved',
+    savings: 340_000,
+    automationPercent: 52,
+    details: '14 quality inspectors performing manual visual and dimensional inspections. Current defect escape rate of 2.8% — customer quality complaints trending upward.',
+    currentProcess: [
+      'In-process inspection performed manually at key stations — visual checks and manual dimensional measurements',
+      'Inspection results recorded on paper quality logs — data entered into QMS at end of shift',
+      'Statistical process control (SPC) charts maintained manually — out-of-control conditions identified hours after occurrence',
+      'Final inspection before shipping — 100% visual for critical products, sampling for standard',
+      'Customer complaints investigated manually — root cause analysis averages 5 days',
+    ],
+    bottlenecks: [
+      '2.8% defect escape rate: customer returns costing $890K/year plus reputation damage',
+      'Paper-based quality logs: data entered 4-8 hours after inspection — SPC responses are always late',
+      'Manual visual inspection fatigue: miss rate increases 35% during second half of shift',
+      'Root cause analysis bottleneck: 5-day average limits corrective action speed — problems recur',
+    ],
+    aiArchitecture: 'AI quality platform: (1) Computer vision inspection using cameras at key production stations — trained on historical defect images for automatic detection. (2) Real-time SPC on digitized process parameters with AI-powered out-of-control detection and root cause suggestion. (3) Predictive quality model linking upstream process parameters to downstream defect probability — enabling proactive adjustment before defects occur. (4) Digital quality records with automated compliance reporting. Quality engineers review AI-flagged issues, investigate complex root causes, and drive continuous improvement.',
+    implementationPlan: [
+      { phase: 'Digital Quality Capture', weeks: 'Weeks 1-5', description: 'Deploy digital inspection forms replacing paper logs. Connect process sensors for real-time SPC. Build quality data lake.' },
+      { phase: 'Computer Vision Pilot', weeks: 'Weeks 6-12', description: 'Install cameras at 3 key inspection stations. Train defect detection models on historical data. Validate detection accuracy.' },
+      { phase: 'Predictive Quality', weeks: 'Weeks 13-18', description: 'Build process-to-quality prediction models. Deploy proactive alerts for out-of-spec conditions. Reduce defect escapes.' },
+      { phase: 'Full Deployment', weeks: 'Weeks 19-24', description: 'Expand computer vision to all critical stations. Integrate with production scheduling for quality-aware planning. Target <1% defect escape rate.' },
+    ],
+    risks: [
+      'Computer vision accuracy depends on consistent lighting and camera positioning — production environment challenges',
+      'Regulatory requirements (ISO, customer audits) may require human sign-off on inspection results',
+      'Process parameter data collection requires IoT sensor investment on older equipment',
+    ],
+    dependencies: [
+      'Industrial cameras and lighting infrastructure at inspection stations',
+      'MES integration for real-time process parameter data',
+      'Quality management system (QMS) API for digital record integration',
+    ],
+  },
+  {
+    name: 'Inventory Management & Optimization',
+    level: 'full',
+    currentFTEs: 6,
+    currentCost: 420_000,
+    volume: '18,000 SKUs across 4 OpCos, $42M inventory value',
+    currentTime: 'Weekly manual reorder review, monthly cycle counts',
+    aiSolution: 'AI-driven inventory optimization with demand forecasting, dynamic safety stock calculation, and automated replenishment across all OpCos.',
+    routing: 'Fully Automatable',
+    routingQuote: 'Right material, right quantity, right time — every time',
+    costShift: 'Labor $420K → IT $100K + Labor $120K = $200K saved',
+    savings: 200_000,
+    automationPercent: 80,
+    details: '6 inventory planners managing 18,000 SKUs. Current inventory turns of 4.2/year — benchmark is 8-12 for industry. $6.8M in excess and obsolete inventory.',
+    currentProcess: [
+      'Inventory levels reviewed weekly via ERP reports — manually compared against reorder points',
+      'Reorder points set annually based on historical average demand — no seasonal or trend adjustment',
+      'Purchase requisitions created manually when stock drops below reorder point',
+      'Cycle counts performed monthly by warehouse staff — 3% inventory accuracy variance',
+      'Excess and obsolete inventory identified annually during physical inventory — $6.8M currently',
+    ],
+    bottlenecks: [
+      '4.2 inventory turns vs 8-12 benchmark — $18M excess working capital tied up in inventory',
+      'Static reorder points cause both stockouts (12% of orders backordered) and excess inventory simultaneously',
+      '3% inventory accuracy variance — causes production interruptions and emergency orders',
+      'No cross-OpCo inventory visibility — same part stocked at all 4 locations with no sharing mechanism',
+    ],
+    aiArchitecture: 'AI inventory engine: (1) ML demand forecasting using sales history, seasonality, customer orders, and economic indicators. (2) Dynamic safety stock calculation adjusting for lead time variability and service level targets. (3) Automated replenishment generating POs when AI-calculated reorder points triggered. (4) Cross-OpCo inventory visibility with automatic transfer recommendations. (5) Excess/obsolete prediction identifying slow-moving inventory before it becomes obsolete.',
+    implementationPlan: [
+      { phase: 'Demand Forecasting', weeks: 'Weeks 1-5', description: 'Build ML demand forecast models for top 2,000 SKUs (80% of value). Validate against historical actuals.' },
+      { phase: 'Dynamic Replenishment', weeks: 'Weeks 6-10', description: 'Deploy AI-calculated reorder points. Automate replenishment for standard items. Reduce stockout rate.' },
+      { phase: 'Cross-OpCo Optimization', weeks: 'Weeks 11-14', description: 'Build cross-OpCo inventory dashboard. Deploy automated transfer recommendations. Identify excess reduction opportunities.' },
+      { phase: 'Full Optimization', weeks: 'Weeks 15-18', description: 'Expand to all 18,000 SKUs. Vendor-managed inventory for top suppliers. Target 7+ inventory turns.' },
+    ],
+    risks: [
+      'Demand forecasting accuracy depends on data quality — inconsistent demand coding across OpCos is a concern',
+      'Automated replenishment must respect minimum order quantities and vendor lead time variability',
+      'Cross-OpCo transfers add transportation cost — must net positive vs local procurement',
+    ],
+    dependencies: [
+      'ERP inventory data across all 4 OpCos — unified item master required',
+      'Supplier lead time data and performance history',
+      'Sales order and demand forecast data for ML model training',
+    ],
+  },
+  {
+    name: 'Vendor Onboarding & Management',
+    level: 'human-in-loop',
+    currentFTEs: 3,
+    currentCost: 240_000,
+    volume: '120 new vendors/year, 1,800 active vendors',
+    currentTime: '4-6 weeks per vendor onboarding',
+    aiSolution: 'AI-streamlined vendor onboarding with automated compliance verification, risk scoring, and continuous performance monitoring.',
+    routing: 'Human-in-the-Loop',
+    routingQuote: 'Onboard vendors in days, not weeks, with full compliance',
+    costShift: 'Labor $240K → IT $50K + Labor $120K = $70K saved',
+    savings: 70_000,
+    automationPercent: 42,
+    details: '3 procurement staff managing vendor onboarding and performance. 4-6 week onboarding cycle delays new supplier availability.',
+    currentProcess: [
+      'Vendor application received via email — unstructured forms varying by OpCo',
+      'Compliance verification manual: business registration, insurance certificates, quality certifications checked individually',
+      'Financial viability assessment via Dun & Bradstreet report — manually ordered and reviewed',
+      'Vendor master record created in ERP — duplicated across 4 OpCo systems',
+      'Annual vendor review performed via spreadsheet scorecards — subjective and inconsistent',
+    ],
+    bottlenecks: [
+      '4-6 week onboarding cycle — production waits for materials from approved vendors while applications process',
+      'Compliance documentation expires without tracking — 22% of active vendors have lapsed insurance or certifications',
+      'No real-time risk monitoring — vendor financial distress discovered only at annual review or after disruption',
+      'Duplicate vendor records across 4 OpCo ERPs — cannot consolidate spend or performance data',
+    ],
+    aiArchitecture: 'AI vendor management: (1) Digital onboarding portal with automated document verification (OCR + AI validation of insurance, certifications, registrations). (2) Real-time financial risk scoring using D&B data and news sentiment analysis. (3) Automated compliance monitoring with expiration tracking and renewal alerts. (4) Unified vendor master across OpCos with AI-powered deduplication. Procurement team reviews AI risk assessments, conducts on-site audits for critical vendors, and manages strategic supplier relationships.',
+    implementationPlan: [
+      { phase: 'Digital Onboarding Portal', weeks: 'Weeks 1-4', description: 'Build vendor self-service portal. Automate document upload and AI verification. Target 2-week onboarding cycle.' },
+      { phase: 'Risk Scoring & Monitoring', weeks: 'Weeks 5-8', description: 'Deploy real-time financial risk scoring. Build compliance expiration tracking. Automate renewal alerts.' },
+      { phase: 'Vendor Master Consolidation', weeks: 'Weeks 9-12', description: 'Deduplicate vendor records across 4 OpCos. Build unified vendor performance dashboard.' },
+      { phase: 'Continuous Monitoring', weeks: 'Weeks 13-16', description: 'Add news and sentiment monitoring for supply risk. Integrate with procurement for risk-adjusted vendor selection.' },
+    ],
+    risks: [
+      'Vendor adoption of digital portal — smaller suppliers may resist self-service onboarding',
+      'Compliance verification automation must be accurate — cannot onboard non-compliant vendors',
+      'Vendor master consolidation across 4 ERPs is complex — requires careful data governance',
+    ],
+    dependencies: [
+      'Dun & Bradstreet API for financial risk data',
+      'ERP vendor master APIs across all 4 OpCos',
+      'Insurance verification services for automated certificate validation',
+    ],
+  },
+  {
+    name: 'Maintenance Work Orders & Equipment Management',
+    level: 'human-in-loop',
+    currentFTEs: 8,
+    currentCost: 640_000,
+    volume: '2,400 work orders/month, 800 equipment assets',
+    currentTime: '30 min per work order creation and scheduling',
+    aiSolution: 'AI-powered predictive maintenance with IoT-driven condition monitoring, automated work order generation, and maintenance schedule optimization.',
+    routing: 'Human-in-the-Loop',
+    routingQuote: 'Fix equipment before it fails, not after it stops production',
+    costShift: 'Labor $640K → IT $160K + Labor $280K = $200K saved',
+    savings: 200_000,
+    automationPercent: 50,
+    details: '8 maintenance planners managing 800 equipment assets across 4 OpCos. Unplanned downtime accounts for 12% of production time — $3.2M annual impact.',
+    currentProcess: [
+      'Preventive maintenance scheduled on fixed calendar intervals — regardless of actual equipment condition',
+      'Work orders created manually in CMMS when PM is due or breakdown occurs',
+      'Maintenance technicians assigned manually by planner — considering skills, availability, and parts',
+      'Parts availability checked manually — 18% of work orders delayed by parts unavailability',
+      'Maintenance history tracked in CMMS but not analyzed for failure patterns or optimization',
+    ],
+    bottlenecks: [
+      'Calendar-based PM: 35% of preventive maintenance performed unnecessarily (equipment in good condition) while 12% of failures still unplanned',
+      '18% of work orders delayed by parts unavailability — maintenance planner unaware until technician arrives at machine',
+      'No predictive capability — equipment fails unexpectedly despite regular PM schedule',
+      'Maintenance history data exists but is never analyzed — failure patterns and root causes not identified systematically',
+    ],
+    aiArchitecture: 'Predictive maintenance platform: (1) IoT sensor data collection (vibration, temperature, power consumption, acoustic) from critical equipment. (2) ML anomaly detection models trained on historical failure data to predict equipment degradation. (3) Automated work order generation triggered by AI-detected conditions with recommended parts and procedures. (4) Maintenance schedule optimization balancing predictive, preventive, and corrective activities against production schedule. Maintenance planners and technicians review AI predictions, perform condition assessments, and execute maintenance activities.',
+    implementationPlan: [
+      { phase: 'IoT Sensor Deployment', weeks: 'Weeks 1-6', description: 'Install vibration, temperature, and power sensors on top 50 critical assets. Connect to data platform.' },
+      { phase: 'Predictive Models', weeks: 'Weeks 7-14', description: 'Train failure prediction models on historical maintenance data. Deploy anomaly detection on live sensor feeds.' },
+      { phase: 'Automated Work Orders', weeks: 'Weeks 15-18', description: 'Connect AI predictions to CMMS for automated work order generation. Integrate parts availability checking.' },
+      { phase: 'Full Optimization', weeks: 'Weeks 19-24', description: 'Expand sensors to all 800 assets. Optimize PM intervals based on condition data. Target 50% reduction in unplanned downtime.' },
+    ],
+    risks: [
+      'IoT sensor installation requires production downtime — must coordinate with manufacturing schedule',
+      'Predictive model accuracy depends on sufficient failure history — some equipment types may have limited data',
+      'Maintenance technician trust in AI predictions takes time to build — early false alarms will erode confidence',
+    ],
+    dependencies: [
+      'IoT sensor hardware and connectivity infrastructure',
+      'CMMS API for work order creation and maintenance history access',
+      'Production scheduling integration to coordinate maintenance windows',
+    ],
+  },
+  {
+    name: 'Shipping & Logistics Coordination',
+    level: 'full',
+    currentFTEs: 5,
+    currentCost: 380_000,
+    volume: '8,400 shipments/month across 4 OpCos',
+    currentTime: '15 min per shipment coordination',
+    aiSolution: 'AI-optimized logistics with automated carrier selection, load optimization, and real-time shipment tracking with proactive delay management.',
+    routing: 'Fully Automatable',
+    routingQuote: 'Ship smarter with AI-optimized carrier selection and load building',
+    costShift: 'Labor $380K → IT $80K + Labor $100K = $200K saved',
+    savings: 200_000,
+    automationPercent: 82,
+    details: '5 logistics coordinators manually arranging shipments. Freight costs 15% above benchmark due to suboptimal carrier selection and LTL consolidation.',
+    currentProcess: [
+      'Shipping requirements generated from production completion and customer order dates',
+      'Logistics coordinator contacts carriers for quotes — typically 2-3 carriers per shipment via phone/email',
+      'Carrier selected based on coordinator relationships and available quotes — no systematic optimization',
+      'Bill of lading and shipping documents prepared manually — data retyped from production and order records',
+      'Shipment tracking relies on carrier portals — customers call for status updates',
+    ],
+    bottlenecks: [
+      'Freight cost 15% above benchmark — suboptimal carrier selection and missed LTL consolidation opportunities',
+      'Manual carrier quoting: 15 min per shipment, limited to 2-3 carriers vs TMS-automated multi-carrier comparison',
+      'No cross-OpCo shipment consolidation — products shipping to same customer from different OpCos sent separately',
+      'Reactive tracking — delivery issues discovered when customer complaints arrive, not proactively',
+    ],
+    aiArchitecture: 'AI logistics platform: (1) Multi-carrier rating and selection engine optimizing for cost, transit time, and service reliability. (2) AI load optimization consolidating LTL shipments across OpCos heading to same geography. (3) Automated BOL and document generation from ERP/production data. (4) Real-time GPS shipment tracking with AI-predicted ETAs and proactive delay alerts.',
+    implementationPlan: [
+      { phase: 'TMS Deployment', weeks: 'Weeks 1-4', description: 'Implement cloud TMS with multi-carrier rating. Automate document generation. Connect all 4 OpCo shipping operations.' },
+      { phase: 'Load Optimization', weeks: 'Weeks 5-8', description: 'Deploy AI load building and LTL consolidation. Identify cross-OpCo consolidation opportunities.' },
+      { phase: 'Tracking & Visibility', weeks: 'Weeks 9-12', description: 'Implement real-time GPS tracking. Deploy proactive delay alerts. Build customer shipment visibility portal.' },
+      { phase: 'Continuous Optimization', weeks: 'Weeks 13-16', description: 'ML-based carrier performance scoring. Dynamic routing optimization. Target 12% freight cost reduction.' },
+    ],
+    risks: [
+      'Carrier API integration: major carriers support EDI/API, but smaller regional carriers may require manual fallback',
+      'Cross-OpCo consolidation requires coordinated shipping schedules — may add 1-2 days to some orders',
+      'Customer expectations for delivery dates must be managed during optimization transition',
+    ],
+    dependencies: [
+      'ERP integration across all 4 OpCos for order and production data',
+      'Carrier APIs and EDI connections for automated rating and booking',
+      'GPS tracking data from carrier partners',
+    ],
+  },
+  {
+    name: 'RMA Processing & Returns Management',
+    level: 'full',
+    currentFTEs: 3,
+    currentCost: 210_000,
+    volume: '400 RMAs/month, $1.8M annual returns value',
+    currentTime: '25 min per RMA processing',
+    aiSolution: 'AI-automated returns management with intelligent disposition routing, automated credit processing, and root cause analytics for quality improvement.',
+    routing: 'Fully Automatable',
+    routingQuote: 'Turn returns into insights with AI-powered root cause analysis',
+    costShift: 'Labor $210K → IT $40K + Labor $60K = $110K saved',
+    savings: 110_000,
+    automationPercent: 78,
+    details: '3 customer service staff processing returns. Average 8-day RMA cycle time frustrates customers and delays credits.',
+    currentProcess: [
+      'Customer contacts customer service to request return — reason documented in free-text field',
+      'RMA number issued manually after verifying order and warranty status in ERP',
+      'Return received at warehouse — inspected manually and disposition decision made (repair, replace, credit, scrap)',
+      'Credit memo created manually in ERP after disposition — average 5-day delay from receipt to credit',
+      'Return reason data exists but is not analyzed systematically for quality improvement',
+    ],
+    bottlenecks: [
+      '8-day RMA cycle time: customer dissatisfaction and delayed credit impacting customer relationships',
+      'Manual disposition decisions: inconsistent — same defect type receives different dispositions depending on inspector',
+      '5-day credit delay: customers escalate to sales team, consuming sales productivity',
+      'Return reason data never analyzed — recurring quality issues not identified from returns data',
+    ],
+    aiArchitecture: 'AI returns platform: (1) Automated RMA issuance with AI verification of order, warranty, and return eligibility. (2) AI-powered disposition routing using defect classification (photos + description NLP) to recommend repair/replace/credit/scrap. (3) Automated credit processing triggered by disposition completion. (4) Returns analytics dashboard linking return reasons to production lots, vendors, and process conditions for root cause identification.',
+    implementationPlan: [
+      { phase: 'Automated RMA Issuance', weeks: 'Weeks 1-3', description: 'Build self-service RMA portal. Automate order and warranty verification. Issue RMA numbers instantly.' },
+      { phase: 'AI Disposition', weeks: 'Weeks 4-8', description: 'Train disposition model on historical returns data. Deploy photo-based defect classification. Automate standard dispositions.' },
+      { phase: 'Credit Automation', weeks: 'Weeks 9-11', description: 'Automate credit memo generation. Trigger instant credits for pre-approved disposition types. Reduce cycle to <3 days.' },
+      { phase: 'Quality Analytics', weeks: 'Weeks 12-14', description: 'Build returns root cause dashboard. Link to production and vendor data. Feed insights to quality improvement programs.' },
+    ],
+    risks: [
+      'Automated RMA issuance must prevent fraudulent returns — AI needs robust validation rules',
+      'AI disposition accuracy for high-value items must be validated before removing human review',
+      'Customer expectations for instant credits must be balanced with fraud prevention',
+    ],
+    dependencies: [
+      'ERP order and warranty data for return eligibility verification',
+      'Warehouse management system for return receipt and inspection workflow',
+      'Quality management system for root cause analytics integration',
+    ],
+  },
+];
+
+// ─── Northbridge Industries Group Workflows ──────────────────────────────────
+
+const northbridgeWorkflows: Workflow[] = [
+  {
+    name: 'Strategic Planning & Portfolio Analysis',
+    level: 'human-in-loop',
+    currentFTEs: 8,
+    currentCost: 1_200_000,
+    volume: '4 portfolio companies, 24 strategic initiatives tracked',
+    currentTime: '3-4 weeks per quarterly strategic review cycle',
+    aiSolution: 'AI-powered strategic intelligence platform with real-time portfolio analytics, competitive monitoring, and scenario modeling for capital allocation.',
+    routing: 'Human-in-the-Loop',
+    routingQuote: 'AI synthesizes the data, leadership makes the strategy',
+    costShift: 'Labor $1.2M → IT $280K + Labor $520K = $400K saved',
+    savings: 400_000,
+    automationPercent: 38,
+    details: '8 strategy and FP&A staff compiling quarterly portfolio reviews from 4 divisions. Manual data aggregation delays strategic insight by 3-4 weeks.',
+    currentProcess: [
+      'Each division submits quarterly performance data via PowerPoint and Excel — no standardized reporting template',
+      'Corporate strategy team manually aggregates and normalizes financial and operational data across 4 divisions',
+      'Competitive intelligence gathered manually from industry reports, news, and analyst calls',
+      'Strategic initiative tracking maintained in spreadsheets — progress updates via quarterly review meetings',
+      'Portfolio rebalancing analysis performed annually using external consultants at $500K/engagement',
+    ],
+    bottlenecks: [
+      'Quarterly review data 3-4 weeks stale by time of board presentation — decisions made on backward-looking information',
+      'No real-time competitive intelligence — market shifts discovered months after occurrence',
+      'Strategic initiative tracking is passive — deviations from plan not identified until next quarterly review',
+      'Annual portfolio analysis cadence too slow for dynamic markets — opportunities missed between reviews',
+    ],
+    aiArchitecture: 'AI strategy platform: (1) Real-time financial data aggregation from 4 division ERPs with automated normalization and KPI calculation. (2) AI competitive intelligence monitoring (news, filings, patent activity, hiring patterns) with automated alerting. (3) Scenario modeling engine for portfolio rebalancing using Monte Carlo simulation and market factor analysis. (4) Strategic initiative tracking with AI-generated progress assessments from operational data. Leadership team uses AI insights for strategic discussions, investment decisions, and portfolio optimization.',
+    implementationPlan: [
+      { phase: 'Data Unification', weeks: 'Weeks 1-6', description: 'Connect 4 division ERPs for real-time financial data. Build standardized KPI framework. Automate quarterly review generation.' },
+      { phase: 'Competitive Intelligence', weeks: 'Weeks 7-12', description: 'Deploy AI competitive monitoring across all 4 division industries. Build automated alerting for material market changes.' },
+      { phase: 'Scenario Modeling', weeks: 'Weeks 13-18', description: 'Build portfolio scenario modeling engine. Run historical backtests. Deploy for next capital allocation cycle.' },
+      { phase: 'Continuous Strategy', weeks: 'Weeks 19-24', description: 'Real-time strategic dashboard for executive team. AI-generated portfolio health scores. Reduce quarterly review preparation to 2 days.' },
+    ],
+    risks: [
+      'Division resistance to real-time financial visibility — some GMs prefer controlling their narrative',
+      'Competitive intelligence accuracy — AI-generated insights require human validation before strategic decisions',
+      'Scenario model assumptions must be transparent and explainable for board-level discussions',
+    ],
+    dependencies: [
+      'ERP data access across all 4 divisions (SAP, Oracle, NetSuite)',
+      'Competitive intelligence data feeds (news APIs, SEC filings, patent databases)',
+      'Financial modeling infrastructure for Monte Carlo simulation',
+    ],
+  },
+  {
+    name: 'Capital Allocation & Investment Analysis',
+    level: 'human-in-loop',
+    currentFTEs: 5,
+    currentCost: 750_000,
+    volume: '$2.4B total assets, 40+ capex requests/year',
+    currentTime: '2-3 weeks per investment analysis',
+    aiSolution: 'AI-enhanced capital allocation with automated DCF modeling, risk-adjusted return optimization, and portfolio impact simulation.',
+    routing: 'Human-in-the-Loop',
+    routingQuote: 'Data-driven capital allocation across the portfolio',
+    costShift: 'Labor $750K → IT $160K + Labor $340K = $250K saved',
+    savings: 250_000,
+    automationPercent: 35,
+    details: '5 FP&A analysts evaluating capex requests manually. 2-3 week analysis cycle delays investment decisions and capital deployment.',
+    currentProcess: [
+      'Division submits capex request with business case — format and depth varies significantly by division',
+      'FP&A team builds DCF model in Excel for each request — typical model takes 3-5 days to build and validate',
+      'Sensitivity analysis performed manually — limited to 3-4 scenarios due to time constraints',
+      'Capital committee review package compiled manually — 20+ page PowerPoint with financial analysis',
+      'Post-investment tracking is minimal — actual returns vs projected rarely measured after 12 months',
+    ],
+    bottlenecks: [
+      '2-3 week analysis cycle: urgent investment opportunities missed while analysis processes through queue',
+      'Inconsistent business case quality: some divisions over-project returns, others are conservative — no normalization',
+      'Limited sensitivity analysis: manual process cannot explore full range of scenarios for risk assessment',
+      'No portfolio-level optimization: each request evaluated independently without considering portfolio impact',
+    ],
+    aiArchitecture: 'AI capital allocation platform: (1) Standardized business case template with AI-assisted financial projection validation against historical accuracy. (2) Automated DCF modeling with ML-adjusted assumptions based on division-specific track record. (3) Monte Carlo sensitivity analysis exploring 10,000+ scenarios per request. (4) Portfolio optimization layer evaluating each request in context of total capital allocation strategy. CFO and investment committee use AI analytics to inform allocation decisions.',
+    implementationPlan: [
+      { phase: 'Business Case Standardization', weeks: 'Weeks 1-4', description: 'Build standardized digital business case template. Train AI projection validation model on historical capex outcomes.' },
+      { phase: 'Automated DCF & Sensitivity', weeks: 'Weeks 5-10', description: 'Deploy automated DCF modeling. Build Monte Carlo simulation engine. Integrate historical accuracy adjustment.' },
+      { phase: 'Portfolio Optimization', weeks: 'Weeks 11-16', description: 'Build portfolio-level capital allocation optimizer. Deploy investment committee dashboard.' },
+      { phase: 'Post-Investment Tracking', weeks: 'Weeks 17-20', description: 'Automate actual vs projected tracking. Feed outcomes back to projection accuracy models. Improve future estimates.' },
+    ],
+    risks: [
+      'Division gaming of AI-adjusted projections — must keep adjustment methodology confidential',
+      'Capital committee comfort with AI-assisted recommendations for large investments — requires gradual trust building',
+      'Historical capex outcome data may be insufficient for some divisions or investment types',
+    ],
+    dependencies: [
+      'Historical capex request and outcome data across all divisions',
+      'Division ERP data for actual financial performance tracking',
+      'Financial market data for discount rate and comparable transaction analysis',
+    ],
+  },
+  {
+    name: 'Compliance Reporting & Regulatory Management',
+    level: 'full',
+    currentFTEs: 10,
+    currentCost: 1_000_000,
+    volume: '4 regulatory regimes, 180+ compliance requirements tracked',
+    currentTime: '8-12 hours per compliance report',
+    aiSolution: 'AI-automated compliance with real-time regulatory monitoring, automated report generation, and continuous control testing.',
+    routing: 'Fully Automatable',
+    routingQuote: 'Automate compliance reporting, not compliance judgment',
+    costShift: 'Labor $1.0M → IT $200K + Labor $400K = $400K saved',
+    savings: 400_000,
+    automationPercent: 72,
+    details: '10 compliance staff across 4 divisions tracking 180+ requirements. Manual reporting consumes 60% of compliance team capacity — leaving insufficient time for proactive risk management.',
+    currentProcess: [
+      'Regulatory requirements tracked in spreadsheets — separate trackers per division with no unified view',
+      'Compliance reports compiled manually from division data — averaging 8-12 hours per report',
+      'Control testing performed quarterly using manual sampling and documentation review',
+      'Regulatory change monitoring done manually — subscribing to regulator newsletters and industry publications',
+      'Board compliance reporting aggregated manually from 4 division compliance officers',
+    ],
+    bottlenecks: [
+      'Manual reporting consumes 60% of team capacity — compliance officers act as data aggregators instead of risk advisors',
+      'Quarterly control testing: issues discovered 3 months after occurrence — late detection increases remediation cost',
+      'Regulatory change lag: average 45 days between regulation change and internal policy update',
+      'No unified compliance view across 4 divisions — board sees fragmented reports',
+    ],
+    aiArchitecture: 'AI GRC platform: (1) Unified compliance requirements database mapped to controls across all 4 divisions. (2) Continuous control monitoring with automated testing using data from ERP, HR, and operational systems. (3) AI regulatory change monitoring scanning 200+ regulatory sources with automated impact assessment. (4) Automated compliance report generation pulling real-time data from source systems. Compliance officers review AI-generated reports, investigate exceptions, and provide strategic regulatory guidance.',
+    implementationPlan: [
+      { phase: 'Compliance Database', weeks: 'Weeks 1-5', description: 'Build unified compliance requirements database. Map controls to requirements across all 4 divisions.' },
+      { phase: 'Continuous Monitoring', weeks: 'Weeks 6-12', description: 'Connect control data sources for automated testing. Deploy exception alerting. Replace quarterly sampling with continuous.' },
+      { phase: 'Regulatory Intelligence', weeks: 'Weeks 13-16', description: 'Deploy AI regulatory change monitoring. Build automated impact assessment. Reduce change response to <7 days.' },
+      { phase: 'Automated Reporting', weeks: 'Weeks 17-20', description: 'Generate board compliance reports automatically. Real-time compliance dashboards for each division. Free 60% of team for risk advisory.' },
+    ],
+    risks: [
+      'Continuous monitoring requires data access across all systems — security and privacy considerations',
+      'AI regulatory interpretation must be validated by legal — cannot fully automate regulatory analysis',
+      'Board trust in AI-generated compliance reports requires gradual demonstration of accuracy',
+    ],
+    dependencies: [
+      'ERP, HR, and operational system APIs across all 4 divisions',
+      'Regulatory source data feeds for change monitoring',
+      'GRC platform selection or existing tool integration',
+    ],
+  },
+  {
+    name: 'M&A Due Diligence & Integration',
+    level: 'human-required',
+    currentFTEs: 6,
+    currentCost: 900_000,
+    volume: '3-5 acquisition targets evaluated/year',
+    currentTime: '8-12 weeks per due diligence process',
+    aiSolution: 'AI-accelerated due diligence with automated data room analysis, risk identification, and integration planning powered by pattern recognition from prior acquisitions.',
+    routing: 'Human-Required',
+    routingQuote: 'AI reads the data room, deal team focuses on judgment',
+    costShift: 'Labor $900K → IT $150K + Labor $600K = $150K saved',
+    savings: 150_000,
+    automationPercent: 25,
+    details: '6 M&A staff conducting due diligence. 8-12 week process with external advisors. $2-5M per deal in advisory fees.',
+    currentProcess: [
+      'Target identification through industry contacts, investment bankers, and market screening — largely relationship-driven',
+      'Preliminary screening using publicly available data — manual financial analysis and strategic fit assessment',
+      'Due diligence data room review: 5,000-15,000 documents analyzed manually by internal team and external advisors',
+      'Financial model built in Excel — 3-4 weeks for complex targets with multiple scenarios',
+      'Integration planning begins post-close — typically 6-12 months after deal signing',
+    ],
+    bottlenecks: [
+      'Data room review: 5,000-15,000 documents — human team can review 200-300/day, creating 4-6 week bottleneck',
+      'Key risks buried in documents: material adverse conditions sometimes discovered late in process after significant investment',
+      'Integration planning starts too late — post-close discovery of system incompatibilities, culture mismatches',
+      'No institutional memory: lessons from prior acquisitions not systematically captured for future deals',
+    ],
+    aiArchitecture: 'AI due diligence platform: (1) Automated data room analysis using NLP to scan all documents for material terms, risks, and anomalies. (2) AI-powered financial model generation from target financial statements with automatic normalization. (3) Risk pattern matching against database of issues discovered in prior acquisitions. (4) Pre-close integration readiness assessment analyzing system compatibility and organizational alignment. Deal team focuses on strategic judgment, relationship management, and negotiation while AI handles document analysis and pattern recognition.',
+    implementationPlan: [
+      { phase: 'Data Room AI', weeks: 'Weeks 1-6', description: 'Build document analysis pipeline for standard data room formats. Train NLP models on risk identification using prior due diligence findings.' },
+      { phase: 'Financial Modeling', weeks: 'Weeks 7-12', description: 'Automate financial model generation from target statements. Build scenario analysis engine.' },
+      { phase: 'Integration Assessment', weeks: 'Weeks 13-16', description: 'Build technology and organizational compatibility assessment framework. Deploy pre-close integration readiness scoring.' },
+      { phase: 'Institutional Learning', weeks: 'Weeks 17-20', description: 'Build deal knowledge base from prior acquisitions. Feed lessons learned into risk pattern matching for future deals.' },
+    ],
+    risks: [
+      'Confidentiality: AI processing of sensitive target data requires robust security and access controls',
+      'AI document analysis may miss context-dependent risks that require industry expertise to identify',
+      'Deal team resistance to AI-flagged risks that contradict their investment thesis',
+    ],
+    dependencies: [
+      'Secure document processing infrastructure with data room integration',
+      'Historical due diligence findings database from prior acquisitions',
+      'Financial data extraction tools for automated model building',
+    ],
+  },
+  {
+    name: 'Cross-Division Procurement & Spend Management',
+    level: 'full',
+    currentFTEs: 7,
+    currentCost: 560_000,
+    volume: '$1.2B combined spend across 4 divisions',
+    currentTime: 'Annual vendor negotiation cycle',
+    aiSolution: 'AI-driven spend analytics with automated contract consolidation, dynamic vendor negotiation support, and predictive spend optimization.',
+    routing: 'Fully Automatable',
+    routingQuote: 'One portfolio, one negotiating table, AI-optimized spend',
+    costShift: 'Labor $560K → IT $120K + Labor $180K = $260K saved',
+    savings: 260_000,
+    automationPercent: 68,
+    details: '7 procurement staff across corporate and divisions. No consolidated spend visibility — estimated $18M in cross-division savings opportunities unidentified.',
+    currentProcess: [
+      'Each division procures independently — separate vendor relationships, contracts, and negotiations',
+      'Corporate procurement provides guidelines but has no visibility into division-level spending',
+      'Annual contract negotiations conducted division-by-division — same vendor negotiated with 4 times',
+      'Spend analysis performed annually using exported ERP data — 6-week manual analysis cycle',
+      'Maverick spending (off-contract purchases) estimated at 25% but not systematically tracked',
+    ],
+    bottlenecks: [
+      'No consolidated spend visibility: $1.2B in spend managed as 4 independent $300M portfolios instead of one',
+      'Same vendors negotiated separately by each division — missing volume discount leverage',
+      'Annual spend analysis is stale by publication — market conditions change faster than analysis cycle',
+      '25% maverick spending: $300M purchased outside negotiated contracts at higher prices',
+    ],
+    aiArchitecture: 'AI spend management: (1) Cross-division spend analytics engine ingesting AP data from all 4 ERPs with AI-powered vendor and category normalization. (2) Contract consolidation recommender identifying cross-division opportunities with estimated savings. (3) AI negotiation support with benchmark pricing, vendor risk scores, and alternative supplier recommendations. (4) Real-time maverick spend detection and automated policy enforcement.',
+    implementationPlan: [
+      { phase: 'Spend Visibility', weeks: 'Weeks 1-5', description: 'Connect AP data from all 4 division ERPs. Build AI spend classification and vendor normalization.' },
+      { phase: 'Consolidation Analysis', weeks: 'Weeks 6-10', description: 'Identify top 50 cross-division consolidation opportunities. Estimate savings per category. Build negotiation playbooks.' },
+      { phase: 'Negotiation Execution', weeks: 'Weeks 11-16', description: 'Execute top 10 consolidation negotiations with AI-supported pricing benchmarks. Track realized savings.' },
+      { phase: 'Continuous Optimization', weeks: 'Weeks 17-20', description: 'Deploy real-time maverick spend detection. Automated contract compliance monitoring. Target $12M annual savings.' },
+    ],
+    risks: [
+      'Division autonomy concerns — GMs may resist centralized procurement mandates',
+      'Spend data normalization across 4 different ERP systems is technically complex',
+      'Vendor consolidation may reduce supply chain resilience — must balance savings with risk',
+    ],
+    dependencies: [
+      'AP data access from all 4 division ERP systems',
+      'Vendor master consolidation for cross-division analysis',
+      'Contract management system for centralized agreement tracking',
+    ],
+  },
+  {
+    name: 'Enterprise Risk Assessment & Monitoring',
+    level: 'human-in-loop',
+    currentFTEs: 4,
+    currentCost: 480_000,
+    volume: '4 divisions, 120+ risk factors monitored',
+    currentTime: '6-8 weeks for annual enterprise risk assessment',
+    aiSolution: 'AI-powered continuous risk monitoring with real-time risk scoring, automated scenario analysis, and early warning indicators across all divisions.',
+    routing: 'Human-in-the-Loop',
+    routingQuote: 'Continuous risk radar instead of annual risk snapshot',
+    costShift: 'Labor $480K → IT $100K + Labor $240K = $140K saved',
+    savings: 140_000,
+    automationPercent: 42,
+    details: '4 risk management staff conducting annual enterprise risk assessment. Static risk register reviewed once per year — too infrequent for dynamic risk environment.',
+    currentProcess: [
+      'Annual risk assessment conducted via workshops with division leadership — 2-day facilitated sessions per division',
+      'Risk register maintained in spreadsheet — 120+ risks across strategic, operational, financial, and compliance categories',
+      'Risk scoring (likelihood x impact) performed subjectively by division leadership during workshop',
+      'Mitigation plans documented but progress tracking is informal — reviewed annually at next workshop',
+      'Board risk reporting compiled manually from risk register data — 6-8 weeks lag from assessment to board presentation',
+    ],
+    bottlenecks: [
+      'Annual assessment cadence: risks emerge and evolve between assessments without detection',
+      'Subjective scoring: same risk receives different ratings from different divisions',
+      'No early warning system: risks materialize without advance indicator detection',
+      'Mitigation tracking is informal — 40% of mitigation plans are overdue with no escalation mechanism',
+    ],
+    aiArchitecture: 'AI risk monitoring: (1) Continuous risk scoring using real-time operational, financial, and market data. (2) Early warning indicator detection using ML models trained on historical risk materialization events. (3) Automated scenario analysis quantifying potential impact across all divisions. (4) Risk mitigation tracking with automated progress monitoring and escalation. Risk officers review AI-generated risk assessments, provide contextual judgment, and advise leadership on mitigation priorities.',
+    implementationPlan: [
+      { phase: 'Risk Data Integration', weeks: 'Weeks 1-5', description: 'Connect operational and financial data sources to risk monitoring platform. Digitize risk register with standardized taxonomy.' },
+      { phase: 'Continuous Scoring', weeks: 'Weeks 6-10', description: 'Deploy AI risk scoring with real-time data inputs. Build early warning indicator models.' },
+      { phase: 'Scenario Analysis', weeks: 'Weeks 11-14', description: 'Build automated scenario analysis engine. Quantify risk impact across portfolio.' },
+      { phase: 'Full Monitoring', weeks: 'Weeks 15-18', description: 'Deploy real-time risk dashboard for board. Automate mitigation tracking and escalation. Continuous risk radar.' },
+    ],
+    risks: [
+      'AI risk scoring may create false sense of precision — risk management inherently involves qualitative judgment',
+      'Real-time risk data requires broad system access — information security and privacy considerations',
+      'Board may over-rely on AI risk scores without understanding model limitations',
+    ],
+    dependencies: [
+      'Operational and financial data feeds from all 4 divisions',
+      'External risk data (market, regulatory, geopolitical, cyber) for comprehensive monitoring',
+      'GRC platform or risk management system for centralized risk register',
+    ],
+  },
+  {
+    name: 'Talent Allocation & Workforce Planning',
+    level: 'human-in-loop',
+    currentFTEs: 5,
+    currentCost: 400_000,
+    volume: '12,000+ employees across 4 divisions',
+    currentTime: '4-6 weeks for annual workforce planning cycle',
+    aiSolution: 'AI-driven workforce planning with skills-based talent matching, predictive attrition modeling, and cross-division talent mobility optimization.',
+    routing: 'Human-in-the-Loop',
+    routingQuote: 'Right talent, right role, right division — AI-matched',
+    costShift: 'Labor $400K → IT $80K + Labor $200K = $120K saved',
+    savings: 120_000,
+    automationPercent: 40,
+    details: '5 HR/talent staff managing workforce planning for 12,000+ employees. Annual planning cycle too slow — critical skills gaps discovered after projects launch.',
+    currentProcess: [
+      'Annual headcount planning driven by budget cycle — divisions submit requests 6 months ahead',
+      'Skills inventory maintained informally by HR business partners — no centralized skills database',
+      'Cross-division talent sharing rare — each division recruits independently even for common roles',
+      'Succession planning performed manually for top 50 leaders — no visibility into broader talent pipeline',
+      'Attrition forecasting based on historical average — no predictive capability for identifying flight risk individuals',
+    ],
+    bottlenecks: [
+      'Critical skills gaps discovered after project launch — no proactive matching of talent to upcoming needs',
+      'No cross-division talent marketplace — employee mobility limited to division-internal postings',
+      'Succession planning covers only top 50 — broader leadership pipeline is opaque',
+      'Attrition surprises: key talent departures not anticipated — average 60-day vacancy after unexpected departure',
+    ],
+    aiArchitecture: 'AI workforce platform: (1) Skills ontology mapping all 12,000+ employees using NLP analysis of resumes, project history, and performance data. (2) Talent-to-project matching engine recommending optimal staffing for upcoming initiatives. (3) Predictive attrition model identifying flight risk employees using engagement, compensation, and career progression signals. (4) Cross-division talent marketplace enabling internal mobility. HR leaders review AI recommendations, manage organizational dynamics, and execute talent strategies.',
+    implementationPlan: [
+      { phase: 'Skills Mapping', weeks: 'Weeks 1-6', description: 'Build enterprise skills ontology. NLP extraction from resumes and project histories across all 4 divisions.' },
+      { phase: 'Attrition Prediction', weeks: 'Weeks 7-12', description: 'Train predictive attrition model on historical turnover data. Deploy flight risk scoring for all employees.' },
+      { phase: 'Talent Marketplace', weeks: 'Weeks 13-18', description: 'Launch cross-division talent marketplace. AI-matched internal mobility recommendations.' },
+      { phase: 'Workforce Optimization', weeks: 'Weeks 19-24', description: 'Deploy project-to-talent matching. Succession planning expansion to top 200 roles. Proactive skills gap identification.' },
+    ],
+    risks: [
+      'Employee data privacy — predictive attrition modeling raises ethical concerns about surveillance',
+      'Division resistance to cross-division talent sharing — GMs may view it as losing their best people',
+      'Skills data quality varies — self-reported skills may not reflect actual capabilities',
+    ],
+    dependencies: [
+      'HRIS data access across all 4 divisions',
+      'Performance management and engagement survey data',
+      'Project management data for talent-to-project matching',
+    ],
+  },
+  {
+    name: 'Board Reporting & Executive Intelligence',
+    level: 'full',
+    currentFTEs: 4,
+    currentCost: 400_000,
+    volume: '12 board meetings/year, 48 executive reports/year',
+    currentTime: '2-3 weeks per board package preparation',
+    aiSolution: 'AI-generated board reporting with real-time dashboards, automated narrative generation, and interactive scenario exploration.',
+    routing: 'Fully Automatable',
+    routingQuote: 'Board-ready intelligence in hours, not weeks',
+    costShift: 'Labor $400K → IT $80K + Labor $120K = $200K saved',
+    savings: 200_000,
+    automationPercent: 75,
+    details: '4 FP&A/strategy staff compiling board packages. 2-3 week preparation cycle means board sees stale data.',
+    currentProcess: [
+      'Financial data collected from 4 division controllers via email 2 weeks before board meeting',
+      'Corporate FP&A manually normalizes and consolidates financial reports into board format',
+      'Operational metrics gathered separately from division operations teams',
+      'Board narrative written by CFO and strategy team — 40+ page PowerPoint deck',
+      'Board questions answered via follow-up memos after meeting — 1-2 week turnaround',
+    ],
+    bottlenecks: [
+      '2-3 week preparation: board data is 3-4 weeks stale at time of meeting',
+      'Manual consolidation errors: 5% of board figures require post-meeting correction',
+      'Static format: 40-page PowerPoint cannot support interactive exploration or ad-hoc analysis',
+      'Post-meeting follow-up: 1-2 week turnaround for board questions delays decision-making',
+    ],
+    aiArchitecture: 'AI board intelligence: (1) Real-time financial and operational data aggregation from all 4 divisions. (2) Automated narrative generation using LLM fine-tuned on company communication style. (3) Interactive dashboard enabling board members to explore data during meetings. (4) AI-powered Q&A allowing instant response to ad-hoc board questions with supporting data. FP&A reviews AI-generated narratives for accuracy and strategic messaging.',
+    implementationPlan: [
+      { phase: 'Data Aggregation', weeks: 'Weeks 1-4', description: 'Connect real-time financial and operational data from all 4 divisions. Build automated consolidation.' },
+      { phase: 'Dashboard Development', weeks: 'Weeks 5-10', description: 'Build interactive board dashboard. Design executive views with drill-down capability.' },
+      { phase: 'Narrative Generation', weeks: 'Weeks 11-14', description: 'Train LLM for automated board narrative generation. Deploy for first board meeting with human review.' },
+      { phase: 'Interactive Intelligence', weeks: 'Weeks 15-18', description: 'Deploy AI Q&A for board meetings. Real-time scenario exploration. Reduce preparation to 2 days.' },
+    ],
+    risks: [
+      'Board members vary in technology comfort — must provide intuitive interface alongside traditional materials',
+      'AI-generated narratives must accurately represent company position — requires careful review',
+      'Data security: board materials are highly sensitive — AI platform must meet highest security standards',
+    ],
+    dependencies: [
+      'Real-time ERP data access from all 4 divisions',
+      'Historical board materials for LLM fine-tuning',
+      'Secure board portal platform with AI capabilities',
+    ],
+  },
+];
+
+// ─── Estonia Government Workflows ────────────────────────────────────────────
+
+const estoniaWorkflows: Workflow[] = [
+  {
+    name: 'Citizen Service Request Processing',
+    level: 'full',
+    currentFTEs: 45,
+    currentCost: 2_700_000,
+    volume: '180,000 service requests/month across all ministries',
+    currentTime: '5-15 business days per request resolution',
+    aiSolution: 'AI-powered citizen service platform with intelligent request routing, automated document processing, and conversational AI for first-line resolution.',
+    routing: 'Fully Automatable',
+    routingQuote: 'AI resolves citizen requests in minutes, not weeks',
+    costShift: 'Labor €2.7M → IT €600K + Labor €900K = €1.2M saved',
+    savings: 1_200_000,
+    automationPercent: 78,
+    details: '45 civil servants processing service requests across ministries. Average 8-day resolution time with significant variance by request type.',
+    currentProcess: [
+      'Citizens submit requests via eesti.ee portal, email, phone, or in-person at service centers',
+      'Requests manually classified and routed to appropriate ministry department — average 2-day routing delay',
+      'Case officer reviews request, gathers required documentation, and processes according to regulations',
+      'Status updates provided only when citizen inquires — no proactive notification system',
+      'Cross-ministry requests require manual coordination between departments — adding 5+ days to resolution',
+    ],
+    bottlenecks: [
+      '2-day routing delay: requests sit in queue before reaching the right department',
+      '35% of requests require additional documentation from citizen — back-and-forth adds average 5 days',
+      'Cross-ministry coordination: 20% of requests span multiple ministries with no automated handoff',
+      'Status tracking: citizens call service center for updates, consuming additional staff time',
+    ],
+    aiArchitecture: 'AI citizen service platform: (1) NLP-powered request classification and routing using X-Road data for intelligent department matching. (2) Conversational AI (Estonian language NLP) handling first-line resolution for common requests. (3) Automated document processing with OCR and data extraction from citizen submissions. (4) Proactive status notifications via eesti.ee and mobile ID. (5) Cross-ministry orchestration engine for multi-department requests using X-Road service bus.',
+    implementationPlan: [
+      { phase: 'Request Classification AI', weeks: 'Weeks 1-6', description: 'Train Estonian NLP models on historical request data. Build intelligent routing engine connected to X-Road.' },
+      { phase: 'Conversational AI Pilot', weeks: 'Weeks 7-14', description: 'Deploy conversational AI for top 20 request types (covering 60% of volume). Estonian and Russian language support.' },
+      { phase: 'Cross-Ministry Orchestration', weeks: 'Weeks 15-20', description: 'Build automated handoff for multi-ministry requests. Deploy proactive citizen notifications.' },
+      { phase: 'Full Deployment', weeks: 'Weeks 21-26', description: 'Expand AI handling to all request types. Target <2 day average resolution. Real-time citizen satisfaction tracking.' },
+    ],
+    risks: [
+      'Estonian language NLP accuracy — must handle Estonian grammar complexity and Russian-language requests',
+      'Citizen trust in AI-processed government decisions — transparency requirements for automated processing',
+      'Data privacy under EU GDPR — AI processing of citizen data requires legal basis and consent management',
+    ],
+    dependencies: [
+      'X-Road infrastructure for cross-ministry data exchange',
+      'eesti.ee portal integration for citizen-facing AI interface',
+      'Population registry and document register access for automated verification',
+    ],
+  },
+  {
+    name: 'Permit Application Processing',
+    level: 'human-in-loop',
+    currentFTEs: 30,
+    currentCost: 1_800_000,
+    volume: '42,000 permit applications/year across ministries',
+    currentTime: '15-45 business days per permit decision',
+    aiSolution: 'AI-assisted permit processing with automated completeness checking, risk-based review routing, and intelligent decision support for permit officers.',
+    routing: 'Human-in-the-Loop',
+    routingQuote: 'AI checks the paperwork, officers make the decisions',
+    costShift: 'Labor €1.8M → IT €400K + Labor €800K = €600K saved',
+    savings: 600_000,
+    automationPercent: 48,
+    details: '30 permit officers across building, environmental, business, and activity permits. Average 25-day processing time with 40% of applications incomplete on submission.',
+    currentProcess: [
+      'Permit application submitted via ministry-specific portals — different systems for building, environmental, business permits',
+      'Permit officer manually reviews application for completeness — 40% returned for additional information',
+      'Technical review performed against regulatory requirements — manual checking of plans, specifications, and compliance',
+      'Cross-ministry consultation required for 30% of permits — initiated via email, average 10-day response time',
+      'Decision documented and permit issued or denied — manual notification to applicant',
+    ],
+    bottlenecks: [
+      '40% incomplete applications: back-and-forth with applicants adds average 12 days to processing',
+      'Manual technical review: permit officers spend 70% of time on routine compliance checking',
+      'Cross-ministry consultation: 10-day average response time for required inter-ministry approvals',
+      'No risk-based routing: simple low-risk permits wait in same queue as complex high-impact applications',
+    ],
+    aiArchitecture: 'AI permit platform: (1) Intelligent application forms with real-time completeness validation and AI-guided document upload. (2) Automated compliance checking against regulatory databases and spatial data (GIS). (3) Risk-based routing — AI classifies permits by complexity and risk, auto-approving low-risk applications. (4) Cross-ministry consultation automation via X-Road with structured review requests and deadline tracking. Permit officers review AI-prepared assessments, handle complex applications, and make final decisions on high-impact permits.',
+    implementationPlan: [
+      { phase: 'Smart Application Forms', weeks: 'Weeks 1-6', description: 'Build intelligent forms with real-time validation. Reduce incomplete submissions by 80%.' },
+      { phase: 'Automated Compliance', weeks: 'Weeks 7-14', description: 'Connect regulatory databases and GIS data. Build automated compliance checking engine.' },
+      { phase: 'Risk-Based Routing', weeks: 'Weeks 15-20', description: 'Deploy AI risk classification. Auto-approve low-risk permits. Route complex permits to senior officers.' },
+      { phase: 'Cross-Ministry Automation', weeks: 'Weeks 21-26', description: 'Automate inter-ministry consultation via X-Road. Track consultation deadlines. Target <10 day average processing.' },
+    ],
+    risks: [
+      'Automated permit approval must comply with administrative law requirements — right of appeal must be preserved',
+      'GIS and spatial data accuracy critical for building and environmental permits — data quality varies by municipality',
+      'Cross-ministry automated routing requires agreement on service levels between ministries',
+    ],
+    dependencies: [
+      'X-Road services for cross-ministry data exchange and consultation',
+      'National GIS and spatial data infrastructure',
+      'Regulatory compliance databases maintained by each ministry',
+    ],
+  },
+  {
+    name: 'Tax Filing & Processing',
+    level: 'full',
+    currentFTEs: 25,
+    currentCost: 1_500_000,
+    volume: '1.3M personal + 200K corporate tax filings/year',
+    currentTime: 'Pre-filled returns: 3 min; Complex returns: 2-4 weeks review',
+    aiSolution: 'AI-enhanced tax processing with expanded pre-fill coverage, anomaly detection for audit targeting, and automated compliance monitoring.',
+    routing: 'Fully Automatable',
+    routingQuote: 'Estonia\'s pre-filled tax returns made even smarter by AI',
+    costShift: 'Labor €1.5M → IT €350K + Labor €500K = €650K saved',
+    savings: 650_000,
+    automationPercent: 85,
+    details: '25 tax officers managing filing processing and audits. Estonia already has world-leading 98% e-filing rate — AI targets remaining manual review and audit processes.',
+    currentProcess: [
+      'Pre-filled tax returns generated from employer, bank, and investment data via X-Road — 98% e-filing rate',
+      'Most personal returns accepted automatically — but 12% require manual review for discrepancies',
+      'Corporate returns reviewed by tax officers — manual verification of deductions, transfers, and compliance',
+      'Audit selection based on simple rules and random sampling — estimated 60% of audits find no significant issues',
+      'VAT compliance monitoring performed via periodic reporting review — real-time monitoring limited',
+    ],
+    bottlenecks: [
+      '12% of personal returns flagged for manual review — many are false positives consuming officer time',
+      'Corporate audit selection: 60% of audits find no issues — poor targeting wastes limited audit resources',
+      'VAT compliance gaps: quarterly monitoring allows 3-month window for VAT fraud before detection',
+      'Cross-border transaction monitoring limited — EU intra-community supplies difficult to verify in real-time',
+    ],
+    aiArchitecture: 'AI tax platform: (1) Expanded pre-fill using AI to incorporate additional data sources (e-commerce platforms, sharing economy, crypto exchanges). (2) ML anomaly detection for audit targeting — replacing rules-based selection with predictive models trained on historical audit outcomes. (3) Real-time VAT compliance monitoring analyzing transaction patterns for fraud indicators. (4) Cross-border verification using EU tax data exchange automation. Tax officers review AI-flagged returns, conduct targeted audits, and handle complex compliance cases.',
+    implementationPlan: [
+      { phase: 'Enhanced Pre-Fill', weeks: 'Weeks 1-6', description: 'Integrate additional data sources into pre-fill system. Reduce manual review rate from 12% to 5%.' },
+      { phase: 'AI Audit Targeting', weeks: 'Weeks 7-14', description: 'Train ML audit selection model on 5 years of audit outcomes. Validate targeting improvement against random sampling baseline.' },
+      { phase: 'VAT Monitoring', weeks: 'Weeks 15-20', description: 'Deploy real-time VAT transaction monitoring. Build fraud pattern detection. Reduce detection window to <7 days.' },
+      { phase: 'Cross-Border AI', weeks: 'Weeks 21-26', description: 'Integrate EU tax data exchange feeds. Automated cross-border transaction verification. Target 80% productive audit rate.' },
+    ],
+    risks: [
+      'Tax data is extremely sensitive — AI processing must comply with strict data protection and taxpayer rights',
+      'ML audit targeting must not discriminate against any demographic groups — fairness auditing required',
+      'EU regulatory framework for automated tax processing still evolving — must maintain flexibility',
+    ],
+    dependencies: [
+      'X-Road connections to expanded data sources (e-commerce, crypto, sharing economy)',
+      'EU tax data exchange (DAC7, DAC8) technical infrastructure',
+      'Historical audit outcome data for ML model training',
+    ],
+  },
+  {
+    name: 'Benefits Enrollment & Social Services',
+    level: 'human-in-loop',
+    currentFTEs: 20,
+    currentCost: 1_200_000,
+    volume: '340,000 benefit applications/year',
+    currentTime: '10-30 business days per benefit determination',
+    aiSolution: 'AI-powered proactive benefits platform with life-event triggered enrollment, automated eligibility determination, and predictive social needs identification.',
+    routing: 'Human-in-the-Loop',
+    routingQuote: 'Government that anticipates citizen needs before they ask',
+    costShift: 'Labor €1.2M → IT €280K + Labor €500K = €420K saved',
+    savings: 420_000,
+    automationPercent: 52,
+    details: '20 case workers processing benefit applications. Estonia\'s "invisible government" vision: proactive service delivery using life events as triggers.',
+    currentProcess: [
+      'Citizen applies for benefits via eesti.ee or service center — must identify which benefits they are eligible for',
+      'Case worker verifies eligibility by checking multiple data sources via X-Road queries',
+      'Documentation requirements vary by benefit type — citizen must provide proof documents for some benefits',
+      'Determination made by case worker following regulatory guidelines — average 15-day processing time',
+      'Benefit payment initiated after approval — separate process for each benefit type',
+    ],
+    bottlenecks: [
+      'Citizens must know which benefits exist and apply for them — estimated 15-20% of eligible benefits unclaimed',
+      'Eligibility verification across multiple data sources is manual — X-Road data available but not automatically analyzed',
+      '15-day average processing: citizens in urgent need wait while application processes through queue',
+      'Each benefit processed independently — no unified view of citizen\'s social support needs',
+    ],
+    aiArchitecture: 'AI proactive benefits: (1) Life-event detection engine monitoring population registry, tax data, and health data via X-Road for triggering events (birth, death, job loss, disability). (2) Automated eligibility determination checking all applicable benefits simultaneously. (3) Proactive citizen notification of benefit entitlements with pre-filled applications. (4) Predictive needs model identifying citizens likely to need social services before crisis. Case workers review complex cases, manage high-need individuals, and provide personalized social support.',
+    implementationPlan: [
+      { phase: 'Life-Event Engine', weeks: 'Weeks 1-8', description: 'Build life-event detection from X-Road data sources. Map benefit eligibility rules for all major benefit programs.' },
+      { phase: 'Proactive Notification', weeks: 'Weeks 9-14', description: 'Deploy proactive benefit notifications for birth-related, job loss, and disability events. Pre-fill applications.' },
+      { phase: 'Automated Determination', weeks: 'Weeks 15-20', description: 'Automate eligibility determination for standard cases. Case workers handle exceptions and complex needs.' },
+      { phase: 'Predictive Social Services', weeks: 'Weeks 21-26', description: 'Deploy needs prediction model. Proactive outreach to at-risk citizens. Unified social support dashboard.' },
+    ],
+    risks: [
+      'Proactive benefits requires sensitive life-event monitoring — must balance service with privacy rights',
+      'Automated eligibility determination must be legally defensible — citizens have right to appeal automated decisions',
+      'Predictive social needs model risks stigmatization — must be used for positive outreach, not profiling',
+    ],
+    dependencies: [
+      'X-Road access to population registry, tax, health, and employment data',
+      'Digital notification infrastructure via eesti.ee and mobile ID',
+      'Social benefits regulatory rules database for all benefit programs',
+    ],
+  },
+  {
+    name: 'Business Registration & Compliance',
+    level: 'full',
+    currentFTEs: 12,
+    currentCost: 720_000,
+    volume: '28,000 new registrations + 120,000 compliance filings/year',
+    currentTime: '18 min average registration (already world-leading), 5-10 days for complex filings',
+    aiSolution: 'AI-enhanced business registry with instant registration, automated compliance monitoring, and proactive regulatory guidance for businesses.',
+    routing: 'Fully Automatable',
+    routingQuote: 'Register a company in minutes, stay compliant automatically',
+    costShift: 'Labor €720K → IT €160K + Labor €240K = €320K saved',
+    savings: 320_000,
+    automationPercent: 82,
+    details: '12 registry officers managing registrations and compliance. Estonia\'s 18-minute registration is world-leading — AI targets compliance monitoring and complex filings.',
+    currentProcess: [
+      'Business registration via e-Business Register portal — 18-minute average for standard registrations',
+      'Complex registrations (foreign owners, regulated industries) require manual review — 5-10 days',
+      'Annual report filing: 200K businesses file annual reports — 12% require manual review for compliance',
+      'Beneficial ownership verification performed manually for AML compliance',
+      'Regulatory change notifications sent to businesses via generic newsletters — low engagement rate',
+    ],
+    bottlenecks: [
+      'Complex registrations: 15% of applications require manual review delaying registration by 5-10 days',
+      'Annual report compliance: 18% of businesses file late, requiring manual follow-up and penalty processing',
+      'Beneficial ownership verification for AML: manual process cannot keep pace with ownership change volume',
+      'Regulatory guidance: businesses unaware of compliance requirements until they receive penalties',
+    ],
+    aiArchitecture: 'AI business registry: (1) Automated complex registration handling using AI analysis of ownership structures, industry regulations, and international entity verification. (2) AI-powered annual report review with automated compliance checking and materiality assessment. (3) Real-time beneficial ownership monitoring using X-Road corporate data with AML risk scoring. (4) Proactive regulatory guidance chatbot providing business-specific compliance information.',
+    implementationPlan: [
+      { phase: 'Complex Registration AI', weeks: 'Weeks 1-6', description: 'Build AI analysis for complex ownership structures. Automate international entity verification. Reduce complex processing to <2 days.' },
+      { phase: 'Compliance Monitoring', weeks: 'Weeks 7-12', description: 'Deploy AI annual report review. Automated compliance checking. Proactive filing reminders.' },
+      { phase: 'AML Enhancement', weeks: 'Weeks 13-18', description: 'Build real-time beneficial ownership monitoring. AML risk scoring for all registered entities.' },
+      { phase: 'Proactive Guidance', weeks: 'Weeks 19-24', description: 'Deploy regulatory guidance chatbot. Business-specific compliance calendar. Reduce late filings by 50%.' },
+    ],
+    risks: [
+      'Automated registration decisions must comply with EU company law directives',
+      'AML risk scoring must not create discriminatory outcomes against legitimate businesses from certain jurisdictions',
+      'Chatbot regulatory guidance must be accurate — incorrect advice could expose government to liability',
+    ],
+    dependencies: [
+      'e-Business Register platform integration',
+      'X-Road access to international company registries for verification',
+      'EU Anti-Money Laundering Directive compliance framework',
+    ],
+  },
+  {
+    name: 'Digital ID Issuance & Authentication',
+    level: 'full',
+    currentFTEs: 15,
+    currentCost: 900_000,
+    volume: '1.34M active eID cards, 400K mobile ID users',
+    currentTime: '5 business days for physical ID issuance',
+    aiSolution: 'AI-enhanced digital identity with biometric verification, fraud detection, and seamless cross-border authentication under eIDAS.',
+    routing: 'Fully Automatable',
+    routingQuote: 'Secure digital identity at the speed of light',
+    costShift: 'Labor €900K → IT €200K + Labor €300K = €400K saved',
+    savings: 400_000,
+    automationPercent: 75,
+    details: '15 staff managing ID issuance and authentication infrastructure. Estonia\'s eID is foundational to all digital services — AI enhances security and user experience.',
+    currentProcess: [
+      'eID card application processed at PPA service points — biometric data captured in person',
+      'Identity verification performed manually against population registry and existing documents',
+      'Card produced at central facility and mailed to citizen — 5-day turnaround',
+      'Authentication infrastructure (eID, mobile ID, Smart-ID) monitored by technical team',
+      'Fraud detection relies on manual review of suspicious authentication patterns',
+    ],
+    bottlenecks: [
+      '5-day physical ID turnaround: citizens without valid ID cannot access digital services during wait',
+      'Manual identity verification: bottleneck at service points during peak periods (elections, ID expiration waves)',
+      'Fraud detection lag: suspicious patterns identified hours or days after occurrence',
+      'Cross-border authentication: eIDAS technical integration with other EU member states is complex and manual',
+    ],
+    aiArchitecture: 'AI digital identity platform: (1) AI-powered biometric verification reducing in-person processing time. (2) Real-time fraud detection using ML models analyzing authentication patterns, device fingerprints, and behavioral biometrics. (3) Automated identity proofing for remote issuance of digital credentials (reducing physical visit requirements). (4) Cross-border authentication automation under eIDAS with AI-powered identity matching across EU registries.',
+    implementationPlan: [
+      { phase: 'Biometric AI', weeks: 'Weeks 1-6', description: 'Deploy AI-enhanced biometric verification. Reduce identity verification time at service points by 60%.' },
+      { phase: 'Fraud Detection', weeks: 'Weeks 7-12', description: 'Build real-time authentication fraud detection. Deploy ML models for anomaly detection on 48M monthly events.' },
+      { phase: 'Remote Issuance', weeks: 'Weeks 13-18', description: 'Enable remote identity proofing for credential renewal. Reduce physical visit requirements.' },
+      { phase: 'eIDAS Automation', weeks: 'Weeks 19-24', description: 'Automate cross-border authentication under eIDAS. AI-powered identity matching with EU member state registries.' },
+    ],
+    risks: [
+      'Digital identity is national security critical — AI must not introduce vulnerabilities into authentication infrastructure',
+      'Biometric data handling under GDPR requires strict purpose limitation and storage controls',
+      'Remote identity proofing must meet EU eIDAS high assurance level requirements',
+    ],
+    dependencies: [
+      'Population registry biometric data access',
+      'Authentication log infrastructure for fraud detection training (48M events/month)',
+      'EU eIDAS node connectivity for cross-border authentication',
+    ],
+  },
+  {
+    name: 'Inter-Ministry Data Sharing & X-Road Governance',
+    level: 'human-in-loop',
+    currentFTEs: 10,
+    currentCost: 600_000,
+    volume: '1.2B X-Road transactions/year, 900+ data services',
+    currentTime: '4-8 weeks for new data service onboarding',
+    aiSolution: 'AI-optimized data governance with automated service cataloging, intelligent access management, and performance optimization for X-Road infrastructure.',
+    routing: 'Human-in-the-Loop',
+    routingQuote: 'AI governs the data highway that powers digital Estonia',
+    costShift: 'Labor €600K → IT €140K + Labor €280K = €180K saved',
+    savings: 180_000,
+    automationPercent: 42,
+    details: '10 X-Road governance staff managing 900+ data services and 1.2B annual transactions. Service onboarding takes 4-8 weeks — limiting innovation speed.',
+    currentProcess: [
+      'Ministry requests new X-Road data service — formal application with data model, access requirements, and security assessment',
+      'X-Road governance team reviews application against data protection and security policies',
+      'Technical onboarding performed by ministry IT team with X-Road team support — configuration, testing, certification',
+      'Access management: each consuming ministry must request access to each data service individually',
+      'Performance monitoring via dashboards — but no automated capacity planning or optimization',
+    ],
+    bottlenecks: [
+      '4-8 week service onboarding: ministries build workarounds while waiting for X-Road access',
+      'Manual access management: 900+ services x multiple consuming ministries = thousands of access decisions',
+      'No automated data quality monitoring — consuming ministries discover data issues through application errors',
+      'Capacity planning is reactive — performance degradation during peak usage periods',
+    ],
+    aiArchitecture: 'AI X-Road governance: (1) Automated service cataloging with AI-generated data dictionaries and impact assessments. (2) ML-based access management recommending appropriate data access based on ministry function and existing patterns. (3) Real-time data quality monitoring with automated alerting for schema changes and data anomalies. (4) Predictive capacity management using traffic pattern analysis for proactive scaling. Governance team reviews AI access recommendations, handles complex policy decisions, and drives data architecture strategy.',
+    implementationPlan: [
+      { phase: 'Service Cataloging', weeks: 'Weeks 1-5', description: 'Build AI-powered service catalog for all 900+ data services. Auto-generate data dictionaries and usage documentation.' },
+      { phase: 'Smart Access Management', weeks: 'Weeks 6-12', description: 'Deploy ML-based access recommendation engine. Streamline access approval workflow. Reduce onboarding to <2 weeks.' },
+      { phase: 'Data Quality Monitoring', weeks: 'Weeks 13-18', description: 'Deploy real-time data quality monitoring across all X-Road services. Automated alerting for anomalies.' },
+      { phase: 'Predictive Infrastructure', weeks: 'Weeks 19-24', description: 'Build predictive capacity management. Auto-scaling based on traffic patterns. Ensure 99.99% availability target.' },
+    ],
+    risks: [
+      'X-Road is critical national infrastructure — AI changes must not impact availability or security',
+      'Automated access management must comply with data protection regulations — cannot grant access without proper legal basis',
+      'Some ministries may resist automated governance of their data services',
+    ],
+    dependencies: [
+      'X-Road monitoring infrastructure for performance data',
+      'Data protection regulation database for automated compliance checking',
+      'Ministry IT team coordination for service onboarding improvements',
+    ],
+  },
+  {
+    name: 'Public Procurement & E-Tendering',
+    level: 'full',
+    currentFTEs: 18,
+    currentCost: 1_080_000,
+    volume: '12,000 tenders/year, €4.2B total procurement value',
+    currentTime: '30-90 days per procurement cycle',
+    aiSolution: 'AI-powered procurement with automated tender generation, intelligent bid evaluation, and predictive market analysis for optimal procurement strategy.',
+    routing: 'Fully Automatable',
+    routingQuote: 'Transparent, efficient public procurement at digital speed',
+    costShift: 'Labor €1.08M → IT €240K + Labor €400K = €440K saved',
+    savings: 440_000,
+    automationPercent: 72,
+    details: '18 procurement officers across ministries managing €4.2B in annual procurement. Manual processes add 15-20 days to average procurement cycle.',
+    currentProcess: [
+      'Procurement need identified by ministry — specification written manually in compliance with Public Procurement Act',
+      'Tender documents prepared and published on e-Procurement portal — 2-3 weeks for document preparation',
+      'Bids received electronically and evaluated manually against published criteria — 1-2 weeks for evaluation',
+      'Contract awarded and published — administrative review period of 14 days per regulation',
+      'Contract execution monitoring performed via periodic reporting — limited real-time performance tracking',
+    ],
+    bottlenecks: [
+      'Tender document preparation: 2-3 weeks of manual work for each procurement — often similar to previous tenders',
+      'Bid evaluation: manual scoring of technical and financial criteria is time-intensive for large tenders (50+ bids)',
+      'No market intelligence: procurement officers lack data on market pricing, vendor capacity, and optimal tender timing',
+      'Contract monitoring is passive: performance issues discovered through missed deliverables rather than proactive tracking',
+    ],
+    aiArchitecture: 'AI procurement platform: (1) Automated tender generation using templates from similar historical procurements with AI-optimized specifications. (2) AI bid evaluation assistants scoring technical proposals against criteria with consistency and speed. (3) Market intelligence engine analyzing vendor databases, pricing trends, and competition patterns. (4) Smart contract monitoring with automated performance tracking and early warning for delivery risks. Procurement officers review AI evaluations, handle strategic vendor relationships, and manage high-value complex procurements.',
+    implementationPlan: [
+      { phase: 'Tender Automation', weeks: 'Weeks 1-6', description: 'Build AI tender generation from historical templates. Reduce document preparation from 3 weeks to 3 days.' },
+      { phase: 'Bid Evaluation AI', weeks: 'Weeks 7-14', description: 'Deploy AI-assisted bid evaluation for technical proposals. Human review for final scoring. Ensure EU directive compliance.' },
+      { phase: 'Market Intelligence', weeks: 'Weeks 15-20', description: 'Build procurement market intelligence dashboard. Optimal timing and market analysis for major tenders.' },
+      { phase: 'Contract Monitoring', weeks: 'Weeks 21-26', description: 'Deploy automated contract performance monitoring. Early warning for delivery risks. Target 20-day cycle reduction.' },
+    ],
+    risks: [
+      'EU Public Procurement Directives require specific evaluation procedures — AI must comply with transparency and equal treatment',
+      'AI bid evaluation must be auditable and non-discriminatory — essential for administrative review challenges',
+      'Market intelligence must not facilitate anti-competitive behavior or bid-rigging detection evasion',
+    ],
+    dependencies: [
+      'e-Procurement portal integration for tender publication and bid management',
+      'Historical procurement database for AI template generation',
+      'EU procurement regulations compliance framework',
+    ],
+  },
+];
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Company-Specific Recommendations ────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// ─── Oakwood Insurance Recommendations ───────────────────────────────────────
+
+const oakwoodRecommendations: Recommendation[] = [
+  {
+    current: {
+      name: 'Guidewire ClaimCenter',
+      cost: 1_800_000,
+      users: 280,
+      score: 4,
+      description: 'Legacy Guidewire ClaimCenter deployment (v9) handling P&C claims across all lines. Limited AI integration — all claim triage, assignment, and settlement performed manually. No NLP for document processing. Settlement recommendations based on adjuster experience rather than data analytics. Mobile capabilities limited to basic status lookup.',
+    },
+    recommended: {
+      name: 'AI-Native Claims Platform',
+      cost: 1_200_000,
+      description: 'Modern AI-native claims platform with NLP-powered FNOL processing, computer vision for damage assessment, ML-based fraud detection at intake, and AI-recommended settlement ranges. Mobile-first with field adjuster tools including photo AI damage estimation. Real-time claims analytics and automated compliance reporting across all state jurisdictions.',
+    },
+    annualSavings: 600_000,
+  },
+  {
+    current: {
+      name: 'Legacy Underwriting Workbench',
+      cost: 680_000,
+      users: 45,
+      score: 3,
+      description: 'Custom-built underwriting workbench from 2015 with manual risk assessment workflow. No predictive modeling — underwriters rely on experience and basic rating manuals. Data enrichment (credit, MVR, property) requires manual ordering. Inconsistent pricing across underwriters with 15% variance on comparable risks. No portfolio-level view for book management.',
+    },
+    recommended: {
+      name: 'AI Underwriting Engine',
+      cost: 420_000,
+      description: 'AI-powered underwriting platform with automated data enrichment, ML risk scoring trained on 10 years of loss data, and portfolio optimization. Instant decisioning for low-complexity risks. AI copilot for complex risks providing pricing recommendations with consistency enforcement. Real-time portfolio analytics showing impact of each decision on book composition and profitability.',
+    },
+    annualSavings: 260_000,
+  },
+  {
+    current: {
+      name: 'Manual Fraud Review Process',
+      cost: 540_000,
+      users: 6,
+      score: 2,
+      description: 'SIU team using manual red flag checklists and adjuster referrals for fraud detection. No systematic pattern analysis across claims. Investigation dossiers compiled manually. Only 3% of claims referred to SIU — industry estimates 10-15% have fraudulent elements. Estimated $4.2M in annual undetected fraud leakage based on industry benchmarks.',
+    },
+    recommended: {
+      name: 'ML Fraud Detection Network',
+      cost: 280_000,
+      description: 'Graph neural network fraud detection platform analyzing claimant-provider-attorney relationships across entire portfolio. Real-time fraud scoring at FNOL before any payment. NLP analysis of claim narratives for scripted fraud indicators. Social network analysis identifying organized fraud rings. Automated investigation dossier generation for SIU. Expected fraud recovery improvement of $2.1M annually.',
+    },
+    annualSavings: 260_000,
+  },
+  {
+    current: {
+      name: 'Spreadsheet Reinsurance Analysis',
+      cost: 320_000,
+      users: 4,
+      score: 2,
+      description: 'Reinsurance portfolio management using Excel spreadsheets for exposure aggregation, cession modeling, and bordereau preparation. Exposure analysis takes 2 weeks per renewal. Limited scenario testing due to manual calculation constraints. No real-time catastrophe exposure monitoring. Bordereau preparation consumes 1 FTE full-time.',
+    },
+    recommended: {
+      name: 'AI Reinsurance Optimization Platform',
+      cost: 180_000,
+      description: 'AI-powered reinsurance management with real-time exposure aggregation from policy admin and claims systems. Monte Carlo simulation for optimal cession structure modeling. Market intelligence tracking reinsurer pricing and capacity. Automated bordereau generation. Real-time catastrophe exposure monitoring with automated aggregate tracking.',
+    },
+    annualSavings: 140_000,
+  },
+];
+
+// ─── Pinnacle Healthcare Recommendations ─────────────────────────────────────
+
+const pinnacleRecommendations: Recommendation[] = [
+  {
+    current: {
+      name: 'Legacy EHR System',
+      cost: 480_000,
+      users: 85,
+      score: 3,
+      description: 'On-premise EHR system installed in 2016 with limited interoperability. No FHIR API support. Clinical documentation requires manual entry — providers spend 2 hours/day after-hours on documentation. No integration with patient engagement tools. Reporting limited to pre-built reports with no custom analytics. HL7v2 interfaces only, requiring custom point-to-point integrations for every connected system.',
+    },
+    recommended: {
+      name: 'Cloud-Native EHR with AI',
+      cost: 320_000,
+      description: 'Modern cloud-native EHR with FHIR R4 API, ambient AI documentation, and integrated patient engagement. Providers dictate notes via AI ambient listening — auto-generated SOAP notes reduce after-hours documentation by 80%. Native telehealth, patient portal, and mobile access. Open API ecosystem for rapid integration with specialty tools. Population health analytics built-in.',
+    },
+    annualSavings: 160_000,
+  },
+  {
+    current: {
+      name: 'Paper Fax Referral System',
+      cost: 180_000,
+      users: 30,
+      score: 2,
+      description: 'Referral management via fax machines and phone calls. Referral orders printed from EHR, clinical notes manually assembled, and faxed to specialist offices. No confirmation of receipt — estimated 15% of referrals lost in fax transmission. 35% of referrals never completed by patients with zero tracking or follow-up. Specialist consultation notes received back via fax with poor OCR quality.',
+    },
+    recommended: {
+      name: 'AI Digital Referral Exchange',
+      cost: 60_000,
+      description: 'Electronic referral network with AI-powered specialist matching based on clinical need, insurance network, and quality outcomes. Automated clinical documentation assembly and transmission. Patient engagement with scheduling assistance and reminders. Closed-loop tracking ensuring consultation completion and note receipt. Analytics on referral patterns and specialist performance.',
+    },
+    annualSavings: 120_000,
+  },
+  {
+    current: {
+      name: 'Manual Medical Coding',
+      cost: 420_000,
+      users: 6,
+      score: 3,
+      description: 'Medical coding performed by certified coders reviewing clinical documentation after each encounter. Average 8 minutes per encounter with 12% first-pass denial rate due to coding errors or insufficient documentation. Coding queries bounce between coders and providers adding 3 days per encounter. Documentation improvement (CDI) performed reactively after coding — not integrated into clinical workflow.',
+    },
+    recommended: {
+      name: 'AI-Assisted Coding Engine',
+      cost: 180_000,
+      description: 'AI-powered medical coding with NLP analysis of clinical documentation for automated ICD-10 and CPT code suggestion. Real-time CDI prompts during documentation — improving code accuracy at the source. Automated claim scrubbing before submission with predictive denial prevention. AI validates coding accuracy against clinical evidence, reducing first-pass denials to <5%. Coders review AI suggestions for complex cases only.',
+    },
+    annualSavings: 240_000,
+  },
+  {
+    current: {
+      name: 'Manual Prior Authorization',
+      cost: 420_000,
+      users: 6,
+      score: 2,
+      description: 'Prior authorization processed manually — staff identifies payer requirements, assembles clinical documentation, and submits via fax (55%) or payer portals (35%). Average 45 minutes per request with 30% initial denial rate. Status tracking via manual follow-up calls with average 3 calls per request. Appeals prepared manually at 2 hours each. Patients wait average 5 business days for authorization.',
+    },
+    recommended: {
+      name: 'AI Prior Auth Automation',
+      cost: 120_000,
+      description: 'Automated prior authorization with payer-specific rule engine, AI-powered clinical documentation assembly from EHR data, and electronic submission via X12 278 transactions. Real-time status tracking eliminates follow-up calls. Automated appeal generation for denials. Target 85% first-pass approval rate and <24-hour turnaround for standard authorizations.',
+    },
+    annualSavings: 300_000,
+  },
+];
+
+// ─── Atlas Manufacturing Recommendations ─────────────────────────────────────
+
+const atlasRecommendations: Recommendation[] = [
+  {
+    current: {
+      name: 'Legacy MES Systems',
+      cost: 680_000,
+      users: 120,
+      score: 3,
+      description: 'Three different MES platforms across 4 OpCos — one using a system from 2011. Limited IoT integration. Production data entered manually at end of shift. No real-time OEE visibility — calculated weekly from manual reports. SPC charts maintained on paper. No integration with ERP for automated production reporting.',
+    },
+    recommended: {
+      name: 'Cloud MES with AI Analytics',
+      cost: 420_000,
+      description: 'Unified cloud MES platform across all 4 OpCos with real-time IoT data collection from production equipment. AI-powered OEE optimization with automated downtime analysis and root cause identification. Digital SPC with real-time out-of-control detection. Predictive maintenance integration. Automated production reporting to ERP. Mobile dashboards for floor supervisors.',
+    },
+    annualSavings: 260_000,
+  },
+  {
+    current: {
+      name: 'Paper Quality Logs',
+      cost: 280_000,
+      users: 14,
+      score: 2,
+      description: 'Quality inspection data recorded on paper forms at inspection stations. Data entered into QMS spreadsheets at end of shift — 4-8 hour delay for SPC response. No automated defect detection. 2.8% defect escape rate costing $890K/year in customer returns. Root cause analysis manual and averages 5 days. No traceability from customer complaint back to production conditions.',
+    },
+    recommended: {
+      name: 'Digital QMS with Computer Vision',
+      cost: 140_000,
+      description: 'Digital quality management with tablet-based inspection forms, computer vision automated inspection at key stations, and real-time SPC dashboards. AI defect detection trained on historical defect images. Automated root cause analysis linking defects to production parameters. Full traceability from complaint to production lot, shift, and machine settings. Target <1% defect escape rate.',
+    },
+    annualSavings: 140_000,
+  },
+  {
+    current: {
+      name: 'Spreadsheet Inventory Management',
+      cost: 420_000,
+      users: 6,
+      score: 2,
+      description: 'Inventory managed via ERP min/max settings reviewed annually with supplemental Excel tracking. Static reorder points cause simultaneous stockouts (12%) and $6.8M excess inventory. No demand forecasting beyond historical averages. No cross-OpCo inventory visibility. Cycle count accuracy at 97% — insufficient for lean operations. Annual physical inventory costs $180K in labor.',
+    },
+    recommended: {
+      name: 'AI Inventory Optimization',
+      cost: 180_000,
+      description: 'AI-driven inventory management with ML demand forecasting using sales history, economic indicators, and customer signals. Dynamic safety stock adjusting for lead time variability and service targets. Cross-OpCo inventory visibility with automated transfer recommendations. Predictive obsolescence identification. Target: 7+ inventory turns, <3% stockout rate, $4M excess inventory reduction.',
+    },
+    annualSavings: 240_000,
+  },
+  {
+    current: {
+      name: 'Calendar-Based Maintenance',
+      cost: 640_000,
+      users: 8,
+      score: 3,
+      description: 'Preventive maintenance on fixed calendar intervals using basic CMMS. 35% of PM performed unnecessarily while 12% of failures are still unplanned. No IoT sensor data from equipment. Work order scheduling manual. Parts availability unknown until technician arrives at machine — 18% of WOs delayed. Unplanned downtime accounts for 12% of production time ($3.2M annual impact).',
+    },
+    recommended: {
+      name: 'AI Predictive Maintenance Platform',
+      cost: 320_000,
+      description: 'IoT-connected predictive maintenance with vibration, temperature, and power sensors on critical assets. ML models predict equipment degradation 2-4 weeks before failure. Automated work order generation with parts pre-staging. Maintenance schedule optimization balancing predictive, preventive, and production schedules. Target: 50% reduction in unplanned downtime, 25% reduction in maintenance costs.',
+    },
+    annualSavings: 320_000,
+  },
+];
+
+// ─── Northbridge Industries Group Recommendations ────────────────────────────
+
+const northbridgeRecommendations: Recommendation[] = [
+  {
+    current: {
+      name: 'Siloed Division ERPs',
+      cost: 4_200_000,
+      users: 2_400,
+      score: 3,
+      description: 'Four different ERP systems across divisions — SAP (Aerospace), Oracle (Energy), NetSuite (Financial Services), and Sage (Health). No unified chart of accounts. Month-end consolidation requires 15-day close process with manual journal entries. No cross-division reporting without external consultants. $4.2M combined annual cost for 4 separate licensing, hosting, and support contracts.',
+    },
+    recommended: {
+      name: 'Unified ERP Platform with AI',
+      cost: 2_800_000,
+      description: 'Unified cloud ERP with multi-subsidiary architecture supporting all 4 divisions on shared infrastructure. Automated intercompany eliminations and real-time consolidation — reducing close to 3 days. AI-powered financial forecasting and anomaly detection. Cross-division analytics and KPI dashboards. Shared services model for common functions. Maintained division-specific modules for industry requirements.',
+    },
+    annualSavings: 1_400_000,
+  },
+  {
+    current: {
+      name: 'Manual Compliance Processes',
+      cost: 1_000_000,
+      users: 10,
+      score: 2,
+      description: 'Compliance managed via spreadsheets across 4 different regulatory regimes — FAA (Aerospace), FERC/NERC (Energy), SEC/FINRA (Financial Services), and FDA/CMS (Health). 180+ requirements tracked manually. Quarterly control testing via sampling. Regulatory change monitoring through newsletter subscriptions. 60% of compliance team capacity consumed by report preparation. Board sees fragmented compliance picture.',
+    },
+    recommended: {
+      name: 'Automated GRC Platform',
+      cost: 500_000,
+      description: 'AI-powered GRC platform with unified compliance requirements mapping across all 4 regulatory regimes. Continuous control monitoring replacing quarterly sampling. AI regulatory change detection scanning 200+ sources with automated impact assessment. Automated compliance report generation for board and regulators. Real-time compliance dashboards per division. Risk-based testing prioritization.',
+    },
+    annualSavings: 500_000,
+  },
+  {
+    current: {
+      name: 'Legacy Treasury Management',
+      cost: 480_000,
+      users: 8,
+      score: 3,
+      description: 'Treasury operations using spreadsheets and basic banking portals across 4 divisions. Cash position compiled manually each morning from separate bank accounts. No cash flow forecasting beyond simple trend projection. FX exposure managed reactively. Intercompany lending tracked in Excel. No automated payment factory — each division processes payments independently.',
+    },
+    recommended: {
+      name: 'Modern AI-Powered TMS',
+      cost: 280_000,
+      description: 'Cloud treasury management system with real-time cash visibility across all divisions and bank accounts. ML-powered cash flow forecasting with 95%+ accuracy at 30-day horizon. Automated FX hedging recommendations. Centralized payment factory with fraud detection. Intercompany netting and settlement automation. Working capital optimization analytics.',
+    },
+    annualSavings: 200_000,
+  },
+  {
+    current: {
+      name: 'Spreadsheet Strategic Planning',
+      cost: 600_000,
+      users: 8,
+      score: 2,
+      description: 'Strategic planning and portfolio analysis performed in PowerPoint and Excel. Quarterly data aggregation takes 3-4 weeks. No real-time competitive intelligence. Portfolio rebalancing analysis uses external consultants at $500K per engagement. Strategic initiative tracking via quarterly review meetings. Board materials prepared manually with 2-3 week lead time.',
+    },
+    recommended: {
+      name: 'AI Strategic Intelligence Platform',
+      cost: 320_000,
+      description: 'AI-powered strategic planning with real-time portfolio analytics from all 4 division ERPs. Competitive intelligence monitoring using NLP on news, filings, and market data. Monte Carlo scenario modeling for capital allocation. AI-generated board materials with real-time data. Strategic initiative tracking with automated progress assessment. Replace $500K annual consulting spend.',
+    },
+    annualSavings: 280_000,
+  },
+  {
+    current: {
+      name: 'No Data Lake',
+      cost: 0,
+      users: 0,
+      score: 1,
+      description: 'Zero unified data infrastructure across 4 divisions. Each division operates independent data silos with different ERPs, CRMs, and operational systems. Cross-division reporting requires manual data pulls taking 3-4 weeks. No ability to train ML models on enterprise-wide data. Every AI initiative blocked by lack of unified data layer. Estimated $8.2M in workflow automation savings cannot be realized without data infrastructure.',
+    },
+    recommended: {
+      name: 'Enterprise Data Lakehouse',
+      cost: 480_000,
+      description: 'Enterprise Databricks Lakehouse connecting all 4 divisions with Delta Lake for ACID transactions. Unity Catalog for cross-division data governance. Real-time data pipelines from all ERPs, CRMs, and operational systems. MLflow for enterprise ML model lifecycle management. Foundation for all AI initiatives on the roadmap — prerequisite for 78% of planned automation projects.',
+    },
+    annualSavings: 1_800_000,
+  },
+];
+
+// ─── Estonia Government Recommendations ──────────────────────────────────────
+
+const estoniaRecommendations: Recommendation[] = [
+  {
+    current: {
+      name: 'Legacy Case Management Systems',
+      cost: 2_400_000,
+      users: 180,
+      score: 3,
+      description: 'Multiple legacy case management systems across ministries — some dating to 2008. No unified citizen view across services. Case routing is manual. Document processing requires manual data entry. Cross-ministry cases require phone/email coordination. Average 8-day resolution for citizen service requests. 180,000 requests/month across all ministries with 20% requiring multi-ministry coordination.',
+    },
+    recommended: {
+      name: 'AI-Native Citizen Service Platform',
+      cost: 1_400_000,
+      description: 'Unified AI-native citizen service platform built on X-Road with NLP-powered request classification and routing. Conversational AI (Estonian + Russian) handling first-line resolution for 60% of common requests. Automated document processing with OCR and data extraction. Cross-ministry orchestration for multi-department requests. Proactive citizen notifications. Target: <2-day average resolution time.',
+    },
+    annualSavings: 1_000_000,
+  },
+  {
+    current: {
+      name: 'Manual Document Processing',
+      cost: 1_200_000,
+      users: 85,
+      score: 2,
+      description: 'Government document processing across ministries relies on manual review and data entry. 42,000 permit applications, 340,000 benefit applications, and 12,000 procurement tenders processed annually — each requiring manual document review. OCR quality on scanned documents averages 82% accuracy, requiring manual correction. Cross-referencing citizen data across systems requires manual X-Road queries. Average document processing time: 12 minutes per document.',
+    },
+    recommended: {
+      name: 'AI Document Extraction & Processing',
+      cost: 480_000,
+      description: 'AI-powered document processing platform with advanced OCR (99%+ accuracy for Estonian/Russian text), intelligent data extraction from structured and unstructured documents, automated cross-referencing via X-Road, and smart validation against regulatory requirements. Handles all document types: permits, benefits applications, tax filings, procurement bids. Reduces manual processing by 80%.',
+    },
+    annualSavings: 720_000,
+  },
+  {
+    current: {
+      name: 'Rules-Based Tax Processing',
+      cost: 1_500_000,
+      users: 25,
+      score: 5,
+      description: 'Estonia\'s tax system is already world-leading with 98% e-filing and pre-filled returns. However, audit targeting uses simple rules and random sampling — 60% of audits find no significant issues. VAT compliance monitoring is periodic rather than real-time. Cross-border transaction verification is manual. Corporate return review requires officer judgment for deductions and transfer pricing.',
+    },
+    recommended: {
+      name: 'AI-Enhanced Tax Intelligence',
+      cost: 900_000,
+      description: 'AI layer on top of existing tax infrastructure: ML audit targeting trained on historical outcomes (target 80% productive audit rate), real-time VAT transaction monitoring for fraud detection, cross-border verification automation via EU data exchange, and AI-assisted corporate return review for complex deductions and transfer pricing. Preserves Estonia\'s world-leading e-filing while adding predictive intelligence.',
+    },
+    annualSavings: 600_000,
+  },
+  {
+    current: {
+      name: 'Manual Procurement Review',
+      cost: 1_080_000,
+      users: 18,
+      score: 3,
+      description: 'Public procurement officers manually prepare tender documents (2-3 weeks each), evaluate bids against criteria, and monitor contract performance. 12,000 tenders/year worth €4.2B. Tender preparation is largely repetitive — similar specifications for similar procurements. Bid evaluation is manual and time-intensive for large tenders. No market intelligence for optimal procurement strategy.',
+    },
+    recommended: {
+      name: 'AI Procurement Platform',
+      cost: 640_000,
+      description: 'AI-powered public procurement with template-based tender generation from historical procurements (3 weeks to 3 days), AI-assisted bid evaluation for technical proposals, market intelligence for pricing and competition analysis, and automated contract performance monitoring. Fully compliant with EU Public Procurement Directives. Smart contract monitoring with early warning for delivery risks.',
+    },
+    annualSavings: 440_000,
+  },
+];
+
+// ═══════════════════════════════════════════════════════════════════════════════
 // ─── Company Data Lookup Maps ──────────────────────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -4385,6 +7127,54 @@ const companyWorkflowSummaries: Record<string, typeof workflowSummary> = {
   'ee-ria': eeRiaWorkflowSummary,
 };
 
+const companyWorkflowsMap: Record<string, Workflow[]> = {
+  meridian: workflows,
+  hcc: workflows,
+  hrsi: workflows,
+  hsi: workflows,
+  hti: workflows,
+  htsi: workflows,
+  he: workflows,
+  gg: workflows,
+  oakwood: oakwoodWorkflows,
+  pinnacle: pinnacleWorkflows,
+  atlas: atlasWorkflows,
+  northbridge: northbridgeWorkflows,
+  'nb-aerospace': northbridgeWorkflows,
+  'nb-energy': northbridgeWorkflows,
+  'nb-financial': northbridgeWorkflows,
+  'nb-health': northbridgeWorkflows,
+  estonia: estoniaWorkflows,
+  'ee-finance': estoniaWorkflows,
+  'ee-social': estoniaWorkflows,
+  'ee-economic': estoniaWorkflows,
+  'ee-ria': estoniaWorkflows,
+};
+
+const companyRecommendationsMap: Record<string, Recommendation[]> = {
+  meridian: recommendations,
+  hcc: recommendations,
+  hrsi: recommendations,
+  hsi: recommendations,
+  hti: recommendations,
+  htsi: recommendations,
+  he: recommendations,
+  gg: recommendations,
+  oakwood: oakwoodRecommendations,
+  pinnacle: pinnacleRecommendations,
+  atlas: atlasRecommendations,
+  northbridge: northbridgeRecommendations,
+  'nb-aerospace': northbridgeRecommendations,
+  'nb-energy': northbridgeRecommendations,
+  'nb-financial': northbridgeRecommendations,
+  'nb-health': northbridgeRecommendations,
+  estonia: estoniaRecommendations,
+  'ee-finance': estoniaRecommendations,
+  'ee-social': estoniaRecommendations,
+  'ee-economic': estoniaRecommendations,
+  'ee-ria': estoniaRecommendations,
+};
+
 const companyRoiSummaries: Record<string, typeof roiSummary> = {
   meridian: roiSummary,
   hcc: hccRoiSummary,
@@ -4418,6 +7208,19 @@ const companyAiAgents: Record<string, AIAgent[]> = {
   htsi: htsiAiAgents,
   he: heAiAgents,
   gg: ggAiAgents,
+  oakwood: oakwoodAiAgents,
+  pinnacle: pinnacleAiAgents,
+  atlas: atlasAiAgents,
+  northbridge: northbridgeAiAgents,
+  'nb-aerospace': nbAerospaceAiAgents,
+  'nb-energy': nbEnergyAiAgents,
+  'nb-financial': nbFinancialAiAgents,
+  'nb-health': nbHealthAiAgents,
+  estonia: estoniaAiAgents,
+  'ee-finance': eeFinanceAiAgents,
+  'ee-social': eeSocialAiAgents,
+  'ee-economic': eeEconomicAiAgents,
+  'ee-ria': eeRiaAiAgents,
 };
 
 const companyDataSources: Record<string, IntegrationDataSource[]> = {
@@ -4429,6 +7232,19 @@ const companyDataSources: Record<string, IntegrationDataSource[]> = {
   htsi: htsiDataSources,
   he: heDataSources,
   gg: ggDataSources,
+  oakwood: oakwoodDataSources,
+  pinnacle: pinnacleDataSources,
+  atlas: atlasDataSources,
+  northbridge: northbridgeDataSources,
+  'nb-aerospace': nbAerospaceDataSources,
+  'nb-energy': nbEnergyDataSources,
+  'nb-financial': nbFinancialDataSources,
+  'nb-health': nbHealthDataSources,
+  estonia: estoniaDataSources,
+  'ee-finance': eeFinanceDataSources,
+  'ee-social': eeSocialDataSources,
+  'ee-economic': eeEconomicDataSources,
+  'ee-ria': eeRiaDataSources,
 };
 
 const companyVendorHealth: Record<string, IntegrationVendorHealth[]> = {
@@ -4440,6 +7256,19 @@ const companyVendorHealth: Record<string, IntegrationVendorHealth[]> = {
   htsi: htsiVendorHealth,
   he: heVendorHealth,
   gg: ggVendorHealth,
+  oakwood: oakwoodVendorHealth,
+  pinnacle: pinnacleVendorHealth,
+  atlas: atlasVendorHealth,
+  northbridge: northbridgeVendorHealth,
+  'nb-aerospace': nbAerospaceVendorHealth,
+  'nb-energy': nbEnergyVendorHealth,
+  'nb-financial': nbFinancialVendorHealth,
+  'nb-health': nbHealthVendorHealth,
+  estonia: estoniaVendorHealth,
+  'ee-finance': eeFinanceVendorHealth,
+  'ee-social': eeSocialVendorHealth,
+  'ee-economic': eeEconomicVendorHealth,
+  'ee-ria': eeRiaVendorHealth,
 };
 
 const companyFailureModes: Record<string, IntegrationFailureMode[]> = {
@@ -4451,6 +7280,19 @@ const companyFailureModes: Record<string, IntegrationFailureMode[]> = {
   htsi: htsiFailureModes,
   he: heFailureModes,
   gg: ggFailureModes,
+  oakwood: oakwoodFailureModes,
+  pinnacle: pinnacleFailureModes,
+  atlas: atlasFailureModes,
+  northbridge: northbridgeFailureModes,
+  'nb-aerospace': nbAerospaceFailureModes,
+  'nb-energy': nbEnergyFailureModes,
+  'nb-financial': nbFinancialFailureModes,
+  'nb-health': nbHealthFailureModes,
+  estonia: estoniaFailureModes,
+  'ee-finance': eeFinanceFailureModes,
+  'ee-social': eeSocialFailureModes,
+  'ee-economic': eeEconomicFailureModes,
+  'ee-ria': eeRiaFailureModes,
 };
 
 const companyMethodologySteps: Record<string, IntegrationMethodologyStep[]> = {
@@ -4462,6 +7304,19 @@ const companyMethodologySteps: Record<string, IntegrationMethodologyStep[]> = {
   htsi: htsiMethodologySteps,
   he: heMethodologySteps,
   gg: ggMethodologySteps,
+  oakwood: oakwoodMethodologySteps,
+  pinnacle: pinnacleMethodologySteps,
+  atlas: atlasMethodologySteps,
+  northbridge: northbridgeMethodologySteps,
+  'nb-aerospace': nbAerospaceMethodologySteps,
+  'nb-energy': nbEnergyMethodologySteps,
+  'nb-financial': nbFinancialMethodologySteps,
+  'nb-health': nbHealthMethodologySteps,
+  estonia: estoniaMethodologySteps,
+  'ee-finance': eeFinanceMethodologySteps,
+  'ee-social': eeSocialMethodologySteps,
+  'ee-economic': eeEconomicMethodologySteps,
+  'ee-ria': eeRiaMethodologySteps,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -4498,6 +7353,14 @@ export function getLicenses(companyId: CompanyId) {
 
 export function getWorkflowSummary(companyId: CompanyId) {
   return companyWorkflowSummaries[companyId] ?? companyWorkflowSummaries.meridian;
+}
+
+export function getWorkflows(companyId: CompanyId): Workflow[] {
+  return companyWorkflowsMap[companyId] ?? companyWorkflowsMap.meridian;
+}
+
+export function getRecommendations(companyId: CompanyId): Recommendation[] {
+  return companyRecommendationsMap[companyId] ?? companyRecommendationsMap.meridian;
 }
 
 export function getRoiSummary(companyId: CompanyId) {

@@ -62,254 +62,973 @@ interface CompanyData {
   automations: Automation[];
 }
 
-// ─── Division Data ─────────────────────────────────────────────────────────
+// ─── Per-Company Division Data ──────────────────────────────────────────────
 
-const divisions: CompanyData[] = [
-  {
-    name: 'IC Construction Corp',
-    industry: 'Rail & Highway Construction',
-    employees: 1200,
+const divisionsByCompany: Record<string, CompanyData[]> = {
+  /* ── IndustrialsCo (meridian) ─────────────────────────────────────────── */
+  meridian: [
+    {
+      name: 'IC Construction Corp',
+      industry: 'Rail & Highway Construction',
+      employees: 1200,
+      aiScoreBefore: 32,
+      aiScoreAfter: 78,
+      totalSavings: '$2.1M/yr',
+      metrics: [
+        { label: 'License Waste Reduced', value: '68%', trend: 68, trendPositive: true, sparkline: [10, 20, 30, 40, 50, 60, 68] },
+        { label: 'Workflows Automated', value: '22', trend: 100, trendPositive: true, sparkline: [0, 3, 6, 10, 14, 18, 22] },
+        { label: 'Equipment Utilization', value: '82%', trend: 34, trendPositive: true, sparkline: [61, 65, 69, 73, 77, 80, 82] },
+        { label: 'Project Estimation Speed', value: '2.5x', trend: 150, trendPositive: true, sparkline: [1, 1.3, 1.6, 1.9, 2.1, 2.3, 2.5] },
+        { label: 'Dispatch Efficiency', value: '+42%', trend: 42, trendPositive: true, sparkline: [0, 8, 16, 24, 30, 36, 42] },
+        { label: 'Subcontractor Compliance', value: '96%', trend: 33, trendPositive: true, sparkline: [72, 76, 80, 84, 88, 92, 96] },
+      ],
+      savings: [
+        { category: 'License Reclamation', amount: 980 },
+        { category: 'Project Estimation AI', amount: 520 },
+        { category: 'Equipment Dispatch', amount: 380 },
+        { category: 'Paving Automation', amount: 220 },
+      ],
+      beforeAfter: [
+        { label: 'License Utilization', before: '32%', after: '92%' },
+        { label: 'Project Estimation', before: '2 weeks', after: '3 days' },
+        { label: 'Equipment Idle Rate', before: '18%', after: '6%' },
+        { label: 'Manual Workflows', before: '78%', after: '22%' },
+      ],
+      automations: [
+        { name: 'License Reclamation Engine', status: 'live', department: 'IT' },
+        { name: 'GPS Fleet Intelligence', status: 'live', department: 'Operations' },
+        { name: 'AI Project Estimation', status: 'piloting', department: 'Estimating' },
+        { name: 'Paving Operations Automation', status: 'planned', department: 'Field Ops' },
+      ],
+    },
+    {
+      name: 'IC Rail Services',
+      industry: 'Railroad Maintenance & Equipment',
+      employees: 380,
+      aiScoreBefore: 36,
+      aiScoreAfter: 80,
+      totalSavings: '$820K/yr',
+      metrics: [
+        { label: 'Maintenance Scheduling', value: 'AI-driven', trend: 100, trendPositive: true, sparkline: [0, 15, 32, 50, 68, 85, 100] },
+        { label: 'Car Repair Tracking', value: 'Digital', trend: 100, trendPositive: true, sparkline: [0, 20, 40, 60, 75, 90, 100] },
+        { label: 'License Waste Reduced', value: '62%', trend: 62, trendPositive: true, sparkline: [8, 18, 28, 38, 48, 56, 62] },
+        { label: 'Crew Idle Time', value: '-18%', trend: -18, trendPositive: true, sparkline: [22, 20, 18, 15, 12, 8, 4] },
+        { label: 'Equipment Uptime', value: '94%', trend: 18, trendPositive: true, sparkline: [76, 80, 84, 87, 90, 92, 94] },
+        { label: 'Leasing Optimization', value: '$200K saved', trend: 100, trendPositive: true, sparkline: [0, 30, 60, 100, 140, 170, 200] },
+      ],
+      savings: [
+        { category: 'Maintenance AI', amount: 240 },
+        { category: 'License Reclamation', amount: 200 },
+        { category: 'Car Repair Tracking', amount: 180 },
+        { category: 'Leasing Optimization', amount: 200 },
+      ],
+      beforeAfter: [
+        { label: 'Maintenance Planning', before: 'Manual/weekly', after: 'AI real-time' },
+        { label: 'Car Repair Records', before: 'Paper-based', after: 'Digital + AI' },
+        { label: 'License Utilization', before: '38%', after: '90%' },
+        { label: 'Crew Idle Time', before: '22%', after: '4%' },
+      ],
+      automations: [
+        { name: 'AI Maintenance Scheduler', status: 'live', department: 'Maintenance' },
+        { name: 'Digital Car Repair Tracking', status: 'live', department: 'Operations' },
+        { name: 'Predictive Equipment Maintenance', status: 'piloting', department: 'Fleet' },
+        { name: 'AI Leasing Demand Forecast', status: 'planned', department: 'Management' },
+      ],
+    },
+    {
+      name: 'IC Testing Services',
+      industry: 'Ultrasonic Rail Testing',
+      employees: 220,
+      aiScoreBefore: 42,
+      aiScoreAfter: 84,
+      totalSavings: '$680K/yr',
+      metrics: [
+        { label: 'Defect Detection Rate', value: '99%', trend: 8.8, trendPositive: true, sparkline: [91, 93, 95, 96, 97, 98, 99] },
+        { label: 'False Positive Rate', value: '11%', trend: -67.6, trendPositive: true, sparkline: [34, 28, 22, 18, 14, 12, 11] },
+        { label: 'FRA Reporting', value: 'Automated', trend: 100, trendPositive: true, sparkline: [0, 18, 36, 54, 72, 88, 100] },
+        { label: 'Track-Miles/Day', value: '100', trend: 25, trendPositive: true, sparkline: [80, 84, 88, 92, 95, 98, 100] },
+        { label: 'Analyst Review Time', value: '-79%', trend: -79, trendPositive: true, sparkline: [210, 160, 120, 90, 65, 50, 45] },
+        { label: 'LIDAR Utilization', value: '85%', trend: 85, trendPositive: true, sparkline: [5, 18, 32, 48, 62, 74, 85] },
+      ],
+      savings: [
+        { category: 'AI Defect Detection', amount: 280 },
+        { category: 'License Reclamation', amount: 140 },
+        { category: 'FRA Reporting Automation', amount: 120 },
+        { category: 'LIDAR Ballast Analysis', amount: 140 },
+      ],
+      beforeAfter: [
+        { label: 'Defect Detection', before: '91%', after: '99%' },
+        { label: 'False Positive Rate', before: '34%', after: '11%' },
+        { label: 'Analyst Time/Segment', before: '3.5 hours', after: '45 minutes' },
+        { label: 'LIDAR Analysis', before: 'Unused', after: '85% automated' },
+      ],
+      automations: [
+        { name: 'AI Track Defect Detection', status: 'live', department: 'Rail Testing' },
+        { name: 'Automated FRA Reporting', status: 'live', department: 'Compliance' },
+        { name: 'LIDAR Ballast Analysis', status: 'piloting', department: 'Engineering' },
+        { name: 'Predictive Degradation Models', status: 'planned', department: 'Analytics' },
+      ],
+    },
+    {
+      name: 'IC Technologies',
+      industry: 'Signal & PTC Systems',
+      employees: 310,
+      aiScoreBefore: 48,
+      aiScoreAfter: 86,
+      totalSavings: '$740K/yr',
+      metrics: [
+        { label: 'PTC System Monitoring', value: 'Real-time', trend: 100, trendPositive: true, sparkline: [0, 18, 36, 54, 72, 88, 100] },
+        { label: 'Signal Design Speed', value: '2.1x', trend: 110, trendPositive: true, sparkline: [1, 1.2, 1.4, 1.6, 1.8, 2.0, 2.1] },
+        { label: 'License Waste Reduced', value: '65%', trend: 65, trendPositive: true, sparkline: [8, 18, 28, 38, 48, 58, 65] },
+        { label: 'GIS Data Quality', value: '98%', trend: 22, trendPositive: true, sparkline: [80, 84, 88, 92, 94, 96, 98] },
+        { label: 'Project Estimation', value: '+35% accuracy', trend: 35, trendPositive: true, sparkline: [0, 5, 12, 18, 24, 30, 35] },
+        { label: 'Compliance Automation', value: '88%', trend: 88, trendPositive: true, sparkline: [5, 18, 32, 48, 62, 76, 88] },
+      ],
+      savings: [
+        { category: 'License Reclamation', amount: 220 },
+        { category: 'PTC Data Integration', amount: 200 },
+        { category: 'Signal Design AI', amount: 180 },
+        { category: 'GIS Automation', amount: 140 },
+      ],
+      beforeAfter: [
+        { label: 'PTC Monitoring', before: 'Batch reports', after: 'Real-time AI' },
+        { label: 'Signal Design Time', before: '6 weeks', after: '2.5 weeks' },
+        { label: 'License Utilization', before: '48%', after: '92%' },
+        { label: 'GIS Data Entry', before: 'Manual', after: 'Auto-ingest' },
+      ],
+      automations: [
+        { name: 'PTC Performance Monitoring', status: 'live', department: 'Engineering' },
+        { name: 'AI Signal Design Assistant', status: 'live', department: 'Design' },
+        { name: 'GIS Auto-Ingest Pipeline', status: 'piloting', department: 'GIS' },
+        { name: 'Digital Twin Signal Corridors', status: 'planned', department: 'Engineering' },
+      ],
+    },
+    {
+      name: 'IC Transit Services',
+      industry: 'Passenger Rail Operations',
+      employees: 480,
+      aiScoreBefore: 40,
+      aiScoreAfter: 82,
+      totalSavings: '$860K/yr',
+      metrics: [
+        { label: 'Schedule Optimization', value: '+28% efficiency', trend: 28, trendPositive: true, sparkline: [0, 4, 8, 14, 18, 24, 28] },
+        { label: 'Vehicle Uptime', value: '96%', trend: 14, trendPositive: true, sparkline: [82, 84, 87, 90, 92, 94, 96] },
+        { label: 'License Waste Reduced', value: '72%', trend: 72, trendPositive: true, sparkline: [5, 16, 28, 40, 52, 64, 72] },
+        { label: 'Passenger Satisfaction', value: '+18%', trend: 18, trendPositive: true, sparkline: [0, 3, 6, 9, 12, 15, 18] },
+        { label: 'Energy Efficiency', value: '+12%', trend: 12, trendPositive: true, sparkline: [0, 2, 4, 6, 8, 10, 12] },
+        { label: 'Delay Prediction', value: '92% accuracy', trend: 92, trendPositive: true, sparkline: [20, 36, 52, 66, 78, 86, 92] },
+      ],
+      savings: [
+        { category: 'Schedule Optimization', amount: 280 },
+        { category: 'License Reclamation', amount: 240 },
+        { category: 'Predictive Maintenance', amount: 200 },
+        { category: 'Passenger Analytics', amount: 140 },
+      ],
+      beforeAfter: [
+        { label: 'Schedule Planning', before: 'Manual/weekly', after: 'AI real-time' },
+        { label: 'Vehicle Downtime', before: '18%', after: '4%' },
+        { label: 'License Utilization', before: '40%', after: '92%' },
+        { label: 'Delay Notification', before: 'Reactive', after: 'Predictive AI' },
+      ],
+      automations: [
+        { name: 'AI Transit Scheduler', status: 'live', department: 'Operations' },
+        { name: 'Predictive Vehicle Maintenance', status: 'live', department: 'Maintenance' },
+        { name: 'Passenger Flow Analytics', status: 'piloting', department: 'Planning' },
+        { name: 'Energy Optimization AI', status: 'planned', department: 'Operations' },
+      ],
+    },
+    {
+      name: 'IC Energy',
+      industry: 'Energy Infrastructure',
+      employees: 120,
+      aiScoreBefore: 34,
+      aiScoreAfter: 76,
+      totalSavings: '$360K/yr',
+      metrics: [
+        { label: 'Project Mgmt', value: 'Digital', trend: 100, trendPositive: true, sparkline: [0, 18, 36, 54, 72, 88, 100] },
+        { label: 'Compliance Automation', value: '82%', trend: 82, trendPositive: true, sparkline: [5, 16, 30, 44, 58, 70, 82] },
+        { label: 'License Waste Reduced', value: '58%', trend: 58, trendPositive: true, sparkline: [5, 14, 24, 34, 42, 50, 58] },
+        { label: 'Equipment Tracking', value: 'Real-time', trend: 100, trendPositive: true, sparkline: [0, 15, 32, 50, 68, 85, 100] },
+        { label: 'Cost Estimation', value: '+22% accuracy', trend: 22, trendPositive: true, sparkline: [0, 4, 8, 12, 16, 19, 22] },
+        { label: 'Resource Sharing', value: '15% of fleet', trend: 15, trendPositive: true, sparkline: [0, 2, 4, 7, 10, 12, 15] },
+      ],
+      savings: [
+        { category: 'Project Digitization', amount: 120 },
+        { category: 'License Reclamation', amount: 100 },
+        { category: 'Compliance Automation', amount: 80 },
+        { category: 'Equipment Tracking', amount: 60 },
+      ],
+      beforeAfter: [
+        { label: 'Project Tracking', before: 'Spreadsheets', after: 'Procore + AI' },
+        { label: 'Compliance', before: 'Manual checklists', after: '82% automated' },
+        { label: 'License Utilization', before: '34%', after: '88%' },
+        { label: 'Equipment Visibility', before: 'End-of-day', after: 'Real-time GPS' },
+      ],
+      automations: [
+        { name: 'Procore Project Management', status: 'live', department: 'Projects' },
+        { name: 'Compliance Auto-Tracking', status: 'live', department: 'Compliance' },
+        { name: 'AI Cost Estimation', status: 'piloting', department: 'Estimating' },
+        { name: 'Cross-Division Resource Share', status: 'planned', department: 'Operations' },
+      ],
+    },
+    {
+      name: 'IC Environmental LLC',
+      industry: 'Environmental Services',
+      employees: 90,
+      aiScoreBefore: 30,
+      aiScoreAfter: 72,
+      totalSavings: '$240K/yr',
+      metrics: [
+        { label: 'Compliance Automation', value: '78%', trend: 78, trendPositive: true, sparkline: [5, 16, 28, 42, 56, 68, 78] },
+        { label: 'Waste Routing', value: 'AI-optimized', trend: 100, trendPositive: true, sparkline: [0, 18, 36, 54, 72, 88, 100] },
+        { label: 'License Waste Reduced', value: '55%', trend: 55, trendPositive: true, sparkline: [5, 12, 22, 32, 40, 48, 55] },
+        { label: 'Field Inspections', value: 'Mobile', trend: 100, trendPositive: true, sparkline: [0, 20, 40, 60, 75, 90, 100] },
+        { label: 'Report Generation', value: '-65% time', trend: -65, trendPositive: true, sparkline: [100, 82, 68, 55, 45, 38, 35] },
+        { label: 'Sensor Monitoring', value: '24/7 AI', trend: 100, trendPositive: true, sparkline: [0, 15, 32, 50, 68, 85, 100] },
+      ],
+      savings: [
+        { category: 'Compliance Automation', amount: 120 },
+        { category: 'License Reclamation', amount: 60 },
+        { category: 'Waste Logistics AI', amount: 60 },
+      ],
+      beforeAfter: [
+        { label: 'Compliance Records', before: 'Paper files', after: 'Digital + AI alerts' },
+        { label: 'Waste Routing', before: 'Manual planning', after: 'AI-optimized' },
+        { label: 'License Utilization', before: '30%', after: '86%' },
+        { label: 'Field Inspections', before: 'Paper forms', after: 'Mobile app + GPS' },
+      ],
+      automations: [
+        { name: 'Environmental Compliance Engine', status: 'live', department: 'Compliance' },
+        { name: 'AI Waste Logistics Routing', status: 'live', department: 'Operations' },
+        { name: 'Predictive Environmental Risk', status: 'piloting', department: 'Compliance' },
+        { name: 'Automated EPA Reporting', status: 'planned', department: 'Compliance' },
+      ],
+    },
+  ],
 
-    aiScoreBefore: 32,
-    aiScoreAfter: 78,
-    totalSavings: '$2.1M/yr',
-    metrics: [
-      { label: 'License Waste Reduced', value: '68%', trend: 68, trendPositive: true, sparkline: [10, 20, 30, 40, 50, 60, 68] },
-      { label: 'Workflows Automated', value: '22', trend: 100, trendPositive: true, sparkline: [0, 3, 6, 10, 14, 18, 22] },
-      { label: 'Equipment Utilization', value: '82%', trend: 34, trendPositive: true, sparkline: [61, 65, 69, 73, 77, 80, 82] },
-      { label: 'Project Estimation Speed', value: '2.5x', trend: 150, trendPositive: true, sparkline: [1, 1.3, 1.6, 1.9, 2.1, 2.3, 2.5] },
-      { label: 'Dispatch Efficiency', value: '+42%', trend: 42, trendPositive: true, sparkline: [0, 8, 16, 24, 30, 36, 42] },
-      { label: 'Subcontractor Compliance', value: '96%', trend: 33, trendPositive: true, sparkline: [72, 76, 80, 84, 88, 92, 96] },
-    ],
-    savings: [
-      { category: 'License Reclamation', amount: 980 },
-      { category: 'Project Estimation AI', amount: 520 },
-      { category: 'Equipment Dispatch', amount: 380 },
-      { category: 'Paving Automation', amount: 220 },
-    ],
-    beforeAfter: [
-      { label: 'License Utilization', before: '32%', after: '92%' },
-      { label: 'Project Estimation', before: '2 weeks', after: '3 days' },
-      { label: 'Equipment Idle Rate', before: '18%', after: '6%' },
-      { label: 'Manual Workflows', before: '78%', after: '22%' },
-    ],
-    automations: [
-      { name: 'License Reclamation Engine', status: 'live', department: 'IT' },
-      { name: 'GPS Fleet Intelligence', status: 'live', department: 'Operations' },
-      { name: 'AI Project Estimation', status: 'piloting', department: 'Estimating' },
-      { name: 'Paving Operations Automation', status: 'planned', department: 'Field Ops' },
-    ],
-  },
-  {
-    name: 'IC Rail Services',
-    industry: 'Railroad Maintenance & Equipment',
-    employees: 380,
+  /* ── Oakwood Insurance Group (departments) ────────────────────────────── */
+  oakwood: [
+    {
+      name: 'Claims Operations',
+      industry: 'Insurance — Claims',
+      employees: 280,
+      aiScoreBefore: 28,
+      aiScoreAfter: 74,
+      totalSavings: '$1.8M/yr',
+      metrics: [
+        { label: 'Claims Processing Time', value: '-62%', trend: -62, trendPositive: true, sparkline: [14, 12, 10, 8, 7, 6, 5.3] },
+        { label: 'Loss Ratio', value: '58%', trend: -12, trendPositive: true, sparkline: [66, 64, 63, 61, 60, 59, 58] },
+        { label: 'Customer Satisfaction', value: '92%', trend: 24, trendPositive: true, sparkline: [74, 78, 82, 85, 88, 90, 92] },
+        { label: 'Fraud Detection Rate', value: '94%', trend: 38, trendPositive: true, sparkline: [68, 74, 80, 84, 88, 91, 94] },
+        { label: 'Auto-Adjudication', value: '71%', trend: 71, trendPositive: true, sparkline: [5, 18, 30, 42, 54, 64, 71] },
+        { label: 'First-Contact Resolution', value: '88%', trend: 22, trendPositive: true, sparkline: [72, 75, 78, 81, 84, 86, 88] },
+      ],
+      savings: [
+        { category: 'Claims Auto-Adjudication', amount: 820 },
+        { category: 'Fraud Detection AI', amount: 480 },
+        { category: 'Process Automation', amount: 320 },
+        { category: 'Customer Self-Service', amount: 180 },
+      ],
+      beforeAfter: [
+        { label: 'Claims Processing', before: '14 days', after: '5.3 days' },
+        { label: 'Loss Ratio', before: '66%', after: '58%' },
+        { label: 'Fraud Detection', before: '68%', after: '94%' },
+        { label: 'Manual Review Rate', before: '85%', after: '29%' },
+      ],
+      automations: [
+        { name: 'AI Claims Triage & Routing', status: 'live', department: 'Claims' },
+        { name: 'Fraud Pattern Detection', status: 'live', department: 'SIU' },
+        { name: 'Automated Damage Assessment', status: 'piloting', department: 'Claims' },
+        { name: 'Predictive Loss Modeling', status: 'planned', department: 'Actuarial' },
+      ],
+    },
+    {
+      name: 'Underwriting',
+      industry: 'Insurance — Underwriting',
+      employees: 180,
+      aiScoreBefore: 35,
+      aiScoreAfter: 80,
+      totalSavings: '$1.2M/yr',
+      metrics: [
+        { label: 'Quote Turnaround', value: '-55%', trend: -55, trendPositive: true, sparkline: [48, 40, 34, 28, 24, 22, 21.6] },
+        { label: 'Risk Accuracy', value: '96%', trend: 18, trendPositive: true, sparkline: [81, 84, 87, 90, 93, 95, 96] },
+        { label: 'Submission Intake', value: 'AI-driven', trend: 100, trendPositive: true, sparkline: [0, 18, 36, 54, 72, 88, 100] },
+        { label: 'Loss Ratio Improvement', value: '-8pts', trend: -8, trendPositive: true, sparkline: [66, 64, 63, 62, 61, 60, 58] },
+        { label: 'Bind Rate', value: '+14%', trend: 14, trendPositive: true, sparkline: [32, 34, 36, 38, 40, 43, 46] },
+        { label: 'Portfolio Mix Score', value: '88', trend: 22, trendPositive: true, sparkline: [72, 75, 78, 81, 84, 86, 88] },
+      ],
+      savings: [
+        { category: 'AI Underwriting Assist', amount: 480 },
+        { category: 'Submission Automation', amount: 340 },
+        { category: 'Risk Model Enhancement', amount: 240 },
+        { category: 'Portfolio Optimization', amount: 140 },
+      ],
+      beforeAfter: [
+        { label: 'Quote Turnaround', before: '48 hours', after: '21.6 hours' },
+        { label: 'Risk Assessment', before: 'Manual scoring', after: 'AI + ML models' },
+        { label: 'Submission Processing', before: '3 hours each', after: '45 min each' },
+        { label: 'Bind Rate', before: '32%', after: '46%' },
+      ],
+      automations: [
+        { name: 'AI Risk Scoring Engine', status: 'live', department: 'Underwriting' },
+        { name: 'Automated Submission Intake', status: 'live', department: 'Operations' },
+        { name: 'Portfolio Mix Optimizer', status: 'piloting', department: 'Strategy' },
+        { name: 'Real-time Catastrophe Pricing', status: 'planned', department: 'Actuarial' },
+      ],
+    },
+    {
+      name: 'Policy Administration',
+      industry: 'Insurance — Policy Admin',
+      employees: 160,
+      aiScoreBefore: 30,
+      aiScoreAfter: 72,
+      totalSavings: '$640K/yr',
+      metrics: [
+        { label: 'Policy Issuance Time', value: '-48%', trend: -48, trendPositive: true, sparkline: [7.2, 6.4, 5.6, 5, 4.4, 4, 3.7] },
+        { label: 'Data Entry Errors', value: '-82%', trend: -82, trendPositive: true, sparkline: [12, 9, 7, 5, 3.5, 2.5, 2.2] },
+        { label: 'Endorsement Automation', value: '65%', trend: 65, trendPositive: true, sparkline: [5, 14, 24, 36, 48, 58, 65] },
+        { label: 'Renewal Retention', value: '91%', trend: 8, trendPositive: true, sparkline: [84, 85, 87, 88, 89, 90, 91] },
+        { label: 'Compliance Score', value: '98%', trend: 12, trendPositive: true, sparkline: [88, 90, 92, 94, 95, 97, 98] },
+        { label: 'Customer Portal Adoption', value: '74%', trend: 74, trendPositive: true, sparkline: [8, 20, 32, 44, 56, 66, 74] },
+      ],
+      savings: [
+        { category: 'Policy Automation', amount: 260 },
+        { category: 'Error Reduction', amount: 180 },
+        { category: 'Self-Service Portal', amount: 120 },
+        { category: 'Renewal Automation', amount: 80 },
+      ],
+      beforeAfter: [
+        { label: 'Policy Issuance', before: '7.2 days', after: '3.7 days' },
+        { label: 'Data Entry Errors', before: '12%', after: '2.2%' },
+        { label: 'Compliance Score', before: '88%', after: '98%' },
+        { label: 'Renewal Retention', before: '84%', after: '91%' },
+      ],
+      automations: [
+        { name: 'Automated Policy Issuance', status: 'live', department: 'Policy Admin' },
+        { name: 'AI Endorsement Processing', status: 'live', department: 'Operations' },
+        { name: 'Predictive Renewal Engine', status: 'piloting', department: 'Retention' },
+        { name: 'Regulatory Compliance Monitor', status: 'planned', department: 'Compliance' },
+      ],
+    },
+    {
+      name: 'CRM & Distribution',
+      industry: 'Insurance — Distribution',
+      employees: 180,
+      aiScoreBefore: 26,
+      aiScoreAfter: 70,
+      totalSavings: '$520K/yr',
+      metrics: [
+        { label: 'Agent Onboarding', value: '-40%', trend: -40, trendPositive: true, sparkline: [30, 26, 24, 22, 20, 19, 18] },
+        { label: 'Lead Conversion', value: '+32%', trend: 32, trendPositive: true, sparkline: [14, 16, 18, 20, 22, 24, 26] },
+        { label: 'Cross-Sell Rate', value: '28%', trend: 75, trendPositive: true, sparkline: [16, 18, 20, 22, 24, 26, 28] },
+        { label: 'Agent Satisfaction', value: '86%', trend: 18, trendPositive: true, sparkline: [73, 76, 78, 80, 82, 84, 86] },
+        { label: 'Quote Response Time', value: '-58%', trend: -58, trendPositive: true, sparkline: [24, 20, 16, 14, 12, 11, 10] },
+        { label: 'Digital Channel Share', value: '44%', trend: 44, trendPositive: true, sparkline: [12, 18, 24, 30, 35, 40, 44] },
+      ],
+      savings: [
+        { category: 'Lead Scoring AI', amount: 200 },
+        { category: 'Agent Productivity', amount: 160 },
+        { category: 'Cross-Sell Engine', amount: 100 },
+        { category: 'Digital Distribution', amount: 60 },
+      ],
+      beforeAfter: [
+        { label: 'Agent Onboarding', before: '30 days', after: '18 days' },
+        { label: 'Lead Conversion', before: '14%', after: '26%' },
+        { label: 'Quote Response', before: '24 hours', after: '10 hours' },
+        { label: 'Digital Channel Share', before: '12%', after: '44%' },
+      ],
+      automations: [
+        { name: 'AI Lead Scoring', status: 'live', department: 'Sales' },
+        { name: 'Automated Agent Portal', status: 'live', department: 'Distribution' },
+        { name: 'Cross-Sell Recommendation Engine', status: 'piloting', department: 'Marketing' },
+        { name: 'AI Chatbot for Agents', status: 'planned', department: 'Support' },
+      ],
+    },
+  ],
 
-    aiScoreBefore: 36,
-    aiScoreAfter: 80,
-    totalSavings: '$820K/yr',
-    metrics: [
-      { label: 'Maintenance Scheduling', value: 'AI-driven', trend: 100, trendPositive: true, sparkline: [0, 15, 32, 50, 68, 85, 100] },
-      { label: 'Car Repair Tracking', value: 'Digital', trend: 100, trendPositive: true, sparkline: [0, 20, 40, 60, 75, 90, 100] },
-      { label: 'License Waste Reduced', value: '62%', trend: 62, trendPositive: true, sparkline: [8, 18, 28, 38, 48, 56, 62] },
-      { label: 'Crew Idle Time', value: '-18%', trend: -18, trendPositive: true, sparkline: [22, 20, 18, 15, 12, 8, 4] },
-      { label: 'Equipment Uptime', value: '94%', trend: 18, trendPositive: true, sparkline: [76, 80, 84, 87, 90, 92, 94] },
-      { label: 'Leasing Optimization', value: '$200K saved', trend: 100, trendPositive: true, sparkline: [0, 30, 60, 100, 140, 170, 200] },
-    ],
-    savings: [
-      { category: 'Maintenance AI', amount: 240 },
-      { category: 'License Reclamation', amount: 200 },
-      { category: 'Car Repair Tracking', amount: 180 },
-      { category: 'Leasing Optimization', amount: 200 },
-    ],
-    beforeAfter: [
-      { label: 'Maintenance Planning', before: 'Manual/weekly', after: 'AI real-time' },
-      { label: 'Car Repair Records', before: 'Paper-based', after: 'Digital + AI' },
-      { label: 'License Utilization', before: '38%', after: '90%' },
-      { label: 'Crew Idle Time', before: '22%', after: '4%' },
-    ],
-    automations: [
-      { name: 'AI Maintenance Scheduler', status: 'live', department: 'Maintenance' },
-      { name: 'Digital Car Repair Tracking', status: 'live', department: 'Operations' },
-      { name: 'Predictive Equipment Maintenance', status: 'piloting', department: 'Fleet' },
-      { name: 'AI Leasing Demand Forecast', status: 'planned', department: 'Management' },
-    ],
-  },
-  {
-    name: 'IC Testing Services',
-    industry: 'Ultrasonic Rail Testing',
-    employees: 220,
+  /* ── Pinnacle Healthcare Systems (departments) ────────────────────────── */
+  pinnacle: [
+    {
+      name: 'Clinical Operations',
+      industry: 'Healthcare — Clinical',
+      employees: 160,
+      aiScoreBefore: 34,
+      aiScoreAfter: 78,
+      totalSavings: '$1.4M/yr',
+      metrics: [
+        { label: 'Patient Wait Time', value: '-44%', trend: -44, trendPositive: true, sparkline: [42, 36, 32, 28, 26, 24, 23.5] },
+        { label: 'Documentation Accuracy', value: '97%', trend: 14, trendPositive: true, sparkline: [85, 87, 90, 92, 94, 96, 97] },
+        { label: 'Clinical Decision Support', value: 'AI-live', trend: 100, trendPositive: true, sparkline: [0, 18, 36, 54, 72, 88, 100] },
+        { label: 'Patient Throughput', value: '+28%', trend: 28, trendPositive: true, sparkline: [0, 4, 8, 14, 18, 24, 28] },
+        { label: 'Readmission Rate', value: '-22%', trend: -22, trendPositive: true, sparkline: [14, 13, 12, 11.5, 11.2, 11, 10.9] },
+        { label: 'Staff Utilization', value: '88%', trend: 18, trendPositive: true, sparkline: [74, 77, 80, 82, 84, 86, 88] },
+      ],
+      savings: [
+        { category: 'Clinical Documentation AI', amount: 520 },
+        { category: 'Scheduling Optimization', amount: 380 },
+        { category: 'Readmission Prevention', amount: 320 },
+        { category: 'Staff Allocation AI', amount: 180 },
+      ],
+      beforeAfter: [
+        { label: 'Patient Wait Time', before: '42 min', after: '23.5 min' },
+        { label: 'Documentation Accuracy', before: '85%', after: '97%' },
+        { label: 'Readmission Rate', before: '14%', after: '10.9%' },
+        { label: 'Staff Utilization', before: '74%', after: '88%' },
+      ],
+      automations: [
+        { name: 'AI Clinical Documentation', status: 'live', department: 'Clinical' },
+        { name: 'Smart Scheduling Engine', status: 'live', department: 'Operations' },
+        { name: 'Readmission Risk Predictor', status: 'piloting', department: 'Quality' },
+        { name: 'AI Triage Assistant', status: 'planned', department: 'Emergency' },
+      ],
+    },
+    {
+      name: 'Revenue Cycle & Billing',
+      industry: 'Healthcare — Billing',
+      employees: 100,
+      aiScoreBefore: 30,
+      aiScoreAfter: 76,
+      totalSavings: '$960K/yr',
+      metrics: [
+        { label: 'Billing Cycle Time', value: '-52%', trend: -52, trendPositive: true, sparkline: [45, 38, 32, 28, 24, 22, 21.6] },
+        { label: 'Clean Claim Rate', value: '96%', trend: 14, trendPositive: true, sparkline: [84, 86, 88, 90, 92, 94, 96] },
+        { label: 'Denial Rate', value: '-58%', trend: -58, trendPositive: true, sparkline: [18, 15, 13, 11, 9.5, 8, 7.6] },
+        { label: 'Days in A/R', value: '28', trend: -38, trendPositive: true, sparkline: [45, 42, 38, 35, 32, 30, 28] },
+        { label: 'Coding Accuracy', value: '98%', trend: 12, trendPositive: true, sparkline: [88, 90, 92, 94, 95, 97, 98] },
+        { label: 'Patient Payment Rate', value: '82%', trend: 22, trendPositive: true, sparkline: [67, 70, 73, 76, 78, 80, 82] },
+      ],
+      savings: [
+        { category: 'AI Coding & Billing', amount: 380 },
+        { category: 'Denial Prevention', amount: 280 },
+        { category: 'A/R Optimization', amount: 180 },
+        { category: 'Patient Payment AI', amount: 120 },
+      ],
+      beforeAfter: [
+        { label: 'Billing Cycle Time', before: '45 days', after: '21.6 days' },
+        { label: 'Clean Claim Rate', before: '84%', after: '96%' },
+        { label: 'Denial Rate', before: '18%', after: '7.6%' },
+        { label: 'Days in A/R', before: '45', after: '28' },
+      ],
+      automations: [
+        { name: 'AI Medical Coding', status: 'live', department: 'Coding' },
+        { name: 'Claim Scrubbing Engine', status: 'live', department: 'Billing' },
+        { name: 'Denial Prediction & Prevention', status: 'piloting', department: 'Revenue Cycle' },
+        { name: 'Patient Financial Navigator', status: 'planned', department: 'Patient Access' },
+      ],
+    },
+    {
+      name: 'Pharmacy & Supply Chain',
+      industry: 'Healthcare — Pharmacy',
+      employees: 80,
+      aiScoreBefore: 38,
+      aiScoreAfter: 80,
+      totalSavings: '$720K/yr',
+      metrics: [
+        { label: 'Medication Errors', value: '-78%', trend: -78, trendPositive: true, sparkline: [4.5, 3.6, 2.8, 2.1, 1.5, 1.1, 1.0] },
+        { label: 'Formulary Compliance', value: '96%', trend: 16, trendPositive: true, sparkline: [82, 84, 87, 90, 92, 94, 96] },
+        { label: 'Inventory Waste', value: '-45%', trend: -45, trendPositive: true, sparkline: [22, 19, 16, 14, 13, 12.5, 12.1] },
+        { label: 'Order-to-Dispense', value: '-38%', trend: -38, trendPositive: true, sparkline: [35, 30, 27, 25, 23, 22, 21.7] },
+        { label: 'Drug Interaction Alerts', value: 'AI-live', trend: 100, trendPositive: true, sparkline: [0, 18, 36, 54, 72, 88, 100] },
+        { label: 'Supply Chain Visibility', value: 'Real-time', trend: 100, trendPositive: true, sparkline: [0, 15, 32, 50, 68, 85, 100] },
+      ],
+      savings: [
+        { category: 'Medication Safety AI', amount: 280 },
+        { category: 'Inventory Optimization', amount: 200 },
+        { category: 'Formulary Management', amount: 140 },
+        { category: 'Supply Chain AI', amount: 100 },
+      ],
+      beforeAfter: [
+        { label: 'Medication Errors', before: '4.5/1000', after: '1.0/1000' },
+        { label: 'Inventory Waste', before: '22%', after: '12.1%' },
+        { label: 'Order-to-Dispense', before: '35 min', after: '21.7 min' },
+        { label: 'Formulary Compliance', before: '82%', after: '96%' },
+      ],
+      automations: [
+        { name: 'AI Drug Interaction Checker', status: 'live', department: 'Pharmacy' },
+        { name: 'Smart Inventory Management', status: 'live', department: 'Supply Chain' },
+        { name: 'Formulary Optimization Engine', status: 'piloting', department: 'Pharmacy' },
+        { name: 'Predictive Supply Ordering', status: 'planned', department: 'Procurement' },
+      ],
+    },
+    {
+      name: 'Compliance & Quality',
+      industry: 'Healthcare — Compliance',
+      employees: 80,
+      aiScoreBefore: 32,
+      aiScoreAfter: 74,
+      totalSavings: '$480K/yr',
+      metrics: [
+        { label: 'Compliance Score', value: '98%', trend: 14, trendPositive: true, sparkline: [86, 88, 90, 92, 94, 96, 98] },
+        { label: 'Audit Readiness', value: 'Real-time', trend: 100, trendPositive: true, sparkline: [0, 18, 36, 54, 72, 88, 100] },
+        { label: 'Incident Response Time', value: '-62%', trend: -62, trendPositive: true, sparkline: [180, 150, 120, 100, 85, 72, 68] },
+        { label: 'Quality Measure Score', value: '94%', trend: 18, trendPositive: true, sparkline: [80, 83, 86, 88, 90, 92, 94] },
+        { label: 'Training Compliance', value: '99%', trend: 12, trendPositive: true, sparkline: [88, 90, 92, 94, 96, 98, 99] },
+        { label: 'Report Generation', value: '-70% time', trend: -70, trendPositive: true, sparkline: [100, 82, 65, 52, 42, 34, 30] },
+      ],
+      savings: [
+        { category: 'Compliance Automation', amount: 200 },
+        { category: 'Quality Monitoring AI', amount: 140 },
+        { category: 'Audit Preparation', amount: 80 },
+        { category: 'Training Management', amount: 60 },
+      ],
+      beforeAfter: [
+        { label: 'Compliance Score', before: '86%', after: '98%' },
+        { label: 'Incident Response', before: '180 min', after: '68 min' },
+        { label: 'Quality Measures', before: '80%', after: '94%' },
+        { label: 'Report Generation', before: '8 hours', after: '2.4 hours' },
+      ],
+      automations: [
+        { name: 'Regulatory Compliance Monitor', status: 'live', department: 'Compliance' },
+        { name: 'Quality Dashboard Automation', status: 'live', department: 'Quality' },
+        { name: 'AI Incident Analysis', status: 'piloting', department: 'Risk' },
+        { name: 'Automated CMS Reporting', status: 'planned', department: 'Compliance' },
+      ],
+    },
+  ],
 
-    aiScoreBefore: 42,
-    aiScoreAfter: 84,
-    totalSavings: '$680K/yr',
-    metrics: [
-      { label: 'Defect Detection Rate', value: '99%', trend: 8.8, trendPositive: true, sparkline: [91, 93, 95, 96, 97, 98, 99] },
-      { label: 'False Positive Rate', value: '11%', trend: -67.6, trendPositive: true, sparkline: [34, 28, 22, 18, 14, 12, 11] },
-      { label: 'FRA Reporting', value: 'Automated', trend: 100, trendPositive: true, sparkline: [0, 18, 36, 54, 72, 88, 100] },
-      { label: 'Track-Miles/Day', value: '100', trend: 25, trendPositive: true, sparkline: [80, 84, 88, 92, 95, 98, 100] },
-      { label: 'Analyst Review Time', value: '-79%', trend: -79, trendPositive: true, sparkline: [210, 160, 120, 90, 65, 50, 45] },
-      { label: 'LIDAR Utilization', value: '85%', trend: 85, trendPositive: true, sparkline: [5, 18, 32, 48, 62, 74, 85] },
-    ],
-    savings: [
-      { category: 'AI Defect Detection', amount: 280 },
-      { category: 'License Reclamation', amount: 140 },
-      { category: 'FRA Reporting Automation', amount: 120 },
-      { category: 'LIDAR Ballast Analysis', amount: 140 },
-    ],
-    beforeAfter: [
-      { label: 'Defect Detection', before: '91%', after: '99%' },
-      { label: 'False Positive Rate', before: '34%', after: '11%' },
-      { label: 'Analyst Time/Segment', before: '3.5 hours', after: '45 minutes' },
-      { label: 'LIDAR Analysis', before: 'Unused', after: '85% automated' },
-    ],
-    automations: [
-      { name: 'AI Track Defect Detection', status: 'live', department: 'Rail Testing' },
-      { name: 'Automated FRA Reporting', status: 'live', department: 'Compliance' },
-      { name: 'LIDAR Ballast Analysis', status: 'piloting', department: 'Engineering' },
-      { name: 'Predictive Degradation Models', status: 'planned', department: 'Analytics' },
-    ],
-  },
-  {
-    name: 'IC Technologies',
-    industry: 'Signal & PTC Systems',
-    employees: 310,
+  /* ── Atlas Manufacturing Group (4 OpCos) ──────────────────────────────── */
+  atlas: [
+    {
+      name: 'Atlas Precision Machining',
+      industry: 'CNC Machining & Fabrication',
+      employees: 620,
+      aiScoreBefore: 38,
+      aiScoreAfter: 82,
+      totalSavings: '$1.6M/yr',
+      metrics: [
+        { label: 'OEE', value: '87%', trend: 24, trendPositive: true, sparkline: [70, 73, 76, 79, 82, 85, 87] },
+        { label: 'Defect Rate', value: '0.8%', trend: -72, trendPositive: true, sparkline: [2.9, 2.4, 2.0, 1.6, 1.2, 1.0, 0.8] },
+        { label: 'On-Time Delivery', value: '96%', trend: 14, trendPositive: true, sparkline: [84, 86, 88, 90, 92, 94, 96] },
+        { label: 'Maintenance Downtime', value: '-55%', trend: -55, trendPositive: true, sparkline: [12, 10, 8.5, 7.2, 6.2, 5.6, 5.4] },
+        { label: 'Scrap Reduction', value: '-62%', trend: -62, trendPositive: true, sparkline: [8.4, 7.0, 5.8, 4.8, 4.0, 3.4, 3.2] },
+        { label: 'Cycle Time', value: '-18%', trend: -18, trendPositive: true, sparkline: [100, 96, 92, 90, 88, 84, 82] },
+      ],
+      savings: [
+        { category: 'OEE Optimization', amount: 580 },
+        { category: 'Defect Prevention AI', amount: 420 },
+        { category: 'Predictive Maintenance', amount: 360 },
+        { category: 'Scrap Reduction', amount: 240 },
+      ],
+      beforeAfter: [
+        { label: 'OEE', before: '70%', after: '87%' },
+        { label: 'Defect Rate', before: '2.9%', after: '0.8%' },
+        { label: 'On-Time Delivery', before: '84%', after: '96%' },
+        { label: 'Maintenance Downtime', before: '12%', after: '5.4%' },
+      ],
+      automations: [
+        { name: 'AI OEE Optimizer', status: 'live', department: 'Production' },
+        { name: 'Vision-Based Quality Inspection', status: 'live', department: 'Quality' },
+        { name: 'Predictive Maintenance Engine', status: 'piloting', department: 'Maintenance' },
+        { name: 'Digital Twin Simulation', status: 'planned', department: 'Engineering' },
+      ],
+    },
+    {
+      name: 'Atlas Assembly Systems',
+      industry: 'Assembly & Integration',
+      employees: 540,
+      aiScoreBefore: 34,
+      aiScoreAfter: 78,
+      totalSavings: '$1.2M/yr',
+      metrics: [
+        { label: 'OEE', value: '84%', trend: 20, trendPositive: true, sparkline: [70, 72, 74, 77, 80, 82, 84] },
+        { label: 'Defect Rate', value: '1.2%', trend: -64, trendPositive: true, sparkline: [3.4, 2.8, 2.3, 1.9, 1.6, 1.4, 1.2] },
+        { label: 'On-Time Delivery', value: '94%', trend: 12, trendPositive: true, sparkline: [84, 86, 88, 89, 91, 93, 94] },
+        { label: 'Maintenance Downtime', value: '-48%', trend: -48, trendPositive: true, sparkline: [15, 13, 11, 9.5, 8.5, 8, 7.8] },
+        { label: 'Line Changeover', value: '-35%', trend: -35, trendPositive: true, sparkline: [45, 40, 36, 33, 31, 30, 29.3] },
+        { label: 'Worker Safety Score', value: '98', trend: 8, trendPositive: true, sparkline: [91, 92, 93, 94, 96, 97, 98] },
+      ],
+      savings: [
+        { category: 'Assembly Line AI', amount: 440 },
+        { category: 'Quality Vision System', amount: 320 },
+        { category: 'Changeover Optimization', amount: 260 },
+        { category: 'Safety Analytics', amount: 180 },
+      ],
+      beforeAfter: [
+        { label: 'OEE', before: '70%', after: '84%' },
+        { label: 'Defect Rate', before: '3.4%', after: '1.2%' },
+        { label: 'Line Changeover', before: '45 min', after: '29.3 min' },
+        { label: 'Maintenance Downtime', before: '15%', after: '7.8%' },
+      ],
+      automations: [
+        { name: 'AI Line Balancing', status: 'live', department: 'Production' },
+        { name: 'Vision Quality System', status: 'live', department: 'Quality' },
+        { name: 'Smart Changeover Assistant', status: 'piloting', department: 'Operations' },
+        { name: 'Worker Safety AI', status: 'planned', department: 'EHS' },
+      ],
+    },
+    {
+      name: 'Atlas Materials & Supply',
+      industry: 'Supply Chain & Logistics',
+      employees: 480,
+      aiScoreBefore: 30,
+      aiScoreAfter: 74,
+      totalSavings: '$980K/yr',
+      metrics: [
+        { label: 'Inventory Turns', value: '12.4x', trend: 42, trendPositive: true, sparkline: [8.7, 9.2, 9.8, 10.4, 11.0, 11.8, 12.4] },
+        { label: 'Stockout Rate', value: '1.8%', trend: -68, trendPositive: true, sparkline: [5.6, 4.8, 4.0, 3.4, 2.8, 2.2, 1.8] },
+        { label: 'Supplier On-Time', value: '94%', trend: 16, trendPositive: true, sparkline: [81, 83, 86, 88, 90, 92, 94] },
+        { label: 'Warehouse Efficiency', value: '+32%', trend: 32, trendPositive: true, sparkline: [0, 5, 10, 16, 22, 28, 32] },
+        { label: 'Freight Cost', value: '-22%', trend: -22, trendPositive: true, sparkline: [100, 94, 88, 84, 82, 80, 78] },
+        { label: 'Demand Forecast Accuracy', value: '91%', trend: 24, trendPositive: true, sparkline: [73, 76, 80, 83, 86, 89, 91] },
+      ],
+      savings: [
+        { category: 'Inventory Optimization', amount: 360 },
+        { category: 'Demand Forecasting AI', amount: 280 },
+        { category: 'Freight Optimization', amount: 200 },
+        { category: 'Warehouse Automation', amount: 140 },
+      ],
+      beforeAfter: [
+        { label: 'Inventory Turns', before: '8.7x', after: '12.4x' },
+        { label: 'Stockout Rate', before: '5.6%', after: '1.8%' },
+        { label: 'Demand Forecast', before: '73%', after: '91%' },
+        { label: 'Freight Cost', before: '$4.2M', after: '$3.3M' },
+      ],
+      automations: [
+        { name: 'AI Demand Forecasting', status: 'live', department: 'Planning' },
+        { name: 'Smart Inventory Engine', status: 'live', department: 'Warehouse' },
+        { name: 'Supplier Risk Monitor', status: 'piloting', department: 'Procurement' },
+        { name: 'Autonomous Warehouse Robots', status: 'planned', department: 'Logistics' },
+      ],
+    },
+    {
+      name: 'Atlas Quality & Engineering',
+      industry: 'Quality Assurance & R&D',
+      employees: 460,
+      aiScoreBefore: 42,
+      aiScoreAfter: 84,
+      totalSavings: '$1.1M/yr',
+      metrics: [
+        { label: 'First Pass Yield', value: '97.2%', trend: 8, trendPositive: true, sparkline: [90, 91, 93, 94, 95, 96, 97.2] },
+        { label: 'Design Iteration Time', value: '-42%', trend: -42, trendPositive: true, sparkline: [21, 18, 16, 14, 13, 12.5, 12.2] },
+        { label: 'Customer Returns', value: '-65%', trend: -65, trendPositive: true, sparkline: [3.2, 2.6, 2.1, 1.7, 1.4, 1.2, 1.1] },
+        { label: 'R&D Productivity', value: '+38%', trend: 38, trendPositive: true, sparkline: [0, 6, 12, 18, 24, 32, 38] },
+        { label: 'Test Automation', value: '82%', trend: 82, trendPositive: true, sparkline: [10, 22, 34, 48, 60, 72, 82] },
+        { label: 'Certification Speed', value: '2.1x', trend: 110, trendPositive: true, sparkline: [1, 1.2, 1.4, 1.6, 1.8, 2.0, 2.1] },
+      ],
+      savings: [
+        { category: 'Quality AI System', amount: 420 },
+        { category: 'R&D Acceleration', amount: 340 },
+        { category: 'Test Automation', amount: 200 },
+        { category: 'Certification AI', amount: 140 },
+      ],
+      beforeAfter: [
+        { label: 'First Pass Yield', before: '90%', after: '97.2%' },
+        { label: 'Design Iterations', before: '21 days', after: '12.2 days' },
+        { label: 'Customer Returns', before: '3.2%', after: '1.1%' },
+        { label: 'Test Automation', before: '10%', after: '82%' },
+      ],
+      automations: [
+        { name: 'AI Quality Inspection', status: 'live', department: 'Quality' },
+        { name: 'Generative Design Assistant', status: 'live', department: 'Engineering' },
+        { name: 'Automated Test Suite', status: 'piloting', department: 'Testing' },
+        { name: 'AI Certification Tracker', status: 'planned', department: 'Compliance' },
+      ],
+    },
+  ],
 
-    aiScoreBefore: 48,
-    aiScoreAfter: 86,
-    totalSavings: '$740K/yr',
-    metrics: [
-      { label: 'PTC System Monitoring', value: 'Real-time', trend: 100, trendPositive: true, sparkline: [0, 18, 36, 54, 72, 88, 100] },
-      { label: 'Signal Design Speed', value: '2.1x', trend: 110, trendPositive: true, sparkline: [1, 1.2, 1.4, 1.6, 1.8, 2.0, 2.1] },
-      { label: 'License Waste Reduced', value: '65%', trend: 65, trendPositive: true, sparkline: [8, 18, 28, 38, 48, 58, 65] },
-      { label: 'GIS Data Quality', value: '98%', trend: 22, trendPositive: true, sparkline: [80, 84, 88, 92, 94, 96, 98] },
-      { label: 'Project Estimation', value: '+35% accuracy', trend: 35, trendPositive: true, sparkline: [0, 5, 12, 18, 24, 30, 35] },
-      { label: 'Compliance Automation', value: '88%', trend: 88, trendPositive: true, sparkline: [5, 18, 32, 48, 62, 76, 88] },
-    ],
-    savings: [
-      { category: 'License Reclamation', amount: 220 },
-      { category: 'PTC Data Integration', amount: 200 },
-      { category: 'Signal Design AI', amount: 180 },
-      { category: 'GIS Automation', amount: 140 },
-    ],
-    beforeAfter: [
-      { label: 'PTC Monitoring', before: 'Batch reports', after: 'Real-time AI' },
-      { label: 'Signal Design Time', before: '6 weeks', after: '2.5 weeks' },
-      { label: 'License Utilization', before: '48%', after: '92%' },
-      { label: 'GIS Data Entry', before: 'Manual', after: 'Auto-ingest' },
-    ],
-    automations: [
-      { name: 'PTC Performance Monitoring', status: 'live', department: 'Engineering' },
-      { name: 'AI Signal Design Assistant', status: 'live', department: 'Design' },
-      { name: 'GIS Auto-Ingest Pipeline', status: 'piloting', department: 'GIS' },
-      { name: 'Digital Twin Signal Corridors', status: 'planned', department: 'Engineering' },
-    ],
-  },
-  {
-    name: 'IC Transit Services',
-    industry: 'Passenger Rail Operations',
-    employees: 480,
+  /* ── Northbridge Industries Group ─────────────────────────────────────── */
+  northbridge: [
+    {
+      name: 'Northbridge Aerospace',
+      industry: 'Aerospace & Defense',
+      employees: 8200,
+      aiScoreBefore: 44,
+      aiScoreAfter: 84,
+      totalSavings: '$12.4M/yr',
+      metrics: [
+        { label: 'Manufacturing Yield', value: '98.6%', trend: 6, trendPositive: true, sparkline: [93, 94, 95, 96, 97, 98, 98.6] },
+        { label: 'Supply Chain Visibility', value: '94%', trend: 32, trendPositive: true, sparkline: [71, 75, 80, 84, 88, 91, 94] },
+        { label: 'Quality Escape Rate', value: '-74%', trend: -74, trendPositive: true, sparkline: [3.8, 3.0, 2.4, 1.8, 1.4, 1.1, 1.0] },
+        { label: 'Program Margin', value: '+3.2pts', trend: 3.2, trendPositive: true, sparkline: [8.8, 9.2, 9.6, 10.2, 10.8, 11.4, 12.0] },
+        { label: 'ITAR Compliance', value: '99.8%', trend: 4, trendPositive: true, sparkline: [96, 97, 97.5, 98, 98.5, 99, 99.8] },
+        { label: 'MRO Turnaround', value: '-28%', trend: -28, trendPositive: true, sparkline: [45, 42, 39, 36, 34, 33, 32.4] },
+      ],
+      savings: [
+        { category: 'Yield Optimization AI', amount: 4800 },
+        { category: 'Supply Chain Intelligence', amount: 3200 },
+        { category: 'Quality Prevention', amount: 2600 },
+        { category: 'MRO Automation', amount: 1800 },
+      ],
+      beforeAfter: [
+        { label: 'Manufacturing Yield', before: '93%', after: '98.6%' },
+        { label: 'Supply Chain Visibility', before: '71%', after: '94%' },
+        { label: 'Quality Escape Rate', before: '3.8%', after: '1.0%' },
+        { label: 'MRO Turnaround', before: '45 days', after: '32.4 days' },
+      ],
+      automations: [
+        { name: 'AI Yield Optimization', status: 'live', department: 'Manufacturing' },
+        { name: 'Supply Chain Risk AI', status: 'live', department: 'Procurement' },
+        { name: 'ITAR Compliance Monitor', status: 'piloting', department: 'Compliance' },
+        { name: 'Digital Twin MRO', status: 'planned', department: 'Maintenance' },
+      ],
+    },
+    {
+      name: 'Northbridge Energy',
+      industry: 'Energy & Utilities',
+      employees: 11500,
+      aiScoreBefore: 36,
+      aiScoreAfter: 78,
+      totalSavings: '$18.6M/yr',
+      metrics: [
+        { label: 'Grid Reliability', value: '99.97%', trend: 2, trendPositive: true, sparkline: [99.88, 99.90, 99.91, 99.93, 99.94, 99.96, 99.97] },
+        { label: 'Outage Response', value: '-42%', trend: -42, trendPositive: true, sparkline: [125, 110, 96, 85, 78, 74, 72.5] },
+        { label: 'Asset Utilization', value: '91%', trend: 18, trendPositive: true, sparkline: [77, 79, 82, 85, 87, 89, 91] },
+        { label: 'Renewable Integration', value: '+34%', trend: 34, trendPositive: true, sparkline: [22, 26, 30, 34, 38, 42, 46] },
+        { label: 'Safety Incidents', value: '-56%', trend: -56, trendPositive: true, sparkline: [18, 15, 12, 10, 9, 8.2, 7.9] },
+        { label: 'Regulatory Compliance', value: '99.2%', trend: 6, trendPositive: true, sparkline: [94, 95, 96, 97, 98, 99, 99.2] },
+      ],
+      savings: [
+        { category: 'Grid Optimization AI', amount: 6800 },
+        { category: 'Predictive Maintenance', amount: 4600 },
+        { category: 'Outage Prevention', amount: 4200 },
+        { category: 'Renewable Forecasting', amount: 3000 },
+      ],
+      beforeAfter: [
+        { label: 'Grid Reliability', before: '99.88%', after: '99.97%' },
+        { label: 'Outage Response', before: '125 min', after: '72.5 min' },
+        { label: 'Safety Incidents', before: '18/yr', after: '7.9/yr' },
+        { label: 'Renewable Integration', before: '22%', after: '46%' },
+      ],
+      automations: [
+        { name: 'AI Grid Management', status: 'live', department: 'Operations' },
+        { name: 'Predictive Asset Maintenance', status: 'live', department: 'Maintenance' },
+        { name: 'Renewable Forecasting AI', status: 'piloting', department: 'Generation' },
+        { name: 'Autonomous Inspection Drones', status: 'planned', department: 'Field Ops' },
+      ],
+    },
+    {
+      name: 'Northbridge Financial Services',
+      industry: 'Financial Services',
+      employees: 6200,
+      aiScoreBefore: 48,
+      aiScoreAfter: 86,
+      totalSavings: '$8.8M/yr',
+      metrics: [
+        { label: 'Transaction Processing', value: '+65%', trend: 65, trendPositive: true, sparkline: [0, 10, 22, 34, 46, 56, 65] },
+        { label: 'Fraud Detection', value: '99.4%', trend: 8, trendPositive: true, sparkline: [92, 94, 95, 97, 98, 99, 99.4] },
+        { label: 'AML Compliance', value: '99.8%', trend: 4, trendPositive: true, sparkline: [96, 97, 97.5, 98.5, 99, 99.5, 99.8] },
+        { label: 'Customer Onboarding', value: '-58%', trend: -58, trendPositive: true, sparkline: [14, 12, 10, 8.5, 7, 6.2, 5.9] },
+        { label: 'Risk Model Accuracy', value: '96%', trend: 14, trendPositive: true, sparkline: [84, 86, 88, 90, 92, 94, 96] },
+        { label: 'Operational Cost', value: '-24%', trend: -24, trendPositive: true, sparkline: [100, 96, 92, 88, 84, 80, 76] },
+      ],
+      savings: [
+        { category: 'Transaction Automation', amount: 3200 },
+        { category: 'Fraud Prevention AI', amount: 2400 },
+        { category: 'Compliance Automation', amount: 1800 },
+        { category: 'Customer Experience', amount: 1400 },
+      ],
+      beforeAfter: [
+        { label: 'Transaction Speed', before: '3.2 sec', after: '1.1 sec' },
+        { label: 'Fraud Detection', before: '92%', after: '99.4%' },
+        { label: 'Customer Onboarding', before: '14 days', after: '5.9 days' },
+        { label: 'Operational Cost', before: '$82M', after: '$62.3M' },
+      ],
+      automations: [
+        { name: 'Real-time Fraud AI', status: 'live', department: 'Risk' },
+        { name: 'AML/KYC Automation', status: 'live', department: 'Compliance' },
+        { name: 'AI Customer Onboarding', status: 'piloting', department: 'Operations' },
+        { name: 'Algorithmic Trading Assist', status: 'planned', department: 'Trading' },
+      ],
+    },
+    {
+      name: 'Northbridge Health Sciences',
+      industry: 'Pharmaceuticals & Biotech',
+      employees: 16100,
+      aiScoreBefore: 42,
+      aiScoreAfter: 82,
+      totalSavings: '$22.4M/yr',
+      metrics: [
+        { label: 'Drug Discovery Speed', value: '2.4x', trend: 140, trendPositive: true, sparkline: [1, 1.3, 1.5, 1.8, 2.0, 2.2, 2.4] },
+        { label: 'Clinical Trial Efficiency', value: '+38%', trend: 38, trendPositive: true, sparkline: [0, 6, 12, 18, 26, 32, 38] },
+        { label: 'Manufacturing Yield', value: '96%', trend: 12, trendPositive: true, sparkline: [86, 88, 90, 92, 93, 95, 96] },
+        { label: 'Regulatory Submissions', value: '-45%', trend: -45, trendPositive: true, sparkline: [180, 160, 140, 125, 112, 102, 99] },
+        { label: 'Supply Chain Reliability', value: '98%', trend: 10, trendPositive: true, sparkline: [89, 91, 93, 94, 96, 97, 98] },
+        { label: 'Patient Safety Score', value: '99.6%', trend: 4, trendPositive: true, sparkline: [96, 97, 97.5, 98.2, 98.8, 99.2, 99.6] },
+      ],
+      savings: [
+        { category: 'Drug Discovery AI', amount: 8600 },
+        { category: 'Clinical Trial Optimization', amount: 5800 },
+        { category: 'Manufacturing Excellence', amount: 4400 },
+        { category: 'Regulatory Intelligence', amount: 3600 },
+      ],
+      beforeAfter: [
+        { label: 'Drug Discovery', before: '4.5 years', after: '1.9 years' },
+        { label: 'Clinical Trial Cost', before: '$48M avg', after: '$29.8M avg' },
+        { label: 'Manufacturing Yield', before: '86%', after: '96%' },
+        { label: 'Regulatory Filing', before: '180 days', after: '99 days' },
+      ],
+      automations: [
+        { name: 'AI Molecule Screening', status: 'live', department: 'R&D' },
+        { name: 'Clinical Trial Optimizer', status: 'live', department: 'Clinical Ops' },
+        { name: 'GMP Compliance AI', status: 'piloting', department: 'Manufacturing' },
+        { name: 'Real-World Evidence Platform', status: 'planned', department: 'Medical Affairs' },
+      ],
+    },
+  ],
 
-    aiScoreBefore: 40,
-    aiScoreAfter: 82,
-    totalSavings: '$860K/yr',
-    metrics: [
-      { label: 'Schedule Optimization', value: '+28% efficiency', trend: 28, trendPositive: true, sparkline: [0, 4, 8, 14, 18, 24, 28] },
-      { label: 'Vehicle Uptime', value: '96%', trend: 14, trendPositive: true, sparkline: [82, 84, 87, 90, 92, 94, 96] },
-      { label: 'License Waste Reduced', value: '72%', trend: 72, trendPositive: true, sparkline: [5, 16, 28, 40, 52, 64, 72] },
-      { label: 'Passenger Satisfaction', value: '+18%', trend: 18, trendPositive: true, sparkline: [0, 3, 6, 9, 12, 15, 18] },
-      { label: 'Energy Efficiency', value: '+12%', trend: 12, trendPositive: true, sparkline: [0, 2, 4, 6, 8, 10, 12] },
-      { label: 'Delay Prediction', value: '92% accuracy', trend: 92, trendPositive: true, sparkline: [20, 36, 52, 66, 78, 86, 92] },
-    ],
-    savings: [
-      { category: 'Schedule Optimization', amount: 280 },
-      { category: 'License Reclamation', amount: 240 },
-      { category: 'Predictive Maintenance', amount: 200 },
-      { category: 'Passenger Analytics', amount: 140 },
-    ],
-    beforeAfter: [
-      { label: 'Schedule Planning', before: 'Manual/weekly', after: 'AI real-time' },
-      { label: 'Vehicle Downtime', before: '18%', after: '4%' },
-      { label: 'License Utilization', before: '40%', after: '92%' },
-      { label: 'Delay Notification', before: 'Reactive', after: 'Predictive AI' },
-    ],
-    automations: [
-      { name: 'AI Transit Scheduler', status: 'live', department: 'Operations' },
-      { name: 'Predictive Vehicle Maintenance', status: 'live', department: 'Maintenance' },
-      { name: 'Passenger Flow Analytics', status: 'piloting', department: 'Planning' },
-      { name: 'Energy Optimization AI', status: 'planned', department: 'Operations' },
-    ],
-  },
-  {
-    name: 'IC Energy',
-    industry: 'Energy Infrastructure',
-    employees: 120,
+  /* ── Republic of Estonia — Digital Government ─────────────────────────── */
+  estonia: [
+    {
+      name: 'Ministry of Finance',
+      industry: 'Fiscal Policy & Taxation',
+      employees: 4200,
+      aiScoreBefore: 52,
+      aiScoreAfter: 88,
+      totalSavings: '$6.2M/yr',
+      metrics: [
+        { label: 'Tax Processing Time', value: '-68%', trend: -68, trendPositive: true, sparkline: [14, 11, 9, 7.5, 6, 5, 4.5] },
+        { label: 'Citizen Satisfaction', value: '92%', trend: 18, trendPositive: true, sparkline: [78, 80, 83, 86, 88, 90, 92] },
+        { label: 'System Uptime', value: '99.98%', trend: 2, trendPositive: true, sparkline: [99.80, 99.85, 99.88, 99.92, 99.94, 99.96, 99.98] },
+        { label: 'Fraud Detection', value: '96%', trend: 28, trendPositive: true, sparkline: [75, 79, 83, 87, 90, 93, 96] },
+        { label: 'Budget Forecasting', value: '94% accuracy', trend: 22, trendPositive: true, sparkline: [77, 80, 83, 86, 89, 92, 94] },
+        { label: 'Digital Filing Rate', value: '99.2%', trend: 4, trendPositive: true, sparkline: [95, 96, 97, 97.5, 98, 98.8, 99.2] },
+      ],
+      savings: [
+        { category: 'Tax Automation AI', amount: 2400 },
+        { category: 'Fraud Prevention', amount: 1800 },
+        { category: 'Budget Intelligence', amount: 1200 },
+        { category: 'Citizen Self-Service', amount: 800 },
+      ],
+      beforeAfter: [
+        { label: 'Tax Processing', before: '14 days', after: '4.5 days' },
+        { label: 'Citizen Satisfaction', before: '78%', after: '92%' },
+        { label: 'Fraud Detection', before: '75%', after: '96%' },
+        { label: 'Digital Filing', before: '95%', after: '99.2%' },
+      ],
+      automations: [
+        { name: 'AI Tax Assessment Engine', status: 'live', department: 'Tax Authority' },
+        { name: 'Budget Forecasting AI', status: 'live', department: 'Budget Office' },
+        { name: 'Fraud Detection System', status: 'piloting', department: 'Audit' },
+        { name: 'Predictive Revenue Modeling', status: 'planned', department: 'Economics' },
+      ],
+    },
+    {
+      name: 'Ministry of Social Affairs',
+      industry: 'Healthcare & Social Welfare',
+      employees: 8400,
+      aiScoreBefore: 46,
+      aiScoreAfter: 84,
+      totalSavings: '$8.4M/yr',
+      metrics: [
+        { label: 'Benefits Processing', value: '-58%', trend: -58, trendPositive: true, sparkline: [21, 18, 15, 12, 10, 9, 8.8] },
+        { label: 'Citizen Satisfaction', value: '90%', trend: 20, trendPositive: true, sparkline: [75, 78, 81, 84, 86, 88, 90] },
+        { label: 'System Uptime', value: '99.95%', trend: 2, trendPositive: true, sparkline: [99.75, 99.80, 99.84, 99.88, 99.90, 99.93, 99.95] },
+        { label: 'Case Resolution Time', value: '-45%', trend: -45, trendPositive: true, sparkline: [30, 26, 23, 20, 18, 17, 16.5] },
+        { label: 'Welfare Fraud Prevention', value: '92%', trend: 24, trendPositive: true, sparkline: [74, 78, 82, 85, 88, 90, 92] },
+        { label: 'Healthcare Wait List', value: '-32%', trend: -32, trendPositive: true, sparkline: [45, 42, 38, 35, 33, 31, 30.6] },
+      ],
+      savings: [
+        { category: 'Benefits Automation', amount: 3200 },
+        { category: 'Case Management AI', amount: 2200 },
+        { category: 'Healthcare Optimization', amount: 1800 },
+        { category: 'Fraud Prevention', amount: 1200 },
+      ],
+      beforeAfter: [
+        { label: 'Benefits Processing', before: '21 days', after: '8.8 days' },
+        { label: 'Citizen Satisfaction', before: '75%', after: '90%' },
+        { label: 'Case Resolution', before: '30 days', after: '16.5 days' },
+        { label: 'Healthcare Wait List', before: '45 days', after: '30.6 days' },
+      ],
+      automations: [
+        { name: 'AI Benefits Processor', status: 'live', department: 'Social Services' },
+        { name: 'Healthcare Resource AI', status: 'live', department: 'Health Board' },
+        { name: 'Welfare Fraud Detector', status: 'piloting', department: 'Audit' },
+        { name: 'Predictive Social Needs', status: 'planned', department: 'Policy' },
+      ],
+    },
+    {
+      name: 'Ministry of Economic Affairs',
+      industry: 'Trade & Digital Economy',
+      employees: 5200,
+      aiScoreBefore: 54,
+      aiScoreAfter: 90,
+      totalSavings: '$5.8M/yr',
+      metrics: [
+        { label: 'Business Registration', value: '-72%', trend: -72, trendPositive: true, sparkline: [3.5, 3.0, 2.4, 1.8, 1.4, 1.1, 1.0] },
+        { label: 'Citizen Satisfaction', value: '94%', trend: 16, trendPositive: true, sparkline: [81, 83, 86, 88, 90, 92, 94] },
+        { label: 'System Uptime', value: '99.99%', trend: 1, trendPositive: true, sparkline: [99.92, 99.94, 99.95, 99.96, 99.97, 99.98, 99.99] },
+        { label: 'Permit Processing', value: '-55%', trend: -55, trendPositive: true, sparkline: [22, 18, 15, 13, 11, 10.2, 9.9] },
+        { label: 'Trade Analytics', value: 'AI-live', trend: 100, trendPositive: true, sparkline: [0, 18, 36, 54, 72, 88, 100] },
+        { label: 'Digital Services Adoption', value: '97%', trend: 8, trendPositive: true, sparkline: [90, 91, 92, 94, 95, 96, 97] },
+      ],
+      savings: [
+        { category: 'Registration Automation', amount: 2200 },
+        { category: 'Trade Intelligence AI', amount: 1600 },
+        { category: 'Permit Processing', amount: 1200 },
+        { category: 'Digital Service Platform', amount: 800 },
+      ],
+      beforeAfter: [
+        { label: 'Business Registration', before: '3.5 days', after: '1.0 day' },
+        { label: 'Citizen Satisfaction', before: '81%', after: '94%' },
+        { label: 'Permit Processing', before: '22 days', after: '9.9 days' },
+        { label: 'Digital Adoption', before: '90%', after: '97%' },
+      ],
+      automations: [
+        { name: 'AI Business Registry', status: 'live', department: 'Registry' },
+        { name: 'Trade Analytics Platform', status: 'live', department: 'Trade' },
+        { name: 'Smart Permit Engine', status: 'piloting', department: 'Licensing' },
+        { name: 'Economic Forecasting AI', status: 'planned', department: 'Economics' },
+      ],
+    },
+    {
+      name: 'Information System Authority (RIA)',
+      industry: 'Cybersecurity & IT Infrastructure',
+      employees: 480,
+      aiScoreBefore: 58,
+      aiScoreAfter: 92,
+      totalSavings: '$3.6M/yr',
+      metrics: [
+        { label: 'Threat Detection', value: '99.7%', trend: 8, trendPositive: true, sparkline: [92, 94, 95, 97, 98, 99, 99.7] },
+        { label: 'Citizen Satisfaction', value: '88%', trend: 14, trendPositive: true, sparkline: [77, 79, 81, 83, 85, 87, 88] },
+        { label: 'System Uptime', value: '99.999%', trend: 1, trendPositive: true, sparkline: [99.98, 99.985, 99.99, 99.992, 99.994, 99.997, 99.999] },
+        { label: 'Incident Response', value: '-64%', trend: -64, trendPositive: true, sparkline: [45, 38, 30, 24, 20, 17, 16.2] },
+        { label: 'Vulnerability Patching', value: '-72%', trend: -72, trendPositive: true, sparkline: [72, 60, 48, 38, 28, 22, 20.2] },
+        { label: 'X-Road Transactions', value: '+45%', trend: 45, trendPositive: true, sparkline: [1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.74] },
+      ],
+      savings: [
+        { category: 'Threat Detection AI', amount: 1400 },
+        { category: 'Incident Automation', amount: 1000 },
+        { category: 'Infrastructure Optimization', amount: 720 },
+        { category: 'X-Road Enhancement', amount: 480 },
+      ],
+      beforeAfter: [
+        { label: 'Threat Detection', before: '92%', after: '99.7%' },
+        { label: 'Incident Response', before: '45 min', after: '16.2 min' },
+        { label: 'System Uptime', before: '99.98%', after: '99.999%' },
+        { label: 'Vulnerability Patching', before: '72 hours', after: '20.2 hours' },
+      ],
+      automations: [
+        { name: 'AI Threat Detection', status: 'live', department: 'Cybersecurity' },
+        { name: 'Automated Incident Response', status: 'live', department: 'CERT' },
+        { name: 'X-Road AI Monitoring', status: 'piloting', department: 'Infrastructure' },
+        { name: 'Quantum-Safe Migration', status: 'planned', department: 'Cryptography' },
+      ],
+    },
+  ],
+};
 
-    aiScoreBefore: 34,
-    aiScoreAfter: 76,
-    totalSavings: '$360K/yr',
-    metrics: [
-      { label: 'Project Mgmt', value: 'Digital', trend: 100, trendPositive: true, sparkline: [0, 18, 36, 54, 72, 88, 100] },
-      { label: 'Compliance Automation', value: '82%', trend: 82, trendPositive: true, sparkline: [5, 16, 30, 44, 58, 70, 82] },
-      { label: 'License Waste Reduced', value: '58%', trend: 58, trendPositive: true, sparkline: [5, 14, 24, 34, 42, 50, 58] },
-      { label: 'Equipment Tracking', value: 'Real-time', trend: 100, trendPositive: true, sparkline: [0, 15, 32, 50, 68, 85, 100] },
-      { label: 'Cost Estimation', value: '+22% accuracy', trend: 22, trendPositive: true, sparkline: [0, 4, 8, 12, 16, 19, 22] },
-      { label: 'Resource Sharing', value: '15% of fleet', trend: 15, trendPositive: true, sparkline: [0, 2, 4, 7, 10, 12, 15] },
-    ],
-    savings: [
-      { category: 'Project Digitization', amount: 120 },
-      { category: 'License Reclamation', amount: 100 },
-      { category: 'Compliance Automation', amount: 80 },
-      { category: 'Equipment Tracking', amount: 60 },
-    ],
-    beforeAfter: [
-      { label: 'Project Tracking', before: 'Spreadsheets', after: 'Procore + AI' },
-      { label: 'Compliance', before: 'Manual checklists', after: '82% automated' },
-      { label: 'License Utilization', before: '34%', after: '88%' },
-      { label: 'Equipment Visibility', before: 'End-of-day', after: 'Real-time GPS' },
-    ],
-    automations: [
-      { name: 'Procore Project Management', status: 'live', department: 'Projects' },
-      { name: 'Compliance Auto-Tracking', status: 'live', department: 'Compliance' },
-      { name: 'AI Cost Estimation', status: 'piloting', department: 'Estimating' },
-      { name: 'Cross-Division Resource Share', status: 'planned', department: 'Operations' },
-    ],
-  },
-  {
-    name: 'IC Environmental LLC',
-    industry: 'Environmental Services',
-    employees: 90,
+// ─── Company-to-Division Index Map ──────────────────────────────────────────
 
-    aiScoreBefore: 30,
-    aiScoreAfter: 72,
-    totalSavings: '$240K/yr',
-    metrics: [
-      { label: 'Compliance Automation', value: '78%', trend: 78, trendPositive: true, sparkline: [5, 16, 28, 42, 56, 68, 78] },
-      { label: 'Waste Routing', value: 'AI-optimized', trend: 100, trendPositive: true, sparkline: [0, 18, 36, 54, 72, 88, 100] },
-      { label: 'License Waste Reduced', value: '55%', trend: 55, trendPositive: true, sparkline: [5, 12, 22, 32, 40, 48, 55] },
-      { label: 'Field Inspections', value: 'Mobile', trend: 100, trendPositive: true, sparkline: [0, 20, 40, 60, 75, 90, 100] },
-      { label: 'Report Generation', value: '-65% time', trend: -65, trendPositive: true, sparkline: [100, 82, 68, 55, 45, 38, 35] },
-      { label: 'Sensor Monitoring', value: '24/7 AI', trend: 100, trendPositive: true, sparkline: [0, 15, 32, 50, 68, 85, 100] },
-    ],
-    savings: [
-      { category: 'Compliance Automation', amount: 120 },
-      { category: 'License Reclamation', amount: 60 },
-      { category: 'Waste Logistics AI', amount: 60 },
-    ],
-    beforeAfter: [
-      { label: 'Compliance Records', before: 'Paper files', after: 'Digital + AI alerts' },
-      { label: 'Waste Routing', before: 'Manual planning', after: 'AI-optimized' },
-      { label: 'License Utilization', before: '30%', after: '86%' },
-      { label: 'Field Inspections', before: 'Paper forms', after: 'Mobile app + GPS' },
-    ],
-    automations: [
-      { name: 'Environmental Compliance Engine', status: 'live', department: 'Compliance' },
-      { name: 'AI Waste Logistics Routing', status: 'live', department: 'Operations' },
-      { name: 'Predictive Environmental Risk', status: 'piloting', department: 'Compliance' },
-      { name: 'Automated EPA Reporting', status: 'planned', department: 'Compliance' },
-    ],
-  },
-];
+const companyToDivIndex: Record<string, { parent: string; index: number }> = {
+  // IndustrialsCo children
+  hcc: { parent: 'meridian', index: 0 },
+  hrsi: { parent: 'meridian', index: 1 },
+  hsi: { parent: 'meridian', index: 2 },
+  hti: { parent: 'meridian', index: 3 },
+  htsi: { parent: 'meridian', index: 4 },
+  he: { parent: 'meridian', index: 5 },
+  gg: { parent: 'meridian', index: 6 },
+  // Northbridge children
+  'nb-aerospace': { parent: 'northbridge', index: 0 },
+  'nb-energy': { parent: 'northbridge', index: 1 },
+  'nb-financial': { parent: 'northbridge', index: 2 },
+  'nb-health': { parent: 'northbridge', index: 3 },
+  // Estonia children
+  'ee-finance': { parent: 'estonia', index: 0 },
+  'ee-social': { parent: 'estonia', index: 1 },
+  'ee-economic': { parent: 'estonia', index: 2 },
+  'ee-ria': { parent: 'estonia', index: 3 },
+};
 
 // ─── Mini Sparkline Component ───────────────────────────────────────────────
 
@@ -562,31 +1281,44 @@ function DivisionDashboard({ company }: { company: CompanyData }) {
   );
 }
 
-// ─── Page ───────────────────────────────────────────────────────────────────
+// ─── Helper: resolve divisions for a company ────────────────────────────────
 
-// Map company IDs to division indices
-const companyToDivIndex: Record<string, number> = {
-  hcc: 0, hrsi: 1, hsi: 2, hti: 3, htsi: 4, he: 5, gg: 6,
-};
+function resolveDivisions(companyId: string): CompanyData[] {
+  // Direct parent match (meridian, oakwood, pinnacle, atlas, northbridge, estonia)
+  if (divisionsByCompany[companyId]) {
+    return divisionsByCompany[companyId];
+  }
+  // Child company -> show single division from parent
+  const mapping = companyToDivIndex[companyId];
+  if (mapping) {
+    const parentDivisions = divisionsByCompany[mapping.parent];
+    if (parentDivisions && parentDivisions[mapping.index]) {
+      return [parentDivisions[mapping.index]];
+    }
+  }
+  // Fallback to meridian
+  return divisionsByCompany.meridian;
+}
+
+// ─── Page ───────────────────────────────────────────────────────────────────
 
 export default function Stories() {
   const { company } = useCompany();
   const [searchParams] = useSearchParams();
   const divParam = searchParams.get('div');
 
-  // If a specific opco is selected, show only that division; otherwise show all
-  const isSpecificOpco = company.id !== 'meridian' && companyToDivIndex[company.id] !== undefined;
-  const visibleDivisions = isSpecificOpco ? [divisions[companyToDivIndex[company.id]]] : divisions;
+  const divisions = resolveDivisions(company.id);
+  const isSpecificChild = !!companyToDivIndex[company.id];
 
   const defaultIndex = divParam !== null
-    ? Math.min(Math.max(0, parseInt(divParam, 10) || 0), visibleDivisions.length - 1)
+    ? Math.min(Math.max(0, parseInt(divParam, 10) || 0), divisions.length - 1)
     : 0;
   const [activeIndex, setActiveIndex] = useState(defaultIndex);
 
-  // Reset activeIndex when visibleDivisions changes (e.g., company switch)
+  // Reset activeIndex when divisions change (e.g., company switch)
   useEffect(() => {
     setActiveIndex(0);
-  }, [visibleDivisions.length, company.id]);
+  }, [divisions.length, company.id]);
 
   return (
     <div className="space-y-6">
@@ -600,14 +1332,14 @@ export default function Stories() {
       >
         <h1 className="text-3xl font-bold" style={{ color: 'var(--cc-text)' }}>Division Performance</h1>
         <p className="mt-1 text-lg" style={{ color: 'var(--cc-text-secondary)' }}>
-          {isSpecificOpco ? `Transformation results for ${company.name}` : `Transformation results across all ${divisions.length} IndustrialsCo divisions`}
+          {isSpecificChild ? `Transformation results for ${company.name}` : `Transformation results across all ${divisions.length} ${company.name} divisions`}
         </p>
       </motion.div>
 
       {/* Division Switcher Tab Bar */}
       <div className="border-b" style={{ borderColor: 'var(--cc-border)' }}>
         <nav className="flex gap-1 -mb-px overflow-x-auto scrollbar-hide" style={{ WebkitOverflowScrolling: 'touch' }} aria-label="Division tabs">
-          {visibleDivisions.map((division, index) => (
+          {divisions.map((division, index) => (
             <button
               key={division.name}
               onClick={() => setActiveIndex(index)}
@@ -643,7 +1375,7 @@ export default function Stories() {
           exit={{ opacity: 0, y: -12 }}
           transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
         >
-          <DivisionDashboard company={visibleDivisions[activeIndex]} />
+          <DivisionDashboard company={divisions[activeIndex]} />
         </motion.div>
       </AnimatePresence>
     </div>

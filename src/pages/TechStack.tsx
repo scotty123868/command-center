@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, AlertTriangle, TrendingUp, Shield, Clock, Zap } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
-import { getCurrentStack, recommendations as allRecommendations } from '../data/constants';
+import { getCurrentStack, getRecommendations } from '../data/constants';
 import type { CurrentTool, Recommendation } from '../data/constants';
 import { useCompany } from '../data/CompanyContext';
 
@@ -112,6 +112,8 @@ export default function TechStack() {
   const { company } = useCompany();
   const currentStack = getCurrentStack(company.id);
 
+  const allRecommendations = getRecommendations(company.id);
+
   // Filter recommendations to match tools in this company's stack
   const recommendations = useMemo(() => {
     const stackNames = new Set(currentStack.map(t => t.name.toLowerCase()));
@@ -121,7 +123,7 @@ export default function TechStack() {
       rec.current.name === 'No Data Lake'
     );
     return filtered.length > 0 ? filtered : allRecommendations;
-  }, [currentStack]);
+  }, [currentStack, allRecommendations]);
 
   // Compute overall score from company's stack (average of tool scores, normalized to /100)
   const overallScore = useMemo(() => {

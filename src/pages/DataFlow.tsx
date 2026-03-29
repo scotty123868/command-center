@@ -32,164 +32,844 @@ interface GapDetail {
   recommendedSolution: string;
 }
 
-const gaps: GapDetail[] = [
-  {
-    id: 1,
-    name: 'Unified General Ledger',
-    sources: '4 separate ERP/accounting systems',
-    gapLabel: 'No unified general ledger',
-    blocked: 'Real-time consolidated P&L',
-    impact: '$400K/yr',
-    impactNum: 400000,
-    sourceList: [
-      'SAP ERP (HCC, HRSI, HTI)',
-      'Primavera P6 (HCC, IC Energy)',
-      'Custom Dispatch System (built 2009)',
-      'FRA Compliance Database (HSI)',
-    ],
-    missingLayer:
-      'No unified chart of accounts or general ledger aggregation layer exists. Each entity closes books independently with different timelines, account structures, and reporting standards.',
-    blockedCapabilities: [
-      'Real-time consolidated P&L across all entities',
-      'Automated intercompany elimination',
-      'Cash flow forecasting with AI/ML models',
-      'Board-ready financial dashboards',
-    ],
-    recommendedSolution:
-      'Deploy a unified chart of accounts in Databricks Lakehouse with automated ETL from SAP ERP, Primavera P6, and legacy systems. Estimated implementation: 8-12 weeks.',
-  },
-  {
-    id: 2,
-    name: 'Centralized Equipment Catalog',
-    sources: 'SAP MM, FileMaker, 47 Excel files, Access DB',
-    gapLabel: 'No centralized equipment catalog',
-    blocked: 'Cross-Division equipment sharing, predictive maintenance',
-    impact: '$890K/yr',
-    impactNum: 890000,
-    sourceList: [
-      'Trimble GPS Fleet Tracking (HCC, HRSI)',
-      'Custom Dispatch System (equipment scheduling)',
-      'TAM-4 Geometry Car Data (HSI rail testing)',
-      'Kronos/UKG Workforce (maintenance crew logs)',
-    ],
-    missingLayer:
-      'No single source of truth for equipment inventory, location, condition, or maintenance history. Asset IDs are inconsistent across systems, preventing cross-referencing.',
-    blockedCapabilities: [
-      'Cross-Division equipment sharing and utilization optimization',
-      'Predictive maintenance using sensor + history data',
-      'Depreciation and capex planning models',
-      'Field technician mobile lookup',
-    ],
-    recommendedSolution:
-      'Build a master equipment registry in the lakehouse with fuzzy-matching to reconcile asset IDs. Integrate IoT sensor feeds for real-time condition monitoring. Estimated implementation: 10-14 weeks.',
-  },
-  {
-    id: 3,
-    name: 'Unified Customer Layer',
-    sources: 'Salesforce (partial), Google Sheets, email',
-    gapLabel: 'No unified customer layer',
-    blocked: 'Cross-sell modeling, churn prediction',
-    impact: '$340K/yr',
-    impactNum: 340000,
-    sourceList: [
-      'SAP ERP (partial customer data — HCC only)',
-      'PTC Signal Telemetry (HTI client deployments)',
-      'Primavera P6 (project-based client records)',
-    ],
-    missingLayer:
-      'No 360-degree customer view exists. The same customer may appear in multiple divisions under different names, with no deduplication or relationship mapping.',
-    blockedCapabilities: [
-      'Cross-sell modeling across operating companies',
-      'Customer churn prediction and retention scoring',
-      'Lifetime value calculation',
-      'Unified customer communication history',
-    ],
-    recommendedSolution:
-      'Implement customer master data management (MDM) with identity resolution. Consolidate into a unified customer graph in the lakehouse. Estimated implementation: 6-10 weeks.',
-  },
-  {
-    id: 4,
-    name: 'Digital Field Data Capture',
-    sources: 'Paper forms, phone photos, verbal reports',
-    gapLabel: 'No digital field data capture',
-    blocked: 'AI troubleshooting, compliance automation',
-    impact: '$520K/yr',
-    impactNum: 520000,
-    sourceList: [
-      'Paper inspection forms (handwritten)',
-      'Phone photos stored in individual camera rolls',
-      'Verbal reports relayed via phone calls',
-      'Text messages between field and office staff',
-    ],
-    missingLayer:
-      'No structured digital capture exists for field operations. Critical operational data is trapped in analog formats, making it impossible to search, analyze, or train models.',
-    blockedCapabilities: [
-      'AI-powered troubleshooting and diagnostic assistant',
-      'Automated compliance documentation and audit trails',
-      'Pattern recognition for recurring equipment failures',
-      'Real-time field operations dashboard',
-    ],
-    recommendedSolution:
-      'Deploy a mobile-first field data capture app with offline capability, photo OCR, and voice-to-text. Data flows directly into the lakehouse. Estimated implementation: 8-12 weeks.',
-  },
-  {
-    id: 5,
-    name: 'Centralized Usage Telemetry',
-    sources: '15+ SaaS vendor portals (no API)',
-    gapLabel: 'No centralized usage telemetry',
-    blocked: 'License optimization, shadow IT detection',
-    impact: '$2.1M/yr',
-    impactNum: 2100000,
-    sourceList: [
-      '15+ SaaS vendor admin portals (manual login required)',
-      'No API integrations or usage data exports configured',
-      'IT team manually checks portals quarterly',
-      'No visibility into actual per-user utilization',
-    ],
-    missingLayer:
-      'No automated collection of software usage telemetry across the organization. License counts, actual usage, and spend are tracked in disconnected spreadsheets updated quarterly at best.',
-    blockedCapabilities: [
-      'Automated license optimization and right-sizing',
-      'Shadow IT detection and governance',
-      'SaaS spend forecasting and budget alerts',
-      'Vendor contract negotiation with usage data',
-    ],
-    recommendedSolution:
-      'Deploy a SaaS management platform (e.g., Zylo or Productiv) with SSO integration for automated usage tracking. Feed telemetry into the lakehouse for analytics. Estimated implementation: 4-6 weeks.',
-  },
-  {
-    id: 6,
-    name: 'Regulatory Data Pipeline',
-    sources: 'State systems (manual), internal spreadsheets',
-    gapLabel: 'No regulatory data pipeline',
-    blocked: 'Automated compliance, audit trail',
-    impact: '$180K/yr',
-    impactNum: 180000,
-    sourceList: [
-      'State regulatory portals (manual data entry)',
-      'Internal compliance spreadsheets',
-      'Email-based reporting to regulatory bodies',
-      'PDF certificates stored in shared drives',
-    ],
-    missingLayer:
-      'No automated pipeline for ingesting regulatory requirements, deadlines, or submission data. Compliance status is tracked manually with significant risk of missed deadlines.',
-    blockedCapabilities: [
-      'Automated compliance reporting and submission',
-      'Complete audit trail with version history',
-      'Proactive deadline and renewal alerts',
-      'Regulatory change impact analysis',
-    ],
-    recommendedSolution:
-      'Build automated regulatory data pipelines with web scraping for state portals, structured document storage, and deadline-driven alerting. Estimated implementation: 6-8 weeks.',
-  },
-];
+interface CompanyGapData {
+  gaps: GapDetail[];
+  gapDivisionMap: Record<number, string[]>;
+  statCards: { label: string; color: 'blue' | 'green' | 'red' }[];
+  totalImpact: string;
+  divisionBadges: string[];
+  investment: string;
+  annualReturn: string;
+  roi: string;
+}
 
-const statCards = [
-  { label: '15 Systems Mapped', color: 'blue' as const },
-  { label: '23 Active Connections', color: 'green' as const },
-  { label: '14 Missing Connections', color: 'red' as const },
-  { label: '$3.8M Annual Impact', color: 'red' as const },
-];
+/* ── Per-Company Gap Data ────────────────────────────────────────────────── */
+
+const gapDataByCompany: Record<string, CompanyGapData> = {
+  /* ── IndustrialsCo (meridian) ─────────────────────────────────────────── */
+  meridian: {
+    gaps: [
+      {
+        id: 1,
+        name: 'Unified General Ledger',
+        sources: '4 separate ERP/accounting systems',
+        gapLabel: 'No unified general ledger',
+        blocked: 'Real-time consolidated P&L',
+        impact: '$400K/yr',
+        impactNum: 400000,
+        sourceList: [
+          'SAP ERP (HCC, HRSI, HTI)',
+          'Primavera P6 (HCC, IC Energy)',
+          'Custom Dispatch System (built 2009)',
+          'FRA Compliance Database (HSI)',
+        ],
+        missingLayer:
+          'No unified chart of accounts or general ledger aggregation layer exists. Each entity closes books independently with different timelines, account structures, and reporting standards.',
+        blockedCapabilities: [
+          'Real-time consolidated P&L across all entities',
+          'Automated intercompany elimination',
+          'Cash flow forecasting with AI/ML models',
+          'Board-ready financial dashboards',
+        ],
+        recommendedSolution:
+          'Deploy a unified chart of accounts in Databricks Lakehouse with automated ETL from SAP ERP, Primavera P6, and legacy systems. Estimated implementation: 8-12 weeks.',
+      },
+      {
+        id: 2,
+        name: 'Centralized Equipment Catalog',
+        sources: 'SAP MM, FileMaker, 47 Excel files, Access DB',
+        gapLabel: 'No centralized equipment catalog',
+        blocked: 'Cross-Division equipment sharing, predictive maintenance',
+        impact: '$890K/yr',
+        impactNum: 890000,
+        sourceList: [
+          'Trimble GPS Fleet Tracking (HCC, HRSI)',
+          'Custom Dispatch System (equipment scheduling)',
+          'TAM-4 Geometry Car Data (HSI rail testing)',
+          'Kronos/UKG Workforce (maintenance crew logs)',
+        ],
+        missingLayer:
+          'No single source of truth for equipment inventory, location, condition, or maintenance history. Asset IDs are inconsistent across systems, preventing cross-referencing.',
+        blockedCapabilities: [
+          'Cross-Division equipment sharing and utilization optimization',
+          'Predictive maintenance using sensor + history data',
+          'Depreciation and capex planning models',
+          'Field technician mobile lookup',
+        ],
+        recommendedSolution:
+          'Build a master equipment registry in the lakehouse with fuzzy-matching to reconcile asset IDs. Integrate IoT sensor feeds for real-time condition monitoring. Estimated implementation: 10-14 weeks.',
+      },
+      {
+        id: 3,
+        name: 'Unified Customer Layer',
+        sources: 'Salesforce (partial), Google Sheets, email',
+        gapLabel: 'No unified customer layer',
+        blocked: 'Cross-sell modeling, churn prediction',
+        impact: '$340K/yr',
+        impactNum: 340000,
+        sourceList: [
+          'SAP ERP (partial customer data — HCC only)',
+          'PTC Signal Telemetry (HTI client deployments)',
+          'Primavera P6 (project-based client records)',
+        ],
+        missingLayer:
+          'No 360-degree customer view exists. The same customer may appear in multiple divisions under different names, with no deduplication or relationship mapping.',
+        blockedCapabilities: [
+          'Cross-sell modeling across operating companies',
+          'Customer churn prediction and retention scoring',
+          'Lifetime value calculation',
+          'Unified customer communication history',
+        ],
+        recommendedSolution:
+          'Implement customer master data management (MDM) with identity resolution. Consolidate into a unified customer graph in the lakehouse. Estimated implementation: 6-10 weeks.',
+      },
+      {
+        id: 4,
+        name: 'Digital Field Data Capture',
+        sources: 'Paper forms, phone photos, verbal reports',
+        gapLabel: 'No digital field data capture',
+        blocked: 'AI troubleshooting, compliance automation',
+        impact: '$520K/yr',
+        impactNum: 520000,
+        sourceList: [
+          'Paper inspection forms (handwritten)',
+          'Phone photos stored in individual camera rolls',
+          'Verbal reports relayed via phone calls',
+          'Text messages between field and office staff',
+        ],
+        missingLayer:
+          'No structured digital capture exists for field operations. Critical operational data is trapped in analog formats, making it impossible to search, analyze, or train models.',
+        blockedCapabilities: [
+          'AI-powered troubleshooting and diagnostic assistant',
+          'Automated compliance documentation and audit trails',
+          'Pattern recognition for recurring equipment failures',
+          'Real-time field operations dashboard',
+        ],
+        recommendedSolution:
+          'Deploy a mobile-first field data capture app with offline capability, photo OCR, and voice-to-text. Data flows directly into the lakehouse. Estimated implementation: 8-12 weeks.',
+      },
+      {
+        id: 5,
+        name: 'Centralized Usage Telemetry',
+        sources: '15+ SaaS vendor portals (no API)',
+        gapLabel: 'No centralized usage telemetry',
+        blocked: 'License optimization, shadow IT detection',
+        impact: '$2.1M/yr',
+        impactNum: 2100000,
+        sourceList: [
+          '15+ SaaS vendor admin portals (manual login required)',
+          'No API integrations or usage data exports configured',
+          'IT team manually checks portals quarterly',
+          'No visibility into actual per-user utilization',
+        ],
+        missingLayer:
+          'No automated collection of software usage telemetry across the organization. License counts, actual usage, and spend are tracked in disconnected spreadsheets updated quarterly at best.',
+        blockedCapabilities: [
+          'Automated license optimization and right-sizing',
+          'Shadow IT detection and governance',
+          'SaaS spend forecasting and budget alerts',
+          'Vendor contract negotiation with usage data',
+        ],
+        recommendedSolution:
+          'Deploy a SaaS management platform (e.g., Zylo or Productiv) with SSO integration for automated usage tracking. Feed telemetry into the lakehouse for analytics. Estimated implementation: 4-6 weeks.',
+      },
+      {
+        id: 6,
+        name: 'Regulatory Data Pipeline',
+        sources: 'State systems (manual), internal spreadsheets',
+        gapLabel: 'No regulatory data pipeline',
+        blocked: 'Automated compliance, audit trail',
+        impact: '$180K/yr',
+        impactNum: 180000,
+        sourceList: [
+          'State regulatory portals (manual data entry)',
+          'Internal compliance spreadsheets',
+          'Email-based reporting to regulatory bodies',
+          'PDF certificates stored in shared drives',
+        ],
+        missingLayer:
+          'No automated pipeline for ingesting regulatory requirements, deadlines, or submission data. Compliance status is tracked manually with significant risk of missed deadlines.',
+        blockedCapabilities: [
+          'Automated compliance reporting and submission',
+          'Complete audit trail with version history',
+          'Proactive deadline and renewal alerts',
+          'Regulatory change impact analysis',
+        ],
+        recommendedSolution:
+          'Build automated regulatory data pipelines with web scraping for state portals, structured document storage, and deadline-driven alerting. Estimated implementation: 6-8 weeks.',
+      },
+    ],
+    gapDivisionMap: {
+      1: ['meridian', 'hcc', 'hrsi', 'hti', 'he'],
+      2: ['meridian', 'hcc', 'hrsi', 'hsi', 'htsi'],
+      3: ['meridian', 'hcc', 'hti', 'htsi'],
+      4: ['meridian', 'hcc', 'hrsi', 'hsi', 'gg'],
+      5: ['meridian', 'hcc', 'hrsi', 'hsi', 'hti', 'htsi', 'he', 'gg'],
+      6: ['meridian', 'hsi', 'hti', 'gg', 'he'],
+    },
+    statCards: [
+      { label: '15 Systems Mapped', color: 'blue' },
+      { label: '23 Active Connections', color: 'green' },
+      { label: '14 Missing Connections', color: 'red' },
+      { label: '$3.8M Annual Impact', color: 'red' },
+    ],
+    totalImpact: '$3.8M/year',
+    divisionBadges: ['HCC — Rail & Highway Construction', 'HRSI — Railroad Services', 'HSI — Rail Testing', 'HTI — Signal & PTC', 'HTSI — Transit Services', 'HE — Energy', 'GG — Environmental'],
+    investment: '$200K',
+    annualReturn: '$3.8M',
+    roi: '19x Year 1',
+  },
+
+  /* ── Oakwood Insurance Group ──────────────────────────────────────────── */
+  oakwood: {
+    gaps: [
+      {
+        id: 1,
+        name: 'Claims-to-Underwriting Data Bridge',
+        sources: 'Guidewire ClaimCenter, Duck Creek Policy Admin',
+        gapLabel: 'No real-time claims-underwriting sync',
+        blocked: 'Dynamic pricing, loss trend analysis',
+        impact: '$1.4M/yr',
+        impactNum: 1400000,
+        sourceList: [
+          'Guidewire ClaimCenter (claims processing)',
+          'Duck Creek Policy Admin (policy management)',
+          'Actuarial spreadsheets (manual loss models)',
+          'Third-party adjuster reports (PDF/email)',
+        ],
+        missingLayer:
+          'Claims data and underwriting decisions exist in separate systems with no automated feedback loop. Underwriters cannot see real-time loss trends by policy segment.',
+        blockedCapabilities: [
+          'Dynamic risk-based pricing using live claims data',
+          'Real-time loss ratio monitoring by segment',
+          'Automated reserve adequacy analysis',
+          'Predictive claims severity modeling',
+        ],
+        recommendedSolution:
+          'Build a unified claims-underwriting data layer with real-time streaming from ClaimCenter to the analytics platform. Enable automated loss trend dashboards. Estimated implementation: 8-10 weeks.',
+      },
+      {
+        id: 2,
+        name: 'CRM-to-Policy Admin Integration',
+        sources: 'Salesforce CRM, Duck Creek Policy Admin',
+        gapLabel: 'No CRM-policy data sync',
+        blocked: 'Agent 360 view, cross-sell automation',
+        impact: '$680K/yr',
+        impactNum: 680000,
+        sourceList: [
+          'Salesforce CRM (agent/broker relationships)',
+          'Duck Creek Policy Admin (policy records)',
+          'Marketing automation (HubSpot)',
+          'Call center recordings (Genesys)',
+        ],
+        missingLayer:
+          'Agent and policyholder data are split across CRM and policy admin with no unified view. Agents must toggle between 3-4 systems to see full customer picture.',
+        blockedCapabilities: [
+          'Unified agent/policyholder 360-degree view',
+          'Automated cross-sell and upsell recommendations',
+          'Agent performance analytics by book of business',
+          'Customer lifetime value calculation',
+        ],
+        recommendedSolution:
+          'Deploy bi-directional sync between Salesforce and Duck Creek with a customer master in the data lake. Build unified agent portal. Estimated implementation: 6-8 weeks.',
+      },
+      {
+        id: 3,
+        name: 'Fraud Detection Data Pipeline',
+        sources: 'Claims system, SIU database, external watchlists',
+        gapLabel: 'No unified fraud intelligence layer',
+        blocked: 'Real-time fraud scoring, ring detection',
+        impact: '$920K/yr',
+        impactNum: 920000,
+        sourceList: [
+          'Guidewire ClaimCenter (claims data)',
+          'SIU case management (investigations)',
+          'NICB and external fraud databases',
+          'Social media and public records',
+        ],
+        missingLayer:
+          'Fraud investigation data is siloed from claims intake. SIU investigators manually cross-reference claims with external databases, delaying detection by days.',
+        blockedCapabilities: [
+          'Real-time fraud scoring at FNOL',
+          'Network analysis for organized fraud rings',
+          'Automated SIU referral with evidence packets',
+          'Predictive fraud pattern detection',
+        ],
+        recommendedSolution:
+          'Build a real-time fraud intelligence pipeline integrating claims, SIU, and external data sources. Deploy ML-based scoring at FNOL intake. Estimated implementation: 10-12 weeks.',
+      },
+      {
+        id: 4,
+        name: 'Reinsurance Data Automation',
+        sources: 'Treaty management spreadsheets, claims system',
+        gapLabel: 'No automated reinsurance reporting',
+        blocked: 'Real-time cession tracking, treaty optimization',
+        impact: '$540K/yr',
+        impactNum: 540000,
+        sourceList: [
+          'Treaty management Excel workbooks',
+          'Claims system (loss data for cessions)',
+          'Accounting system (premium allocation)',
+          'Reinsurer portal submissions (manual)',
+        ],
+        missingLayer:
+          'Reinsurance cessions are calculated manually at quarter-end. No real-time visibility into treaty utilization, cession accuracy, or reinsurer settlement status.',
+        blockedCapabilities: [
+          'Real-time reinsurance cession tracking',
+          'Automated bordereau generation',
+          'Treaty optimization modeling',
+          'Reinsurer settlement reconciliation',
+        ],
+        recommendedSolution:
+          'Automate reinsurance data flows from policy and claims systems into a cession engine. Enable real-time treaty utilization dashboards. Estimated implementation: 8-10 weeks.',
+      },
+    ],
+    gapDivisionMap: {
+      1: ['oakwood'],
+      2: ['oakwood'],
+      3: ['oakwood'],
+      4: ['oakwood'],
+    },
+    statCards: [
+      { label: '12 Systems Mapped', color: 'blue' },
+      { label: '18 Active Connections', color: 'green' },
+      { label: '11 Missing Connections', color: 'red' },
+      { label: '$3.5M Annual Impact', color: 'red' },
+    ],
+    totalImpact: '$3.5M/year',
+    divisionBadges: ['Claims Operations', 'Underwriting', 'Policy Administration', 'CRM & Distribution'],
+    investment: '$180K',
+    annualReturn: '$3.5M',
+    roi: '19.4x Year 1',
+  },
+
+  /* ── Pinnacle Healthcare Systems ──────────────────────────────────────── */
+  pinnacle: {
+    gaps: [
+      {
+        id: 1,
+        name: 'EHR-to-Billing Integration',
+        sources: 'Epic EHR, Cerner Revenue Cycle',
+        gapLabel: 'No real-time EHR-billing sync',
+        blocked: 'Automated coding, clean claim rate',
+        impact: '$1.2M/yr',
+        impactNum: 1200000,
+        sourceList: [
+          'Epic EHR (clinical documentation)',
+          'Cerner Revenue Cycle (billing/coding)',
+          'Manual coding review worksheets',
+          'Payer remittance advice (835 files)',
+        ],
+        missingLayer:
+          'Clinical documentation in Epic and billing codes in Cerner are not synchronized in real-time. Coders manually translate clinical notes into billing codes, creating delays and errors.',
+        blockedCapabilities: [
+          'AI-assisted medical coding from clinical notes',
+          'Real-time clean claim rate optimization',
+          'Automated charge capture from clinical workflows',
+          'Denial prevention through pre-submission validation',
+        ],
+        recommendedSolution:
+          'Deploy real-time HL7/FHIR integration between Epic and Cerner with AI-powered coding suggestions. Build automated charge capture pipeline. Estimated implementation: 10-14 weeks.',
+      },
+      {
+        id: 2,
+        name: 'Pharmacy-Clinical Data Bridge',
+        sources: 'Pharmacy dispensing system, Epic EHR',
+        gapLabel: 'No pharmacy-clinical data bridge',
+        blocked: 'Medication reconciliation, adverse event prevention',
+        impact: '$840K/yr',
+        impactNum: 840000,
+        sourceList: [
+          'Omnicell pharmacy dispensing system',
+          'Epic EHR (medication orders)',
+          'External pharmacy benefit managers',
+          'Drug interaction databases (manual lookup)',
+        ],
+        missingLayer:
+          'Pharmacy dispensing data and clinical medication records are not fully integrated. Medication reconciliation requires manual comparison across systems at each care transition.',
+        blockedCapabilities: [
+          'Automated medication reconciliation at transitions',
+          'Real-time adverse drug event prevention',
+          'Formulary compliance optimization',
+          'Predictive medication adherence scoring',
+        ],
+        recommendedSolution:
+          'Implement FHIR-based medication data exchange between Omnicell and Epic. Deploy AI-powered reconciliation at admission, transfer, and discharge. Estimated implementation: 8-12 weeks.',
+      },
+      {
+        id: 3,
+        name: 'Scheduling-to-Records Pipeline',
+        sources: 'Scheduling system, Epic EHR, patient portal',
+        gapLabel: 'No scheduling-records integration',
+        blocked: 'AI scheduling optimization, no-show prediction',
+        impact: '$620K/yr',
+        impactNum: 620000,
+        sourceList: [
+          'QGenda scheduling system',
+          'Epic EHR (patient records)',
+          'MyChart patient portal',
+          'Call center scheduling logs',
+        ],
+        missingLayer:
+          'Scheduling, patient history, and provider availability exist in separate systems. Optimizing appointment slots requires manual cross-referencing of patient needs and provider capacity.',
+        blockedCapabilities: [
+          'AI-optimized scheduling based on patient acuity',
+          'Predictive no-show modeling and overbooking',
+          'Provider workload balancing',
+          'Automated waitlist management',
+        ],
+        recommendedSolution:
+          'Build a unified scheduling intelligence layer connecting QGenda, Epic, and the patient portal. Deploy ML-based no-show prediction and smart scheduling. Estimated implementation: 6-10 weeks.',
+      },
+      {
+        id: 4,
+        name: 'Quality Reporting Data Lake',
+        sources: 'Clinical systems, registry databases, payer portals',
+        gapLabel: 'No unified quality data lake',
+        blocked: 'Automated CMS reporting, quality benchmarking',
+        impact: '$380K/yr',
+        impactNum: 380000,
+        sourceList: [
+          'Epic clinical quality measures',
+          'CMS quality reporting portal (manual submission)',
+          'State health department registries',
+          'Payer quality scorecards (separate portals)',
+        ],
+        missingLayer:
+          'Quality data is scattered across clinical systems, registry databases, and payer portals. CMS submissions require weeks of manual data extraction and validation.',
+        blockedCapabilities: [
+          'Automated CMS quality measure reporting',
+          'Real-time quality benchmarking dashboards',
+          'Proactive gap-in-care identification',
+          'Value-based care performance optimization',
+        ],
+        recommendedSolution:
+          'Build a quality data lake aggregating clinical, registry, and payer data. Deploy automated CMS reporting and real-time quality dashboards. Estimated implementation: 8-10 weeks.',
+      },
+    ],
+    gapDivisionMap: {
+      1: ['pinnacle'],
+      2: ['pinnacle'],
+      3: ['pinnacle'],
+      4: ['pinnacle'],
+    },
+    statCards: [
+      { label: '14 Systems Mapped', color: 'blue' },
+      { label: '20 Active Connections', color: 'green' },
+      { label: '12 Missing Connections', color: 'red' },
+      { label: '$3.0M Annual Impact', color: 'red' },
+    ],
+    totalImpact: '$3.0M/year',
+    divisionBadges: ['Clinical Operations', 'Revenue Cycle & Billing', 'Pharmacy & Supply Chain', 'Compliance & Quality'],
+    investment: '$160K',
+    annualReturn: '$3.0M',
+    roi: '18.8x Year 1',
+  },
+
+  /* ── Atlas Manufacturing Group ─────────────────────────────────────────── */
+  atlas: {
+    gaps: [
+      {
+        id: 1,
+        name: 'MES-to-ERP Integration',
+        sources: 'Shop floor MES, SAP ERP',
+        gapLabel: 'No real-time MES-ERP sync',
+        blocked: 'Real-time production costing, yield optimization',
+        impact: '$1.8M/yr',
+        impactNum: 1800000,
+        sourceList: [
+          'Siemens Opcenter MES (shop floor)',
+          'SAP S/4HANA ERP (financials/planning)',
+          'Manual production reports (shift-end)',
+          'Excel-based cost tracking',
+        ],
+        missingLayer:
+          'Manufacturing execution data and ERP financials are disconnected. Production costs are reconciled weekly via manual reports, preventing real-time yield-to-cost optimization.',
+        blockedCapabilities: [
+          'Real-time production cost visibility',
+          'AI-driven yield optimization across lines',
+          'Automated variance analysis',
+          'Predictive capacity planning',
+        ],
+        recommendedSolution:
+          'Deploy real-time OPC-UA/MQTT integration between MES and SAP. Build production cost analytics in the data lakehouse. Estimated implementation: 10-14 weeks.',
+      },
+      {
+        id: 2,
+        name: 'Quality-Production Data Loop',
+        sources: 'QMS, MES, inspection equipment',
+        gapLabel: 'No quality-production feedback loop',
+        blocked: 'Root cause analysis, predictive quality',
+        impact: '$1.2M/yr',
+        impactNum: 1200000,
+        sourceList: [
+          'Quality management system (non-conformance reports)',
+          'CMM and vision inspection equipment',
+          'MES production parameters',
+          'Customer complaint database',
+        ],
+        missingLayer:
+          'Quality inspection results and production process parameters are stored in separate systems. Engineers manually correlate defects to process conditions, delaying root cause analysis.',
+        blockedCapabilities: [
+          'Real-time process-quality correlation',
+          'Predictive quality scoring per batch',
+          'Automated root cause analysis',
+          'Statistical process control with AI',
+        ],
+        recommendedSolution:
+          'Build a quality-production data bridge linking inspection results to process parameters in real-time. Deploy AI-driven root cause analysis. Estimated implementation: 8-12 weeks.',
+      },
+      {
+        id: 3,
+        name: 'Supply Chain Visibility Platform',
+        sources: 'Supplier portals, ERP, logistics systems',
+        gapLabel: 'No end-to-end supply chain visibility',
+        blocked: 'Demand sensing, supplier risk management',
+        impact: '$960K/yr',
+        impactNum: 960000,
+        sourceList: [
+          'SAP Materials Management',
+          '40+ supplier portals (manual check)',
+          'Freight carrier tracking systems',
+          'Warehouse management system',
+        ],
+        missingLayer:
+          'No unified view of supplier performance, in-transit inventory, or demand signals. Procurement teams manually check dozens of supplier portals for order status.',
+        blockedCapabilities: [
+          'End-to-end supply chain visibility',
+          'AI-powered demand sensing and forecasting',
+          'Supplier risk scoring and monitoring',
+          'Automated purchase order optimization',
+        ],
+        recommendedSolution:
+          'Deploy a supply chain control tower integrating supplier, logistics, and warehouse data. Enable AI-driven demand sensing. Estimated implementation: 10-14 weeks.',
+      },
+      {
+        id: 4,
+        name: 'Energy & Sustainability Monitoring',
+        sources: 'Utility meters, production systems, EHS database',
+        gapLabel: 'No energy-production correlation',
+        blocked: 'Carbon tracking, energy optimization per unit',
+        impact: '$420K/yr',
+        impactNum: 420000,
+        sourceList: [
+          'Utility smart meters (electricity, gas, water)',
+          'Production scheduling system',
+          'EHS compliance database',
+          'Manual sustainability reports',
+        ],
+        missingLayer:
+          'Energy consumption data and production output are tracked in separate systems. Cannot calculate energy cost per unit produced or track carbon emissions by product line.',
+        blockedCapabilities: [
+          'Energy cost per unit analysis',
+          'Automated carbon footprint reporting',
+          'AI-optimized production scheduling for energy',
+          'ESG compliance automation',
+        ],
+        recommendedSolution:
+          'Connect utility metering to production data in a unified sustainability platform. Deploy AI for energy-optimized scheduling. Estimated implementation: 6-8 weeks.',
+      },
+    ],
+    gapDivisionMap: {
+      1: ['atlas'],
+      2: ['atlas'],
+      3: ['atlas'],
+      4: ['atlas'],
+    },
+    statCards: [
+      { label: '18 Systems Mapped', color: 'blue' },
+      { label: '26 Active Connections', color: 'green' },
+      { label: '16 Missing Connections', color: 'red' },
+      { label: '$4.4M Annual Impact', color: 'red' },
+    ],
+    totalImpact: '$4.4M/year',
+    divisionBadges: ['Precision Machining', 'Assembly Systems', 'Materials & Supply', 'Quality & Engineering'],
+    investment: '$240K',
+    annualReturn: '$4.4M',
+    roi: '18.3x Year 1',
+  },
+
+  /* ── Northbridge Industries Group ─────────────────────────────────────── */
+  northbridge: {
+    gaps: [
+      {
+        id: 1,
+        name: 'Consolidated Financial Reporting',
+        sources: 'SAP, Oracle, custom ERP across 4 subsidiaries',
+        gapLabel: 'No unified financial data layer',
+        blocked: 'Real-time consolidated P&L, segment reporting',
+        impact: '$4.2M/yr',
+        impactNum: 4200000,
+        sourceList: [
+          'SAP S/4HANA (Aerospace, Health Sciences)',
+          'Oracle EBS (Energy division)',
+          'FIS banking platform (Financial Services)',
+          'Custom consolidation spreadsheets',
+        ],
+        missingLayer:
+          'Each subsidiary uses a different ERP with incompatible chart of accounts. Consolidated financial reporting requires 3 weeks of manual reconciliation each quarter.',
+        blockedCapabilities: [
+          'Real-time consolidated P&L across all subsidiaries',
+          'Automated intercompany elimination',
+          'Segment-level profitability analysis',
+          'Board-ready financial dashboards on demand',
+        ],
+        recommendedSolution:
+          'Deploy a unified financial data lake with automated ETL from all ERP systems. Standardize chart of accounts mapping. Estimated implementation: 12-16 weeks.',
+      },
+      {
+        id: 2,
+        name: 'Cross-Subsidiary Talent Platform',
+        sources: 'Workday, SuccessFactors, custom HR systems',
+        gapLabel: 'No unified talent data',
+        blocked: 'Internal mobility, workforce planning',
+        impact: '$2.8M/yr',
+        impactNum: 2800000,
+        sourceList: [
+          'Workday HCM (Aerospace, Financial Services)',
+          'SAP SuccessFactors (Health Sciences)',
+          'Custom HR system (Energy)',
+          'LinkedIn Recruiter (all divisions)',
+        ],
+        missingLayer:
+          'Employee skills, performance data, and career paths are siloed by subsidiary. No visibility into cross-subsidiary talent availability or internal mobility opportunities.',
+        blockedCapabilities: [
+          'Cross-subsidiary internal mobility platform',
+          'AI-powered succession planning',
+          'Unified workforce analytics',
+          'Skills gap analysis and L&D targeting',
+        ],
+        recommendedSolution:
+          'Build a unified talent intelligence platform aggregating HR data from all subsidiaries. Deploy AI-driven skills matching for internal mobility. Estimated implementation: 10-14 weeks.',
+      },
+      {
+        id: 3,
+        name: 'Enterprise Risk Intelligence',
+        sources: 'GRC systems, compliance databases, audit reports',
+        gapLabel: 'No enterprise-wide risk view',
+        blocked: 'Aggregated risk scoring, compliance automation',
+        impact: '$3.4M/yr',
+        impactNum: 3400000,
+        sourceList: [
+          'ServiceNow GRC (Aerospace, Financial Services)',
+          'Custom compliance tracking (Energy)',
+          'FDA/EMA regulatory databases (Health Sciences)',
+          'Internal audit management system',
+        ],
+        missingLayer:
+          'Risk and compliance data is managed independently by each subsidiary with different frameworks (ITAR, NERC, SOX, FDA). No aggregated enterprise risk view exists.',
+        blockedCapabilities: [
+          'Enterprise-wide risk heat map and scoring',
+          'Automated regulatory change management',
+          'Cross-subsidiary compliance benchmarking',
+          'AI-powered audit planning and prioritization',
+        ],
+        recommendedSolution:
+          'Deploy an enterprise GRC platform with automated data feeds from all subsidiary compliance systems. Build a unified risk taxonomy. Estimated implementation: 12-16 weeks.',
+      },
+      {
+        id: 4,
+        name: 'Shared Services Automation',
+        sources: 'Procurement, IT, legal across subsidiaries',
+        gapLabel: 'No shared services data layer',
+        blocked: 'Procurement leverage, IT standardization',
+        impact: '$5.6M/yr',
+        impactNum: 5600000,
+        sourceList: [
+          'Coupa procurement (partial adoption)',
+          'ServiceNow ITSM (Aerospace only)',
+          'Legal matter management (3 separate systems)',
+          'Vendor management spreadsheets',
+        ],
+        missingLayer:
+          'Shared services (procurement, IT, legal) operate independently in each subsidiary. No visibility into aggregate spend, vendor overlap, or service utilization across the group.',
+        blockedCapabilities: [
+          'Consolidated vendor management and spend analysis',
+          'Group-wide procurement leverage',
+          'Standardized IT service catalog',
+          'Legal matter deduplication and knowledge sharing',
+        ],
+        recommendedSolution:
+          'Build a shared services data platform connecting procurement, ITSM, and legal systems across all subsidiaries. Deploy AI-driven spend analytics. Estimated implementation: 14-18 weeks.',
+      },
+    ],
+    gapDivisionMap: {
+      1: ['northbridge', 'nb-aerospace', 'nb-energy', 'nb-financial', 'nb-health'],
+      2: ['northbridge', 'nb-aerospace', 'nb-energy', 'nb-financial', 'nb-health'],
+      3: ['northbridge', 'nb-aerospace', 'nb-energy', 'nb-financial', 'nb-health'],
+      4: ['northbridge', 'nb-aerospace', 'nb-energy', 'nb-financial', 'nb-health'],
+    },
+    statCards: [
+      { label: '48 Systems Mapped', color: 'blue' },
+      { label: '62 Active Connections', color: 'green' },
+      { label: '34 Missing Connections', color: 'red' },
+      { label: '$16.0M Annual Impact', color: 'red' },
+    ],
+    totalImpact: '$16.0M/year',
+    divisionBadges: ['NB Aerospace', 'NB Energy', 'NB Financial Services', 'NB Health Sciences'],
+    investment: '$1.2M',
+    annualReturn: '$16.0M',
+    roi: '13.3x Year 1',
+  },
+
+  /* ── Republic of Estonia — Digital Government ─────────────────────────── */
+  estonia: {
+    gaps: [
+      {
+        id: 1,
+        name: 'Cross-Ministry Data Exchange',
+        sources: 'X-Road partial, ministry databases',
+        gapLabel: 'Incomplete cross-ministry data sharing',
+        blocked: 'Proactive citizen services, policy modeling',
+        impact: '$3.8M/yr',
+        impactNum: 3800000,
+        sourceList: [
+          'X-Road data exchange layer (partial coverage)',
+          'Ministry-specific databases (Finance, Social, Economic)',
+          'Population registry',
+          'Business registry',
+        ],
+        missingLayer:
+          'While X-Road enables basic data exchange, many ministry datasets remain siloed. Complex cross-ministry queries require manual coordination and data sharing agreements.',
+        blockedCapabilities: [
+          'Proactive citizen service delivery',
+          'Cross-ministry policy impact modeling',
+          'Unified citizen journey analytics',
+          'AI-driven policy recommendation engine',
+        ],
+        recommendedSolution:
+          'Expand X-Road with a semantic data catalog and automated data sharing agreements. Deploy a cross-ministry analytics platform. Estimated implementation: 12-16 weeks.',
+      },
+      {
+        id: 2,
+        name: 'Citizen Identity Resolution',
+        sources: 'e-ID system, service databases, portal logs',
+        gapLabel: 'No unified citizen interaction history',
+        blocked: 'Personalized services, predictive needs',
+        impact: '$2.4M/yr',
+        impactNum: 2400000,
+        sourceList: [
+          'e-ID / ID-card authentication logs',
+          'eesti.ee portal service usage',
+          'Ministry-level CRM systems',
+          'Municipal service records',
+        ],
+        missingLayer:
+          'Citizen interactions with government are logged in separate ministry systems. No unified view of a citizen\'s service history, pending cases, or anticipated needs.',
+        blockedCapabilities: [
+          'Personalized government service recommendations',
+          'Predictive citizen needs anticipation',
+          'Life event-triggered proactive services',
+          'Unified case management across ministries',
+        ],
+        recommendedSolution:
+          'Build a privacy-preserving citizen interaction graph linking e-ID authentication with service usage. Deploy proactive service recommendations. Estimated implementation: 10-14 weeks.',
+      },
+      {
+        id: 3,
+        name: 'AI Model Governance Framework',
+        sources: 'Deployed AI models, training datasets, audit logs',
+        gapLabel: 'No centralized AI governance',
+        blocked: 'Responsible AI deployment, bias monitoring',
+        impact: '$1.6M/yr',
+        impactNum: 1600000,
+        sourceList: [
+          'Tax assessment AI models (Finance)',
+          'Benefit eligibility models (Social Affairs)',
+          'Business classification models (Economic Affairs)',
+          'Threat detection models (RIA)',
+        ],
+        missingLayer:
+          'AI models deployed across ministries lack centralized governance. No unified model registry, bias monitoring, or impact assessment framework exists.',
+        blockedCapabilities: [
+          'Centralized AI model registry and monitoring',
+          'Automated bias detection and fairness auditing',
+          'AI impact assessment workflow',
+          'Model performance degradation alerts',
+        ],
+        recommendedSolution:
+          'Deploy a national AI governance platform with model registry, bias monitoring, and automated impact assessments compliant with EU AI Act. Estimated implementation: 10-14 weeks.',
+      },
+      {
+        id: 4,
+        name: 'Cybersecurity Threat Intelligence',
+        sources: 'CERT-EE, ministry SOCs, NATO feeds',
+        gapLabel: 'No unified threat intelligence platform',
+        blocked: 'Coordinated incident response, threat prediction',
+        impact: '$2.2M/yr',
+        impactNum: 2200000,
+        sourceList: [
+          'CERT-EE threat monitoring',
+          'Ministry-level security operations centers',
+          'NATO CCDCOE threat feeds',
+          'EU ENISA advisory database',
+        ],
+        missingLayer:
+          'Threat intelligence from multiple sources is not aggregated into a single platform. Coordinated response across ministries requires manual communication and escalation.',
+        blockedCapabilities: [
+          'Unified national threat intelligence dashboard',
+          'Automated cross-ministry incident response',
+          'Predictive threat modeling',
+          'AI-powered vulnerability prioritization',
+        ],
+        recommendedSolution:
+          'Build a national threat intelligence platform aggregating CERT-EE, SOC, and international feeds. Deploy AI-driven threat prediction. Estimated implementation: 12-16 weeks.',
+      },
+    ],
+    gapDivisionMap: {
+      1: ['estonia', 'ee-finance', 'ee-social', 'ee-economic', 'ee-ria'],
+      2: ['estonia', 'ee-finance', 'ee-social', 'ee-economic'],
+      3: ['estonia', 'ee-finance', 'ee-social', 'ee-economic', 'ee-ria'],
+      4: ['estonia', 'ee-ria'],
+    },
+    statCards: [
+      { label: '32 Systems Mapped', color: 'blue' },
+      { label: '44 Active Connections', color: 'green' },
+      { label: '22 Missing Connections', color: 'red' },
+      { label: '$10.0M Annual Impact', color: 'red' },
+    ],
+    totalImpact: '$10.0M/year',
+    divisionBadges: ['Ministry of Finance', 'Ministry of Social Affairs', 'Ministry of Economic Affairs', 'RIA — Cybersecurity'],
+    investment: '$600K',
+    annualReturn: '$10.0M',
+    roi: '16.7x Year 1',
+  },
+};
+
+/* ── Resolve company gap data ────────────────────────────────────────────── */
+
+function resolveGapData(companyId: string): CompanyGapData {
+  // Direct match
+  if (gapDataByCompany[companyId]) return gapDataByCompany[companyId];
+
+  // Child company mapping to parent
+  const childToParent: Record<string, string> = {
+    hcc: 'meridian', hrsi: 'meridian', hsi: 'meridian', hti: 'meridian',
+    htsi: 'meridian', he: 'meridian', gg: 'meridian',
+    'nb-aerospace': 'northbridge', 'nb-energy': 'northbridge',
+    'nb-financial': 'northbridge', 'nb-health': 'northbridge',
+    'ee-finance': 'estonia', 'ee-social': 'estonia',
+    'ee-economic': 'estonia', 'ee-ria': 'estonia',
+  };
+
+  const parentId = childToParent[companyId];
+  if (parentId && gapDataByCompany[parentId]) {
+    const parentData = gapDataByCompany[parentId];
+    // Filter to gaps relevant to this child
+    const filtered = parentData.gaps.filter(g =>
+      parentData.gapDivisionMap[g.id]?.includes(companyId)
+    );
+    return {
+      ...parentData,
+      gaps: filtered.length > 0 ? filtered : parentData.gaps,
+    };
+  }
+
+  // Fallback
+  return gapDataByCompany.meridian;
+}
+
+/* ── Shared UI constants ─────────────────────────────────────────────────── */
 
 const colorMap = {
   blue: {
@@ -216,22 +896,10 @@ const statIcons = [Server, Activity, AlertTriangle, BarChart3];
 
 /* ── Component ───────────────────────────────────────────────────────────── */
 
-// Map each gap to the divisions it's relevant to
-const gapDivisionMap: Record<number, string[]> = {
-  1: ['meridian', 'hcc', 'hrsi', 'hti', 'he'],       // Unified General Ledger — multi-division financial
-  2: ['meridian', 'hcc', 'hrsi', 'hsi', 'htsi'],      // Centralized Equipment Catalog — fleet heavy
-  3: ['meridian', 'hcc', 'hti', 'htsi'],               // Unified Customer Layer — client-facing
-  4: ['meridian', 'hcc', 'hrsi', 'hsi', 'gg'],         // Digital Field Data Capture — field ops
-  5: ['meridian', 'hcc', 'hrsi', 'hsi', 'hti', 'htsi', 'he', 'gg'], // License Telemetry — all
-  6: ['meridian', 'hsi', 'hti', 'gg', 'he'],           // Regulatory Data Pipeline — compliance heavy
-};
-
 export default function DataFlow() {
   const { company } = useCompany();
+  const gapData = resolveGapData(company.id);
   const [expandedGap, setExpandedGap] = useState<number | null>(null);
-  const filteredGaps = company.id === 'meridian'
-    ? gaps
-    : gaps.filter(g => gapDivisionMap[g.id]?.includes(company.id));
 
   const toggle = (id: number) =>
     setExpandedGap((prev) => (prev === id ? null : id));
@@ -250,7 +918,7 @@ export default function DataFlow() {
         </p>
 
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {statCards.map((card, i) => {
+          {gapData.statCards.map((card, i) => {
             const c = colorMap[card.color];
             const Icon = statIcons[i];
             return (
@@ -281,7 +949,7 @@ export default function DataFlow() {
         </h2>
 
         <div className="space-y-3">
-          {filteredGaps.map((gap, i) => (
+          {gapData.gaps.map((gap, i) => (
             <motion.div
               key={gap.id}
               initial={{ opacity: 0, x: -16 }}
@@ -365,7 +1033,7 @@ export default function DataFlow() {
             Total Quantified Data Gap Impact:{' '}
           </span>
           <span className="font-mono text-lg font-bold text-red-400">
-            $3.8M/year
+            {gapData.totalImpact}
           </span>
         </div>
       </div>
@@ -377,7 +1045,7 @@ export default function DataFlow() {
         </h2>
 
         <div className="space-y-3">
-          {filteredGaps.map((gap) => {
+          {gapData.gaps.map((gap) => {
             const isOpen = expandedGap === gap.id;
             return (
               <div
@@ -505,7 +1173,7 @@ export default function DataFlow() {
         <div className="rounded-2xl shadow-sm p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}>
           {/* Division Badges */}
           <div className="flex flex-wrap items-center justify-center gap-4">
-            {['HCC — Rail & Highway Construction', 'HRSI — Railroad Services', 'HSI — Rail Testing', 'HTI — Signal & PTC', 'HTSI — Transit Services', 'HE — Energy', 'GG — Environmental'].map(
+            {gapData.divisionBadges.map(
               (name, i) => (
                 <motion.div
                   key={name}
@@ -544,7 +1212,7 @@ export default function DataFlow() {
             <div className="flex items-center justify-center gap-3">
               <Layers className="h-6 w-6 text-green-400" />
               <span className="text-lg font-bold text-white">
-                Databricks Lakehouse
+                Unified Data Platform
               </span>
             </div>
             <p className="mt-1 text-xs text-gray-400">
@@ -611,15 +1279,15 @@ export default function DataFlow() {
             <span className="text-sm" style={{ color: 'var(--cc-text-secondary)' }}>
               Investment:{' '}
               <span className="font-mono font-semibold" style={{ color: 'var(--cc-text)' }}>
-                $200K
+                {gapData.investment}
               </span>{' '}
               &middot; Annual Return:{' '}
               <span className="font-mono font-semibold text-green-600">
-                $3.8M
+                {gapData.annualReturn}
               </span>{' '}
               &middot; ROI:{' '}
               <span className="font-mono font-bold text-green-600">
-                19x Year 1
+                {gapData.roi}
               </span>
             </span>
           </motion.div>
