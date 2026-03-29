@@ -66,7 +66,7 @@ interface CompanyData {
 
 const divisions: CompanyData[] = [
   {
-    name: 'Herzog Contracting Corp',
+    name: 'IC Construction Corp',
     industry: 'Rail & Highway Construction',
     employees: 1200,
 
@@ -101,7 +101,7 @@ const divisions: CompanyData[] = [
     ],
   },
   {
-    name: 'Herzog Railroad Services',
+    name: 'IC Rail Services',
     industry: 'Railroad Maintenance & Equipment',
     employees: 380,
 
@@ -136,7 +136,7 @@ const divisions: CompanyData[] = [
     ],
   },
   {
-    name: 'Herzog Services (Rail Testing)',
+    name: 'IC Testing Services',
     industry: 'Ultrasonic Rail Testing',
     employees: 220,
 
@@ -171,7 +171,7 @@ const divisions: CompanyData[] = [
     ],
   },
   {
-    name: 'Herzog Technologies',
+    name: 'IC Technologies',
     industry: 'Signal & PTC Systems',
     employees: 310,
 
@@ -206,7 +206,7 @@ const divisions: CompanyData[] = [
     ],
   },
   {
-    name: 'Herzog Transit Services',
+    name: 'IC Transit Services',
     industry: 'Passenger Rail Operations',
     employees: 480,
 
@@ -241,7 +241,7 @@ const divisions: CompanyData[] = [
     ],
   },
   {
-    name: 'Herzog Energy',
+    name: 'IC Energy',
     industry: 'Energy Infrastructure',
     employees: 120,
 
@@ -276,7 +276,7 @@ const divisions: CompanyData[] = [
     ],
   },
   {
-    name: 'Green Group LLC',
+    name: 'IC Environmental LLC',
     industry: 'Environmental Services',
     employees: 90,
 
@@ -600,7 +600,7 @@ export default function Stories() {
       >
         <h1 className="text-3xl font-bold" style={{ color: 'var(--cc-text)' }}>Division Performance</h1>
         <p className="mt-1 text-lg" style={{ color: 'var(--cc-text-secondary)' }}>
-          {isSpecificOpco ? `Transformation results for ${company.name}` : `Transformation results across all ${divisions.length} Herzog divisions`}
+          {isSpecificOpco ? `Transformation results for ${company.name}` : `Transformation results across all ${divisions.length} IndustrialsCo divisions`}
         </p>
       </motion.div>
 

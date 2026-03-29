@@ -43,7 +43,7 @@ const gaps: GapDetail[] = [
     impactNum: 400000,
     sourceList: [
       'SAP ERP (HCC, HRSI, HTI)',
-      'Primavera P6 (HCC, Herzog Energy)',
+      'Primavera P6 (HCC, IC Energy)',
       'Custom Dispatch System (built 2009)',
       'FRA Compliance Database (HSI)',
     ],

@@ -268,7 +268,7 @@ function CostOfInactionCounter({ monthlyWaste }: { monthlyWaste: number }) {
         </p>
       </div>
       <p className="text-sm mb-2" style={{ color: 'var(--cc-text-secondary)' }}>
-        Every month of delay costs Herzog approximately
+        Every month of delay costs IndustrialsCo approximately
       </p>
       <p
         className="text-3xl sm:text-4xl font-mono font-bold text-red-400"

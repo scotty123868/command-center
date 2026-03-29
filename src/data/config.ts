@@ -10,9 +10,9 @@ export interface CompanyConfig {
   userName: string;
 }
 
-// Default config — Herzog Companies
+// Default config — IndustrialsCo
 const defaultConfig: CompanyConfig = {
-  name: 'Herzog Companies',
+  name: 'IndustrialsCo',
   industry: 'Railroad & Infrastructure Construction',
   employees: 2800,
   opCos: 7,

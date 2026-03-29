@@ -1,11 +1,11 @@
 // ─── Company Profile ────────────────────────────────────────────────────────
 
 export const companyProfile = {
-  name: 'Herzog Companies',
+  name: 'IndustrialsCo',
   industry: 'Railroad & Infrastructure Construction',
   employees: 2_800,
   opCos: 7,
-  opCoNames: ['Herzog Contracting Corp (HCC)', 'Herzog Railroad Services (HRSI)', 'Herzog Services (HSI)', 'Herzog Technologies (HTI)', 'Herzog Transit Services (HTSI)', 'Herzog Energy', 'Green Group LLC'],
+  opCoNames: ['IC Construction Corp (HCC)', 'IC Rail Services (HRSI)', 'IC Services (HSI)', 'IC Technologies (HTI)', 'IC Transit Services (HTSI)', 'IC Energy', 'IC Environmental LLC'],
   techSpend: '$12.4M/yr',
   aiReadinessScore: 38,
   holdingPeriod: 'Founded 1969, 57 years in operation',
@@ -19,7 +19,7 @@ export const aiReadinessBreakdown = [
   { category: 'Data Infrastructure', score: 25, maxScore: 100, status: 'Critical Gap — siloed systems across 7 divisions, no unified data lake, GPS/LIDAR data from rail testing not centralized, dispatch data trapped in legacy custom system' },
   { category: 'Process Maturity', score: 44, maxScore: 100, status: 'Below Average — some automation in rail testing (TAM-4, GPS ballast trains) but most field ops manual, crew scheduling done via spreadsheets and phone calls' },
   { category: 'Tech Stack Modernity', score: 32, maxScore: 100, status: 'Legacy-Heavy — custom dispatch system built in 2009, aging TAM-4 rail testing software, SAP on-premise, Primavera P6 with no cloud integration' },
-  { category: 'Change Readiness', score: 48, maxScore: 100, status: 'Moderate — CEO Brad Lager committed to technology transformation, but field crews and division GMs resistant to changing proven workflows' },
+  { category: 'Change Readiness', score: 48, maxScore: 100, status: 'Moderate — CEO James Mitchell committed to technology transformation, but field crews and division GMs resistant to changing proven workflows' },
   { category: 'Skills & Training', score: 28, maxScore: 100, status: 'Critical Gap — strong mechanical/railroad expertise but near-zero data science or AI capability, IT team focused on maintaining custom systems' },
 ];
 
@@ -49,14 +49,14 @@ export const roadmapPhases = [
     items: ['License audit & reclamation', 'GPS fleet data consolidation', 'Quick-win field automation'],
     status: 'active' as const,
     weekPlan: [
-      { week: 1, task: 'Kickoff & stakeholder interviews across all 7 divisions — HCC, HRSI, HSI, HTI, HTSI, Energy, Green Group', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 1, task: 'Kickoff & stakeholder interviews across all 7 divisions — HCC, HRSI, HSI, HTI, HTSI, Energy, IC Environmental', owner: 'Sarah Chen (Engagement Lead)' },
       { week: 2, task: 'License usage audit via API pull + manual review of Primavera P6, SAP, AutoCAD, Trimble licenses across divisions', owner: 'Jason Park (DevOps)' },
       { week: 3, task: 'GPS/telematics data assessment — map Trimble fleet data streams, identify consolidation opportunities across 800+ tracked assets', owner: 'Mike Torres (Tech Lead)' },
       { week: 4, task: 'Workflow discovery: 62 processes mapped across rail construction, testing, signals, transit ops, and environmental divisions', owner: 'Sarah Chen (Engagement Lead)' },
       { week: 5, task: 'License reclamation wave 1: Microsoft 365 (1,000 seats) + Primavera P6 (100 seats) + AutoCAD (55 seats)', owner: 'Jason Park (DevOps)' },
       { week: 6, task: 'Quick-win scoring: rank 62 workflows by automation potential — prioritize crew scheduling and safety compliance', owner: 'Sarah Chen (Engagement Lead)' },
       { week: 7, task: 'Salesforce seat reclamation (45 seats) + Trimble Business Center audit (45 inactive seats)', owner: 'Jason Park (DevOps)' },
-      { week: 8, task: 'Executive readout to CEO Brad Lager & CFO Eric Bruder: $2.8M license waste identified, fleet intelligence roadmap presented', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 8, task: 'Executive readout to CEO James Mitchell & CFO Michael Reynolds: $2.8M license waste identified, fleet intelligence roadmap presented', owner: 'Sarah Chen (Engagement Lead)' },
       { week: 9, task: 'Custom dispatch system assessment — document all integrations, data flows, and API gaps in legacy 2009 system', owner: 'Mike Torres (Tech Lead)' },
       { week: 10, task: 'Data infrastructure mapping: identify all data silos across 7 divisions, GPS/LIDAR data stores, rail testing databases', owner: 'Mike Torres (Tech Lead)' },
       { week: 11, task: 'RFP for Databricks data lakehouse — evaluate against Snowflake for railroad-specific time-series and geospatial data needs', owner: 'Mike Torres (Tech Lead)' },
@@ -74,7 +74,7 @@ export const roadmapPhases = [
       { week: 15, task: 'Predictive maintenance model development: train on equipment failure history from 7 divisions (18K maintenance records)', owner: 'Priya Sharma (ML Engineering)' },
       { week: 16, task: 'RailSentry AI validation: target >92% defect detection accuracy on rail surface flaws, gauge anomalies, and tie condition', owner: 'Priya Sharma (ML Engineering)' },
       { week: 17, task: 'Crew scheduling optimization pilot: AI-based scheduling for HRSI division (340 field crew members)', owner: 'Mike Torres (Tech Lead)' },
-      { week: 18, task: 'Samsara deployment Phase 2: remaining 600 vehicles across HTI, HTSI, Energy, Green Group divisions', owner: 'Jason Park (DevOps)' },
+      { week: 18, task: 'Samsara deployment Phase 2: remaining 600 vehicles across HTI, HTSI, Energy, IC Environmental divisions', owner: 'Jason Park (DevOps)' },
       { week: 19, task: 'RailSentry AI go-live on HSI testing fleet: AI-enhanced inspection on 4 geometry cars with human verification', owner: 'Priya Sharma (ML Engineering)' },
       { week: 20, task: 'Crew scheduling go-live: AI dispatch for HRSI with supervisor override capability, targeting 22% idle time reduction', owner: 'Mike Torres (Tech Lead)' },
       { week: 21, task: 'Safety compliance automation pilot: auto-generate FRA Form 6180 reports from digital inspection data', owner: 'Jason Park (DevOps)' },
@@ -93,7 +93,7 @@ export const roadmapPhases = [
       { week: 26, task: 'SAP ERP migration planning: assess NetSuite for multi-division railroad operations (160 users, $520K current spend)', owner: 'Mike Torres (Tech Lead)' },
       { week: 27, task: 'Scale crew scheduling AI to all 7 divisions (2,800 employees), integrate with Kronos/UKG workforce data', owner: 'Priya Sharma (ML Engineering)' },
       { week: 28, task: 'NetSuite pilot: 40 users from HCC finance team, parallel run with SAP for one complete accounting period', owner: 'Jason Park (DevOps)' },
-      { week: 29, task: 'Databricks Phase 3: connect Green Group environmental data + unified equipment registry across all divisions', owner: 'Priya Sharma (ML Engineering)' },
+      { week: 29, task: 'Databricks Phase 3: connect IC Environmental environmental data + unified equipment registry across all divisions', owner: 'Priya Sharma (ML Engineering)' },
       { week: 30, task: 'Automation wave 2: ballast logistics optimization, project estimation AI assist, PTC system data integration', owner: 'Jason Park (DevOps)' },
       { week: 31, task: 'Equipment utilization dashboard live: real-time fleet visibility across all 7 divisions with AI redeployment recommendations', owner: 'Priya Sharma (ML Engineering)' },
       { week: 32, task: 'Procore deployment for project management: migrate from Primavera P6 (180 users), AI-powered scheduling', owner: 'Mike Torres (Tech Lead)' },
@@ -118,7 +118,7 @@ export const roadmapPhases = [
       { week: 43, task: 'AI-native stack validation: all systems integrated across 7 divisions, real-time data flowing through Databricks', owner: 'Jason Park (DevOps)' },
       { week: 44, task: 'Knowledge transfer: division IT teams trained on new stack, operational runbooks complete for all AI systems', owner: 'Sarah Chen (Engagement Lead)' },
       { week: 45, task: 'Final ROI validation: actual vs projected savings reconciliation across all initiatives', owner: 'Sarah Chen (Engagement Lead)' },
-      { week: 46, task: 'Board presentation to CEO Brad Lager: transformation metrics, safety improvements, Year 2 AI roadmap', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 46, task: 'Board presentation to CEO James Mitchell: transformation metrics, safety improvements, Year 2 AI roadmap', owner: 'Sarah Chen (Engagement Lead)' },
       { week: 47, task: 'Hypercare period: 30-day post-deployment monitoring, model drift detection, performance optimization', owner: 'Mike Torres (Tech Lead)' },
       { week: 48, task: 'Engagement close: AI-native railroad operations live, $5.8M Year 1 savings confirmed', owner: 'Sarah Chen (Engagement Lead)' },
     ],
@@ -315,7 +315,7 @@ export const recommendations: Recommendation[] = [
     recommended: {
       name: 'NetSuite',
       cost: 240_000,
-      description: 'NetSuite cloud ERP with multi-subsidiary support handles all 7 Herzog divisions with unified chart of accounts and real-time consolidation — eliminates 3-day month-end close. Project cost accounting module built for construction/infrastructure with WBS integration. Native REST API enables real-time sync with Samsara fleet data, Procore project management, and Databricks analytics. Mobile expense capture for field crews. AI-powered financial forecasting using historical project data. Migration path: parallel run for 2 accounting periods, estimated 16-week implementation.',
+      description: 'NetSuite cloud ERP with multi-subsidiary support handles all 7 IndustrialsCo divisions with unified chart of accounts and real-time consolidation — eliminates 3-day month-end close. Project cost accounting module built for construction/infrastructure with WBS integration. Native REST API enables real-time sync with Samsara fleet data, Procore project management, and Databricks analytics. Mobile expense capture for field crews. AI-powered financial forecasting using historical project data. Migration path: parallel run for 2 accounting periods, estimated 16-week implementation.',
     },
     annualSavings: 280_000,
   },
@@ -340,7 +340,7 @@ export const recommendations: Recommendation[] = [
       cost: 240_000,
       users: 45,
       score: 4,
-      description: 'Herzog\'s custom TAM-4 rail testing software processes geometry car data for track condition assessment. Handles gauge, cross-level, alignment, and surface measurements from HSI testing fleet. Software is functional but aging — built on legacy architecture with limited AI/ML integration capability. Video Track Chart and SpeedTrax modules provide visual inspection data but require manual review by 20 analysts. No automated defect detection — every anomaly flagged manually.',
+      description: 'IndustrialsCo\'s custom TAM-4 rail testing software processes geometry car data for track condition assessment. Handles gauge, cross-level, alignment, and surface measurements from HSI testing fleet. Software is functional but aging — built on legacy architecture with limited AI/ML integration capability. Video Track Chart and SpeedTrax modules provide visual inspection data but require manual review by 20 analysts. No automated defect detection — every anomaly flagged manually.',
     },
     recommended: {
       name: 'AI-Enhanced Inspection Platform',
@@ -370,7 +370,7 @@ export const recommendations: Recommendation[] = [
       cost: 0,
       users: 0,
       score: 1,
-      description: 'Zero centralized data infrastructure across 7 divisions. Each division operates independent data silos: HCC on SAP + Primavera, HRSI on custom dispatch, HSI on TAM-4 testing databases, HTI on proprietary PTC/signal systems, HTSI on transit scheduling software, Energy on standalone asset tracking, Green Group on environmental monitoring databases. Cross-division reporting requires manual data pulls taking 4-5 days/month. GPS/LIDAR data from rail testing generates 2TB/month but sits unanalyzed. No ability to train ML models on historical operational data — every AI initiative blocked by this gap.',
+      description: 'Zero centralized data infrastructure across 7 divisions. Each division operates independent data silos: HCC on SAP + Primavera, HRSI on custom dispatch, HSI on TAM-4 testing databases, HTI on proprietary PTC/signal systems, HTSI on transit scheduling software, Energy on standalone asset tracking, IC Environmental on environmental monitoring databases. Cross-division reporting requires manual data pulls taking 4-5 days/month. GPS/LIDAR data from rail testing generates 2TB/month but sits unanalyzed. No ability to train ML models on historical operational data — every AI initiative blocked by this gap.',
     },
     recommended: {
       name: 'Databricks',
@@ -652,7 +652,7 @@ export const workflows: Workflow[] = [
     dependencies: [
       'Databricks workspace with document processing capability',
       'Historical project cost archive: 5 years of data from all divisions, currently in disparate file systems',
-      'CFO Eric Bruder approval for bid data access controls and security classification',
+      'CFO Michael Reynolds approval for bid data access controls and security classification',
       'Estimator team commitment to 2-day training workshop and 4-week parallel evaluation',
     ],
   },
@@ -3010,18 +3010,18 @@ const eeRiaRoiSummary = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// ─── HCC — Herzog Contracting Corp (Herzog Division) ─────────────────────────
+// ─── HCC — IC Construction Corp (IndustrialsCo Division) ─────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
 const hccCompanyProfile = {
-  name: 'Herzog Contracting Corp',
+  name: 'IC Construction Corp',
   industry: 'Rail & Highway Construction',
   employees: 1_200,
   opCos: 1,
-  opCoNames: ['Herzog Contracting Corp'],
+  opCoNames: ['IC Construction Corp'],
   techSpend: '$4.8M/yr',
   aiReadinessScore: 32,
-  holdingPeriod: 'Herzog Companies Division',
+  holdingPeriod: 'IndustrialsCo Division',
   ebitdaMargin: '10.5%',
   targetEbitdaMargin: '17%',
 };
@@ -3094,7 +3094,7 @@ const hccRoadmapPhases = [
       { week: 13, task: 'AI-powered project scheduling replacing manual Primavera P6 updates', owner: 'VP Operations' },
       { week: 14, task: 'Digital twin pilot for major rail construction corridor', owner: 'VP Operations' },
       { week: 15, task: 'ROI validation: $2.1M Year 1 savings confirmed', owner: 'Division GM' },
-      { week: 16, task: 'Year 2 roadmap presentation to CEO Brad Lager', owner: 'Division GM' },
+      { week: 16, task: 'Year 2 roadmap presentation to CEO James Mitchell', owner: 'Division GM' },
     ],
   },
 ];
@@ -3141,18 +3141,18 @@ const hccRoiSummary = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// ─── HRSI — Herzog Railroad Services (Herzog Division) ───────────────────────
+// ─── HRSI — IC Rail Services (IndustrialsCo Division) ───────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
 const hrsiCompanyProfile = {
-  name: 'Herzog Railroad Services',
+  name: 'IC Rail Services',
   industry: 'Railroad Maintenance & Equipment',
   employees: 380,
   opCos: 1,
-  opCoNames: ['Herzog Railroad Services'],
+  opCoNames: ['IC Rail Services'],
   techSpend: '$1.8M/yr',
   aiReadinessScore: 36,
-  holdingPeriod: 'Herzog Companies Division',
+  holdingPeriod: 'IndustrialsCo Division',
   ebitdaMargin: '12.2%',
   targetEbitdaMargin: '19%',
 };
@@ -3263,18 +3263,18 @@ const hrsiRoiSummary = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// ─── HSI — Herzog Services / Rail Testing (Herzog Division) ──────────────────
+// ─── HSI — IC Services / Rail Testing (IndustrialsCo Division) ──────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
 const hsiCompanyProfile = {
-  name: 'Herzog Services (Rail Testing)',
+  name: 'IC Testing Services',
   industry: 'Ultrasonic Rail Testing',
   employees: 220,
   opCos: 1,
-  opCoNames: ['Herzog Services'],
+  opCoNames: ['IC Services'],
   techSpend: '$1.2M/yr',
   aiReadinessScore: 42,
-  holdingPeriod: 'Herzog Companies Division',
+  holdingPeriod: 'IndustrialsCo Division',
   ebitdaMargin: '14.8%',
   targetEbitdaMargin: '22%',
 };
@@ -3380,18 +3380,18 @@ const hsiRoiSummary = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// ─── HTI — Herzog Technologies (Herzog Division) ─────────────────────────────
+// ─── HTI — IC Technologies (IndustrialsCo Division) ─────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
 const htiCompanyProfile = {
-  name: 'Herzog Technologies',
+  name: 'IC Technologies',
   industry: 'Signal & PTC Systems',
   employees: 310,
   opCos: 1,
-  opCoNames: ['Herzog Technologies'],
+  opCoNames: ['IC Technologies'],
   techSpend: '$2.4M/yr',
   aiReadinessScore: 48,
-  holdingPeriod: 'Herzog Companies Division',
+  holdingPeriod: 'IndustrialsCo Division',
   ebitdaMargin: '13.5%',
   targetEbitdaMargin: '20%',
 };
@@ -3497,18 +3497,18 @@ const htiRoiSummary = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// ─── HTSI — Herzog Transit Services (Herzog Division) ────────────────────────
+// ─── HTSI — IC Transit Services (IndustrialsCo Division) ────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
 const htsiCompanyProfile = {
-  name: 'Herzog Transit Services',
+  name: 'IC Transit Services',
   industry: 'Passenger Rail Operations',
   employees: 480,
   opCos: 1,
-  opCoNames: ['Herzog Transit Services'],
+  opCoNames: ['IC Transit Services'],
   techSpend: '$2.2M/yr',
   aiReadinessScore: 40,
-  holdingPeriod: 'Herzog Companies Division',
+  holdingPeriod: 'IndustrialsCo Division',
   ebitdaMargin: '11.0%',
   targetEbitdaMargin: '18%',
 };
@@ -3615,18 +3615,18 @@ const htsiRoiSummary = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// ─── HE — Herzog Energy (Herzog Division) ────────────────────────────────────
+// ─── HE — IC Energy (IndustrialsCo Division) ────────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
 const heCompanyProfile = {
-  name: 'Herzog Energy',
+  name: 'IC Energy',
   industry: 'Energy Infrastructure',
   employees: 120,
   opCos: 1,
-  opCoNames: ['Herzog Energy'],
+  opCoNames: ['IC Energy'],
   techSpend: '$0.8M/yr',
   aiReadinessScore: 34,
-  holdingPeriod: 'Herzog Companies Division',
+  holdingPeriod: 'IndustrialsCo Division',
   ebitdaMargin: '10.0%',
   targetEbitdaMargin: '16%',
 };
@@ -3732,18 +3732,18 @@ const heRoiSummary = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// ─── GG — Green Group LLC (Herzog Division) ──────────────────────────────────
+// ─── GG — IC Environmental LLC (IndustrialsCo Division) ──────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
 const ggCompanyProfile = {
-  name: 'Green Group LLC',
+  name: 'IC Environmental LLC',
   industry: 'Environmental Services',
   employees: 90,
   opCos: 1,
-  opCoNames: ['Green Group LLC'],
+  opCoNames: ['IC Environmental LLC'],
   techSpend: '$0.4M/yr',
   aiReadinessScore: 30,
-  holdingPeriod: 'Herzog Companies Division',
+  holdingPeriod: 'IndustrialsCo Division',
   ebitdaMargin: '9.5%',
   targetEbitdaMargin: '15%',
 };
@@ -4167,14 +4167,14 @@ const htsiMethodologySteps: IntegrationMethodologyStep[] = [
 ];
 
 const heMethodologySteps: IntegrationMethodologyStep[] = [
-  { number: 1, title: 'SCADA/Grid Discovery', description: 'Inventory 48,000 sensor tags, 12 solar sites, and grid management infrastructure across Herzog Energy\'s generation and distribution assets.' },
+  { number: 1, title: 'SCADA/Grid Discovery', description: 'Inventory 48,000 sensor tags, 12 solar sites, and grid management infrastructure across IC Energy\'s generation and distribution assets.' },
   { number: 2, title: 'Energy Workflow Mapping', description: 'Map load forecasting, grid stability monitoring, solar output prediction, and equipment maintenance workflows across the energy portfolio.' },
   { number: 3, title: 'Infrastructure Tech Audit', description: 'Evaluate SCADA systems, solar monitoring platform, grid management, and SAP ERP for real-time AI analytics and predictive maintenance readiness.' },
   { number: 4, title: 'Renewable ROI Modeling', description: 'Quantify demand forecasting improvements, grid stability gains, solar output optimization, and FERC/NERC compliance automation for HE\'s 120-person team.' },
 ];
 
 const ggMethodologySteps: IntegrationMethodologyStep[] = [
-  { number: 1, title: 'Compliance Data Inventory', description: 'Catalog environmental monitoring data from 42 sites, waste manifests, EPA filings, and remediation project records across Green Group operations.' },
+  { number: 1, title: 'Compliance Data Inventory', description: 'Catalog environmental monitoring data from 42 sites, waste manifests, EPA filings, and remediation project records across IC Environmental operations.' },
   { number: 2, title: 'Environmental Workflow Mapping', description: 'Map impact assessment, waste stream routing, EPA compliance reporting, and remediation planning workflows from field sampling through regulatory submission.' },
   { number: 3, title: 'Monitoring Tech Audit', description: 'Assess environmental monitoring sensors, waste tracking system, EPA compliance database, and SAP ERP for AI-powered environmental analytics readiness.' },
   { number: 4, title: 'Remediation ROI Modeling', description: 'Model compliance automation savings, waste routing optimization, air quality forecasting improvements, and remediation scheduling gains for GG\'s 90-person team.' },

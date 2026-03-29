@@ -552,10 +552,10 @@ export default function BoardReportPage() {
           lineHeight: 1.7,
         }}>
           {[
-            'Herzog Contracting Corp (HCC) represents 36% of total savings opportunity due to fleet scale (800+ vehicles) and legacy dispatch system inefficiency.',
-            'Herzog Technologies (HTI) has the highest current AI readiness (48/100) and can serve as a lighthouse division for early AI adoption wins.',
+            'IC Construction Corp (HCC) represents 36% of total savings opportunity due to fleet scale (800+ vehicles) and legacy dispatch system inefficiency.',
+            'IC Technologies (HTI) has the highest current AI readiness (48/100) and can serve as a lighthouse division for early AI adoption wins.',
             'All divisions share common infrastructure gaps: no unified data lake, siloed GPS/LIDAR data, and spreadsheet-based crew scheduling.',
-            'Environmental compliance automation at Green Group LLC offers the fastest time-to-value with a low-complexity implementation.',
+            'Environmental compliance automation at IC Environmental LLC offers the fastest time-to-value with a low-complexity implementation.',
           ].map((obs, i) => (
             <div key={i} style={{ display: 'flex', gap: '8px', marginBottom: '6px' }}>
               <span style={{ color: '#2563eb', flexShrink: 0, fontSize: '10px', marginTop: '2px' }}>&#9654;</span>
