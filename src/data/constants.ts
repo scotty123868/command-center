@@ -350,16 +350,16 @@ export const recommendations: Recommendation[] = [
   },
   {
     current: {
-      name: 'SAP ERP',
+      name: 'eCMS (Computer Guidance)',
       cost: 520_000,
       users: 160,
       score: 3,
-      description: 'On-premise SAP ECC instance serving 7 divisions with 160 named users. Heavy customization for railroad project cost accounting — 280+ custom ABAP objects. Last major upgrade was 2019. Report generation averages 5.1 minutes. No API layer for modern integrations — all data exchange via flat-file IDOC exports. Multi-division consolidation requires 3-day month-end close process. 160 users but SSO logs show only 92 unique logins/month.',
+      description: 'On-premise eCMS instance (Computer Guidance Corp) serving 7 divisions with 160 named users. Heavy customization for railroad project cost accounting. Report generation averages 5.1 minutes. No API layer for modern integrations — all data exchange via flat-file exports and QMirror AS/400 replication. Multi-division consolidation requires 3-day month-end close process. 160 users but SSO logs show only 92 unique logins/month.',
     },
     recommended: {
-      name: 'NetSuite',
+      name: 'eCMS + AI Middleware',
       cost: 240_000,
-      description: 'NetSuite cloud ERP with multi-subsidiary support handles all 7 IndustrialsCo divisions with unified chart of accounts and real-time consolidation — eliminates 3-day month-end close. Project cost accounting module built for construction/infrastructure with WBS integration. Native REST API enables real-time sync with HCSS Equipment360 fleet data, Procore project management, and proposed data lakehouse analytics. Mobile expense capture for field crews. AI-powered financial forecasting using historical project data. Migration path: parallel run for 2 accounting periods, estimated 16-week implementation.',
+      description: 'AI middleware layer deployed alongside existing eCMS in Herzog data centers. Automated invoice matching reduces AP processing by 65%. Predictive project cost modeling uses historical eCMS data to forecast overruns 4-6 weeks early. Real-time API bridge enables live sync with HCSS field data, Procore project management, and proposed data lakehouse. Eliminates 3-day month-end close via automated multi-division consolidation. Mobile expense capture for field crews. Respects Herzog\'s on-prem preference — runs in TX/AZ data centers alongside eCMS.',
     },
     annualSavings: 280_000,
   },
@@ -369,12 +369,12 @@ export const recommendations: Recommendation[] = [
       cost: 420_000,
       users: 180,
       score: 4,
-      description: 'Oracle Primavera P6 Professional with 180 licenses across HCC, HRSI, and HTI divisions. Strong CPM scheduling capability but no AI-assisted planning. 280 active projects tracked, but resource leveling is manual (project managers spend avg 6 hrs/week on schedule updates). No field mobile access — all updates must be entered from office workstations. Integration with SAP is batch-only (nightly CSV export). 100 of 280 licenses show <2 logins/month.',
+      description: 'Oracle Primavera P6 Professional with 180 licenses across HCC, HRSI, and HTI divisions. Strong CPM scheduling capability but no AI-assisted planning. 280 active projects tracked, but resource leveling is manual (project managers spend avg 6 hrs/week on schedule updates). No field mobile access — all updates must be entered from office workstations. Integration with eCMS is batch-only (nightly CSV export). 100 of 280 licenses show <2 logins/month.',
     },
     recommended: {
       name: 'Procore + AI',
       cost: 220_000,
-      description: 'Procore construction management platform with AI-powered scheduling provides mobile-first project management for railroad construction. Field crews update progress directly from job sites via mobile app, eliminating office-only data entry. AI scheduling assistant optimizes resource allocation across 280+ active projects using historical performance data. Native integration with NetSuite (real-time cost sync), HCSS Equipment360 (equipment availability), and proposed data lakehouse (predictive analytics). Automated submittals, RFI tracking, and daily log generation. Document management with AI-powered search across project archives.',
+      description: 'Procore construction management platform with AI-powered scheduling provides mobile-first project management for railroad construction. Field crews update progress directly from job sites via mobile app, eliminating office-only data entry. AI scheduling assistant optimizes resource allocation across 280+ active projects using historical performance data. Native integration with eCMS (real-time cost sync via AI middleware), HCSS Equipment360 (equipment availability), and proposed data lakehouse (predictive analytics). Automated submittals, RFI tracking, and daily log generation. Document management with AI-powered search across project archives.',
     },
     annualSavings: 200_000,
   },
@@ -404,7 +404,7 @@ export const recommendations: Recommendation[] = [
     recommended: {
       name: 'MCP AI Enhancement Layer',
       cost: 160_000,
-      description: 'MCP AI-powered scheduling enhancement layer with railroad-specific modules for FRA hours-of-service compliance and union work rules. ML-based scheduling optimizer considers crew certifications, location, travel time, equipment availability, and fatigue risk to generate optimal weekly schedules — targeting 22% idle time reduction to <8%. Mobile app enables real-time schedule visibility, shift swaps, and availability updates. Automated compliance monitoring alerts supervisors before hours-of-service violations occur (currently caught retrospectively). Integration with HCSS Equipment360 for crew location data and NetSuite for payroll sync.',
+      description: 'MCP AI-powered scheduling enhancement layer with railroad-specific modules for FRA hours-of-service compliance and union work rules. ML-based scheduling optimizer considers crew certifications, location, travel time, equipment availability, and fatigue risk to generate optimal weekly schedules — targeting 22% idle time reduction to <8%. Mobile app enables real-time schedule visibility, shift swaps, and availability updates. Automated compliance monitoring alerts supervisors before hours-of-service violations occur (currently caught retrospectively). Integration with HCSS Equipment360 for crew location data and eCMS for payroll sync.',
     },
     annualSavings: 180_000,
   },
@@ -414,7 +414,7 @@ export const recommendations: Recommendation[] = [
       cost: 0,
       users: 0,
       score: 1,
-      description: 'Zero centralized data infrastructure across 7 divisions. Each division operates independent data silos: HCC on SAP + Primavera, HRSI on legacy field dispatch, HSI on TAM-4 testing databases, HTI on proprietary PTC/signal systems, HTSI on transit scheduling software, Energy on standalone asset tracking, IC Environmental on environmental monitoring databases. Cross-division reporting requires manual data pulls taking 4-5 days/month. GPS/LIDAR data from rail testing generates 2TB/month but sits unanalyzed. No ability to train ML models on historical operational data — every AI initiative blocked by this gap.',
+      description: 'Zero centralized data infrastructure across 7 divisions. Each division operates independent data silos: HCC on eCMS + Primavera, HRSI on legacy field dispatch, HSI on TAM-4 testing databases, HTI on proprietary PTC/signal systems, HTSI on transit scheduling software, Energy on standalone asset tracking, IC Environmental on environmental monitoring databases. Cross-division reporting requires manual data pulls taking 4-5 days/month. GPS/LIDAR data from rail testing generates 2TB/month but sits unanalyzed. No ability to train ML models on historical operational data — every AI initiative blocked by this gap.',
     },
     recommended: {
       name: 'Databricks',
@@ -829,7 +829,7 @@ export interface License {
 
 export const licenses: License[] = [
   { vendor: 'Primavera P6', totalLicenses: 280, active90d: 180, inactive: 100, annualWaste: 350_000, action: 'Reclaim 100 seats — restrict to active project managers only', costPerLicense: 3_500, department: 'Project Management (HCC, HRSI, HTI)', lastAuditDate: '2025-10-15', trend: [82, 76, 70, 68, 65, 64], complianceRisk: false },
-  { vendor: 'SAP ERP', totalLicenses: 250, active90d: 160, inactive: 90, annualWaste: 360_000, action: 'Reclaim 90 seats → migrate to NetSuite in Q3', costPerLicense: 4_000, department: 'Finance & Accounting (all divisions)', lastAuditDate: '2025-11-02', trend: [78, 72, 68, 65, 64, 64], complianceRisk: false },
+  { vendor: 'eCMS', totalLicenses: 250, active90d: 160, inactive: 90, annualWaste: 360_000, action: 'Reclaim 90 inactive seats, deploy AI middleware layer', costPerLicense: 4_000, department: 'Finance & Accounting (all divisions)', lastAuditDate: '2025-11-02', trend: [78, 72, 68, 65, 64, 64], complianceRisk: false },
   { vendor: 'AutoCAD/Civil 3D', totalLicenses: 120, active90d: 65, inactive: 55, annualWaste: 440_000, action: 'Reclaim 55 seats — consolidate to engineering department only', costPerLicense: 8_000, department: 'Engineering & Design (HCC, HTI)', lastAuditDate: '2025-08-20', trend: [68, 62, 58, 55, 54, 54], complianceRisk: true },
   { vendor: 'MCP (Internal)', totalLicenses: 2_800, active90d: 2_200, inactive: 600, annualWaste: 180_000, action: 'Reclaim 600 inactive → deploy AI enhancement layer on MCP in Q4', costPerLicense: 300, department: 'HR / All Divisions (workforce-wide)', lastAuditDate: '2026-01-10', trend: [88, 85, 82, 80, 79, 79], complianceRisk: false },
   { vendor: 'Microsoft 365', totalLicenses: 2_800, active90d: 1_800, inactive: 1_000, annualWaste: 800_000, action: 'Reclaim 1,000 seats + downgrade 400 E5→E3 for field crews', costPerLicense: 800, department: 'IT / All Divisions (company-wide)', lastAuditDate: '2025-09-15', trend: [76, 70, 66, 64, 64, 64], complianceRisk: false },
@@ -3278,13 +3278,13 @@ const hrsiTopOpportunities: Opportunity[] = [
 const hrsiCurrentStack: CurrentTool[] = [
   { name: 'Legacy Field Dispatch', category: 'Fleet Management', annualCost: 200_000, users: 120, score: 3, integrationComplexity: 'High', migrationWeeks: 18, riskLevel: 'High', dependencies: ['Crew dispatch', 'Equipment tracking', 'Work orders'] },
   { name: 'MCP (Internal)', category: 'Workforce', annualCost: 120_000, users: 380, score: 4, integrationComplexity: 'Medium', migrationWeeks: 10, riskLevel: 'Medium', dependencies: ['Time tracking', 'FRA compliance', 'Payroll'] },
-  { name: 'SAP ERP', category: 'Finance', annualCost: 160_000, users: 40, score: 3, integrationComplexity: 'High', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Financial reporting', 'AP/AR', 'Cost accounting'] },
+  { name: 'eCMS', category: 'Finance', annualCost: 160_000, users: 40, score: 3, integrationComplexity: 'High', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Financial reporting', 'AP/AR', 'Cost accounting'] },
 ];
 
 const hrsiLicenses: License[] = [
   { vendor: 'Legacy Field Dispatch', totalLicenses: 120, active90d: 80, inactive: 40, annualWaste: 160_000, action: 'Consolidate into HCSS suite — reclaim all legacy dispatch seats', costPerLicense: 4_000, department: 'Operations', lastAuditDate: '2025-11-10', trend: [78, 72, 68, 65, 64, 67], complianceRisk: false },
   { vendor: 'MCP (Internal)', totalLicenses: 380, active90d: 280, inactive: 100, annualWaste: 30_000, action: 'Reclaim 100 inactive crew seats', costPerLicense: 300, department: 'HR / All Staff', lastAuditDate: '2026-01-10', trend: [86, 82, 78, 74, 74, 74], complianceRisk: false },
-  { vendor: 'SAP ERP', totalLicenses: 40, active90d: 20, inactive: 20, annualWaste: 80_000, action: 'Reclaim 20 seats — consolidate to finance team', costPerLicense: 4_000, department: 'Finance', lastAuditDate: '2025-11-02', trend: [72, 66, 58, 52, 50, 50], complianceRisk: false },
+  { vendor: 'eCMS', totalLicenses: 40, active90d: 20, inactive: 20, annualWaste: 80_000, action: 'Reclaim 20 seats — consolidate to finance team', costPerLicense: 4_000, department: 'Finance', lastAuditDate: '2025-11-02', trend: [72, 66, 58, 52, 50, 50], complianceRisk: false },
   { vendor: 'Microsoft 365', totalLicenses: 380, active90d: 240, inactive: 140, annualWaste: 110_000, action: 'Reclaim 140 seats + downgrade field crews', costPerLicense: 786, department: 'IT / All Staff', lastAuditDate: '2025-09-15', trend: [76, 70, 66, 63, 63, 63], complianceRisk: false },
 ];
 
@@ -3747,13 +3747,13 @@ const heTopOpportunities: Opportunity[] = [
 
 const heCurrentStack: CurrentTool[] = [
   { name: 'Excel/SharePoint', category: 'Project Management', annualCost: 60_000, users: 40, score: 2, integrationComplexity: 'Low', migrationWeeks: 8, riskLevel: 'Low', dependencies: ['Project tracking', 'Cost estimation', 'Resource planning'] },
-  { name: 'SAP ERP (shared)', category: 'Finance', annualCost: 80_000, users: 15, score: 3, integrationComplexity: 'High', migrationWeeks: 12, riskLevel: 'Medium', dependencies: ['Financial reporting', 'AP/AR', 'Cost accounting'] },
+  { name: 'eCMS (shared)', category: 'Finance', annualCost: 80_000, users: 15, score: 3, integrationComplexity: 'High', migrationWeeks: 12, riskLevel: 'Medium', dependencies: ['Financial reporting', 'AP/AR', 'Cost accounting'] },
   { name: 'MCP (Internal)', category: 'Workforce', annualCost: 40_000, users: 120, score: 4, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Low', dependencies: ['Time tracking', 'Crew scheduling', 'Payroll'] },
 ];
 
 const heLicenses: License[] = [
   { vendor: 'Microsoft 365', totalLicenses: 120, active90d: 70, inactive: 50, annualWaste: 40_000, action: 'Reclaim 50 inactive seats + downgrade field crews', costPerLicense: 800, department: 'IT / All Staff', lastAuditDate: '2025-09-15', trend: [74, 68, 62, 58, 58, 58], complianceRisk: false },
-  { vendor: 'SAP ERP', totalLicenses: 15, active90d: 5, inactive: 10, annualWaste: 40_000, action: 'Reclaim 10 seats — consolidate to finance only', costPerLicense: 4_000, department: 'Finance', lastAuditDate: '2025-11-02', trend: [60, 50, 40, 33, 33, 33], complianceRisk: false },
+  { vendor: 'eCMS', totalLicenses: 15, active90d: 5, inactive: 10, annualWaste: 40_000, action: 'Reclaim 10 seats — consolidate to finance only', costPerLicense: 4_000, department: 'Finance', lastAuditDate: '2025-11-02', trend: [60, 50, 40, 33, 33, 33], complianceRisk: false },
   { vendor: 'AutoCAD', totalLicenses: 20, active90d: 7, inactive: 13, annualWaste: 100_000, action: 'Reclaim 13 seats from non-engineering staff', costPerLicense: 7_692, department: 'Engineering', lastAuditDate: '2025-08-20', trend: [55, 45, 38, 35, 35, 35], complianceRisk: false },
 ];
 
@@ -3978,13 +3978,13 @@ const hccDataSources: IntegrationDataSource[] = [
   { system: 'AutoCAD Civil 3D', division: 'Engineering', recordsAnalyzed: '890 drawings', coverage: 87, status: 'Complete' },
   { system: 'HCSS Telematics', division: 'Fleet Operations', recordsAnalyzed: '400 vehicles tracked', coverage: 96, status: 'Complete' },
   { system: 'Legacy Field Dispatch', division: 'HCC Operations', recordsAnalyzed: '18,420 dispatch records', coverage: 78, status: 'In Progress' },
-  { system: 'SAP ERP', division: 'HCC Finance', recordsAnalyzed: '6,847 financial records', coverage: 91, status: 'Complete' },
+  { system: 'eCMS', division: 'HCC Finance', recordsAnalyzed: '6,847 financial records', coverage: 91, status: 'Complete' },
   { system: 'MCP (Internal)', division: 'Workforce', recordsAnalyzed: '1,200 employees', coverage: 100, status: 'Complete' },
 ];
 
 const hrsiDataSources: IntegrationDataSource[] = [
   { system: 'Legacy Field Dispatch', division: 'Railroad Maintenance Ops', recordsAnalyzed: '9,340 work orders', coverage: 76, status: 'In Progress' },
-  { system: 'SAP ERP', division: 'HRSI Finance', recordsAnalyzed: '3,218 financial records', coverage: 92, status: 'Complete' },
+  { system: 'eCMS', division: 'HRSI Finance', recordsAnalyzed: '3,218 financial records', coverage: 92, status: 'Complete' },
   { system: 'MCP (Internal)', division: 'Workforce', recordsAnalyzed: '380 employees', coverage: 100, status: 'Complete' },
   { system: 'HCSS Equipment360', division: 'Vehicle Telematics', recordsAnalyzed: '180 vehicles tracked', coverage: 88, status: 'Complete' },
   { system: 'Car Repair Database', division: 'Maintenance', recordsAnalyzed: '12,400 repair records', coverage: 83, status: 'In Progress' },
@@ -4003,7 +4003,7 @@ const htiDataSources: IntegrationDataSource[] = [
   { system: 'Wayside Data Logger', division: 'Field Equipment', recordsAnalyzed: '8,400 events/day', coverage: 86, status: 'In Progress' },
   { system: 'Signal Design CAD', division: 'Engineering', recordsAnalyzed: '1,800 signal designs', coverage: 94, status: 'Complete' },
   { system: 'ArcGIS Pro', division: 'Asset Mapping', recordsAnalyzed: '2,100 wayside assets', coverage: 90, status: 'Complete' },
-  { system: 'SAP ERP', division: 'HTI Finance', recordsAnalyzed: '2,940 financial records', coverage: 88, status: 'Complete' },
+  { system: 'eCMS', division: 'HTI Finance', recordsAnalyzed: '2,940 financial records', coverage: 88, status: 'Complete' },
 ];
 
 const htsiDataSources: IntegrationDataSource[] = [
@@ -4017,7 +4017,7 @@ const htsiDataSources: IntegrationDataSource[] = [
 const heDataSources: IntegrationDataSource[] = [
   { system: 'Energy SCADA', division: 'Grid Operations', recordsAnalyzed: '48,000 sensor tags', coverage: 96, status: 'Complete' },
   { system: 'Solar Monitoring Platform', division: 'Renewable Energy', recordsAnalyzed: '12 sites monitored', coverage: 89, status: 'Complete' },
-  { system: 'SAP ERP', division: 'HE Finance', recordsAnalyzed: '1,620 financial records', coverage: 93, status: 'Complete' },
+  { system: 'eCMS', division: 'HE Finance', recordsAnalyzed: '1,620 financial records', coverage: 93, status: 'Complete' },
   { system: 'Grid Management System', division: 'Power Infrastructure', recordsAnalyzed: '3,400 grid segments', coverage: 82, status: 'In Progress' },
   { system: 'MCP (Internal)', division: 'Workforce', recordsAnalyzed: '120 employees', coverage: 100, status: 'Complete' },
 ];
@@ -4026,7 +4026,7 @@ const ggDataSources: IntegrationDataSource[] = [
   { system: 'Environmental Monitoring', division: 'Field Sensors', recordsAnalyzed: '42 monitoring sites', coverage: 91, status: 'Complete' },
   { system: 'Waste Tracking System', division: 'Waste Operations', recordsAnalyzed: '1,800 manifests', coverage: 85, status: 'In Progress' },
   { system: 'EPA Compliance DB', division: 'Regulatory', recordsAnalyzed: '2,140 regulatory filings', coverage: 94, status: 'Complete' },
-  { system: 'SAP ERP', division: 'GG Finance', recordsAnalyzed: '1,180 financial records', coverage: 90, status: 'Complete' },
+  { system: 'eCMS', division: 'GG Finance', recordsAnalyzed: '1,180 financial records', coverage: 90, status: 'Complete' },
   { system: 'MCP (Internal)', division: 'Workforce', recordsAnalyzed: '90 employees', coverage: 100, status: 'Complete' },
 ];
 
@@ -4048,13 +4048,13 @@ const hccVendorHealth: IntegrationVendorHealth[] = [
   { name: 'AutoCAD Civil 3D', status: 'green', uptime: 99.4, latency: 68, lastChecked: '2026-03-27T08:12:00Z' },
   { name: 'HCSS Telematics', status: 'yellow', uptime: 97.8, latency: 186, lastChecked: '2026-03-27T08:10:00Z', note: 'Elevated latency during peak dispatch hours' },
   { name: 'Legacy Field Dispatch', status: 'red', uptime: 94.2, latency: 890, lastChecked: '2026-03-27T08:08:00Z', note: 'Legacy system — frequent timeouts under load' },
-  { name: 'SAP ERP (HCC)', status: 'green', uptime: 99.6, latency: 54, lastChecked: '2026-03-27T08:15:00Z' },
+  { name: 'eCMS (HCC)', status: 'green', uptime: 99.6, latency: 54, lastChecked: '2026-03-27T08:15:00Z' },
   { name: 'MCP (HCC)', status: 'green', uptime: 99.3, latency: 38, lastChecked: '2026-03-27T08:13:00Z' },
 ];
 
 const hrsiVendorHealth: IntegrationVendorHealth[] = [
   { name: 'Legacy Field Dispatch', status: 'red', uptime: 94.8, latency: 742, lastChecked: '2026-03-27T07:58:00Z', note: 'Legacy system — intermittent API failures' },
-  { name: 'SAP ERP (HRSI)', status: 'green', uptime: 99.5, latency: 61, lastChecked: '2026-03-27T08:02:00Z' },
+  { name: 'eCMS (HRSI)', status: 'green', uptime: 99.5, latency: 61, lastChecked: '2026-03-27T08:02:00Z' },
   { name: 'MCP (HRSI)', status: 'green', uptime: 99.2, latency: 44, lastChecked: '2026-03-27T08:04:00Z' },
   { name: 'HCSS Equipment360', status: 'green', uptime: 99.8, latency: 28, lastChecked: '2026-03-27T08:06:00Z' },
   { name: 'Car Repair Database', status: 'yellow', uptime: 97.1, latency: 312, lastChecked: '2026-03-27T07:56:00Z', note: 'Slow query performance on historical records' },
@@ -4073,7 +4073,7 @@ const htiVendorHealth: IntegrationVendorHealth[] = [
   { name: 'Wayside Data Logger', status: 'yellow', uptime: 97.3, latency: 247, lastChecked: '2026-03-27T08:22:00Z', note: 'Intermittent data gaps from remote wayside units' },
   { name: 'Signal Design CAD', status: 'green', uptime: 99.2, latency: 86, lastChecked: '2026-03-27T08:20:00Z' },
   { name: 'ArcGIS Pro', status: 'green', uptime: 99.0, latency: 112, lastChecked: '2026-03-27T08:18:00Z' },
-  { name: 'SAP ERP (HTI)', status: 'green', uptime: 99.4, latency: 58, lastChecked: '2026-03-27T08:26:00Z' },
+  { name: 'eCMS (HTI)', status: 'green', uptime: 99.4, latency: 58, lastChecked: '2026-03-27T08:26:00Z' },
 ];
 
 const htsiVendorHealth: IntegrationVendorHealth[] = [
@@ -4087,7 +4087,7 @@ const htsiVendorHealth: IntegrationVendorHealth[] = [
 const heVendorHealth: IntegrationVendorHealth[] = [
   { name: 'Energy SCADA', status: 'green', uptime: 99.8, latency: 22, lastChecked: '2026-03-27T08:32:00Z' },
   { name: 'Solar Monitoring Platform', status: 'green', uptime: 98.9, latency: 94, lastChecked: '2026-03-27T08:30:00Z' },
-  { name: 'SAP ERP (HE)', status: 'green', uptime: 99.3, latency: 56, lastChecked: '2026-03-27T08:34:00Z' },
+  { name: 'eCMS (HE)', status: 'green', uptime: 99.3, latency: 56, lastChecked: '2026-03-27T08:34:00Z' },
   { name: 'Grid Management System', status: 'yellow', uptime: 97.4, latency: 276, lastChecked: '2026-03-27T08:28:00Z', note: 'Legacy SCADA bridge causing intermittent delays' },
   { name: 'MCP (HE)', status: 'green', uptime: 99.6, latency: 34, lastChecked: '2026-03-27T08:36:00Z' },
 ];
@@ -4096,7 +4096,7 @@ const ggVendorHealth: IntegrationVendorHealth[] = [
   { name: 'Environmental Monitoring', status: 'green', uptime: 98.7, latency: 118, lastChecked: '2026-03-27T08:38:00Z' },
   { name: 'Waste Tracking System', status: 'yellow', uptime: 96.2, latency: 342, lastChecked: '2026-03-27T08:36:00Z', note: 'Manifest sync delays with third-party haulers' },
   { name: 'EPA Compliance DB', status: 'green', uptime: 99.1, latency: 72, lastChecked: '2026-03-27T08:40:00Z' },
-  { name: 'SAP ERP (GG)', status: 'green', uptime: 99.5, latency: 48, lastChecked: '2026-03-27T08:42:00Z' },
+  { name: 'eCMS (GG)', status: 'green', uptime: 99.5, latency: 48, lastChecked: '2026-03-27T08:42:00Z' },
   { name: 'MCP (GG)', status: 'green', uptime: 99.4, latency: 38, lastChecked: '2026-03-27T08:44:00Z' },
 ];
 
@@ -4118,7 +4118,7 @@ const hccFailureModes: IntegrationFailureMode[] = [
   { vendor: 'Legacy Field Dispatch', scenario: 'Database connection pool exhaustion under peak dispatch', recovery: 'Circuit breaker with 30s cooldown, queue overflow to backup', status: 'Needs Attention' },
   { vendor: 'HCSS Telematics', scenario: 'GPS signal loss in tunnel/bridge construction zones', recovery: 'Dead reckoning interpolation with last-known-good coordinates', status: 'Passing' },
   { vendor: 'AutoCAD Civil 3D', scenario: 'Large drawing file transfer timeout (>500MB)', recovery: 'Chunked upload with resume capability and checksum validation', status: 'Passing' },
-  { vendor: 'SAP ERP (HCC)', scenario: 'Month-end financial close locks preventing real-time reads', recovery: 'Read from reporting replica during close window', status: 'Passing' },
+  { vendor: 'eCMS (HCC)', scenario: 'Month-end financial close locks preventing real-time reads', recovery: 'Read from reporting replica during close window', status: 'Passing' },
 ];
 
 const hrsiFailureModes: IntegrationFailureMode[] = [
@@ -4153,14 +4153,14 @@ const heFailureModes: IntegrationFailureMode[] = [
   { vendor: 'Energy SCADA', scenario: 'Sensor tag data overflow during grid instability event', recovery: 'Adaptive sampling rate with priority tag buffering', status: 'Passing' },
   { vendor: 'Grid Management System', scenario: 'Legacy SCADA bridge protocol translation failure', recovery: 'Protocol fallback chain with OPC-UA as primary, Modbus as backup', status: 'Needs Attention' },
   { vendor: 'Solar Monitoring Platform', scenario: 'Cloud-edge sync failure during inverter firmware updates', recovery: 'Edge-local data retention with automatic sync on reconnect', status: 'Passing' },
-  { vendor: 'SAP ERP (HE)', scenario: 'Energy billing data mismatch between SCADA metering and ERP', recovery: 'Automated reconciliation report with variance threshold alerts', status: 'Passing' },
+  { vendor: 'eCMS (HE)', scenario: 'Energy billing data mismatch between SCADA metering and eCMS', recovery: 'Automated reconciliation report with variance threshold alerts', status: 'Passing' },
 ];
 
 const ggFailureModes: IntegrationFailureMode[] = [
   { vendor: 'Environmental Monitoring', scenario: 'Sensor calibration drift detected on remote field units', recovery: 'Auto-calibration check with data quality flag and maintenance alert', status: 'Passing' },
   { vendor: 'Waste Tracking System', scenario: 'Manifest sync failure with third-party waste hauler API', recovery: 'Manifest queue with retry and manual reconciliation workflow', status: 'Needs Attention' },
   { vendor: 'EPA Compliance DB', scenario: 'Regulatory schema update breaks existing submission format', recovery: 'Schema version detection with backward-compatible transform layer', status: 'Passing' },
-  { vendor: 'SAP ERP (GG)', scenario: 'Project cost allocation mismatch across remediation sites', recovery: 'Cross-site cost reconciliation with automated allocation rules', status: 'Passing' },
+  { vendor: 'eCMS (GG)', scenario: 'Project cost allocation mismatch across remediation sites', recovery: 'Cross-site cost reconciliation with automated allocation rules', status: 'Passing' },
 ];
 
 const meridianFailureModes: IntegrationFailureMode[] = [
@@ -4185,7 +4185,7 @@ const hccMethodologySteps: IntegrationMethodologyStep[] = [
 const hrsiMethodologySteps: IntegrationMethodologyStep[] = [
   { number: 1, title: 'Equipment Registry Scan', description: 'Catalog all railroad maintenance equipment, leased rolling stock, and repair facility assets across HRSI operations.' },
   { number: 2, title: 'Maintenance Workflow Analysis', description: 'Analyze 12 core maintenance workflows from car repair triage through equipment return, mapping crew scheduling bottlenecks.' },
-  { number: 3, title: 'Railroad Tech Stack Audit', description: 'Evaluate legacy field dispatch, SAP ERP, HCSS Equipment360 fleet, and car repair database for data completeness and integration capability.' },
+  { number: 3, title: 'Railroad Tech Stack Audit', description: 'Evaluate legacy field dispatch, eCMS, HCSS Equipment360 fleet, and car repair database for data completeness and integration capability.' },
   { number: 4, title: 'Service ROI Modeling', description: 'Quantify predictive maintenance savings, crew utilization gains, and parts inventory optimization for HRSI\'s 380-employee operation.' },
 ];
 
@@ -4213,14 +4213,14 @@ const htsiMethodologySteps: IntegrationMethodologyStep[] = [
 const heMethodologySteps: IntegrationMethodologyStep[] = [
   { number: 1, title: 'SCADA/Grid Discovery', description: 'Inventory 48,000 sensor tags, 12 solar sites, and grid management infrastructure across IC Energy\'s generation and distribution assets.' },
   { number: 2, title: 'Energy Workflow Mapping', description: 'Map load forecasting, grid stability monitoring, solar output prediction, and equipment maintenance workflows across the energy portfolio.' },
-  { number: 3, title: 'Infrastructure Tech Audit', description: 'Evaluate SCADA systems, solar monitoring platform, grid management, and SAP ERP for real-time AI analytics and predictive maintenance readiness.' },
+  { number: 3, title: 'Infrastructure Tech Audit', description: 'Evaluate SCADA systems, solar monitoring platform, grid management, and eCMS for real-time AI analytics and predictive maintenance readiness.' },
   { number: 4, title: 'Renewable ROI Modeling', description: 'Quantify demand forecasting improvements, grid stability gains, solar output optimization, and FERC/NERC compliance automation for HE\'s 120-person team.' },
 ];
 
 const ggMethodologySteps: IntegrationMethodologyStep[] = [
   { number: 1, title: 'Compliance Data Inventory', description: 'Catalog environmental monitoring data from 42 sites, waste manifests, EPA filings, and remediation project records across IC Environmental operations.' },
   { number: 2, title: 'Environmental Workflow Mapping', description: 'Map impact assessment, waste stream routing, EPA compliance reporting, and remediation planning workflows from field sampling through regulatory submission.' },
-  { number: 3, title: 'Monitoring Tech Audit', description: 'Assess environmental monitoring sensors, waste tracking system, EPA compliance database, and SAP ERP for AI-powered environmental analytics readiness.' },
+  { number: 3, title: 'Monitoring Tech Audit', description: 'Assess environmental monitoring sensors, waste tracking system, EPA compliance database, and eCMS for AI-powered environmental analytics readiness.' },
   { number: 4, title: 'Remediation ROI Modeling', description: 'Model compliance automation savings, waste routing optimization, air quality forecasting improvements, and remediation scheduling gains for GG\'s 90-person team.' },
 ];
 
