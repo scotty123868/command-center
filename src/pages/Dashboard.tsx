@@ -322,7 +322,7 @@ function ScoreDrillDown() {
   const { company } = useCompany();
   const tools = getCurrentStack(company.id).slice(0, 6);
   const targetScores: Record<string, number> = {
-    'SAP ERP': 7, 'Salesforce CRM': 8, 'No Data Lake': 9, 'Tableau': 8, 'Manual Dev Workflows': 9, 'Concur': 8,
+    'eCMS (Computer Guidance)': 7, 'Salesforce CRM': 8, 'No Data Lake': 9, 'Tableau': 8, 'Manual Dev Workflows': 9, 'Concur': 8,
   };
 
   return (

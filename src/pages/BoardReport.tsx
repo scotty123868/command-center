@@ -415,7 +415,7 @@ export default function BoardReportPage() {
         }}>
           {[
             { num: '1', text: 'Initiate license audit across all 7 divisions to capture $2.8M in waste (4-week timeline)' },
-            { num: '2', text: 'Approve Samsara fleet intelligence pilot for 200 vehicles in HCC division' },
+            { num: '2', text: 'Approve HCSS Equipment360 fleet intelligence pilot for 200 vehicles in HCC division' },
             { num: '3', text: 'Schedule deep-dive technical assessment with division GMs and IT leadership' },
             { num: '4', text: 'Establish AI Transformation Steering Committee with CEO and CFO sponsorship' },
           ].map((item) => (
