@@ -68,7 +68,7 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
   /* ── IndustrialsCo (meridian) ─────────────────────────────────────────── */
   meridian: [
     {
-      name: 'Herzog Contracting Corp (HCC)',
+      name: 'IC Construction Corp (HCC)',
       industry: 'Rail & Highway Construction',
       employees: 1200,
       aiScoreBefore: 32,
@@ -102,7 +102,7 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
       ],
     },
     {
-      name: 'Herzog Railroad Services (HRSI)',
+      name: 'IC Rail Services (HRSI)',
       industry: 'Railroad Maintenance & Equipment',
       employees: 380,
       aiScoreBefore: 36,
@@ -136,7 +136,7 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
       ],
     },
     {
-      name: 'Herzog Services (HSI)',
+      name: 'IC Services (HSI)',
       industry: 'Ultrasonic Rail Testing',
       employees: 220,
       aiScoreBefore: 42,
@@ -170,7 +170,7 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
       ],
     },
     {
-      name: 'Herzog Technologies (HTI)',
+      name: 'IC Technologies (HTI)',
       industry: 'Signal & PTC Systems',
       employees: 310,
       aiScoreBefore: 48,
@@ -204,7 +204,7 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
       ],
     },
     {
-      name: 'Herzog Transit Services (HTSI)',
+      name: 'IC Transit Services (HTSI)',
       industry: 'Passenger Rail Operations',
       employees: 480,
       aiScoreBefore: 40,
@@ -238,7 +238,7 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
       ],
     },
     {
-      name: 'Herzog Energy (HE)',
+      name: 'IC Energy (HE)',
       industry: 'Energy Infrastructure',
       employees: 120,
       aiScoreBefore: 34,

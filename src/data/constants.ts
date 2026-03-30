@@ -26,17 +26,17 @@ export const aiReadinessBreakdown = [
 // ─── KPI Data ───────────────────────────────────────────────────────────────
 
 export const kpis = {
-  totalSavings: 6_400_000,
+  totalSavings: 5_800_000,
   techScoreBefore: 52,
   techScoreAfter: 86,
   workflowsAnalyzed: 62,
   automationReady: 18,
-  unusedLicenseWaste: 954_000,
+  unusedLicenseWaste: 2_800_000,
 
-  savingsSparkline: [0, 130_000, 340_000, 640_000, 1_020_000, 1_550_000, 2_200_000, 3_000_000, 3_900_000, 4_900_000, 5_700_000, 6_400_000],
+  savingsSparkline: [0, 120_000, 310_000, 580_000, 920_000, 1_400_000, 2_000_000, 2_700_000, 3_500_000, 4_400_000, 5_100_000, 5_800_000],
   scoreSparkline: [52, 54, 57, 61, 65, 69, 73, 76, 79, 82, 84, 86],
   workflowSparkline: [0, 5, 11, 18, 25, 32, 38, 44, 49, 54, 58, 62],
-  licenseSparkline: [954_000, 920_000, 870_000, 810_000, 740_000, 660_000, 580_000, 500_000, 430_000, 370_000, 320_000, 280_000],
+  licenseSparkline: [2_800_000, 2_700_000, 2_550_000, 2_380_000, 2_180_000, 1_940_000, 1_700_000, 1_470_000, 1_260_000, 1_080_000, 930_000, 820_000],
   headcountImpactSparkline: [0, 0, -2, -5, -9, -14, -18, -22, -26, -30, -33, -36],
 };
 
@@ -59,8 +59,8 @@ export const roadmapPhases = [
       { week: 8, task: 'Purview governance review — assess existing data governance framework for AI model deployment readiness', owner: 'Sarah Chen (Engagement Lead)' },
       { week: 9, task: 'HCSS Telematics + Equipment360 data integration assessment — map telematics-to-maintenance-order data flow for predictive maintenance', owner: 'Mike Torres (Tech Lead)' },
       { week: 10, task: 'eCMS flat-file exchange audit — document all inter-system integrations using flat files, identify CDC/API replacement candidates', owner: 'Mike Torres (Tech Lead)' },
-      { week: 11, task: 'On-prem Delta Lake architecture — design lakehouse for Herzog TX data center, connecting eCMS + HCSS + P6 + CMMS + RailSentry', owner: 'Mike Torres (Tech Lead)' },
-      { week: 12, task: 'Q1 close: $954K license waste identified, Procore AI live, RailSentry MLOps designed, QMirror replacement scoped', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 11, task: 'On-prem Delta Lake architecture — design lakehouse for IC TX data center, connecting eCMS + HCSS + P6 + CMMS + RailSentry', owner: 'Mike Torres (Tech Lead)' },
+      { week: 12, task: 'Q1 close: $2.8M license waste identified, Procore AI live, RailSentry MLOps designed, QMirror replacement scoped', owner: 'Sarah Chen (Engagement Lead)' },
     ],
   },
   {
@@ -89,7 +89,7 @@ export const roadmapPhases = [
     items: ['eCMS AI middleware', 'Crew scheduling AI on MCP', 'Heavy Bid intelligence', 'Tie Inspection edge deployment'],
     status: 'upcoming' as const,
     weekPlan: [
-      { week: 25, task: 'eCMS AI middleware deployment: automated invoice matching using lakehouse data — runs alongside eCMS in Herzog TX data center', owner: 'Mike Torres (Tech Lead)' },
+      { week: 25, task: 'eCMS AI middleware deployment: automated invoice matching using lakehouse data — runs alongside eCMS in IC TX data center', owner: 'Mike Torres (Tech Lead)' },
       { week: 26, task: 'eCMS project cost prediction models: train on historical eCMS + P6 data for multi-division cost forecasting', owner: 'Priya Sharma (ML Engineering)' },
       { week: 27, task: 'Crew scheduling AI pilot: optimize MCP + HCSS timecard data for intelligent crew dispatch across HCC and HRSI divisions', owner: 'Priya Sharma (ML Engineering)' },
       { week: 28, task: 'Heavy Bid AI intelligence: historical bid analysis using 5 years of Heavy Bid data, win/loss prediction model development', owner: 'Priya Sharma (ML Engineering)' },
@@ -359,7 +359,7 @@ export const recommendations: Recommendation[] = [
     recommended: {
       name: 'eCMS + AI Middleware',
       cost: 240_000,
-      description: 'AI middleware layer deployed alongside existing eCMS in Herzog data centers. Automated invoice matching reduces AP processing by 65%. Predictive project cost modeling uses historical eCMS data to forecast overruns 4-6 weeks early. Real-time API bridge enables live sync with HCSS field data, Procore project management, and proposed data lakehouse. Eliminates 3-day month-end close via automated multi-division consolidation. Mobile expense capture for field crews. Respects Herzog\'s on-prem preference — runs in TX/AZ data centers alongside eCMS.',
+      description: 'AI middleware layer deployed alongside existing eCMS in IC data centers. Automated invoice matching reduces AP processing by 65%. Predictive project cost modeling uses historical eCMS data to forecast overruns 4-6 weeks early. Real-time API bridge enables live sync with HCSS field data, Procore project management, and proposed data lakehouse. Eliminates 3-day month-end close via automated multi-division consolidation. Mobile expense capture for field crews. Respects IC\'s on-prem preference — runs in TX/AZ data centers alongside eCMS.',
     },
     annualSavings: 280_000,
   },
