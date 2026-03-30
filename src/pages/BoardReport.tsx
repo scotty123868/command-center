@@ -281,7 +281,7 @@ export default function BoardReportPage() {
               </div>
               <div style={{ fontSize: '20px', fontWeight: 600, color: '#111827', marginBottom: '4px' }}>8 Weeks</div>
               <p style={{ fontSize: '13px', color: '#64748b', margin: 0 }}>
-                Deploy RailSentry AI upgrade, crew scheduling optimization pilot for HRSI division (340 crew members), and Samsara fleet intelligence for 200 vehicles.
+                Deploy RailSentry AI upgrade, crew scheduling optimization pilot for HRSI division (340 crew members), and HCSS Telematics fleet intelligence for 200 vehicles.
               </p>
             </div>
 
@@ -291,7 +291,7 @@ export default function BoardReportPage() {
               </div>
               <div style={{ fontSize: '20px', fontWeight: 600, color: '#111827', marginBottom: '4px' }}>12 Weeks</div>
               <p style={{ fontSize: '13px', color: '#64748b', margin: 0 }}>
-                Scale AI solutions across all 7 divisions, deploy Databricks data lake, migrate from SAP to NetSuite, full crew scheduling AI for 2,800 employees.
+                Scale AI solutions across all 7 divisions, deploy on-prem Delta Lakehouse, deploy eCMS + AI Middleware, full crew scheduling AI for 2,800 employees.
               </p>
             </div>
           </div>

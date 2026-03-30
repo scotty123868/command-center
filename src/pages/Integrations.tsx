@@ -32,14 +32,14 @@ interface DataSource {
 }
 
 const dataSources: DataSource[] = [
-  { system: 'SAP S/4HANA', division: 'All', recordsAnalyzed: '24,847 work orders', coverage: 94, status: 'Complete' },
+  { system: 'eCMS (Computer Guidance)', division: 'All', recordsAnalyzed: '24,847 work orders', coverage: 94, status: 'Complete' },
   { system: 'Primavera P6', division: 'HCC', recordsAnalyzed: '1,247 projects', coverage: 87, status: 'Complete' },
-  { system: 'Trimble Fleet GPS', division: 'HCC, HTSI', recordsAnalyzed: '342 vehicles', coverage: 92, status: 'Complete' },
-  { system: 'Kronos Workforce', division: 'All', recordsAnalyzed: '2,800 employees', coverage: 81, status: 'Complete' },
+  { system: 'HCSS Telematics', division: 'HCC, HTSI', recordsAnalyzed: '342 vehicles', coverage: 92, status: 'Complete' },
+  { system: 'MCP (Internal Payroll)', division: 'All', recordsAnalyzed: '2,800 employees', coverage: 81, status: 'Complete' },
   { system: 'PTC Signal Systems', division: 'HTI', recordsAnalyzed: '4,200 track-miles', coverage: 73, status: 'In Progress' },
   { system: 'Active Directory', division: 'All', recordsAnalyzed: '2,800 accounts', coverage: 100, status: 'Complete' },
   { system: 'FRA RISPC Database', division: 'HSI', recordsAnalyzed: '12,400 inspections', coverage: 96, status: 'Complete' },
-  { system: 'Custom Dispatch', division: 'HCC', recordsAnalyzed: '\u2014', coverage: 45, status: 'Pending Access' },
+  { system: 'Legacy Field Dispatch', division: 'HCC', recordsAnalyzed: '\u2014', coverage: 45, status: 'Pending Access' },
 ];
 
 /* -- Methodology Steps ---------------------------------------------------- */

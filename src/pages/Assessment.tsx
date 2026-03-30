@@ -24,9 +24,9 @@ const conversation: StaticMessage[] = [
     table: {
       headers: ['Tool', 'Annual Waste', 'Root Cause'],
       rows: [
-        ['SAP ERP', '$680K', '340 unused licenses across 5 divisions'],
+        ['eCMS', '$680K', '340 unused licenses across 5 divisions'],
         ['Primavera P6', '$445K', '89 inactive seats, duplicate project instances'],
-        ['Kronos/UKG Workforce', '$340K', 'Legacy contract; underutilized scheduling modules'],
+        ['MCP (Internal Payroll)', '$340K', 'Legacy contract; underutilized scheduling modules'],
       ],
     },
   },
@@ -48,7 +48,7 @@ const conversation: StaticMessage[] = [
         {
           title: '2. Equipment Dispatch & GPS Fleet Optimization',
           detail:
-            '60% automatable | $580K annual savings | 18-week implementation. AI agent can optimize Trimble GPS Fleet routing, Custom Dispatch System scheduling, and crew allocation across HCC and HRSI.',
+            '60% automatable | $580K annual savings | 18-week implementation. AI agent can optimize HCSS Telematics routing, Legacy Field Dispatch scheduling, and crew allocation across HCC and HRSI.',
         },
         {
           title: '3. FRA Compliance & Track Inspection Reporting',
@@ -65,13 +65,13 @@ const conversation: StaticMessage[] = [
   {
     role: 'ai',
     content:
-      'Great question. Unifying your data is the highest-leverage long-term investment. Here\'s the recommended approach:\n\n**Architecture:** Databricks Lakehouse on Azure (aligns with your existing M365 footprint)\n\n**Data Connectors Needed:**\n- SAP ERP (HCC, HRSI, HTI) via SAP CDC connector\n- Primavera P6 (HCC, Herzog Energy) via REST API export\n- Custom Dispatch System (built 2009) via scheduled ETL\n- Trimble GPS Fleet Tracking (HCC, HRSI) via API integration\n- TAM-4 Geometry Car Data (HSI) via streaming pipeline\n- PTC Signal Telemetry (HTI) via real-time connector\n- FRA Compliance Database via regulatory data pipeline\n\n**Key Challenge:** Entity resolution across divisions. Equipment "Track Loader #2847" exists in 3 different systems with different IDs. You\'ll need a master data management (MDM) layer.\n\n**Timeline:** 20 weeks to production-ready MVP\n**Investment:** ~$200K (infrastructure + implementation)\n**Projected ROI:** 19x over 3 years ($3.8M in cross-division equipment sharing, duplicate elimination, and consolidated reporting)\n\nThis is Phase 3 on your transformation roadmap. I recommend completing the license audit and workflow automation first to fund this initiative.',
+      'Great question. Unifying your data is the highest-leverage long-term investment. Here\'s the recommended approach:\n\n**Architecture:** On-prem Delta Lakehouse in TX/AZ data centers (aligns with your existing infrastructure)\n\n**Data Connectors Needed:**\n- eCMS (HCC, HRSI, HTI) via eCMS file connector\n- Primavera P6 (HCC, Herzog Energy) via REST API export\n- Legacy Field Dispatch (built 2009) via scheduled ETL\n- HCSS Telematics (HCC, HRSI) via API integration\n- TAM-4 Geometry Car Data (HSI) via streaming pipeline\n- PTC Signal Telemetry (HTI) via real-time connector\n- FRA Compliance Database via regulatory data pipeline\n\n**Key Challenge:** Entity resolution across divisions. Equipment "Track Loader #2847" exists in 3 different systems with different IDs. You\'ll need a master data management (MDM) layer.\n\n**Timeline:** 20 weeks to production-ready MVP\n**Investment:** ~$200K (infrastructure + implementation)\n**Projected ROI:** 19x over 3 years ($3.8M in cross-division equipment sharing, duplicate elimination, and consolidated reporting)\n\nThis is Phase 3 on your transformation roadmap. I recommend completing the license audit and workflow automation first to fund this initiative.',
   },
 ];
 
 const suggestedQuestions = [
   'Show me cross-division data gaps',
-  'Compare SAP ERP consolidation options',
+  'Compare eCMS AI middleware options',
   "What's our AI readiness score?",
   'Generate Q1 board report',
 ];
