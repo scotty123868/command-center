@@ -502,9 +502,9 @@ export default function DataFlow() {
           Proposed: Unified Data Architecture
         </h2>
 
-        <div className="rounded-2xl shadow-sm p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}>
+        <div className="rounded-2xl shadow-sm p-4 sm:p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}>
           {/* Division Badges */}
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4">
             {['HCC — Rail & Highway Construction', 'HRSI — Railroad Services', 'HSI — Rail Testing', 'HTI — Signal & PTC', 'HTSI — Transit Services', 'HE — Energy', 'GG — Environmental'].map(
               (name, i) => (
                 <motion.div
@@ -512,7 +512,7 @@ export default function DataFlow() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + i * 0.08 }}
-                  className="rounded-xl px-4 py-2 text-sm font-medium text-green-400" style={{ background: 'var(--cc-green-dim)', border: '1px solid rgba(16,185,129,0.2)' }}
+                  className="rounded-xl px-2 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-green-400" style={{ background: 'var(--cc-green-dim)', border: '1px solid rgba(16,185,129,0.2)' }}
                 >
                   {name}
                 </motion.div>

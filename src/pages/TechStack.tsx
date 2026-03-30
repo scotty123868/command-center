@@ -238,14 +238,14 @@ export default function TechStack() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.04, duration: 0.25 }}
-              className={`rounded-2xl shadow-sm p-4 ${cardBg(tool.score)}`}
+              className={`rounded-2xl shadow-sm p-4 min-w-0 ${cardBg(tool.score)}`}
               style={{ ...cardBgStyle(tool.score), border: '1px solid var(--cc-border)' }}
             >
               <p className="text-xs font-medium truncate mb-2" style={{ color: 'var(--cc-text-secondary)' }}>{tool.name}</p>
               <div className="flex items-center justify-between">
                 <RadialGauge score={tool.score} size={38} />
                 <span
-                  className="text-[11px] font-semibold"
+                  className="text-[10px] sm:text-[11px] font-semibold"
                   style={{ color: scoreColor(tool.score) }}
                 >
                   {scoreLabel(tool.score)}
@@ -280,7 +280,7 @@ export default function TechStack() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.04, duration: 0.3 }}
-                className="rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-200 p-6 md:p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
+                className="rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-200 p-4 sm:p-6 md:p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
               >
                 <div className="grid grid-cols-1 md:grid-cols-[2fr_auto_2fr_auto] gap-6 items-center">
                   {/* CURRENT — left 40% */}
@@ -453,7 +453,7 @@ export default function TechStack() {
               {/* Big projected number */}
               <div className="text-center">
                 <p className="text-sm font-medium mb-1" style={{ color: 'var(--cc-text-secondary)' }}>Projected Annual Savings</p>
-                <p className="text-5xl font-extrabold text-green-500 font-mono">{fmt(projected)}</p>
+                <p className="text-3xl sm:text-5xl font-extrabold text-green-500 font-mono">{fmt(projected)}</p>
                 <div className="flex items-center justify-center gap-1 mt-2 text-green-600">
                   <TrendingUp className="w-4 h-4" />
                   <span className="text-sm font-medium">
@@ -512,9 +512,9 @@ export default function TechStack() {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 0.1 }}
-        className="rounded-2xl p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
+        className="rounded-2xl p-4 sm:p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
       >
-        <div className="flex items-start gap-4">
+        <div className="flex items-start gap-3 sm:gap-4">
           <div className="flex-shrink-0 mt-0.5">
             <AlertTriangle className="w-6 h-6 text-red-500" />
           </div>

@@ -780,11 +780,11 @@ export default function Dashboard() {
         {/* Blue accent glow behind number */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full opacity-20" style={{ background: 'radial-gradient(circle, var(--cc-accent-glow) 0%, transparent 70%)' }} />
 
-        <div className="relative z-10 px-8 py-10 lg:px-12 lg:py-14">
+        <div className="relative z-10 px-4 py-6 sm:px-8 sm:py-10 lg:px-12 lg:py-14">
           {/* Company name + timestamp */}
           <div className="flex items-center justify-between mb-2">
             <h1
-              className="text-[28px] lg:text-[36px] font-bold tracking-tight"
+              className="text-xl sm:text-[28px] lg:text-[36px] font-bold tracking-tight"
               style={{ color: 'var(--cc-text)', letterSpacing: '-0.02em' }}
             >
               {company.name}
@@ -806,7 +806,7 @@ export default function Dashboard() {
               <p className="text-[10px] font-semibold uppercase tracking-wider mb-2" style={{ color: 'var(--cc-accent)' }}>
                 Identified Savings
               </p>
-              <div className="font-mono font-bold leading-none" style={{ color: 'var(--cc-text)', fontSize: '56px', letterSpacing: '-0.03em' }}>
+              <div className="font-mono font-bold leading-none text-[36px] sm:text-[56px]" style={{ color: 'var(--cc-text)', letterSpacing: '-0.03em' }}>
                 <AnimatedCounter
                   value={companyKpis.totalSavings / 1_000_000}
                   prefix="$"
@@ -818,26 +818,26 @@ export default function Dashboard() {
             </div>
 
             {/* Secondary stats */}
-            <div className="mt-6 lg:mt-0 flex flex-wrap gap-8 lg:gap-12">
+            <div className="mt-6 lg:mt-0 flex flex-wrap gap-4 sm:gap-8 lg:gap-12">
               <div>
                 <p className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: 'var(--cc-text-muted)' }}>AI Score</p>
                 <div className="mt-1 flex items-baseline gap-1">
-                  <span className="font-mono text-[24px] font-bold" style={{ color: 'var(--cc-text-muted)' }}>{companyKpis.techScoreBefore}</span>
+                  <span className="font-mono text-[18px] sm:text-[24px] font-bold" style={{ color: 'var(--cc-text-muted)' }}>{companyKpis.techScoreBefore}</span>
                   <ArrowRight className="h-4 w-4 mx-1" style={{ color: 'var(--cc-text-muted)' }} />
-                  <span className="font-mono text-[24px] font-bold" style={{ color: 'var(--cc-accent)' }}>
+                  <span className="font-mono text-[18px] sm:text-[24px] font-bold" style={{ color: 'var(--cc-accent)' }}>
                     <AnimatedCounter value={companyKpis.techScoreAfter} duration={1600} />
                   </span>
                 </div>
               </div>
               <div>
                 <p className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: 'var(--cc-text-muted)' }}>Workflows</p>
-                <p className="mt-1 font-mono text-[24px] font-bold" style={{ color: 'var(--cc-text)' }}>
+                <p className="mt-1 font-mono text-[18px] sm:text-[24px] font-bold" style={{ color: 'var(--cc-text)' }}>
                   <AnimatedCounter value={companyKpis.workflowsAnalyzed} duration={1400} />
                 </p>
               </div>
               <div>
                 <p className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: 'var(--cc-text-muted)' }}>License Waste</p>
-                <p className="mt-1 font-mono text-[24px] font-bold" style={{ color: 'var(--cc-red)' }}>
+                <p className="mt-1 font-mono text-[18px] sm:text-[24px] font-bold" style={{ color: 'var(--cc-red)' }}>
                   <AnimatedCounter
                     value={companyKpis.unusedLicenseWaste / 1_000_000}
                     prefix="$"
@@ -918,7 +918,7 @@ export default function Dashboard() {
                     <p className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: 'var(--cc-red)' }}>
                       {metric.label}
                     </p>
-                    <p className="mt-2 font-mono text-[26px] font-bold leading-none" style={{ color: 'var(--cc-red)' }}>
+                    <p className="mt-2 font-mono text-[20px] sm:text-[26px] font-bold leading-none" style={{ color: 'var(--cc-red)' }}>
                       {metric.value}
                     </p>
                     <p className="mt-1 text-[11px]" style={{ color: 'rgba(239,68,68,0.6)' }}>{metric.sub}</p>
@@ -1035,7 +1035,7 @@ export default function Dashboard() {
           onClick={() => setActiveDrillDown('savings')}
           accentColor="var(--cc-green)"
         >
-          <p className="font-mono text-3xl font-bold leading-none" style={{ color: 'var(--cc-green)' }}>
+          <p className="font-mono text-2xl sm:text-3xl font-bold leading-none" style={{ color: 'var(--cc-green)' }}>
             {fmtCompact(tlData.savings)}
             <span className="text-[14px] font-semibold" style={{ color: 'var(--cc-text-muted)' }}>/yr</span>
           </p>
@@ -1051,11 +1051,11 @@ export default function Dashboard() {
           accentColor="var(--cc-accent)"
         >
           <div className="flex items-baseline gap-1.5">
-            <span className="font-mono text-3xl font-bold leading-none" style={{ color: 'var(--cc-text-muted)' }}>
+            <span className="font-mono text-2xl sm:text-3xl font-bold leading-none" style={{ color: 'var(--cc-text-muted)' }}>
               {tlData.scoreBefore}
             </span>
             <ArrowRight className="h-4 w-4" style={{ color: 'var(--cc-text-muted)' }} />
-            <span className="font-mono text-3xl font-bold leading-none" style={{ color: 'var(--cc-accent)' }}>
+            <span className="font-mono text-2xl sm:text-3xl font-bold leading-none" style={{ color: 'var(--cc-accent)' }}>
               {tlData.scoreAfter}
             </span>
           </div>
@@ -1071,7 +1071,7 @@ export default function Dashboard() {
           accentColor="var(--cc-yellow)"
         >
           <div className="flex items-baseline gap-3">
-            <span className="font-mono text-3xl font-bold leading-none" style={{ color: 'var(--cc-text)' }}>
+            <span className="font-mono text-2xl sm:text-3xl font-bold leading-none" style={{ color: 'var(--cc-text)' }}>
               {tlData.workflows}
             </span>
             <span className="rounded-full px-2 py-0.5 text-[11px] font-semibold" style={{ background: 'var(--cc-green-dim)', color: 'var(--cc-green)' }}>
@@ -1089,7 +1089,7 @@ export default function Dashboard() {
           onClick={() => setActiveDrillDown('licenses')}
           accentColor="var(--cc-red)"
         >
-          <p className="font-mono text-3xl font-bold leading-none" style={{ color: 'var(--cc-red)' }}>
+          <p className="font-mono text-2xl sm:text-3xl font-bold leading-none" style={{ color: 'var(--cc-red)' }}>
             {fmtCompact(tlData.waste)}
             <span className="text-[14px] font-semibold" style={{ color: 'var(--cc-text-muted)' }}>/yr</span>
           </p>
