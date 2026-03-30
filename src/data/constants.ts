@@ -335,16 +335,16 @@ export interface Recommendation {
 export const recommendations: Recommendation[] = [
   {
     current: {
-      name: 'Custom Dispatch System',
+      name: 'Legacy Field Dispatch',
       cost: 680_000,
       users: 340,
       score: 3,
-      description: 'Custom-built dispatch and fleet management system from 2009, maintained by 2 internal developers. Handles crew dispatch, equipment tracking, and work order management across HCC and HRSI divisions. No mobile interface — field supervisors call dispatch center to update status. Zero integration with GPS fleet data despite Trimble tracking all 800+ vehicles. Average dispatch-to-arrival time unknown because system cannot track it. 340 users but no usage analytics to identify inactive accounts.',
+      description: 'Custom-built dispatch and fleet management system from 2009, maintained by 2 internal developers. Handles crew dispatch, equipment tracking, and work order management across HCC and HRSI divisions. No mobile interface — field supervisors call dispatch center to update status. Zero integration with GPS fleet data despite HCSS Telematics tracking all 800+ vehicles. Average dispatch-to-arrival time unknown because system cannot track it. 340 users but no usage analytics to identify inactive accounts.',
     },
     recommended: {
-      name: 'Samsara Fleet Intelligence',
+      name: 'HCSS Equipment360 Intelligence',
       cost: 300_000,
-      description: 'Samsara\'s AI-powered fleet management platform provides real-time visibility across all 800+ vehicles and equipment assets. GPS tracking with geofencing, automated dispatch routing using ML-optimized algorithms that reduce drive time by 18% on comparable fleets. Mobile-first interface enables field crews to update work orders, capture photos, and submit safety reports from job sites. Predictive maintenance alerts based on engine diagnostics and usage patterns. Integration with Databricks data lake via REST API for cross-division analytics. Driver safety scoring and dash cam AI for FMCSA compliance.',
+      description: 'HCSS Equipment360\'s AI-powered fleet management platform provides real-time visibility across all 800+ vehicles and equipment assets. GPS tracking with geofencing, automated dispatch routing using ML-optimized algorithms that reduce drive time by 18% on comparable fleets. Mobile-first interface enables field crews to update work orders, capture photos, and submit safety reports from job sites. Predictive maintenance alerts based on engine diagnostics and usage patterns. Integration with proposed data lakehouse via REST API for cross-division analytics. Driver safety scoring and dash cam AI for FMCSA compliance.',
     },
     annualSavings: 380_000,
   },
@@ -359,7 +359,7 @@ export const recommendations: Recommendation[] = [
     recommended: {
       name: 'NetSuite',
       cost: 240_000,
-      description: 'NetSuite cloud ERP with multi-subsidiary support handles all 7 IndustrialsCo divisions with unified chart of accounts and real-time consolidation — eliminates 3-day month-end close. Project cost accounting module built for construction/infrastructure with WBS integration. Native REST API enables real-time sync with Samsara fleet data, Procore project management, and Databricks analytics. Mobile expense capture for field crews. AI-powered financial forecasting using historical project data. Migration path: parallel run for 2 accounting periods, estimated 16-week implementation.',
+      description: 'NetSuite cloud ERP with multi-subsidiary support handles all 7 IndustrialsCo divisions with unified chart of accounts and real-time consolidation — eliminates 3-day month-end close. Project cost accounting module built for construction/infrastructure with WBS integration. Native REST API enables real-time sync with HCSS Equipment360 fleet data, Procore project management, and proposed data lakehouse analytics. Mobile expense capture for field crews. AI-powered financial forecasting using historical project data. Migration path: parallel run for 2 accounting periods, estimated 16-week implementation.',
     },
     annualSavings: 280_000,
   },
@@ -374,7 +374,7 @@ export const recommendations: Recommendation[] = [
     recommended: {
       name: 'Procore + AI',
       cost: 220_000,
-      description: 'Procore construction management platform with AI-powered scheduling provides mobile-first project management for railroad construction. Field crews update progress directly from job sites via mobile app, eliminating office-only data entry. AI scheduling assistant optimizes resource allocation across 280+ active projects using historical performance data. Native integration with NetSuite (real-time cost sync), Samsara (equipment availability), and Databricks (predictive analytics). Automated submittals, RFI tracking, and daily log generation. Document management with AI-powered search across project archives.',
+      description: 'Procore construction management platform with AI-powered scheduling provides mobile-first project management for railroad construction. Field crews update progress directly from job sites via mobile app, eliminating office-only data entry. AI scheduling assistant optimizes resource allocation across 280+ active projects using historical performance data. Native integration with NetSuite (real-time cost sync), HCSS Equipment360 (equipment availability), and proposed data lakehouse (predictive analytics). Automated submittals, RFI tracking, and daily log generation. Document management with AI-powered search across project archives.',
     },
     annualSavings: 200_000,
   },
@@ -389,22 +389,22 @@ export const recommendations: Recommendation[] = [
     recommended: {
       name: 'AI-Enhanced Inspection Platform',
       cost: 0,
-      description: 'Custom AI layer built on top of existing TAM-4 data pipeline using Databricks ML. Computer vision models (fine-tuned on 240K labeled track images) automatically detect rail surface defects, tie degradation, and gauge anomalies with >92% accuracy. LIDAR point cloud analysis for ballast profile assessment. Automated severity scoring reduces manual review time by 70% — analysts focus only on AI-flagged exceptions. Predictive models forecast track degradation 6-8 weeks ahead, enabling proactive maintenance scheduling. Integration with Samsara for real-time geometry car location and Procore for automatic maintenance work order generation. Zero licensing cost — runs on Databricks compute (included in data lake cost).',
+      description: 'Custom AI layer built on top of existing TAM-4 data pipeline using proposed data lakehouse ML. Computer vision models (fine-tuned on 240K labeled track images) automatically detect rail surface defects, tie degradation, and gauge anomalies with >92% accuracy. LIDAR point cloud analysis for ballast profile assessment. Automated severity scoring reduces manual review time by 70% — analysts focus only on AI-flagged exceptions. Predictive models forecast track degradation 6-8 weeks ahead, enabling proactive maintenance scheduling. Integration with HCSS Equipment360 for real-time geometry car location and Procore for automatic maintenance work order generation. Zero licensing cost — runs on proposed data lakehouse compute (included in data lake cost).',
     },
     annualSavings: 520_000,
   },
   {
     current: {
-      name: 'Kronos/UKG',
+      name: 'MCP (Internal)',
       cost: 340_000,
       users: 2_800,
       score: 4,
-      description: 'Kronos Workforce Ready (now UKG) deployed across all 2,800 employees for time tracking and basic scheduling. Handles FRA hours-of-service compliance tracking for train crews and union contract rule enforcement. However, crew scheduling itself is manual — division supervisors build weekly schedules in spreadsheets, then enter into Kronos for tracking. No optimization capability — supervisors rely on experience and tribal knowledge to balance crew certifications, travel time, and availability. Estimated 22% crew idle time due to suboptimal scheduling.',
+      description: 'MCP (Internal) custom payroll and time tracking system deployed across all 2,800 employees for time tracking and basic scheduling. Handles FRA hours-of-service compliance tracking for train crews and union contract rule enforcement. However, crew scheduling itself is manual — division supervisors build weekly schedules in spreadsheets, then enter into MCP for tracking. No optimization capability — supervisors rely on experience and tribal knowledge to balance crew certifications, travel time, and availability. Estimated 22% crew idle time due to suboptimal scheduling.',
     },
     recommended: {
-      name: 'Workforce.com + AI Scheduling',
+      name: 'MCP AI Enhancement Layer',
       cost: 160_000,
-      description: 'Workforce.com AI-powered scheduling platform with railroad-specific modules for FRA hours-of-service compliance and union work rules. ML-based scheduling optimizer considers crew certifications, location, travel time, equipment availability, and fatigue risk to generate optimal weekly schedules — targeting 22% idle time reduction to <8%. Mobile app enables real-time schedule visibility, shift swaps, and availability updates. Automated compliance monitoring alerts supervisors before hours-of-service violations occur (currently caught retrospectively). Integration with Samsara for crew location data and NetSuite for payroll sync.',
+      description: 'MCP AI-powered scheduling enhancement layer with railroad-specific modules for FRA hours-of-service compliance and union work rules. ML-based scheduling optimizer considers crew certifications, location, travel time, equipment availability, and fatigue risk to generate optimal weekly schedules — targeting 22% idle time reduction to <8%. Mobile app enables real-time schedule visibility, shift swaps, and availability updates. Automated compliance monitoring alerts supervisors before hours-of-service violations occur (currently caught retrospectively). Integration with HCSS Equipment360 for crew location data and NetSuite for payroll sync.',
     },
     annualSavings: 180_000,
   },
@@ -414,12 +414,12 @@ export const recommendations: Recommendation[] = [
       cost: 0,
       users: 0,
       score: 1,
-      description: 'Zero centralized data infrastructure across 7 divisions. Each division operates independent data silos: HCC on SAP + Primavera, HRSI on custom dispatch, HSI on TAM-4 testing databases, HTI on proprietary PTC/signal systems, HTSI on transit scheduling software, Energy on standalone asset tracking, IC Environmental on environmental monitoring databases. Cross-division reporting requires manual data pulls taking 4-5 days/month. GPS/LIDAR data from rail testing generates 2TB/month but sits unanalyzed. No ability to train ML models on historical operational data — every AI initiative blocked by this gap.',
+      description: 'Zero centralized data infrastructure across 7 divisions. Each division operates independent data silos: HCC on SAP + Primavera, HRSI on legacy field dispatch, HSI on TAM-4 testing databases, HTI on proprietary PTC/signal systems, HTSI on transit scheduling software, Energy on standalone asset tracking, IC Environmental on environmental monitoring databases. Cross-division reporting requires manual data pulls taking 4-5 days/month. GPS/LIDAR data from rail testing generates 2TB/month but sits unanalyzed. No ability to train ML models on historical operational data — every AI initiative blocked by this gap.',
     },
     recommended: {
       name: 'Databricks',
       cost: 280_000,
-      description: 'Databricks Lakehouse unifies all 7 division data sources via Delta Lake with ACID transactions and schema enforcement. Unity Catalog provides cross-division data governance. Purpose-built for railroad data: time-series GPS/telematics from Samsara (800+ vehicles), LIDAR point clouds from geometry cars, track geometry measurements from TAM-4, PTC event logs from HTI, and transit ridership data from HTSI. MLflow manages model lifecycle for predictive maintenance, defect detection, and crew optimization. Structured Streaming ingests real-time fleet telemetry. Estimated data footprint: 28TB initial load, 2.5TB/month growth. The data lake is the prerequisite for 78% of the AI initiatives on this roadmap — without it, $4.2M in workflow automation savings cannot be realized.',
+      description: 'Proposed Data Lakehouse unifies all 7 division data sources via Delta Lake with ACID transactions and schema enforcement. Unity Catalog provides cross-division data governance. Purpose-built for railroad data: time-series GPS/telematics from HCSS Equipment360 (800+ vehicles), LIDAR point clouds from geometry cars, track geometry measurements from TAM-4, PTC event logs from HTI, and transit ridership data from HTSI. MLflow manages model lifecycle for predictive maintenance, defect detection, and crew optimization. Structured Streaming ingests real-time fleet telemetry. Estimated data footprint: 28TB initial load, 2.5TB/month growth. The data lake is the prerequisite for 78% of the AI initiatives on this roadmap — without it, $4.2M in workflow automation savings cannot be realized.',
     },
     annualSavings: 1_200_000,
   },
@@ -482,9 +482,9 @@ export const workflows: Workflow[] = [
       'Senior engineer bottleneck: 3 engineers with 20+ years experience write all maintenance recommendations — 4-week backlog during peak inspection season',
       'No predictive capability — all analysis is reactive (defect already exists) rather than predictive (defect likely to develop in 6-8 weeks based on degradation trend)',
     ],
-    aiArchitecture: 'Multi-modal AI pipeline on Databricks: (1) Computer vision model (fine-tuned YOLOv8) processes Video Track Chart frames for automated defect detection — trained on 240K labeled images from 3 years of HSI inspection data. (2) Time-series anomaly detection (Prophet + Isolation Forest ensemble) on geometry measurements identifies degradation trends and predicts maintenance windows 6-8 weeks ahead. (3) LIDAR analysis module using PointNet++ for automated ballast profile assessment and clearance verification. (4) Fusion layer integrates geometry, visual, ultrasonic, and LIDAR data into unified track health score per segment. Human engineers review AI-generated maintenance plans, approve priority rankings, and customize recommendations for specific railroad client requirements.',
+    aiArchitecture: 'Multi-modal AI pipeline on proposed data lakehouse: (1) Computer vision model (fine-tuned YOLOv8) processes Video Track Chart frames for automated defect detection — trained on 240K labeled images from 3 years of HSI inspection data. (2) Time-series anomaly detection (Prophet + Isolation Forest ensemble) on geometry measurements identifies degradation trends and predicts maintenance windows 6-8 weeks ahead. (3) LIDAR analysis module using PointNet++ for automated ballast profile assessment and clearance verification. (4) Fusion layer integrates geometry, visual, ultrasonic, and LIDAR data into unified track health score per segment. Human engineers review AI-generated maintenance plans, approve priority rankings, and customize recommendations for specific railroad client requirements.',
     implementationPlan: [
-      { phase: 'Data Integration & Labeling', weeks: 'Weeks 1-4', description: 'Consolidate 3 years of geometry, visual, ultrasonic, and LIDAR data from HSI fleet into Databricks lakehouse. Label 240K track images for defect detection training. Build unified track segment schema linking all data sources by milepost and timestamp.' },
+      { phase: 'Data Integration & Labeling', weeks: 'Weeks 1-4', description: 'Consolidate 3 years of geometry, visual, ultrasonic, and LIDAR data from HSI fleet into Proposed Data Lakehouse. Label 240K track images for defect detection training. Build unified track segment schema linking all data sources by milepost and timestamp.' },
       { phase: 'Model Development', weeks: 'Weeks 5-10', description: 'Train YOLOv8 defect detection model targeting >92% accuracy. Develop time-series degradation prediction models. Build LIDAR ballast analysis pipeline. Create fusion scoring algorithm integrating all data streams.' },
       { phase: 'Shadow Mode Validation', weeks: 'Weeks 11-14', description: 'Run AI pipeline in parallel with human analysts on 2,000+ track-miles. Compare AI defect detection vs human findings. Measure prediction accuracy on known maintenance outcomes. Target: <5% miss rate on critical defects.' },
       { phase: 'Graduated Production', weeks: 'Weeks 15-20', description: 'Deploy AI-assisted review for routine track classes first. Expand to higher-speed corridors after validation. Human engineers approve all AI-generated maintenance plans. Automated work order generation for approved recommendations.' },
@@ -496,7 +496,7 @@ export const workflows: Workflow[] = [
       'Senior engineer buy-in critical — these are domain experts whose judgment AI augments, not replaces, must position accordingly',
     ],
     dependencies: [
-      'Databricks workspace with GPU compute for model training (estimated $15K/month during development)',
+      'proposed data lakehouse workspace with GPU compute for model training (estimated $15K/month during development)',
       'HSI geometry car fleet data pipeline modernization — current TAM-4 export format needs ETL connector',
       'LIDAR data storage and processing infrastructure — 800GB/month requires dedicated storage tier',
       'FRA regulatory guidance on AI-assisted inspection reporting — legal review of Part 213 requirements',
@@ -519,11 +519,11 @@ export const workflows: Workflow[] = [
     currentProcess: [
       'Division supervisors receive project requirements and deadlines from project managers — communicated via email and weekly planning meetings',
       'Schedulers manually build weekly crew assignments in Excel spreadsheets — cross-referencing crew certifications, equipment qualifications, and geographic assignments',
-      'FRA hours-of-service compliance checked manually against Kronos time records — schedulers must ensure no crew member exceeds 12-hour on-duty limits or violates rest period requirements',
+      'FRA hours-of-service compliance checked manually against MCP time records — schedulers must ensure no crew member exceeds 12-hour on-duty limits or violates rest period requirements',
       'Union work rules (UTU, IBEW, LIUNA contracts) verified manually — seniority assignments, overtime distribution, and territory restrictions',
       'Schedule distributed via group text messages and radio calls to field crews — no digital schedule visibility, changes communicated verbally',
       'Day-of adjustments (weather delays, equipment breakdowns, crew absences) handled by dispatch via phone calls — average 8 schedule changes per day across divisions',
-      'Post-week reconciliation: schedulers compare planned vs actual hours in Kronos, investigate variances, update next week plan — 6 hrs/week per scheduler',
+      'Post-week reconciliation: schedulers compare planned vs actual hours in MCP, investigate variances, update next week plan — 6 hrs/week per scheduler',
     ],
     bottlenecks: [
       '22% crew idle time costs estimated $1.8M/yr in unproductive labor — caused by geographic mismatches, certification gaps, and suboptimal travel routing',
@@ -532,12 +532,12 @@ export const workflows: Workflow[] = [
       'Schedule changes create cascading conflicts: one crew absence requires average 2.4 hours of phone calls to rearrange 3-4 other assignments',
       'Zero data-driven scheduling: decisions based on supervisor intuition and personal relationships rather than optimization algorithms considering travel time, certification match, and equipment proximity',
     ],
-    aiArchitecture: 'Workforce.com AI scheduling engine with railroad-specific constraint modeling: FRA hours-of-service rules, union contract seniority and overtime provisions, crew certification matrix (42 distinct certifications tracked), equipment qualification requirements, and GPS-based travel time optimization using Samsara real-time vehicle positions. ML optimizer (constraint satisfaction + reinforcement learning) generates optimal weekly schedules maximizing crew utilization while respecting all regulatory and contractual constraints. Real-time rescheduling module handles day-of disruptions (weather, equipment, absence) with automated alternative crew identification and dispatch. Mobile app provides real-time schedule visibility, shift swap requests, and availability updates. Integration with Kronos for automatic time record population and compliance verification.',
+    aiArchitecture: 'MCP AI scheduling enhancement engine with railroad-specific constraint modeling: FRA hours-of-service rules, union contract seniority and overtime provisions, crew certification matrix (42 distinct certifications tracked), equipment qualification requirements, and GPS-based travel time optimization using HCSS Equipment360 real-time vehicle positions. ML optimizer (constraint satisfaction + reinforcement learning) generates optimal weekly schedules maximizing crew utilization while respecting all regulatory and contractual constraints. Real-time rescheduling module handles day-of disruptions (weather, equipment, absence) with automated alternative crew identification and dispatch. Mobile app provides real-time schedule visibility, shift swap requests, and availability updates. Integration with MCP for automatic time record population and compliance verification.',
     implementationPlan: [
-      { phase: 'Constraint Modeling', weeks: 'Weeks 1-3', description: 'Model all FRA hours-of-service rules, union contract provisions, crew certifications, and equipment qualifications in Workforce.com engine. Map 42 certification types and cross-division sharing rules.' },
+      { phase: 'Constraint Modeling', weeks: 'Weeks 1-3', description: 'Model all FRA hours-of-service rules, union contract provisions, crew certifications, and equipment qualifications in MCP AI scheduling engine. Map 42 certification types and cross-division sharing rules.' },
       { phase: 'Historical Optimization', weeks: 'Weeks 4-7', description: 'Train scheduling optimizer on 12 months of actual crew assignments and project outcomes. Identify optimization opportunities. Benchmark AI schedules against historical manual schedules.' },
       { phase: 'Pilot Deployment', weeks: 'Weeks 8-11', description: 'Deploy AI scheduling for HRSI division (340 crew members). Supervisor override capability for all AI recommendations. Measure idle time reduction, compliance improvement, and crew satisfaction.' },
-      { phase: 'Full Rollout', weeks: 'Weeks 12-16', description: 'Expand to all 7 divisions (2,800 employees). Enable cross-division crew sharing. Automated dispatch via mobile app. Kronos integration for real-time compliance monitoring.' },
+      { phase: 'Full Rollout', weeks: 'Weeks 12-16', description: 'Expand to all 7 divisions (2,800 employees). Enable cross-division crew sharing. Automated dispatch via mobile app. MCP integration for real-time compliance monitoring.' },
     ],
     risks: [
       'Union resistance to AI-driven scheduling — UTU and IBEW contracts have seniority-based assignment provisions that must be strictly honored by the algorithm',
@@ -546,9 +546,9 @@ export const workflows: Workflow[] = [
       'Mobile app adoption by field crews (avg age 44) — must demonstrate clear time-saving benefit within first week',
     ],
     dependencies: [
-      'Workforce.com railroad module configuration (estimated 4-week setup with vendor professional services)',
-      'Samsara GPS integration for real-time crew location data',
-      'Kronos/UKG API access for time record sync and compliance data',
+      'MCP AI enhancement module configuration (estimated 4-week setup with vendor professional services)',
+      'HCSS Equipment360 GPS integration for real-time crew location data',
+      'MCP (Internal) API access for time record sync and compliance data',
       'Union notification and consultation per collective bargaining agreements — minimum 60-day advance notice',
     ],
   },
@@ -559,7 +559,7 @@ export const workflows: Workflow[] = [
     currentCost: 960_000,
     volume: '800+ vehicles and heavy equipment',
     currentTime: 'No real-time cross-division visibility',
-    aiSolution: 'Samsara fleet intelligence platform with AI-powered utilization optimization. Predictive maintenance using engine diagnostics and usage patterns. Cross-division equipment sharing with automated transfer recommendations.',
+    aiSolution: 'HCSS fleet intelligence platform with AI-powered utilization optimization. Predictive maintenance using engine diagnostics and usage patterns. Cross-division equipment sharing with automated transfer recommendations.',
     routing: 'Human-in-the-Loop',
     routingQuote: 'You cannot optimize what you cannot see across your divisions',
     costShift: 'Labor $960K → IT $240K + Labor $340K = $380K saved',
@@ -567,7 +567,7 @@ export const workflows: Workflow[] = [
     automationPercent: 50,
     details: '12 FTEs managing fleet across 7 divisions. 800+ vehicles and heavy equipment. No cross-division visibility, 18% equipment idle rate, $580K in duplicate rentals last year.',
     currentProcess: [
-      'Each division maintains independent equipment tracking — HCC in Primavera P6, HRSI in custom dispatch, others in Excel spreadsheets',
+      'Each division maintains independent equipment tracking — HCC in Primavera P6, HRSI in legacy field dispatch, others in Excel spreadsheets',
       'Equipment location updated manually by field supervisors via end-of-day radio reports to division offices',
       'Maintenance scheduling based on calendar intervals (every 250 hours or 90 days) rather than actual condition — leads to both over-maintenance and missed failure events',
       'Equipment rental decisions made by individual division managers with no cross-division availability check — $580K in duplicate rentals identified in past 12 months',
@@ -581,22 +581,22 @@ export const workflows: Workflow[] = [
       '$580K in confirmed duplicate equipment rentals in past 12 months — actual number likely higher since tracking is manual',
       'Manual fuel tracking misses estimated $120K/yr in fuel theft and efficiency losses',
     ],
-    aiArchitecture: 'Samsara fleet management with Databricks analytics layer. Real-time GPS tracking and geofencing for all 800+ assets. Engine diagnostic data (J1939/OBD-II) feeds ML-based predictive maintenance models trained on 3 years of maintenance records (12K work orders). Equipment utilization dashboard provides cross-division visibility with AI-generated transfer recommendations when idle assets exist within 100-mile radius of active demand. Fuel analytics: real-time consumption monitoring with anomaly detection for theft and inefficiency. Automated maintenance scheduling based on actual equipment condition (vibration analysis, oil analysis data, engine hours) rather than calendar intervals.',
+    aiArchitecture: 'HCSS Equipment360 fleet management with proposed data analytics layer. Real-time GPS tracking and geofencing for all 800+ assets. Engine diagnostic data (J1939/OBD-II) feeds ML-based predictive maintenance models trained on 3 years of maintenance records (12K work orders). Equipment utilization dashboard provides cross-division visibility with AI-generated transfer recommendations when idle assets exist within 100-mile radius of active demand. Fuel analytics: real-time consumption monitoring with anomaly detection for theft and inefficiency. Automated maintenance scheduling based on actual equipment condition (vibration analysis, oil analysis data, engine hours) rather than calendar intervals.',
     implementationPlan: [
-      { phase: 'Fleet Onboarding', weeks: 'Weeks 1-4', description: 'Install Samsara hardware on all 800+ vehicles and equipment. Configure geofencing for all job sites and yards. Build unified equipment registry across 7 divisions.' },
-      { phase: 'Data Integration & Modeling', weeks: 'Weeks 5-9', description: 'Connect Samsara telemetry to Databricks. Train predictive maintenance models on historical work orders. Build utilization analytics and cross-division matching algorithms.' },
+      { phase: 'Fleet Onboarding', weeks: 'Weeks 1-4', description: 'Install HCSS hardware on all 800+ vehicles and equipment. Configure geofencing for all job sites and yards. Build unified equipment registry across 7 divisions.' },
+      { phase: 'Data Integration & Modeling', weeks: 'Weeks 5-9', description: 'Connect HCSS telemetry to the proposed data lakehouse. Train predictive maintenance models on historical work orders. Build utilization analytics and cross-division matching algorithms.' },
       { phase: 'Dashboard & Recommendations', weeks: 'Weeks 10-13', description: 'Deploy executive fleet dashboard showing real-time utilization across all divisions. Enable AI-generated transfer recommendations. Implement automated rental prevention alerts.' },
       { phase: 'Optimization & Predictive', weeks: 'Weeks 14-18', description: 'Activate predictive maintenance scheduling. Deploy fuel analytics with theft detection. Implement condition-based maintenance replacing calendar-based schedules.' },
     ],
     risks: [
       'Division GM resistance to centralized fleet visibility — framing as resource optimization not oversight is critical for adoption',
-      'Samsara hardware installation requires scheduled downtime for each vehicle — coordinate with project schedules to minimize operational impact',
-      'Predictive maintenance models need 6+ months of Samsara telemetry data before predictions are reliable — interim period relies on historical data',
+      'HCSS hardware installation requires scheduled downtime for each vehicle — coordinate with project schedules to minimize operational impact',
+      'Predictive maintenance models need 6+ months of HCSS telemetry data before predictions are reliable — interim period relies on historical data',
       'Heavy equipment in remote locations may have connectivity gaps — offline data caching and sync required',
     ],
     dependencies: [
-      'Samsara enterprise contract (800+ vehicle tier, estimated $380K/yr including hardware)',
-      'Databricks workspace for analytics (shared with other workloads)',
+      'HCSS enterprise contract (800+ vehicle tier, estimated $380K/yr including hardware)',
+      'proposed data lakehouse workspace for analytics (shared with other workloads)',
       'Executive mandate for cross-division equipment sharing policy',
       'Maintenance history data export from all 7 division systems',
     ],
@@ -618,7 +618,7 @@ export const workflows: Workflow[] = [
     currentProcess: [
       'Field supervisors complete paper safety inspection forms daily at each job site — different forms for track work, signal/PTC, transit, and environmental operations',
       'Safety coordinators collect paper forms weekly, manually enter data into Excel tracking spreadsheets — average 3-day lag between inspection and data availability',
-      'FRA Form 6180 (Railroad Accident/Incident Reports) compiled manually from incident reports, Kronos time data, and medical records — 4.2 hours per report',
+      'FRA Form 6180 (Railroad Accident/Incident Reports) compiled manually from incident reports, MCP time data, and medical records — 4.2 hours per report',
       'Monthly safety metrics calculated manually in Excel — lost-time incident rate, OSHA recordable rate, near-miss frequency — presented in PowerPoint at division safety meetings',
       'Annual FRA railroad safety compliance audit preparation requires 3 weeks of document assembly — physical file cabinets at each division office',
       'Drug and alcohol testing compliance (FRA Part 219) tracked in separate system with no integration to HR or scheduling systems',
@@ -630,7 +630,7 @@ export const workflows: Workflow[] = [
       'Audit preparation (3 weeks annually) requires pulling physical files from 7 division offices across multiple states',
       'Drug/alcohol testing compliance tracked in isolation — scheduling conflicts with FRA hours-of-service not caught until after the fact',
     ],
-    aiArchitecture: 'Mobile-first safety platform with AI analytics layer on Databricks. Digital inspection forms via mobile app replace paper — field supervisors complete inspections with guided checklists, photo capture, and GPS-stamped submissions. Automated FRA Form 6180 generation from structured incident data with AI-assisted narrative generation (GPT-4 with FRA regulatory language fine-tuning). Predictive safety analytics: ML models (gradient boosted trees) trained on 5 years of incident data identify leading indicators — weather conditions, crew fatigue patterns, equipment age, and work type combinations that correlate with elevated risk. Real-time compliance dashboard monitoring FRA, OSHA, and state DOT requirements across all 7 divisions. Automated audit trail eliminates 3-week annual preparation.',
+    aiArchitecture: 'Mobile-first safety platform with AI analytics layer on proposed data lakehouse. Digital inspection forms via mobile app replace paper — field supervisors complete inspections with guided checklists, photo capture, and GPS-stamped submissions. Automated FRA Form 6180 generation from structured incident data with AI-assisted narrative generation (GPT-4 with FRA regulatory language fine-tuning). Predictive safety analytics: ML models (gradient boosted trees) trained on 5 years of incident data identify leading indicators — weather conditions, crew fatigue patterns, equipment age, and work type combinations that correlate with elevated risk. Real-time compliance dashboard monitoring FRA, OSHA, and state DOT requirements across all 7 divisions. Automated audit trail eliminates 3-week annual preparation.',
     implementationPlan: [
       { phase: 'Digital Form Migration', weeks: 'Weeks 1-3', description: 'Digitize all paper safety inspection forms into mobile app. Configure division-specific form templates. Train field supervisors on mobile submission workflow.' },
       { phase: 'FRA Report Automation', weeks: 'Weeks 4-7', description: 'Build automated FRA Form 6180 generation pipeline. Train AI narrative generator on 3 years of historical reports. Validate against FRA submission requirements.' },
@@ -680,7 +680,7 @@ export const workflows: Workflow[] = [
       'Subcontractor quote collection (5-7 day cycle) is the critical path — no automated solicitation or historical sub pricing database',
       'Senior estimator review bottleneck: 2 senior estimators review all 25 quarterly bids — 3-week backlog during peak bid season',
     ],
-    aiArchitecture: 'AI-assisted estimation platform on Databricks with RAG pipeline for historical project data. Document ingestion: process 5 years of completed project files (cost reports, change orders, subcontractor invoices) into structured cost database indexed by work type, geography, railroad client, and track class. GPT-4 processes bid package scope documents and auto-generates preliminary quantity takeoff estimates based on drawing analysis and natural language specifications. ML-based cost estimation model (XGBoost) trained on historical project costs predicts unit rates with confidence intervals, adjusting for inflation, geography, and seasonal factors. Win/loss prediction model identifies optimal pricing strategy based on historical bid outcomes, client relationship factors, and competitive landscape. Human estimators review AI-generated quantities, apply judgment to risk factors, and make final pricing decisions.',
+    aiArchitecture: 'AI-assisted estimation platform on proposed data lakehouse with RAG pipeline for historical project data. Document ingestion: process 5 years of completed project files (cost reports, change orders, subcontractor invoices) into structured cost database indexed by work type, geography, railroad client, and track class. GPT-4 processes bid package scope documents and auto-generates preliminary quantity takeoff estimates based on drawing analysis and natural language specifications. ML-based cost estimation model (XGBoost) trained on historical project costs predicts unit rates with confidence intervals, adjusting for inflation, geography, and seasonal factors. Win/loss prediction model identifies optimal pricing strategy based on historical bid outcomes, client relationship factors, and competitive landscape. Human estimators review AI-generated quantities, apply judgment to risk factors, and make final pricing decisions.',
     implementationPlan: [
       { phase: 'Historical Data Consolidation', weeks: 'Weeks 1-5', description: 'Collect and digitize 5 years of project cost data from all divisions. Normalize into structured cost database with standardized work type taxonomy. Build searchable archive indexed by 48 cost categories.' },
       { phase: 'AI Estimation Engine', weeks: 'Weeks 6-11', description: 'Build quantity takeoff assistance using GPT-4V for drawing analysis. Train cost estimation model on historical data. Develop win/loss prediction model from 3 years of bid outcomes. Target: AI-generated estimates within 8% of final bid price.' },
@@ -694,7 +694,7 @@ export const workflows: Workflow[] = [
       'Estimator resistance: experienced estimators may view AI as threatening their judgment-based expertise — position as augmentation tool',
     ],
     dependencies: [
-      'Databricks workspace with document processing capability',
+      'proposed data lakehouse workspace with document processing capability',
       'Historical project cost archive: 5 years of data from all divisions, currently in disparate file systems',
       'CFO Michael Reynolds approval for bid data access controls and security classification',
       'Estimator team commitment to 2-day training workshop and 4-week parallel evaluation',
@@ -729,9 +729,9 @@ export const workflows: Workflow[] = [
       'GPS ballast train routing is experience-based not data-driven — estimated 12% improvement opportunity in delivery efficiency through route optimization',
       'No integration between Procore project schedules and material logistics — coordinators manually read project timelines to anticipate material needs',
     ],
-    aiArchitecture: 'AI logistics platform on Databricks integrating Samsara fleet GPS, Procore project schedules, and quarry inventory systems. Demand prediction model (LSTM neural network) forecasts material needs by project site 2-3 weeks ahead based on project schedule analysis, historical consumption patterns, and weather forecasts. Route optimization engine (modified vehicle routing problem solver) minimizes delivery cost considering track window availability, train capacity, and multi-stop delivery efficiency. Automated track window request system generates optimal delivery schedules for Class 1 railroad coordination. Real-time material tracking from quarry to job site with automated delivery confirmation via GPS geofencing. Surplus material matching: AI identifies excess material at completed sites and routes to active projects within delivery radius.',
+    aiArchitecture: 'AI logistics platform on proposed data lakehouse integrating HCSS Equipment360 fleet GPS, Procore project schedules, and quarry inventory systems. Demand prediction model (LSTM neural network) forecasts material needs by project site 2-3 weeks ahead based on project schedule analysis, historical consumption patterns, and weather forecasts. Route optimization engine (modified vehicle routing problem solver) minimizes delivery cost considering track window availability, train capacity, and multi-stop delivery efficiency. Automated track window request system generates optimal delivery schedules for Class 1 railroad coordination. Real-time material tracking from quarry to job site with automated delivery confirmation via GPS geofencing. Surplus material matching: AI identifies excess material at completed sites and routes to active projects within delivery radius.',
     implementationPlan: [
-      { phase: 'Data Integration', weeks: 'Weeks 1-4', description: 'Connect quarry inventory systems, Samsara fleet GPS, and Procore project schedules into Databricks. Build material demand history database from 3 years of delivery records.' },
+      { phase: 'Data Integration', weeks: 'Weeks 1-4', description: 'Connect quarry inventory systems, HCSS Equipment360 fleet GPS, and Procore project schedules into the proposed data lakehouse. Build material demand history database from 3 years of delivery records.' },
       { phase: 'Demand Prediction', weeks: 'Weeks 5-8', description: 'Train demand forecasting model on historical consumption patterns. Build project schedule parser for automated material needs extraction. Target: predict material needs 2-3 weeks ahead with <10% variance.' },
       { phase: 'Route Optimization', weeks: 'Weeks 9-12', description: 'Deploy ballast train route optimizer. Build automated track window scheduling assistant. Integrate surplus material matching algorithm.' },
       { phase: 'Full Deployment', weeks: 'Weeks 13-16', description: 'Roll out across all HCC and HRSI projects. Automated delivery tracking and confirmation. Real-time logistics dashboard for all coordinators.' },
@@ -743,7 +743,7 @@ export const workflows: Workflow[] = [
       'GPS connectivity along remote rail corridors may be intermittent — ballast train tracking needs offline capability',
     ],
     dependencies: [
-      'Samsara GPS tracking on all ballast trains and delivery vehicles',
+      'HCSS Equipment360 GPS tracking on all ballast trains and delivery vehicles',
       'Procore project management deployment (scheduled Q3)',
       'Quarry inventory API access or data sharing agreements with 12 primary suppliers',
       'Class 1 railroad dispatch coordination protocols — need formal agreement for automated track window requests',
@@ -778,9 +778,9 @@ export const workflows: Workflow[] = [
       'Testing speed limited by operator processing capability — AI-assisted analysis could enable higher testing speeds, increasing daily coverage by 25-30%',
       'No predictive flaw growth modeling — defects identified at current state only, no forecasting of which small indications will grow to critical size',
     ],
-    aiArchitecture: 'Deep learning pipeline for multi-modal rail flaw detection on Databricks. Primary model: 1D convolutional neural network trained on 5 years of ultrasonic B-scan data (18M labeled signal segments) for automated defect classification — transverse defects, detail fractures, bolt hole cracks, and 12 additional flaw types. Signal processing layer filters rail-dependent noise patterns to reduce false positives. Fusion module integrates ultrasonic findings with geometry measurements and visual inspection data from same track segment for contextual defect assessment. Flaw growth prediction model (recurrent neural network) trained on longitudinal testing data forecasts defect progression and recommends re-test intervals. All AI detections require human verification before reporting — system designed to reduce false positives and catch defects missed by human operators, not to replace certified inspectors.',
+    aiArchitecture: 'Deep learning pipeline for multi-modal rail flaw detection on proposed data lakehouse. Primary model: 1D convolutional neural network trained on 5 years of ultrasonic B-scan data (18M labeled signal segments) for automated defect classification — transverse defects, detail fractures, bolt hole cracks, and 12 additional flaw types. Signal processing layer filters rail-dependent noise patterns to reduce false positives. Fusion module integrates ultrasonic findings with geometry measurements and visual inspection data from same track segment for contextual defect assessment. Flaw growth prediction model (recurrent neural network) trained on longitudinal testing data forecasts defect progression and recommends re-test intervals. All AI detections require human verification before reporting — system designed to reduce false positives and catch defects missed by human operators, not to replace certified inspectors.',
     implementationPlan: [
-      { phase: 'Data Pipeline & Labeling', weeks: 'Weeks 1-5', description: 'Build ETL pipeline for ultrasonic B-scan data into Databricks. Label 5 years of historical testing data (18M signal segments) with confirmed defect classifications. Create training/validation/test splits stratified by defect type and rail condition.' },
+      { phase: 'Data Pipeline & Labeling', weeks: 'Weeks 1-5', description: 'Build ETL pipeline for ultrasonic B-scan data into the proposed data lakehouse. Label 5 years of historical testing data (18M signal segments) with confirmed defect classifications. Create training/validation/test splits stratified by defect type and rail condition.' },
       { phase: 'Model Development', weeks: 'Weeks 6-11', description: 'Train 1D CNN for ultrasonic defect detection. Build noise filtering layer for rail-dependent signal patterns. Develop multi-modal fusion module integrating ultrasonic, geometry, and visual data. Target: >95% detection rate with <15% false positive rate (vs current 34%).' },
       { phase: 'On-Car Validation', weeks: 'Weeks 12-16', description: 'Deploy AI system on 2 HSI testing cars in shadow mode. Compare AI detections vs operator findings on 4,000+ track-miles. Validate against ground truth from walking inspector verification.' },
       { phase: 'Production Deployment', weeks: 'Weeks 17-22', description: 'Expand to full HSI testing fleet. AI-assisted operator workflow: AI pre-screens signals, operators verify flagged defects and review AI confidence scores. Enable higher testing speeds on AI-equipped cars. Automated FRA report generation from verified findings.' },
@@ -793,7 +793,7 @@ export const workflows: Workflow[] = [
       'Model drift risk: rail manufacturing and treatment methods evolve, changing defect signatures — continuous retraining pipeline required',
     ],
     dependencies: [
-      'Databricks GPU compute for model training on 18M+ signal segments',
+      'Proposed data lakehouse GPU compute for model training on 18M+ signal segments',
       'HSI testing fleet data export pipeline — current proprietary format needs converter',
       'Railroad client data sharing agreements for model training (BNSF, UP, CSX, NS contracts)',
       'Edge computing hardware assessment for testing car deployment — estimated $25K per car for inference-capable hardware',
@@ -831,7 +831,7 @@ export const licenses: License[] = [
   { vendor: 'Primavera P6', totalLicenses: 280, active90d: 180, inactive: 100, annualWaste: 350_000, action: 'Reclaim 100 seats — restrict to active project managers only', costPerLicense: 3_500, department: 'Project Management (HCC, HRSI, HTI)', lastAuditDate: '2025-10-15', trend: [82, 76, 70, 68, 65, 64], complianceRisk: false },
   { vendor: 'SAP ERP', totalLicenses: 250, active90d: 160, inactive: 90, annualWaste: 360_000, action: 'Reclaim 90 seats → migrate to NetSuite in Q3', costPerLicense: 4_000, department: 'Finance & Accounting (all divisions)', lastAuditDate: '2025-11-02', trend: [78, 72, 68, 65, 64, 64], complianceRisk: false },
   { vendor: 'AutoCAD/Civil 3D', totalLicenses: 120, active90d: 65, inactive: 55, annualWaste: 440_000, action: 'Reclaim 55 seats — consolidate to engineering department only', costPerLicense: 8_000, department: 'Engineering & Design (HCC, HTI)', lastAuditDate: '2025-08-20', trend: [68, 62, 58, 55, 54, 54], complianceRisk: true },
-  { vendor: 'Kronos/UKG', totalLicenses: 2_800, active90d: 2_200, inactive: 600, annualWaste: 180_000, action: 'Reclaim 600 inactive → migrate to Workforce.com in Q4', costPerLicense: 300, department: 'HR / All Divisions (workforce-wide)', lastAuditDate: '2026-01-10', trend: [88, 85, 82, 80, 79, 79], complianceRisk: false },
+  { vendor: 'MCP (Internal)', totalLicenses: 2_800, active90d: 2_200, inactive: 600, annualWaste: 180_000, action: 'Reclaim 600 inactive → deploy AI enhancement layer on MCP in Q4', costPerLicense: 300, department: 'HR / All Divisions (workforce-wide)', lastAuditDate: '2026-01-10', trend: [88, 85, 82, 80, 79, 79], complianceRisk: false },
   { vendor: 'Microsoft 365', totalLicenses: 2_800, active90d: 1_800, inactive: 1_000, annualWaste: 800_000, action: 'Reclaim 1,000 seats + downgrade 400 E5→E3 for field crews', costPerLicense: 800, department: 'IT / All Divisions (company-wide)', lastAuditDate: '2025-09-15', trend: [76, 70, 66, 64, 64, 64], complianceRisk: false },
   { vendor: 'Trimble Business Center', totalLicenses: 80, active90d: 35, inactive: 45, annualWaste: 360_000, action: 'Reclaim 45 seats — restrict to active survey/GPS engineers', costPerLicense: 8_000, department: 'Survey & GPS Engineering (HSI, HCC)', lastAuditDate: '2025-07-22', trend: [62, 55, 48, 44, 44, 44], complianceRisk: false },
   { vendor: 'Salesforce', totalLicenses: 85, active90d: 45, inactive: 40, annualWaste: 310_000, action: 'Reclaim 40 seats — evaluate CRM consolidation', costPerLicense: 7_750, department: 'Business Development & Client Relations', lastAuditDate: '2026-02-01', trend: [72, 66, 60, 55, 53, 53], complianceRisk: false },
@@ -867,7 +867,7 @@ export const transformationStories: TransformationStory[] = [
     company: 'Heavy/highway & railroad contractor, 7 divisions, 800+ vehicles',
     problem: '7 divisions tracking 800+ vehicles and heavy equipment in separate systems. No cross-division visibility. $580K in duplicate equipment rentals annually.',
     discovery: 'Command Center mapped all fleet systems and found 18% equipment idle rate — approximately 144 assets sitting unused while other divisions rented the same equipment externally.',
-    solution: 'Deployed Samsara fleet intelligence across all 800+ assets. Built Databricks analytics layer for cross-division visibility. AI-generated equipment transfer recommendations.',
+    solution: 'Deployed HCSS fleet intelligence across all 800+ assets. Built proposed data analytics layer for cross-division visibility. AI-generated equipment transfer recommendations.',
     impact: [
       '$580K/yr in duplicate rental elimination',
       '18% idle rate reduced to 6% through cross-division sharing',
@@ -875,7 +875,7 @@ export const transformationStories: TransformationStory[] = [
     ],
     quote: 'We had seven divisions buying the same equipment because nobody could see what we already owned.',
     totalImpact: 980_000,
-    tags: ['Fleet Intelligence', 'Samsara', 'Railroad', 'Equipment Utilization'],
+    tags: ['Fleet Intelligence', 'HCSS Equipment360', 'Railroad', 'Equipment Utilization'],
     beforeMetrics: [
       { label: 'Fleet Visibility', before: '0% cross-division', after: '100% real-time' },
       { label: 'Equipment Idle Rate', before: '18%', after: '6%' },
@@ -923,7 +923,7 @@ export const transformationStories: TransformationStory[] = [
     company: 'Railroad contractor, 2,800 field employees, 7 divisions across 36 states',
     problem: '8 scheduling coordinators building weekly crew assignments manually in Excel. 22% crew idle time. FRA hours-of-service violations costing $45K/yr in fines.',
     discovery: 'Command Center analysis showed that AI-optimized scheduling considering certifications, union rules, travel time, and equipment proximity could reduce idle time from 22% to under 8%.',
-    solution: 'Deployed Workforce.com AI scheduling with railroad-specific constraint modeling for FRA compliance and union work rules. Cross-division crew sharing enabled.',
+    solution: 'Deployed MCP AI scheduling enhancement with railroad-specific constraint modeling for FRA compliance and union work rules. Cross-division crew sharing enabled.',
     impact: [
       'Crew idle time reduced from 22% to 7% — saving $1.8M/yr in productive labor recovery',
       'Zero FRA hours-of-service violations since deployment (was 3/yr)',
@@ -954,7 +954,7 @@ export const transformationStories: TransformationStory[] = [
     solution: 'Reclaimed unused licenses across all 7 vendors. Downgraded field crew M365 from E5 to E3. Replaced aging tools with AI-native alternatives.',
     impact: [
       '$2.8M/yr in immediate license savings',
-      'New AI-native tools (Samsara, Procore, Workforce.com) increased field productivity 28%',
+      'New AI-native tools (HCSS Equipment360, Procore, MCP AI enhancement) increased field productivity 28%',
       'IT team freed from managing 7 vendor admin portals',
     ],
     quote: 'We were paying for 2,800 Microsoft E5 licenses for a company where half the employees work on railroad tracks.',
@@ -3071,9 +3071,9 @@ const hccCompanyProfile = {
 };
 
 const hccAiReadinessBreakdown = [
-  { category: 'Data Infrastructure', score: 20, maxScore: 100, status: 'Critical Gap — project data trapped in Primavera P6, equipment data in custom dispatch, no unified view across active job sites' },
+  { category: 'Data Infrastructure', score: 20, maxScore: 100, status: 'Critical Gap — project data trapped in Primavera P6, equipment data in legacy field dispatch, no unified view across active job sites' },
   { category: 'Process Maturity', score: 36, maxScore: 100, status: 'Below Average — field operations largely manual, project estimation based on tribal knowledge, paving and grading ops use paper checklists' },
-  { category: 'Tech Stack Modernity', score: 28, maxScore: 100, status: 'Legacy-Heavy — Primavera P6 for scheduling, heavy CAD for design, custom dispatch from 2009, no mobile-first tools for field crews' },
+  { category: 'Tech Stack Modernity', score: 28, maxScore: 100, status: 'Legacy-Heavy — Primavera P6 for scheduling, heavy CAD for design, legacy field dispatch from 2009, no mobile-first tools for field crews' },
   { category: 'Change Readiness', score: 40, maxScore: 100, status: 'Moderate — division GM supports modernization but 1,200 field workers are accustomed to existing workflows' },
   { category: 'Skills & Training', score: 22, maxScore: 100, status: 'Critical Gap — strong construction expertise but near-zero digital skills among field supervisors and crew leads' },
 ];
@@ -3101,7 +3101,7 @@ const hccRoadmapPhases = [
     weekPlan: [
       { week: 1, task: 'Primavera P6 usage audit — identify 60+ inactive seats across project managers', owner: 'IT Director' },
       { week: 2, task: 'AutoCAD/Civil 3D license review — reclaim seats from non-engineering staff', owner: 'IT Director' },
-      { week: 3, task: 'GPS fleet data assessment — map Trimble data streams for 400+ HCC vehicles', owner: 'Fleet Manager' },
+      { week: 3, task: 'GPS fleet data assessment — map HCSS Telematics data streams for 400+ HCC vehicles', owner: 'Fleet Manager' },
       { week: 4, task: 'Project estimation workflow mapping — document current tribal-knowledge-based process', owner: 'VP Operations' },
     ],
   },
@@ -3112,7 +3112,7 @@ const hccRoadmapPhases = [
     status: 'upcoming' as const,
     weekPlan: [
       { week: 5, task: 'Deploy Procore mobile for field crew daily logs and progress reporting', owner: 'VP Operations' },
-      { week: 6, task: 'Samsara equipment dispatch pilot — 200 HCC vehicles', owner: 'Fleet Manager' },
+      { week: 6, task: 'HCSS Equipment360 dispatch pilot — 200 HCC vehicles', owner: 'Fleet Manager' },
       { week: 7, task: 'Subcontractor management portal — digital submittals and change orders', owner: 'Project Controls Manager' },
       { week: 8, task: 'AI-assisted project estimation pilot using historical bid data', owner: 'VP Operations' },
     ],
@@ -3155,8 +3155,8 @@ const hccTopOpportunities: Opportunity[] = [
 const hccCurrentStack: CurrentTool[] = [
   { name: 'Primavera P6', category: 'Project Management', annualCost: 280_000, users: 120, score: 4, integrationComplexity: 'High', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Rail construction scheduling', 'Resource allocation', 'Critical path analysis'] },
   { name: 'AutoCAD Civil 3D', category: 'Engineering Design', annualCost: 440_000, users: 55, score: 5, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Low', dependencies: ['Highway design', 'Grading plans', 'Rail alignment'] },
-  { name: 'Custom Dispatch', category: 'Fleet Management', annualCost: 340_000, users: 180, score: 3, integrationComplexity: 'High', migrationWeeks: 20, riskLevel: 'High', dependencies: ['Crew dispatch', 'Equipment tracking', 'Work orders'] },
-  { name: 'Trimble GPS Fleet', category: 'GPS/Telematics', annualCost: 190_000, users: 400, score: 5, integrationComplexity: 'Low', migrationWeeks: 6, riskLevel: 'Low', dependencies: ['Vehicle tracking', 'Geofencing', 'Route optimization'] },
+  { name: 'Legacy Field Dispatch', category: 'Fleet Management', annualCost: 340_000, users: 180, score: 3, integrationComplexity: 'High', migrationWeeks: 20, riskLevel: 'High', dependencies: ['Crew dispatch', 'Equipment tracking', 'Work orders'] },
+  { name: 'HCSS Telematics', category: 'GPS/Telematics', annualCost: 190_000, users: 400, score: 5, integrationComplexity: 'Low', migrationWeeks: 6, riskLevel: 'Low', dependencies: ['Vehicle tracking', 'Geofencing', 'Route optimization'] },
 ];
 
 const hccLicenses: License[] = [
@@ -3202,9 +3202,9 @@ const hrsiCompanyProfile = {
 };
 
 const hrsiAiReadinessBreakdown = [
-  { category: 'Data Infrastructure', score: 28, maxScore: 100, status: 'Below Average — Class 1 railroad maintenance data in custom dispatch system, car repair records in separate database, no unified view' },
+  { category: 'Data Infrastructure', score: 28, maxScore: 100, status: 'Below Average — Class 1 railroad maintenance data in legacy field dispatch system, car repair records in separate database, no unified view' },
   { category: 'Process Maturity', score: 40, maxScore: 100, status: 'Moderate — some automation in railroad car repair tracking, but maintenance scheduling and leasing management still largely manual' },
-  { category: 'Tech Stack Modernity', score: 32, maxScore: 100, status: 'Legacy — custom dispatch system from 2009 handles most operations, supplemented by spreadsheets for car leasing' },
+  { category: 'Tech Stack Modernity', score: 32, maxScore: 100, status: 'Legacy — legacy field dispatch system from 2009 handles most operations, supplemented by spreadsheets for car leasing' },
   { category: 'Change Readiness', score: 44, maxScore: 100, status: 'Moderate — field supervisors receptive to mobile tools, but 380 crew members spread across multiple states' },
   { category: 'Skills & Training', score: 30, maxScore: 100, status: 'Below Average — strong mechanical/railroad skills but limited digital capability among field crews' },
 ];
@@ -3233,7 +3233,7 @@ const hrsiRoadmapPhases = [
       { week: 1, task: 'Custom dispatch system assessment — document all railroad maintenance workflows', owner: 'Division Manager' },
       { week: 2, task: 'Car repair tracking digitization — migrate from paper-based to digital records', owner: 'Maintenance Director' },
       { week: 3, task: 'Leasing management process mapping — identify automation opportunities', owner: 'Division Manager' },
-      { week: 4, task: 'License audit across HRSI — identify unused Kronos and dispatch seats', owner: 'IT Lead' },
+      { week: 4, task: 'License audit across HRSI — identify unused MCP and dispatch seats', owner: 'IT Lead' },
     ],
   },
   {
@@ -3245,7 +3245,7 @@ const hrsiRoadmapPhases = [
       { week: 5, task: 'Predictive maintenance model for railroad equipment fleet', owner: 'Maintenance Director' },
       { week: 6, task: 'Mobile crew management app deployment for 380 field employees', owner: 'IT Lead' },
       { week: 7, task: 'Equipment leasing optimization using AI demand forecasting', owner: 'Division Manager' },
-      { week: 8, task: 'Samsara fleet intelligence deployment for HRSI vehicles', owner: 'Fleet Manager' },
+      { week: 8, task: 'HCSS fleet intelligence deployment for HRSI vehicles', owner: 'Fleet Manager' },
     ],
   },
   {
@@ -3276,14 +3276,14 @@ const hrsiTopOpportunities: Opportunity[] = [
 ];
 
 const hrsiCurrentStack: CurrentTool[] = [
-  { name: 'Custom Dispatch', category: 'Fleet Management', annualCost: 200_000, users: 120, score: 3, integrationComplexity: 'High', migrationWeeks: 18, riskLevel: 'High', dependencies: ['Crew dispatch', 'Equipment tracking', 'Work orders'] },
-  { name: 'Kronos/UKG', category: 'Workforce', annualCost: 120_000, users: 380, score: 4, integrationComplexity: 'Medium', migrationWeeks: 10, riskLevel: 'Medium', dependencies: ['Time tracking', 'FRA compliance', 'Payroll'] },
+  { name: 'Legacy Field Dispatch', category: 'Fleet Management', annualCost: 200_000, users: 120, score: 3, integrationComplexity: 'High', migrationWeeks: 18, riskLevel: 'High', dependencies: ['Crew dispatch', 'Equipment tracking', 'Work orders'] },
+  { name: 'MCP (Internal)', category: 'Workforce', annualCost: 120_000, users: 380, score: 4, integrationComplexity: 'Medium', migrationWeeks: 10, riskLevel: 'Medium', dependencies: ['Time tracking', 'FRA compliance', 'Payroll'] },
   { name: 'SAP ERP', category: 'Finance', annualCost: 160_000, users: 40, score: 3, integrationComplexity: 'High', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Financial reporting', 'AP/AR', 'Cost accounting'] },
 ];
 
 const hrsiLicenses: License[] = [
-  { vendor: 'Custom Dispatch', totalLicenses: 120, active90d: 80, inactive: 40, annualWaste: 160_000, action: 'Migrate to Samsara — reclaim all legacy dispatch seats', costPerLicense: 4_000, department: 'Operations', lastAuditDate: '2025-11-10', trend: [78, 72, 68, 65, 64, 67], complianceRisk: false },
-  { vendor: 'Kronos/UKG', totalLicenses: 380, active90d: 280, inactive: 100, annualWaste: 30_000, action: 'Reclaim 100 inactive crew seats', costPerLicense: 300, department: 'HR / All Staff', lastAuditDate: '2026-01-10', trend: [86, 82, 78, 74, 74, 74], complianceRisk: false },
+  { vendor: 'Legacy Field Dispatch', totalLicenses: 120, active90d: 80, inactive: 40, annualWaste: 160_000, action: 'Consolidate into HCSS suite — reclaim all legacy dispatch seats', costPerLicense: 4_000, department: 'Operations', lastAuditDate: '2025-11-10', trend: [78, 72, 68, 65, 64, 67], complianceRisk: false },
+  { vendor: 'MCP (Internal)', totalLicenses: 380, active90d: 280, inactive: 100, annualWaste: 30_000, action: 'Reclaim 100 inactive crew seats', costPerLicense: 300, department: 'HR / All Staff', lastAuditDate: '2026-01-10', trend: [86, 82, 78, 74, 74, 74], complianceRisk: false },
   { vendor: 'SAP ERP', totalLicenses: 40, active90d: 20, inactive: 20, annualWaste: 80_000, action: 'Reclaim 20 seats — consolidate to finance team', costPerLicense: 4_000, department: 'Finance', lastAuditDate: '2025-11-02', trend: [72, 66, 58, 52, 50, 50], complianceRisk: false },
   { vendor: 'Microsoft 365', totalLicenses: 380, active90d: 240, inactive: 140, annualWaste: 110_000, action: 'Reclaim 140 seats + downgrade field crews', costPerLicense: 786, department: 'IT / All Staff', lastAuditDate: '2025-09-15', trend: [76, 70, 66, 63, 63, 63], complianceRisk: false },
 ];
@@ -3350,7 +3350,7 @@ const hsiRoadmapPhases = [
     quarter: 'Q1 2026', title: 'Rail Testing Data Unification', items: ['TAM-4 data lake ingestion', 'LIDAR data pipeline', 'FRA reporting assessment'],
     status: 'active' as const,
     weekPlan: [
-      { week: 1, task: 'TAM-4 data export and Databricks ingestion pipeline for 3 years of testing history', owner: 'Testing Director' },
+      { week: 1, task: 'TAM-4 data export and proposed data lakehouse ingestion pipeline for 3 years of testing history', owner: 'Testing Director' },
       { week: 2, task: 'LIDAR point cloud storage and processing infrastructure setup', owner: 'Data Engineer' },
       { week: 3, task: 'Ultrasonic inspection data consolidation from separate flaw detection databases', owner: 'Testing Director' },
       { week: 4, task: 'FRA Form 6180 reporting process mapping and automation scoping', owner: 'Compliance Manager' },
@@ -3631,7 +3631,7 @@ const htsiCurrentStack: CurrentTool[] = [
   { name: 'Transit Scheduling System', category: 'Operations', annualCost: 280_000, users: 60, score: 4, integrationComplexity: 'High', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Route scheduling', 'Crew assignments', 'Service planning'] },
   { name: 'Vehicle Maintenance Tracker', category: 'Maintenance', annualCost: 160_000, users: 40, score: 3, integrationComplexity: 'Medium', migrationWeeks: 10, riskLevel: 'Medium', dependencies: ['Maintenance scheduling', 'Parts inventory', 'Compliance records'] },
   { name: 'Fare Collection System', category: 'Revenue', annualCost: 180_000, users: 480, score: 6, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['Fare processing', 'Ridership data', 'Revenue reporting'] },
-  { name: 'Kronos/UKG', category: 'Workforce', annualCost: 140_000, users: 480, score: 4, integrationComplexity: 'Medium', migrationWeeks: 10, riskLevel: 'Medium', dependencies: ['Time tracking', 'Crew scheduling', 'Payroll'] },
+  { name: 'MCP (Internal)', category: 'Workforce', annualCost: 140_000, users: 480, score: 4, integrationComplexity: 'Medium', migrationWeeks: 10, riskLevel: 'Medium', dependencies: ['Time tracking', 'Crew scheduling', 'Payroll'] },
 ];
 
 const htsiLicenses: License[] = [
@@ -3713,7 +3713,7 @@ const heRoadmapPhases = [
     status: 'upcoming' as const,
     weekPlan: [
       { week: 5, task: 'Procore deployment for energy infrastructure project management', owner: 'Project Manager' },
-      { week: 6, task: 'Samsara equipment tracking for energy division fleet', owner: 'Division Manager' },
+      { week: 6, task: 'HCSS Equipment360 tracking for energy division fleet', owner: 'Division Manager' },
       { week: 7, task: 'Automated compliance reporting for energy regulatory requirements', owner: 'Compliance Lead' },
       { week: 8, task: 'Mobile field tools for energy crew daily reporting', owner: 'IT Lead' },
     ],
@@ -3748,7 +3748,7 @@ const heTopOpportunities: Opportunity[] = [
 const heCurrentStack: CurrentTool[] = [
   { name: 'Excel/SharePoint', category: 'Project Management', annualCost: 60_000, users: 40, score: 2, integrationComplexity: 'Low', migrationWeeks: 8, riskLevel: 'Low', dependencies: ['Project tracking', 'Cost estimation', 'Resource planning'] },
   { name: 'SAP ERP (shared)', category: 'Finance', annualCost: 80_000, users: 15, score: 3, integrationComplexity: 'High', migrationWeeks: 12, riskLevel: 'Medium', dependencies: ['Financial reporting', 'AP/AR', 'Cost accounting'] },
-  { name: 'Kronos/UKG', category: 'Workforce', annualCost: 40_000, users: 120, score: 4, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Low', dependencies: ['Time tracking', 'Crew scheduling', 'Payroll'] },
+  { name: 'MCP (Internal)', category: 'Workforce', annualCost: 40_000, users: 120, score: 4, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Low', dependencies: ['Time tracking', 'Crew scheduling', 'Payroll'] },
 ];
 
 const heLicenses: License[] = [
@@ -3864,7 +3864,7 @@ const ggTopOpportunities: Opportunity[] = [
 const ggCurrentStack: CurrentTool[] = [
   { name: 'Excel/SharePoint', category: 'Project Management', annualCost: 30_000, users: 30, score: 2, integrationComplexity: 'Low', migrationWeeks: 6, riskLevel: 'Low', dependencies: ['Project tracking', 'Compliance logs', 'Waste manifests'] },
   { name: 'Environmental Monitoring', category: 'Compliance', annualCost: 60_000, users: 15, score: 4, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Medium', dependencies: ['Sensor data', 'Air quality', 'Water sampling'] },
-  { name: 'Kronos/UKG', category: 'Workforce', annualCost: 28_000, users: 90, score: 4, integrationComplexity: 'Medium', migrationWeeks: 6, riskLevel: 'Low', dependencies: ['Time tracking', 'Crew scheduling', 'Payroll'] },
+  { name: 'MCP (Internal)', category: 'Workforce', annualCost: 28_000, users: 90, score: 4, integrationComplexity: 'Medium', migrationWeeks: 6, riskLevel: 'Low', dependencies: ['Time tracking', 'Crew scheduling', 'Payroll'] },
 ];
 
 const ggLicenses: License[] = [
@@ -3976,26 +3976,26 @@ const meridianAiAgents: AIAgent[] = [
 const hccDataSources: IntegrationDataSource[] = [
   { system: 'Primavera P6', division: 'Project Management', recordsAnalyzed: '1,247 projects', coverage: 94, status: 'Complete' },
   { system: 'AutoCAD Civil 3D', division: 'Engineering', recordsAnalyzed: '890 drawings', coverage: 87, status: 'Complete' },
-  { system: 'Trimble GPS Fleet', division: 'Fleet Operations', recordsAnalyzed: '400 vehicles tracked', coverage: 96, status: 'Complete' },
-  { system: 'Custom Dispatch System', division: 'HCC Operations', recordsAnalyzed: '18,420 dispatch records', coverage: 78, status: 'In Progress' },
+  { system: 'HCSS Telematics', division: 'Fleet Operations', recordsAnalyzed: '400 vehicles tracked', coverage: 96, status: 'Complete' },
+  { system: 'Legacy Field Dispatch', division: 'HCC Operations', recordsAnalyzed: '18,420 dispatch records', coverage: 78, status: 'In Progress' },
   { system: 'SAP ERP', division: 'HCC Finance', recordsAnalyzed: '6,847 financial records', coverage: 91, status: 'Complete' },
-  { system: 'Kronos/UKG', division: 'Workforce', recordsAnalyzed: '1,200 employees', coverage: 100, status: 'Complete' },
+  { system: 'MCP (Internal)', division: 'Workforce', recordsAnalyzed: '1,200 employees', coverage: 100, status: 'Complete' },
 ];
 
 const hrsiDataSources: IntegrationDataSource[] = [
-  { system: 'Custom Dispatch System', division: 'Railroad Maintenance Ops', recordsAnalyzed: '9,340 work orders', coverage: 76, status: 'In Progress' },
+  { system: 'Legacy Field Dispatch', division: 'Railroad Maintenance Ops', recordsAnalyzed: '9,340 work orders', coverage: 76, status: 'In Progress' },
   { system: 'SAP ERP', division: 'HRSI Finance', recordsAnalyzed: '3,218 financial records', coverage: 92, status: 'Complete' },
-  { system: 'Kronos/UKG', division: 'Workforce', recordsAnalyzed: '380 employees', coverage: 100, status: 'Complete' },
-  { system: 'Samsara Fleet', division: 'Vehicle Telematics', recordsAnalyzed: '180 vehicles tracked', coverage: 88, status: 'Complete' },
+  { system: 'MCP (Internal)', division: 'Workforce', recordsAnalyzed: '380 employees', coverage: 100, status: 'Complete' },
+  { system: 'HCSS Equipment360', division: 'Vehicle Telematics', recordsAnalyzed: '180 vehicles tracked', coverage: 88, status: 'Complete' },
   { system: 'Car Repair Database', division: 'Maintenance', recordsAnalyzed: '12,400 repair records', coverage: 83, status: 'In Progress' },
 ];
 
 const hsiDataSources: IntegrationDataSource[] = [
   { system: 'TAM-4 Rail Testing', division: 'Track Inspection', recordsAnalyzed: '36 months of test data', coverage: 97, status: 'Complete' },
   { system: 'FRA RISPC Database', division: 'Regulatory', recordsAnalyzed: '12,400 inspections', coverage: 95, status: 'Complete' },
-  { system: 'Trimble GPS Track', division: 'Geospatial', recordsAnalyzed: '4,200 track-miles', coverage: 93, status: 'Complete' },
+  { system: 'HCSS Telematics', division: 'Geospatial', recordsAnalyzed: '4,200 track-miles', coverage: 93, status: 'Complete' },
   { system: 'Ultrasonic Sensor Archive', division: 'Defect Imaging', recordsAnalyzed: '240,000 images', coverage: 89, status: 'In Progress' },
-  { system: 'Kronos/UKG', division: 'Workforce', recordsAnalyzed: '220 employees', coverage: 100, status: 'Complete' },
+  { system: 'MCP (Internal)', division: 'Workforce', recordsAnalyzed: '220 employees', coverage: 100, status: 'Complete' },
 ];
 
 const htiDataSources: IntegrationDataSource[] = [
@@ -4008,8 +4008,8 @@ const htiDataSources: IntegrationDataSource[] = [
 
 const htsiDataSources: IntegrationDataSource[] = [
   { system: 'Trapeze OPS', division: 'Scheduling & Dispatch', recordsAnalyzed: '14,800 service runs', coverage: 95, status: 'Complete' },
-  { system: 'Samsara Fleet', division: 'Vehicle Telematics', recordsAnalyzed: '120 vehicles tracked', coverage: 92, status: 'Complete' },
-  { system: 'Kronos/UKG', division: 'Workforce', recordsAnalyzed: '480 employees', coverage: 100, status: 'Complete' },
+  { system: 'HCSS Equipment360', division: 'Vehicle Telematics', recordsAnalyzed: '120 vehicles tracked', coverage: 92, status: 'Complete' },
+  { system: 'MCP (Internal)', division: 'Workforce', recordsAnalyzed: '480 employees', coverage: 100, status: 'Complete' },
   { system: 'Fare Collection System', division: 'Revenue', recordsAnalyzed: '2.4M transactions', coverage: 87, status: 'In Progress' },
   { system: 'Transit Asset Management', division: 'Asset Lifecycle', recordsAnalyzed: '800 transit assets', coverage: 84, status: 'In Progress' },
 ];
@@ -4019,7 +4019,7 @@ const heDataSources: IntegrationDataSource[] = [
   { system: 'Solar Monitoring Platform', division: 'Renewable Energy', recordsAnalyzed: '12 sites monitored', coverage: 89, status: 'Complete' },
   { system: 'SAP ERP', division: 'HE Finance', recordsAnalyzed: '1,620 financial records', coverage: 93, status: 'Complete' },
   { system: 'Grid Management System', division: 'Power Infrastructure', recordsAnalyzed: '3,400 grid segments', coverage: 82, status: 'In Progress' },
-  { system: 'Kronos/UKG', division: 'Workforce', recordsAnalyzed: '120 employees', coverage: 100, status: 'Complete' },
+  { system: 'MCP (Internal)', division: 'Workforce', recordsAnalyzed: '120 employees', coverage: 100, status: 'Complete' },
 ];
 
 const ggDataSources: IntegrationDataSource[] = [
@@ -4027,16 +4027,16 @@ const ggDataSources: IntegrationDataSource[] = [
   { system: 'Waste Tracking System', division: 'Waste Operations', recordsAnalyzed: '1,800 manifests', coverage: 85, status: 'In Progress' },
   { system: 'EPA Compliance DB', division: 'Regulatory', recordsAnalyzed: '2,140 regulatory filings', coverage: 94, status: 'Complete' },
   { system: 'SAP ERP', division: 'GG Finance', recordsAnalyzed: '1,180 financial records', coverage: 90, status: 'Complete' },
-  { system: 'Kronos/UKG', division: 'Workforce', recordsAnalyzed: '90 employees', coverage: 100, status: 'Complete' },
+  { system: 'MCP (Internal)', division: 'Workforce', recordsAnalyzed: '90 employees', coverage: 100, status: 'Complete' },
 ];
 
 const meridianDataSources: IntegrationDataSource[] = [
-  { system: 'SAP S/4HANA', division: 'Enterprise ERP', recordsAnalyzed: '24,847 work orders', coverage: 92, status: 'Complete' },
-  { system: 'Trimble GPS Fleet (All Divisions)', division: 'Fleet Operations', recordsAnalyzed: '700+ vehicles', coverage: 94, status: 'Complete' },
-  { system: 'Kronos/UKG (All Divisions)', division: 'Workforce', recordsAnalyzed: '2,800 employees', coverage: 100, status: 'Complete' },
-  { system: 'Databricks Data Lake', division: 'Cross-Division Analytics', recordsAnalyzed: '7 division feeds consolidated', coverage: 86, status: 'In Progress' },
-  { system: 'Samsara IoT Platform', division: 'Telematics', recordsAnalyzed: '300+ connected assets', coverage: 88, status: 'Complete' },
-  { system: 'Custom Dispatch (Legacy)', division: 'Field Operations', recordsAnalyzed: '27,760 dispatch records', coverage: 73, status: 'Pending Access' },
+  { system: 'eCMS', division: 'Enterprise ERP', recordsAnalyzed: '24,847 work orders', coverage: 92, status: 'Complete' },
+  { system: 'HCSS Telematics (All Divisions)', division: 'Fleet Operations', recordsAnalyzed: '700+ vehicles', coverage: 94, status: 'Complete' },
+  { system: 'MCP (All Divisions)', division: 'Workforce', recordsAnalyzed: '2,800 employees', coverage: 100, status: 'Complete' },
+  { system: 'Proposed Data Lakehouse', division: 'Cross-Division Analytics', recordsAnalyzed: '7 division feeds consolidated', coverage: 86, status: 'In Progress' },
+  { system: 'HCSS Equipment360', division: 'Telematics', recordsAnalyzed: '300+ connected assets', coverage: 88, status: 'Complete' },
+  { system: 'Legacy Field Dispatch', division: 'Field Operations', recordsAnalyzed: '27,760 dispatch records', coverage: 73, status: 'Pending Access' },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -4046,26 +4046,26 @@ const meridianDataSources: IntegrationDataSource[] = [
 const hccVendorHealth: IntegrationVendorHealth[] = [
   { name: 'Primavera P6', status: 'green', uptime: 99.7, latency: 42, lastChecked: '2026-03-27T08:14:00Z' },
   { name: 'AutoCAD Civil 3D', status: 'green', uptime: 99.4, latency: 68, lastChecked: '2026-03-27T08:12:00Z' },
-  { name: 'Trimble GPS Fleet', status: 'yellow', uptime: 97.8, latency: 186, lastChecked: '2026-03-27T08:10:00Z', note: 'Elevated latency during peak dispatch hours' },
-  { name: 'Custom Dispatch System', status: 'red', uptime: 94.2, latency: 890, lastChecked: '2026-03-27T08:08:00Z', note: 'Legacy system — frequent timeouts under load' },
+  { name: 'HCSS Telematics', status: 'yellow', uptime: 97.8, latency: 186, lastChecked: '2026-03-27T08:10:00Z', note: 'Elevated latency during peak dispatch hours' },
+  { name: 'Legacy Field Dispatch', status: 'red', uptime: 94.2, latency: 890, lastChecked: '2026-03-27T08:08:00Z', note: 'Legacy system — frequent timeouts under load' },
   { name: 'SAP ERP (HCC)', status: 'green', uptime: 99.6, latency: 54, lastChecked: '2026-03-27T08:15:00Z' },
-  { name: 'Kronos/UKG (HCC)', status: 'green', uptime: 99.3, latency: 38, lastChecked: '2026-03-27T08:13:00Z' },
+  { name: 'MCP (HCC)', status: 'green', uptime: 99.3, latency: 38, lastChecked: '2026-03-27T08:13:00Z' },
 ];
 
 const hrsiVendorHealth: IntegrationVendorHealth[] = [
-  { name: 'Custom Dispatch System', status: 'red', uptime: 94.8, latency: 742, lastChecked: '2026-03-27T07:58:00Z', note: 'Legacy system — intermittent API failures' },
+  { name: 'Legacy Field Dispatch', status: 'red', uptime: 94.8, latency: 742, lastChecked: '2026-03-27T07:58:00Z', note: 'Legacy system — intermittent API failures' },
   { name: 'SAP ERP (HRSI)', status: 'green', uptime: 99.5, latency: 61, lastChecked: '2026-03-27T08:02:00Z' },
-  { name: 'Kronos/UKG (HRSI)', status: 'green', uptime: 99.2, latency: 44, lastChecked: '2026-03-27T08:04:00Z' },
-  { name: 'Samsara Fleet', status: 'green', uptime: 99.8, latency: 28, lastChecked: '2026-03-27T08:06:00Z' },
+  { name: 'MCP (HRSI)', status: 'green', uptime: 99.2, latency: 44, lastChecked: '2026-03-27T08:04:00Z' },
+  { name: 'HCSS Equipment360', status: 'green', uptime: 99.8, latency: 28, lastChecked: '2026-03-27T08:06:00Z' },
   { name: 'Car Repair Database', status: 'yellow', uptime: 97.1, latency: 312, lastChecked: '2026-03-27T07:56:00Z', note: 'Slow query performance on historical records' },
 ];
 
 const hsiVendorHealth: IntegrationVendorHealth[] = [
   { name: 'TAM-4 Rail Testing', status: 'green', uptime: 99.1, latency: 78, lastChecked: '2026-03-27T08:18:00Z' },
   { name: 'FRA RISPC Database', status: 'green', uptime: 99.6, latency: 52, lastChecked: '2026-03-27T08:16:00Z' },
-  { name: 'Trimble GPS Track', status: 'green', uptime: 99.3, latency: 64, lastChecked: '2026-03-27T08:20:00Z' },
+  { name: 'HCSS Telematics', status: 'green', uptime: 99.3, latency: 64, lastChecked: '2026-03-27T08:20:00Z' },
   { name: 'Ultrasonic Sensor Archive', status: 'yellow', uptime: 96.4, latency: 428, lastChecked: '2026-03-27T08:14:00Z', note: 'High latency on large image batch retrieval' },
-  { name: 'Kronos/UKG (HSI)', status: 'green', uptime: 99.4, latency: 36, lastChecked: '2026-03-27T08:22:00Z' },
+  { name: 'MCP (HSI)', status: 'green', uptime: 99.4, latency: 36, lastChecked: '2026-03-27T08:22:00Z' },
 ];
 
 const htiVendorHealth: IntegrationVendorHealth[] = [
@@ -4078,8 +4078,8 @@ const htiVendorHealth: IntegrationVendorHealth[] = [
 
 const htsiVendorHealth: IntegrationVendorHealth[] = [
   { name: 'Trapeze OPS', status: 'green', uptime: 99.5, latency: 46, lastChecked: '2026-03-27T08:28:00Z' },
-  { name: 'Samsara Fleet (HTSI)', status: 'green', uptime: 99.7, latency: 32, lastChecked: '2026-03-27T08:30:00Z' },
-  { name: 'Kronos/UKG (HTSI)', status: 'green', uptime: 99.1, latency: 41, lastChecked: '2026-03-27T08:26:00Z' },
+  { name: 'HCSS Equipment360 (HTSI)', status: 'green', uptime: 99.7, latency: 32, lastChecked: '2026-03-27T08:30:00Z' },
+  { name: 'MCP (HTSI)', status: 'green', uptime: 99.1, latency: 41, lastChecked: '2026-03-27T08:26:00Z' },
   { name: 'Fare Collection System', status: 'yellow', uptime: 96.8, latency: 364, lastChecked: '2026-03-27T08:24:00Z', note: 'Payment gateway latency spikes during rush hour' },
   { name: 'Transit Asset Management', status: 'yellow', uptime: 97.6, latency: 198, lastChecked: '2026-03-27T08:22:00Z', note: 'Pending API v2 migration' },
 ];
@@ -4089,7 +4089,7 @@ const heVendorHealth: IntegrationVendorHealth[] = [
   { name: 'Solar Monitoring Platform', status: 'green', uptime: 98.9, latency: 94, lastChecked: '2026-03-27T08:30:00Z' },
   { name: 'SAP ERP (HE)', status: 'green', uptime: 99.3, latency: 56, lastChecked: '2026-03-27T08:34:00Z' },
   { name: 'Grid Management System', status: 'yellow', uptime: 97.4, latency: 276, lastChecked: '2026-03-27T08:28:00Z', note: 'Legacy SCADA bridge causing intermittent delays' },
-  { name: 'Kronos/UKG (HE)', status: 'green', uptime: 99.6, latency: 34, lastChecked: '2026-03-27T08:36:00Z' },
+  { name: 'MCP (HE)', status: 'green', uptime: 99.6, latency: 34, lastChecked: '2026-03-27T08:36:00Z' },
 ];
 
 const ggVendorHealth: IntegrationVendorHealth[] = [
@@ -4097,16 +4097,16 @@ const ggVendorHealth: IntegrationVendorHealth[] = [
   { name: 'Waste Tracking System', status: 'yellow', uptime: 96.2, latency: 342, lastChecked: '2026-03-27T08:36:00Z', note: 'Manifest sync delays with third-party haulers' },
   { name: 'EPA Compliance DB', status: 'green', uptime: 99.1, latency: 72, lastChecked: '2026-03-27T08:40:00Z' },
   { name: 'SAP ERP (GG)', status: 'green', uptime: 99.5, latency: 48, lastChecked: '2026-03-27T08:42:00Z' },
-  { name: 'Kronos/UKG (GG)', status: 'green', uptime: 99.4, latency: 38, lastChecked: '2026-03-27T08:44:00Z' },
+  { name: 'MCP (GG)', status: 'green', uptime: 99.4, latency: 38, lastChecked: '2026-03-27T08:44:00Z' },
 ];
 
 const meridianVendorHealth: IntegrationVendorHealth[] = [
-  { name: 'SAP S/4HANA', status: 'green', uptime: 99.7, latency: 48, lastChecked: '2026-03-27T08:46:00Z' },
-  { name: 'Trimble GPS Fleet (Enterprise)', status: 'green', uptime: 99.4, latency: 74, lastChecked: '2026-03-27T08:44:00Z' },
-  { name: 'Kronos/UKG (Enterprise)', status: 'green', uptime: 99.3, latency: 42, lastChecked: '2026-03-27T08:48:00Z' },
-  { name: 'Databricks Data Lake', status: 'yellow', uptime: 98.1, latency: 156, lastChecked: '2026-03-27T08:42:00Z', note: 'Ingestion pipeline backpressure during nightly ETL' },
-  { name: 'Samsara IoT Platform', status: 'green', uptime: 99.8, latency: 26, lastChecked: '2026-03-27T08:50:00Z' },
-  { name: 'Custom Dispatch (Legacy)', status: 'red', uptime: 94.6, latency: 820, lastChecked: '2026-03-27T08:40:00Z', note: 'Scheduled for decommission Q4 — unstable under cross-division load' },
+  { name: 'eCMS', status: 'green', uptime: 99.7, latency: 48, lastChecked: '2026-03-27T08:46:00Z' },
+  { name: 'HCSS Telematics (Enterprise)', status: 'green', uptime: 99.4, latency: 74, lastChecked: '2026-03-27T08:44:00Z' },
+  { name: 'MCP (Enterprise)', status: 'green', uptime: 99.3, latency: 42, lastChecked: '2026-03-27T08:48:00Z' },
+  { name: 'Proposed Data Lakehouse', status: 'yellow', uptime: 98.1, latency: 156, lastChecked: '2026-03-27T08:42:00Z', note: 'Ingestion pipeline backpressure during nightly ETL' },
+  { name: 'HCSS Equipment360', status: 'green', uptime: 99.8, latency: 26, lastChecked: '2026-03-27T08:50:00Z' },
+  { name: 'Legacy Field Dispatch', status: 'red', uptime: 94.6, latency: 820, lastChecked: '2026-03-27T08:40:00Z', note: 'Scheduled for decommission Q4 — unstable under cross-division load' },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -4115,24 +4115,24 @@ const meridianVendorHealth: IntegrationVendorHealth[] = [
 
 const hccFailureModes: IntegrationFailureMode[] = [
   { vendor: 'Primavera P6', scenario: 'API token expiration during multi-project sync', recovery: 'Auto-refresh token with 15-min buffer before expiry', status: 'Passing' },
-  { vendor: 'Custom Dispatch System', scenario: 'Database connection pool exhaustion under peak dispatch', recovery: 'Circuit breaker with 30s cooldown, queue overflow to backup', status: 'Needs Attention' },
-  { vendor: 'Trimble GPS Fleet', scenario: 'GPS signal loss in tunnel/bridge construction zones', recovery: 'Dead reckoning interpolation with last-known-good coordinates', status: 'Passing' },
+  { vendor: 'Legacy Field Dispatch', scenario: 'Database connection pool exhaustion under peak dispatch', recovery: 'Circuit breaker with 30s cooldown, queue overflow to backup', status: 'Needs Attention' },
+  { vendor: 'HCSS Telematics', scenario: 'GPS signal loss in tunnel/bridge construction zones', recovery: 'Dead reckoning interpolation with last-known-good coordinates', status: 'Passing' },
   { vendor: 'AutoCAD Civil 3D', scenario: 'Large drawing file transfer timeout (>500MB)', recovery: 'Chunked upload with resume capability and checksum validation', status: 'Passing' },
   { vendor: 'SAP ERP (HCC)', scenario: 'Month-end financial close locks preventing real-time reads', recovery: 'Read from reporting replica during close window', status: 'Passing' },
 ];
 
 const hrsiFailureModes: IntegrationFailureMode[] = [
-  { vendor: 'Custom Dispatch System', scenario: 'Legacy API returns malformed JSON on edge-case equipment IDs', recovery: 'Input sanitization layer with fallback to manual dispatch queue', status: 'Needs Attention' },
+  { vendor: 'Legacy Field Dispatch', scenario: 'Legacy API returns malformed JSON on edge-case equipment IDs', recovery: 'Input sanitization layer with fallback to manual dispatch queue', status: 'Needs Attention' },
   { vendor: 'Car Repair Database', scenario: 'Slow query timeout on historical repair record aggregation', recovery: 'Pre-computed materialized views refreshed nightly', status: 'Needs Attention' },
-  { vendor: 'Samsara Fleet', scenario: 'Cellular dead zones causing telemetry gaps on rural rail corridors', recovery: 'On-device buffering with store-and-forward sync', status: 'Passing' },
-  { vendor: 'Kronos/UKG (HRSI)', scenario: 'Payroll integration failure during bi-weekly processing', recovery: 'Retry queue with 3x exponential backoff, manual override alert', status: 'Passing' },
+  { vendor: 'HCSS Equipment360', scenario: 'Cellular dead zones causing telemetry gaps on rural rail corridors', recovery: 'On-device buffering with store-and-forward sync', status: 'Passing' },
+  { vendor: 'MCP (HRSI)', scenario: 'Payroll integration failure during bi-weekly processing', recovery: 'Retry queue with 3x exponential backoff, manual override alert', status: 'Passing' },
 ];
 
 const hsiFailureModes: IntegrationFailureMode[] = [
   { vendor: 'Ultrasonic Sensor Archive', scenario: 'Image batch upload fails on corrupted sensor frames', recovery: 'Frame-level validation with corrupt frame isolation and re-scan flag', status: 'Passing' },
   { vendor: 'TAM-4 Rail Testing', scenario: 'Real-time data stream disconnect during active testing run', recovery: 'Automatic reconnect with gap detection and backfill from on-board storage', status: 'Passing' },
   { vendor: 'FRA RISPC Database', scenario: 'Regulatory submission rejected due to schema version mismatch', recovery: 'Schema version detection with auto-transform to current FRA format', status: 'Needs Attention' },
-  { vendor: 'Trimble GPS Track', scenario: 'Coordinate projection mismatch between NAD83 and WGS84 systems', recovery: 'Automatic projection detection and transform before data merge', status: 'Passing' },
+  { vendor: 'HCSS Telematics', scenario: 'Coordinate projection mismatch between NAD83 and WGS84 systems', recovery: 'Automatic projection detection and transform before data merge', status: 'Passing' },
 ];
 
 const htiFailureModes: IntegrationFailureMode[] = [
@@ -4146,7 +4146,7 @@ const htsiFailureModes: IntegrationFailureMode[] = [
   { vendor: 'Trapeze OPS', scenario: 'Schedule import fails on non-standard GTFS-realtime feed format', recovery: 'GTFS format normalizer with validation report before import', status: 'Passing' },
   { vendor: 'Fare Collection System', scenario: 'Payment gateway timeout during peak ridership periods', recovery: 'Offline fare acceptance with batch reconciliation post-recovery', status: 'Needs Attention' },
   { vendor: 'Transit Asset Management', scenario: 'Asset lifecycle data sync lag exceeding 24-hour threshold', recovery: 'Priority sync queue for critical assets, background sync for rest', status: 'Needs Attention' },
-  { vendor: 'Samsara Fleet (HTSI)', scenario: 'Vehicle health telemetry flood during fleet-wide diagnostic cycle', recovery: 'Rate limiter with priority queuing for critical health alerts', status: 'Passing' },
+  { vendor: 'HCSS Equipment360 (HTSI)', scenario: 'Vehicle health telemetry flood during fleet-wide diagnostic cycle', recovery: 'Rate limiter with priority queuing for critical health alerts', status: 'Passing' },
 ];
 
 const heFailureModes: IntegrationFailureMode[] = [
@@ -4164,11 +4164,11 @@ const ggFailureModes: IntegrationFailureMode[] = [
 ];
 
 const meridianFailureModes: IntegrationFailureMode[] = [
-  { vendor: 'SAP S/4HANA', scenario: 'Cross-division data consolidation timeout during monthly roll-up', recovery: 'Parallel division processing with staged consolidation and retry', status: 'Passing' },
-  { vendor: 'Custom Dispatch (Legacy)', scenario: 'Complete system outage affecting all field dispatch operations', recovery: 'Failover to Samsara-based dispatch with manual crew notification', status: 'Needs Attention' },
-  { vendor: 'Databricks Data Lake', scenario: 'ETL pipeline failure on schema evolution across divisions', recovery: 'Schema registry with backward-compatible evolution and dead-letter queue', status: 'Passing' },
-  { vendor: 'Trimble GPS Fleet (Enterprise)', scenario: 'Fleet-wide GPS drift during solar storm event', recovery: 'Multi-constellation GNSS fallback with Galileo/GLONASS augmentation', status: 'Passing' },
-  { vendor: 'Samsara IoT Platform', scenario: 'IoT device certificate expiration across fleet', recovery: 'Automated certificate rotation with 30-day advance renewal', status: 'Passing' },
+  { vendor: 'eCMS', scenario: 'Cross-division data consolidation timeout during monthly roll-up', recovery: 'Parallel division processing with staged consolidation and retry', status: 'Passing' },
+  { vendor: 'Legacy Field Dispatch', scenario: 'Complete system outage affecting all field dispatch operations', recovery: 'Failover to HCSS-based dispatch with manual crew notification', status: 'Needs Attention' },
+  { vendor: 'Proposed Data Lakehouse', scenario: 'ETL pipeline failure on schema evolution across divisions', recovery: 'Schema registry with backward-compatible evolution and dead-letter queue', status: 'Passing' },
+  { vendor: 'HCSS Telematics (Enterprise)', scenario: 'Fleet-wide GPS drift during solar storm event', recovery: 'Multi-constellation GNSS fallback with Galileo/GLONASS augmentation', status: 'Passing' },
+  { vendor: 'HCSS Equipment360', scenario: 'IoT device certificate expiration across fleet', recovery: 'Automated certificate rotation with 30-day advance renewal', status: 'Passing' },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -4178,21 +4178,21 @@ const meridianFailureModes: IntegrationFailureMode[] = [
 const hccMethodologySteps: IntegrationMethodologyStep[] = [
   { number: 1, title: 'Fleet Asset Discovery', description: 'Inventory all 400+ fleet vehicles, heavy equipment, and GPS-tracked assets across HCC construction sites and rail corridors.' },
   { number: 2, title: 'Field Workflow Mapping', description: 'Map 18 critical construction workflows from bid estimation through project closeout, identifying manual handoffs and data gaps.' },
-  { number: 3, title: 'Construction Tech Audit', description: 'Assess Primavera P6, AutoCAD Civil 3D, Trimble, and custom dispatch system for integration readiness, API maturity, and data quality.' },
+  { number: 3, title: 'Construction Tech Audit', description: 'Assess Primavera P6, AutoCAD Civil 3D, HCSS Telematics, and legacy field dispatch system for integration readiness, API maturity, and data quality.' },
   { number: 4, title: 'Project ROI Modeling', description: 'Model AI-driven savings across fleet utilization, bid accuracy, paving quality, and safety compliance for HCC\'s $180M annual project volume.' },
 ];
 
 const hrsiMethodologySteps: IntegrationMethodologyStep[] = [
   { number: 1, title: 'Equipment Registry Scan', description: 'Catalog all railroad maintenance equipment, leased rolling stock, and repair facility assets across HRSI operations.' },
   { number: 2, title: 'Maintenance Workflow Analysis', description: 'Analyze 12 core maintenance workflows from car repair triage through equipment return, mapping crew scheduling bottlenecks.' },
-  { number: 3, title: 'Railroad Tech Stack Audit', description: 'Evaluate custom dispatch, SAP ERP, Samsara fleet, and car repair database for data completeness and integration capability.' },
+  { number: 3, title: 'Railroad Tech Stack Audit', description: 'Evaluate legacy field dispatch, SAP ERP, HCSS Equipment360 fleet, and car repair database for data completeness and integration capability.' },
   { number: 4, title: 'Service ROI Modeling', description: 'Quantify predictive maintenance savings, crew utilization gains, and parts inventory optimization for HRSI\'s 380-employee operation.' },
 ];
 
 const hsiMethodologySteps: IntegrationMethodologyStep[] = [
   { number: 1, title: 'Sensor Data Inventory', description: 'Catalog 240K+ ultrasonic images, TAM-4 test data, and GPS track geometry data across HSI\'s testing fleet and archive systems.' },
   { number: 2, title: 'Inspection Workflow Analysis', description: 'Map end-to-end rail inspection process from route planning through FRA defect reporting, identifying AI augmentation points.' },
-  { number: 3, title: 'Testing Platform Audit', description: 'Assess TAM-4 software, ultrasonic sensor systems, FRA RISPC database, and Trimble GPS for ML training data readiness.' },
+  { number: 3, title: 'Testing Platform Audit', description: 'Assess TAM-4 software, ultrasonic sensor systems, FRA RISPC database, and HCSS Telematics for ML training data readiness.' },
   { number: 4, title: 'Compliance ROI Modeling', description: 'Model RailSentry AI defect detection improvements, FRA compliance automation savings, and route optimization gains across 4,200 track-miles.' },
 ];
 
@@ -4206,7 +4206,7 @@ const htiMethodologySteps: IntegrationMethodologyStep[] = [
 const htsiMethodologySteps: IntegrationMethodologyStep[] = [
   { number: 1, title: 'Ridership Data Analysis', description: 'Analyze passenger demand patterns, fare collection data, and service utilization across HTSI\'s transit operations and 2.4M annual transactions.' },
   { number: 2, title: 'Transit Schedule Mapping', description: 'Map scheduling, crew rostering, and fleet deployment workflows from demand forecasting through real-time service adjustments.' },
-  { number: 3, title: 'Operations Platform Audit', description: 'Assess Trapeze OPS, Samsara fleet, fare collection, and transit asset management systems for AI-powered service optimization.' },
+  { number: 3, title: 'Operations Platform Audit', description: 'Assess Trapeze OPS, HCSS Equipment360 fleet, fare collection, and transit asset management systems for AI-powered service optimization.' },
   { number: 4, title: 'Service ROI Modeling', description: 'Model on-time performance improvements, crew scheduling optimization, and fare revenue gains for HTSI\'s 480-employee passenger rail operation.' },
 ];
 
@@ -4227,7 +4227,7 @@ const ggMethodologySteps: IntegrationMethodologyStep[] = [
 const meridianMethodologySteps: IntegrationMethodologyStep[] = [
   { number: 1, title: 'License Discovery', description: 'Comprehensive audit of software licenses across all 7 divisions — identify unused seats, redundant tools, and consolidation opportunities across 2,800 employees.' },
   { number: 2, title: 'Workflow Mapping', description: 'Map 62 critical workflows across rail construction, testing, signals, transit, energy, and environmental divisions to identify automation candidates.' },
-  { number: 3, title: 'Tech Stack Health', description: 'Assess the full enterprise tech stack — SAP S/4HANA, Primavera P6, Trimble, custom dispatch, and division-specific tools — for AI readiness and integration maturity.' },
+  { number: 3, title: 'Tech Stack Health', description: 'Assess the full enterprise tech stack — eCMS, Primavera P6, HCSS Telematics, legacy field dispatch, and division-specific tools — for AI readiness and integration maturity.' },
   { number: 4, title: 'ROI Modeling', description: 'Model Year 1 savings of $5.8M across license reclamation, workflow automation, fleet intelligence, and AI-native railroad operations transformation.' },
 ];
 
