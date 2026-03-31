@@ -17,6 +17,16 @@ export default function BoardReportPage() {
   const gross = roiSummary.techStackSavings + roiSummary.workflowAutomation + roiSummary.licenseRecovery;
   const roi = Math.round((roiSummary.netYear1 / roiSummary.implementationCosts) * 100);
 
+  const topOppByDivision: Record<string, string> = {
+    hcc: 'Fleet dispatch automation ($1.2M)',
+    hrsi: 'Track maintenance AI ($890K)',
+    hsi: 'Defect detection ML ($520K)',
+    hti: 'PTC signal optimization ($640K)',
+    htsi: 'Transit scheduling AI ($480K)',
+    he: 'Pipeline monitoring IoT ($320K)',
+    gg: 'Environmental compliance automation ($280K)',
+  };
+
   const divisions = companies
     .filter(c => c.parentId === 'meridian' && c.id !== 'meridian')
     .map(c => {
@@ -28,7 +38,7 @@ export default function BoardReportPage() {
         scoreBefore: k.techScoreBefore,
         scoreAfter: k.techScoreAfter,
         savings: k.totalSavings >= 1_000_000 ? `$${(k.totalSavings / 1_000_000).toFixed(1)}M` : `$${Math.round(k.totalSavings / 1_000)}K`,
-        topOpp: '',
+        topOpp: topOppByDivision[c.id] || '',
       };
     });
 

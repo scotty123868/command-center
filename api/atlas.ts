@@ -21,14 +21,14 @@ AI READINESS BREAKDOWN:
 - Data Infrastructure: 25/100 — Siloed systems across 7 divisions, no unified data lake
 - Process Maturity: 44/100 — Some automation in rail testing but most field ops manual
 - Tech Stack Modernity: 32/100 — Legacy custom dispatch system (built 2009), aging TAM-4 software
-- Change Readiness: 48/100 — CEO Brad Lager committed but field crews resistant
+- Change Readiness: 48/100 — CEO Brad Herzog committed but field crews resistant
 - Skills & Training: 28/100 — Strong railroad expertise but near-zero data science capability
 
 KEY METRICS:
 - Total Projected Savings: $5.8M/yr
 - Tech Score: 38 → 86 (after transformation)
 - Workflows Analyzed: 62
-- Automation-Ready Workflows: 16
+- Automation-Ready Workflows: 18
 - Unused License Waste: $2.8M/yr
 
 TOP SAVINGS OPPORTUNITIES:

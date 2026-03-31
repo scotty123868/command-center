@@ -19,7 +19,7 @@ export const aiReadinessBreakdown = [
   { category: 'Data Infrastructure', score: 25, maxScore: 100, status: 'Critical Gap — siloed systems across 7 divisions, no unified data lake, GPS/LIDAR data from rail testing not centralized, dispatch data trapped in legacy custom system' },
   { category: 'Process Maturity', score: 44, maxScore: 100, status: 'Below Average — some automation in rail testing (TAM-4, GPS ballast trains) but most field ops manual, crew scheduling done via spreadsheets and phone calls' },
   { category: 'Tech Stack Modernity', score: 32, maxScore: 100, status: 'Legacy-Heavy — custom dispatch system built in 2009, aging TAM-4 rail testing software, SAP on-premise, Primavera P6 with no cloud integration' },
-  { category: 'Change Readiness', score: 48, maxScore: 100, status: 'Moderate — CEO Brad Lager committed to technology transformation, but field crews and division GMs resistant to changing proven workflows' },
+  { category: 'Change Readiness', score: 48, maxScore: 100, status: 'Moderate — CEO Brad Herzog committed to technology transformation, but field crews and division GMs resistant to changing proven workflows' },
   { category: 'Skills & Training', score: 28, maxScore: 100, status: 'Critical Gap — strong mechanical/railroad expertise but near-zero data science or AI capability, IT team focused on maintaining custom systems' },
 ];
 
@@ -56,7 +56,7 @@ export const roadmapPhases = [
       { week: 5, task: 'License reclamation wave 1: Microsoft 365 (1,000 seats) + Primavera P6 (100 seats) + AutoCAD (55 seats)', owner: 'Jason Park (DevOps)' },
       { week: 6, task: 'Quick-win scoring: rank 62 workflows by automation potential — prioritize crew scheduling and safety compliance', owner: 'Sarah Chen (Engagement Lead)' },
       { week: 7, task: 'Salesforce seat reclamation (45 seats) + Trimble Business Center audit (45 inactive seats)', owner: 'Jason Park (DevOps)' },
-      { week: 8, task: 'Executive readout to CEO Brad Lager & CFO Eric Bruder: $2.8M license waste identified, fleet intelligence roadmap presented', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 8, task: 'Executive readout to CEO Brad Herzog & CFO Eric Bruder: $2.8M license waste identified, fleet intelligence roadmap presented', owner: 'Sarah Chen (Engagement Lead)' },
       { week: 9, task: 'Custom dispatch system assessment — document all integrations, data flows, and API gaps in legacy 2009 system', owner: 'Mike Torres (Tech Lead)' },
       { week: 10, task: 'Data infrastructure mapping: identify all data silos across 7 divisions, GPS/LIDAR data stores, rail testing databases', owner: 'Mike Torres (Tech Lead)' },
       { week: 11, task: 'RFP for Databricks data lakehouse — evaluate against Snowflake for railroad-specific time-series and geospatial data needs', owner: 'Mike Torres (Tech Lead)' },
@@ -118,7 +118,7 @@ export const roadmapPhases = [
       { week: 43, task: 'AI-native stack validation: all systems integrated across 7 divisions, real-time data flowing through Databricks', owner: 'Jason Park (DevOps)' },
       { week: 44, task: 'Knowledge transfer: division IT teams trained on new stack, operational runbooks complete for all AI systems', owner: 'Sarah Chen (Engagement Lead)' },
       { week: 45, task: 'Final ROI validation: actual vs projected savings reconciliation across all initiatives', owner: 'Sarah Chen (Engagement Lead)' },
-      { week: 46, task: 'Board presentation to CEO Brad Lager: transformation metrics, safety improvements, Year 2 AI roadmap', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 46, task: 'Board presentation to CEO Brad Herzog: transformation metrics, safety improvements, Year 2 AI roadmap', owner: 'Sarah Chen (Engagement Lead)' },
       { week: 47, task: 'Hypercare period: 30-day post-deployment monitoring, model drift detection, performance optimization', owner: 'Mike Torres (Tech Lead)' },
       { week: 48, task: 'Engagement close: AI-native railroad operations live, $5.8M Year 1 savings confirmed', owner: 'Sarah Chen (Engagement Lead)' },
     ],
@@ -3146,7 +3146,7 @@ const hccRoadmapPhases = [
       { week: 13, task: 'AI-powered project scheduling replacing manual Primavera P6 updates', owner: 'VP Operations' },
       { week: 14, task: 'Digital twin pilot for major rail construction corridor', owner: 'VP Operations' },
       { week: 15, task: 'ROI validation: $2.1M Year 1 savings confirmed', owner: 'Division GM' },
-      { week: 16, task: 'Year 2 roadmap presentation to CEO Brad Lager', owner: 'Division GM' },
+      { week: 16, task: 'Year 2 roadmap presentation to CEO Brad Herzog', owner: 'Division GM' },
     ],
   },
 ];
