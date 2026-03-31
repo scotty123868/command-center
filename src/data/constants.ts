@@ -56,7 +56,7 @@ export const roadmapPhases = [
       { week: 5, task: 'License reclamation wave 1: Microsoft 365 (1,000 seats) + Primavera P6 (100 seats) + AutoCAD (55 seats)', owner: 'Jason Park (DevOps)' },
       { week: 6, task: 'Quick-win scoring: rank 62 workflows by automation potential — prioritize crew scheduling and safety compliance', owner: 'Sarah Chen (Engagement Lead)' },
       { week: 7, task: 'Salesforce seat reclamation (45 seats) + Trimble Business Center audit (45 inactive seats)', owner: 'Jason Park (DevOps)' },
-      { week: 8, task: 'Executive readout to CEO Brad Herzog & CFO Eric Bruder: $2.8M license waste identified, fleet intelligence roadmap presented', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 8, task: 'Executive readout to CEO Brad Herzog & senior leadership: $2.8M license waste identified, fleet intelligence roadmap presented', owner: 'Sarah Chen (Engagement Lead)' },
       { week: 9, task: 'Custom dispatch system assessment — document all integrations, data flows, and API gaps in legacy 2009 system', owner: 'Mike Torres (Tech Lead)' },
       { week: 10, task: 'Data infrastructure mapping: identify all data silos across 7 divisions, GPS/LIDAR data stores, rail testing databases', owner: 'Mike Torres (Tech Lead)' },
       { week: 11, task: 'RFP for Databricks data lakehouse — evaluate against Snowflake for railroad-specific time-series and geospatial data needs', owner: 'Mike Torres (Tech Lead)' },
@@ -704,7 +704,7 @@ export const workflows: Workflow[] = [
     dependencies: [
       'Databricks workspace with document processing capability',
       'Historical project cost archive: 5 years of data from all divisions, currently in disparate file systems',
-      'CFO Eric Bruder approval for bid data access controls and security classification',
+      'CFO approval for bid data access controls and security classification',
       'Estimator team commitment to 2-day training workshop and 4-week parallel evaluation',
     ],
   },
