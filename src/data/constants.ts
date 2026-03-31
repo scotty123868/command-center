@@ -215,15 +215,26 @@ export interface CurrentTool {
 
 export const currentStack: CurrentTool[] = [
   {
-    name: 'Primavera P6',
-    category: 'Project Management',
-    annualCost: 420_000,
-    users: 180,
-    score: 4,
+    name: 'No Data Lake',
+    category: 'Data Infrastructure',
+    annualCost: 0,
+    users: 0,
+    score: 1,
     integrationComplexity: 'High',
     migrationWeeks: 16,
+    riskLevel: 'High',
+    dependencies: ['Cross-division analytics', 'ML model training', 'Real-time dashboards', 'Predictive maintenance', 'AI initiative enablement'],
+  },
+  {
+    name: 'SAP Business Objects',
+    category: 'BI / Reporting',
+    annualCost: 480_000,
+    users: 120,
+    score: 3,
+    integrationComplexity: 'High',
+    migrationWeeks: 14,
     riskLevel: 'Medium',
-    dependencies: ['Rail construction scheduling', 'Resource allocation', 'Critical path analysis', 'Multi-division project tracking', 'Client reporting'],
+    dependencies: ['Executive dashboards', 'Financial reporting', 'Division P&L consolidation', 'Ad-hoc queries', 'Board reporting'],
   },
   {
     name: 'Custom Dispatch System',
@@ -237,28 +248,6 @@ export const currentStack: CurrentTool[] = [
     dependencies: ['Crew dispatch', 'Equipment tracking', 'Work order management', 'Field communications', 'GPS fleet coordination'],
   },
   {
-    name: 'SAP ERP',
-    category: 'Finance',
-    annualCost: 520_000,
-    users: 160,
-    score: 3,
-    integrationComplexity: 'High',
-    migrationWeeks: 24,
-    riskLevel: 'High',
-    dependencies: ['General ledger', 'AP/AR processing', 'Multi-division financial reporting', 'Tax compliance', 'Project cost accounting'],
-  },
-  {
-    name: 'Trimble GPS Fleet',
-    category: 'GPS/Telematics',
-    annualCost: 380_000,
-    users: 800,
-    score: 5,
-    integrationComplexity: 'Low',
-    migrationWeeks: 6,
-    riskLevel: 'Low',
-    dependencies: ['Vehicle tracking', 'Equipment location', 'Geofencing', 'Driver behavior monitoring', 'Route optimization'],
-  },
-  {
     name: 'TAM-4 Rail Testing',
     category: 'Rail Inspection',
     annualCost: 240_000,
@@ -268,6 +257,17 @@ export const currentStack: CurrentTool[] = [
     migrationWeeks: 12,
     riskLevel: 'Medium',
     dependencies: ['Track geometry measurement', 'Defect detection', 'Video Track Chart', 'Regulatory compliance data', 'Maintenance planning input'],
+  },
+  {
+    name: 'Primavera P6',
+    category: 'Project Management',
+    annualCost: 420_000,
+    users: 180,
+    score: 4,
+    integrationComplexity: 'High',
+    migrationWeeks: 16,
+    riskLevel: 'Medium',
+    dependencies: ['Rail construction scheduling', 'Resource allocation', 'Critical path analysis', 'Multi-division project tracking', 'Client reporting'],
   },
   {
     name: 'Kronos/UKG',
@@ -281,15 +281,15 @@ export const currentStack: CurrentTool[] = [
     dependencies: ['Time tracking', 'Crew scheduling', 'Payroll integration', 'FRA hours-of-service compliance', 'Union contract rules'],
   },
   {
-    name: 'SAP Business Objects',
-    category: 'BI / Reporting',
-    annualCost: 480_000,
-    users: 120,
-    score: 3,
-    integrationComplexity: 'High',
-    migrationWeeks: 14,
-    riskLevel: 'Medium',
-    dependencies: ['Executive dashboards', 'Financial reporting', 'Division P&L consolidation', 'Ad-hoc queries', 'Board reporting'],
+    name: 'Manual Expense Reports',
+    category: 'Spend Management',
+    annualCost: 220_000,
+    users: 2_800,
+    score: 2,
+    integrationComplexity: 'Low',
+    migrationWeeks: 6,
+    riskLevel: 'Low',
+    dependencies: ['Field expense tracking', 'Receipt collection', 'Job cost coding', 'Division spend policies', 'Vendor payment reconciliation'],
   },
   {
     name: 'CMMS (Internal)',
@@ -313,48 +313,48 @@ export interface Recommendation {
 export const recommendations: Recommendation[] = [
   {
     current: {
+      name: 'No Data Lake',
+      cost: 0,
+      users: 0,
+      score: 1,
+      description: 'Zero centralized data infrastructure across 7 divisions. Each division operates independent data silos: HCC on eCMS + Primavera, HRSI on custom dispatch, HSI on TAM-4 testing databases, HTI on proprietary PTC/signal systems, HTSI on transit scheduling software, Energy on standalone asset tracking, Green Group on environmental monitoring databases. QMirror handles AS/400 replication but is a band-aid, not a data strategy. Cross-division reporting requires manual data pulls taking 4-5 days/month. GPS/LIDAR data from rail testing generates 2TB/month but sits unanalyzed. No ability to train ML models on historical operational data — every AI initiative blocked by this gap.',
+    },
+    recommended: {
+      name: 'Databricks Lakehouse',
+      cost: 280_000,
+      description: 'Databricks Lakehouse replaces QMirror AS/400 replication and unifies all 7 division data sources via Delta Lake with ACID transactions and schema enforcement. Unity Catalog provides cross-division data governance. Purpose-built for railroad data: time-series GPS/telematics from HCSS (800+ vehicles), LIDAR point clouds from geometry cars, track geometry measurements from TAM-4, PTC event logs from HTI, and transit ridership data from HTSI. MLflow manages model lifecycle for predictive maintenance, defect detection, and crew optimization. Fivetran ingestion pipelines replace all manual data exports. Estimated data footprint: 28TB initial load, 2.5TB/month growth. The data lake is the prerequisite for 78% of the AI initiatives on this roadmap — without it, $4.2M in workflow automation savings cannot be realized.',
+    },
+    annualSavings: 1_200_000,
+  },
+  {
+    current: {
+      name: 'SAP Business Objects',
+      cost: 480_000,
+      users: 120,
+      score: 3,
+      description: 'SAP Business Objects BI platform serving 120 users across corporate and division finance teams. Legacy Crystal Reports and Web Intelligence dashboards, many unchanged since 2017. Report generation averages 3-4 minutes for division P&L rollups. No AI-powered analytics, no natural language queries, no predictive capabilities. Licensing is expensive at $4K/seat/yr. Only 68 of 120 users access the system monthly — remaining 52 seats are shelfware. Integration with eCMS requires manual scheduled exports. Board reporting still involves manual PowerPoint assembly from BO extracts.',
+    },
+    recommended: {
+      name: 'Palantir AIP',
+      cost: 180_000,
+      description: 'Palantir AIP provides an AI-native analytics platform with ontology mapping across all Herzog data sources. Natural language queries replace Crystal Reports — executives ask questions in plain English and get real-time answers backed by live data. AI-generated executive dashboards update automatically as new data flows in from eCMS, HCSS, and Databricks Lakehouse. Predictive analytics surface anomalies before they hit financial statements: "HCC fuel spend is 23% above 90-day trend." Integration via Databricks eliminates manual data exports. Ontology layer maps every entity (project, crew, equipment, vendor) across all 7 divisions into a unified graph. Board reporting generated automatically with AI-written narrative summaries.',
+    },
+    annualSavings: 420_000,
+  },
+  {
+    current: {
       name: 'Custom Dispatch System',
       cost: 680_000,
       users: 340,
       score: 3,
-      description: 'Custom-built dispatch and fleet management system from 2009, maintained by 2 internal developers. Handles crew dispatch, equipment tracking, and work order management across HCC and HRSI divisions. No mobile interface — field supervisors call dispatch center to update status. Zero integration with GPS fleet data despite Trimble tracking all 800+ vehicles. Average dispatch-to-arrival time unknown because system cannot track it. 340 users but no usage analytics to identify inactive accounts.',
+      description: 'Custom-built dispatch and fleet management system from 2009, maintained by 2 internal developers. Handles crew dispatch, equipment tracking, and work order management across HCC and HRSI divisions. No mobile interface — field supervisors call dispatch center to update status. Zero integration with GPS fleet data despite HCSS Telematics tracking all 800+ vehicles. Average dispatch-to-arrival time unknown because system cannot track it. 340 users but no usage analytics to identify inactive accounts.',
     },
     recommended: {
       name: 'Samsara Fleet Intelligence',
       cost: 300_000,
-      description: 'Samsara\'s AI-powered fleet management platform provides real-time visibility across all 800+ vehicles and equipment assets. GPS tracking with geofencing, automated dispatch routing using ML-optimized algorithms that reduce drive time by 18% on comparable fleets. Mobile-first interface enables field crews to update work orders, capture photos, and submit safety reports from job sites. Predictive maintenance alerts based on engine diagnostics and usage patterns. Integration with Databricks data lake via REST API for cross-division analytics. Driver safety scoring and dash cam AI for FMCSA compliance.',
+      description: 'Samsara\'s AI-powered fleet management platform provides real-time visibility across all 800+ vehicles and equipment assets. GPS tracking with geofencing, automated dispatch routing using ML-optimized algorithms that reduce drive time by 18% on comparable fleets. Mobile-first interface enables field crews to update work orders, capture photos, and submit safety reports from job sites. Predictive maintenance alerts based on engine diagnostics and usage patterns. Integration with Databricks Lakehouse via REST API for cross-division analytics. Driver safety scoring and dash cam AI for FMCSA compliance.',
     },
     annualSavings: 380_000,
-  },
-  {
-    current: {
-      name: 'SAP ERP',
-      cost: 520_000,
-      users: 160,
-      score: 3,
-      description: 'On-premise SAP ECC instance serving 7 divisions with 160 named users. Heavy customization for railroad project cost accounting — 280+ custom ABAP objects. Last major upgrade was 2019. Report generation averages 5.1 minutes. No API layer for modern integrations — all data exchange via flat-file IDOC exports. Multi-division consolidation requires 3-day month-end close process. 160 users but SSO logs show only 92 unique logins/month.',
-    },
-    recommended: {
-      name: 'NetSuite',
-      cost: 240_000,
-      description: 'NetSuite cloud ERP with multi-subsidiary support handles all 7 Herzog divisions with unified chart of accounts and real-time consolidation — eliminates 3-day month-end close. Project cost accounting module built for construction/infrastructure with WBS integration. Native REST API enables real-time sync with Samsara fleet data, Procore project management, and Databricks analytics. Mobile expense capture for field crews. AI-powered financial forecasting using historical project data. Migration path: parallel run for 2 accounting periods, estimated 16-week implementation.',
-    },
-    annualSavings: 280_000,
-  },
-  {
-    current: {
-      name: 'Primavera P6',
-      cost: 420_000,
-      users: 180,
-      score: 4,
-      description: 'Oracle Primavera P6 Professional with 180 licenses across HCC, HRSI, and HTI divisions. Strong CPM scheduling capability but no AI-assisted planning. 280 active projects tracked, but resource leveling is manual (project managers spend avg 6 hrs/week on schedule updates). No field mobile access — all updates must be entered from office workstations. Integration with SAP is batch-only (nightly CSV export). 100 of 280 licenses show <2 logins/month.',
-    },
-    recommended: {
-      name: 'Procore + AI',
-      cost: 220_000,
-      description: 'Procore construction management platform with AI-powered scheduling provides mobile-first project management for railroad construction. Field crews update progress directly from job sites via mobile app, eliminating office-only data entry. AI scheduling assistant optimizes resource allocation across 280+ active projects using historical performance data. Native integration with NetSuite (real-time cost sync), Samsara (equipment availability), and Databricks (predictive analytics). Automated submittals, RFI tracking, and daily log generation. Document management with AI-powered search across project archives.',
-    },
-    annualSavings: 200_000,
   },
   {
     current: {
@@ -373,6 +373,21 @@ export const recommendations: Recommendation[] = [
   },
   {
     current: {
+      name: 'Primavera P6',
+      cost: 420_000,
+      users: 180,
+      score: 4,
+      description: 'Oracle Primavera P6 Professional with 180 licenses across HCC, HRSI, and HTI divisions. Strong CPM scheduling capability but no AI-assisted planning. 280 active projects tracked, but resource leveling is manual (project managers spend avg 6 hrs/week on schedule updates). No field mobile access — all updates must be entered from office workstations. Integration with eCMS is batch-only (nightly CSV export). 100 of 280 licenses show <2 logins/month.',
+    },
+    recommended: {
+      name: 'Procore + AI Scheduling',
+      cost: 220_000,
+      description: 'Procore construction management platform with AI-powered scheduling provides mobile-first project management for railroad construction. Field crews update progress directly from job sites via mobile app, eliminating office-only data entry. AI scheduling assistant optimizes resource allocation across 280+ active projects using historical performance data. Native integration with eCMS (real-time cost sync), Samsara (equipment availability), and Databricks (predictive analytics). Automated submittals, RFI tracking, and daily log generation. Document management with AI-powered search across project archives.',
+    },
+    annualSavings: 200_000,
+  },
+  {
+    current: {
       name: 'Kronos/UKG',
       cost: 340_000,
       users: 2_800,
@@ -382,39 +397,24 @@ export const recommendations: Recommendation[] = [
     recommended: {
       name: 'Workforce.com + AI Scheduling',
       cost: 160_000,
-      description: 'Workforce.com AI-powered scheduling platform with railroad-specific modules for FRA hours-of-service compliance and union work rules. ML-based scheduling optimizer considers crew certifications, location, travel time, equipment availability, and fatigue risk to generate optimal weekly schedules — targeting 22% idle time reduction to <8%. Mobile app enables real-time schedule visibility, shift swaps, and availability updates. Automated compliance monitoring alerts supervisors before hours-of-service violations occur (currently caught retrospectively). Integration with Samsara for crew location data and NetSuite for payroll sync.',
+      description: 'Workforce.com AI-powered scheduling platform with railroad-specific modules for FRA hours-of-service compliance and union work rules. ML-based scheduling optimizer considers crew certifications, location, travel time, equipment availability, and fatigue risk to generate optimal weekly schedules — targeting 22% idle time reduction to <8%. Mobile app enables real-time schedule visibility, shift swaps, and availability updates. Automated compliance monitoring alerts supervisors before hours-of-service violations occur (currently caught retrospectively). Integration with Samsara for crew location data and eCMS for payroll sync.',
     },
     annualSavings: 180_000,
   },
   {
     current: {
-      name: 'No Data Lake',
-      cost: 0,
-      users: 0,
-      score: 1,
-      description: 'Zero centralized data infrastructure across 7 divisions. Each division operates independent data silos: HCC on SAP + Primavera, HRSI on custom dispatch, HSI on TAM-4 testing databases, HTI on proprietary PTC/signal systems, HTSI on transit scheduling software, Energy on standalone asset tracking, Green Group on environmental monitoring databases. Cross-division reporting requires manual data pulls taking 4-5 days/month. GPS/LIDAR data from rail testing generates 2TB/month but sits unanalyzed. No ability to train ML models on historical operational data — every AI initiative blocked by this gap.',
+      name: 'Manual Expense Reports',
+      cost: 220_000,
+      users: 2_800,
+      score: 2,
+      description: 'Fragmented expense management across 7 divisions with no unified corporate card program. Field supervisors submit paper receipts for fuel, parts, and equipment repairs — reconciliation takes 30+ days. No real-time visibility into equipment-level or job-level spend. Division-level spend policies enforced manually. Receipt collection from field crews is inconsistent — estimated 15% of expenses unrecoverable. No integration with Heavy Job for automatic job cost coding. Equipment purchases cannot be tied back to specific assets or projects without manual data entry.',
     },
     recommended: {
-      name: 'Databricks',
-      cost: 280_000,
-      description: 'Databricks Lakehouse unifies all 7 division data sources via Delta Lake with ACID transactions and schema enforcement. Unity Catalog provides cross-division data governance. Purpose-built for railroad data: time-series GPS/telematics from Samsara (800+ vehicles), LIDAR point clouds from geometry cars, track geometry measurements from TAM-4, PTC event logs from HTI, and transit ridership data from HTSI. MLflow manages model lifecycle for predictive maintenance, defect detection, and crew optimization. Structured Streaming ingests real-time fleet telemetry. Estimated data footprint: 28TB initial load, 2.5TB/month growth. The data lake is the prerequisite for 78% of the AI initiatives on this roadmap — without it, $4.2M in workflow automation savings cannot be realized.',
+      name: 'Brex',
+      cost: 80_000,
+      description: 'Brex corporate card platform with division-level spend controls and automated receipt matching. Each Herzog division (HCC, HRSI, HSI, HTI, HTSI, Energy, Green Group) gets tailored spend policies with real-time enforcement. Field crews swipe Brex cards for parts, fuel, and repairs — transactions auto-coded to the right equipment asset and project in Heavy Job. AI flags anomalous spend instantly (duplicate charges, unusual vendors, spend above division thresholds). Automated receipt matching via mobile photo capture eliminates paper chase. Integration with eCMS for real-time financial visibility and Databricks for spend analytics across all divisions.',
     },
-    annualSavings: 1_200_000,
-  },
-  {
-    current: {
-      name: 'SAP Business Objects',
-      cost: 480_000,
-      users: 120,
-      score: 3,
-      description: 'SAP Business Objects BI platform serving 120 users across corporate and division finance teams. Legacy Crystal Reports and Web Intelligence dashboards, many unchanged since 2017. Report generation averages 3-4 minutes for division P&L rollups. No AI-powered analytics, no natural language queries, no predictive capabilities. Licensing is expensive at $4K/seat/yr. Only 68 of 120 users access the system monthly — remaining 52 seats are shelfware. Integration with eCMS requires manual scheduled exports. Board reporting still involves manual PowerPoint assembly from BO extracts.',
-    },
-    recommended: {
-      name: 'Palantir AIP',
-      cost: 180_000,
-      description: 'Palantir AIP provides an AI-native analytics platform with ontology mapping across all Herzog data sources. Natural language queries replace Crystal Reports — executives ask questions in plain English and get real-time answers backed by live data. AI-generated executive dashboards update automatically as new data flows in from eCMS, HCSS, and Databricks Lakehouse. Predictive analytics surface anomalies before they hit financial statements: "HCC fuel spend is 23% above 90-day trend." Integration via Databricks eliminates manual data exports. Ontology layer maps every entity (project, crew, equipment, vendor) across all 7 divisions into a unified graph. Board reporting generated automatically with AI-written narrative summaries.',
-    },
-    annualSavings: 420_000,
+    annualSavings: 200_000,
   },
   {
     current: {
