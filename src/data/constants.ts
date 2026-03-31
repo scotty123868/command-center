@@ -187,16 +187,16 @@ export interface Opportunity {
 }
 
 export const topOpportunities: Opportunity[] = [
-  { name: 'Predictive Track Maintenance', category: 'Workflow Automation', savings: 1_400_000, effort: 'High', status: 'identified', priority: 10, timeToValue: 20, confidence: 78 },
-  { name: 'Unused License Reclamation', category: 'License Audit', savings: 1_200_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 97 },
-  { name: 'Fleet GPS Intelligence & Utilization', category: 'Data Infrastructure', savings: 980_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 86 },
-  { name: 'AI Rail Inspection (Ultrasonic + Vision)', category: 'Workflow Automation', savings: 860_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 16, confidence: 82 },
-  { name: 'Crew Scheduling Optimization', category: 'Workflow Automation', savings: 720_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 84 },
-  { name: 'PTC System Modernization', category: 'Tech Stack', savings: 640_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 18, confidence: 74 },
-  { name: 'Equipment Idle Time Reduction', category: 'Data Infrastructure', savings: 580_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 14, confidence: 80 },
-  { name: 'Automated Safety Compliance (FRA)', category: 'Workflow Automation', savings: 520_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 8, confidence: 90 },
-  { name: 'Material & Ballast Logistics AI', category: 'Workflow Automation', savings: 480_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 12, confidence: 76 },
-  { name: 'Transit Operations Efficiency', category: 'Workflow Automation', savings: 440_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 14, confidence: 72 },
+  { name: 'Predictive Track Maintenance', category: 'Workflow Automation', savings: 1_080_000, effort: 'High', status: 'identified', priority: 10, timeToValue: 20, confidence: 78 },
+  { name: 'Unused License Reclamation', category: 'License Audit', savings: 920_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 97 },
+  { name: 'Fleet GPS Intelligence & Utilization', category: 'Data Infrastructure', savings: 740_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 86 },
+  { name: 'AI Rail Inspection (Ultrasonic + Vision)', category: 'Workflow Automation', savings: 680_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 16, confidence: 82 },
+  { name: 'Crew Scheduling Optimization', category: 'Workflow Automation', savings: 540_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 84 },
+  { name: 'PTC System Modernization', category: 'Tech Stack', savings: 480_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 18, confidence: 74 },
+  { name: 'Equipment Idle Time Reduction', category: 'Data Infrastructure', savings: 440_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 14, confidence: 80 },
+  { name: 'Automated Safety Compliance (FRA)', category: 'Workflow Automation', savings: 380_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 8, confidence: 90 },
+  { name: 'Material & Ballast Logistics AI', category: 'Workflow Automation', savings: 300_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 12, confidence: 76 },
+  { name: 'Transit Operations Efficiency', category: 'Workflow Automation', savings: 240_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 14, confidence: 72 },
 ];
 
 // ─── Tech Stack Data ────────────────────────────────────────────────────────
