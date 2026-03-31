@@ -280,6 +280,28 @@ export const currentStack: CurrentTool[] = [
     riskLevel: 'Medium',
     dependencies: ['Time tracking', 'Crew scheduling', 'Payroll integration', 'FRA hours-of-service compliance', 'Union contract rules'],
   },
+  {
+    name: 'SAP Business Objects',
+    category: 'BI / Reporting',
+    annualCost: 480_000,
+    users: 120,
+    score: 3,
+    integrationComplexity: 'High',
+    migrationWeeks: 14,
+    riskLevel: 'Medium',
+    dependencies: ['Executive dashboards', 'Financial reporting', 'Division P&L consolidation', 'Ad-hoc queries', 'Board reporting'],
+  },
+  {
+    name: 'CMMS (Internal)',
+    category: 'Inventory / Maintenance',
+    annualCost: 180_000,
+    users: 95,
+    score: 3,
+    integrationComplexity: 'Medium',
+    migrationWeeks: 10,
+    riskLevel: 'Medium',
+    dependencies: ['Parts inventory tracking', 'Work order management', 'Preventive maintenance scheduling', 'Equipment lifecycle data', 'Vendor parts procurement'],
+  },
 ];
 
 export interface Recommendation {
@@ -378,6 +400,36 @@ export const recommendations: Recommendation[] = [
       description: 'Databricks Lakehouse unifies all 7 division data sources via Delta Lake with ACID transactions and schema enforcement. Unity Catalog provides cross-division data governance. Purpose-built for railroad data: time-series GPS/telematics from Samsara (800+ vehicles), LIDAR point clouds from geometry cars, track geometry measurements from TAM-4, PTC event logs from HTI, and transit ridership data from HTSI. MLflow manages model lifecycle for predictive maintenance, defect detection, and crew optimization. Structured Streaming ingests real-time fleet telemetry. Estimated data footprint: 28TB initial load, 2.5TB/month growth. The data lake is the prerequisite for 78% of the AI initiatives on this roadmap — without it, $4.2M in workflow automation savings cannot be realized.',
     },
     annualSavings: 1_200_000,
+  },
+  {
+    current: {
+      name: 'SAP Business Objects',
+      cost: 480_000,
+      users: 120,
+      score: 3,
+      description: 'SAP Business Objects BI platform serving 120 users across corporate and division finance teams. Legacy Crystal Reports and Web Intelligence dashboards, many unchanged since 2017. Report generation averages 3-4 minutes for division P&L rollups. No AI-powered analytics, no natural language queries, no predictive capabilities. Licensing is expensive at $4K/seat/yr. Only 68 of 120 users access the system monthly — remaining 52 seats are shelfware. Integration with eCMS requires manual scheduled exports. Board reporting still involves manual PowerPoint assembly from BO extracts.',
+    },
+    recommended: {
+      name: 'Palantir AIP',
+      cost: 180_000,
+      description: 'Palantir AIP provides an AI-native analytics platform with ontology mapping across all Herzog data sources. Natural language queries replace Crystal Reports — executives ask questions in plain English and get real-time answers backed by live data. AI-generated executive dashboards update automatically as new data flows in from eCMS, HCSS, and Databricks Lakehouse. Predictive analytics surface anomalies before they hit financial statements: "HCC fuel spend is 23% above 90-day trend." Integration via Databricks eliminates manual data exports. Ontology layer maps every entity (project, crew, equipment, vendor) across all 7 divisions into a unified graph. Board reporting generated automatically with AI-written narrative summaries.',
+    },
+    annualSavings: 420_000,
+  },
+  {
+    current: {
+      name: 'CMMS (Internal)',
+      cost: 180_000,
+      users: 95,
+      score: 3,
+      description: 'Internally-built CMMS (Computerized Maintenance Management System) handling parts inventory and work orders for equipment maintenance across HCC, HRSI, and HTI divisions. Desktop-only application with no mobile access — field mechanics call in parts requests and maintenance completions by radio. Inventory counts are manual and frequently inaccurate (last audit showed 18% discrepancy). No predictive maintenance capability — all PM schedules are calendar-based, not usage-based. Parts reorder points are static thresholds, leading to stockouts on high-demand items and excess inventory on slow-movers. No integration with HCSS Equipment360 or Heavy Job, creating duplicate equipment records.',
+    },
+    recommended: {
+      name: 'UpKeep',
+      cost: 60_000,
+      description: 'UpKeep AI-powered CMMS provides mobile-first maintenance management purpose-built for field-heavy operations. Mechanics create, update, and close work orders from their phones at the job site. AI work order routing automatically assigns the right technician based on skill, location, and availability. Predictive parts inventory uses consumption patterns and equipment usage data from HCSS Equipment360 to auto-generate purchase orders before stockouts occur. IoT sensor integration enables condition-based maintenance triggers. Native integration with Databricks Lakehouse for cross-division maintenance analytics and with Samsara for real-time equipment health data. Barcode/QR scanning for instant parts lookup and asset identification in the field.',
+    },
+    annualSavings: 240_000,
   },
 ];
 
