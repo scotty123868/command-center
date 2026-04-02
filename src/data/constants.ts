@@ -187,15 +187,15 @@ export interface Opportunity {
 }
 
 export const topOpportunities: Opportunity[] = [
-  { name: 'RailSentry Enhancement', category: 'Workflow Automation', savings: 1_200_000, effort: 'Medium', status: 'automated', priority: 10, timeToValue: 8, confidence: 94 },
-  { name: 'Predictive Maintenance (HCSS + Equipment360)', category: 'Workflow Automation', savings: 980_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 86 },
-  { name: 'Project Cost Intelligence (eCMS + P6)', category: 'Workflow Automation', savings: 850_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 16, confidence: 78 },
-  { name: 'Field Ops AI (HCSS Field + Heavy Job)', category: 'Workflow Automation', savings: 720_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 82 },
-  { name: 'Bid Intelligence (Heavy Bid)', category: 'Workflow Automation', savings: 640_000, effort: 'Low', status: 'identified', priority: 8, timeToValue: 8, confidence: 84 },
-  { name: 'Crew Scheduling (MCP + HCSS)', category: 'Workflow Automation', savings: 580_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 14, confidence: 80 },
-  { name: 'Document Intelligence (Prolog + Procore)', category: 'Workflow Automation', savings: 420_000, effort: 'Low', status: 'identified', priority: 7, timeToValue: 8, confidence: 88 },
-  { name: 'HSI Ultrasonic Expansion (B→A scan)', category: 'Workflow Automation', savings: 380_000, effort: 'High', status: 'automated', priority: 8, timeToValue: 18, confidence: 76 },
-  { name: 'Safety Risk Prediction (HCSS Safety)', category: 'Workflow Automation', savings: 320_000, effort: 'Low', status: 'identified', priority: 6, timeToValue: 6, confidence: 90 },
+  { name: 'RailSentry Enhancement', category: 'Workflow Automation', savings: 1_140_000, effort: 'Medium', status: 'automated', priority: 10, timeToValue: 8, confidence: 94 },
+  { name: 'Predictive Maintenance (HCSS + Equipment360)', category: 'Workflow Automation', savings: 930_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 86 },
+  { name: 'Project Cost Intelligence (eCMS + P6)', category: 'Workflow Automation', savings: 810_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 16, confidence: 78 },
+  { name: 'Field Ops AI (HCSS Field + Heavy Job)', category: 'Workflow Automation', savings: 690_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 82 },
+  { name: 'Bid Intelligence (Heavy Bid)', category: 'Workflow Automation', savings: 610_000, effort: 'Low', status: 'identified', priority: 8, timeToValue: 8, confidence: 84 },
+  { name: 'Crew Scheduling (MCP + HCSS)', category: 'Workflow Automation', savings: 550_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 14, confidence: 80 },
+  { name: 'Document Intelligence (Prolog + Procore)', category: 'Workflow Automation', savings: 400_000, effort: 'Low', status: 'identified', priority: 7, timeToValue: 8, confidence: 88 },
+  { name: 'HSI Ultrasonic Expansion (B→A scan)', category: 'Workflow Automation', savings: 360_000, effort: 'High', status: 'automated', priority: 8, timeToValue: 18, confidence: 76 },
+  { name: 'Safety Risk Prediction (HCSS Safety)', category: 'Workflow Automation', savings: 310_000, effort: 'Low', status: 'identified', priority: 6, timeToValue: 6, confidence: 90 },
   { name: 'Real-time Data Foundation (QMirror replacement)', category: 'Data Infrastructure', savings: 0, effort: 'High', status: 'identified', priority: 10, timeToValue: 20, confidence: 92 },
 ];
 
@@ -1112,16 +1112,16 @@ const northwoodRoadmapPhases = [
 ];
 
 const northwoodTopOpportunities: Opportunity[] = [
-  { name: 'Claims Intake Automation', category: 'Workflow Automation', savings: 820_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 10, confidence: 91 },
-  { name: 'Legacy Policy Migration (AS/400)', category: 'Tech Stack', savings: 680_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 24, confidence: 78 },
-  { name: 'Fraud Detection AI', category: 'Workflow Automation', savings: 540_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 84 },
-  { name: 'Underwriting Automation', category: 'Workflow Automation', savings: 460_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 76 },
-  { name: 'Customer Portal Modernization', category: 'Tech Stack', savings: 380_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 14, confidence: 82 },
-  { name: 'Unused License Reclamation', category: 'License Audit', savings: 920_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
-  { name: 'Regulatory Reporting Automation', category: 'Workflow Automation', savings: 280_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 10, confidence: 88 },
-  { name: 'Replace Salesforce → HubSpot', category: 'Tech Stack', savings: 190_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 8, confidence: 90 },
-  { name: 'Payment Processing Automation', category: 'Workflow Automation', savings: 310_000, effort: 'Low', status: 'identified', priority: 8, timeToValue: 6, confidence: 92 },
-  { name: 'Subrogation Recovery Optimization', category: 'Workflow Automation', savings: 220_000, effort: 'High', status: 'identified', priority: 5, timeToValue: 18, confidence: 70 },
+  { name: 'Claims Intake Automation', category: 'Workflow Automation', savings: 650_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 10, confidence: 91 },
+  { name: 'Legacy Policy Migration (AS/400)', category: 'Tech Stack', savings: 540_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 24, confidence: 78 },
+  { name: 'Fraud Detection AI', category: 'Workflow Automation', savings: 430_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 84 },
+  { name: 'Underwriting Automation', category: 'Workflow Automation', savings: 360_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 76 },
+  { name: 'Customer Portal Modernization', category: 'Tech Stack', savings: 300_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 14, confidence: 82 },
+  { name: 'Unused License Reclamation', category: 'License Audit', savings: 730_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
+  { name: 'Regulatory Reporting Automation', category: 'Workflow Automation', savings: 220_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 10, confidence: 88 },
+  { name: 'Replace Salesforce → HubSpot', category: 'Tech Stack', savings: 150_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 8, confidence: 90 },
+  { name: 'Payment Processing Automation', category: 'Workflow Automation', savings: 250_000, effort: 'Low', status: 'identified', priority: 8, timeToValue: 6, confidence: 92 },
+  { name: 'Subrogation Recovery Optimization', category: 'Workflow Automation', savings: 170_000, effort: 'High', status: 'identified', priority: 5, timeToValue: 18, confidence: 70 },
 ];
 
 const northwoodCurrentStack: CurrentTool[] = [
@@ -1342,16 +1342,16 @@ const pinnacleRoadmapPhases = [
 ];
 
 const pinnacleTopOpportunities: Opportunity[] = [
-  { name: 'Clinical Note Automation (DAX Copilot)', category: 'Workflow Automation', savings: 520_000, effort: 'Medium', status: 'identified', priority: 10, timeToValue: 8, confidence: 89 },
-  { name: 'Prior Authorization Automation', category: 'Workflow Automation', savings: 380_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 10, confidence: 85 },
-  { name: 'Patient Scheduling AI', category: 'Workflow Automation', savings: 260_000, effort: 'Low', status: 'identified', priority: 8, timeToValue: 6, confidence: 91 },
-  { name: 'Revenue Cycle Optimization', category: 'Workflow Automation', savings: 340_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 77 },
-  { name: 'Coding Accuracy Improvement', category: 'Workflow Automation', savings: 220_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 12, confidence: 82 },
-  { name: 'Unused License Reclamation', category: 'License Audit', savings: 640_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 97 },
-  { name: 'Denial Management AI', category: 'Workflow Automation', savings: 180_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 14, confidence: 74 },
-  { name: 'Patient Engagement Automation', category: 'Workflow Automation', savings: 140_000, effort: 'Low', status: 'identified', priority: 5, timeToValue: 6, confidence: 88 },
-  { name: 'Replace Salesforce Health Cloud', category: 'Tech Stack', savings: 160_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 10, confidence: 84 },
-  { name: 'Clinical Quality Reporting', category: 'Workflow Automation', savings: 120_000, effort: 'Low', status: 'identified', priority: 4, timeToValue: 8, confidence: 90 },
+  { name: 'Clinical Note Automation (DAX Copilot)', category: 'Workflow Automation', savings: 330_000, effort: 'Medium', status: 'identified', priority: 10, timeToValue: 8, confidence: 89 },
+  { name: 'Prior Authorization Automation', category: 'Workflow Automation', savings: 240_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 10, confidence: 85 },
+  { name: 'Patient Scheduling AI', category: 'Workflow Automation', savings: 170_000, effort: 'Low', status: 'identified', priority: 8, timeToValue: 6, confidence: 91 },
+  { name: 'Revenue Cycle Optimization', category: 'Workflow Automation', savings: 220_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 77 },
+  { name: 'Coding Accuracy Improvement', category: 'Workflow Automation', savings: 140_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 12, confidence: 82 },
+  { name: 'Unused License Reclamation', category: 'License Audit', savings: 410_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 97 },
+  { name: 'Denial Management AI', category: 'Workflow Automation', savings: 120_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 14, confidence: 74 },
+  { name: 'Patient Engagement Automation', category: 'Workflow Automation', savings: 90_000, effort: 'Low', status: 'identified', priority: 5, timeToValue: 6, confidence: 88 },
+  { name: 'Replace Salesforce Health Cloud', category: 'Tech Stack', savings: 100_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 10, confidence: 84 },
+  { name: 'Clinical Quality Reporting', category: 'Workflow Automation', savings: 80_000, effort: 'Low', status: 'identified', priority: 4, timeToValue: 8, confidence: 90 },
 ];
 
 const pinnacleCurrentStack: CurrentTool[] = [
@@ -1571,16 +1571,16 @@ const atlasRoadmapPhases = [
 ];
 
 const atlasTopOpportunities: Opportunity[] = [
-  { name: 'Predictive Maintenance', category: 'Workflow Automation', savings: 1_200_000, effort: 'High', status: 'identified', priority: 10, timeToValue: 14, confidence: 82 },
-  { name: 'Cross-Plant Inventory Consolidation', category: 'Data Infrastructure', savings: 880_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 18, confidence: 79 },
-  { name: 'Quality Inspection AI', category: 'Workflow Automation', savings: 720_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 85 },
-  { name: 'Production Scheduling Optimization', category: 'Workflow Automation', savings: 640_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 76 },
-  { name: 'Supplier Risk Monitoring', category: 'Data Infrastructure', savings: 480_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 80 },
-  { name: 'Unused License Reclamation', category: 'License Audit', savings: 1_400_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
-  { name: 'Energy Consumption Optimization', category: 'Workflow Automation', savings: 380_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 14, confidence: 72 },
-  { name: 'SAP Instance Harmonization', category: 'Tech Stack', savings: 520_000, effort: 'High', status: 'in-progress', priority: 8, timeToValue: 20, confidence: 74 },
-  { name: 'Automated Receiving & Shipping', category: 'Workflow Automation', savings: 290_000, effort: 'Low', status: 'identified', priority: 5, timeToValue: 8, confidence: 88 },
-  { name: 'Demand Forecasting AI', category: 'Workflow Automation', savings: 410_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 12, confidence: 78 },
+  { name: 'Predictive Maintenance', category: 'Workflow Automation', savings: 880_000, effort: 'High', status: 'identified', priority: 10, timeToValue: 14, confidence: 82 },
+  { name: 'Cross-Plant Inventory Consolidation', category: 'Data Infrastructure', savings: 650_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 18, confidence: 79 },
+  { name: 'Quality Inspection AI', category: 'Workflow Automation', savings: 530_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 85 },
+  { name: 'Production Scheduling Optimization', category: 'Workflow Automation', savings: 470_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 76 },
+  { name: 'Supplier Risk Monitoring', category: 'Data Infrastructure', savings: 350_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 80 },
+  { name: 'Unused License Reclamation', category: 'License Audit', savings: 1_030_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
+  { name: 'Energy Consumption Optimization', category: 'Workflow Automation', savings: 280_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 14, confidence: 72 },
+  { name: 'SAP Instance Harmonization', category: 'Tech Stack', savings: 380_000, effort: 'High', status: 'in-progress', priority: 8, timeToValue: 20, confidence: 74 },
+  { name: 'Automated Receiving & Shipping', category: 'Workflow Automation', savings: 210_000, effort: 'Low', status: 'identified', priority: 5, timeToValue: 8, confidence: 88 },
+  { name: 'Demand Forecasting AI', category: 'Workflow Automation', savings: 320_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 12, confidence: 78 },
 ];
 
 const atlasCurrentStack: CurrentTool[] = [
@@ -1787,14 +1787,14 @@ const northbridgeRoadmapPhases = [
 ];
 
 const northbridgeTopOpportunities: Opportunity[] = [
-  { name: 'Cross-OpCo Procurement Consolidation', category: 'Procurement', savings: 5_200_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 12, confidence: 88 },
-  { name: 'Predictive Maintenance Fleet', category: 'Manufacturing', savings: 3_600_000, effort: 'High', status: 'automated', priority: 9, timeToValue: 16, confidence: 84 },
-  { name: 'Financial Close Automation', category: 'Finance', savings: 3_200_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 91 },
-  { name: 'Supply Chain Optimization', category: 'Supply Chain', savings: 4_800_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 20, confidence: 76 },
-  { name: 'Clinical Trial Data Pipeline', category: 'Health Sciences', savings: 2_400_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 18, confidence: 72 },
-  { name: 'Enterprise License Consolidation', category: 'License Audit', savings: 4_200_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 96 },
-  { name: 'HR Process Automation', category: 'HR', savings: 1_800_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 8, confidence: 88 },
-  { name: 'Customer Experience AI', category: 'Sales', savings: 2_200_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 14, confidence: 80 },
+  { name: 'Cross-OpCo Procurement Consolidation', category: 'Procurement', savings: 2_090_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 12, confidence: 88 },
+  { name: 'Predictive Maintenance Fleet', category: 'Manufacturing', savings: 1_450_000, effort: 'High', status: 'automated', priority: 9, timeToValue: 16, confidence: 84 },
+  { name: 'Financial Close Automation', category: 'Finance', savings: 1_280_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 91 },
+  { name: 'Supply Chain Optimization', category: 'Supply Chain', savings: 1_930_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 20, confidence: 76 },
+  { name: 'Clinical Trial Data Pipeline', category: 'Health Sciences', savings: 960_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 18, confidence: 72 },
+  { name: 'Enterprise License Consolidation', category: 'License Audit', savings: 1_690_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 96 },
+  { name: 'HR Process Automation', category: 'HR', savings: 720_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 8, confidence: 88 },
+  { name: 'Customer Experience AI', category: 'Sales', savings: 880_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 14, confidence: 80 },
 ];
 
 const northbridgeCurrentStack: CurrentTool[] = [
@@ -1926,12 +1926,12 @@ const nbAerospaceRoadmapPhases = [
 ];
 
 const nbAerospaceTopOpportunities: Opportunity[] = [
-  { name: 'Flight Certification Automation', category: 'Regulatory', savings: 1_400_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 14, confidence: 82 },
-  { name: 'Supplier Quality AI Portal', category: 'Supply Chain', savings: 1_200_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 88 },
-  { name: 'MRO Scheduling Optimization', category: 'Maintenance', savings: 1_000_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 78 },
-  { name: 'Non-Conformance Report Automation', category: 'Quality', savings: 800_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 90 },
-  { name: 'Digital Thread Integration', category: 'Data Infrastructure', savings: 1_200_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 20, confidence: 74 },
-  { name: 'License Consolidation (PLM/CAD)', category: 'License Audit', savings: 820_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 96 },
+  { name: 'Flight Certification Automation', category: 'Regulatory', savings: 650_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 14, confidence: 82 },
+  { name: 'Supplier Quality AI Portal', category: 'Supply Chain', savings: 560_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 88 },
+  { name: 'MRO Scheduling Optimization', category: 'Maintenance', savings: 470_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 78 },
+  { name: 'Non-Conformance Report Automation', category: 'Quality', savings: 370_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 90 },
+  { name: 'Digital Thread Integration', category: 'Data Infrastructure', savings: 560_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 20, confidence: 74 },
+  { name: 'License Consolidation (PLM/CAD)', category: 'License Audit', savings: 390_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 96 },
 ];
 
 const nbAerospaceCurrentStack: CurrentTool[] = [
@@ -2059,12 +2059,12 @@ const nbEnergyRoadmapPhases = [
 ];
 
 const nbEnergyTopOpportunities: Opportunity[] = [
-  { name: 'Grid Load Balancing AI', category: 'Operations', savings: 1_800_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 16, confidence: 80 },
-  { name: 'Pipeline Integrity Monitoring', category: 'Safety', savings: 1_400_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 18, confidence: 76 },
-  { name: 'Predictive Maintenance (Substations)', category: 'Maintenance', savings: 1_200_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 12, confidence: 86 },
-  { name: 'Outage Prediction & Response', category: 'Grid Management', savings: 1_000_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 14, confidence: 82 },
-  { name: 'NERC CIP Compliance Automation', category: 'Regulatory', savings: 900_000, effort: 'Medium', status: 'in-progress', priority: 8, timeToValue: 8, confidence: 92 },
-  { name: 'License Consolidation (SCADA/GIS)', category: 'License Audit', savings: 1_100_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 95 },
+  { name: 'Grid Load Balancing AI', category: 'Operations', savings: 830_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 16, confidence: 80 },
+  { name: 'Pipeline Integrity Monitoring', category: 'Safety', savings: 640_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 18, confidence: 76 },
+  { name: 'Predictive Maintenance (Substations)', category: 'Maintenance', savings: 550_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 12, confidence: 86 },
+  { name: 'Outage Prediction & Response', category: 'Grid Management', savings: 460_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 14, confidence: 82 },
+  { name: 'NERC CIP Compliance Automation', category: 'Regulatory', savings: 410_000, effort: 'Medium', status: 'in-progress', priority: 8, timeToValue: 8, confidence: 92 },
+  { name: 'License Consolidation (SCADA/GIS)', category: 'License Audit', savings: 510_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 95 },
 ];
 
 const nbEnergyCurrentStack: CurrentTool[] = [
@@ -2192,12 +2192,12 @@ const nbFinancialRoadmapPhases = [
 ];
 
 const nbFinancialTopOpportunities: Opportunity[] = [
-  { name: 'KYC/AML Automation', category: 'Compliance', savings: 1_200_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 10, confidence: 88 },
-  { name: 'Trade Settlement STP', category: 'Operations', savings: 900_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 8, confidence: 92 },
-  { name: 'Regulatory Reporting Automation', category: 'Regulatory', savings: 800_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 86 },
-  { name: 'Portfolio Risk AI Optimization', category: 'Risk', savings: 700_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 78 },
-  { name: 'Client Reporting AI', category: 'Client Services', savings: 600_000, effort: 'Low', status: 'in-progress', priority: 7, timeToValue: 6, confidence: 94 },
-  { name: 'License Consolidation (Terminal/Data)', category: 'License Audit', savings: 680_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 96 },
+  { name: 'KYC/AML Automation', category: 'Compliance', savings: 470_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 10, confidence: 88 },
+  { name: 'Trade Settlement STP', category: 'Operations', savings: 350_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 8, confidence: 92 },
+  { name: 'Regulatory Reporting Automation', category: 'Regulatory', savings: 310_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 86 },
+  { name: 'Portfolio Risk AI Optimization', category: 'Risk', savings: 270_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 78 },
+  { name: 'Client Reporting AI', category: 'Client Services', savings: 230_000, effort: 'Low', status: 'in-progress', priority: 7, timeToValue: 6, confidence: 94 },
+  { name: 'License Consolidation (Terminal/Data)', category: 'License Audit', savings: 270_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 96 },
 ];
 
 const nbFinancialCurrentStack: CurrentTool[] = [
@@ -2325,12 +2325,12 @@ const nbHealthRoadmapPhases = [
 ];
 
 const nbHealthTopOpportunities: Opportunity[] = [
-  { name: 'Clinical Trial Patient Recruitment AI', category: 'Clinical Ops', savings: 1_400_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 14, confidence: 82 },
-  { name: 'Pharmacovigilance Automation', category: 'Drug Safety', savings: 1_200_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 88 },
-  { name: 'Electronic Batch Record Deployment', category: 'Manufacturing', savings: 800_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 80 },
-  { name: 'Regulatory Submission Automation', category: 'Regulatory', savings: 1_000_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 84 },
-  { name: 'Lab Data Capture Automation', category: 'R&D', savings: 600_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 8, confidence: 90 },
-  { name: 'License Consolidation (Veeva/LIMS)', category: 'License Audit', savings: 920_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 95 },
+  { name: 'Clinical Trial Patient Recruitment AI', category: 'Clinical Ops', savings: 640_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 14, confidence: 82 },
+  { name: 'Pharmacovigilance Automation', category: 'Drug Safety', savings: 550_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 88 },
+  { name: 'Electronic Batch Record Deployment', category: 'Manufacturing', savings: 360_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 80 },
+  { name: 'Regulatory Submission Automation', category: 'Regulatory', savings: 460_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 84 },
+  { name: 'Lab Data Capture Automation', category: 'R&D', savings: 270_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 8, confidence: 90 },
+  { name: 'License Consolidation (Veeva/LIMS)', category: 'License Audit', savings: 420_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 95 },
 ];
 
 const nbHealthCurrentStack: CurrentTool[] = [
@@ -2474,14 +2474,14 @@ const estoniaRoadmapPhases = [
 ];
 
 const estoniaTopOpportunities: Opportunity[] = [
-  { name: 'Tax Compliance Automation', category: 'Tax & Revenue', savings: 4_200_000, effort: 'Medium', status: 'automated', priority: 10, timeToValue: 8, confidence: 94 },
-  { name: 'Citizen Services AI', category: 'Citizen Services', savings: 3_800_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 14, confidence: 86 },
-  { name: 'Healthcare Records Integration', category: 'Healthcare', savings: 3_400_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 16, confidence: 82 },
-  { name: 'Cross-Ministry Data Platform', category: 'Data Infrastructure', savings: 2_800_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 20, confidence: 78 },
-  { name: 'Procurement Optimization', category: 'Procurement', savings: 2_100_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 84 },
-  { name: 'Legacy System Modernization', category: 'Tech Stack', savings: 1_200_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 24, confidence: 72 },
-  { name: 'Education System Automation', category: 'Education', savings: 1_800_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 12, confidence: 80 },
-  { name: 'Environmental Compliance AI', category: 'Environment', savings: 1_400_000, effort: 'Medium', status: 'identified', priority: 5, timeToValue: 14, confidence: 76 },
+  { name: 'Tax Compliance Automation', category: 'Tax & Revenue', savings: 1_620_000, effort: 'Medium', status: 'automated', priority: 10, timeToValue: 8, confidence: 94 },
+  { name: 'Citizen Services AI', category: 'Citizen Services', savings: 1_470_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 14, confidence: 86 },
+  { name: 'Healthcare Records Integration', category: 'Healthcare', savings: 1_310_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 16, confidence: 82 },
+  { name: 'Cross-Ministry Data Platform', category: 'Data Infrastructure', savings: 1_080_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 20, confidence: 78 },
+  { name: 'Procurement Optimization', category: 'Procurement', savings: 810_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 84 },
+  { name: 'Legacy System Modernization', category: 'Tech Stack', savings: 460_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 24, confidence: 72 },
+  { name: 'Education System Automation', category: 'Education', savings: 700_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 12, confidence: 80 },
+  { name: 'Environmental Compliance AI', category: 'Environment', savings: 550_000, effort: 'Medium', status: 'identified', priority: 5, timeToValue: 14, confidence: 76 },
 ];
 
 const estoniaCurrentStack: CurrentTool[] = [
@@ -2612,12 +2612,12 @@ const eeFinanceRoadmapPhases = [
 ];
 
 const eeFinanceTopOpportunities: Opportunity[] = [
-  { name: 'Automated Tax Return Processing', category: 'Tax Automation', savings: 1_800_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 8, confidence: 94 },
-  { name: 'VAT Cross-Border Reconciliation', category: 'VAT Compliance', savings: 1_200_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 12, confidence: 88 },
-  { name: 'Budget Optimization Analytics', category: 'Budget Analytics', savings: 800_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 10, confidence: 86 },
-  { name: 'Risk-Based Audit Selection', category: 'Tax Audit', savings: 600_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 14, confidence: 82 },
-  { name: 'Revenue Forecasting AI', category: 'Fiscal Planning', savings: 480_000, effort: 'Low', status: 'identified', priority: 7, timeToValue: 8, confidence: 84 },
-  { name: 'Anti-Fraud Detection System', category: 'Fraud Prevention', savings: 320_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 16, confidence: 78 },
+  { name: 'Automated Tax Return Processing', category: 'Tax Automation', savings: 760_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 8, confidence: 94 },
+  { name: 'VAT Cross-Border Reconciliation', category: 'VAT Compliance', savings: 510_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 12, confidence: 88 },
+  { name: 'Budget Optimization Analytics', category: 'Budget Analytics', savings: 340_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 10, confidence: 86 },
+  { name: 'Risk-Based Audit Selection', category: 'Tax Audit', savings: 250_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 14, confidence: 82 },
+  { name: 'Revenue Forecasting AI', category: 'Fiscal Planning', savings: 200_000, effort: 'Low', status: 'identified', priority: 7, timeToValue: 8, confidence: 84 },
+  { name: 'Anti-Fraud Detection System', category: 'Fraud Prevention', savings: 140_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 16, confidence: 78 },
 ];
 
 const eeFinanceCurrentStack: CurrentTool[] = [
@@ -2745,12 +2745,12 @@ const eeSocialRoadmapPhases = [
 ];
 
 const eeSocialTopOpportunities: Opportunity[] = [
-  { name: 'TEHIK Health Records AI', category: 'Health IT', savings: 2_400_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 14, confidence: 86 },
-  { name: 'Benefits Eligibility Automation', category: 'Social Welfare', savings: 1_600_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 88 },
-  { name: 'Case Management AI', category: 'Social Services', savings: 1_000_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 82 },
-  { name: 'Prescription Fraud Detection', category: 'Health Insurance', savings: 800_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 90 },
-  { name: 'Population Health Analytics', category: 'Public Health', savings: 600_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 16, confidence: 76 },
-  { name: 'Hospital Resource Optimization', category: 'Healthcare Operations', savings: 400_000, effort: 'High', status: 'identified', priority: 6, timeToValue: 18, confidence: 74 },
+  { name: 'TEHIK Health Records AI', category: 'Health IT', savings: 990_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 14, confidence: 86 },
+  { name: 'Benefits Eligibility Automation', category: 'Social Welfare', savings: 660_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 88 },
+  { name: 'Case Management AI', category: 'Social Services', savings: 410_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 82 },
+  { name: 'Prescription Fraud Detection', category: 'Health Insurance', savings: 330_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 90 },
+  { name: 'Population Health Analytics', category: 'Public Health', savings: 250_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 16, confidence: 76 },
+  { name: 'Hospital Resource Optimization', category: 'Healthcare Operations', savings: 160_000, effort: 'High', status: 'identified', priority: 6, timeToValue: 18, confidence: 74 },
 ];
 
 const eeSocialCurrentStack: CurrentTool[] = [
@@ -2878,12 +2878,12 @@ const eeEconomicRoadmapPhases = [
 ];
 
 const eeEconomicTopOpportunities: Opportunity[] = [
-  { name: 'e-Residency AI Screening', category: 'Digital Identity', savings: 1_000_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 8, confidence: 92 },
-  { name: 'Trade Compliance Automation', category: 'Trade Facilitation', savings: 800_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 12, confidence: 84 },
-  { name: 'Business Registry Automation', category: 'Business Services', savings: 600_000, effort: 'Low', status: 'automated', priority: 9, timeToValue: 6, confidence: 94 },
-  { name: 'Export License AI Processing', category: 'Export Control', savings: 400_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 14, confidence: 80 },
-  { name: 'Startup Grant Evaluation AI', category: 'Innovation', savings: 340_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 82 },
-  { name: 'FDI Predictive Targeting', category: 'Investment', savings: 260_000, effort: 'High', status: 'identified', priority: 6, timeToValue: 18, confidence: 72 },
+  { name: 'e-Residency AI Screening', category: 'Digital Identity', savings: 470_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 8, confidence: 92 },
+  { name: 'Trade Compliance Automation', category: 'Trade Facilitation', savings: 380_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 12, confidence: 84 },
+  { name: 'Business Registry Automation', category: 'Business Services', savings: 280_000, effort: 'Low', status: 'automated', priority: 9, timeToValue: 6, confidence: 94 },
+  { name: 'Export License AI Processing', category: 'Export Control', savings: 190_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 14, confidence: 80 },
+  { name: 'Startup Grant Evaluation AI', category: 'Innovation', savings: 160_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 82 },
+  { name: 'FDI Predictive Targeting', category: 'Investment', savings: 120_000, effort: 'High', status: 'identified', priority: 6, timeToValue: 18, confidence: 72 },
 ];
 
 const eeEconomicCurrentStack: CurrentTool[] = [
@@ -3011,12 +3011,12 @@ const eeRiaRoadmapPhases = [
 ];
 
 const eeRiaTopOpportunities: Opportunity[] = [
-  { name: 'AI-Powered SIEM', category: 'Threat Detection', savings: 1_000_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 8, confidence: 92 },
-  { name: 'Automated Vulnerability Scanning', category: 'Vulnerability Management', savings: 680_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 88 },
-  { name: 'X-Road Anomaly Detection', category: 'Infrastructure Security', savings: 520_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 8, confidence: 90 },
-  { name: 'SOAR Playbook Automation', category: 'Incident Response', savings: 440_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 84 },
-  { name: 'eID Security Enhancement', category: 'Identity Security', savings: 320_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 14, confidence: 80 },
-  { name: 'Automated Digital Forensics', category: 'Forensics', savings: 240_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 16, confidence: 76 },
+  { name: 'AI-Powered SIEM', category: 'Threat Detection', savings: 440_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 8, confidence: 92 },
+  { name: 'Automated Vulnerability Scanning', category: 'Vulnerability Management', savings: 300_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 88 },
+  { name: 'X-Road Anomaly Detection', category: 'Infrastructure Security', savings: 230_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 8, confidence: 90 },
+  { name: 'SOAR Playbook Automation', category: 'Incident Response', savings: 190_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 84 },
+  { name: 'eID Security Enhancement', category: 'Identity Security', savings: 140_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 14, confidence: 80 },
+  { name: 'Automated Digital Forensics', category: 'Forensics', savings: 100_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 16, confidence: 76 },
 ];
 
 const eeRiaCurrentStack: CurrentTool[] = [
