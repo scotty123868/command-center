@@ -3271,7 +3271,7 @@ const hrsiTopOpportunities: Opportunity[] = [
 const hrsiCurrentStack: CurrentTool[] = [
   { name: 'Custom Dispatch', category: 'Fleet Management', annualCost: 200_000, users: 120, score: 3, integrationComplexity: 'High', migrationWeeks: 18, riskLevel: 'High', dependencies: ['Crew dispatch', 'Equipment tracking', 'Work orders'] },
   { name: 'Kronos/UKG', category: 'Workforce', annualCost: 120_000, users: 380, score: 4, integrationComplexity: 'Medium', migrationWeeks: 10, riskLevel: 'Medium', dependencies: ['Time tracking', 'FRA compliance', 'Payroll'] },
-  { name: 'SAP ERP', category: 'Finance', annualCost: 160_000, users: 40, score: 3, integrationComplexity: 'High', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Financial reporting', 'AP/AR', 'Cost accounting'] },
+  { name: 'SAP Business Objects', category: 'Finance', annualCost: 160_000, users: 40, score: 3, integrationComplexity: 'High', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Financial reporting', 'AP/AR', 'Cost accounting'] },
 ];
 
 const hrsiLicenses: License[] = [
@@ -3740,7 +3740,7 @@ const heTopOpportunities: Opportunity[] = [
 
 const heCurrentStack: CurrentTool[] = [
   { name: 'Excel/SharePoint', category: 'Project Management', annualCost: 60_000, users: 40, score: 2, integrationComplexity: 'Low', migrationWeeks: 8, riskLevel: 'Low', dependencies: ['Project tracking', 'Cost estimation', 'Resource planning'] },
-  { name: 'SAP ERP (shared)', category: 'Finance', annualCost: 80_000, users: 15, score: 3, integrationComplexity: 'High', migrationWeeks: 12, riskLevel: 'Medium', dependencies: ['Financial reporting', 'AP/AR', 'Cost accounting'] },
+  { name: 'SAP Business Objects', category: 'Finance', annualCost: 80_000, users: 15, score: 3, integrationComplexity: 'High', migrationWeeks: 12, riskLevel: 'Medium', dependencies: ['Financial reporting', 'AP/AR', 'Cost accounting'] },
   { name: 'Kronos/UKG', category: 'Workforce', annualCost: 40_000, users: 120, score: 4, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Low', dependencies: ['Time tracking', 'Crew scheduling', 'Payroll'] },
 ];
 
