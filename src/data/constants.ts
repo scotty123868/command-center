@@ -416,21 +416,6 @@ export const recommendations: Recommendation[] = [
     },
     annualSavings: 200_000,
   },
-  {
-    current: {
-      name: 'Manual Expense Reports',
-      cost: 220_000,
-      users: 2_800,
-      score: 2,
-      description: 'Fragmented expense management across 7 divisions with no unified corporate card program. Field supervisors submit paper receipts for fuel, parts, and equipment repairs — reconciliation takes 30+ days. No real-time visibility into equipment-level or job-level spend. Division-level spend policies enforced manually. Receipt collection from field crews is inconsistent — estimated 15% of expenses unrecoverable. No integration with Heavy Job for automatic job cost coding.',
-    },
-    recommended: {
-      name: 'Brex',
-      cost: 80_000,
-      description: 'Brex corporate card platform with division-level spend controls and automated receipt matching. Each Herzog division gets tailored spend policies with real-time enforcement. Field crews swipe Brex cards for parts, fuel, and repairs — transactions auto-coded to the right equipment asset and project in Heavy Job. AI flags anomalous spend instantly. Automated receipt matching via mobile photo capture eliminates paper chase. Integration with eCMS for real-time financial visibility and Databricks for spend analytics across all divisions.',
-    },
-    annualSavings: 200_000,
-  },
 ];
 
 // ─── Workflow Data ──────────────────────────────────────────────────────────
