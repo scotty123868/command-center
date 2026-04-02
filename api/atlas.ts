@@ -32,16 +32,16 @@ KEY METRICS:
 - Unused License Waste: $2.8M/yr
 
 TOP SAVINGS OPPORTUNITIES:
-1. Predictive Track Maintenance — $1.4M savings, High effort, 20 weeks
-2. Unused License Reclamation — $1.2M savings, Low effort, 3 weeks (in progress)
-3. Fleet GPS Intelligence — $980K savings, Medium effort, 10 weeks (in progress)
-4. AI Rail Inspection — $860K savings, High effort, 16 weeks
-5. Crew Scheduling Optimization — $720K savings, Medium effort, 12 weeks
-6. PTC System Modernization — $640K savings, High effort, 18 weeks
-7. Equipment Idle Time Reduction — $580K savings, Medium effort, 14 weeks
-8. Automated Safety Compliance (FRA) — $520K savings, Medium effort, 8 weeks
-9. Material & Ballast Logistics AI — $480K savings, Medium effort, 12 weeks
-10. Transit Operations Efficiency — $440K savings, Medium effort, 14 weeks
+1. Predictive Track Maintenance — $1,080,000 savings, High effort, 20 weeks
+2. Unused License Reclamation — $920,000 savings, Low effort, 3 weeks (in progress)
+3. Fleet GPS Intelligence — $740,000 savings, Medium effort, 10 weeks (in progress)
+4. AI Rail Inspection — $680,000 savings, High effort, 16 weeks
+5. Crew Scheduling Optimization — $540,000 savings, Medium effort, 12 weeks
+6. PTC System Modernization — $480,000 savings, High effort, 18 weeks
+7. Equipment Idle Time Reduction — $440,000 savings, Medium effort, 14 weeks
+8. Automated Safety Compliance (FRA) — $380,000 savings, Medium effort, 8 weeks
+9. Material & Ballast Logistics AI — $300,000 savings, Medium effort, 12 weeks
+10. Transit Operations Efficiency — $240,000 savings, Medium effort, 14 weeks
 
 CURRENT TECH STACK:
 - Primavera P6: $420K/yr, 180 users, Project Management
