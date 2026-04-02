@@ -68,7 +68,7 @@ const allTimelineStops: Record<string, Record<number, TimelineData>> = {
     6: { savings: 2_500_000, scoreBefore: 38, scoreAfter: 64, workflows: 35, automationReady: 9, waste: 1_800_000 },
     12: { savings: 5_800_000, scoreBefore: 38, scoreAfter: 86, workflows: 62, automationReady: 18, waste: 820_000 },
   },
-  oakwood: {
+  northwood: {
     0: { savings: 0, scoreBefore: 41, scoreAfter: 41, workflows: 0, automationReady: 0, waste: 1_601_000 },
     6: { savings: 1_600_000, scoreBefore: 41, scoreAfter: 58, workflows: 22, automationReady: 5, waste: 1_100_000 },
     12: { savings: 3_800_000, scoreBefore: 41, scoreAfter: 78, workflows: 38, automationReady: 9, waste: 620_000 },

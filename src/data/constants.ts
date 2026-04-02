@@ -991,14 +991,14 @@ export const roiSummary = {
 // ─── Multi-Company Data ────────────────────────────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
-// ─── Oakwood Insurance Group ──────────────────────────────────────────────────
+// ─── Northwood Insurance Group ──────────────────────────────────────────────────
 
-const oakwoodCompanyProfile = {
-  name: 'Oakwood Insurance Group',
+const northwoodCompanyProfile = {
+  name: 'Northwood Insurance Group',
   industry: 'Insurance',
   employees: 800,
   opCos: 1,
-  opCoNames: ['Oakwood Insurance Group'],
+  opCoNames: ['Northwood Insurance Group'],
   techSpend: '$5.8M/yr',
   aiReadinessScore: 41,
   holdingPeriod: '12 months into 5-year hold',
@@ -1006,7 +1006,7 @@ const oakwoodCompanyProfile = {
   targetEbitdaMargin: '19%',
 };
 
-const oakwoodAiReadinessBreakdown = [
+const northwoodAiReadinessBreakdown = [
   { category: 'Data Infrastructure', score: 32, maxScore: 100, status: 'Below Average — legacy AS/400 mainframe stores 60% of policy data, no API layer, batch-only data exports via COBOL jobs running overnight' },
   { category: 'Process Maturity', score: 48, maxScore: 100, status: 'Moderate — claims workflows partially digitized via Guidewire, but 40% of underwriting still relies on manual spreadsheet-based rating' },
   { category: 'Tech Stack Modernity', score: 35, maxScore: 100, status: 'Legacy-Heavy — AS/400 mainframe (1997), Duck Creek policy admin (2012), Guidewire ClaimCenter (2018), no cloud-native infrastructure' },
@@ -1014,7 +1014,7 @@ const oakwoodAiReadinessBreakdown = [
   { category: 'Skills & Training', score: 28, maxScore: 100, status: 'Critical Gap — IT team of 18 focused on mainframe maintenance, zero ML/AI capability, no data science function, 2 open data engineer reqs unfilled for 8 months' },
 ];
 
-const oakwoodKpis = {
+const northwoodKpis = {
   totalSavings: 3_800_000,
   techScoreBefore: 41,
   techScoreAfter: 78,
@@ -1028,7 +1028,7 @@ const oakwoodKpis = {
   headcountImpactSparkline: [0, 0, -1, -3, -5, -8, -11, -14, -17, -19, -21, -23],
 };
 
-const oakwoodRoadmapPhases = [
+const northwoodRoadmapPhases = [
   {
     quarter: 'Q1',
     title: 'Legacy Assessment + Claims Quick Wins',
@@ -1111,7 +1111,7 @@ const oakwoodRoadmapPhases = [
   },
 ];
 
-const oakwoodTopOpportunities: Opportunity[] = [
+const northwoodTopOpportunities: Opportunity[] = [
   { name: 'Claims Intake Automation', category: 'Workflow Automation', savings: 820_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 10, confidence: 91 },
   { name: 'Legacy Policy Migration (AS/400)', category: 'Tech Stack', savings: 680_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 24, confidence: 78 },
   { name: 'Fraud Detection AI', category: 'Workflow Automation', savings: 540_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 84 },
@@ -1124,7 +1124,7 @@ const oakwoodTopOpportunities: Opportunity[] = [
   { name: 'Subrogation Recovery Optimization', category: 'Workflow Automation', savings: 220_000, effort: 'High', status: 'identified', priority: 5, timeToValue: 18, confidence: 70 },
 ];
 
-const oakwoodCurrentStack: CurrentTool[] = [
+const northwoodCurrentStack: CurrentTool[] = [
   {
     name: 'Guidewire ClaimCenter',
     category: 'Claims Management',
@@ -1193,7 +1193,7 @@ const oakwoodCurrentStack: CurrentTool[] = [
   },
 ];
 
-const oakwoodLicenses: License[] = [
+const northwoodLicenses: License[] = [
   { vendor: 'Microsoft 365', totalLicenses: 800, active90d: 600, inactive: 200, annualWaste: 400_000, action: 'Reclaim 200 seats + downgrade 100 E5→E3', costPerLicense: 2_000, department: 'IT / All Departments', lastAuditDate: '2025-10-01', trend: [82, 78, 74, 70, 65, 60], complianceRisk: false },
   { vendor: 'Salesforce', totalLicenses: 120, active90d: 75, inactive: 45, annualWaste: 225_000, action: 'Reclaim 45 seats → migrate to HubSpot in Q3', costPerLicense: 5_000, department: 'Sales & Agent Relations', lastAuditDate: '2025-11-15', trend: [80, 74, 69, 65, 60, 56], complianceRisk: false },
   { vendor: 'Duck Creek', totalLicenses: 120, active90d: 88, inactive: 32, annualWaste: 192_000, action: 'Reclaim 32 inactive seats, optimize license tier', costPerLicense: 6_000, department: 'Underwriting & Policy Admin', lastAuditDate: '2025-09-20', trend: [85, 80, 76, 72, 68, 65], complianceRisk: false },
@@ -1203,7 +1203,7 @@ const oakwoodLicenses: License[] = [
   { vendor: 'LexisNexis', totalLicenses: 50, active90d: 18, inactive: 32, annualWaste: 176_000, action: 'Reclaim 32 seats — restrict to SIU and underwriting', costPerLicense: 5_500, department: 'Special Investigations & Underwriting', lastAuditDate: '2025-07-30', trend: [68, 58, 50, 44, 38, 34], complianceRisk: false },
 ];
 
-const oakwoodWorkflowSummary = {
+const northwoodWorkflowSummary = {
   total: 38,
   fullyAutomatable: 9,
   humanInLoop: 18,
@@ -1212,7 +1212,7 @@ const oakwoodWorkflowSummary = {
   potentialSavings: 2_200_000,
 };
 
-const oakwoodRoiSummary = {
+const northwoodRoiSummary = {
   techStackSavings: 1_250_000,
   workflowAutomation: 2_200_000,
   licenseRecovery: 1_600_000,
@@ -4232,10 +4232,10 @@ const meridianMethodologySteps: IntegrationMethodologyStep[] = [
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// ─── AI Agents (Oakwood, Pinnacle, Atlas) ────────────────────────────────────
+// ─── AI Agents (Northwood, Pinnacle, Atlas) ────────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
-const oakwoodAiAgents: AIAgent[] = [
+const northwoodAiAgents: AIAgent[] = [
   { name: 'Claims Triage AI', subtitle: 'Claims Routing', accuracy: 95.4, metric2Label: 'Misroute Rate', metric2Value: 1.8, metric3Label: 'Triage Latency', metric3Value: '0.6s', overrideRate: 6.2, confidenceThreshold: 0.91, status: 'active', lastmileAgentId: 'claims-triage-ai' },
   { name: 'Underwriting Copilot', subtitle: 'Risk Assessment', accuracy: 93.1, metric2Label: 'Risk Mispricing', metric2Value: 2.4, metric3Label: 'Decision Time', metric3Value: '1.8s', overrideRate: 8.7, confidenceThreshold: 0.88, status: 'active', lastmileAgentId: 'underwriting-copilot' },
   { name: 'Fraud Detection Engine', subtitle: 'Fraud Prevention', accuracy: 97.8, metric2Label: 'False Positive', metric2Value: 3.2, metric3Label: 'Detection Speed', metric3Value: '0.3s', overrideRate: 4.1, confidenceThreshold: 0.94, status: 'active', lastmileAgentId: 'fraud-detection-engine' },
@@ -4350,10 +4350,10 @@ const eeRiaAiAgents: AIAgent[] = [
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// ─── Data Sources (Oakwood, Pinnacle, Atlas) ─────────────────────────────────
+// ─── Data Sources (Northwood, Pinnacle, Atlas) ─────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
-const oakwoodDataSources: IntegrationDataSource[] = [
+const northwoodDataSources: IntegrationDataSource[] = [
   { system: 'Guidewire PolicyCenter', division: 'Policy Administration', recordsAnalyzed: '2.4M active policies', coverage: 96, status: 'Complete' },
   { system: 'Duck Creek Claims', division: 'Claims Management', recordsAnalyzed: '840,000 claims', coverage: 93, status: 'Complete' },
   { system: 'Verisk Analytics', division: 'Risk & Actuarial', recordsAnalyzed: '1.8M risk assessments', coverage: 89, status: 'Complete' },
@@ -4469,10 +4469,10 @@ const eeRiaDataSources: IntegrationDataSource[] = [
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// ─── Vendor Health (Oakwood, Pinnacle, Atlas) ────────────────────────────────
+// ─── Vendor Health (Northwood, Pinnacle, Atlas) ────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
-const oakwoodVendorHealth: IntegrationVendorHealth[] = [
+const northwoodVendorHealth: IntegrationVendorHealth[] = [
   { name: 'Guidewire PolicyCenter', status: 'green', uptime: 99.8, latency: 34, lastChecked: '2026-03-27T08:14:00Z' },
   { name: 'Duck Creek Claims', status: 'green', uptime: 99.5, latency: 52, lastChecked: '2026-03-27T08:12:00Z' },
   { name: 'Verisk Analytics', status: 'green', uptime: 99.3, latency: 78, lastChecked: '2026-03-27T08:10:00Z' },
@@ -4588,10 +4588,10 @@ const eeRiaVendorHealth: IntegrationVendorHealth[] = [
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// ─── Failure Modes (Oakwood, Pinnacle, Atlas) ────────────────────────────────
+// ─── Failure Modes (Northwood, Pinnacle, Atlas) ────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
-const oakwoodFailureModes: IntegrationFailureMode[] = [
+const northwoodFailureModes: IntegrationFailureMode[] = [
   { vendor: 'Guidewire PolicyCenter', scenario: 'Policy batch renewal job exceeds processing window during peak season', recovery: 'Parallel batch partitioning with priority queue for expiring policies', status: 'Passing' },
   { vendor: 'Duck Creek Claims', scenario: 'Claims intake API overwhelmed during catastrophe event surge', recovery: 'Auto-scaling claims queue with overflow to async processing pipeline', status: 'Needs Attention' },
   { vendor: 'Verisk Analytics', scenario: 'Risk model API timeout on complex multi-peril property assessments', recovery: 'Cached risk scores with background refresh and stale-data indicator', status: 'Passing' },
@@ -4696,14 +4696,14 @@ const eeRiaFailureModes: IntegrationFailureMode[] = [
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// ─── Methodology Steps (Oakwood, Pinnacle, Atlas) ───────────────────────────
+// ─── Methodology Steps (Northwood, Pinnacle, Atlas) ───────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
-const oakwoodMethodologySteps: IntegrationMethodologyStep[] = [
+const northwoodMethodologySteps: IntegrationMethodologyStep[] = [
   { number: 1, title: 'Policy Portfolio Discovery', description: 'Inventory 2.4M active policies across all lines of business — property, casualty, specialty, and excess — mapping data flows between Guidewire, Duck Creek, and Verisk systems.' },
   { number: 2, title: 'Claims Workflow Mapping', description: 'Map 24 critical claims workflows from FNOL through settlement, identifying manual bottlenecks in triage, adjudication, and subrogation processes.' },
   { number: 3, title: 'InsurTech Stack Audit', description: 'Assess Guidewire PolicyCenter, Duck Creek Claims, Verisk Analytics, Salesforce CRM, and internal data warehouse for AI integration readiness and API maturity.' },
-  { number: 4, title: 'Underwriting ROI Modeling', description: 'Model AI-driven savings across claims triage automation, fraud detection, underwriting efficiency, and policy renewal retention for Oakwood\'s $4.2B premium portfolio.' },
+  { number: 4, title: 'Underwriting ROI Modeling', description: 'Model AI-driven savings across claims triage automation, fraud detection, underwriting efficiency, and policy renewal retention for Northwood\'s $4.2B premium portfolio.' },
 ];
 
 const pinnacleMethodologySteps: IntegrationMethodologyStep[] = [
@@ -4802,9 +4802,9 @@ const eeRiaMethodologySteps: IntegrationMethodologyStep[] = [
 // ─── Company-Specific Workflows ──────────────────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
-// ─── Oakwood Insurance Workflows ─────────────────────────────────────────────
+// ─── Northwood Insurance Workflows ─────────────────────────────────────────────
 
-const oakwoodWorkflows: Workflow[] = [
+const northwoodWorkflows: Workflow[] = [
   {
     name: 'Claims Intake & Triage',
     level: 'full',
@@ -6633,9 +6633,9 @@ const estoniaWorkflows: Workflow[] = [
 // ─── Company-Specific Recommendations ────────────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
-// ─── Oakwood Insurance Recommendations ───────────────────────────────────────
+// ─── Northwood Insurance Recommendations ───────────────────────────────────────
 
-const oakwoodRecommendations: Recommendation[] = [
+const northwoodRecommendations: Recommendation[] = [
   {
     current: {
       name: 'Guidewire ClaimCenter',
@@ -6988,7 +6988,7 @@ const companyProfiles: Record<string, typeof companyProfile> = {
   htsi: htsiCompanyProfile,
   he: heCompanyProfile,
   gg: ggCompanyProfile,
-  oakwood: oakwoodCompanyProfile,
+  northwood: northwoodCompanyProfile,
   pinnacle: pinnacleCompanyProfile,
   atlas: atlasCompanyProfile,
   northbridge: northbridgeCompanyProfile,
@@ -7012,7 +7012,7 @@ const companyAiReadiness: Record<string, typeof aiReadinessBreakdown> = {
   htsi: htsiAiReadinessBreakdown,
   he: heAiReadinessBreakdown,
   gg: ggAiReadinessBreakdown,
-  oakwood: oakwoodAiReadinessBreakdown,
+  northwood: northwoodAiReadinessBreakdown,
   pinnacle: pinnacleAiReadinessBreakdown,
   atlas: atlasAiReadinessBreakdown,
   northbridge: northbridgeAiReadinessBreakdown,
@@ -7036,7 +7036,7 @@ const companyKpis: Record<string, typeof kpis> = {
   htsi: htsiKpis,
   he: heKpis,
   gg: ggKpis,
-  oakwood: oakwoodKpis,
+  northwood: northwoodKpis,
   pinnacle: pinnacleKpis,
   atlas: atlasKpis,
   northbridge: northbridgeKpis,
@@ -7060,7 +7060,7 @@ const companyRoadmapPhases: Record<string, typeof roadmapPhases> = {
   htsi: htsiRoadmapPhases,
   he: heRoadmapPhases,
   gg: ggRoadmapPhases,
-  oakwood: oakwoodRoadmapPhases,
+  northwood: northwoodRoadmapPhases,
   pinnacle: pinnacleRoadmapPhases,
   atlas: atlasRoadmapPhases,
   northbridge: northbridgeRoadmapPhases,
@@ -7084,7 +7084,7 @@ const companyTopOpportunities: Record<string, Opportunity[]> = {
   htsi: htsiTopOpportunities,
   he: heTopOpportunities,
   gg: ggTopOpportunities,
-  oakwood: oakwoodTopOpportunities,
+  northwood: northwoodTopOpportunities,
   pinnacle: pinnacleTopOpportunities,
   atlas: atlasTopOpportunities,
   northbridge: northbridgeTopOpportunities,
@@ -7108,7 +7108,7 @@ const companyCurrentStack: Record<string, CurrentTool[]> = {
   htsi: htsiCurrentStack,
   he: heCurrentStack,
   gg: ggCurrentStack,
-  oakwood: oakwoodCurrentStack,
+  northwood: northwoodCurrentStack,
   pinnacle: pinnacleCurrentStack,
   atlas: atlasCurrentStack,
   northbridge: northbridgeCurrentStack,
@@ -7132,7 +7132,7 @@ const companyLicenses: Record<string, License[]> = {
   htsi: htsiLicenses,
   he: heLicenses,
   gg: ggLicenses,
-  oakwood: oakwoodLicenses,
+  northwood: northwoodLicenses,
   pinnacle: pinnacleLicenses,
   atlas: atlasLicenses,
   northbridge: northbridgeLicenses,
@@ -7156,7 +7156,7 @@ const companyWorkflowSummaries: Record<string, typeof workflowSummary> = {
   htsi: htsiWorkflowSummary,
   he: heWorkflowSummary,
   gg: ggWorkflowSummary,
-  oakwood: oakwoodWorkflowSummary,
+  northwood: northwoodWorkflowSummary,
   pinnacle: pinnacleWorkflowSummary,
   atlas: atlasWorkflowSummary,
   northbridge: northbridgeWorkflowSummary,
@@ -7180,7 +7180,7 @@ const companyWorkflowsMap: Record<string, Workflow[]> = {
   htsi: workflows,
   he: workflows,
   gg: workflows,
-  oakwood: oakwoodWorkflows,
+  northwood: northwoodWorkflows,
   pinnacle: pinnacleWorkflows,
   atlas: atlasWorkflows,
   northbridge: northbridgeWorkflows,
@@ -7204,7 +7204,7 @@ const companyRecommendationsMap: Record<string, Recommendation[]> = {
   htsi: recommendations,
   he: recommendations,
   gg: recommendations,
-  oakwood: oakwoodRecommendations,
+  northwood: northwoodRecommendations,
   pinnacle: pinnacleRecommendations,
   atlas: atlasRecommendations,
   northbridge: northbridgeRecommendations,
@@ -7228,7 +7228,7 @@ const companyRoiSummaries: Record<string, typeof roiSummary> = {
   htsi: htsiRoiSummary,
   he: heRoiSummary,
   gg: ggRoiSummary,
-  oakwood: oakwoodRoiSummary,
+  northwood: northwoodRoiSummary,
   pinnacle: pinnacleRoiSummary,
   atlas: atlasRoiSummary,
   northbridge: northbridgeRoiSummary,
@@ -7252,7 +7252,7 @@ const companyAiAgents: Record<string, AIAgent[]> = {
   htsi: htsiAiAgents,
   he: heAiAgents,
   gg: ggAiAgents,
-  oakwood: oakwoodAiAgents,
+  northwood: northwoodAiAgents,
   pinnacle: pinnacleAiAgents,
   atlas: atlasAiAgents,
   northbridge: northbridgeAiAgents,
@@ -7276,7 +7276,7 @@ const companyDataSources: Record<string, IntegrationDataSource[]> = {
   htsi: htsiDataSources,
   he: heDataSources,
   gg: ggDataSources,
-  oakwood: oakwoodDataSources,
+  northwood: northwoodDataSources,
   pinnacle: pinnacleDataSources,
   atlas: atlasDataSources,
   northbridge: northbridgeDataSources,
@@ -7300,7 +7300,7 @@ const companyVendorHealth: Record<string, IntegrationVendorHealth[]> = {
   htsi: htsiVendorHealth,
   he: heVendorHealth,
   gg: ggVendorHealth,
-  oakwood: oakwoodVendorHealth,
+  northwood: northwoodVendorHealth,
   pinnacle: pinnacleVendorHealth,
   atlas: atlasVendorHealth,
   northbridge: northbridgeVendorHealth,
@@ -7324,7 +7324,7 @@ const companyFailureModes: Record<string, IntegrationFailureMode[]> = {
   htsi: htsiFailureModes,
   he: heFailureModes,
   gg: ggFailureModes,
-  oakwood: oakwoodFailureModes,
+  northwood: northwoodFailureModes,
   pinnacle: pinnacleFailureModes,
   atlas: atlasFailureModes,
   northbridge: northbridgeFailureModes,
@@ -7348,7 +7348,7 @@ const companyMethodologySteps: Record<string, IntegrationMethodologyStep[]> = {
   htsi: htsiMethodologySteps,
   he: heMethodologySteps,
   gg: ggMethodologySteps,
-  oakwood: oakwoodMethodologySteps,
+  northwood: northwoodMethodologySteps,
   pinnacle: pinnacleMethodologySteps,
   atlas: atlasMethodologySteps,
   northbridge: northbridgeMethodologySteps,

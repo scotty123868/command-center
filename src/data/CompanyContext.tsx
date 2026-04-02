@@ -12,7 +12,7 @@ const companies = [
   { id: 'he', name: 'IC Energy', shortName: 'IC Energy', initials: 'EN', industry: 'Energy Infrastructure', employees: 120, opCos: 1, category: 'company' as const, parentId: 'meridian', accentColor: '#EA580C' },
   { id: 'gg', name: 'IC Environmental LLC', shortName: 'IC Environmental', initials: 'EV', industry: 'Environmental Services', employees: 90, opCos: 1, category: 'company' as const, parentId: 'meridian', accentColor: '#059669' },
   // ─── Other Demo Companies ───────────────────────────────────────────────
-  { id: 'oakwood', name: 'Oakwood Insurance Group', shortName: 'Oakwood Insurance', initials: 'OI', industry: 'Insurance', employees: 800, opCos: 1, category: 'company' as const, parentId: '', accentColor: '#8B5CF6' },
+  { id: 'northwood', name: 'Northwood Insurance Group', shortName: 'Northwood Insurance', initials: 'NI', industry: 'Insurance', employees: 800, opCos: 1, category: 'company' as const, parentId: '', accentColor: '#8B5CF6' },
   { id: 'pinnacle', name: 'Pinnacle Healthcare Systems', shortName: 'Pinnacle Healthcare', initials: 'PH', industry: 'Healthcare Services', employees: 420, opCos: 1, category: 'company' as const, parentId: '', accentColor: '#EC4899' },
   { id: 'atlas', name: 'Atlas Manufacturing Group', shortName: 'Atlas Manufacturing', initials: 'AM', industry: 'Manufacturing', employees: 2100, opCos: 4, category: 'company' as const, parentId: '', accentColor: '#F59E0B' },
   // ─── Northbridge Industries (Conglomerate) ──────────────────────────────

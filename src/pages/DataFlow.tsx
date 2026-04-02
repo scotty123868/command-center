@@ -221,8 +221,8 @@ const gapDataByCompany: Record<string, CompanyGapData> = {
     roi: '21.6x Year 1',
   },
 
-  /* ── Oakwood Insurance Group ──────────────────────────────────────────── */
-  oakwood: {
+  /* ── Northwood Insurance Group ──────────────────────────────────────────── */
+  northwood: {
     gaps: [
       {
         id: 1,
@@ -326,10 +326,10 @@ const gapDataByCompany: Record<string, CompanyGapData> = {
       },
     ],
     gapDivisionMap: {
-      1: ['oakwood'],
-      2: ['oakwood'],
-      3: ['oakwood'],
-      4: ['oakwood'],
+      1: ['northwood'],
+      2: ['northwood'],
+      3: ['northwood'],
+      4: ['northwood'],
     },
     statCards: [
       { label: '12 Systems Mapped', color: 'blue' },

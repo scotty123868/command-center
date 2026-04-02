@@ -306,8 +306,8 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
     },
   ],
 
-  /* ── Oakwood Insurance Group (departments) ────────────────────────────── */
-  oakwood: [
+  /* ── Northwood Insurance Group (departments) ────────────────────────────── */
+  northwood: [
     {
       name: 'Claims Operations',
       industry: 'Insurance — Claims',
@@ -1284,7 +1284,7 @@ function DivisionDashboard({ company }: { company: CompanyData }) {
 // ─── Helper: resolve divisions for a company ────────────────────────────────
 
 function resolveDivisions(companyId: string): CompanyData[] {
-  // Direct parent match (meridian, oakwood, pinnacle, atlas, northbridge, estonia)
+  // Direct parent match (meridian, northwood, pinnacle, atlas, northbridge, estonia)
   if (divisionsByCompany[companyId]) {
     return divisionsByCompany[companyId];
   }
