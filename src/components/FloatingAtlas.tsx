@@ -2,7 +2,6 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Brain, X, Send, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { config } from '../data/config';
 import { useCompany } from '../data/CompanyContext';
 
 interface ChatMessage {
@@ -101,7 +100,7 @@ export default function FloatingAtlas() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           messages: [...messages, userMsg].map(m => ({ role: m.role, content: m.content })),
-          companyContext: `Company: ${company.name}, Industry: ${config.industry}, Division: ${company.shortName}`,
+          companyContext: `Company: ${company.name}, Industry: ${company.industry}, Division: ${company.shortName}`,
         }),
       });
 
