@@ -19,8 +19,8 @@ const defaultConfig: CompanyConfig = {
   techSpend: '$14.2M/yr',
   aiReadinessScore: 52,
   logoInitials: 'IC',
-  userInitials: 'DD',
-  userName: 'Daniel Ducic',
+  userInitials: 'SL',
+  userName: 'UpSkiller',
 };
 
 // Check URL params for white-label overrides
