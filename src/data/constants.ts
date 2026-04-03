@@ -57,7 +57,7 @@ export const roadmapPhases = [
       { week: 6, task: 'Quick-win scoring: rank 62 workflows by automation potential — prioritize crew scheduling and safety compliance', owner: 'Sarah Chen (Engagement Lead)' },
       { week: 7, task: 'Salesforce seat reclamation (45 seats) + Trimble Business Center audit (45 inactive seats)', owner: 'Jason Park (DevOps)' },
       { week: 8, task: 'Executive readout to CEO Brad Herzog & senior leadership: $2.8M license waste identified, fleet intelligence roadmap presented', owner: 'Sarah Chen (Engagement Lead)' },
-      { week: 9, task: 'Custom dispatch system assessment — document all integrations, data flows, and API gaps in legacy 2009 system', owner: 'Mike Torres (Tech Lead)' },
+      { week: 9, task: 'HCSS Suite AI readiness assessment — document Copilot + Shield activation path, integration points, and feature gaps', owner: 'Mike Torres (Tech Lead)' },
       { week: 10, task: 'Data infrastructure mapping: identify all data silos across 7 divisions, GPS/LIDAR data stores, rail testing databases', owner: 'Mike Torres (Tech Lead)' },
       { week: 11, task: 'RFP for Databricks data lakehouse — evaluate against Snowflake for railroad-specific time-series and geospatial data needs', owner: 'Mike Torres (Tech Lead)' },
       { week: 12, task: 'Q1 close: $2.8M in license savings confirmed, Samsara fleet pilot scoped, data lake vendor selected', owner: 'Sarah Chen (Engagement Lead)' },
@@ -90,9 +90,9 @@ export const roadmapPhases = [
     status: 'upcoming' as const,
     weekPlan: [
       { week: 25, task: 'Databricks data lake Phase 2: connect HTI signal/PTC data + HTSI transit operations + Energy division assets', owner: 'Mike Torres (Tech Lead)' },
-      { week: 26, task: 'SAP ERP migration planning: assess NetSuite for multi-division railroad operations (160 users, $520K current spend)', owner: 'Mike Torres (Tech Lead)' },
+      { week: 26, task: 'SAP Business Objects optimization: activate advanced analytics features, consolidate 120 users across divisions ($480K current spend)', owner: 'Mike Torres (Tech Lead)' },
       { week: 27, task: 'Scale crew scheduling AI to all 7 divisions (2,800 employees), integrate with Kronos/UKG workforce data', owner: 'Priya Sharma (ML Engineering)' },
-      { week: 28, task: 'NetSuite pilot: 40 users from HCC finance team, parallel run with SAP for one complete accounting period', owner: 'Jason Park (DevOps)' },
+      { week: 28, task: 'HCSS Copilot + Shield activation: enable AI features for 40 HCC field users, measure dispatch efficiency gain over one reporting period', owner: 'Jason Park (DevOps)' },
       { week: 29, task: 'Databricks Phase 3: connect Green Group environmental data + unified equipment registry across all divisions', owner: 'Priya Sharma (ML Engineering)' },
       { week: 30, task: 'Automation wave 2: ballast logistics optimization, project estimation AI assist, PTC system data integration', owner: 'Jason Park (DevOps)' },
       { week: 31, task: 'Equipment utilization dashboard live: real-time fleet visibility across all 7 divisions with AI redeployment recommendations', owner: 'Priya Sharma (ML Engineering)' },
@@ -822,7 +822,7 @@ export interface License {
 
 export const licenses: License[] = [
   { vendor: 'Primavera P6', totalLicenses: 280, active90d: 180, inactive: 100, annualWaste: 350_000, action: 'Reclaim 100 seats — restrict to active project managers only', costPerLicense: 3_500, department: 'Project Management (HCC, HRSI, HTI)', lastAuditDate: '2025-10-15', trend: [82, 76, 70, 68, 65, 64], complianceRisk: false },
-  { vendor: 'SAP ERP', totalLicenses: 250, active90d: 160, inactive: 90, annualWaste: 360_000, action: 'Reclaim 90 seats → migrate to NetSuite in Q3', costPerLicense: 4_000, department: 'Finance & Accounting (all divisions)', lastAuditDate: '2025-11-02', trend: [78, 72, 68, 65, 64, 64], complianceRisk: false },
+  { vendor: 'SAP Business Objects', totalLicenses: 250, active90d: 160, inactive: 90, annualWaste: 360_000, action: 'Reclaim 90 seats → consolidate to active BI analysts only', costPerLicense: 4_000, department: 'Finance & Accounting (all divisions)', lastAuditDate: '2025-11-02', trend: [78, 72, 68, 65, 64, 64], complianceRisk: false },
   { vendor: 'AutoCAD/Civil 3D', totalLicenses: 120, active90d: 65, inactive: 55, annualWaste: 440_000, action: 'Reclaim 55 seats — consolidate to engineering department only', costPerLicense: 8_000, department: 'Engineering & Design (HCC, HTI)', lastAuditDate: '2025-08-20', trend: [68, 62, 58, 55, 54, 54], complianceRisk: true },
   { vendor: 'Kronos/UKG', totalLicenses: 2_800, active90d: 2_200, inactive: 600, annualWaste: 180_000, action: 'Reclaim 600 inactive → migrate to Workforce.com in Q4', costPerLicense: 300, department: 'HR / All Divisions (workforce-wide)', lastAuditDate: '2026-01-10', trend: [88, 85, 82, 80, 79, 79], complianceRisk: false },
   { vendor: 'Microsoft 365', totalLicenses: 2_800, active90d: 1_800, inactive: 1_000, annualWaste: 800_000, action: 'Reclaim 1,000 seats + downgrade 400 E5→E3 for field crews', costPerLicense: 800, department: 'IT / All Divisions (company-wide)', lastAuditDate: '2025-09-15', trend: [76, 70, 66, 64, 64, 64], complianceRisk: false },
@@ -4099,7 +4099,7 @@ const meridianVendorHealth: IntegrationVendorHealth[] = [
   { name: 'Kronos/UKG (Enterprise)', status: 'green', uptime: 99.3, latency: 42, lastChecked: '2026-03-27T08:48:00Z' },
   { name: 'Databricks Data Lake', status: 'yellow', uptime: 98.1, latency: 156, lastChecked: '2026-03-27T08:42:00Z', note: 'Ingestion pipeline backpressure during nightly ETL' },
   { name: 'Samsara IoT Platform', status: 'green', uptime: 99.8, latency: 26, lastChecked: '2026-03-27T08:50:00Z' },
-  { name: 'Custom Dispatch (Legacy)', status: 'red', uptime: 94.6, latency: 820, lastChecked: '2026-03-27T08:40:00Z', note: 'Scheduled for decommission Q4 — unstable under cross-division load' },
+  { name: 'HCSS Suite (pre-AI)', status: 'yellow', uptime: 97.2, latency: 220, lastChecked: '2026-03-27T08:40:00Z', note: 'Copilot + Shield AI activation scheduled Q3 — running in baseline mode' },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -4158,7 +4158,7 @@ const ggFailureModes: IntegrationFailureMode[] = [
 
 const meridianFailureModes: IntegrationFailureMode[] = [
   { vendor: 'SAP S/4HANA', scenario: 'Cross-division data consolidation timeout during monthly roll-up', recovery: 'Parallel division processing with staged consolidation and retry', status: 'Passing' },
-  { vendor: 'Custom Dispatch (Legacy)', scenario: 'Complete system outage affecting all field dispatch operations', recovery: 'Failover to Samsara-based dispatch with manual crew notification', status: 'Needs Attention' },
+  { vendor: 'HCSS Suite (pre-AI)', scenario: 'HCSS API rate limit exceeded during cross-division dispatch sync', recovery: 'Request throttling with priority queue for active dispatch operations', status: 'Passing' },
   { vendor: 'Databricks Data Lake', scenario: 'ETL pipeline failure on schema evolution across divisions', recovery: 'Schema registry with backward-compatible evolution and dead-letter queue', status: 'Passing' },
   { vendor: 'Trimble GPS Fleet (Enterprise)', scenario: 'Fleet-wide GPS drift during solar storm event', recovery: 'Multi-constellation GNSS fallback with Galileo/GLONASS augmentation', status: 'Passing' },
   { vendor: 'Samsara IoT Platform', scenario: 'IoT device certificate expiration across fleet', recovery: 'Automated certificate rotation with 30-day advance renewal', status: 'Passing' },
@@ -4220,7 +4220,7 @@ const ggMethodologySteps: IntegrationMethodologyStep[] = [
 const meridianMethodologySteps: IntegrationMethodologyStep[] = [
   { number: 1, title: 'License Discovery', description: 'Comprehensive audit of software licenses across all 7 divisions — identify unused seats, redundant tools, and consolidation opportunities across 2,800 employees.' },
   { number: 2, title: 'Workflow Mapping', description: 'Map 62 critical workflows across rail construction, testing, signals, transit, energy, and environmental divisions to identify automation candidates.' },
-  { number: 3, title: 'Tech Stack Health', description: 'Assess the full enterprise tech stack — SAP S/4HANA, Primavera P6, Trimble, custom dispatch, and division-specific tools — for AI readiness and integration maturity.' },
+  { number: 3, title: 'Tech Stack Health', description: 'Assess the full enterprise tech stack — HCSS Suite, SAP Business Objects, Primavera P6, Trimble, and division-specific tools — for AI readiness and integration maturity.' },
   { number: 4, title: 'ROI Modeling', description: 'Model Year 1 savings of $5.8M across license reclamation, workflow automation, fleet intelligence, and AI-native railroad operations transformation.' },
 ];
 

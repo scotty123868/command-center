@@ -24,7 +24,7 @@ const conversation: Message[] = [
     table: {
       headers: ['Tool', 'Annual Waste', 'Root Cause'],
       rows: [
-        ['SAP ERP', '$360K', '90 unused licenses across all divisions'],
+        ['SAP Business Objects', '$360K', '90 unused licenses across all divisions'],
         ['Primavera P6', '$350K', '100 inactive seats, restrict to active project managers only'],
         ['Kronos/UKG Workforce', '$180K', '600 inactive seats; legacy contract underutilization'],
       ],
@@ -48,7 +48,7 @@ const conversation: Message[] = [
         {
           title: '2. Equipment Dispatch & GPS Fleet Optimization',
           detail:
-            '60% automatable | $580K annual savings | 18-week implementation. AI agent can optimize Trimble GPS Fleet routing, Custom Dispatch System scheduling, and crew allocation across HCC and HRSI.',
+            '60% automatable | $580K annual savings | 18-week implementation. AI agent can optimize Trimble GPS Fleet routing, HCSS Equipment360 scheduling, and crew allocation across HCC and HRSI.',
         },
         {
           title: '3. FRA Compliance & Track Inspection Reporting',
@@ -65,13 +65,13 @@ const conversation: Message[] = [
   {
     role: 'ai',
     content:
-      'Great question. Unifying your data is the highest-leverage long-term investment. Here\'s the recommended approach:\n\n**Architecture:** Databricks Lakehouse on Azure (aligns with your existing M365 footprint)\n\n**Data Connectors Needed:**\n- SAP ERP (HCC, HRSI, HTI) via SAP CDC connector\n- Primavera P6 (HCC, Herzog Energy) via REST API export\n- Custom Dispatch System (built 2009) via scheduled ETL\n- Trimble GPS Fleet Tracking (HCC, HRSI) via API integration\n- TAM-4 Geometry Car Data (HSI) via streaming pipeline\n- PTC Signal Telemetry (HTI) via real-time connector\n- FRA Compliance Database via regulatory data pipeline\n\n**Key Challenge:** Entity resolution across divisions. Equipment "Track Loader #2847" exists in 3 different systems with different IDs. You\'ll need a master data management (MDM) layer.\n\n**Timeline:** 16 weeks to production-ready MVP\n**Investment:** ~$200K (infrastructure + implementation)\n**Projected ROI:** 6x in year one\n\nThis is Phase 3 on your transformation roadmap. I recommend completing the license audit and workflow automation first to fund this initiative.',
+      'Great question. Unifying your data is the highest-leverage long-term investment. Here\'s the recommended approach:\n\n**Architecture:** Databricks Lakehouse on Azure (aligns with your existing M365 footprint)\n\n**Data Connectors Needed:**\n- HCSS Suite (Heavy Job, Equipment360) via HCSS API integration\n- SAP Business Objects (all divisions) via SAP BI connector\n- Primavera P6 (HCC, Herzog Energy) via REST API export\n- Trimble GPS Fleet Tracking (HCC, HRSI) via API integration\n- TAM-4 Geometry Car Data (HSI) via streaming pipeline\n- PTC Signal Telemetry (HTI) via real-time connector\n- FRA Compliance Database via regulatory data pipeline\n\n**Key Challenge:** Entity resolution across divisions. Equipment "Track Loader #2847" exists in 3 different systems with different IDs. You\'ll need a master data management (MDM) layer.\n\n**Timeline:** 16 weeks to production-ready MVP\n**Investment:** ~$200K (infrastructure + implementation)\n**Projected ROI:** 6x in year one\n\nThis is Phase 3 on your transformation roadmap. I recommend completing the license audit and workflow automation first to fund this initiative.',
   },
 ];
 
 const suggestedQuestions = [
   'Show me cross-division data gaps',
-  'Compare SAP ERP consolidation options',
+  'Compare SAP Business Objects optimization options',
   "What's our AI readiness score?",
   'Generate Q1 board report',
 ];

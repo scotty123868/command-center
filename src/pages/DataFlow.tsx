@@ -42,9 +42,9 @@ const gaps: GapDetail[] = [
     impact: '$400K/yr',
     impactNum: 400000,
     sourceList: [
-      'SAP ERP (HCC, HRSI, HTI)',
+      'SAP Business Objects (HCC, HRSI, HTI)',
       'Primavera P6 (HCC, Herzog Energy)',
-      'Custom Dispatch System (built 2009)',
+      'HCSS Suite (Heavy Job + Equipment360)',
       'FRA Compliance Database (HSI)',
     ],
     missingLayer:
@@ -56,7 +56,7 @@ const gaps: GapDetail[] = [
       'Board-ready financial dashboards',
     ],
     recommendedSolution:
-      'Deploy a unified chart of accounts in Databricks Lakehouse with automated ETL from SAP ERP, Primavera P6, and legacy systems. Estimated implementation: 8-12 weeks.',
+      'Deploy a unified chart of accounts in Databricks Lakehouse with automated ETL from SAP Business Objects, Primavera P6, and HCSS Suite. Estimated implementation: 8-12 weeks.',
   },
   {
     id: 2,
@@ -68,7 +68,7 @@ const gaps: GapDetail[] = [
     impactNum: 890000,
     sourceList: [
       'Trimble GPS Fleet Tracking (HCC, HRSI)',
-      'Custom Dispatch System (equipment scheduling)',
+      'HCSS Equipment360 (equipment scheduling)',
       'TAM-4 Geometry Car Data (HSI rail testing)',
       'Kronos/UKG Workforce (maintenance crew logs)',
     ],
@@ -92,7 +92,7 @@ const gaps: GapDetail[] = [
     impact: '$340K/yr',
     impactNum: 340000,
     sourceList: [
-      'SAP ERP (partial customer data — HCC only)',
+      'SAP Business Objects (partial customer data — HCC only)',
       'PTC Signal Telemetry (HTI client deployments)',
       'Primavera P6 (project-based client records)',
     ],

@@ -28,7 +28,7 @@ const VENDORS: Record<string, VendorConfig> = {
     category: 'fleet',
   },
   sap: {
-    name: 'SAP ERP',
+    name: 'SAP Business Objects',
     healthEndpoint: process.env.SAP_HEALTH_URL || '',
     expectedStatus: 200,
     timeoutMs: 10000,

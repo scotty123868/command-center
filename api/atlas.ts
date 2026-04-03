@@ -45,8 +45,8 @@ TOP SAVINGS OPPORTUNITIES:
 
 CURRENT TECH STACK:
 - Primavera P6: $420K/yr, 180 users, Project Management
-- Custom Dispatch System: $680K/yr, 340 users, Fleet Management (built 2009)
-- SAP ERP: $520K/yr, 160 users, Finance
+- HCSS Suite (No AI): $680K/yr, 340 users, Field Ops / Fleet (Heavy Job, Heavy Bid, Equipment360)
+- SAP Business Objects: $480K/yr, 120 users, BI / Reporting
 - Trimble GPS Fleet Tracking: Connected to 800+ assets
 - TAM-4 Geometry Car: Rail testing data system
 - PTC Signal Systems: Positive Train Control telemetry
