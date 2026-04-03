@@ -18,13 +18,13 @@ export default function BoardReportPage() {
   const roi = Math.round((roiSummary.netYear1 / roiSummary.implementationCosts) * 100);
 
   const topOppByDivision: Record<string, string> = {
-    hcc: 'Fleet dispatch automation ($1.2M)',
-    hrsi: 'Track maintenance AI ($890K)',
-    hsi: 'Defect detection ML ($520K)',
-    hti: 'PTC signal optimization ($640K)',
-    htsi: 'Transit scheduling AI ($480K)',
-    he: 'Pipeline monitoring IoT ($320K)',
-    gg: 'Environmental compliance automation ($280K)',
+    hcc: 'Project Estimation AI ($520K)',
+    hrsi: 'Maintenance Scheduling AI ($240K)',
+    hsi: 'AI Defect Detection ($280K)',
+    hti: 'License Reclamation (CAD + GIS) ($220K)',
+    htsi: 'Transit Schedule Optimization ($280K)',
+    he: 'Energy Project Mgmt Digitization ($120K)',
+    gg: 'Environmental Compliance Automation ($120K)',
   };
 
   const divisions = companies
