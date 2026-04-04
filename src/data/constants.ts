@@ -1000,7 +1000,7 @@ const northwoodCompanyProfile = {
   opCos: 1,
   opCoNames: ['Northwood Insurance Group'],
   techSpend: '$48M/yr',
-  aiReadinessScore: 41,
+  aiReadinessScore: 39,
   holdingPeriod: '12 months into 5-year hold',
   ebitdaMargin: '11.8%',
   targetEbitdaMargin: '19%',
@@ -1194,13 +1194,13 @@ const northwoodCurrentStack: CurrentTool[] = [
 ];
 
 const northwoodLicenses: License[] = [
-  { vendor: 'Microsoft 365', totalLicenses: 10_000, active90d: 7_200, inactive: 2_800, annualWaste: 2_100_000, action: 'Reclaim 2,800 seats + downgrade 1,500 E5→E3', costPerLicense: 2_000, department: 'IT / All Departments', lastAuditDate: '2025-10-01', trend: [82, 78, 74, 70, 65, 60], complianceRisk: false },
-  { vendor: 'Salesforce', totalLicenses: 1_400, active90d: 820, inactive: 580, annualWaste: 1_450_000, action: 'Reclaim 580 seats → migrate to HubSpot in Q3', costPerLicense: 5_000, department: 'Sales & Agent Relations', lastAuditDate: '2025-11-15', trend: [80, 74, 69, 65, 60, 56], complianceRisk: false },
-  { vendor: 'Duck Creek', totalLicenses: 1_200, active90d: 840, inactive: 360, annualWaste: 1_080_000, action: 'Reclaim 360 inactive seats, optimize license tier', costPerLicense: 6_000, department: 'Underwriting & Policy Admin', lastAuditDate: '2025-09-20', trend: [85, 80, 76, 72, 68, 65], complianceRisk: false },
-  { vendor: 'Guidewire', totalLicenses: 2_400, active90d: 1_900, inactive: 500, annualWaste: 1_600_000, action: 'Reclaim 500 seats, evaluate ClaimCenter cloud migration', costPerLicense: 8_000, department: 'Claims Operations', lastAuditDate: '2025-12-01', trend: [92, 90, 88, 87, 86, 84], complianceRisk: false },
-  { vendor: 'Slack Enterprise', totalLicenses: 8_000, active90d: 6_200, inactive: 1_800, annualWaste: 864_000, action: 'Downgrade 1,800 inactive to free tier', costPerLicense: 1_200, department: 'IT / All Departments', lastAuditDate: '2026-01-05', trend: [90, 87, 84, 82, 80, 78], complianceRisk: false },
-  { vendor: 'Adobe Acrobat Pro', totalLicenses: 2_600, active90d: 1_100, inactive: 1_500, annualWaste: 1_440_000, action: 'Reclaim 1,500 seats — restrict to claims and legal only', costPerLicense: 2_400, department: 'Claims & Legal (provisioned company-wide)', lastAuditDate: '2025-08-18', trend: [70, 60, 52, 45, 40, 36], complianceRisk: true },
-  { vendor: 'LexisNexis', totalLicenses: 600, active90d: 220, inactive: 380, annualWaste: 836_000, action: 'Reclaim 380 seats — restrict to SIU and underwriting', costPerLicense: 5_500, department: 'Special Investigations & Underwriting', lastAuditDate: '2025-07-30', trend: [68, 58, 50, 44, 38, 34], complianceRisk: false },
+  { vendor: 'Microsoft 365', totalLicenses: 10_000, active90d: 7_200, inactive: 2_800, annualWaste: 1_883_000, action: 'Reclaim 2,800 seats + downgrade 1,500 E5→E3', costPerLicense: 2_000, department: 'IT / All Departments', lastAuditDate: '2025-10-01', trend: [82, 78, 74, 70, 65, 60], complianceRisk: false },
+  { vendor: 'Salesforce', totalLicenses: 1_400, active90d: 820, inactive: 580, annualWaste: 1_300_000, action: 'Reclaim 580 seats → migrate to HubSpot in Q3', costPerLicense: 5_000, department: 'Sales & Agent Relations', lastAuditDate: '2025-11-15', trend: [80, 74, 69, 65, 60, 56], complianceRisk: false },
+  { vendor: 'Duck Creek', totalLicenses: 1_200, active90d: 840, inactive: 360, annualWaste: 968_000, action: 'Reclaim 360 inactive seats, optimize license tier', costPerLicense: 6_000, department: 'Underwriting & Policy Admin', lastAuditDate: '2025-09-20', trend: [85, 80, 76, 72, 68, 65], complianceRisk: false },
+  { vendor: 'Guidewire', totalLicenses: 2_400, active90d: 1_900, inactive: 500, annualWaste: 1_434_000, action: 'Reclaim 500 seats, evaluate ClaimCenter cloud migration', costPerLicense: 8_000, department: 'Claims Operations', lastAuditDate: '2025-12-01', trend: [92, 90, 88, 87, 86, 84], complianceRisk: false },
+  { vendor: 'Slack Enterprise', totalLicenses: 8_000, active90d: 6_200, inactive: 1_800, annualWaste: 775_000, action: 'Downgrade 1,800 inactive to free tier', costPerLicense: 1_200, department: 'IT / All Departments', lastAuditDate: '2026-01-05', trend: [90, 87, 84, 82, 80, 78], complianceRisk: false },
+  { vendor: 'Adobe Acrobat Pro', totalLicenses: 2_600, active90d: 1_100, inactive: 1_500, annualWaste: 1_291_000, action: 'Reclaim 1,500 seats — restrict to claims and legal only', costPerLicense: 2_400, department: 'Claims & Legal (provisioned company-wide)', lastAuditDate: '2025-08-18', trend: [70, 60, 52, 45, 40, 36], complianceRisk: true },
+  { vendor: 'LexisNexis', totalLicenses: 600, active90d: 220, inactive: 380, annualWaste: 749_000, action: 'Reclaim 380 seats — restrict to SIU and underwriting', costPerLicense: 5_500, department: 'Special Investigations & Underwriting', lastAuditDate: '2025-07-30', trend: [68, 58, 50, 44, 38, 34], complianceRisk: false },
 ];
 
 const northwoodWorkflowSummary = {
@@ -1230,7 +1230,7 @@ const pinnacleCompanyProfile = {
   opCos: 1,
   opCoNames: ['Pinnacle Healthcare'],
   techSpend: '$62M/yr',
-  aiReadinessScore: 28,
+  aiReadinessScore: 26,
   holdingPeriod: '6 months into 5-year hold',
   ebitdaMargin: '8.4%',
   targetEbitdaMargin: '16%',
@@ -1424,12 +1424,12 @@ const pinnacleCurrentStack: CurrentTool[] = [
 ];
 
 const pinnacleLicenses: License[] = [
-  { vendor: 'Salesforce Health Cloud', totalLicenses: 1_200, active90d: 480, inactive: 720, annualWaste: 1_800_000, action: 'Reclaim 720 seats → evaluate simpler CRM alternative', costPerLicense: 5_000, department: 'Care Coordination & Outreach', lastAuditDate: '2025-10-20', trend: [75, 68, 60, 54, 48, 42], complianceRisk: false },
-  { vendor: 'Microsoft Teams', totalLicenses: 13_000, active90d: 8_200, inactive: 4_800, annualWaste: 1_920_000, action: 'Downgrade 4,800 inactive to basic tier', costPerLicense: 600, department: 'IT / All Departments', lastAuditDate: '2025-11-10', trend: [82, 76, 70, 65, 58, 52], complianceRisk: false },
-  { vendor: 'DocuSign', totalLicenses: 2_400, active90d: 980, inactive: 1_420, annualWaste: 1_704_000, action: 'Reclaim 1,420 seats — restrict to admin and legal', costPerLicense: 1_200, department: 'Admin & Legal (provisioned org-wide)', lastAuditDate: '2025-09-05', trend: [72, 64, 56, 50, 44, 40], complianceRisk: false },
-  { vendor: 'ADP Modules', totalLicenses: 13_000, active90d: 11_200, inactive: 1_800, annualWaste: 1_080_000, action: 'Consolidate redundant modules, reclaim 1,800 inactive', costPerLicense: 1_200, department: 'HR', lastAuditDate: '2025-12-15', trend: [95, 93, 92, 91, 90, 89], complianceRisk: false },
-  { vendor: 'Zoom Healthcare', totalLicenses: 1_600, active90d: 680, inactive: 920, annualWaste: 1_104_000, action: 'Reclaim 920 seats — consolidate to Teams for non-telehealth', costPerLicense: 1_200, department: 'Clinical (telehealth) & Admin', lastAuditDate: '2025-08-28', trend: [78, 70, 62, 56, 48, 42], complianceRisk: true },
-  { vendor: 'Nuance PowerScribe', totalLicenses: 400, active90d: 160, inactive: 240, annualWaste: 720_000, action: 'Reclaim 240 seats — evaluate DAX Copilot replacement', costPerLicense: 3_000, department: 'Radiology', lastAuditDate: '2025-07-15', trend: [68, 58, 50, 44, 38, 34], complianceRisk: false },
+  { vendor: 'Salesforce Health Cloud', totalLicenses: 1_200, active90d: 480, inactive: 720, annualWaste: 1_988_000, action: 'Reclaim 720 seats → evaluate simpler CRM alternative', costPerLicense: 5_000, department: 'Care Coordination & Outreach', lastAuditDate: '2025-10-20', trend: [75, 68, 60, 54, 48, 42], complianceRisk: false },
+  { vendor: 'Microsoft Teams', totalLicenses: 13_000, active90d: 8_200, inactive: 4_800, annualWaste: 2_121_000, action: 'Downgrade 4,800 inactive to basic tier', costPerLicense: 600, department: 'IT / All Departments', lastAuditDate: '2025-11-10', trend: [82, 76, 70, 65, 58, 52], complianceRisk: false },
+  { vendor: 'DocuSign', totalLicenses: 2_400, active90d: 980, inactive: 1_420, annualWaste: 1_882_000, action: 'Reclaim 1,420 seats — restrict to admin and legal', costPerLicense: 1_200, department: 'Admin & Legal (provisioned org-wide)', lastAuditDate: '2025-09-05', trend: [72, 64, 56, 50, 44, 40], complianceRisk: false },
+  { vendor: 'ADP Modules', totalLicenses: 13_000, active90d: 11_200, inactive: 1_800, annualWaste: 1_193_000, action: 'Consolidate redundant modules, reclaim 1,800 inactive', costPerLicense: 1_200, department: 'HR', lastAuditDate: '2025-12-15', trend: [95, 93, 92, 91, 90, 89], complianceRisk: false },
+  { vendor: 'Zoom Healthcare', totalLicenses: 1_600, active90d: 680, inactive: 920, annualWaste: 1_220_000, action: 'Reclaim 920 seats — consolidate to Teams for non-telehealth', costPerLicense: 1_200, department: 'Clinical (telehealth) & Admin', lastAuditDate: '2025-08-28', trend: [78, 70, 62, 56, 48, 42], complianceRisk: true },
+  { vendor: 'Nuance PowerScribe', totalLicenses: 400, active90d: 160, inactive: 240, annualWaste: 796_000, action: 'Reclaim 240 seats — evaluate DAX Copilot replacement', costPerLicense: 3_000, department: 'Radiology', lastAuditDate: '2025-07-15', trend: [68, 58, 50, 44, 38, 34], complianceRisk: false },
 ];
 
 const pinnacleWorkflowSummary = {
@@ -1459,7 +1459,7 @@ const atlasCompanyProfile = {
   opCos: 4,
   opCoNames: ['Atlas Precision Components', 'Titan Metal Fabrication', 'Forge Industrial Systems', 'Apex Assembly Solutions'],
   techSpend: '$38M/yr',
-  aiReadinessScore: 38,
+  aiReadinessScore: 37,
   holdingPeriod: '24 months into 5-year hold',
   ebitdaMargin: '12.6%',
   targetEbitdaMargin: '21%',
@@ -1809,12 +1809,12 @@ const northbridgeCurrentStack: CurrentTool[] = [
 ];
 
 const northbridgeLicenses: License[] = [
-  { vendor: 'SAP S/4HANA', totalLicenses: 2400, active90d: 1680, inactive: 720, annualWaste: 3_800_000, action: 'Reclaim 720 seats + optimize license tiers across 12 OpCos', costPerLicense: 5_280, department: 'Enterprise / All OpCos', lastAuditDate: '2026-01-15', trend: [82, 76, 72, 68, 64, 70], complianceRisk: false },
-  { vendor: 'Salesforce', totalLicenses: 4200, active90d: 3100, inactive: 1100, annualWaste: 2_200_000, action: 'Reclaim 1,100 seats + consolidate 4 Salesforce orgs into 1', costPerLicense: 2_000, department: 'Sales & Revenue Operations', lastAuditDate: '2026-02-01', trend: [85, 80, 76, 72, 70, 74], complianceRisk: false },
-  { vendor: 'Workday', totalLicenses: 1800, active90d: 1420, inactive: 380, annualWaste: 1_400_000, action: 'Reclaim 380 seats from terminated/transferred employees', costPerLicense: 3_680, department: 'HR / All OpCos', lastAuditDate: '2025-12-20', trend: [90, 86, 82, 80, 78, 79], complianceRisk: false },
-  { vendor: 'Palantir Foundry', totalLicenses: 340, active90d: 180, inactive: 160, annualWaste: 840_000, action: 'Reclaim 160 seats — restrict to active analysts only', costPerLicense: 5_250, department: 'Analytics / Executive', lastAuditDate: '2026-01-08', trend: [68, 60, 55, 50, 48, 53], complianceRisk: true },
-  { vendor: 'ServiceNow', totalLicenses: 2100, active90d: 1800, inactive: 300, annualWaste: 420_000, action: 'Downgrade 300 inactive to read-only tier', costPerLicense: 1_400, department: 'IT Operations / All OpCos', lastAuditDate: '2026-02-10', trend: [92, 90, 88, 86, 85, 86], complianceRisk: false },
-  { vendor: 'Siemens Xcelerator', totalLicenses: 480, active90d: 320, inactive: 160, annualWaste: 380_000, action: 'Reclaim 160 seats from non-manufacturing OpCos', costPerLicense: 2_375, department: 'Manufacturing & Engineering', lastAuditDate: '2025-11-15', trend: [78, 72, 68, 65, 64, 67], complianceRisk: false },
+  { vendor: 'SAP S/4HANA', totalLicenses: 2400, active90d: 1680, inactive: 720, annualWaste: 7_566_000, action: 'Reclaim 720 seats + optimize license tiers across 12 OpCos', costPerLicense: 5_280, department: 'Enterprise / All OpCos', lastAuditDate: '2026-01-15', trend: [82, 76, 72, 68, 64, 70], complianceRisk: false },
+  { vendor: 'Salesforce', totalLicenses: 4200, active90d: 3100, inactive: 1100, annualWaste: 4_381_000, action: 'Reclaim 1,100 seats + consolidate 4 Salesforce orgs into 1', costPerLicense: 2_000, department: 'Sales & Revenue Operations', lastAuditDate: '2026-02-01', trend: [85, 80, 76, 72, 70, 74], complianceRisk: false },
+  { vendor: 'Workday', totalLicenses: 1800, active90d: 1420, inactive: 380, annualWaste: 2_788_000, action: 'Reclaim 380 seats from terminated/transferred employees', costPerLicense: 3_680, department: 'HR / All OpCos', lastAuditDate: '2025-12-20', trend: [90, 86, 82, 80, 78, 79], complianceRisk: false },
+  { vendor: 'Palantir Foundry', totalLicenses: 340, active90d: 180, inactive: 160, annualWaste: 1_673_000, action: 'Reclaim 160 seats — restrict to active analysts only', costPerLicense: 5_250, department: 'Analytics / Executive', lastAuditDate: '2026-01-08', trend: [68, 60, 55, 50, 48, 53], complianceRisk: true },
+  { vendor: 'ServiceNow', totalLicenses: 2100, active90d: 1800, inactive: 300, annualWaste: 836_000, action: 'Downgrade 300 inactive to read-only tier', costPerLicense: 1_400, department: 'IT Operations / All OpCos', lastAuditDate: '2026-02-10', trend: [92, 90, 88, 86, 85, 86], complianceRisk: false },
+  { vendor: 'Siemens Xcelerator', totalLicenses: 480, active90d: 320, inactive: 160, annualWaste: 756_000, action: 'Reclaim 160 seats from non-manufacturing OpCos', costPerLicense: 2_375, department: 'Manufacturing & Engineering', lastAuditDate: '2025-11-15', trend: [78, 72, 68, 65, 64, 67], complianceRisk: false },
 ];
 
 const northbridgeWorkflowSummary = {
@@ -1861,13 +1861,13 @@ const nbAerospaceAiReadinessBreakdown = [
 ];
 
 const nbAerospaceKpis = {
-  totalSavings: 15_000_000,
+  totalSavings: 15_100_000,
   techScoreBefore: 46,
   techScoreAfter: 85,
   workflowsAnalyzed: 50,
   automationReady: 10,
   unusedLicenseWaste: 6_100_000,
-  savingsSparkline: [0, 950_000, 2_100_000, 3_500_000, 5_000_000, 6_400_000, 7_800_000, 9_300_000, 10_700_000, 12_100_000, 13_600_000, 15_000_000],
+  savingsSparkline: [0, 950_000, 2_100_000, 3_500_000, 5_000_000, 6_400_000, 7_800_000, 9_300_000, 10_700_000, 12_100_000, 13_600_000, 15_100_000],
   scoreSparkline: [46, 50, 54, 57, 61, 65, 69, 73, 77, 80, 83, 85],
   workflowSparkline: [0, 4, 8, 11, 17, 23, 29, 34, 39, 44, 48, 52],
   licenseSparkline: [6_100_000, 5_600_000, 5_100_000, 4_500_000, 3_900_000, 3_400_000, 2_800_000, 2_300_000, 1_800_000, 1_400_000, 1_100_000, 900_000],
@@ -1944,10 +1944,10 @@ const nbAerospaceCurrentStack: CurrentTool[] = [
 ];
 
 const nbAerospaceLicenses: License[] = [
-  { vendor: 'Windchill PLM', totalLicenses: 480, active90d: 340, inactive: 140, annualWaste: 520_000, action: 'Reclaim 140 inactive seats + consolidate with TeamCenter users', costPerLicense: 2_280, department: 'Engineering / Product Design', lastAuditDate: '2026-01-20', trend: [82, 76, 72, 68, 66, 71], complianceRisk: false },
-  { vendor: 'IBM DOORS', totalLicenses: 200, active90d: 120, inactive: 80, annualWaste: 340_000, action: 'Migrate to modern ALM — reclaim all legacy seats', costPerLicense: 3_000, department: 'Systems Engineering', lastAuditDate: '2026-02-05', trend: [75, 68, 62, 58, 55, 60], complianceRisk: true },
-  { vendor: 'TeamCenter', totalLicenses: 360, active90d: 280, inactive: 80, annualWaste: 260_000, action: 'Reclaim 80 seats from non-engineering departments', costPerLicense: 2_000, department: 'Engineering / Simulation', lastAuditDate: '2026-01-10', trend: [88, 84, 80, 76, 74, 78], complianceRisk: false },
-  { vendor: 'AMOS MRO', totalLicenses: 240, active90d: 200, inactive: 40, annualWaste: 100_000, action: 'Downgrade 40 inactive to read-only tier', costPerLicense: 2_500, department: 'MRO Operations', lastAuditDate: '2025-12-15', trend: [90, 88, 86, 84, 82, 83], complianceRisk: false },
+  { vendor: 'Windchill PLM', totalLicenses: 480, active90d: 340, inactive: 140, annualWaste: 2_600_000, action: 'Reclaim 140 inactive seats + consolidate with TeamCenter users', costPerLicense: 2_280, department: 'Engineering / Product Design', lastAuditDate: '2026-01-20', trend: [82, 76, 72, 68, 66, 71], complianceRisk: false },
+  { vendor: 'IBM DOORS', totalLicenses: 200, active90d: 120, inactive: 80, annualWaste: 1_700_000, action: 'Migrate to modern ALM — reclaim all legacy seats', costPerLicense: 3_000, department: 'Systems Engineering', lastAuditDate: '2026-02-05', trend: [75, 68, 62, 58, 55, 60], complianceRisk: true },
+  { vendor: 'TeamCenter', totalLicenses: 360, active90d: 280, inactive: 80, annualWaste: 1_300_000, action: 'Reclaim 80 seats from non-engineering departments', costPerLicense: 2_000, department: 'Engineering / Simulation', lastAuditDate: '2026-01-10', trend: [88, 84, 80, 76, 74, 78], complianceRisk: false },
+  { vendor: 'AMOS MRO', totalLicenses: 240, active90d: 200, inactive: 40, annualWaste: 500_000, action: 'Downgrade 40 inactive to read-only tier', costPerLicense: 2_500, department: 'MRO Operations', lastAuditDate: '2025-12-15', trend: [90, 88, 86, 84, 82, 83], complianceRisk: false },
 ];
 
 const nbAerospaceWorkflowSummary = {
@@ -1962,9 +1962,9 @@ const nbAerospaceWorkflowSummary = {
 const nbAerospaceRoiSummary = {
   techStackSavings: 10_000_000,
   workflowAutomation: 8_000_000,
-  licenseRecovery: 6_000_000,
+  licenseRecovery: 6_100_000,
   implementationCosts: 9_000_000,
-  netYear1: 15_000_000,
+  netYear1: 15_100_000,
   year2Projected: 25_500_000,
 };
 
@@ -1994,13 +1994,13 @@ const nbEnergyAiReadinessBreakdown = [
 ];
 
 const nbEnergyKpis = {
-  totalSavings: 17_000_000,
+  totalSavings: 17_200_000,
   techScoreBefore: 38,
   techScoreAfter: 84,
   workflowsAnalyzed: 52,
   automationReady: 12,
   unusedLicenseWaste: 7_200_000,
-  savingsSparkline: [0, 1_100_000, 2_400_000, 4_000_000, 6_100_000, 8_100_000, 9_700_000, 11_400_000, 13_000_000, 14_600_000, 15_900_000, 17_000_000],
+  savingsSparkline: [0, 1_100_000, 2_400_000, 4_000_000, 6_100_000, 8_100_000, 9_700_000, 11_400_000, 13_000_000, 14_600_000, 15_900_000, 17_200_000],
   scoreSparkline: [38, 42, 46, 49, 54, 59, 63, 68, 73, 76, 80, 84],
   workflowSparkline: [0, 4, 8, 13, 18, 23, 29, 34, 39, 44, 48, 52],
   licenseSparkline: [7_200_000, 6_600_000, 6_000_000, 5_300_000, 4_700_000, 4_000_000, 3_300_000, 2_700_000, 2_100_000, 1_700_000, 1_400_000, 1_100_000],
@@ -2077,16 +2077,16 @@ const nbEnergyCurrentStack: CurrentTool[] = [
 ];
 
 const nbEnergyLicenses: License[] = [
-  { vendor: 'OSIsoft PI', totalLicenses: 600, active90d: 420, inactive: 180, annualWaste: 620_000, action: 'Reclaim 180 inactive seats + migrate to cloud-native historian', costPerLicense: 2_667, department: 'Operations / Engineering', lastAuditDate: '2026-01-25', trend: [80, 74, 70, 66, 64, 70], complianceRisk: false },
-  { vendor: 'GE SCADA', totalLicenses: 240, active90d: 180, inactive: 60, annualWaste: 400_000, action: 'Optimize license tiers — downgrade 60 to monitoring-only', costPerLicense: 4_667, department: 'Grid Operations', lastAuditDate: '2026-02-10', trend: [85, 80, 76, 72, 70, 75], complianceRisk: true },
-  { vendor: 'Esri ArcGIS', totalLicenses: 480, active90d: 360, inactive: 120, annualWaste: 290_000, action: 'Reclaim 120 seats from non-field departments', costPerLicense: 1_667, department: 'Field Operations / GIS', lastAuditDate: '2026-01-05', trend: [88, 84, 80, 76, 74, 75], complianceRisk: false },
-  { vendor: 'Maximo', totalLicenses: 540, active90d: 440, inactive: 100, annualWaste: 140_000, action: 'Reclaim 100 inactive seats from seasonal contractors', costPerLicense: 1_400, department: 'Asset Management', lastAuditDate: '2025-12-20', trend: [90, 88, 84, 82, 80, 81], complianceRisk: false },
+  { vendor: 'OSIsoft PI', totalLicenses: 600, active90d: 420, inactive: 180, annualWaste: 3_079_000, action: 'Reclaim 180 inactive seats + migrate to cloud-native historian', costPerLicense: 2_667, department: 'Operations / Engineering', lastAuditDate: '2026-01-25', trend: [80, 74, 70, 66, 64, 70], complianceRisk: false },
+  { vendor: 'GE SCADA', totalLicenses: 240, active90d: 180, inactive: 60, annualWaste: 1_986_000, action: 'Optimize license tiers — downgrade 60 to monitoring-only', costPerLicense: 4_667, department: 'Grid Operations', lastAuditDate: '2026-02-10', trend: [85, 80, 76, 72, 70, 75], complianceRisk: true },
+  { vendor: 'Esri ArcGIS', totalLicenses: 480, active90d: 360, inactive: 120, annualWaste: 1_440_000, action: 'Reclaim 120 seats from non-field departments', costPerLicense: 1_667, department: 'Field Operations / GIS', lastAuditDate: '2026-01-05', trend: [88, 84, 80, 76, 74, 75], complianceRisk: false },
+  { vendor: 'Maximo', totalLicenses: 540, active90d: 440, inactive: 100, annualWaste: 695_000, action: 'Reclaim 100 inactive seats from seasonal contractors', costPerLicense: 1_400, department: 'Asset Management', lastAuditDate: '2025-12-20', trend: [90, 88, 84, 82, 80, 81], complianceRisk: false },
 ];
 
 const nbEnergyWorkflowSummary = {
-  total: 56,
+  total: 52,
   fullyAutomatable: 12,
-  humanInLoop: 30,
+  humanInLoop: 26,
   humanRequired: 14,
   currentLaborSpend: 72_000_000,
   potentialSavings: 12_000_000,
@@ -2095,9 +2095,9 @@ const nbEnergyWorkflowSummary = {
 const nbEnergyRoiSummary = {
   techStackSavings: 9_000_000,
   workflowAutomation: 12_000_000,
-  licenseRecovery: 7_000_000,
+  licenseRecovery: 7_200_000,
   implementationCosts: 11_000_000,
-  netYear1: 17_000_000,
+  netYear1: 17_200_000,
   year2Projected: 28_900_000,
 };
 
@@ -2112,7 +2112,7 @@ const nbFinancialCompanyProfile = {
   opCos: 1,
   opCoNames: ['NB Financial Services'],
   techSpend: '$48M/yr',
-  aiReadinessScore: 62,
+  aiReadinessScore: 63,
   holdingPeriod: 'Northbridge Industries OpCo',
   ebitdaMargin: '22.6%',
   targetEbitdaMargin: '30%',
@@ -2127,13 +2127,13 @@ const nbFinancialAiReadinessBreakdown = [
 ];
 
 const nbFinancialKpis = {
-  totalSavings: 9_500_000,
+  totalSavings: 9_600_000,
   techScoreBefore: 62,
   techScoreAfter: 91,
   workflowsAnalyzed: 36,
   automationReady: 12,
   unusedLicenseWaste: 4_600_000,
-  savingsSparkline: [0, 600_000, 1_300_000, 2_200_000, 3_400_000, 4_500_000, 5_400_000, 6_300_000, 7_300_000, 8_200_000, 8_900_000, 9_500_000],
+  savingsSparkline: [0, 600_000, 1_300_000, 2_200_000, 3_400_000, 4_500_000, 5_400_000, 6_300_000, 7_300_000, 8_200_000, 8_900_000, 9_600_000],
   scoreSparkline: [62, 65, 67, 70, 73, 77, 79, 82, 84, 87, 89, 91],
   workflowSparkline: [0, 3, 5, 9, 13, 17, 21, 25, 28, 31, 33, 36],
   licenseSparkline: [4_600_000, 4_200_000, 3_800_000, 3_400_000, 3_000_000, 2_600_000, 2_100_000, 1_700_000, 1_400_000, 1_100_000, 900_000, 700_000],
@@ -2210,10 +2210,10 @@ const nbFinancialCurrentStack: CurrentTool[] = [
 ];
 
 const nbFinancialLicenses: License[] = [
-  { vendor: 'Bloomberg Terminal', totalLicenses: 180, active90d: 140, inactive: 40, annualWaste: 440_000, action: 'Reclaim 40 inactive terminals + optimize to B-PIPE for data-only users', costPerLicense: 8_000, department: 'Trading / Research', lastAuditDate: '2026-01-15', trend: [88, 84, 80, 76, 74, 78], complianceRisk: false },
-  { vendor: 'Murex MX.3', totalLicenses: 120, active90d: 98, inactive: 22, annualWaste: 260_000, action: 'Reclaim 22 seats from non-trading support staff', costPerLicense: 8_180, department: 'Trading / Operations', lastAuditDate: '2026-02-01', trend: [90, 86, 82, 80, 78, 82], complianceRisk: false },
-  { vendor: 'Refinitiv Eikon', totalLicenses: 140, active90d: 100, inactive: 40, annualWaste: 170_000, action: 'Consolidate with Bloomberg where overlap exists', costPerLicense: 3_000, department: 'Research / Sales', lastAuditDate: '2026-01-20', trend: [82, 76, 72, 68, 66, 71], complianceRisk: false },
-  { vendor: 'Calypso', totalLicenses: 80, active90d: 62, inactive: 18, annualWaste: 60_000, action: 'Reclaim 18 seats from legacy risk team members', costPerLicense: 3_333, department: 'Risk Management', lastAuditDate: '2025-12-10', trend: [86, 82, 78, 76, 74, 78], complianceRisk: true },
+  { vendor: 'Bloomberg Terminal', totalLicenses: 180, active90d: 140, inactive: 40, annualWaste: 2_176_000, action: 'Reclaim 40 inactive terminals + optimize to B-PIPE for data-only users', costPerLicense: 8_000, department: 'Trading / Research', lastAuditDate: '2026-01-15', trend: [88, 84, 80, 76, 74, 78], complianceRisk: false },
+  { vendor: 'Murex MX.3', totalLicenses: 120, active90d: 98, inactive: 22, annualWaste: 1_286_000, action: 'Reclaim 22 seats from non-trading support staff', costPerLicense: 8_180, department: 'Trading / Operations', lastAuditDate: '2026-02-01', trend: [90, 86, 82, 80, 78, 82], complianceRisk: false },
+  { vendor: 'Refinitiv Eikon', totalLicenses: 140, active90d: 100, inactive: 40, annualWaste: 841_000, action: 'Consolidate with Bloomberg where overlap exists', costPerLicense: 3_000, department: 'Research / Sales', lastAuditDate: '2026-01-20', trend: [82, 76, 72, 68, 66, 71], complianceRisk: false },
+  { vendor: 'Calypso', totalLicenses: 80, active90d: 62, inactive: 18, annualWaste: 297_000, action: 'Reclaim 18 seats from legacy risk team members', costPerLicense: 3_333, department: 'Risk Management', lastAuditDate: '2025-12-10', trend: [86, 82, 78, 76, 74, 78], complianceRisk: true },
 ];
 
 const nbFinancialWorkflowSummary = {
@@ -2228,9 +2228,9 @@ const nbFinancialWorkflowSummary = {
 const nbFinancialRoiSummary = {
   techStackSavings: 6_000_000,
   workflowAutomation: 8_000_000,
-  licenseRecovery: 4_500_000,
+  licenseRecovery: 4_600_000,
   implementationCosts: 9_000_000,
-  netYear1: 9_500_000,
+  netYear1: 9_600_000,
   year2Projected: 16_150_000,
 };
 
@@ -2260,13 +2260,13 @@ const nbHealthAiReadinessBreakdown = [
 ];
 
 const nbHealthKpis = {
-  totalSavings: 13_500_000,
+  totalSavings: 13_600_000,
   techScoreBefore: 55,
   techScoreAfter: 89,
   workflowsAnalyzed: 44,
   automationReady: 14,
   unusedLicenseWaste: 5_600_000,
-  savingsSparkline: [0, 860_000, 1_900_000, 3_200_000, 4_850_000, 6_400_000, 7_700_000, 9_000_000, 10_300_000, 11_600_000, 12_600_000, 13_500_000],
+  savingsSparkline: [0, 860_000, 1_900_000, 3_200_000, 4_850_000, 6_400_000, 7_700_000, 9_000_000, 10_300_000, 11_600_000, 12_600_000, 13_600_000],
   scoreSparkline: [55, 58, 61, 65, 68, 71, 75, 79, 82, 85, 87, 89],
   workflowSparkline: [0, 3, 7, 11, 16, 21, 25, 29, 33, 36, 40, 44],
   licenseSparkline: [5_600_000, 5_100_000, 4_600_000, 4_200_000, 3_600_000, 3_100_000, 2_600_000, 2_100_000, 1_600_000, 1_300_000, 1_000_000, 750_000],
@@ -2343,16 +2343,16 @@ const nbHealthCurrentStack: CurrentTool[] = [
 ];
 
 const nbHealthLicenses: License[] = [
-  { vendor: 'Veeva Vault', totalLicenses: 720, active90d: 540, inactive: 180, annualWaste: 480_000, action: 'Reclaim 180 inactive seats from completed trial teams', costPerLicense: 2_111, department: 'Clinical / Regulatory', lastAuditDate: '2026-01-18', trend: [85, 80, 76, 72, 70, 75], complianceRisk: false },
-  { vendor: 'LabWare LIMS', totalLicenses: 400, active90d: 280, inactive: 120, annualWaste: 320_000, action: 'Reclaim 120 seats + evaluate LIMS replacement', costPerLicense: 2_167, department: 'Lab Operations / QC', lastAuditDate: '2026-02-05', trend: [82, 76, 70, 66, 64, 70], complianceRisk: true },
-  { vendor: 'Medidata Rave', totalLicenses: 360, active90d: 280, inactive: 80, annualWaste: 220_000, action: 'Reclaim 80 seats from inactive study coordinators', costPerLicense: 2_250, department: 'Clinical Data Management', lastAuditDate: '2026-01-10', trend: [88, 84, 80, 78, 76, 78], complianceRisk: false },
-  { vendor: 'Argus Safety', totalLicenses: 160, active90d: 120, inactive: 40, annualWaste: 100_000, action: 'Optimize license tiers — downgrade 40 to read-only', costPerLicense: 2_500, department: 'Drug Safety / PV', lastAuditDate: '2025-12-20', trend: [86, 82, 78, 76, 74, 75], complianceRisk: false },
+  { vendor: 'Veeva Vault', totalLicenses: 720, active90d: 540, inactive: 180, annualWaste: 2_400_000, action: 'Reclaim 180 inactive seats from completed trial teams', costPerLicense: 2_111, department: 'Clinical / Regulatory', lastAuditDate: '2026-01-18', trend: [85, 80, 76, 72, 70, 75], complianceRisk: false },
+  { vendor: 'LabWare LIMS', totalLicenses: 400, active90d: 280, inactive: 120, annualWaste: 1_600_000, action: 'Reclaim 120 seats + evaluate LIMS replacement', costPerLicense: 2_167, department: 'Lab Operations / QC', lastAuditDate: '2026-02-05', trend: [82, 76, 70, 66, 64, 70], complianceRisk: true },
+  { vendor: 'Medidata Rave', totalLicenses: 360, active90d: 280, inactive: 80, annualWaste: 1_100_000, action: 'Reclaim 80 seats from inactive study coordinators', costPerLicense: 2_250, department: 'Clinical Data Management', lastAuditDate: '2026-01-10', trend: [88, 84, 80, 78, 76, 78], complianceRisk: false },
+  { vendor: 'Argus Safety', totalLicenses: 160, active90d: 120, inactive: 40, annualWaste: 500_000, action: 'Optimize license tiers — downgrade 40 to read-only', costPerLicense: 2_500, department: 'Drug Safety / PV', lastAuditDate: '2025-12-20', trend: [86, 82, 78, 76, 74, 75], complianceRisk: false },
 ];
 
 const nbHealthWorkflowSummary = {
-  total: 42,
+  total: 44,
   fullyAutomatable: 14,
-  humanInLoop: 20,
+  humanInLoop: 22,
   humanRequired: 8,
   currentLaborSpend: 66_000_000,
   potentialSavings: 10_000_000,
@@ -2361,9 +2361,9 @@ const nbHealthWorkflowSummary = {
 const nbHealthRoiSummary = {
   techStackSavings: 7_000_000,
   workflowAutomation: 10_000_000,
-  licenseRecovery: 5_500_000,
+  licenseRecovery: 5_600_000,
   implementationCosts: 9_000_000,
-  netYear1: 13_500_000,
+  netYear1: 13_600_000,
   year2Projected: 22_950_000,
 };
 
@@ -2378,7 +2378,7 @@ const brazilCompanyProfile = {
   opCos: 8,
   opCoNames: ['Receita Federal (Tax & Revenue)', 'SUS (Unified Health System)', 'BNDES (Development Bank)', 'SERPRO (Federal Data Processing)', 'INSS (Social Security)', 'DATASUS (Health Informatics)', 'Ministry of Defense (Cyber Command)', 'ANATEL (Telecommunications)'],
   techSpend: '$920M/yr',
-  aiReadinessScore: 48,
+  aiReadinessScore: 45,
   holdingPeriod: 'Sovereign government — 215M population',
   ebitdaMargin: 'N/A',
   targetEbitdaMargin: 'N/A',
@@ -2496,11 +2496,11 @@ const brazilCurrentStack: CurrentTool[] = [
 ];
 
 const brazilLicenses: License[] = [
-  { vendor: 'SERPRO Mainframe Licenses', totalLicenses: 4_200, active90d: 2_800, inactive: 1_400, annualWaste: 7_000_000, action: 'Migrate 1,400 workloads to containerized gov cloud — mainframe decommission program', costPerLicense: 5_000, department: 'SERPRO / All Agencies', lastAuditDate: '2026-01-20', trend: [75, 70, 66, 62, 60, 62], complianceRisk: false },
-  { vendor: 'Oracle Database', totalLicenses: 1_800, active90d: 900, inactive: 900, annualWaste: 4_500_000, action: 'Migrate to PostgreSQL — Oracle license elimination across DATASUS and legacy systems', costPerLicense: 5_000, department: 'SUS / DATASUS', lastAuditDate: '2025-12-15', trend: [68, 60, 55, 50, 48, 50], complianceRisk: true },
-  { vendor: 'Microsoft 365 E5', totalLicenses: 80_000, active90d: 56_000, inactive: 24_000, annualWaste: 3_600_000, action: 'Downgrade 24,000 to E3 tier — E5 features unused by field office staff', costPerLicense: 150, department: 'All Agencies', lastAuditDate: '2026-02-05', trend: [88, 82, 78, 74, 72, 70], complianceRisk: false },
-  { vendor: 'Custom Legacy Systems (SUS/CNES)', totalLicenses: 320, active90d: 140, inactive: 180, annualWaste: 1_800_000, action: 'Decommission 180 legacy modules — replace with GOV.BR microservices', costPerLicense: 10_000, department: 'SUS / Health Ministry', lastAuditDate: '2025-11-01', trend: [62, 55, 48, 42, 40, 43], complianceRisk: true },
-  { vendor: 'VMware vSphere', totalLicenses: 1_200, active90d: 800, inactive: 400, annualWaste: 1_100_000, action: 'Migrate 400 VMs to containerized deployment on Kubernetes gov cloud', costPerLicense: 2_750, department: 'SERPRO Infrastructure', lastAuditDate: '2026-01-10', trend: [82, 76, 72, 68, 66, 67], complianceRisk: false },
+  { vendor: 'SERPRO Mainframe Licenses', totalLicenses: 4_200, active90d: 2_800, inactive: 1_400, annualWaste: 10_111_000, action: 'Migrate 1,400 workloads to containerized gov cloud — mainframe decommission program', costPerLicense: 5_000, department: 'SERPRO / All Agencies', lastAuditDate: '2026-01-20', trend: [75, 70, 66, 62, 60, 62], complianceRisk: false },
+  { vendor: 'Oracle Database', totalLicenses: 1_800, active90d: 900, inactive: 900, annualWaste: 6_500_000, action: 'Migrate to PostgreSQL — Oracle license elimination across DATASUS and legacy systems', costPerLicense: 5_000, department: 'SUS / DATASUS', lastAuditDate: '2025-12-15', trend: [68, 60, 55, 50, 48, 50], complianceRisk: true },
+  { vendor: 'Microsoft 365 E5', totalLicenses: 80_000, active90d: 56_000, inactive: 24_000, annualWaste: 5_200_000, action: 'Downgrade 24,000 to E3 tier — E5 features unused by field office staff', costPerLicense: 150, department: 'All Agencies', lastAuditDate: '2026-02-05', trend: [88, 82, 78, 74, 72, 70], complianceRisk: false },
+  { vendor: 'Custom Legacy Systems (SUS/CNES)', totalLicenses: 320, active90d: 140, inactive: 180, annualWaste: 2_600_000, action: 'Decommission 180 legacy modules — replace with GOV.BR microservices', costPerLicense: 10_000, department: 'SUS / Health Ministry', lastAuditDate: '2025-11-01', trend: [62, 55, 48, 42, 40, 43], complianceRisk: true },
+  { vendor: 'VMware vSphere', totalLicenses: 1_200, active90d: 800, inactive: 400, annualWaste: 1_589_000, action: 'Migrate 400 VMs to containerized deployment on Kubernetes gov cloud', costPerLicense: 2_750, department: 'SERPRO Infrastructure', lastAuditDate: '2026-01-10', trend: [82, 76, 72, 68, 66, 67], complianceRisk: false },
 ];
 
 const brazilWorkflowSummary = {
@@ -2532,7 +2532,7 @@ const brReceitaCompanyProfile = {
   opCos: 0,
   opCoNames: [] as string[],
   techSpend: '$140M/yr',
-  aiReadinessScore: 56,
+  aiReadinessScore: 55,
   holdingPeriod: 'Federal agency — 35M annual returns',
   ebitdaMargin: 'N/A',
   targetEbitdaMargin: 'N/A',
@@ -2630,10 +2630,10 @@ const brReceitaCurrentStack: CurrentTool[] = [
 ];
 
 const brReceitaLicenses: License[] = [
-  { vendor: 'SAP FICO Suite', totalLicenses: 840, active90d: 620, inactive: 220, annualWaste: 330_000, action: 'Reclaim 220 inactive seats and consolidate to S/4HANA Finance', costPerLicense: 1_500, department: 'Ministry of Finance', lastAuditDate: '2026-01-15', trend: [78, 74, 72, 70, 68, 74], complianceRisk: false },
-  { vendor: 'Oracle BI Enterprise', totalLicenses: 320, active90d: 180, inactive: 140, annualWaste: 196_000, action: 'Migrate 140 seats to open-source Metabase or Superset', costPerLicense: 1_400, department: 'Budget Analytics Division', lastAuditDate: '2025-12-20', trend: [72, 66, 60, 56, 54, 56], complianceRisk: true },
-  { vendor: 'Microsoft 365 E3', totalLicenses: 4_200, active90d: 3_600, inactive: 600, annualWaste: 108_000, action: 'Downgrade 600 seats to F3 frontline tier', costPerLicense: 180, department: 'All Finance Divisions', lastAuditDate: '2026-02-01', trend: [90, 86, 84, 82, 80, 86], complianceRisk: false },
-  { vendor: 'Customs Legacy Modules', totalLicenses: 28, active90d: 14, inactive: 14, annualWaste: 46_000, action: 'Decommission legacy customs modules — migrate to EU NCTS Phase 5', costPerLicense: 3_286, department: 'Customs IT', lastAuditDate: '2025-11-10', trend: [58, 52, 48, 44, 42, 50], complianceRisk: true },
+  { vendor: 'SAP FICO Suite', totalLicenses: 840, active90d: 620, inactive: 220, annualWaste: 2_038_000, action: 'Reclaim 220 inactive seats and consolidate to S/4HANA Finance', costPerLicense: 1_500, department: 'Ministry of Finance', lastAuditDate: '2026-01-15', trend: [78, 74, 72, 70, 68, 74], complianceRisk: false },
+  { vendor: 'Oracle BI Enterprise', totalLicenses: 320, active90d: 180, inactive: 140, annualWaste: 1_211_000, action: 'Migrate 140 seats to open-source Metabase or Superset', costPerLicense: 1_400, department: 'Budget Analytics Division', lastAuditDate: '2025-12-20', trend: [72, 66, 60, 56, 54, 56], complianceRisk: true },
+  { vendor: 'Microsoft 365 E3', totalLicenses: 4_200, active90d: 3_600, inactive: 600, annualWaste: 667_000, action: 'Downgrade 600 seats to F3 frontline tier', costPerLicense: 180, department: 'All Finance Divisions', lastAuditDate: '2026-02-01', trend: [90, 86, 84, 82, 80, 86], complianceRisk: false },
+  { vendor: 'Customs Legacy Modules', totalLicenses: 28, active90d: 14, inactive: 14, annualWaste: 284_000, action: 'Decommission legacy customs modules — migrate to EU NCTS Phase 5', costPerLicense: 3_286, department: 'Customs IT', lastAuditDate: '2025-11-10', trend: [58, 52, 48, 44, 42, 50], complianceRisk: true },
 ];
 
 const brReceitaWorkflowSummary = {
@@ -2665,7 +2665,7 @@ const brSusCompanyProfile = {
   opCos: 0,
   opCoNames: [] as string[],
   techSpend: '$280M/yr',
-  aiReadinessScore: 38,
+  aiReadinessScore: 37,
   holdingPeriod: 'Federal agency — 215M beneficiaries, 6,000+ hospitals',
   ebitdaMargin: 'N/A',
   targetEbitdaMargin: 'N/A',
@@ -2763,10 +2763,10 @@ const brSusCurrentStack: CurrentTool[] = [
 ];
 
 const brSusLicenses: License[] = [
-  { vendor: 'Social Welfare Legacy Suite', totalLicenses: 3_400, active90d: 2_200, inactive: 1_200, annualWaste: 420_000, action: 'Replace legacy system with modern case management platform', costPerLicense: 350, department: 'Social Welfare Division', lastAuditDate: '2025-12-01', trend: [72, 68, 64, 62, 60, 65], complianceRisk: true },
-  { vendor: 'Health Insurance Fund IS', totalLicenses: 1_200, active90d: 880, inactive: 320, annualWaste: 256_000, action: 'Consolidate 320 inactive seats, modernize claims processing', costPerLicense: 800, department: 'Health Insurance Fund', lastAuditDate: '2026-01-20', trend: [80, 76, 74, 72, 70, 73], complianceRisk: false },
-  { vendor: 'Microsoft 365 E3', totalLicenses: 8_400, active90d: 7_200, inactive: 1_200, annualWaste: 144_000, action: 'Downgrade 1,200 inactive seats to F1 tier', costPerLicense: 120, department: 'All Social Affairs', lastAuditDate: '2026-02-10', trend: [88, 86, 84, 82, 80, 86], complianceRisk: false },
-  { vendor: 'Pension Registry Modules', totalLicenses: 420, active90d: 320, inactive: 100, annualWaste: 100_000, action: 'Retire 100 unused modules, migrate to unified benefits platform', costPerLicense: 1_000, department: 'Pension Division', lastAuditDate: '2025-11-15', trend: [82, 78, 76, 74, 72, 76], complianceRisk: false },
+  { vendor: 'Social Welfare Legacy Suite', totalLicenses: 3_400, active90d: 2_200, inactive: 1_200, annualWaste: 2_648_000, action: 'Replace legacy system with modern case management platform', costPerLicense: 350, department: 'Social Welfare Division', lastAuditDate: '2025-12-01', trend: [72, 68, 64, 62, 60, 65], complianceRisk: true },
+  { vendor: 'Health Insurance Fund IS', totalLicenses: 1_200, active90d: 880, inactive: 320, annualWaste: 1_614_000, action: 'Consolidate 320 inactive seats, modernize claims processing', costPerLicense: 800, department: 'Health Insurance Fund', lastAuditDate: '2026-01-20', trend: [80, 76, 74, 72, 70, 73], complianceRisk: false },
+  { vendor: 'Microsoft 365 E3', totalLicenses: 8_400, active90d: 7_200, inactive: 1_200, annualWaste: 908_000, action: 'Downgrade 1,200 inactive seats to F1 tier', costPerLicense: 120, department: 'All Social Affairs', lastAuditDate: '2026-02-10', trend: [88, 86, 84, 82, 80, 86], complianceRisk: false },
+  { vendor: 'Pension Registry Modules', totalLicenses: 420, active90d: 320, inactive: 100, annualWaste: 630_000, action: 'Retire 100 unused modules, migrate to unified benefits platform', costPerLicense: 1_000, department: 'Pension Division', lastAuditDate: '2025-11-15', trend: [82, 78, 76, 74, 72, 76], complianceRisk: false },
 ];
 
 const brSusWorkflowSummary = {
@@ -2896,10 +2896,10 @@ const brBndesCurrentStack: CurrentTool[] = [
 ];
 
 const brBndesLicenses: License[] = [
-  { vendor: 'Trade Compliance Suite', totalLicenses: 480, active90d: 320, inactive: 160, annualWaste: 192_000, action: 'Replace legacy trade compliance with AI-native solution', costPerLicense: 1_200, department: 'Trade & Customs Division', lastAuditDate: '2025-12-15', trend: [74, 70, 66, 64, 62, 67], complianceRisk: true },
-  { vendor: 'Microsoft 365 E3', totalLicenses: 5_200, active90d: 4_400, inactive: 800, annualWaste: 96_000, action: 'Downgrade 800 inactive to F1 tier', costPerLicense: 120, department: 'All Economic Affairs', lastAuditDate: '2026-02-01', trend: [88, 86, 84, 82, 80, 85], complianceRisk: false },
-  { vendor: 'Salesforce Gov Cloud', totalLicenses: 240, active90d: 180, inactive: 60, annualWaste: 84_000, action: 'Consolidate 60 seats — evaluate migration to open-source CRM', costPerLicense: 1_400, department: 'Investment Agency', lastAuditDate: '2026-01-05', trend: [82, 78, 76, 72, 70, 75], complianceRisk: false },
-  { vendor: 'Data Analytics Platform', totalLicenses: 120, active90d: 84, inactive: 36, annualWaste: 48_000, action: 'Migrate to unified analytics on Metabase', costPerLicense: 1_333, department: 'Economic Analysis', lastAuditDate: '2025-11-20', trend: [76, 72, 68, 66, 64, 70], complianceRisk: false },
+  { vendor: 'Trade Compliance Suite', totalLicenses: 480, active90d: 320, inactive: 160, annualWaste: 1_463_000, action: 'Replace legacy trade compliance with AI-native solution', costPerLicense: 1_200, department: 'Trade & Customs Division', lastAuditDate: '2025-12-15', trend: [74, 70, 66, 64, 62, 67], complianceRisk: true },
+  { vendor: 'Microsoft 365 E3', totalLicenses: 5_200, active90d: 4_400, inactive: 800, annualWaste: 731_000, action: 'Downgrade 800 inactive to F1 tier', costPerLicense: 120, department: 'All Economic Affairs', lastAuditDate: '2026-02-01', trend: [88, 86, 84, 82, 80, 85], complianceRisk: false },
+  { vendor: 'Salesforce Gov Cloud', totalLicenses: 240, active90d: 180, inactive: 60, annualWaste: 640_000, action: 'Consolidate 60 seats — evaluate migration to open-source CRM', costPerLicense: 1_400, department: 'Investment Agency', lastAuditDate: '2026-01-05', trend: [82, 78, 76, 72, 70, 75], complianceRisk: false },
+  { vendor: 'Data Analytics Platform', totalLicenses: 120, active90d: 84, inactive: 36, annualWaste: 366_000, action: 'Migrate to unified analytics on Metabase', costPerLicense: 1_333, department: 'Economic Analysis', lastAuditDate: '2025-11-20', trend: [76, 72, 68, 66, 64, 70], complianceRisk: false },
 ];
 
 const brBndesWorkflowSummary = {
@@ -2931,7 +2931,7 @@ const brSerproCompanyProfile = {
   opCos: 0,
   opCoNames: [] as string[],
   techSpend: '$108M/yr',
-  aiReadinessScore: 55,
+  aiReadinessScore: 54,
   holdingPeriod: 'Federal IT enterprise — processes CPF/CNPJ for 215M citizens',
   ebitdaMargin: 'N/A',
   targetEbitdaMargin: 'N/A',
@@ -3029,10 +3029,10 @@ const brSerproCurrentStack: CurrentTool[] = [
 ];
 
 const brSerproLicenses: License[] = [
-  { vendor: 'Splunk Enterprise', totalLicenses: 120, active90d: 88, inactive: 32, annualWaste: 160_000, action: 'Consolidate 32 inactive seats, evaluate AI-native SIEM alternatives', costPerLicense: 5_000, department: 'SOC / Threat Detection', lastAuditDate: '2026-01-10', trend: [80, 76, 74, 72, 70, 73], complianceRisk: false },
-  { vendor: 'Tenable.io', totalLicenses: 80, active90d: 56, inactive: 24, annualWaste: 96_000, action: 'Replace 24 legacy scanner licenses with AI-powered continuous scanning', costPerLicense: 4_000, department: 'Vulnerability Management', lastAuditDate: '2025-12-20', trend: [78, 72, 68, 66, 64, 70], complianceRisk: false },
-  { vendor: 'Palo Alto XSOAR', totalLicenses: 60, active90d: 48, inactive: 12, annualWaste: 72_000, action: 'Optimize playbook coverage to utilize all 60 licenses effectively', costPerLicense: 6_000, department: 'Incident Response', lastAuditDate: '2026-01-25', trend: [86, 82, 80, 78, 76, 80], complianceRisk: false },
-  { vendor: 'CrowdStrike Falcon', totalLicenses: 14_000, active90d: 12_800, inactive: 1_200, annualWaste: 52_000, action: 'Reclaim 1,200 seats from decommissioned endpoints', costPerLicense: 43, department: 'All Government Endpoints', lastAuditDate: '2026-02-05', trend: [94, 92, 90, 88, 86, 91], complianceRisk: false },
+  { vendor: 'Splunk Enterprise', totalLicenses: 120, active90d: 88, inactive: 32, annualWaste: 1_179_000, action: 'Consolidate 32 inactive seats, evaluate AI-native SIEM alternatives', costPerLicense: 5_000, department: 'SOC / Threat Detection', lastAuditDate: '2026-01-10', trend: [80, 76, 74, 72, 70, 73], complianceRisk: false },
+  { vendor: 'Tenable.io', totalLicenses: 80, active90d: 56, inactive: 24, annualWaste: 707_000, action: 'Replace 24 legacy scanner licenses with AI-powered continuous scanning', costPerLicense: 4_000, department: 'Vulnerability Management', lastAuditDate: '2025-12-20', trend: [78, 72, 68, 66, 64, 70], complianceRisk: false },
+  { vendor: 'Palo Alto XSOAR', totalLicenses: 60, active90d: 48, inactive: 12, annualWaste: 531_000, action: 'Optimize playbook coverage to utilize all 60 licenses effectively', costPerLicense: 6_000, department: 'Incident Response', lastAuditDate: '2026-01-25', trend: [86, 82, 80, 78, 76, 80], complianceRisk: false },
+  { vendor: 'CrowdStrike Falcon', totalLicenses: 14_000, active90d: 12_800, inactive: 1_200, annualWaste: 383_000, action: 'Reclaim 1,200 seats from decommissioned endpoints', costPerLicense: 43, department: 'All Government Endpoints', lastAuditDate: '2026-02-05', trend: [94, 92, 90, 88, 86, 91], complianceRisk: false },
 ];
 
 const brSerproWorkflowSummary = {
@@ -3064,7 +3064,7 @@ const brInssCompanyProfile = {
   opCos: 0,
   opCoNames: [] as string[],
   techSpend: '$120M/yr',
-  aiReadinessScore: 42,
+  aiReadinessScore: 41,
   holdingPeriod: 'Federal agency — 38M beneficiaries, pension & disability',
   ebitdaMargin: 'N/A',
   targetEbitdaMargin: 'N/A',
@@ -3197,7 +3197,7 @@ const brDatasusCompanyProfile = {
   opCos: 0,
   opCoNames: [] as string[],
   techSpend: '$96M/yr',
-  aiReadinessScore: 44,
+  aiReadinessScore: 43,
   holdingPeriod: 'Federal agency — health data for 215M citizens, 6,000+ facilities',
   ebitdaMargin: 'N/A',
   targetEbitdaMargin: 'N/A',
@@ -3594,7 +3594,7 @@ const hccCompanyProfile = {
   opCos: 1,
   opCoNames: ['IC Construction Corp'],
   techSpend: '$4.8M/yr',
-  aiReadinessScore: 32,
+  aiReadinessScore: 29,
   holdingPeriod: 'IndustrialsCo Division',
   ebitdaMargin: '10.5%',
   targetEbitdaMargin: '17%',
@@ -3725,7 +3725,7 @@ const hrsiCompanyProfile = {
   opCos: 1,
   opCoNames: ['IC Rail Services'],
   techSpend: '$1.8M/yr',
-  aiReadinessScore: 36,
+  aiReadinessScore: 35,
   holdingPeriod: 'IndustrialsCo Division',
   ebitdaMargin: '12.2%',
   targetEbitdaMargin: '19%',
@@ -4081,7 +4081,7 @@ const htsiCompanyProfile = {
   opCos: 1,
   opCoNames: ['IC Transit Services'],
   techSpend: '$2.2M/yr',
-  aiReadinessScore: 40,
+  aiReadinessScore: 39,
   holdingPeriod: 'IndustrialsCo Division',
   ebitdaMargin: '11.0%',
   targetEbitdaMargin: '18%',
@@ -4199,7 +4199,7 @@ const heCompanyProfile = {
   opCos: 1,
   opCoNames: ['IC Energy'],
   techSpend: '$0.8M/yr',
-  aiReadinessScore: 34,
+  aiReadinessScore: 32,
   holdingPeriod: 'IndustrialsCo Division',
   ebitdaMargin: '10.0%',
   targetEbitdaMargin: '16%',
@@ -4316,7 +4316,7 @@ const ggCompanyProfile = {
   opCos: 1,
   opCoNames: ['IC Environmental LLC'],
   techSpend: '$0.4M/yr',
-  aiReadinessScore: 30,
+  aiReadinessScore: 28,
   holdingPeriod: 'IndustrialsCo Division',
   ebitdaMargin: '9.5%',
   targetEbitdaMargin: '15%',

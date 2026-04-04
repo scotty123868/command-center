@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, AlertTriangle, TrendingUp, Shield, Clock, Zap } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
-import { getCurrentStack, getRecommendations } from '../data/constants';
+import { getCurrentStack, getRecommendations, getKpis } from '../data/constants';
 import type { CurrentTool, Recommendation } from '../data/constants';
 import { useCompany } from '../data/CompanyContext';
 
@@ -130,12 +130,10 @@ export default function TechStack() {
     return filtered.length > 0 ? filtered : allRecommendations;
   }, [currentStack, allRecommendations]);
 
-  // Compute overall score from company's stack (average of tool scores, normalized to /100)
+  // Use KPI techScoreBefore as the single source of truth for overall score
   const overallScore = useMemo(() => {
-    if (currentStack.length === 0) return 34;
-    const avg = currentStack.reduce((sum, t) => sum + t.score, 0) / currentStack.length;
-    return Math.round(avg * 10); // scores are out of 10, normalize to 100
-  }, [currentStack]);
+    return getKpis(company.id).techScoreBefore;
+  }, [company.id]);
 
   // Compute segments from actual stack scores
   const segments = useMemo(() => {
