@@ -549,7 +549,10 @@ export default function ROISummary() {
   );
 
   const handleDownloadPDF = useCallback(() => {
-    void downloadBoardReportPDF(company.id, scenario);
+    downloadBoardReportPDF(company.id, scenario).catch(() => {
+      // Fallback: open as HTML if PDF generation fails
+      openBoardReport(company.id, scenario);
+    });
   }, [company.id, scenario]);
 
   const handleOpenReport = useCallback(() => {

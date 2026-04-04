@@ -404,8 +404,15 @@ export function openBoardReport(companyId = 'meridian', scenario: ScenarioKey = 
 }
 
 export async function downloadBoardReportPDF(companyId = 'meridian', scenario: ScenarioKey = 'base') {
-  const html2pdfModule = await import('html2pdf.js');
-  const html2pdf = html2pdfModule.default;
+  let html2pdf: ReturnType<typeof Function>;
+  try {
+    const html2pdfModule = await import('html2pdf.js');
+    html2pdf = html2pdfModule.default || html2pdfModule;
+  } catch {
+    // html2pdf not available — fall back to opening HTML in new tab
+    openBoardReport(companyId, scenario);
+    return;
+  }
 
   // Create a hidden container with the report HTML
   const container = document.createElement('div');
