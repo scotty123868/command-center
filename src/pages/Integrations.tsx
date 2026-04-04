@@ -16,14 +16,12 @@ import {
   Zap,
   Server,
   ArrowRight,
-  ExternalLink,
   Wifi,
   Brain,
   AlertTriangle,
   RotateCcw,
 } from 'lucide-react';
 
-import { LASTMILE_URL } from '../data/crosslinks';
 import { useCompany } from '../data/CompanyContext';
 import {
   getAiAgents,
@@ -335,9 +333,8 @@ export default function Integrations() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.25 + i * 0.06 }}
-              className="rounded-2xl p-6 cursor-pointer hover:shadow-lg transition-shadow"
+              className="rounded-2xl p-6 hover:shadow-lg transition-shadow"
               style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)', borderLeft: `3px solid ${accentColor}` }}
-              onClick={() => window.open(`${LASTMILE_URL}/agents?company=${company.id}`, '_blank')}
             >
               {/* Header */}
               <div className="mb-5 flex items-center justify-between">
@@ -420,16 +417,6 @@ export default function Integrations() {
             </motion.div>
           ))}
         </div>
-        <a
-          href={`${LASTMILE_URL}/agents?company=${company.id}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-3 inline-flex items-center gap-1.5 text-[12px] transition-colors"
-          style={{ color: 'var(--cc-text-tertiary)' }}
-        >
-          View in Last Mile
-          <ExternalLink className="w-3 h-3" strokeWidth={2} />
-        </a>
       </motion.div>
 
       {/* -- Section 1: Assessment Data Sources ----------------------------- */}
@@ -643,17 +630,6 @@ export default function Integrations() {
         </div>
       </motion.div>
 
-      {/* -- Cross-link to Last Mile Connectors ----------------------------- */}
-      <a
-        href={`${LASTMILE_URL}/connectors?company=${company.id}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-1.5 text-sm transition-colors"
-        style={{ color: 'var(--cc-accent)' }}
-      >
-        View live system connections
-        <ExternalLink className="w-3.5 h-3.5" strokeWidth={2} />
-      </a>
     </div>
   );
 }

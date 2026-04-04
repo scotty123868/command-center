@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, X, Building2, ChevronRight, ExternalLink, Lightbulb, Sparkles, Target } from 'lucide-react';
+import { ArrowRight, X, Building2, ChevronRight, Lightbulb, Sparkles, Target } from 'lucide-react';
 import AnimatedCounter from '../components/AnimatedCounter';
 import {
   AreaChart,
@@ -34,7 +34,6 @@ import {
 } from '../data/constants';
 import { useCompany } from '../data/CompanyContext';
 
-import { LASTMILE_URL } from '../data/crosslinks';
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
@@ -167,6 +166,31 @@ const allTimelineStops: Record<string, Record<number, TimelineData>> = {
     0: { savings: 0, scoreBefore: 78, scoreAfter: 78, workflows: 0, automationReady: 0, waste: 380_000 },
     6: { savings: 700_000, scoreBefore: 78, scoreAfter: 88, workflows: 12, automationReady: 7, waste: 190_000 },
     12: { savings: 1_400_000, scoreBefore: 78, scoreAfter: 96, workflows: 24, automationReady: 14, waste: 40_000 },
+  },
+  brazil: {
+    0: { savings: 0, scoreBefore: 42, scoreAfter: 42, workflows: 0, automationReady: 0, waste: 12_000_000 },
+    6: { savings: 18_000_000, scoreBefore: 42, scoreAfter: 68, workflows: 142, automationReady: 48, waste: 6_000_000 },
+    12: { savings: 36_000_000, scoreBefore: 42, scoreAfter: 86, workflows: 284, automationReady: 96, waste: 1_200_000 },
+  },
+  'br-receita': {
+    0: { savings: 0, scoreBefore: 48, scoreAfter: 48, workflows: 0, automationReady: 0, waste: 3_200_000 },
+    6: { savings: 5_000_000, scoreBefore: 48, scoreAfter: 72, workflows: 38, automationReady: 14, waste: 1_600_000 },
+    12: { savings: 10_000_000, scoreBefore: 48, scoreAfter: 86, workflows: 76, automationReady: 28, waste: 400_000 },
+  },
+  'br-sus': {
+    0: { savings: 0, scoreBefore: 38, scoreAfter: 38, workflows: 0, automationReady: 0, waste: 4_200_000 },
+    6: { savings: 6_500_000, scoreBefore: 38, scoreAfter: 62, workflows: 44, automationReady: 12, waste: 2_100_000 },
+    12: { savings: 13_000_000, scoreBefore: 38, scoreAfter: 78, workflows: 88, automationReady: 24, waste: 500_000 },
+  },
+  'br-bndes': {
+    0: { savings: 0, scoreBefore: 52, scoreAfter: 52, workflows: 0, automationReady: 0, waste: 2_400_000 },
+    6: { savings: 3_200_000, scoreBefore: 52, scoreAfter: 74, workflows: 32, automationReady: 10, waste: 1_200_000 },
+    12: { savings: 6_400_000, scoreBefore: 52, scoreAfter: 88, workflows: 64, automationReady: 20, waste: 200_000 },
+  },
+  'br-serpro': {
+    0: { savings: 0, scoreBefore: 56, scoreAfter: 56, workflows: 0, automationReady: 0, waste: 2_200_000 },
+    6: { savings: 3_300_000, scoreBefore: 56, scoreAfter: 76, workflows: 28, automationReady: 12, waste: 1_100_000 },
+    12: { savings: 6_600_000, scoreBefore: 56, scoreAfter: 90, workflows: 56, automationReady: 24, waste: 100_000 },
   },
 };
 
@@ -584,16 +608,6 @@ function DivisionDrawer({
                 View ROI Analysis
                 <ArrowRight className="w-4 h-4" />
               </button>
-              <a
-                href={`${LASTMILE_URL}/agents?company=${entity.id}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-[12px] transition-colors"
-                style={{ color: 'var(--cc-text-tertiary)' }}
-              >
-                View AI Agents in Last Mile
-                <ExternalLink className="w-3 h-3" />
-              </a>
             </div>
           </motion.div>
         </>
@@ -1152,29 +1166,6 @@ export default function Dashboard() {
         </KpiCard>
       </motion.div>
 
-      {/* ── Cross-links to Last Mile ────────────────────────────── */}
-      <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-        <a
-          href={`${LASTMILE_URL}/agents?company=${company.id}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1.5 text-[13px] transition-colors"
-          style={{ color: 'var(--cc-text-tertiary)' }}
-        >
-          View AI Agents in Last Mile
-          <ExternalLink className="w-3 h-3" strokeWidth={2} />
-        </a>
-        <a
-          href={`${LASTMILE_URL}/operations?company=${company.id}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1.5 text-[13px] transition-colors"
-          style={{ color: 'var(--cc-text-tertiary)' }}
-        >
-          View live operations
-          <ExternalLink className="w-3 h-3" strokeWidth={2} />
-        </a>
-      </div>
 
       {/* ── Timeline Scrubber (dark-themed) ────────────────────── */}
       <motion.section

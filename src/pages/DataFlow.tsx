@@ -835,6 +835,129 @@ const gapDataByCompany: Record<string, CompanyGapData> = {
     annualReturn: '$10.0M',
     roi: '16.7x Year 1',
   },
+  /* ── Federative Republic of Brazil — Digital Government ──────────────── */
+  brazil: {
+    gaps: [
+      {
+        id: 1,
+        name: 'Cross-Ministry Data Integration',
+        sources: 'GOV.BR portal, ministry databases, SERPRO infrastructure',
+        gapLabel: 'Fragmented data across federal agencies',
+        blocked: 'Unified citizen services, proactive governance',
+        impact: '$12.4M/yr',
+        impactNum: 12400000,
+        sourceList: [
+          'GOV.BR unified portal (partial coverage)',
+          'Receita Federal tax systems (SPED, e-Social)',
+          'SUS health records (DATASUS)',
+          'BNDES development finance platform',
+          'SERPRO federal data processing infrastructure',
+        ],
+        missingLayer:
+          'While GOV.BR provides a unified portal, backend ministry systems remain siloed. Cross-agency queries require manual data sharing agreements and SERPRO intermediation.',
+        blockedCapabilities: [
+          'Proactive citizen service delivery across agencies',
+          'Cross-ministry policy impact modeling',
+          'Unified citizen journey analytics',
+          'AI-driven fiscal and social policy recommendations',
+        ],
+        recommendedSolution:
+          'Expand GOV.BR with a semantic data catalog and automated cross-agency data sharing. Deploy unified analytics platform on SERPRO infrastructure. Estimated implementation: 16-20 weeks.',
+      },
+      {
+        id: 2,
+        name: 'Citizen Identity Resolution',
+        sources: 'CPF registry, GOV.BR accounts, service databases',
+        gapLabel: 'No unified citizen interaction history',
+        blocked: 'Personalized services, predictive needs',
+        impact: '$8.6M/yr',
+        impactNum: 8600000,
+        sourceList: [
+          'CPF (Cadastro de Pessoas Físicas) registry',
+          'GOV.BR digital identity accounts',
+          'Ministry-level CRM and case systems',
+          'Municipal service records across 5,570 municipalities',
+        ],
+        missingLayer:
+          'Citizen interactions with government are logged in separate ministry systems. No unified view of a citizen\'s service history, pending cases, or anticipated needs across federal, state, and municipal levels.',
+        blockedCapabilities: [
+          'Personalized government service recommendations',
+          'Predictive citizen needs anticipation',
+          'Life event-triggered proactive services',
+          'Unified case management across ministries',
+        ],
+        recommendedSolution:
+          'Build a privacy-preserving citizen interaction graph linking CPF/GOV.BR identity with service usage. Deploy proactive service recommendations. Estimated implementation: 14-18 weeks.',
+      },
+      {
+        id: 3,
+        name: 'AI Model Governance Framework',
+        sources: 'Deployed AI models, training datasets, audit logs',
+        gapLabel: 'No centralized AI governance across agencies',
+        blocked: 'Responsible AI deployment, bias monitoring',
+        impact: '$4.2M/yr',
+        impactNum: 4200000,
+        sourceList: [
+          'Receita Federal tax assessment AI models',
+          'SUS health triage and resource allocation models',
+          'BNDES credit scoring and risk models',
+          'SERPRO infrastructure monitoring models',
+        ],
+        missingLayer:
+          'AI models deployed across agencies lack centralized governance. No unified model registry, bias monitoring, or impact assessment framework exists for Brazil\'s federal AI initiatives.',
+        blockedCapabilities: [
+          'Centralized AI model registry and monitoring',
+          'Automated bias detection and fairness auditing',
+          'AI impact assessment workflow',
+          'Model performance degradation alerts',
+        ],
+        recommendedSolution:
+          'Deploy a federal AI governance platform with model registry, automated bias detection, and impact assessment. Integrate with LGPD compliance framework. Estimated implementation: 12-16 weeks.',
+      },
+      {
+        id: 4,
+        name: 'Cybersecurity & Data Protection',
+        sources: 'SERPRO SOC, agency security logs, LGPD compliance data',
+        gapLabel: 'Distributed threat intelligence across agencies',
+        blocked: 'Unified threat response, LGPD compliance automation',
+        impact: '$5.8M/yr',
+        impactNum: 5800000,
+        sourceList: [
+          'SERPRO Security Operations Center',
+          'Agency-level security monitoring systems',
+          'LGPD (Lei Geral de Proteção de Dados) compliance logs',
+          'International threat intelligence feeds',
+        ],
+        missingLayer:
+          'Security monitoring is distributed across agencies with limited cross-agency threat intelligence sharing. LGPD compliance tracking is manual and fragmented.',
+        blockedCapabilities: [
+          'Unified national threat intelligence dashboard',
+          'Automated cross-agency incident response',
+          'Predictive threat modeling',
+          'Automated LGPD compliance monitoring',
+        ],
+        recommendedSolution:
+          'Build a national threat intelligence platform aggregating SERPRO SOC, agency, and international feeds. Deploy AI-driven threat prediction and LGPD compliance automation. Estimated implementation: 14-18 weeks.',
+      },
+    ],
+    gapDivisionMap: {
+      1: ['brazil', 'br-receita', 'br-sus', 'br-bndes', 'br-serpro'],
+      2: ['brazil', 'br-receita', 'br-sus', 'br-bndes'],
+      3: ['brazil', 'br-receita', 'br-sus', 'br-bndes', 'br-serpro'],
+      4: ['brazil', 'br-serpro'],
+    },
+    statCards: [
+      { label: '42 Systems Mapped', color: 'blue' },
+      { label: '58 Active Connections', color: 'green' },
+      { label: '28 Missing Connections', color: 'red' },
+      { label: '$31.0M Annual Impact', color: 'red' },
+    ],
+    totalImpact: '$31.0M/year',
+    divisionBadges: ['Receita Federal', 'SUS Health', 'BNDES Development', 'SERPRO Data Processing'],
+    investment: '$1.8M',
+    annualReturn: '$31.0M',
+    roi: '17.2x Year 1',
+  },
 };
 
 /* ── Resolve company gap data ────────────────────────────────────────────── */
@@ -851,6 +974,8 @@ function resolveGapData(companyId: string): CompanyGapData {
     'nb-financial': 'northbridge', 'nb-health': 'northbridge',
     'ee-finance': 'estonia', 'ee-social': 'estonia',
     'ee-economic': 'estonia', 'ee-ria': 'estonia',
+    'br-receita': 'brazil', 'br-sus': 'brazil',
+    'br-bndes': 'brazil', 'br-serpro': 'brazil',
   };
 
   const parentId = childToParent[companyId];

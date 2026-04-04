@@ -13,7 +13,6 @@ import {
   FileText,
   PieChart,
   Presentation,
-  ExternalLink,
   AlertTriangle,
 } from 'lucide-react';
 import { openBoardReport, downloadBoardReportPDF } from '../components/BoardReport';
@@ -34,7 +33,6 @@ import {
 } from 'recharts';
 import { getRoiSummary } from '../data/constants';
 import { useCompany } from '../data/CompanyContext';
-import { LASTMILE_URL } from '../data/crosslinks';
 
 // ─── Scenario Types ──────────────────────────────────────────────────────────
 
@@ -661,16 +659,6 @@ export default function ROISummary() {
       {/* ── Section 3: Waterfall Chart ────────────────────────────────── */}
       <WaterfallChartSection waterfallChartData={waterfallChartData} />
 
-      {/* ── Cross-link to Last Mile Impact ────────────────────────────── */}
-      <a
-        href={`${LASTMILE_URL}/impact?company=${company.id}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-1.5 text-sm text-blue-500 hover:text-blue-400 transition-colors"
-      >
-        See verified impact data
-        <ExternalLink className="w-3.5 h-3.5" strokeWidth={2} />
-      </a>
 
       {/* ── Section 4: Timeline Chart ─────────────────────────────────── */}
       <motion.div

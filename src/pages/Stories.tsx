@@ -1005,6 +1005,145 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
       ],
     },
   ],
+  /* ── Federative Republic of Brazil — Digital Government ─────────────── */
+  brazil: [
+    {
+      name: 'Receita Federal — Tax & Revenue',
+      industry: 'Tax Administration & Revenue',
+      employees: 38000,
+      aiScoreBefore: 48,
+      aiScoreAfter: 86,
+      totalSavings: '$14.2M/yr',
+      metrics: [
+        { label: 'Tax Processing Time', value: '-62%', trend: -62, trendPositive: true, sparkline: [18, 15, 12, 10, 8.5, 7.2, 6.8] },
+        { label: 'Citizen Satisfaction', value: '88%', trend: 16, trendPositive: true, sparkline: [76, 78, 80, 82, 84, 86, 88] },
+        { label: 'System Uptime', value: '99.95%', trend: 2, trendPositive: true, sparkline: [99.78, 99.82, 99.86, 99.88, 99.91, 99.93, 99.95] },
+        { label: 'Fraud Detection', value: '94%', trend: 26, trendPositive: true, sparkline: [72, 76, 80, 84, 88, 91, 94] },
+        { label: 'SPED Compliance', value: '99.4%', trend: 5, trendPositive: true, sparkline: [95, 96, 97, 97.8, 98.4, 99, 99.4] },
+        { label: 'Audit Productivity', value: '+80%', trend: 80, trendPositive: true, sparkline: [40, 48, 55, 62, 68, 74, 80] },
+      ],
+      savings: [
+        { category: 'Tax Automation AI', amount: 5200 },
+        { category: 'Fraud Prevention', amount: 4400 },
+        { category: 'Audit Intelligence', amount: 2800 },
+        { category: 'Citizen Self-Service', amount: 1800 },
+      ],
+      beforeAfter: [
+        { label: 'Tax Processing', before: '18 days', after: '6.8 days' },
+        { label: 'Citizen Satisfaction', before: '76%', after: '88%' },
+        { label: 'Fraud Detection', before: '72%', after: '94%' },
+        { label: 'Audit Productivity', before: '40%', after: '80%' },
+      ],
+      automations: [
+        { name: 'AI Tax Assessment Engine', status: 'live', department: 'Tax Authority' },
+        { name: 'SPED Analytics AI', status: 'live', department: 'Compliance' },
+        { name: 'Fraud Detection System', status: 'piloting', department: 'Audit' },
+        { name: 'Transfer Pricing AI', status: 'planned', department: 'International Tax' },
+      ],
+    },
+    {
+      name: 'SUS — Unified Health System',
+      industry: 'Public Healthcare',
+      employees: 72000,
+      aiScoreBefore: 38,
+      aiScoreAfter: 78,
+      totalSavings: '$18.6M/yr',
+      metrics: [
+        { label: 'Patient Wait Time', value: '-48%', trend: -48, trendPositive: true, sparkline: [42, 38, 34, 30, 27, 24, 21.8] },
+        { label: 'Citizen Satisfaction', value: '82%', trend: 18, trendPositive: true, sparkline: [68, 71, 74, 76, 78, 80, 82] },
+        { label: 'System Uptime', value: '99.88%', trend: 3, trendPositive: true, sparkline: [99.60, 99.68, 99.72, 99.78, 99.82, 99.85, 99.88] },
+        { label: 'Resource Utilization', value: '+34%', trend: 34, trendPositive: true, sparkline: [58, 62, 66, 70, 74, 78, 82] },
+        { label: 'Prescription Accuracy', value: '97%', trend: 12, trendPositive: true, sparkline: [88, 90, 91, 93, 94, 96, 97] },
+        { label: 'DATASUS Coverage', value: '94%', trend: 16, trendPositive: true, sparkline: [80, 83, 86, 88, 90, 92, 94] },
+      ],
+      savings: [
+        { category: 'Healthcare Triage AI', amount: 6800 },
+        { category: 'Resource Optimization', amount: 4600 },
+        { category: 'Prescription Intelligence', amount: 3800 },
+        { category: 'DATASUS Integration', amount: 3400 },
+      ],
+      beforeAfter: [
+        { label: 'Patient Wait Time', before: '42 days', after: '21.8 days' },
+        { label: 'Citizen Satisfaction', before: '68%', after: '82%' },
+        { label: 'Resource Utilization', before: '58%', after: '82%' },
+        { label: 'Prescription Accuracy', before: '88%', after: '97%' },
+      ],
+      automations: [
+        { name: 'AI Patient Triage', status: 'live', department: 'Emergency Care' },
+        { name: 'Resource Allocation AI', status: 'live', department: 'Hospital Management' },
+        { name: 'Prescription Safety AI', status: 'piloting', department: 'Pharmacy' },
+        { name: 'Epidemiological Forecasting', status: 'planned', department: 'Public Health' },
+      ],
+    },
+    {
+      name: 'BNDES — Development Bank',
+      industry: 'Development Finance',
+      employees: 28000,
+      aiScoreBefore: 52,
+      aiScoreAfter: 88,
+      totalSavings: '$9.4M/yr',
+      metrics: [
+        { label: 'Loan Processing', value: '-56%', trend: -56, trendPositive: true, sparkline: [45, 38, 32, 28, 24, 21, 19.8] },
+        { label: 'Client Satisfaction', value: '90%', trend: 14, trendPositive: true, sparkline: [79, 81, 83, 85, 87, 89, 90] },
+        { label: 'System Uptime', value: '99.96%', trend: 2, trendPositive: true, sparkline: [99.82, 99.86, 99.88, 99.90, 99.92, 99.94, 99.96] },
+        { label: 'Risk Assessment', value: '96%', trend: 20, trendPositive: true, sparkline: [80, 83, 86, 89, 91, 94, 96] },
+        { label: 'Project Monitoring', value: '+42%', trend: 42, trendPositive: true, sparkline: [52, 58, 64, 70, 76, 80, 84] },
+        { label: 'ESG Compliance', value: '92%', trend: 24, trendPositive: true, sparkline: [72, 75, 78, 82, 86, 89, 92] },
+      ],
+      savings: [
+        { category: 'Credit Analysis AI', amount: 3400 },
+        { category: 'Risk Assessment AI', amount: 2600 },
+        { category: 'Project Monitoring', amount: 1800 },
+        { category: 'ESG Analytics', amount: 1600 },
+      ],
+      beforeAfter: [
+        { label: 'Loan Processing', before: '45 days', after: '19.8 days' },
+        { label: 'Client Satisfaction', before: '79%', after: '90%' },
+        { label: 'Risk Assessment', before: '80%', after: '96%' },
+        { label: 'ESG Compliance', before: '72%', after: '92%' },
+      ],
+      automations: [
+        { name: 'AI Credit Analysis', status: 'live', department: 'Lending' },
+        { name: 'Risk Scoring Engine', status: 'live', department: 'Risk Management' },
+        { name: 'ESG Analytics Platform', status: 'piloting', department: 'Sustainability' },
+        { name: 'Startup Matching AI', status: 'planned', department: 'Innovation' },
+      ],
+    },
+    {
+      name: 'SERPRO — Federal Data Processing',
+      industry: 'Government IT & Data Processing',
+      employees: 42000,
+      aiScoreBefore: 56,
+      aiScoreAfter: 90,
+      totalSavings: '$8.2M/yr',
+      metrics: [
+        { label: 'Processing Throughput', value: '+64%', trend: 64, trendPositive: true, sparkline: [1.0, 1.1, 1.2, 1.35, 1.48, 1.56, 1.64] },
+        { label: 'Client Satisfaction', value: '92%', trend: 14, trendPositive: true, sparkline: [81, 83, 85, 87, 89, 91, 92] },
+        { label: 'System Uptime', value: '99.99%', trend: 1, trendPositive: true, sparkline: [99.92, 99.94, 99.95, 99.96, 99.97, 99.98, 99.99] },
+        { label: 'Incident Response', value: '-58%', trend: -58, trendPositive: true, sparkline: [38, 32, 27, 23, 19, 17, 16] },
+        { label: 'API Availability', value: '99.97%', trend: 2, trendPositive: true, sparkline: [99.82, 99.86, 99.88, 99.91, 99.93, 99.95, 99.97] },
+        { label: 'Cost per Transaction', value: '-42%', trend: -42, trendPositive: true, sparkline: [1.0, 0.88, 0.78, 0.70, 0.64, 0.60, 0.58] },
+      ],
+      savings: [
+        { category: 'Infrastructure AI', amount: 3200 },
+        { category: 'Incident Automation', amount: 2200 },
+        { category: 'API Optimization', amount: 1600 },
+        { category: 'Security AI', amount: 1200 },
+      ],
+      beforeAfter: [
+        { label: 'Processing Throughput', before: '1.0x', after: '1.64x' },
+        { label: 'Incident Response', before: '38 min', after: '16 min' },
+        { label: 'System Uptime', before: '99.92%', after: '99.99%' },
+        { label: 'Cost per Transaction', before: '$1.00', after: '$0.58' },
+      ],
+      automations: [
+        { name: 'AI Infrastructure Monitor', status: 'live', department: 'Operations' },
+        { name: 'Automated Incident Response', status: 'live', department: 'NOC' },
+        { name: 'API Performance AI', status: 'piloting', department: 'Platform' },
+        { name: 'Quantum-Ready Migration', status: 'planned', department: 'Security' },
+      ],
+    },
+  ],
 };
 
 // ─── Company-to-Division Index Map ──────────────────────────────────────────
@@ -1028,6 +1167,11 @@ const companyToDivIndex: Record<string, { parent: string; index: number }> = {
   'ee-social': { parent: 'estonia', index: 1 },
   'ee-economic': { parent: 'estonia', index: 2 },
   'ee-ria': { parent: 'estonia', index: 3 },
+  // Brazil children
+  'br-receita': { parent: 'brazil', index: 0 },
+  'br-sus': { parent: 'brazil', index: 1 },
+  'br-bndes': { parent: 'brazil', index: 2 },
+  'br-serpro': { parent: 'brazil', index: 3 },
 };
 
 // ─── Mini Sparkline Component ───────────────────────────────────────────────
@@ -1284,7 +1428,7 @@ function DivisionDashboard({ company }: { company: CompanyData }) {
 // ─── Helper: resolve divisions for a company ────────────────────────────────
 
 function resolveDivisions(companyId: string): CompanyData[] {
-  // Direct parent match (meridian, northwood, pinnacle, atlas, northbridge, estonia)
+  // Direct parent match (meridian, northwood, pinnacle, atlas, northbridge, estonia, brazil)
   if (divisionsByCompany[companyId]) {
     return divisionsByCompany[companyId];
   }
