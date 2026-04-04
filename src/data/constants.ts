@@ -1429,7 +1429,7 @@ const pinnacleCurrentStack: CurrentTool[] = [
     score: 2,
     integrationComplexity: 'High',
     migrationWeeks: 12,
-    riskLevel: 'Critical',
+    riskLevel: 'High',
     dependencies: ['Payer portal access', 'Clinical documentation', 'EHR integration', 'Fax infrastructure'],
   },
 ];
