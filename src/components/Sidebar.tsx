@@ -203,7 +203,7 @@ export default function Sidebar({ onNavClick, onClose }: { onNavClick?: () => vo
 
         {/* Dropdown menu */}
         {dropdownOpen && (
-          <div className="absolute left-4 right-4 top-full mt-1 bg-[#2B2B2F] rounded-xl shadow-2xl z-50 border border-white/[0.08] overflow-hidden py-1">
+          <div className="absolute left-4 right-4 top-full mt-1 bg-[#2B2B2F] rounded-xl shadow-2xl z-50 border border-white/[0.08] overflow-y-auto max-h-[70vh] py-1">
             {(['company', 'conglomerate', 'sovereign'] as const).map((cat, catIdx) => {
               const group = companies.filter((c) => c.category === cat && !c.parentId);
               if (group.length === 0) return null;

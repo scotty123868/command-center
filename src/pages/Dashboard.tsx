@@ -192,6 +192,26 @@ const allTimelineStops: Record<string, Record<number, TimelineData>> = {
     6: { savings: 3_300_000, scoreBefore: 56, scoreAfter: 76, workflows: 28, automationReady: 12, waste: 1_100_000 },
     12: { savings: 6_600_000, scoreBefore: 56, scoreAfter: 90, workflows: 56, automationReady: 24, waste: 100_000 },
   },
+  'br-inss': {
+    0: { savings: 0, scoreBefore: 42, scoreAfter: 42, workflows: 0, automationReady: 0, waste: 2_800_000 },
+    6: { savings: 3_200_000, scoreBefore: 42, scoreAfter: 64, workflows: 32, automationReady: 12, waste: 1_400_000 },
+    12: { savings: 6_400_000, scoreBefore: 42, scoreAfter: 78, workflows: 56, automationReady: 22, waste: 300_000 },
+  },
+  'br-datasus': {
+    0: { savings: 0, scoreBefore: 44, scoreAfter: 44, workflows: 0, automationReady: 0, waste: 2_200_000 },
+    6: { savings: 2_400_000, scoreBefore: 44, scoreAfter: 66, workflows: 24, automationReady: 8, waste: 1_100_000 },
+    12: { savings: 4_800_000, scoreBefore: 44, scoreAfter: 80, workflows: 42, automationReady: 16, waste: 240_000 },
+  },
+  'br-defesa': {
+    0: { savings: 0, scoreBefore: 50, scoreAfter: 50, workflows: 0, automationReady: 0, waste: 1_800_000 },
+    6: { savings: 2_000_000, scoreBefore: 50, scoreAfter: 72, workflows: 20, automationReady: 8, waste: 900_000 },
+    12: { savings: 4_000_000, scoreBefore: 50, scoreAfter: 84, workflows: 34, automationReady: 14, waste: 200_000 },
+  },
+  'br-anatel': {
+    0: { savings: 0, scoreBefore: 46, scoreAfter: 46, workflows: 0, automationReady: 0, waste: 1_200_000 },
+    6: { savings: 1_200_000, scoreBefore: 46, scoreAfter: 68, workflows: 16, automationReady: 6, waste: 600_000 },
+    12: { savings: 2_400_000, scoreBefore: 46, scoreAfter: 82, workflows: 28, automationReady: 10, waste: 120_000 },
+  },
 };
 
 function interpolateTimeline(month: number, companyId: string): TimelineData {

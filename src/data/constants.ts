@@ -2374,10 +2374,10 @@ const nbHealthRoiSummary = {
 const brazilCompanyProfile = {
   name: 'Federative Republic of Brazil — Digital Government',
   industry: 'Digital Government & Public Services',
-  employees: 180_000,
-  opCos: 4,
-  opCoNames: ['Receita Federal (Tax & Revenue)', 'SUS (Unified Health System)', 'BNDES (Development Bank)', 'SERPRO (Federal Data Processing)'],
-  techSpend: '$620M/yr',
+  employees: 280_000,
+  opCos: 8,
+  opCoNames: ['Receita Federal (Tax & Revenue)', 'SUS (Unified Health System)', 'BNDES (Development Bank)', 'SERPRO (Federal Data Processing)', 'INSS (Social Security)', 'DATASUS (Health Informatics)', 'Ministry of Defense (Cyber Command)', 'ANATEL (Telecommunications)'],
+  techSpend: '$920M/yr',
   aiReadinessScore: 48,
   holdingPeriod: 'Sovereign government — 215M population',
   ebitdaMargin: 'N/A',
@@ -2386,24 +2386,24 @@ const brazilCompanyProfile = {
 
 const brazilAiReadinessBreakdown = [
   { category: 'Data Infrastructure', score: 42, maxScore: 100, status: 'Below Average — GOV.BR platform connects 4,000+ services, but SIAFI, SUS, and SERPRO data centers operate in silos with limited interoperability' },
-  { category: 'Process Maturity', score: 52, maxScore: 100, status: 'Moderate — GOV.BR digitized citizen-facing services, but 240 back-office workflows still require manual intervention across 4 agencies' },
+  { category: 'Process Maturity', score: 52, maxScore: 100, status: 'Moderate — GOV.BR digitized citizen-facing services, but 380 back-office workflows still require manual intervention across 8 agencies' },
   { category: 'Tech Stack Modernity', score: 45, maxScore: 100, status: 'Mixed — GOV.BR and eSocial are modern, but SIAFI (federal finance) and legacy health systems need modernization, SERPRO mainframes aging' },
-  { category: 'Change Readiness', score: 48, maxScore: 100, status: 'Moderate — strong federal mandate for digital transformation (EGD 2024-2027), but agency adoption varies, training needed for 180,000 employees' },
+  { category: 'Change Readiness', score: 48, maxScore: 100, status: 'Moderate — strong federal mandate for digital transformation (EGD 2024-2027), but agency adoption varies, training needed for 280,000 employees' },
   { category: 'Skills & Training', score: 38, maxScore: 100, status: 'Developing — SERPRO has 8,000 IT professionals, but AI/ML skills concentrated in Brasilia, field offices across 5,570 municipalities need upskilling' },
 ];
 
 const brazilKpis = {
-  totalSavings: 50_000_000,
+  totalSavings: 72_000_000,
   techScoreBefore: 48,
   techScoreAfter: 82,
-  workflowsAnalyzed: 240,
-  automationReady: 86,
-  unusedLicenseWaste: 18_000_000,
-  savingsSparkline: [0, 3_200_000, 7_000_000, 11_800_000, 18_000_000, 24_000_000, 28_800_000, 33_600_000, 38_400_000, 43_200_000, 47_000_000, 50_000_000],
+  workflowsAnalyzed: 380,
+  automationReady: 134,
+  unusedLicenseWaste: 26_000_000,
+  savingsSparkline: [0, 4_600_000, 10_000_000, 17_000_000, 26_000_000, 34_600_000, 41_500_000, 48_400_000, 55_300_000, 62_200_000, 67_600_000, 72_000_000],
   scoreSparkline: [48, 51, 54, 57, 60, 64, 68, 72, 75, 78, 80, 82],
-  workflowSparkline: [0, 20, 40, 62, 86, 112, 136, 162, 186, 208, 226, 240],
-  licenseSparkline: [18_000_000, 16_500_000, 14_800_000, 12_600_000, 10_400_000, 8_400_000, 6_600_000, 5_000_000, 3_800_000, 2_900_000, 2_200_000, 1_800_000],
-  headcountImpactSparkline: [0, -8, -18, -34, -56, -82, -112, -146, -184, -220, -248, -270],
+  workflowSparkline: [0, 32, 64, 98, 134, 176, 216, 256, 294, 328, 358, 380],
+  licenseSparkline: [26_000_000, 23_800_000, 21_400_000, 18_200_000, 15_000_000, 12_100_000, 9_500_000, 7_200_000, 5_500_000, 4_200_000, 3_200_000, 2_600_000],
+  headcountImpactSparkline: [0, -12, -28, -52, -84, -124, -168, -220, -276, -330, -374, -410],
 };
 
 const brazilRoadmapPhases = [
@@ -2467,8 +2467,8 @@ const brazilRoadmapPhases = [
     weekPlan: [
       { week: 21, task: 'LGPD AI compliance certification for all government AI systems with ANPD audit', owner: 'ANPD Liaison' },
       { week: 22, task: 'Mercosul interoperability: connect GOV.BR AI gateway to Mercosul digital trade framework', owner: 'Secretary of Digital Government' },
-      { week: 23, task: 'Pan-agency AI adoption: 180,000 civil servants trained, all 240 workflows operational', owner: 'Chief Learning Officer' },
-      { week: 24, task: 'Annual review: $50M in savings confirmed, 82 AI readiness score achieved, G20 digital showcase', owner: 'Secretary of Digital Government' },
+      { week: 23, task: 'Pan-agency AI adoption: 280,000 civil servants trained across 8 agencies, all 380 workflows operational', owner: 'Chief Learning Officer' },
+      { week: 24, task: 'Annual review: $72M in savings confirmed, 82 AI readiness score achieved, G20 digital showcase', owner: 'Secretary of Digital Government' },
     ],
   },
 ];
@@ -2504,21 +2504,21 @@ const brazilLicenses: License[] = [
 ];
 
 const brazilWorkflowSummary = {
-  total: 240,
-  fullyAutomatable: 86,
-  humanInLoop: 98,
-  humanRequired: 56,
-  currentLaborSpend: 280_000_000,
-  potentialSavings: 34_000_000,
+  total: 380,
+  fullyAutomatable: 134,
+  humanInLoop: 152,
+  humanRequired: 94,
+  currentLaborSpend: 462_000_000,
+  potentialSavings: 49_000_000,
 };
 
 const brazilRoiSummary = {
-  techStackSavings: 22_000_000,
-  workflowAutomation: 34_000_000,
-  licenseRecovery: 18_000_000,
-  implementationCosts: 24_000_000,
-  netYear1: 50_000_000,
-  year2Projected: 85_000_000,
+  techStackSavings: 32_000_000,
+  workflowAutomation: 49_000_000,
+  licenseRecovery: 26_000_000,
+  implementationCosts: 35_000_000,
+  netYear1: 72_000_000,
+  year2Projected: 122_400_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -3051,6 +3051,536 @@ const brSerproRoiSummary = {
   implementationCosts: 3_600_000,
   netYear1: 8_000_000,
   year2Projected: 13_600_000,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Brazil: INSS — Social Security (br-inss) ──────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const brInssCompanyProfile = {
+  name: 'INSS — Social Security',
+  industry: 'Government — Social Security & Pensions',
+  employees: 36_000,
+  opCos: 0,
+  opCoNames: [] as string[],
+  techSpend: '$120M/yr',
+  aiReadinessScore: 42,
+  holdingPeriod: 'Federal agency — 38M beneficiaries, pension & disability',
+  ebitdaMargin: 'N/A',
+  targetEbitdaMargin: 'N/A',
+};
+
+const brInssAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 40, maxScore: 100, status: 'Below Average — CNIS contribution history for 80M workers, but fragmented across legacy COBOL databases and manual municipal records' },
+  { category: 'Process Maturity', score: 45, maxScore: 100, status: 'Moderate — pension calculation partially automated, but disability assessments, benefit appeals, and fraud detection remain heavily manual' },
+  { category: 'Tech Stack Modernity', score: 38, maxScore: 100, status: 'Legacy-Heavy — core pension system on COBOL mainframe, Meu INSS citizen portal modern but disconnected from back-office processing' },
+  { category: 'Change Readiness', score: 44, maxScore: 100, status: 'Below Average — federal mandate for digital transformation, but 36,000 staff across 1,500+ agencies resistant to workflow changes' },
+  { category: 'Skills & Training', score: 36, maxScore: 100, status: 'Critical Gap — actuarial team strong in statistics, but AI/ML skills absent outside Brasilia headquarters, field offices need digital literacy' },
+];
+
+const brInssKpis = {
+  totalSavings: 8_000_000,
+  techScoreBefore: 42,
+  techScoreAfter: 78,
+  workflowsAnalyzed: 56,
+  automationReady: 22,
+  unusedLicenseWaste: 2_800_000,
+  savingsSparkline: [0, 520_000, 1_100_000, 1_900_000, 2_900_000, 3_800_000, 4_600_000, 5_400_000, 6_100_000, 6_900_000, 7_500_000, 8_000_000],
+  scoreSparkline: [42, 45, 48, 52, 56, 60, 63, 66, 70, 73, 76, 78],
+  workflowSparkline: [0, 4, 10, 16, 22, 28, 34, 40, 44, 48, 52, 56],
+  licenseSparkline: [2_800_000, 2_560_000, 2_300_000, 2_050_000, 1_780_000, 1_500_000, 1_240_000, 1_000_000, 800_000, 640_000, 500_000, 400_000],
+  headcountImpactSparkline: [0, -2, -6, -12, -18, -26, -34, -42, -50, -58, -64, -70],
+};
+
+const brInssRoadmapPhases = [
+  {
+    quarter: 'Q1 2026',
+    title: 'Pension Calculation Automation',
+    items: ['CNIS data unification', 'AI pension calculator pilot', 'Benefit eligibility engine'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 1, task: 'CNIS contribution history unification — consolidate 80M worker records from legacy COBOL and municipal databases', owner: 'INSS CTO' },
+      { week: 2, task: 'AI pension calculator pilot: automated benefit computation covering retirement, disability, and survivor pensions', owner: 'Actuarial AI Lead' },
+      { week: 3, task: 'Benefit eligibility engine: cross-reference CNIS, CAGED, and eSocial for automated eligibility determination', owner: 'Benefits IT Director' },
+      { week: 4, task: 'Q1 checkpoint: pension calculation time reduced from 45 days to 12 days for 60% of standard retirements', owner: 'INSS CTO' },
+    ],
+  },
+  {
+    quarter: 'Q2 2026',
+    title: 'Claims Processing & Fraud Detection',
+    items: ['Disability assessment AI', 'Fraud detection engine', 'Appeals automation'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 5, task: 'Disability assessment AI: medical document analysis and severity scoring for 2M+ annual disability claims', owner: 'Medical AI Lead' },
+      { week: 6, task: 'Fraud detection engine: pattern analysis across pension payments, death records, and contribution histories', owner: 'Fraud Prevention Director' },
+      { week: 7, task: 'Appeals automation: AI-assisted case review and routing for 800K annual benefit appeals', owner: 'Appeals IT Lead' },
+      { week: 8, task: 'Mid-year review: fraud detection rate up 180%, disability claim processing time reduced 45%', owner: 'INSS CTO' },
+    ],
+  },
+  {
+    quarter: 'Q3 2026',
+    title: 'Citizen Portal AI & Self-Service',
+    items: ['Meu INSS AI assistant', 'Proactive benefit notifications', 'Document verification AI'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 9, task: 'Meu INSS AI assistant: natural language pension queries and benefit estimation for 38M beneficiaries', owner: 'Citizen Services Lead' },
+      { week: 10, task: 'Proactive benefit notifications: AI-identified eligible citizens who have not applied for available benefits', owner: 'Outreach Program Director' },
+      { week: 11, task: 'Document verification AI: automated validation of birth certificates, medical reports, and contribution proofs', owner: 'Document Processing Lead' },
+      { week: 12, task: 'Q3 review: citizen self-service adoption up 60%, in-person visits reduced 35%', owner: 'INSS CTO' },
+    ],
+  },
+  {
+    quarter: 'Q4 2026',
+    title: 'Full Automation & Actuarial AI',
+    items: ['End-to-end pension processing', 'Actuarial forecasting AI', 'Cross-agency benefit coordination'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 13, task: 'End-to-end pension processing: 85% of standard retirement claims processed without human intervention', owner: 'INSS CTO' },
+      { week: 14, task: 'Actuarial forecasting AI: long-term pension liability modeling with demographic and economic projections', owner: 'Chief Actuary' },
+      { week: 15, task: 'Cross-agency benefit coordination: unified view across INSS, BPC, Bolsa Familia, and FGTS benefits', owner: 'Inter-Agency Coordinator' },
+      { week: 16, task: 'Annual review: $8M savings confirmed, pension processing time reduced 72%, fraud savings $2.4M', owner: 'INSS Director General' },
+    ],
+  },
+];
+
+const brInssTopOpportunities: Opportunity[] = [
+  { name: 'AI Pension Calculation (38M Beneficiaries)', category: 'Pension Processing', savings: 2_800_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 12, confidence: 88 },
+  { name: 'Benefit Fraud Detection Engine', category: 'Fraud Prevention', savings: 1_600_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 86 },
+  { name: 'Disability Claims AI Assessment', category: 'Claims Processing', savings: 1_200_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 14, confidence: 80 },
+  { name: 'Citizen Portal AI Assistant', category: 'Citizen Services', savings: 900_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 84 },
+  { name: 'Appeals Processing Automation', category: 'Legal Processing', savings: 800_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 12, confidence: 78 },
+  { name: 'Actuarial Forecasting AI', category: 'Risk Analytics', savings: 700_000, effort: 'High', status: 'identified', priority: 6, timeToValue: 16, confidence: 74 },
+];
+
+const brInssCurrentStack: CurrentTool[] = [
+  { name: 'CNIS Legacy (COBOL)', category: 'Contribution Registry', annualCost: 18_000_000, users: 12_000, score: 3, integrationComplexity: 'High', migrationWeeks: 48, riskLevel: 'High', dependencies: ['Worker Contributions', 'Employment History', 'Benefit Calculation'] },
+  { name: 'Meu INSS Portal', category: 'Citizen Services', annualCost: 8_000_000, users: 38_000_000, score: 7, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Benefit Applications', 'Status Tracking', 'Document Upload'] },
+  { name: 'SABI (Benefit System)', category: 'Benefit Processing', annualCost: 14_000_000, users: 8_000, score: 4, integrationComplexity: 'High', migrationWeeks: 36, riskLevel: 'High', dependencies: ['Pension Payments', 'Disability Benefits', 'Survivor Benefits'] },
+  { name: 'Medical Evaluation System', category: 'Disability Assessment', annualCost: 4_000_000, users: 3_200, score: 5, integrationComplexity: 'Medium', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Medical Reports', 'Disability Scoring', 'Expert Reviews'] },
+  { name: 'PostgreSQL / Oracle Mix', category: 'Database', annualCost: 3_000_000, users: 6_000, score: 5, integrationComplexity: 'Medium', migrationWeeks: 12, riskLevel: 'Medium', dependencies: ['Beneficiary Records', 'Payment History', 'Audit Trails'] },
+];
+
+const brInssLicenses: License[] = [
+  { vendor: 'CNIS COBOL Mainframe', totalLicenses: 1_200, active90d: 800, inactive: 400, annualWaste: 1_200_000, action: 'Migrate 400 inactive workloads to modern microservices platform', costPerLicense: 3_000, department: 'IT Operations', lastAuditDate: '2026-01-15', trend: [72, 68, 64, 60, 58, 67], complianceRisk: true },
+  { vendor: 'Oracle Database (SABI)', totalLicenses: 480, active90d: 320, inactive: 160, annualWaste: 640_000, action: 'Migrate 160 inactive instances to PostgreSQL', costPerLicense: 4_000, department: 'Benefit Processing', lastAuditDate: '2025-12-20', trend: [74, 68, 64, 60, 58, 67], complianceRisk: true },
+  { vendor: 'Microsoft 365 E3', totalLicenses: 12_000, active90d: 9_600, inactive: 2_400, annualWaste: 432_000, action: 'Downgrade 2,400 inactive seats to F1 tier', costPerLicense: 180, department: 'All INSS Offices', lastAuditDate: '2026-02-01', trend: [86, 82, 80, 78, 76, 80], complianceRisk: false },
+  { vendor: 'Medical Evaluation Modules', totalLicenses: 320, active90d: 200, inactive: 120, annualWaste: 360_000, action: 'Consolidate 120 unused modules, replace with AI assessment tools', costPerLicense: 3_000, department: 'Medical Board', lastAuditDate: '2025-11-10', trend: [68, 62, 58, 54, 52, 62], complianceRisk: false },
+  { vendor: 'Document Management System', totalLicenses: 600, active90d: 420, inactive: 180, annualWaste: 168_000, action: 'Migrate to unified digital document platform with AI OCR', costPerLicense: 933, department: 'Claims Processing', lastAuditDate: '2026-01-20', trend: [76, 72, 70, 68, 66, 70], complianceRisk: false },
+];
+
+const brInssWorkflowSummary = {
+  total: 56,
+  fullyAutomatable: 22,
+  humanInLoop: 20,
+  humanRequired: 14,
+  currentLaborSpend: 72_000_000,
+  potentialSavings: 5_200_000,
+};
+
+const brInssRoiSummary = {
+  techStackSavings: 3_600_000,
+  workflowAutomation: 5_200_000,
+  licenseRecovery: 2_800_000,
+  implementationCosts: 3_600_000,
+  netYear1: 8_000_000,
+  year2Projected: 13_600_000,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Brazil: DATASUS — Health Informatics (br-datasus) ──────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const brDatasusCompanyProfile = {
+  name: 'DATASUS — Health Informatics',
+  industry: 'Government — Health IT & Epidemiology',
+  employees: 24_000,
+  opCos: 0,
+  opCoNames: [] as string[],
+  techSpend: '$96M/yr',
+  aiReadinessScore: 44,
+  holdingPeriod: 'Federal agency — health data for 215M citizens, 6,000+ facilities',
+  ebitdaMargin: 'N/A',
+  targetEbitdaMargin: 'N/A',
+};
+
+const brDatasusAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 48, maxScore: 100, status: 'Below Average — vast health data warehouse (SIM, SINASC, SIH, SIA) but fragmented across legacy Oracle databases with inconsistent data quality across 5,570 municipalities' },
+  { category: 'Process Maturity', score: 42, maxScore: 100, status: 'Below Average — epidemiological surveillance partially automated, but hospital management reporting and data quality audits largely manual' },
+  { category: 'Tech Stack Modernity', score: 40, maxScore: 100, status: 'Legacy-Heavy — core health data systems built in early 2000s, CNES facility registry outdated, e-SUS AB partially modern' },
+  { category: 'Change Readiness', score: 46, maxScore: 100, status: 'Moderate — Health Ministry supports data modernization, but 24,000 staff across 26 states have highly variable digital capabilities' },
+  { category: 'Skills & Training', score: 40, maxScore: 100, status: 'Developing — epidemiologists strong in statistical analysis, but AI/ML skills concentrated in Brasilia, state health offices need upskilling' },
+];
+
+const brDatasusKpis = {
+  totalSavings: 6_000_000,
+  techScoreBefore: 44,
+  techScoreAfter: 80,
+  workflowsAnalyzed: 42,
+  automationReady: 16,
+  unusedLicenseWaste: 2_200_000,
+  savingsSparkline: [0, 380_000, 840_000, 1_400_000, 2_200_000, 2_900_000, 3_500_000, 4_000_000, 4_600_000, 5_200_000, 5_600_000, 6_000_000],
+  scoreSparkline: [44, 47, 50, 54, 58, 62, 66, 69, 72, 75, 78, 80],
+  workflowSparkline: [0, 3, 7, 12, 16, 20, 26, 30, 34, 38, 40, 42],
+  licenseSparkline: [2_200_000, 2_000_000, 1_800_000, 1_600_000, 1_400_000, 1_200_000, 1_000_000, 800_000, 640_000, 500_000, 400_000, 320_000],
+  headcountImpactSparkline: [0, -1, -4, -8, -14, -20, -26, -32, -38, -44, -48, -52],
+};
+
+const brDatasusRoadmapPhases = [
+  {
+    quarter: 'Q1 2026',
+    title: 'Health Data Warehouse Modernization',
+    items: ['SIM/SINASC data unification', 'Hospital data quality AI', 'Epidemiological alert system'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 1, task: 'SIM/SINASC mortality and birth data unification — consolidate records from 5,570 municipalities into modern data lake', owner: 'DATASUS CTO' },
+      { week: 2, task: 'Hospital data quality AI: automated validation of SIH admission/discharge records across 6,000+ facilities', owner: 'Data Quality Lead' },
+      { week: 3, task: 'Epidemiological early warning system: AI-powered outbreak detection from SINAN notifiable disease data', owner: 'Epidemiology AI Lead' },
+      { week: 4, task: 'Q1 checkpoint: data quality score improved 40%, outbreak detection latency reduced from 14 days to 3 days', owner: 'DATASUS CTO' },
+    ],
+  },
+  {
+    quarter: 'Q2 2026',
+    title: 'Surveillance & Analytics Platform',
+    items: ['Real-time disease surveillance', 'Hospital performance analytics', 'Drug supply chain tracking'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 5, task: 'Real-time disease surveillance: AI models for dengue, Zika, and Chikungunya outbreak prediction', owner: 'Epidemiology AI Lead' },
+      { week: 6, task: 'Hospital performance analytics: AI-driven KPI dashboards for 6,000+ SUS facilities', owner: 'Healthcare Analytics Lead' },
+      { week: 7, task: 'Drug supply chain tracking: AI-powered pharmaceutical inventory prediction across SUS network', owner: 'Supply Chain IT Lead' },
+      { week: 8, task: 'Mid-year review: surveillance accuracy 94%, hospital reporting compliance up 55%', owner: 'DATASUS CTO' },
+    ],
+  },
+  {
+    quarter: 'Q3 2026',
+    title: 'Interoperability & Standards',
+    items: ['HL7 FHIR migration', 'Cross-system patient matching', 'Research data platform'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 9, task: 'HL7 FHIR migration: modernize health data exchange standards across DATASUS systems', owner: 'Interoperability Lead' },
+      { week: 10, task: 'Cross-system patient matching: AI entity resolution across SUS, CNES, and SIGTAP records', owner: 'Data Engineering Lead' },
+      { week: 11, task: 'Research data platform: anonymized health data lake for academic and public health research', owner: 'Research Partnerships Director' },
+      { week: 12, task: 'Q3 review: FHIR adoption at 60% of facilities, patient matching accuracy 96%', owner: 'DATASUS CTO' },
+    ],
+  },
+  {
+    quarter: 'Q4 2026',
+    title: 'AI-Powered Health Intelligence',
+    items: ['Population health AI', 'Automated reporting', 'Health equity analytics'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 13, task: 'Population health AI: chronic disease risk modeling for 215M citizens using integrated health data', owner: 'Population Health Lead' },
+      { week: 14, task: 'Automated reporting: AI-generated health indicators for WHO, PAHO, and Ministry of Health', owner: 'Reporting Automation Lead' },
+      { week: 15, task: 'Health equity analytics: AI-driven identification of healthcare access disparities across regions', owner: 'Health Equity Director' },
+      { week: 16, task: 'Annual review: $6M savings confirmed, data quality at 94%, outbreak detection 10x faster', owner: 'DATASUS Director' },
+    ],
+  },
+];
+
+const brDatasusTopOpportunities: Opportunity[] = [
+  { name: 'Epidemiological Surveillance AI', category: 'Public Health', savings: 1_800_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 14, confidence: 84 },
+  { name: 'Health Data Warehouse Modernization', category: 'Data Infrastructure', savings: 1_400_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 16, confidence: 80 },
+  { name: 'Hospital Performance Analytics', category: 'Healthcare Operations', savings: 1_000_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 10, confidence: 86 },
+  { name: 'Drug Supply Chain Prediction', category: 'Pharmaceutical', savings: 800_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 88 },
+  { name: 'Patient Record Deduplication AI', category: 'Data Quality', savings: 600_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 12, confidence: 82 },
+  { name: 'Automated Health Reporting', category: 'Compliance', savings: 400_000, effort: 'Low', status: 'identified', priority: 6, timeToValue: 6, confidence: 90 },
+];
+
+const brDatasusCurrentStack: CurrentTool[] = [
+  { name: 'SIH/SIA Legacy', category: 'Hospital Information', annualCost: 12_000_000, users: 8_000, score: 4, integrationComplexity: 'High', migrationWeeks: 36, riskLevel: 'High', dependencies: ['Hospital Admissions', 'Outpatient Data', 'SUS Billing'] },
+  { name: 'SINAN/SIM/SINASC', category: 'Epidemiological Systems', annualCost: 8_000_000, users: 6_000, score: 5, integrationComplexity: 'High', migrationWeeks: 28, riskLevel: 'High', dependencies: ['Disease Notification', 'Mortality Data', 'Birth Records'] },
+  { name: 'CNES Registry', category: 'Facility Registry', annualCost: 4_000_000, users: 4_200, score: 4, integrationComplexity: 'Medium', migrationWeeks: 20, riskLevel: 'Medium', dependencies: ['Health Facility Data', 'Provider Registry', 'Bed Management'] },
+  { name: 'e-SUS Atenção Básica', category: 'Primary Care', annualCost: 6_000_000, users: 12_000, score: 6, integrationComplexity: 'Low', migrationWeeks: 8, riskLevel: 'Low', dependencies: ['Primary Care Records', 'Community Health', 'Vaccination Data'] },
+  { name: 'Oracle Data Warehouse', category: 'Analytics', annualCost: 5_000_000, users: 2_400, score: 4, integrationComplexity: 'High', migrationWeeks: 24, riskLevel: 'High', dependencies: ['Health Indicators', 'Population Statistics', 'Research Data'] },
+];
+
+const brDatasusLicenses: License[] = [
+  { vendor: 'Oracle Database Enterprise', totalLicenses: 360, active90d: 220, inactive: 140, annualWaste: 840_000, action: 'Migrate 140 instances to PostgreSQL — Oracle elimination program', costPerLicense: 6_000, department: 'Data Warehouse', lastAuditDate: '2025-12-15', trend: [70, 64, 60, 56, 54, 61], complianceRisk: true },
+  { vendor: 'Legacy Health Modules', totalLicenses: 480, active90d: 300, inactive: 180, annualWaste: 540_000, action: 'Decommission 180 legacy modules — replace with modern FHIR-based systems', costPerLicense: 3_000, department: 'Health IT', lastAuditDate: '2025-11-01', trend: [66, 60, 56, 52, 50, 62], complianceRisk: true },
+  { vendor: 'Microsoft 365 E3', totalLicenses: 8_000, active90d: 6_400, inactive: 1_600, annualWaste: 288_000, action: 'Downgrade 1,600 inactive seats to F1 tier', costPerLicense: 180, department: 'All DATASUS', lastAuditDate: '2026-02-05', trend: [86, 82, 80, 78, 76, 80], complianceRisk: false },
+  { vendor: 'BI Reporting Tools', totalLicenses: 240, active90d: 160, inactive: 80, annualWaste: 240_000, action: 'Migrate 80 seats to open-source Metabase for health analytics', costPerLicense: 3_000, department: 'Epidemiology', lastAuditDate: '2026-01-10', trend: [72, 68, 64, 62, 60, 67], complianceRisk: false },
+  { vendor: 'GIS Mapping Software', totalLicenses: 120, active90d: 76, inactive: 44, annualWaste: 292_000, action: 'Consolidate to open-source QGIS for health geospatial analysis', costPerLicense: 6_636, department: 'Surveillance', lastAuditDate: '2025-12-20', trend: [74, 68, 64, 60, 58, 63], complianceRisk: false },
+];
+
+const brDatasusWorkflowSummary = {
+  total: 42,
+  fullyAutomatable: 16,
+  humanInLoop: 16,
+  humanRequired: 10,
+  currentLaborSpend: 48_000_000,
+  potentialSavings: 3_800_000,
+};
+
+const brDatasusRoiSummary = {
+  techStackSavings: 2_600_000,
+  workflowAutomation: 3_800_000,
+  licenseRecovery: 2_200_000,
+  implementationCosts: 2_600_000,
+  netYear1: 6_000_000,
+  year2Projected: 10_200_000,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Brazil: Ministry of Defense — Cyber Command (br-defesa) ────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const brDefesaCompanyProfile = {
+  name: 'Ministry of Defense — Cyber Command',
+  industry: 'Government — Defense & Cybersecurity',
+  employees: 22_000,
+  opCos: 0,
+  opCoNames: [] as string[],
+  techSpend: '$180M/yr',
+  aiReadinessScore: 50,
+  holdingPeriod: 'Federal defense — cyber operations, satellite imagery, secure comms',
+  ebitdaMargin: 'N/A',
+  targetEbitdaMargin: 'N/A',
+};
+
+const brDefesaAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 52, maxScore: 100, status: 'Moderate — classified and unclassified networks well-segmented, satellite imagery pipeline operational, but cross-domain data fusion limited' },
+  { category: 'Process Maturity', score: 48, maxScore: 100, status: 'Below Average — threat detection partially automated via SIEM, but incident response, satellite analysis, and intelligence fusion largely manual' },
+  { category: 'Tech Stack Modernity', score: 54, maxScore: 100, status: 'Mixed — modern SIEM and endpoint protection deployed, but legacy C4ISR systems and secure comms infrastructure need AI integration' },
+  { category: 'Change Readiness', score: 46, maxScore: 100, status: 'Below Average — military hierarchy supports modernization, but operational security concerns slow AI adoption, 22,000 personnel need training' },
+  { category: 'Skills & Training', score: 48, maxScore: 100, status: 'Developing — cyber warfare teams skilled in offensive/defensive ops, but AI/ML capability limited to small R&D unit in Brasilia' },
+];
+
+const brDefesaKpis = {
+  totalSavings: 5_000_000,
+  techScoreBefore: 50,
+  techScoreAfter: 84,
+  workflowsAnalyzed: 34,
+  automationReady: 14,
+  unusedLicenseWaste: 1_800_000,
+  savingsSparkline: [0, 320_000, 700_000, 1_200_000, 1_800_000, 2_400_000, 2_900_000, 3_400_000, 3_800_000, 4_300_000, 4_700_000, 5_000_000],
+  scoreSparkline: [50, 53, 56, 60, 64, 68, 71, 74, 77, 80, 82, 84],
+  workflowSparkline: [0, 3, 6, 10, 14, 18, 22, 26, 28, 30, 32, 34],
+  licenseSparkline: [1_800_000, 1_640_000, 1_480_000, 1_300_000, 1_140_000, 980_000, 820_000, 680_000, 540_000, 420_000, 340_000, 260_000],
+  headcountImpactSparkline: [0, -1, -3, -6, -10, -14, -18, -24, -28, -34, -38, -42],
+};
+
+const brDefesaRoadmapPhases = [
+  {
+    quarter: 'Q1 2026',
+    title: 'AI-Powered Threat Detection',
+    items: ['SIEM AI enhancement', 'Satellite imagery analysis', 'Network anomaly detection'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 1, task: 'SIEM AI model deployment: real-time threat classification on 5M+ daily security events across defense networks', owner: 'Cyber Command SOC Director' },
+      { week: 2, task: 'Satellite imagery AI analysis: automated change detection and object recognition for border surveillance', owner: 'Satellite Intel Lead' },
+      { week: 3, task: 'Network anomaly detection: AI monitoring of classified and unclassified network traffic patterns', owner: 'Network Security Lead' },
+      { week: 4, task: 'Q1 checkpoint: mean time to detect reduced from 6 hours to 15 minutes, satellite analysis throughput 8x', owner: 'Cyber Command Director' },
+    ],
+  },
+  {
+    quarter: 'Q2 2026',
+    title: 'Intelligence Fusion & Analysis',
+    items: ['Multi-source intelligence AI', 'Automated threat assessment', 'Secure communications AI'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 5, task: 'Multi-source intelligence fusion: AI correlation across SIGINT, IMINT, and OSINT data streams', owner: 'Intelligence Fusion Lead' },
+      { week: 6, task: 'Automated threat assessment: AI-powered adversary capability and intent analysis', owner: 'Threat Assessment Director' },
+      { week: 7, task: 'Secure communications AI: encrypted traffic analysis and anomaly detection for military comms', owner: 'Secure Comms Lead' },
+      { week: 8, task: 'Mid-year review: intelligence processing time reduced 65%, false positive rate down 72%', owner: 'Cyber Command Director' },
+    ],
+  },
+  {
+    quarter: 'Q3 2026',
+    title: 'Cyber Operations Automation',
+    items: ['Automated incident response', 'Cyber range AI', 'Vulnerability management AI'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 9, task: 'Automated incident response: AI-driven playbooks for 75% of common cyber attack patterns', owner: 'Incident Response Lead' },
+      { week: 10, task: 'Cyber range AI: automated adversary simulation for continuous defense testing and training', owner: 'Red Team Lead' },
+      { week: 11, task: 'Vulnerability management AI: risk-based prioritization across 8,000+ defense systems', owner: 'Vulnerability Management Lead' },
+      { week: 12, task: 'Q3 review: MTTR reduced from 4 hours to 30 minutes, cyber range exercises automated', owner: 'Cyber Command Director' },
+    ],
+  },
+  {
+    quarter: 'Q4 2026',
+    title: 'Full Cyber Defense Platform',
+    items: ['Predictive defense posture', 'Cross-force integration', 'National cyber resilience'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 13, task: 'Predictive defense posture: AI forecasting emerging threats based on global attack intelligence', owner: 'Threat Intelligence Lead' },
+      { week: 14, task: 'Cross-force integration: unified cyber situational awareness across Army, Navy, and Air Force', owner: 'Joint Cyber Coordinator' },
+      { week: 15, task: 'National cyber resilience: defense AI integration with civilian CERT.br and critical infrastructure', owner: 'National Resilience Director' },
+      { week: 16, task: 'Annual review: $5M savings confirmed, AI readiness 84, threat detection speed improved 24x', owner: 'Cyber Command Director' },
+    ],
+  },
+];
+
+const brDefesaTopOpportunities: Opportunity[] = [
+  { name: 'AI Threat Detection (5M Events/Day)', category: 'Cybersecurity', savings: 1_600_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 12, confidence: 86 },
+  { name: 'Satellite Imagery AI Analysis', category: 'Intelligence', savings: 1_200_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 14, confidence: 82 },
+  { name: 'Automated Incident Response', category: 'Cyber Operations', savings: 800_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 10, confidence: 84 },
+  { name: 'Secure Communications AI', category: 'Communications', savings: 600_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 76 },
+  { name: 'Intelligence Fusion Platform', category: 'Intelligence', savings: 500_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 18, confidence: 72 },
+  { name: 'Vulnerability Management AI', category: 'Security', savings: 300_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 8, confidence: 88 },
+];
+
+const brDefesaCurrentStack: CurrentTool[] = [
+  { name: 'Defense SIEM (Splunk)', category: 'Security Monitoring', annualCost: 24_000_000, users: 480, score: 7, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Medium', dependencies: ['Log Aggregation', 'Threat Detection', 'Compliance Monitoring'] },
+  { name: 'Satellite Ground Station', category: 'Imagery Intelligence', annualCost: 36_000_000, users: 1_200, score: 6, integrationComplexity: 'High', migrationWeeks: 24, riskLevel: 'High', dependencies: ['Satellite Imagery', 'Change Detection', 'Geospatial Analysis'] },
+  { name: 'C4ISR Legacy Systems', category: 'Command & Control', annualCost: 28_000_000, users: 4_000, score: 4, integrationComplexity: 'High', migrationWeeks: 48, riskLevel: 'High', dependencies: ['Command Systems', 'Tactical Networks', 'Situational Awareness'] },
+  { name: 'Secure Comms Platform', category: 'Communications', annualCost: 18_000_000, users: 8_000, score: 6, integrationComplexity: 'High', migrationWeeks: 20, riskLevel: 'High', dependencies: ['Encrypted Voice', 'Secure Messaging', 'Data Links'] },
+];
+
+const brDefesaLicenses: License[] = [
+  { vendor: 'Splunk Enterprise Security', totalLicenses: 480, active90d: 360, inactive: 120, annualWaste: 600_000, action: 'Consolidate 120 inactive seats, optimize log ingestion tiers', costPerLicense: 5_000, department: 'Cyber Command SOC', lastAuditDate: '2026-01-10', trend: [80, 76, 74, 72, 70, 75], complianceRisk: false },
+  { vendor: 'Satellite Processing Suite', totalLicenses: 120, active90d: 84, inactive: 36, annualWaste: 432_000, action: 'Replace 36 legacy licenses with AI-native imagery processing', costPerLicense: 12_000, department: 'Imagery Intelligence', lastAuditDate: '2025-12-15', trend: [76, 70, 66, 64, 62, 70], complianceRisk: false },
+  { vendor: 'C4ISR Legacy Modules', totalLicenses: 240, active90d: 160, inactive: 80, annualWaste: 480_000, action: 'Decommission 80 legacy C4ISR modules as modernization proceeds', costPerLicense: 6_000, department: 'Joint Operations', lastAuditDate: '2025-11-20', trend: [72, 66, 62, 58, 56, 67], complianceRisk: true },
+  { vendor: 'CrowdStrike Falcon (Defense)', totalLicenses: 8_000, active90d: 7_200, inactive: 800, annualWaste: 288_000, action: 'Reclaim 800 seats from decommissioned endpoints', costPerLicense: 360, department: 'All Defense Endpoints', lastAuditDate: '2026-02-01', trend: [92, 90, 88, 86, 84, 90], complianceRisk: false },
+];
+
+const brDefesaWorkflowSummary = {
+  total: 34,
+  fullyAutomatable: 14,
+  humanInLoop: 12,
+  humanRequired: 8,
+  currentLaborSpend: 58_000_000,
+  potentialSavings: 3_200_000,
+};
+
+const brDefesaRoiSummary = {
+  techStackSavings: 2_200_000,
+  workflowAutomation: 3_200_000,
+  licenseRecovery: 1_800_000,
+  implementationCosts: 2_200_000,
+  netYear1: 5_000_000,
+  year2Projected: 8_500_000,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ─── Brazil: ANATEL — Telecommunications Agency (br-anatel) ─────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const brAnatelCompanyProfile = {
+  name: 'ANATEL — Telecommunications Agency',
+  industry: 'Government — Telecom Regulation & Spectrum Management',
+  employees: 18_000,
+  opCos: 0,
+  opCoNames: [] as string[],
+  techSpend: '$64M/yr',
+  aiReadinessScore: 46,
+  holdingPeriod: 'Federal regulatory agency — telecom licensing, spectrum allocation, 5G deployment',
+  ebitdaMargin: 'N/A',
+  targetEbitdaMargin: 'N/A',
+};
+
+const brAnatelAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 48, maxScore: 100, status: 'Moderate — spectrum monitoring data well-structured, but compliance records and telecom licensing fragmented across legacy systems' },
+  { category: 'Process Maturity', score: 44, maxScore: 100, status: 'Below Average — spectrum allocation partially digitized, but compliance monitoring, license processing, and 5G planning largely manual' },
+  { category: 'Tech Stack Modernity', score: 46, maxScore: 100, status: 'Mixed — spectrum monitoring tools modern, but licensing platform and compliance tracking systems are legacy, need API modernization' },
+  { category: 'Change Readiness', score: 48, maxScore: 100, status: 'Moderate — strong mandate for 5G regulatory modernization, but 18,000 staff across regional offices have variable technical capability' },
+  { category: 'Skills & Training', score: 42, maxScore: 100, status: 'Developing — RF engineers skilled in spectrum analysis, but AI/ML capability absent, data science team being formed' },
+];
+
+const brAnatelKpis = {
+  totalSavings: 3_000_000,
+  techScoreBefore: 46,
+  techScoreAfter: 82,
+  workflowsAnalyzed: 28,
+  automationReady: 10,
+  unusedLicenseWaste: 1_200_000,
+  savingsSparkline: [0, 200_000, 420_000, 700_000, 1_100_000, 1_400_000, 1_700_000, 2_000_000, 2_300_000, 2_600_000, 2_800_000, 3_000_000],
+  scoreSparkline: [46, 49, 52, 56, 60, 64, 68, 72, 75, 78, 80, 82],
+  workflowSparkline: [0, 2, 5, 8, 10, 14, 18, 20, 22, 24, 26, 28],
+  licenseSparkline: [1_200_000, 1_100_000, 980_000, 860_000, 740_000, 640_000, 540_000, 440_000, 360_000, 280_000, 220_000, 180_000],
+  headcountImpactSparkline: [0, -1, -2, -4, -6, -8, -12, -16, -18, -22, -24, -26],
+};
+
+const brAnatelRoadmapPhases = [
+  {
+    quarter: 'Q1 2026',
+    title: 'Spectrum Management AI',
+    items: ['Spectrum monitoring AI', 'Interference detection', 'License processing automation'],
+    status: 'active' as const,
+    weekPlan: [
+      { week: 1, task: 'Spectrum monitoring AI: automated anomaly detection across 40,000+ monitoring points nationwide', owner: 'Spectrum Management Director' },
+      { week: 2, task: 'Interference detection engine: AI-powered RF interference identification and source geolocation', owner: 'RF Engineering Lead' },
+      { week: 3, task: 'License processing automation: AI-assisted telecom license application review and compliance checking', owner: 'Licensing IT Director' },
+      { week: 4, task: 'Q1 checkpoint: interference detection time reduced from 72 hours to 4 hours, license processing 3x faster', owner: 'ANATEL CTO' },
+    ],
+  },
+  {
+    quarter: 'Q2 2026',
+    title: 'Compliance & Quality Monitoring',
+    items: ['Telecom QoS monitoring', 'Consumer complaint AI', 'Operator compliance scoring'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 5, task: 'Telecom QoS monitoring: AI-powered service quality measurement across all licensed operators', owner: 'Quality Monitoring Lead' },
+      { week: 6, task: 'Consumer complaint AI: automated classification and routing of telecom consumer complaints', owner: 'Consumer Relations Director' },
+      { week: 7, task: 'Operator compliance scoring: AI-driven risk assessment and compliance scoring for 200+ licensed operators', owner: 'Compliance AI Lead' },
+      { week: 8, task: 'Mid-year review: complaint resolution time reduced 55%, compliance audit efficiency up 40%', owner: 'ANATEL CTO' },
+    ],
+  },
+  {
+    quarter: 'Q3 2026',
+    title: '5G Planning & Deployment',
+    items: ['5G coverage optimization', 'Spectrum auction analytics', 'Infrastructure sharing AI'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 9, task: '5G coverage optimization: AI-driven site planning for nationwide 5G rollout across 5,570 municipalities', owner: '5G Planning Director' },
+      { week: 10, task: 'Spectrum auction analytics: AI-powered auction design and reserve price optimization', owner: 'Spectrum Economics Lead' },
+      { week: 11, task: 'Infrastructure sharing AI: automated tower sharing compliance and optimization modeling', owner: 'Infrastructure Regulation Lead' },
+      { week: 12, task: 'Q3 review: 5G planning accuracy improved 60%, spectrum auction revenue projections within 5%', owner: 'ANATEL CTO' },
+    ],
+  },
+  {
+    quarter: 'Q4 2026',
+    title: 'Regulatory Intelligence Platform',
+    items: ['Market analysis AI', 'Regulatory impact AI', 'Digital inclusion analytics'],
+    status: 'upcoming' as const,
+    weekPlan: [
+      { week: 13, task: 'Market analysis AI: automated telecom market monitoring and competitive landscape analysis', owner: 'Market Analysis Director' },
+      { week: 14, task: 'Regulatory impact AI: predictive modeling of regulatory changes on market dynamics and consumer welfare', owner: 'Regulatory Economics Lead' },
+      { week: 15, task: 'Digital inclusion analytics: AI-driven identification of underserved areas for universal service obligations', owner: 'Digital Inclusion Director' },
+      { week: 16, task: 'Annual review: $3M savings confirmed, AI readiness 82, 5G regulatory framework AI-enabled', owner: 'ANATEL President' },
+    ],
+  },
+];
+
+const brAnatelTopOpportunities: Opportunity[] = [
+  { name: 'Spectrum Monitoring AI (40K Points)', category: 'Spectrum Management', savings: 900_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 10, confidence: 88 },
+  { name: 'Telecom Compliance Automation', category: 'Regulatory', savings: 700_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 8, confidence: 86 },
+  { name: '5G Coverage Planning AI', category: 'Infrastructure', savings: 500_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 14, confidence: 80 },
+  { name: 'Consumer Complaint AI Routing', category: 'Consumer Services', savings: 400_000, effort: 'Low', status: 'identified', priority: 8, timeToValue: 6, confidence: 90 },
+  { name: 'License Processing Automation', category: 'Licensing', savings: 300_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 84 },
+  { name: 'Spectrum Auction Analytics', category: 'Economics', savings: 200_000, effort: 'High', status: 'identified', priority: 6, timeToValue: 16, confidence: 76 },
+];
+
+const brAnatelCurrentStack: CurrentTool[] = [
+  { name: 'Spectrum Monitoring System', category: 'RF Monitoring', annualCost: 8_000_000, users: 2_400, score: 7, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['RF Measurement', 'Interference Detection', 'Signal Analysis'] },
+  { name: 'Licensing Platform (Legacy)', category: 'License Management', annualCost: 6_000_000, users: 4_000, score: 4, integrationComplexity: 'High', migrationWeeks: 28, riskLevel: 'High', dependencies: ['License Applications', 'Renewal Processing', 'Fee Collection'] },
+  { name: 'QoS Monitoring Platform', category: 'Quality of Service', annualCost: 4_000_000, users: 1_800, score: 6, integrationComplexity: 'Medium', migrationWeeks: 12, riskLevel: 'Medium', dependencies: ['Service Quality Metrics', 'Coverage Maps', 'Operator Benchmarks'] },
+  { name: 'Consumer Complaint System', category: 'Consumer Relations', annualCost: 2_400_000, users: 3_200, score: 5, integrationComplexity: 'Medium', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Complaint Intake', 'Case Tracking', 'Resolution Management'] },
+  { name: 'PostgreSQL', category: 'Database', annualCost: 200_000, users: 800, score: 7, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['Regulatory Data', 'Spectrum Records', 'Compliance History'] },
+];
+
+const brAnatelLicenses: License[] = [
+  { vendor: 'Legacy Licensing Platform', totalLicenses: 400, active90d: 280, inactive: 120, annualWaste: 360_000, action: 'Replace legacy licensing with modern AI-native regulatory platform', costPerLicense: 3_000, department: 'Licensing Division', lastAuditDate: '2025-12-15', trend: [76, 70, 66, 64, 62, 70], complianceRisk: true },
+  { vendor: 'Spectrum Analysis Software', totalLicenses: 240, active90d: 180, inactive: 60, annualWaste: 300_000, action: 'Consolidate 60 seats — migrate to AI-integrated spectrum tools', costPerLicense: 5_000, department: 'Spectrum Management', lastAuditDate: '2026-01-10', trend: [80, 76, 74, 72, 70, 75], complianceRisk: false },
+  { vendor: 'Microsoft 365 E3', totalLicenses: 6_000, active90d: 4_800, inactive: 1_200, annualWaste: 216_000, action: 'Downgrade 1,200 inactive seats to F1 tier', costPerLicense: 180, department: 'All ANATEL', lastAuditDate: '2026-02-01', trend: [86, 82, 80, 78, 76, 80], complianceRisk: false },
+  { vendor: 'GIS & Coverage Tools', totalLicenses: 180, active90d: 120, inactive: 60, annualWaste: 180_000, action: 'Migrate 60 seats to open-source QGIS with AI extensions', costPerLicense: 3_000, department: 'Coverage Planning', lastAuditDate: '2025-11-20', trend: [74, 70, 66, 64, 62, 67], complianceRisk: false },
+  { vendor: 'Data Analytics Platform', totalLicenses: 120, active90d: 84, inactive: 36, annualWaste: 144_000, action: 'Consolidate to unified analytics on Metabase', costPerLicense: 4_000, department: 'Market Analysis', lastAuditDate: '2026-01-20', trend: [76, 72, 68, 66, 64, 70], complianceRisk: false },
+];
+
+const brAnatelWorkflowSummary = {
+  total: 28,
+  fullyAutomatable: 10,
+  humanInLoop: 12,
+  humanRequired: 6,
+  currentLaborSpend: 32_000_000,
+  potentialSavings: 1_800_000,
+};
+
+const brAnatelRoiSummary = {
+  techStackSavings: 1_200_000,
+  workflowAutomation: 1_800_000,
+  licenseRecovery: 1_200_000,
+  implementationCosts: 1_200_000,
+  netYear1: 3_000_000,
+  year2Projected: 5_100_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -4349,6 +4879,38 @@ const brSerproAiAgents: AIAgent[] = [
   { name: 'Digital Identity Verifier', subtitle: 'eID Validation', accuracy: 98.7, metric2Label: 'Verification Error', metric2Value: 0.4, metric3Label: 'Verify Time', metric3Value: '0.3s', overrideRate: 2.8, confidenceThreshold: 0.96, status: 'active', lastmileAgentId: 'digital-identity-verifier' },
 ];
 
+const brInssAiAgents: AIAgent[] = [
+  { name: 'Pension Calculator AI', subtitle: 'Benefit Computation', accuracy: 96.8, metric2Label: 'Calculation Error', metric2Value: 1.1, metric3Label: 'Processing Time', metric3Value: '0.6s', overrideRate: 4.8, confidenceThreshold: 0.94, status: 'active', lastmileAgentId: 'pension-calculator-ai' },
+  { name: 'Fraud Detector', subtitle: 'Benefit Fraud Prevention', accuracy: 93.2, metric2Label: 'False Positive', metric2Value: 3.1, metric3Label: 'Scan Cycle', metric3Value: '2 hrs', overrideRate: 8.6, confidenceThreshold: 0.88, status: 'active', lastmileAgentId: 'inss-fraud-detector' },
+  { name: 'Disability Assessor', subtitle: 'Medical Evaluation', accuracy: 89.4, metric2Label: 'Assessment Error', metric2Value: 4.8, metric3Label: 'Review Time', metric3Value: '4.2 min', overrideRate: 14.2, confidenceThreshold: 0.82, status: 'piloting', lastmileAgentId: 'disability-assessor' },
+  { name: 'Eligibility Engine', subtitle: 'Benefit Eligibility', accuracy: 95.1, metric2Label: 'Eligibility Error', metric2Value: 1.8, metric3Label: 'Decision Time', metric3Value: '1.4s', overrideRate: 6.2, confidenceThreshold: 0.91, status: 'active', lastmileAgentId: 'eligibility-engine' },
+  { name: 'Citizen Assistant', subtitle: 'Meu INSS AI', accuracy: 87.6, metric2Label: 'Response Error', metric2Value: 5.4, metric3Label: 'Response Time', metric3Value: '1.8s', overrideRate: 16.8, confidenceThreshold: 0.78, status: 'planned', lastmileAgentId: 'inss-citizen-assistant' },
+];
+
+const brDatasusAiAgents: AIAgent[] = [
+  { name: 'Outbreak Detector', subtitle: 'Epidemiological Surveillance', accuracy: 94.6, metric2Label: 'Detection Miss', metric2Value: 2.2, metric3Label: 'Alert Latency', metric3Value: '4 hrs', overrideRate: 7.4, confidenceThreshold: 0.90, status: 'active', lastmileAgentId: 'outbreak-detector' },
+  { name: 'Data Quality AI', subtitle: 'Health Data Validation', accuracy: 96.2, metric2Label: 'Quality Miss', metric2Value: 1.4, metric3Label: 'Validation Time', metric3Value: '0.8s', overrideRate: 5.6, confidenceThreshold: 0.93, status: 'active', lastmileAgentId: 'data-quality-ai' },
+  { name: 'Hospital Analytics', subtitle: 'Facility Performance', accuracy: 91.8, metric2Label: 'KPI Error', metric2Value: 3.4, metric3Label: 'Report Cycle', metric3Value: '12 hrs', overrideRate: 10.2, confidenceThreshold: 0.86, status: 'piloting', lastmileAgentId: 'hospital-analytics' },
+  { name: 'Patient Matcher', subtitle: 'Record Deduplication', accuracy: 97.8, metric2Label: 'Match Error', metric2Value: 0.8, metric3Label: 'Match Speed', metric3Value: '0.2s', overrideRate: 3.4, confidenceThreshold: 0.95, status: 'active', lastmileAgentId: 'patient-matcher' },
+  { name: 'Drug Supply Predictor', subtitle: 'Pharmaceutical Forecasting', accuracy: 88.4, metric2Label: 'Forecast Error', metric2Value: 5.2, metric3Label: 'Prediction Window', metric3Value: '30 days', overrideRate: 14.8, confidenceThreshold: 0.80, status: 'planned', lastmileAgentId: 'drug-supply-predictor' },
+];
+
+const brDefesaAiAgents: AIAgent[] = [
+  { name: 'Threat Hunter', subtitle: 'Cyber Threat Detection', accuracy: 97.2, metric2Label: 'Threat Miss', metric2Value: 0.9, metric3Label: 'Detection Speed', metric3Value: '0.08s', overrideRate: 3.8, confidenceThreshold: 0.95, status: 'active', lastmileAgentId: 'defense-threat-hunter' },
+  { name: 'Satellite Analyzer', subtitle: 'Imagery Intelligence', accuracy: 93.6, metric2Label: 'Classification Error', metric2Value: 2.6, metric3Label: 'Analysis Time', metric3Value: '8.4s', overrideRate: 8.2, confidenceThreshold: 0.89, status: 'active', lastmileAgentId: 'satellite-analyzer' },
+  { name: 'Incident Responder', subtitle: 'Automated Response', accuracy: 95.4, metric2Label: 'Response Error', metric2Value: 1.8, metric3Label: 'Response Time', metric3Value: '2.1s', overrideRate: 5.8, confidenceThreshold: 0.92, status: 'active', lastmileAgentId: 'defense-incident-responder' },
+  { name: 'Intel Fusion AI', subtitle: 'Intelligence Analysis', accuracy: 86.8, metric2Label: 'Correlation Error', metric2Value: 6.2, metric3Label: 'Fusion Cycle', metric3Value: '15 min', overrideRate: 18.4, confidenceThreshold: 0.78, status: 'piloting', lastmileAgentId: 'intel-fusion-ai' },
+  { name: 'Comms Monitor', subtitle: 'Secure Communications', accuracy: 98.4, metric2Label: 'Anomaly Miss', metric2Value: 0.6, metric3Label: 'Monitor Interval', metric3Value: '5s', overrideRate: 2.4, confidenceThreshold: 0.96, status: 'active', lastmileAgentId: 'comms-monitor' },
+];
+
+const brAnatelAiAgents: AIAgent[] = [
+  { name: 'Spectrum Monitor AI', subtitle: 'RF Monitoring', accuracy: 95.8, metric2Label: 'Detection Miss', metric2Value: 1.6, metric3Label: 'Scan Cycle', metric3Value: '30s', overrideRate: 5.4, confidenceThreshold: 0.92, status: 'active', lastmileAgentId: 'spectrum-monitor-ai' },
+  { name: 'Compliance Scorer', subtitle: 'Operator Compliance', accuracy: 93.4, metric2Label: 'Score Error', metric2Value: 2.8, metric3Label: 'Assessment Time', metric3Value: '4.6 min', overrideRate: 8.8, confidenceThreshold: 0.88, status: 'active', lastmileAgentId: 'compliance-scorer' },
+  { name: 'License Processor', subtitle: 'Telecom Licensing', accuracy: 91.2, metric2Label: 'Processing Error', metric2Value: 3.6, metric3Label: 'Decision Time', metric3Value: '8.2 min', overrideRate: 10.6, confidenceThreshold: 0.85, status: 'piloting', lastmileAgentId: 'license-processor' },
+  { name: '5G Planner', subtitle: 'Coverage Optimization', accuracy: 88.6, metric2Label: 'Model Error', metric2Value: 4.8, metric3Label: 'Planning Cycle', metric3Value: '2 hrs', overrideRate: 14.2, confidenceThreshold: 0.81, status: 'planned', lastmileAgentId: '5g-planner' },
+  { name: 'Complaint Router', subtitle: 'Consumer Services', accuracy: 94.2, metric2Label: 'Routing Error', metric2Value: 2.2, metric3Label: 'Route Time', metric3Value: '1.2s', overrideRate: 7.2, confidenceThreshold: 0.90, status: 'active', lastmileAgentId: 'complaint-router' },
+];
+
 // ═══════════════════════════════════════════════════════════════════════════════
 // ─── Data Sources (Northwood, Pinnacle, Atlas) ─────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -4466,6 +5028,38 @@ const brSerproDataSources: IntegrationDataSource[] = [
   { system: 'eID Infrastructure', division: 'Digital Identity', recordsAnalyzed: '1.34M active certificates', coverage: 98, status: 'Complete' },
   { system: 'State Network Monitor', division: 'Network Operations', recordsAnalyzed: '12,000 network nodes', coverage: 94, status: 'Complete' },
   { system: 'Incident Response DB', division: 'CSIRT Operations', recordsAnalyzed: '6,800 incidents/year', coverage: 91, status: 'Complete' },
+];
+
+const brInssDataSources: IntegrationDataSource[] = [
+  { system: 'CNIS Contribution Registry', division: 'Contribution History', recordsAnalyzed: '80M worker records', coverage: 94, status: 'Complete' },
+  { system: 'SABI Benefit System', division: 'Benefit Processing', recordsAnalyzed: '38M beneficiary records', coverage: 96, status: 'Complete' },
+  { system: 'Meu INSS Portal', division: 'Citizen Services', recordsAnalyzed: '12M annual applications', coverage: 92, status: 'Complete' },
+  { system: 'Medical Evaluation DB', division: 'Disability Assessment', recordsAnalyzed: '2.4M medical evaluations', coverage: 88, status: 'In Progress' },
+  { system: 'Appeals Registry', division: 'Legal Processing', recordsAnalyzed: '800K annual appeals', coverage: 85, status: 'In Progress' },
+];
+
+const brDatasusDataSources: IntegrationDataSource[] = [
+  { system: 'SIH Hospital System', division: 'Hospital Data', recordsAnalyzed: '11.2M admissions/year', coverage: 95, status: 'Complete' },
+  { system: 'SINAN Disease Registry', division: 'Epidemiological Surveillance', recordsAnalyzed: '4.8M disease notifications', coverage: 93, status: 'Complete' },
+  { system: 'SIM/SINASC Vital Stats', division: 'Mortality & Birth Data', recordsAnalyzed: '4.2M vital records/year', coverage: 97, status: 'Complete' },
+  { system: 'CNES Facility Registry', division: 'Health Facilities', recordsAnalyzed: '6,000+ facility records', coverage: 89, status: 'In Progress' },
+  { system: 'e-SUS Primary Care', division: 'Community Health', recordsAnalyzed: '180M citizen encounters', coverage: 86, status: 'In Progress' },
+];
+
+const brDefesaDataSources: IntegrationDataSource[] = [
+  { system: 'Defense SIEM', division: 'Security Operations', recordsAnalyzed: '5M daily security events', coverage: 98, status: 'Complete' },
+  { system: 'Satellite Imagery Pipeline', division: 'Imagery Intelligence', recordsAnalyzed: '24,000 images/day', coverage: 94, status: 'Complete' },
+  { system: 'C4ISR Systems', division: 'Command & Control', recordsAnalyzed: '8,000 operational records', coverage: 90, status: 'Complete' },
+  { system: 'Secure Comms Network', division: 'Communications', recordsAnalyzed: '2.4M encrypted sessions/day', coverage: 96, status: 'Complete' },
+  { system: 'Threat Intelligence DB', division: 'Intelligence Fusion', recordsAnalyzed: '1.2M threat indicators', coverage: 92, status: 'In Progress' },
+];
+
+const brAnatelDataSources: IntegrationDataSource[] = [
+  { system: 'Spectrum Monitoring Network', division: 'RF Management', recordsAnalyzed: '40,000+ monitoring points', coverage: 96, status: 'Complete' },
+  { system: 'Telecom License Registry', division: 'Licensing', recordsAnalyzed: '200+ operator licenses', coverage: 98, status: 'Complete' },
+  { system: 'QoS Measurement Platform', division: 'Service Quality', recordsAnalyzed: '12M quality samples/month', coverage: 91, status: 'Complete' },
+  { system: 'Consumer Complaint DB', division: 'Consumer Relations', recordsAnalyzed: '2.4M complaints/year', coverage: 93, status: 'Complete' },
+  { system: '5G Planning Database', division: 'Infrastructure Planning', recordsAnalyzed: '5,570 municipality plans', coverage: 84, status: 'In Progress' },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -4587,6 +5181,37 @@ const brSerproVendorHealth: IntegrationVendorHealth[] = [
   { name: 'Incident Response DB', status: 'green', uptime: 99.4, latency: 34, lastChecked: '2026-03-27T08:06:00Z' },
 ];
 
+const brInssVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'CNIS Contribution Registry', status: 'yellow', uptime: 97.8, latency: 186, lastChecked: '2026-03-27T08:14:00Z', note: 'COBOL mainframe response times elevated during monthly contribution batch processing' },
+  { name: 'SABI Benefit System', status: 'green', uptime: 99.4, latency: 48, lastChecked: '2026-03-27T08:12:00Z' },
+  { name: 'Meu INSS Portal', status: 'green', uptime: 99.7, latency: 28, lastChecked: '2026-03-27T08:10:00Z' },
+  { name: 'Medical Evaluation DB', status: 'yellow', uptime: 98.2, latency: 164, lastChecked: '2026-03-27T08:08:00Z', note: 'Legacy medical system timeouts during peak disability assessment periods' },
+  { name: 'Appeals Registry', status: 'green', uptime: 99.1, latency: 56, lastChecked: '2026-03-27T08:06:00Z' },
+];
+
+const brDatasusVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'SIH Hospital System', status: 'green', uptime: 99.5, latency: 42, lastChecked: '2026-03-27T08:14:00Z' },
+  { name: 'SINAN Disease Registry', status: 'green', uptime: 99.6, latency: 36, lastChecked: '2026-03-27T08:12:00Z' },
+  { name: 'SIM/SINASC Vital Stats', status: 'green', uptime: 99.8, latency: 22, lastChecked: '2026-03-27T08:10:00Z' },
+  { name: 'CNES Facility Registry', status: 'yellow', uptime: 97.4, latency: 224, lastChecked: '2026-03-27T08:08:00Z', note: 'Legacy facility registry sync delays during quarterly facility audits' },
+  { name: 'e-SUS Primary Care', status: 'green', uptime: 99.2, latency: 58, lastChecked: '2026-03-27T08:06:00Z' },
+];
+
+const brDefesaVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'Defense SIEM', status: 'green', uptime: 99.9, latency: 14, lastChecked: '2026-03-27T08:14:00Z' },
+  { name: 'Satellite Ground Station', status: 'green', uptime: 99.6, latency: 38, lastChecked: '2026-03-27T08:12:00Z' },
+  { name: 'C4ISR Systems', status: 'yellow', uptime: 97.6, latency: 248, lastChecked: '2026-03-27T08:10:00Z', note: 'Legacy C4ISR command interface latency during multi-force exercises' },
+  { name: 'Secure Comms Platform', status: 'green', uptime: 99.7, latency: 18, lastChecked: '2026-03-27T08:08:00Z' },
+];
+
+const brAnatelVendorHealth: IntegrationVendorHealth[] = [
+  { name: 'Spectrum Monitoring System', status: 'green', uptime: 99.8, latency: 16, lastChecked: '2026-03-27T08:14:00Z' },
+  { name: 'Licensing Platform', status: 'yellow', uptime: 97.8, latency: 198, lastChecked: '2026-03-27T08:12:00Z', note: 'Legacy licensing system timeouts during operator renewal period' },
+  { name: 'QoS Monitoring Platform', status: 'green', uptime: 99.5, latency: 32, lastChecked: '2026-03-27T08:10:00Z' },
+  { name: 'Consumer Complaint System', status: 'green', uptime: 99.3, latency: 44, lastChecked: '2026-03-27T08:08:00Z' },
+  { name: '5G Planning Database', status: 'green', uptime: 99.1, latency: 68, lastChecked: '2026-03-27T08:06:00Z' },
+];
+
 // ═══════════════════════════════════════════════════════════════════════════════
 // ─── Failure Modes (Northwood, Pinnacle, Atlas) ────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -4695,6 +5320,34 @@ const brSerproFailureModes: IntegrationFailureMode[] = [
   { vendor: 'Incident Response DB', scenario: 'Incident correlation engine overload during multi-vector attack', recovery: 'Tiered correlation with critical-first processing and analyst escalation queue', status: 'Passing' },
 ];
 
+const brInssFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'CNIS Contribution Registry', scenario: 'COBOL mainframe batch processing timeout during monthly contribution ingestion from 80M workers', recovery: 'Parallel batch partitioning with priority queue for active pension claims', status: 'Needs Attention' },
+  { vendor: 'SABI Benefit System', scenario: 'Pension payment batch failure during 13th salary disbursement peak', recovery: 'Staged payment processing with priority for elderly beneficiaries and rollback capability', status: 'Passing' },
+  { vendor: 'Meu INSS Portal', scenario: 'Citizen portal overload during annual benefit recertification deadline', recovery: 'Elastic session management with queue-based access and appointment scheduling', status: 'Needs Attention' },
+  { vendor: 'Medical Evaluation DB', scenario: 'Disability assessment backlog during flu season surge in claims', recovery: 'Priority queue for severe cases with automated triage and scheduling optimization', status: 'Passing' },
+];
+
+const brDatasusFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'SIH Hospital System', scenario: 'Hospital admission data pipeline failure during dengue outbreak surge', recovery: 'Priority ingestion for outbreak-related admissions with async backfill for routine data', status: 'Needs Attention' },
+  { vendor: 'SINAN Disease Registry', scenario: 'Disease notification overload during epidemiological emergency declaration', recovery: 'Emergency mode with critical disease priority and bulk notification acceptance', status: 'Passing' },
+  { vendor: 'CNES Facility Registry', scenario: 'Facility data sync failure during health facility accreditation audit', recovery: 'Staged sync with audit-mode freeze and manual reconciliation queue', status: 'Needs Attention' },
+  { vendor: 'e-SUS Primary Care', scenario: 'Community health data upload timeout from rural municipalities with poor connectivity', recovery: 'Offline-first design with store-and-forward and automatic gap detection on reconnect', status: 'Passing' },
+];
+
+const brDefesaFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'Defense SIEM', scenario: 'Security event flood during coordinated multi-vector cyber attack on defense networks', recovery: 'Tiered event processing with critical-first mode and automated threat correlation', status: 'Passing' },
+  { vendor: 'Satellite Ground Station', scenario: 'Satellite imagery pipeline backlog during multi-orbit tasking surge', recovery: 'Priority queue by mission criticality with automated image triage and deferred processing', status: 'Needs Attention' },
+  { vendor: 'C4ISR Systems', scenario: 'Command system latency during joint force exercise with real-time coordination', recovery: 'Redundant command channels with automatic failover and degraded-mode operations', status: 'Needs Attention' },
+  { vendor: 'Secure Comms Platform', scenario: 'Encryption key rotation failure during classified network transition', recovery: 'Staged key rotation with parallel old/new key acceptance window and rollback capability', status: 'Passing' },
+];
+
+const brAnatelFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'Spectrum Monitoring System', scenario: 'Monitoring data overload during major spectrum auction with 40K+ simultaneous measurements', recovery: 'Adaptive sampling with priority monitoring for auction frequencies and edge buffering', status: 'Passing' },
+  { vendor: 'Licensing Platform', scenario: 'License processing queue backlog during operator renewal deadline period', recovery: 'Priority queue separation for renewals vs new applications with deadline-aware scheduling', status: 'Needs Attention' },
+  { vendor: 'QoS Monitoring Platform', scenario: 'Quality measurement data loss during 5G network testing across multiple operators', recovery: 'Redundant measurement probes with automatic gap detection and re-measurement scheduling', status: 'Passing' },
+  { vendor: 'Consumer Complaint System', scenario: 'Complaint surge during major operator service outage affecting millions of users', recovery: 'Elastic complaint intake with auto-classification and batch routing to affected operator', status: 'Needs Attention' },
+];
+
 // ═══════════════════════════════════════════════════════════════════════════════
 // ─── Methodology Steps (Northwood, Pinnacle, Atlas) ───────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -4796,6 +5449,34 @@ const brSerproMethodologySteps: IntegrationMethodologyStep[] = [
   { number: 2, title: 'Security Operations Mapping', description: 'Map 8 critical security workflows from threat detection through incident resolution, identifying AI augmentation in threat hunting, vulnerability scanning, and digital identity verification.' },
   { number: 3, title: 'Cyber Tech Stack Audit', description: 'Assess X-Road Security Layer, CERT-EE Threat Feed, eID Infrastructure, and State Network Monitor for AI-driven threat intelligence, automated incident response, and zero-trust readiness.' },
   { number: 4, title: 'Cybersecurity ROI Modeling', description: 'Model AI-driven improvements in threat detection speed, incident response time, X-Road availability, and digital identity verification throughput for RIA\'s national cyber defense operations.' },
+];
+
+const brInssMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'Social Security Discovery', description: 'Catalog 80M worker contribution records in CNIS, 38M beneficiary records in SABI, and 2.4M medical evaluations across INSS\'s pension and disability processing systems.' },
+  { number: 2, title: 'Pension Workflow Mapping', description: 'Map 14 critical pension workflows from contribution registration through benefit disbursement, identifying automation in pension calculation, disability assessment, and fraud detection.' },
+  { number: 3, title: 'Social Security Tech Audit', description: 'Assess CNIS COBOL mainframe, SABI Benefit System, Meu INSS Portal, and Medical Evaluation DB for AI-driven pension automation, fraud prevention, and citizen self-service readiness.' },
+  { number: 4, title: 'Pension ROI Modeling', description: 'Model AI-driven improvements in pension processing speed, fraud detection accuracy, disability assessment throughput, and citizen portal adoption for INSS\'s 38M beneficiary operations.' },
+];
+
+const brDatasusMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'Health Data Discovery', description: 'Catalog 11.2M annual hospital admissions in SIH, 4.8M disease notifications in SINAN, and 6,000+ facility records in CNES across DATASUS\'s national health information infrastructure.' },
+  { number: 2, title: 'Health Informatics Workflow Mapping', description: 'Map 10 critical health data workflows from disease notification through epidemiological reporting, identifying AI opportunities in outbreak detection, data quality, and hospital analytics.' },
+  { number: 3, title: 'Health IT Stack Audit', description: 'Assess SIH, SINAN, SIM/SINASC, CNES, and e-SUS AB for AI-driven epidemiological surveillance, health data warehousing, and population health analytics readiness.' },
+  { number: 4, title: 'Health Informatics ROI Modeling', description: 'Model AI-driven improvements in outbreak detection speed, health data quality, hospital performance monitoring, and drug supply forecasting for DATASUS\'s 215M citizen health data operations.' },
+];
+
+const brDefesaMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'Defense Cyber Discovery', description: 'Inventory 5M daily security events, 24,000 satellite images/day, and 8,000+ defense systems across the Ministry of Defense Cyber Command\'s operational infrastructure.' },
+  { number: 2, title: 'Cyber Operations Mapping', description: 'Map 8 critical defense workflows from threat detection through incident resolution, identifying AI augmentation in satellite analysis, intelligence fusion, and automated response.' },
+  { number: 3, title: 'Defense Tech Stack Audit', description: 'Assess Defense SIEM, Satellite Ground Station, C4ISR Systems, and Secure Comms Platform for AI-driven threat intelligence, imagery analysis, and cyber operations readiness.' },
+  { number: 4, title: 'Defense Cyber ROI Modeling', description: 'Model AI-driven improvements in threat detection speed, satellite imagery analysis throughput, incident response time, and cross-force integration for Defense Cyber Command operations.' },
+];
+
+const brAnatelMethodologySteps: IntegrationMethodologyStep[] = [
+  { number: 1, title: 'Telecom Regulatory Discovery', description: 'Catalog 40,000+ spectrum monitoring points, 200+ operator licenses, and 2.4M annual consumer complaints across ANATEL\'s telecommunications regulatory infrastructure.' },
+  { number: 2, title: 'Regulatory Workflow Mapping', description: 'Map 8 critical regulatory workflows from spectrum allocation through compliance enforcement, identifying AI opportunities in monitoring, licensing, and 5G planning.' },
+  { number: 3, title: 'Telecom Tech Stack Audit', description: 'Assess Spectrum Monitoring System, Licensing Platform, QoS Monitoring, and Consumer Complaint System for AI-driven spectrum management, compliance automation, and 5G readiness.' },
+  { number: 4, title: 'Telecom Regulatory ROI Modeling', description: 'Model AI-driven improvements in spectrum monitoring efficiency, license processing speed, compliance audit accuracy, and 5G coverage planning for ANATEL\'s regulatory operations.' },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -7001,6 +7682,10 @@ const companyProfiles: Record<string, typeof companyProfile> = {
   'br-sus': brSusCompanyProfile,
   'br-bndes': brBndesCompanyProfile,
   'br-serpro': brSerproCompanyProfile,
+  'br-inss': brInssCompanyProfile,
+  'br-datasus': brDatasusCompanyProfile,
+  'br-defesa': brDefesaCompanyProfile,
+  'br-anatel': brAnatelCompanyProfile,
 };
 
 const companyAiReadiness: Record<string, typeof aiReadinessBreakdown> = {
@@ -7025,6 +7710,10 @@ const companyAiReadiness: Record<string, typeof aiReadinessBreakdown> = {
   'br-sus': brSusAiReadinessBreakdown,
   'br-bndes': brBndesAiReadinessBreakdown,
   'br-serpro': brSerproAiReadinessBreakdown,
+  'br-inss': brInssAiReadinessBreakdown,
+  'br-datasus': brDatasusAiReadinessBreakdown,
+  'br-defesa': brDefesaAiReadinessBreakdown,
+  'br-anatel': brAnatelAiReadinessBreakdown,
 };
 
 const companyKpis: Record<string, typeof kpis> = {
@@ -7049,6 +7738,10 @@ const companyKpis: Record<string, typeof kpis> = {
   'br-sus': brSusKpis,
   'br-bndes': brBndesKpis,
   'br-serpro': brSerproKpis,
+  'br-inss': brInssKpis,
+  'br-datasus': brDatasusKpis,
+  'br-defesa': brDefesaKpis,
+  'br-anatel': brAnatelKpis,
 };
 
 const companyRoadmapPhases: Record<string, typeof roadmapPhases> = {
@@ -7073,6 +7766,10 @@ const companyRoadmapPhases: Record<string, typeof roadmapPhases> = {
   'br-sus': brSusRoadmapPhases,
   'br-bndes': brBndesRoadmapPhases,
   'br-serpro': brSerproRoadmapPhases,
+  'br-inss': brInssRoadmapPhases,
+  'br-datasus': brDatasusRoadmapPhases,
+  'br-defesa': brDefesaRoadmapPhases,
+  'br-anatel': brAnatelRoadmapPhases,
 };
 
 const companyTopOpportunities: Record<string, Opportunity[]> = {
@@ -7097,6 +7794,10 @@ const companyTopOpportunities: Record<string, Opportunity[]> = {
   'br-sus': brSusTopOpportunities,
   'br-bndes': brBndesTopOpportunities,
   'br-serpro': brSerproTopOpportunities,
+  'br-inss': brInssTopOpportunities,
+  'br-datasus': brDatasusTopOpportunities,
+  'br-defesa': brDefesaTopOpportunities,
+  'br-anatel': brAnatelTopOpportunities,
 };
 
 const companyCurrentStack: Record<string, CurrentTool[]> = {
@@ -7121,6 +7822,10 @@ const companyCurrentStack: Record<string, CurrentTool[]> = {
   'br-sus': brSusCurrentStack,
   'br-bndes': brBndesCurrentStack,
   'br-serpro': brSerproCurrentStack,
+  'br-inss': brInssCurrentStack,
+  'br-datasus': brDatasusCurrentStack,
+  'br-defesa': brDefesaCurrentStack,
+  'br-anatel': brAnatelCurrentStack,
 };
 
 const companyLicenses: Record<string, License[]> = {
@@ -7145,6 +7850,10 @@ const companyLicenses: Record<string, License[]> = {
   'br-sus': brSusLicenses,
   'br-bndes': brBndesLicenses,
   'br-serpro': brSerproLicenses,
+  'br-inss': brInssLicenses,
+  'br-datasus': brDatasusLicenses,
+  'br-defesa': brDefesaLicenses,
+  'br-anatel': brAnatelLicenses,
 };
 
 const companyWorkflowSummaries: Record<string, typeof workflowSummary> = {
@@ -7169,6 +7878,10 @@ const companyWorkflowSummaries: Record<string, typeof workflowSummary> = {
   'br-sus': brSusWorkflowSummary,
   'br-bndes': brBndesWorkflowSummary,
   'br-serpro': brSerproWorkflowSummary,
+  'br-inss': brInssWorkflowSummary,
+  'br-datasus': brDatasusWorkflowSummary,
+  'br-defesa': brDefesaWorkflowSummary,
+  'br-anatel': brAnatelWorkflowSummary,
 };
 
 const companyWorkflowsMap: Record<string, Workflow[]> = {
@@ -7193,6 +7906,10 @@ const companyWorkflowsMap: Record<string, Workflow[]> = {
   'br-sus': brazilWorkflows,
   'br-bndes': brazilWorkflows,
   'br-serpro': brazilWorkflows,
+  'br-inss': brazilWorkflows,
+  'br-datasus': brazilWorkflows,
+  'br-defesa': brazilWorkflows,
+  'br-anatel': brazilWorkflows,
 };
 
 const companyRecommendationsMap: Record<string, Recommendation[]> = {
@@ -7217,6 +7934,10 @@ const companyRecommendationsMap: Record<string, Recommendation[]> = {
   'br-sus': brazilRecommendations,
   'br-bndes': brazilRecommendations,
   'br-serpro': brazilRecommendations,
+  'br-inss': brazilRecommendations,
+  'br-datasus': brazilRecommendations,
+  'br-defesa': brazilRecommendations,
+  'br-anatel': brazilRecommendations,
 };
 
 const companyRoiSummaries: Record<string, typeof roiSummary> = {
@@ -7241,6 +7962,10 @@ const companyRoiSummaries: Record<string, typeof roiSummary> = {
   'br-sus': brSusRoiSummary,
   'br-bndes': brBndesRoiSummary,
   'br-serpro': brSerproRoiSummary,
+  'br-inss': brInssRoiSummary,
+  'br-datasus': brDatasusRoiSummary,
+  'br-defesa': brDefesaRoiSummary,
+  'br-anatel': brAnatelRoiSummary,
 };
 
 const companyAiAgents: Record<string, AIAgent[]> = {
@@ -7265,6 +7990,10 @@ const companyAiAgents: Record<string, AIAgent[]> = {
   'br-sus': brSusAiAgents,
   'br-bndes': brBndesAiAgents,
   'br-serpro': brSerproAiAgents,
+  'br-inss': brInssAiAgents,
+  'br-datasus': brDatasusAiAgents,
+  'br-defesa': brDefesaAiAgents,
+  'br-anatel': brAnatelAiAgents,
 };
 
 const companyDataSources: Record<string, IntegrationDataSource[]> = {
@@ -7289,6 +8018,10 @@ const companyDataSources: Record<string, IntegrationDataSource[]> = {
   'br-sus': brSusDataSources,
   'br-bndes': brBndesDataSources,
   'br-serpro': brSerproDataSources,
+  'br-inss': brInssDataSources,
+  'br-datasus': brDatasusDataSources,
+  'br-defesa': brDefesaDataSources,
+  'br-anatel': brAnatelDataSources,
 };
 
 const companyVendorHealth: Record<string, IntegrationVendorHealth[]> = {
@@ -7313,6 +8046,10 @@ const companyVendorHealth: Record<string, IntegrationVendorHealth[]> = {
   'br-sus': brSusVendorHealth,
   'br-bndes': brBndesVendorHealth,
   'br-serpro': brSerproVendorHealth,
+  'br-inss': brInssVendorHealth,
+  'br-datasus': brDatasusVendorHealth,
+  'br-defesa': brDefesaVendorHealth,
+  'br-anatel': brAnatelVendorHealth,
 };
 
 const companyFailureModes: Record<string, IntegrationFailureMode[]> = {
@@ -7337,6 +8074,10 @@ const companyFailureModes: Record<string, IntegrationFailureMode[]> = {
   'br-sus': brSusFailureModes,
   'br-bndes': brBndesFailureModes,
   'br-serpro': brSerproFailureModes,
+  'br-inss': brInssFailureModes,
+  'br-datasus': brDatasusFailureModes,
+  'br-defesa': brDefesaFailureModes,
+  'br-anatel': brAnatelFailureModes,
 };
 
 const companyMethodologySteps: Record<string, IntegrationMethodologyStep[]> = {
@@ -7361,6 +8102,10 @@ const companyMethodologySteps: Record<string, IntegrationMethodologyStep[]> = {
   'br-sus': brSusMethodologySteps,
   'br-bndes': brBndesMethodologySteps,
   'br-serpro': brSerproMethodologySteps,
+  'br-inss': brInssMethodologySteps,
+  'br-datasus': brDatasusMethodologySteps,
+  'br-defesa': brDefesaMethodologySteps,
+  'br-anatel': brAnatelMethodologySteps,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════

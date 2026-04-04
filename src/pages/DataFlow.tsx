@@ -941,19 +941,19 @@ const gapDataByCompany: Record<string, CompanyGapData> = {
       },
     ],
     gapDivisionMap: {
-      1: ['brazil', 'br-receita', 'br-sus', 'br-bndes', 'br-serpro'],
-      2: ['brazil', 'br-receita', 'br-sus', 'br-bndes'],
-      3: ['brazil', 'br-receita', 'br-sus', 'br-bndes', 'br-serpro'],
-      4: ['brazil', 'br-serpro'],
+      1: ['brazil', 'br-receita', 'br-sus', 'br-bndes', 'br-serpro', 'br-inss', 'br-datasus', 'br-defesa', 'br-anatel'],
+      2: ['brazil', 'br-receita', 'br-sus', 'br-bndes', 'br-inss', 'br-datasus'],
+      3: ['brazil', 'br-receita', 'br-sus', 'br-bndes', 'br-serpro', 'br-inss', 'br-datasus', 'br-defesa', 'br-anatel'],
+      4: ['brazil', 'br-serpro', 'br-defesa'],
     },
     statCards: [
-      { label: '42 Systems Mapped', color: 'blue' },
-      { label: '58 Active Connections', color: 'green' },
-      { label: '28 Missing Connections', color: 'red' },
-      { label: '$31.0M Annual Impact', color: 'red' },
+      { label: '68 Systems Mapped', color: 'blue' },
+      { label: '86 Active Connections', color: 'green' },
+      { label: '42 Missing Connections', color: 'red' },
+      { label: '$44.0M Annual Impact', color: 'red' },
     ],
-    totalImpact: '$31.0M/year',
-    divisionBadges: ['Receita Federal', 'SUS Health', 'BNDES Development', 'SERPRO Data Processing'],
+    totalImpact: '$44.0M/year',
+    divisionBadges: ['Receita Federal', 'SUS Health', 'BNDES Development', 'SERPRO Data Processing', 'INSS Social Security', 'DATASUS Health IT', 'Defense Cyber', 'ANATEL Telecom'],
     investment: '$1.8M',
     annualReturn: '$31.0M',
     roi: '17.2x Year 1',
@@ -976,6 +976,8 @@ function resolveGapData(companyId: string): CompanyGapData {
     'ee-economic': 'estonia', 'ee-ria': 'estonia',
     'br-receita': 'brazil', 'br-sus': 'brazil',
     'br-bndes': 'brazil', 'br-serpro': 'brazil',
+    'br-inss': 'brazil', 'br-datasus': 'brazil',
+    'br-defesa': 'brazil', 'br-anatel': 'brazil',
   };
 
   const parentId = childToParent[companyId];
