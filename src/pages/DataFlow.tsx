@@ -962,9 +962,24 @@ const gapDataByCompany: Record<string, CompanyGapData> = {
 
 /* ── Resolve company gap data ────────────────────────────────────────────── */
 
+function fmtImpact(n: number): string {
+  if (n >= 1_000_000) {
+    const m = n / 1_000_000;
+    // Use up to 2 decimals, but strip unnecessary trailing zeros (keep at least 1)
+    const s = m.toFixed(2).replace(/0$/, '');
+    return `$${s}M/year`;
+  }
+  if (n >= 1_000) return `$${(n / 1_000).toFixed(0)}K/year`;
+  return `$${n}/year`;
+}
+
 function resolveGapData(companyId: string): CompanyGapData {
-  // Direct match
-  if (gapDataByCompany[companyId]) return gapDataByCompany[companyId];
+  // Direct match — recompute totalImpact from gaps to ensure consistency
+  if (gapDataByCompany[companyId]) {
+    const data = gapDataByCompany[companyId];
+    const sum = data.gaps.reduce((s, g) => s + g.impactNum, 0);
+    return { ...data, totalImpact: fmtImpact(sum) };
+  }
 
   // Child company mapping to parent
   const childToParent: Record<string, string> = {
@@ -987,14 +1002,19 @@ function resolveGapData(companyId: string): CompanyGapData {
     const filtered = parentData.gaps.filter(g =>
       parentData.gapDivisionMap[g.id]?.includes(companyId)
     );
+    const gaps = filtered.length > 0 ? filtered : parentData.gaps;
+    const sum = gaps.reduce((s, g) => s + g.impactNum, 0);
     return {
       ...parentData,
-      gaps: filtered.length > 0 ? filtered : parentData.gaps,
+      gaps,
+      totalImpact: fmtImpact(sum),
     };
   }
 
   // Fallback
-  return gapDataByCompany.meridian;
+  const fallback = gapDataByCompany.meridian;
+  const sum = fallback.gaps.reduce((s, g) => s + g.impactNum, 0);
+  return { ...fallback, totalImpact: fmtImpact(sum) };
 }
 
 /* ── Shared UI constants ─────────────────────────────────────────────────── */

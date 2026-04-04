@@ -393,6 +393,9 @@ export default function Workflows() {
     return result;
   })();
 
+  // Compute total savings from the displayed workflows so the header matches the cards
+  const totalSavings = companyWorkflows.reduce((sum, wf) => sum + wf.savings, 0);
+
   return (
     <div className="space-y-8">
       {/* Preliminary Estimate Banner */}
@@ -474,7 +477,7 @@ export default function Workflows() {
         </div>
 
         {/* total savings donut */}
-        <DonutStat value={fmt(workflowSummary.potentialSavings) + '/yr'} label="Total Savings" color="#10B981" />
+        <DonutStat value={fmt(totalSavings) + '/yr'} label="Total Savings" color="#10B981" />
       </div>
 
       {/* ── workflow scoping cards ── */}
