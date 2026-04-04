@@ -156,46 +156,59 @@ export default function TechStack() {
     ];
   }, [currentStack]);
 
-  /* ROI calculator state — auto-set from company profile */
+  /* ROI calculator — uses company's actual savings as the anchor */
   const companyProfile = getCompanyProfile(company.id);
-  const techSpendNum = parseInt((companyProfile.techSpend || '$3.2M').replace(/[^0-9.]/g, '')) * (companyProfile.techSpend?.includes('M') ? 1_000_000 : 1);
-  const [spend, setSpend] = useState(techSpendNum || 3_200_000);
-  const [employees, setEmployees] = useState(company.employees || 2800);
+  const companyRoi = getKpis(company.id);
 
-  // Auto-match company industry to closest multiplier key
+  // Parse tech spend string safely: "$14.2M/yr" → 14200000
+  const parseTechSpend = (s: string): number => {
+    const match = s.match(/([\d.]+)\s*(M|K|B)?/i);
+    if (!match) return 3_200_000;
+    const num = parseFloat(match[1]);
+    const unit = (match[2] || '').toUpperCase();
+    if (unit === 'B') return Math.round(num * 1_000_000_000);
+    if (unit === 'M') return Math.round(num * 1_000_000);
+    if (unit === 'K') return Math.round(num * 1_000);
+    return Math.round(num);
+  };
+
+  const defaultSpend = parseTechSpend(companyProfile.techSpend || '$3.2M');
+  const defaultFtes = company.employees || 2800;
+  const [spend, setSpend] = useState(defaultSpend);
+  const [ftes, setFtes] = useState(defaultFtes);
+
+  // Auto-match industry
   const matchedIndustry = useMemo(() => {
     const ci = company.industry.toLowerCase();
-    const keys = Object.keys(industryMult);
-    const exact = keys.find(k => ci.includes(k.toLowerCase()) || k.toLowerCase().includes(ci.split(' ')[0].toLowerCase()));
-    if (exact) return exact;
     if (ci.includes('insurance')) return 'Insurance';
     if (ci.includes('health')) return 'Healthcare';
     if (ci.includes('manufactur')) return 'Manufacturing';
     if (ci.includes('aerospace') || ci.includes('defense')) return 'Aerospace & Defense';
-    if (ci.includes('financial') || ci.includes('bank')) return 'Financial Services';
-    if (ci.includes('government') || ci.includes('public')) return 'Digital Government';
+    if (ci.includes('financial') || ci.includes('bank') || ci.includes('development finance')) return 'Financial Services';
+    if (ci.includes('government') || ci.includes('public') || ci.includes('tax') || ci.includes('security') || ci.includes('telecom')) return 'Digital Government';
     if (ci.includes('energy')) return 'Energy Infrastructure';
-    if (ci.includes('transit')) return 'Transit Operations';
+    if (ci.includes('transit') || ci.includes('passenger')) return 'Transit Operations';
     if (ci.includes('construction')) return 'Construction';
     if (ci.includes('environmental')) return 'Environmental Services';
     if (ci.includes('railroad') || ci.includes('rail')) return 'Railroad & Infrastructure';
-    return 'Manufacturing'; // safe default
+    return 'Manufacturing';
   }, [company.industry]);
 
-  // Reset sliders when company changes
+  // Reset when company changes
   useEffect(() => {
-    const ts = parseInt((getCompanyProfile(company.id).techSpend || '$3.2M').replace(/[^0-9.]/g, '')) * (getCompanyProfile(company.id).techSpend?.includes('M') ? 1_000_000 : 1);
-    setSpend(ts || 3_200_000);
-    setEmployees(company.employees || 2800);
+    setSpend(parseTechSpend(getCompanyProfile(company.id).techSpend || '$3.2M'));
+    setFtes(company.employees || 2800);
   }, [company.id, company.employees]);
 
+  // Simple projected savings: industry multiplier × spend, scaled by FTE ratio
   const projected = useMemo(() => {
-    const base = spend * (industryMult[matchedIndustry] ?? 0.33);
-    const empFactor = 1 + (employees - 200) / 5000;
-    return Math.round(base * empFactor);
-  }, [spend, employees, matchedIndustry]);
+    const mult = industryMult[matchedIndustry] ?? 0.33;
+    const fteRatio = ftes / Math.max(1, defaultFtes); // 1.0 at default, scales linearly
+    const spendRatio = spend / Math.max(1, defaultSpend);
+    return Math.round(companyRoi.totalSavings * spendRatio * fteRatio * (mult / (industryMult[matchedIndustry] ?? 0.33)));
+  }, [spend, ftes, defaultSpend, defaultFtes, companyRoi.totalSavings, matchedIndustry]);
 
-  const optimized = spend - projected;
+  const optimized = Math.max(0, spend - projected);
 
   const donutData = [
     { name: 'Optimized Spend', value: optimized },
@@ -435,60 +448,48 @@ export default function TechStack() {
             {/* Left: Inputs */}
             <div className="space-y-8">
               {/* Spend slider */}
-              {(() => {
-                const spendMax = Math.max(10_000_000, Math.round(spend * 2.5 / 1_000_000) * 1_000_000);
-                const spendMin = Math.max(500_000, Math.round(spend * 0.2 / 100_000) * 100_000);
-                return (
-                  <div>
-                    <label className="block text-sm font-medium mb-2" style={{ color: 'var(--cc-text)' }}>
-                      Current Annual IT Spend
-                    </label>
-                    <input
-                      type="range"
-                      min={spendMin}
-                      max={spendMax}
-                      step={spendMax > 50_000_000 ? 1_000_000 : 100_000}
-                      value={spend}
-                      onChange={(e) => setSpend(Number(e.target.value))}
-                      className="w-full accent-blue-500 h-2 rounded-full cursor-pointer"
-                    />
-                    <div className="flex justify-between text-xs mt-1" style={{ color: 'var(--cc-text-tertiary)' }}>
-                      <span>{fmt(spendMin)}</span>
-                      <span className="text-base font-bold" style={{ color: 'var(--cc-text)' }}>{fmt(spend)}</span>
-                      <span>{fmt(spendMax)}</span>
-                    </div>
-                  </div>
-                );
-              })()}
+              <div>
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--cc-text)' }}>
+                  Current Annual IT Spend
+                </label>
+                <input
+                  type="range"
+                  min={Math.round(defaultSpend * 0.3)}
+                  max={Math.round(defaultSpend * 2)}
+                  step={Math.max(10_000, Math.round(defaultSpend * 0.01))}
+                  value={spend}
+                  onChange={(e) => setSpend(Number(e.target.value))}
+                  className="w-full accent-blue-500 h-2 rounded-full cursor-pointer"
+                />
+                <div className="flex justify-between text-xs mt-1" style={{ color: 'var(--cc-text-tertiary)' }}>
+                  <span>{fmt(Math.round(defaultSpend * 0.3))}</span>
+                  <span className="text-base font-bold" style={{ color: 'var(--cc-text)' }}>{fmt(spend)}</span>
+                  <span>{fmt(Math.round(defaultSpend * 2))}</span>
+                </div>
+              </div>
 
               {/* FTE slider */}
-              {(() => {
-                const fteMax = Math.max(5_000, Math.round(employees * 2 / 1_000) * 1_000);
-                const fteMin = Math.max(50, Math.round(employees * 0.2 / 100) * 100);
-                return (
-                  <div>
-                    <label className="block text-sm font-medium mb-2" style={{ color: 'var(--cc-text)' }}>
-                      Number of FTEs
-                    </label>
-                    <input
-                      type="range"
-                      min={fteMin}
-                      max={fteMax}
-                      step={fteMax > 50_000 ? 1_000 : 10}
-                      value={employees}
-                      onChange={(e) => setEmployees(Number(e.target.value))}
-                      className="w-full accent-blue-500 h-2 rounded-full cursor-pointer"
-                    />
-                    <div className="flex justify-between text-xs mt-1" style={{ color: 'var(--cc-text-tertiary)' }}>
-                      <span>{fteMin.toLocaleString()}</span>
-                      <span className="text-base font-bold" style={{ color: 'var(--cc-text)' }}>
-                        {employees.toLocaleString()}
-                      </span>
-                      <span>{fteMax.toLocaleString()}</span>
-                    </div>
-                  </div>
-                );
-              })()}
+              <div>
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--cc-text)' }}>
+                  Number of FTEs
+                </label>
+                <input
+                  type="range"
+                  min={Math.max(50, Math.round(defaultFtes * 0.3))}
+                  max={Math.round(defaultFtes * 2)}
+                  step={Math.max(10, Math.round(defaultFtes * 0.01))}
+                  value={ftes}
+                  onChange={(e) => setFtes(Number(e.target.value))}
+                  className="w-full accent-blue-500 h-2 rounded-full cursor-pointer"
+                />
+                <div className="flex justify-between text-xs mt-1" style={{ color: 'var(--cc-text-tertiary)' }}>
+                  <span>{Math.max(50, Math.round(defaultFtes * 0.3)).toLocaleString()}</span>
+                  <span className="text-base font-bold" style={{ color: 'var(--cc-text)' }}>
+                    {ftes.toLocaleString()}
+                  </span>
+                  <span>{Math.round(defaultFtes * 2).toLocaleString()}</span>
+                </div>
+              </div>
 
               {/* Industry — auto-detected from company */}
               <div>
@@ -508,7 +509,7 @@ export default function TechStack() {
                 <div className="flex items-center justify-center gap-1 mt-2 text-green-600">
                   <TrendingUp className="w-4 h-4" />
                   <span className="text-sm font-medium">
-                    {((projected / spend) * 100).toFixed(0)}% of total spend
+                    {Math.min(99, Math.round((projected / Math.max(1, spend)) * 100))}% of total spend
                   </span>
                 </div>
               </div>
