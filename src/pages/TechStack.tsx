@@ -1,8 +1,8 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, AlertTriangle, TrendingUp, Shield, Clock, Zap } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
-import { getCurrentStack, getRecommendations, getKpis } from '../data/constants';
+import { getCurrentStack, getRecommendations, getKpis, getCompanyProfile } from '../data/constants';
 import type { CurrentTool, Recommendation } from '../data/constants';
 import { useCompany } from '../data/CompanyContext';
 
@@ -156,16 +156,44 @@ export default function TechStack() {
     ];
   }, [currentStack]);
 
-  /* ROI calculator state */
-  const [spend, setSpend] = useState(3_200_000);
-  const [employees, setEmployees] = useState(2800);
-  const [industry, setIndustry] = useState('Railroad & Infrastructure');
+  /* ROI calculator state — auto-set from company profile */
+  const companyProfile = getCompanyProfile(company.id);
+  const techSpendNum = parseInt((companyProfile.techSpend || '$3.2M').replace(/[^0-9.]/g, '')) * (companyProfile.techSpend?.includes('M') ? 1_000_000 : 1);
+  const [spend, setSpend] = useState(techSpendNum || 3_200_000);
+  const [employees, setEmployees] = useState(company.employees || 2800);
+
+  // Auto-match company industry to closest multiplier key
+  const matchedIndustry = useMemo(() => {
+    const ci = company.industry.toLowerCase();
+    const keys = Object.keys(industryMult);
+    const exact = keys.find(k => ci.includes(k.toLowerCase()) || k.toLowerCase().includes(ci.split(' ')[0].toLowerCase()));
+    if (exact) return exact;
+    if (ci.includes('insurance')) return 'Insurance';
+    if (ci.includes('health')) return 'Healthcare';
+    if (ci.includes('manufactur')) return 'Manufacturing';
+    if (ci.includes('aerospace') || ci.includes('defense')) return 'Aerospace & Defense';
+    if (ci.includes('financial') || ci.includes('bank')) return 'Financial Services';
+    if (ci.includes('government') || ci.includes('public')) return 'Digital Government';
+    if (ci.includes('energy')) return 'Energy Infrastructure';
+    if (ci.includes('transit')) return 'Transit Operations';
+    if (ci.includes('construction')) return 'Construction';
+    if (ci.includes('environmental')) return 'Environmental Services';
+    if (ci.includes('railroad') || ci.includes('rail')) return 'Railroad & Infrastructure';
+    return 'Manufacturing'; // safe default
+  }, [company.industry]);
+
+  // Reset sliders when company changes
+  useEffect(() => {
+    const ts = parseInt((getCompanyProfile(company.id).techSpend || '$3.2M').replace(/[^0-9.]/g, '')) * (getCompanyProfile(company.id).techSpend?.includes('M') ? 1_000_000 : 1);
+    setSpend(ts || 3_200_000);
+    setEmployees(company.employees || 2800);
+  }, [company.id, company.employees]);
 
   const projected = useMemo(() => {
-    const base = spend * (industryMult[industry] ?? 0.33);
+    const base = spend * (industryMult[matchedIndustry] ?? 0.33);
     const empFactor = 1 + (employees - 200) / 5000;
     return Math.round(base * empFactor);
-  }, [spend, employees, industry]);
+  }, [spend, employees, matchedIndustry]);
 
   const optimized = spend - projected;
 
@@ -407,63 +435,67 @@ export default function TechStack() {
             {/* Left: Inputs */}
             <div className="space-y-8">
               {/* Spend slider */}
-              <div>
-                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--cc-text)' }}>
-                  Current Annual IT Spend
-                </label>
-                <input
-                  type="range"
-                  min={1_000_000}
-                  max={10_000_000}
-                  step={100_000}
-                  value={spend}
-                  onChange={(e) => setSpend(Number(e.target.value))}
-                  className="w-full accent-blue-500 h-2 rounded-full cursor-pointer"
-                />
-                <div className="flex justify-between text-xs mt-1" style={{ color: 'var(--cc-text-tertiary)' }}>
-                  <span>$1M</span>
-                  <span className="text-base font-bold" style={{ color: 'var(--cc-text)' }}>{fmt(spend)}</span>
-                  <span>$10M</span>
-                </div>
-              </div>
+              {(() => {
+                const spendMax = Math.max(10_000_000, Math.round(spend * 2.5 / 1_000_000) * 1_000_000);
+                const spendMin = Math.max(500_000, Math.round(spend * 0.2 / 100_000) * 100_000);
+                return (
+                  <div>
+                    <label className="block text-sm font-medium mb-2" style={{ color: 'var(--cc-text)' }}>
+                      Current Annual IT Spend
+                    </label>
+                    <input
+                      type="range"
+                      min={spendMin}
+                      max={spendMax}
+                      step={spendMax > 50_000_000 ? 1_000_000 : 100_000}
+                      value={spend}
+                      onChange={(e) => setSpend(Number(e.target.value))}
+                      className="w-full accent-blue-500 h-2 rounded-full cursor-pointer"
+                    />
+                    <div className="flex justify-between text-xs mt-1" style={{ color: 'var(--cc-text-tertiary)' }}>
+                      <span>{fmt(spendMin)}</span>
+                      <span className="text-base font-bold" style={{ color: 'var(--cc-text)' }}>{fmt(spend)}</span>
+                      <span>{fmt(spendMax)}</span>
+                    </div>
+                  </div>
+                );
+              })()}
 
-              {/* Employee slider */}
-              <div>
-                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--cc-text)' }}>
-                  Number of FTEs
-                </label>
-                <input
-                  type="range"
-                  min={50}
-                  max={5000}
-                  step={10}
-                  value={employees}
-                  onChange={(e) => setEmployees(Number(e.target.value))}
-                  className="w-full accent-blue-500 h-2 rounded-full cursor-pointer"
-                />
-                <div className="flex justify-between text-xs mt-1" style={{ color: 'var(--cc-text-tertiary)' }}>
-                  <span>50</span>
-                  <span className="text-base font-bold" style={{ color: 'var(--cc-text)' }}>
-                    {employees.toLocaleString()}
-                  </span>
-                  <span>5,000</span>
-                </div>
-              </div>
+              {/* FTE slider */}
+              {(() => {
+                const fteMax = Math.max(5_000, Math.round(employees * 2 / 1_000) * 1_000);
+                const fteMin = Math.max(50, Math.round(employees * 0.2 / 100) * 100);
+                return (
+                  <div>
+                    <label className="block text-sm font-medium mb-2" style={{ color: 'var(--cc-text)' }}>
+                      Number of FTEs
+                    </label>
+                    <input
+                      type="range"
+                      min={fteMin}
+                      max={fteMax}
+                      step={fteMax > 50_000 ? 1_000 : 10}
+                      value={employees}
+                      onChange={(e) => setEmployees(Number(e.target.value))}
+                      className="w-full accent-blue-500 h-2 rounded-full cursor-pointer"
+                    />
+                    <div className="flex justify-between text-xs mt-1" style={{ color: 'var(--cc-text-tertiary)' }}>
+                      <span>{fteMin.toLocaleString()}</span>
+                      <span className="text-base font-bold" style={{ color: 'var(--cc-text)' }}>
+                        {employees.toLocaleString()}
+                      </span>
+                      <span>{fteMax.toLocaleString()}</span>
+                    </div>
+                  </div>
+                );
+              })()}
 
-              {/* Industry select */}
+              {/* Industry — auto-detected from company */}
               <div>
                 <label className="block text-sm font-medium mb-2" style={{ color: 'var(--cc-text)' }}>Industry</label>
-                <select
-                  value={industry}
-                  onChange={(e) => setIndustry(e.target.value)}
-                  className="w-full rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none" style={{ background: 'var(--cc-bg-input)', border: '1px solid var(--cc-border)', color: 'var(--cc-text)' }}
-                >
-                  {Object.keys(industryMult).map((ind) => (
-                    <option key={ind} value={ind}>
-                      {ind}
-                    </option>
-                  ))}
-                </select>
+                <div className="w-full rounded-xl px-4 py-2.5 text-sm font-medium" style={{ background: 'var(--cc-bg-input)', border: '1px solid var(--cc-border)', color: 'var(--cc-text)' }}>
+                  {matchedIndustry}
+                </div>
               </div>
             </div>
 
