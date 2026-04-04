@@ -1455,10 +1455,10 @@ const pinnacleRoiSummary = {
 const atlasCompanyProfile = {
   name: 'Atlas Manufacturing',
   industry: 'Manufacturing (PE-backed, 4 OpCos)',
-  employees: 2_100,
+  employees: 8_000,
   opCos: 4,
   opCoNames: ['Atlas Precision Components', 'Titan Metal Fabrication', 'Forge Industrial Systems', 'Apex Assembly Solutions'],
-  techSpend: '$9.6M/yr',
+  techSpend: '$38M/yr',
   aiReadinessScore: 38,
   holdingPeriod: '24 months into 5-year hold',
   ebitdaMargin: '12.6%',
@@ -1474,17 +1474,17 @@ const atlasAiReadinessBreakdown = [
 ];
 
 const atlasKpis = {
-  totalSavings: 5_100_000,
+  totalSavings: 22_000_000,
   techScoreBefore: 38,
   techScoreAfter: 84,
-  workflowsAnalyzed: 52,
-  automationReady: 14,
-  unusedLicenseWaste: 2_400_000,
-  savingsSparkline: [0, 90_000, 220_000, 400_000, 640_000, 940_000, 1_320_000, 1_800_000, 2_400_000, 3_200_000, 4_100_000, 5_100_000],
+  workflowsAnalyzed: 86,
+  automationReady: 28,
+  unusedLicenseWaste: 8_200_000,
+  savingsSparkline: [0, 400_000, 1_000_000, 2_000_000, 3_400_000, 5_400_000, 7_800_000, 10_600_000, 13_800_000, 17_200_000, 19_800_000, 22_000_000],
   scoreSparkline: [38, 40, 44, 49, 54, 60, 65, 70, 74, 78, 81, 84],
-  workflowSparkline: [0, 4, 10, 16, 22, 28, 34, 38, 42, 46, 49, 52],
-  licenseSparkline: [2_400_000, 2_340_000, 2_220_000, 2_050_000, 1_840_000, 1_620_000, 1_400_000, 1_220_000, 1_080_000, 980_000, 920_000, 880_000],
-  headcountImpactSparkline: [0, 0, -2, -5, -8, -12, -16, -20, -24, -28, -31, -34],
+  workflowSparkline: [0, 7, 16, 26, 36, 46, 56, 64, 70, 76, 82, 86],
+  licenseSparkline: [8_200_000, 7_900_000, 7_400_000, 6_700_000, 5_900_000, 5_100_000, 4_400_000, 3_800_000, 3_300_000, 2_900_000, 2_600_000, 2_400_000],
+  headcountImpactSparkline: [0, 0, -4, -10, -18, -28, -38, -48, -58, -66, -72, -78],
 };
 
 const atlasRoadmapPhases = [
@@ -1571,24 +1571,24 @@ const atlasRoadmapPhases = [
 ];
 
 const atlasTopOpportunities: Opportunity[] = [
-  { name: 'Predictive Maintenance', category: 'Workflow Automation', savings: 880_000, effort: 'High', status: 'identified', priority: 10, timeToValue: 14, confidence: 82 },
-  { name: 'Cross-Plant Inventory Consolidation', category: 'Data Infrastructure', savings: 650_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 18, confidence: 79 },
-  { name: 'Quality Inspection AI', category: 'Workflow Automation', savings: 530_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 85 },
-  { name: 'Production Scheduling Optimization', category: 'Workflow Automation', savings: 470_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 76 },
-  { name: 'Supplier Risk Monitoring', category: 'Data Infrastructure', savings: 350_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 80 },
-  { name: 'Unused License Reclamation', category: 'License Audit', savings: 1_030_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
-  { name: 'Energy Consumption Optimization', category: 'Workflow Automation', savings: 280_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 14, confidence: 72 },
-  { name: 'SAP Instance Harmonization', category: 'Tech Stack', savings: 380_000, effort: 'High', status: 'in-progress', priority: 8, timeToValue: 20, confidence: 74 },
-  { name: 'Automated Receiving & Shipping', category: 'Workflow Automation', savings: 210_000, effort: 'Low', status: 'identified', priority: 5, timeToValue: 8, confidence: 88 },
-  { name: 'Demand Forecasting AI', category: 'Workflow Automation', savings: 320_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 12, confidence: 78 },
+  { name: 'Predictive Maintenance (4 Plants)', category: 'Workflow Automation', savings: 3_800_000, effort: 'High', status: 'identified', priority: 10, timeToValue: 14, confidence: 82 },
+  { name: 'Cross-Plant Inventory Consolidation', category: 'Data Infrastructure', savings: 2_600_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 18, confidence: 79 },
+  { name: 'Quality Inspection AI', category: 'Workflow Automation', savings: 2_200_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 85 },
+  { name: 'Production Scheduling Optimization', category: 'Workflow Automation', savings: 1_900_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 76 },
+  { name: 'Supplier Risk Monitoring', category: 'Data Infrastructure', savings: 1_400_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 80 },
+  { name: 'Enterprise License Reclamation', category: 'License Audit', savings: 4_200_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
+  { name: 'Energy Consumption Optimization', category: 'Workflow Automation', savings: 1_200_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 14, confidence: 72 },
+  { name: 'SAP Instance Harmonization', category: 'Tech Stack', savings: 1_800_000, effort: 'High', status: 'in-progress', priority: 8, timeToValue: 20, confidence: 74 },
+  { name: 'Automated Receiving & Shipping', category: 'Workflow Automation', savings: 1_100_000, effort: 'Low', status: 'identified', priority: 5, timeToValue: 8, confidence: 88 },
+  { name: 'Demand Forecasting AI', category: 'Workflow Automation', savings: 1_800_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 12, confidence: 78 },
 ];
 
 const atlasCurrentStack: CurrentTool[] = [
   {
     name: 'SAP S/4HANA',
     category: 'ERP & Production',
-    annualCost: 1_200_000,
-    users: 680,
+    annualCost: 4_800_000,
+    users: 2_600,
     score: 6,
     integrationComplexity: 'High',
     migrationWeeks: 0,
@@ -1598,8 +1598,8 @@ const atlasCurrentStack: CurrentTool[] = [
   {
     name: 'Siemens MindSphere',
     category: 'Industrial IoT',
-    annualCost: 480_000,
-    users: 120,
+    annualCost: 1_800_000,
+    users: 480,
     score: 5,
     integrationComplexity: 'High',
     migrationWeeks: 0,
@@ -1609,8 +1609,8 @@ const atlasCurrentStack: CurrentTool[] = [
   {
     name: 'Jira',
     category: 'Project & Issue Tracking',
-    annualCost: 180_000,
-    users: 300,
+    annualCost: 720_000,
+    users: 1_200,
     score: 7,
     integrationComplexity: 'Low',
     migrationWeeks: 0,
@@ -1620,8 +1620,8 @@ const atlasCurrentStack: CurrentTool[] = [
   {
     name: 'AutoCAD',
     category: 'Engineering & Design',
-    annualCost: 560_000,
-    users: 200,
+    annualCost: 2_100_000,
+    users: 800,
     score: 5,
     integrationComplexity: 'Medium',
     migrationWeeks: 0,
@@ -1631,8 +1631,8 @@ const atlasCurrentStack: CurrentTool[] = [
   {
     name: 'Microsoft 365',
     category: 'Productivity & Collaboration',
-    annualCost: 840_000,
-    users: 2_100,
+    annualCost: 3_200_000,
+    users: 8_000,
     score: 6,
     integrationComplexity: 'Low',
     migrationWeeks: 0,
@@ -1642,8 +1642,8 @@ const atlasCurrentStack: CurrentTool[] = [
   {
     name: 'Slack',
     category: 'Communication',
-    annualCost: 240_000,
-    users: 1_200,
+    annualCost: 960_000,
+    users: 4_800,
     score: 7,
     integrationComplexity: 'Low',
     migrationWeeks: 0,
@@ -1653,31 +1653,31 @@ const atlasCurrentStack: CurrentTool[] = [
 ];
 
 const atlasLicenses: License[] = [
-  { vendor: 'SAP S/4HANA', totalLicenses: 680, active90d: 420, inactive: 260, annualWaste: 780_000, action: 'Reclaim 260 seats + harmonize 2 legacy MES plants onto SAP', costPerLicense: 3_000, department: 'Manufacturing & Finance (all plants)', lastAuditDate: '2025-09-28', trend: [80, 74, 68, 64, 60, 56], complianceRisk: false },
-  { vendor: 'AutoCAD', totalLicenses: 200, active90d: 85, inactive: 115, annualWaste: 460_000, action: 'Reclaim 115 seats — restrict to engineering departments only', costPerLicense: 4_000, department: 'Engineering (provisioned to all managers)', lastAuditDate: '2025-10-15', trend: [72, 64, 56, 50, 44, 40], complianceRisk: false },
-  { vendor: 'Microsoft 365', totalLicenses: 2_100, active90d: 1_700, inactive: 400, annualWaste: 480_000, action: 'Reclaim 400 seats + downgrade 300 E5→E1 for plant floor', costPerLicense: 1_200, department: 'IT / All Plants', lastAuditDate: '2025-11-20', trend: [88, 84, 82, 80, 78, 76], complianceRisk: false },
-  { vendor: 'Jira', totalLicenses: 300, active90d: 180, inactive: 120, annualWaste: 144_000, action: 'Reclaim 120 seats — consolidate to engineering and IT only', costPerLicense: 1_200, department: 'Engineering & IT (provisioned broadly)', lastAuditDate: '2025-08-10', trend: [82, 76, 70, 66, 62, 58], complianceRisk: false },
-  { vendor: 'Slack Enterprise', totalLicenses: 1_200, active90d: 900, inactive: 300, annualWaste: 360_000, action: 'Downgrade 300 inactive to free tier', costPerLicense: 1_200, department: 'IT / All Plants', lastAuditDate: '2026-01-08', trend: [90, 86, 82, 78, 74, 72], complianceRisk: false },
-  { vendor: 'Siemens MindSphere', totalLicenses: 120, active90d: 80, inactive: 40, annualWaste: 120_000, action: 'Reclaim 40 unused plant licenses, optimize data tier', costPerLicense: 3_000, department: 'Plant Operations & Engineering', lastAuditDate: '2025-07-25', trend: [85, 78, 72, 68, 64, 62], complianceRisk: false },
-  { vendor: 'MATLAB / Simulink', totalLicenses: 40, active90d: 12, inactive: 28, annualWaste: 56_000, action: 'Reclaim 28 seats — restrict to R&D team only', costPerLicense: 2_000, department: 'R&D & Quality Engineering', lastAuditDate: '2025-06-30', trend: [65, 55, 48, 42, 36, 32], complianceRisk: false },
+  { vendor: 'SAP S/4HANA', totalLicenses: 2_600, active90d: 1_600, inactive: 1_000, annualWaste: 3_000_000, action: 'Reclaim 1,000 seats + harmonize 2 legacy MES plants onto SAP', costPerLicense: 3_000, department: 'Manufacturing & Finance (all plants)', lastAuditDate: '2025-09-28', trend: [80, 74, 68, 64, 60, 56], complianceRisk: false },
+  { vendor: 'AutoCAD', totalLicenses: 800, active90d: 340, inactive: 460, annualWaste: 1_840_000, action: 'Reclaim 460 seats — restrict to engineering departments only', costPerLicense: 4_000, department: 'Engineering (provisioned to all managers)', lastAuditDate: '2025-10-15', trend: [72, 64, 56, 50, 44, 40], complianceRisk: false },
+  { vendor: 'Microsoft 365', totalLicenses: 8_000, active90d: 6_400, inactive: 1_600, annualWaste: 1_920_000, action: 'Reclaim 1,600 seats + downgrade 1,200 E5→E1 for plant floor', costPerLicense: 1_200, department: 'IT / All Plants', lastAuditDate: '2025-11-20', trend: [88, 84, 82, 80, 78, 76], complianceRisk: false },
+  { vendor: 'Jira', totalLicenses: 1_200, active90d: 720, inactive: 480, annualWaste: 576_000, action: 'Reclaim 480 seats — consolidate to engineering and IT only', costPerLicense: 1_200, department: 'Engineering & IT (provisioned broadly)', lastAuditDate: '2025-08-10', trend: [82, 76, 70, 66, 62, 58], complianceRisk: false },
+  { vendor: 'Slack Enterprise', totalLicenses: 4_800, active90d: 3_600, inactive: 1_200, annualWaste: 480_000, action: 'Downgrade 1,200 inactive to free tier', costPerLicense: 400, department: 'IT / All Plants', lastAuditDate: '2026-01-08', trend: [90, 86, 82, 78, 74, 72], complianceRisk: false },
+  { vendor: 'Siemens MindSphere', totalLicenses: 480, active90d: 320, inactive: 160, annualWaste: 240_000, action: 'Reclaim 160 unused plant licenses, optimize data tier', costPerLicense: 1_500, department: 'Plant Operations & Engineering', lastAuditDate: '2025-07-25', trend: [85, 78, 72, 68, 64, 62], complianceRisk: false },
+  { vendor: 'MATLAB / Simulink', totalLicenses: 160, active90d: 48, inactive: 112, annualWaste: 144_000, action: 'Reclaim 112 seats — restrict to R&D team only', costPerLicense: 1_286, department: 'R&D & Quality Engineering', lastAuditDate: '2025-06-30', trend: [65, 55, 48, 42, 36, 32], complianceRisk: false },
 ];
 
 const atlasWorkflowSummary = {
-  total: 52,
-  fullyAutomatable: 14,
-  humanInLoop: 26,
-  humanRequired: 12,
-  currentLaborSpend: 8_400_000,
-  potentialSavings: 3_800_000,
+  total: 86,
+  fullyAutomatable: 28,
+  humanInLoop: 40,
+  humanRequired: 18,
+  currentLaborSpend: 34_000_000,
+  potentialSavings: 14_800_000,
 };
 
 const atlasRoiSummary = {
-  techStackSavings: 2_100_000,
-  workflowAutomation: 3_800_000,
-  licenseRecovery: 2_400_000,
-  implementationCosts: 3_200_000,
-  netYear1: 5_100_000,
-  year2Projected: 7_600_000,
+  techStackSavings: 8_400_000,
+  workflowAutomation: 14_800_000,
+  licenseRecovery: 8_200_000,
+  implementationCosts: 9_400_000,
+  netYear1: 22_000_000,
+  year2Projected: 33_000_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -1706,16 +1706,16 @@ const northbridgeAiReadinessBreakdown = [
 ];
 
 const northbridgeKpis = {
-  totalSavings: 11_000_000,
+  totalSavings: 55_000_000,
   techScoreBefore: 52,
   techScoreAfter: 88,
   workflowsAnalyzed: 184,
   automationReady: 48,
-  unusedLicenseWaste: 9_040_000,
-  savingsSparkline: [0, 700_000, 1_550_000, 2_600_000, 3_950_000, 5_250_000, 6_300_000, 7_350_000, 8_400_000, 9_450_000, 10_300_000, 11_000_000],
+  unusedLicenseWaste: 18_000_000,
+  savingsSparkline: [0, 3_500_000, 7_800_000, 13_000_000, 19_800_000, 26_300_000, 31_500_000, 36_800_000, 42_000_000, 47_300_000, 51_500_000, 55_000_000],
   scoreSparkline: [52, 56, 60, 63, 67, 71, 75, 79, 82, 85, 87, 88],
   workflowSparkline: [0, 14, 29, 46, 67, 87, 105, 124, 143, 160, 174, 184],
-  licenseSparkline: [9_040_000, 7_869_091, 6_709_091, 5_563_636, 4_418_182, 3_327_273, 2_372_727, 1_690_909, 1_154_545, 836_364, 620_000, 480_000],
+  licenseSparkline: [18_000_000, 16_400_000, 14_600_000, 12_400_000, 10_200_000, 8_200_000, 6_400_000, 4_800_000, 3_500_000, 2_600_000, 2_000_000, 1_600_000],
   headcountImpactSparkline: [0, -5, -12, -21, -36, -54, -74, -98, -123, -146, -166, -184],
 };
 
@@ -1787,14 +1787,14 @@ const northbridgeRoadmapPhases = [
 ];
 
 const northbridgeTopOpportunities: Opportunity[] = [
-  { name: 'Cross-OpCo Procurement Consolidation', category: 'Procurement', savings: 2_090_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 12, confidence: 88 },
-  { name: 'Predictive Maintenance Fleet', category: 'Manufacturing', savings: 1_450_000, effort: 'High', status: 'automated', priority: 9, timeToValue: 16, confidence: 84 },
-  { name: 'Financial Close Automation', category: 'Finance', savings: 1_280_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 91 },
-  { name: 'Supply Chain Optimization', category: 'Supply Chain', savings: 1_930_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 20, confidence: 76 },
-  { name: 'Clinical Trial Data Pipeline', category: 'Health Sciences', savings: 960_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 18, confidence: 72 },
-  { name: 'Enterprise License Consolidation', category: 'License Audit', savings: 1_690_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 96 },
-  { name: 'HR Process Automation', category: 'HR', savings: 720_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 8, confidence: 88 },
-  { name: 'Customer Experience AI', category: 'Sales', savings: 880_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 14, confidence: 80 },
+  { name: 'Cross-OpCo Procurement Consolidation', category: 'Procurement', savings: 10_500_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 12, confidence: 88 },
+  { name: 'Predictive Maintenance Fleet (340 Sites)', category: 'Manufacturing', savings: 8_200_000, effort: 'High', status: 'automated', priority: 9, timeToValue: 16, confidence: 84 },
+  { name: 'Financial Close Automation (12 OpCos)', category: 'Finance', savings: 6_400_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 91 },
+  { name: 'Supply Chain Optimization', category: 'Supply Chain', savings: 9_600_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 20, confidence: 76 },
+  { name: 'Clinical Trial Data Pipeline', category: 'Health Sciences', savings: 4_800_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 18, confidence: 72 },
+  { name: 'Enterprise License Consolidation', category: 'License Audit', savings: 8_500_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 96 },
+  { name: 'HR Process Automation (42K Employees)', category: 'HR', savings: 3_600_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 8, confidence: 88 },
+  { name: 'Customer Experience AI', category: 'Sales', savings: 3_400_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 14, confidence: 80 },
 ];
 
 const northbridgeCurrentStack: CurrentTool[] = [
@@ -1822,17 +1822,17 @@ const northbridgeWorkflowSummary = {
   fullyAutomatable: 48,
   humanInLoop: 94,
   humanRequired: 42,
-  currentLaborSpend: 48_000_000,
-  potentialSavings: 8_200_000,
+  currentLaborSpend: 180_000_000,
+  potentialSavings: 38_000_000,
 };
 
 const northbridgeRoiSummary = {
-  techStackSavings: 6_400_000,
-  workflowAutomation: 8_200_000,
-  licenseRecovery: 4_600_000,
-  implementationCosts: 8_200_000,
-  netYear1: 11_000_000,
-  year2Projected: 18_700_000,
+  techStackSavings: 18_000_000,
+  workflowAutomation: 38_000_000,
+  licenseRecovery: 18_000_000,
+  implementationCosts: 19_000_000,
+  netYear1: 55_000_000,
+  year2Projected: 88_000_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -1861,16 +1861,16 @@ const nbAerospaceAiReadinessBreakdown = [
 ];
 
 const nbAerospaceKpis = {
-  totalSavings: 3_000_000,
+  totalSavings: 15_000_000,
   techScoreBefore: 46,
   techScoreAfter: 85,
   workflowsAnalyzed: 50,
   automationReady: 10,
-  unusedLicenseWaste: 1_220_000,
-  savingsSparkline: [0, 190_909, 422_727, 709_091, 995_455, 1_281_818, 1_568_182, 1_854_545, 2_140_909, 2_427_273, 2_713_636, 3_000_000],
+  unusedLicenseWaste: 6_100_000,
+  savingsSparkline: [0, 950_000, 2_100_000, 3_500_000, 5_000_000, 6_400_000, 7_800_000, 9_300_000, 10_700_000, 12_100_000, 13_600_000, 15_000_000],
   scoreSparkline: [46, 50, 54, 57, 61, 65, 69, 73, 77, 80, 83, 85],
   workflowSparkline: [0, 4, 8, 11, 17, 23, 29, 34, 39, 44, 48, 52],
-  licenseSparkline: [1_220_000, 1_130_909, 1_030_909, 916_364, 801_818, 687_273, 572_727, 467_273, 369_091, 292_727, 230_909, 180_000],
+  licenseSparkline: [6_100_000, 5_600_000, 5_100_000, 4_500_000, 3_900_000, 3_400_000, 2_800_000, 2_300_000, 1_800_000, 1_400_000, 1_100_000, 900_000],
   headcountImpactSparkline: [0, -1, -3, -6, -9, -13, -17, -21, -24, -27, -29, -32],
 };
 
@@ -1926,12 +1926,12 @@ const nbAerospaceRoadmapPhases = [
 ];
 
 const nbAerospaceTopOpportunities: Opportunity[] = [
-  { name: 'Flight Certification Automation', category: 'Regulatory', savings: 650_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 14, confidence: 82 },
-  { name: 'Supplier Quality AI Portal', category: 'Supply Chain', savings: 560_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 88 },
-  { name: 'MRO Scheduling Optimization', category: 'Maintenance', savings: 470_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 78 },
-  { name: 'Non-Conformance Report Automation', category: 'Quality', savings: 370_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 90 },
-  { name: 'Digital Thread Integration', category: 'Data Infrastructure', savings: 560_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 20, confidence: 74 },
-  { name: 'License Consolidation (PLM/CAD)', category: 'License Audit', savings: 390_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 96 },
+  { name: 'Flight Certification Automation', category: 'Regulatory', savings: 3_250_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 14, confidence: 82 },
+  { name: 'Supplier Quality AI Portal', category: 'Supply Chain', savings: 2_800_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 88 },
+  { name: 'MRO Scheduling Optimization', category: 'Maintenance', savings: 2_350_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 78 },
+  { name: 'Non-Conformance Report Automation', category: 'Quality', savings: 1_850_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 90 },
+  { name: 'Digital Thread Integration', category: 'Data Infrastructure', savings: 2_800_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 20, confidence: 74 },
+  { name: 'License Consolidation (PLM/CAD)', category: 'License Audit', savings: 1_950_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 96 },
 ];
 
 const nbAerospaceCurrentStack: CurrentTool[] = [
@@ -1955,17 +1955,17 @@ const nbAerospaceWorkflowSummary = {
   fullyAutomatable: 10,
   humanInLoop: 28,
   humanRequired: 12,
-  currentLaborSpend: 10_200_000,
-  potentialSavings: 1_600_000,
+  currentLaborSpend: 52_000_000,
+  potentialSavings: 8_000_000,
 };
 
 const nbAerospaceRoiSummary = {
-  techStackSavings: 2_000_000,
-  workflowAutomation: 1_600_000,
-  licenseRecovery: 1_200_000,
-  implementationCosts: 1_800_000,
-  netYear1: 3_000_000,
-  year2Projected: 5_100_000,
+  techStackSavings: 10_000_000,
+  workflowAutomation: 8_000_000,
+  licenseRecovery: 6_000_000,
+  implementationCosts: 9_000_000,
+  netYear1: 15_000_000,
+  year2Projected: 25_500_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -1994,16 +1994,16 @@ const nbEnergyAiReadinessBreakdown = [
 ];
 
 const nbEnergyKpis = {
-  totalSavings: 3_400_000,
+  totalSavings: 17_000_000,
   techScoreBefore: 38,
   techScoreAfter: 84,
   workflowsAnalyzed: 52,
   automationReady: 12,
-  unusedLicenseWaste: 1_450_000,
-  savingsSparkline: [0, 216_364, 479_091, 803_636, 1_220_909, 1_622_727, 1_947_273, 2_271_818, 2_596_364, 2_920_909, 3_183_636, 3_400_000],
+  unusedLicenseWaste: 7_200_000,
+  savingsSparkline: [0, 1_100_000, 2_400_000, 4_000_000, 6_100_000, 8_100_000, 9_700_000, 11_400_000, 13_000_000, 14_600_000, 15_900_000, 17_000_000],
   scoreSparkline: [38, 42, 46, 49, 54, 59, 63, 68, 73, 76, 80, 84],
   workflowSparkline: [0, 4, 8, 13, 18, 23, 29, 34, 39, 44, 48, 52],
-  licenseSparkline: [1_450_000, 1_329_091, 1_202_727, 1_069_091, 935_455, 801_818, 668_182, 543_636, 428_182, 345_455, 273_636, 210_000],
+  licenseSparkline: [7_200_000, 6_600_000, 6_000_000, 5_300_000, 4_700_000, 4_000_000, 3_300_000, 2_700_000, 2_100_000, 1_700_000, 1_400_000, 1_100_000],
   headcountImpactSparkline: [0, -2, -4, -8, -12, -17, -23, -28, -33, -36, -39, -42],
 };
 
@@ -2059,12 +2059,12 @@ const nbEnergyRoadmapPhases = [
 ];
 
 const nbEnergyTopOpportunities: Opportunity[] = [
-  { name: 'Grid Load Balancing AI', category: 'Operations', savings: 830_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 16, confidence: 80 },
-  { name: 'Pipeline Integrity Monitoring', category: 'Safety', savings: 640_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 18, confidence: 76 },
-  { name: 'Predictive Maintenance (Substations)', category: 'Maintenance', savings: 550_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 12, confidence: 86 },
-  { name: 'Outage Prediction & Response', category: 'Grid Management', savings: 460_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 14, confidence: 82 },
-  { name: 'NERC CIP Compliance Automation', category: 'Regulatory', savings: 410_000, effort: 'Medium', status: 'in-progress', priority: 8, timeToValue: 8, confidence: 92 },
-  { name: 'License Consolidation (SCADA/GIS)', category: 'License Audit', savings: 510_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 95 },
+  { name: 'Grid Load Balancing AI', category: 'Operations', savings: 4_150_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 16, confidence: 80 },
+  { name: 'Pipeline Integrity Monitoring', category: 'Safety', savings: 3_200_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 18, confidence: 76 },
+  { name: 'Predictive Maintenance (Substations)', category: 'Maintenance', savings: 2_750_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 12, confidence: 86 },
+  { name: 'Outage Prediction & Response', category: 'Grid Management', savings: 2_300_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 14, confidence: 82 },
+  { name: 'NERC CIP Compliance Automation', category: 'Regulatory', savings: 2_050_000, effort: 'Medium', status: 'in-progress', priority: 8, timeToValue: 8, confidence: 92 },
+  { name: 'License Consolidation (SCADA/GIS)', category: 'License Audit', savings: 2_550_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 95 },
 ];
 
 const nbEnergyCurrentStack: CurrentTool[] = [
@@ -2088,17 +2088,17 @@ const nbEnergyWorkflowSummary = {
   fullyAutomatable: 12,
   humanInLoop: 30,
   humanRequired: 14,
-  currentLaborSpend: 14_400_000,
-  potentialSavings: 2_400_000,
+  currentLaborSpend: 72_000_000,
+  potentialSavings: 12_000_000,
 };
 
 const nbEnergyRoiSummary = {
-  techStackSavings: 1_800_000,
-  workflowAutomation: 2_400_000,
-  licenseRecovery: 1_400_000,
-  implementationCosts: 2_200_000,
-  netYear1: 3_400_000,
-  year2Projected: 5_780_000,
+  techStackSavings: 9_000_000,
+  workflowAutomation: 12_000_000,
+  licenseRecovery: 7_000_000,
+  implementationCosts: 11_000_000,
+  netYear1: 17_000_000,
+  year2Projected: 28_900_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -2127,16 +2127,16 @@ const nbFinancialAiReadinessBreakdown = [
 ];
 
 const nbFinancialKpis = {
-  totalSavings: 1_900_000,
+  totalSavings: 9_500_000,
   techScoreBefore: 62,
   techScoreAfter: 91,
   workflowsAnalyzed: 36,
   automationReady: 12,
-  unusedLicenseWaste: 930_000,
-  savingsSparkline: [0, 120_909, 267_727, 449_091, 682_273, 906_818, 1_088_182, 1_269_545, 1_450_909, 1_632_273, 1_779_091, 1_900_000],
+  unusedLicenseWaste: 4_600_000,
+  savingsSparkline: [0, 600_000, 1_300_000, 2_200_000, 3_400_000, 4_500_000, 5_400_000, 6_300_000, 7_300_000, 8_200_000, 8_900_000, 9_500_000],
   scoreSparkline: [62, 65, 67, 70, 73, 77, 79, 82, 84, 87, 89, 91],
   workflowSparkline: [0, 3, 5, 9, 13, 17, 21, 25, 28, 31, 33, 36],
-  licenseSparkline: [930_000, 860_000, 781_818, 692_727, 603_636, 514_545, 425_455, 350_000, 282_727, 231_818, 184_545, 140_000],
+  licenseSparkline: [4_600_000, 4_200_000, 3_800_000, 3_400_000, 3_000_000, 2_600_000, 2_100_000, 1_700_000, 1_400_000, 1_100_000, 900_000, 700_000],
   headcountImpactSparkline: [0, -1, -3, -4, -6, -9, -13, -16, -19, -22, -25, -28],
 };
 
@@ -2192,12 +2192,12 @@ const nbFinancialRoadmapPhases = [
 ];
 
 const nbFinancialTopOpportunities: Opportunity[] = [
-  { name: 'KYC/AML Automation', category: 'Compliance', savings: 470_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 10, confidence: 88 },
-  { name: 'Trade Settlement STP', category: 'Operations', savings: 350_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 8, confidence: 92 },
-  { name: 'Regulatory Reporting Automation', category: 'Regulatory', savings: 310_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 86 },
-  { name: 'Portfolio Risk AI Optimization', category: 'Risk', savings: 270_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 78 },
-  { name: 'Client Reporting AI', category: 'Client Services', savings: 230_000, effort: 'Low', status: 'in-progress', priority: 7, timeToValue: 6, confidence: 94 },
-  { name: 'License Consolidation (Terminal/Data)', category: 'License Audit', savings: 270_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 96 },
+  { name: 'KYC/AML Automation', category: 'Compliance', savings: 2_350_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 10, confidence: 88 },
+  { name: 'Trade Settlement STP', category: 'Operations', savings: 1_750_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 8, confidence: 92 },
+  { name: 'Regulatory Reporting Automation', category: 'Regulatory', savings: 1_550_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 86 },
+  { name: 'Portfolio Risk AI Optimization', category: 'Risk', savings: 1_350_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 78 },
+  { name: 'Client Reporting AI', category: 'Client Services', savings: 1_150_000, effort: 'Low', status: 'in-progress', priority: 7, timeToValue: 6, confidence: 94 },
+  { name: 'License Consolidation (Terminal/Data)', category: 'License Audit', savings: 1_350_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 96 },
 ];
 
 const nbFinancialCurrentStack: CurrentTool[] = [
@@ -2221,17 +2221,17 @@ const nbFinancialWorkflowSummary = {
   fullyAutomatable: 12,
   humanInLoop: 16,
   humanRequired: 8,
-  currentLaborSpend: 10_200_000,
-  potentialSavings: 1_600_000,
+  currentLaborSpend: 51_000_000,
+  potentialSavings: 8_000_000,
 };
 
 const nbFinancialRoiSummary = {
-  techStackSavings: 1_200_000,
-  workflowAutomation: 1_600_000,
-  licenseRecovery: 900_000,
-  implementationCosts: 1_800_000,
-  netYear1: 1_900_000,
-  year2Projected: 3_230_000,
+  techStackSavings: 6_000_000,
+  workflowAutomation: 8_000_000,
+  licenseRecovery: 4_500_000,
+  implementationCosts: 9_000_000,
+  netYear1: 9_500_000,
+  year2Projected: 16_150_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -2260,16 +2260,16 @@ const nbHealthAiReadinessBreakdown = [
 ];
 
 const nbHealthKpis = {
-  totalSavings: 2_700_000,
+  totalSavings: 13_500_000,
   techScoreBefore: 55,
   techScoreAfter: 89,
   workflowsAnalyzed: 44,
   automationReady: 14,
-  unusedLicenseWaste: 1_120_000,
-  savingsSparkline: [0, 171_818, 380_455, 638_182, 969_545, 1_288_636, 1_546_364, 1_804_091, 2_061_818, 2_319_545, 2_528_182, 2_700_000],
+  unusedLicenseWaste: 5_600_000,
+  savingsSparkline: [0, 860_000, 1_900_000, 3_200_000, 4_850_000, 6_400_000, 7_700_000, 9_000_000, 10_300_000, 11_600_000, 12_600_000, 13_500_000],
   scoreSparkline: [55, 58, 61, 65, 68, 71, 75, 79, 82, 85, 87, 89],
   workflowSparkline: [0, 3, 7, 11, 16, 21, 25, 29, 33, 36, 40, 44],
-  licenseSparkline: [1_120_000, 1_024_545, 929_091, 833_636, 727_273, 619_091, 510_909, 416_364, 329_091, 252_727, 194_545, 150_000],
+  licenseSparkline: [5_600_000, 5_100_000, 4_600_000, 4_200_000, 3_600_000, 3_100_000, 2_600_000, 2_100_000, 1_600_000, 1_300_000, 1_000_000, 750_000],
   headcountImpactSparkline: [0, -1, -3, -6, -9, -13, -17, -22, -27, -30, -34, -38],
 };
 
@@ -2325,12 +2325,12 @@ const nbHealthRoadmapPhases = [
 ];
 
 const nbHealthTopOpportunities: Opportunity[] = [
-  { name: 'Clinical Trial Patient Recruitment AI', category: 'Clinical Ops', savings: 640_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 14, confidence: 82 },
-  { name: 'Pharmacovigilance Automation', category: 'Drug Safety', savings: 550_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 88 },
-  { name: 'Electronic Batch Record Deployment', category: 'Manufacturing', savings: 360_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 80 },
-  { name: 'Regulatory Submission Automation', category: 'Regulatory', savings: 460_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 84 },
-  { name: 'Lab Data Capture Automation', category: 'R&D', savings: 270_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 8, confidence: 90 },
-  { name: 'License Consolidation (Veeva/LIMS)', category: 'License Audit', savings: 420_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 95 },
+  { name: 'Clinical Trial Patient Recruitment AI', category: 'Clinical Ops', savings: 3_200_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 14, confidence: 82 },
+  { name: 'Pharmacovigilance Automation', category: 'Drug Safety', savings: 2_750_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 88 },
+  { name: 'Electronic Batch Record Deployment', category: 'Manufacturing', savings: 1_800_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 80 },
+  { name: 'Regulatory Submission Automation', category: 'Regulatory', savings: 2_300_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 84 },
+  { name: 'Lab Data Capture Automation', category: 'R&D', savings: 1_350_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 8, confidence: 90 },
+  { name: 'License Consolidation (Veeva/LIMS)', category: 'License Audit', savings: 2_100_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 4, confidence: 95 },
 ];
 
 const nbHealthCurrentStack: CurrentTool[] = [
@@ -2354,213 +2354,213 @@ const nbHealthWorkflowSummary = {
   fullyAutomatable: 14,
   humanInLoop: 20,
   humanRequired: 8,
-  currentLaborSpend: 13_200_000,
-  potentialSavings: 2_600_000,
+  currentLaborSpend: 66_000_000,
+  potentialSavings: 10_000_000,
 };
 
 const nbHealthRoiSummary = {
-  techStackSavings: 1_400_000,
-  workflowAutomation: 2_600_000,
-  licenseRecovery: 1_100_000,
-  implementationCosts: 2_400_000,
-  netYear1: 2_700_000,
-  year2Projected: 4_590_000,
+  techStackSavings: 7_000_000,
+  workflowAutomation: 10_000_000,
+  licenseRecovery: 5_500_000,
+  implementationCosts: 9_000_000,
+  netYear1: 13_500_000,
+  year2Projected: 22_950_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// ─── Republic of Estonia — Digital Government (Sovereign) ────────────────────
+// ─── Federative Republic of Brazil — Digital Government (Sovereign) ──────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
-const estoniaCompanyProfile = {
-  name: 'Republic of Estonia — Digital Government',
-  industry: 'Digital Government',
-  employees: 28_500,
-  opCos: 8,
-  opCoNames: ['Ministry of Finance', 'Ministry of Economic Affairs', 'Ministry of Social Affairs', 'Ministry of Justice', 'Ministry of Education', 'Ministry of Defence', 'Ministry of Environment', 'Ministry of Interior'],
-  techSpend: '€84M/yr',
-  aiReadinessScore: 68,
-  holdingPeriod: 'Sovereign government',
+const brazilCompanyProfile = {
+  name: 'Federative Republic of Brazil — Digital Government',
+  industry: 'Digital Government & Public Services',
+  employees: 180_000,
+  opCos: 4,
+  opCoNames: ['Receita Federal (Tax & Revenue)', 'SUS (Unified Health System)', 'BNDES (Development Bank)', 'SERPRO (Federal Data Processing)'],
+  techSpend: '$620M/yr',
+  aiReadinessScore: 48,
+  holdingPeriod: 'Sovereign government — 215M population',
   ebitdaMargin: 'N/A',
   targetEbitdaMargin: 'N/A',
 };
 
-const estoniaAiReadinessBreakdown = [
-  { category: 'Data Infrastructure', score: 78, maxScore: 100, status: 'Strong — X-Road 7.0 data exchange layer connects 900+ government services, 99.9% uptime, real-time cross-ministry data access' },
-  { category: 'Process Maturity', score: 65, maxScore: 100, status: 'Above Average — 99% of government services digitized, but 126 workflows still require manual intervention across 8 ministries' },
-  { category: 'Tech Stack Modernity', score: 72, maxScore: 100, status: 'Advanced — X-Road, eID, and RIHA form a modern digital backbone, though legacy systems persist in Social Affairs and Justice ministries' },
-  { category: 'Change Readiness', score: 58, maxScore: 100, status: 'Moderate — strong political will for AI-native governance, but civil service adoption varies across ministries, training needed for 28,500 employees' },
-  { category: 'Skills & Training', score: 62, maxScore: 100, status: 'Developing — AI CoE established at e-Governance Academy, but ministry-level AI skills below target, recruitment competing with private sector' },
+const brazilAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 42, maxScore: 100, status: 'Below Average — GOV.BR platform connects 4,000+ services, but SIAFI, SUS, and SERPRO data centers operate in silos with limited interoperability' },
+  { category: 'Process Maturity', score: 52, maxScore: 100, status: 'Moderate — GOV.BR digitized citizen-facing services, but 240 back-office workflows still require manual intervention across 4 agencies' },
+  { category: 'Tech Stack Modernity', score: 45, maxScore: 100, status: 'Mixed — GOV.BR and eSocial are modern, but SIAFI (federal finance) and legacy health systems need modernization, SERPRO mainframes aging' },
+  { category: 'Change Readiness', score: 48, maxScore: 100, status: 'Moderate — strong federal mandate for digital transformation (EGD 2024-2027), but agency adoption varies, training needed for 180,000 employees' },
+  { category: 'Skills & Training', score: 38, maxScore: 100, status: 'Developing — SERPRO has 8,000 IT professionals, but AI/ML skills concentrated in Brasilia, field offices across 5,570 municipalities need upskilling' },
 ];
 
-const estoniaKpis = {
-  totalSavings: 8_000_000,
-  techScoreBefore: 68,
-  techScoreAfter: 94,
-  workflowsAnalyzed: 126,
-  automationReady: 62,
-  unusedLicenseWaste: 3_000_000,
-  savingsSparkline: [0, 509_091, 1_127_273, 1_890_909, 2_872_727, 3_818_182, 4_581_818, 5_345_455, 6_109_091, 6_872_727, 7_490_909, 8_000_000],
-  scoreSparkline: [68, 71, 73, 76, 78, 81, 83, 86, 88, 91, 93, 94],
-  workflowSparkline: [0, 10, 21, 32, 47, 62, 74, 86, 97, 108, 117, 126],
-  licenseSparkline: [3_000_000, 2_745_455, 2_436_364, 2_054_545, 1_727_273, 1_409_091, 1_090_909, 840_909, 629_091, 482_727, 383_636, 320_000],
-  headcountImpactSparkline: [0, -3, -6, -11, -21, -31, -43, -56, -70, -83, -93, -102],
+const brazilKpis = {
+  totalSavings: 50_000_000,
+  techScoreBefore: 48,
+  techScoreAfter: 82,
+  workflowsAnalyzed: 240,
+  automationReady: 86,
+  unusedLicenseWaste: 18_000_000,
+  savingsSparkline: [0, 3_200_000, 7_000_000, 11_800_000, 18_000_000, 24_000_000, 28_800_000, 33_600_000, 38_400_000, 43_200_000, 47_000_000, 50_000_000],
+  scoreSparkline: [48, 51, 54, 57, 60, 64, 68, 72, 75, 78, 80, 82],
+  workflowSparkline: [0, 20, 40, 62, 86, 112, 136, 162, 186, 208, 226, 240],
+  licenseSparkline: [18_000_000, 16_500_000, 14_800_000, 12_600_000, 10_400_000, 8_400_000, 6_600_000, 5_000_000, 3_800_000, 2_900_000, 2_200_000, 1_800_000],
+  headcountImpactSparkline: [0, -8, -18, -34, -56, -82, -112, -146, -184, -220, -248, -270],
 };
 
-const estoniaRoadmapPhases = [
+const brazilRoadmapPhases = [
   {
     quarter: 'Q1 2026',
-    title: 'X-Road AI Gateway Deployment',
-    items: ['AI gateway for X-Road 7.0', 'Cross-ministry data harmonization planning', 'Citizen service audit'],
+    title: 'GOV.BR AI Platform & Data Foundation',
+    items: ['GOV.BR AI gateway deployment', 'Cross-agency data harmonization', 'Citizen service audit'],
     status: 'active' as const,
     weekPlan: [
-      { week: 1, task: 'X-Road AI gateway architecture review with RIA (Information System Authority)', owner: 'CTO, Government Digital Office' },
-      { week: 2, task: 'AI service registry deployment on RIHA — cataloging all 900+ government services for AI readiness', owner: 'RIHA Program Director' },
-      { week: 3, task: 'Cross-ministry data quality audit: 8 ministries, 2,400 datasets, 128M citizen records', owner: 'Chief Data Officer' },
-      { week: 4, task: 'eID/Smart-ID integration testing for AI-authenticated citizen service automation', owner: 'eID Program Manager' },
-      { week: 5, task: 'Privacy impact assessment for AI processing of citizen data — GDPR + Estonian Data Protection Act compliance', owner: 'Data Protection Officer' },
-      { week: 6, task: 'Tax compliance AI pilot: automated income verification across 680,000 annual tax returns', owner: 'Tax & Customs Board IT' },
-      { week: 7, task: 'Healthcare data pipeline: TEHIK integration for cross-ministry health record access via X-Road', owner: 'TEHIK Director' },
-      { week: 8, task: 'Q1 readout: X-Road AI gateway operational, tax compliance pilot showing 94% accuracy', owner: 'CTO, Government Digital Office' },
+      { week: 1, task: 'GOV.BR AI gateway architecture review with SERPRO and Ministry of Management', owner: 'Secretary of Digital Government' },
+      { week: 2, task: 'AI service registry deployment — cataloging 4,000+ GOV.BR services for AI readiness', owner: 'SERPRO CTO' },
+      { week: 3, task: 'Cross-agency data quality audit: 4 agencies, 12,000 datasets, 215M citizen records (CPF registry)', owner: 'Chief Data Officer' },
+      { week: 4, task: 'GOV.BR single sign-on integration testing for AI-authenticated citizen service automation', owner: 'Digital Identity Program Manager' },
+      { week: 5, task: 'Privacy impact assessment for AI processing of citizen data — LGPD (Lei Geral de Proteção de Dados) compliance', owner: 'ANPD Liaison' },
+      { week: 6, task: 'Receita Federal AI pilot: automated income verification across 35M annual tax returns', owner: 'Receita Federal IT Director' },
+      { week: 7, task: 'SUS health data pipeline: DATASUS integration for cross-agency health record access', owner: 'DATASUS Director' },
+      { week: 8, task: 'Q1 readout: GOV.BR AI gateway operational, tax compliance pilot showing 91% accuracy', owner: 'Secretary of Digital Government' },
     ],
   },
   {
     quarter: 'Q1-Q2 2026',
-    title: 'Cross-Ministry Data Harmonization',
-    items: ['Ministry data schema unification', 'Legacy system modernization', 'AI training data preparation'],
+    title: 'Cross-Agency Data Harmonization',
+    items: ['Agency data schema unification', 'Legacy system modernization', 'AI training data preparation'],
     status: 'active' as const,
     weekPlan: [
-      { week: 9, task: 'Ministry of Finance + Economic Affairs data schema harmonization via X-Road', owner: 'Chief Data Officer' },
-      { week: 10, task: 'Legacy system assessment: Ministry of Social Affairs (custom legacy) and Justice (Oracle-based)', owner: 'Enterprise Architecture' },
-      { week: 11, task: 'PostgreSQL migration planning for legacy Oracle databases in Justice ministry', owner: 'Database Migration Lead' },
-      { week: 12, task: 'AI training data preparation: anonymization pipeline for citizen data per GDPR Art. 89', owner: 'Data Protection Officer' },
+      { week: 9, task: 'Receita Federal + BNDES data schema harmonization via GOV.BR interoperability layer', owner: 'Chief Data Officer' },
+      { week: 10, task: 'Legacy system assessment: SUS (DATASUS/CNES legacy) and SERPRO mainframe modernization', owner: 'Enterprise Architecture' },
+      { week: 11, task: 'Cloud migration planning for SERPRO mainframe workloads to gov cloud infrastructure', owner: 'SERPRO Infrastructure Lead' },
+      { week: 12, task: 'AI training data preparation: anonymization pipeline for citizen data per LGPD Art. 7', owner: 'ANPD Liaison' },
     ],
   },
   {
     quarter: 'Q2-Q3 2026',
-    title: '126 Government Workflows',
-    items: ['Tax automation expansion', 'Citizen services AI', 'Healthcare records integration'],
+    title: '240 Government Workflows',
+    items: ['Tax automation expansion', 'SUS health AI', 'BNDES development finance AI'],
     status: 'upcoming' as const,
     weekPlan: [
-      { week: 13, task: 'Tax compliance full automation: all income, corporate, and VAT processing via AI pipeline', owner: 'Tax & Customs Board IT' },
-      { week: 14, task: 'Citizen services AI assistants: 24/7 multilingual (Estonian, Russian, English) government service chatbot', owner: 'Citizen Services Director' },
-      { week: 15, task: 'Healthcare records integration: unified patient timeline across all providers via TEHIK + X-Road', owner: 'TEHIK Director' },
-      { week: 16, task: 'Cross-ministry procurement optimization: centralized AI-driven purchasing across 8 ministries', owner: 'Public Procurement Office' },
+      { week: 13, task: 'Tax compliance full automation: income, corporate, ICMS, and PIS/COFINS processing via AI pipeline', owner: 'Receita Federal IT Director' },
+      { week: 14, task: 'SUS AI assistants: 24/7 multilingual (Portuguese, Spanish, indigenous languages) health service chatbot', owner: 'SUS Digital Health Director' },
+      { week: 15, task: 'BNDES credit analysis AI: automated development loan evaluation and ESG compliance scoring', owner: 'BNDES CTO' },
+      { week: 16, task: 'Cross-agency procurement optimization: centralized AI-driven purchasing across 4 agencies', owner: 'Federal Procurement Office' },
     ],
   },
   {
     quarter: 'Q3 2026',
-    title: 'Citizen Service AI Assistants',
-    items: ['AI-powered citizen portal', 'Proactive government services', 'Multilingual support'],
+    title: 'Citizen Service AI & SERPRO Platform',
+    items: ['AI-powered GOV.BR portal', 'Proactive government services', 'SERPRO cloud modernization'],
     status: 'upcoming' as const,
     weekPlan: [
-      { week: 17, task: 'AI citizen portal launch: proactive notification of eligible government services based on life events', owner: 'Citizen Services Director' },
-      { week: 18, task: 'Automated permit processing: building permits, business licenses, residency applications', owner: 'Ministry of Interior IT' },
-      { week: 19, task: 'Education system AI: automated student enrollment, transcript processing, qualification recognition', owner: 'Ministry of Education IT' },
-      { week: 20, task: 'Environmental monitoring AI: automated compliance reporting, pollution tracking, forest management', owner: 'Ministry of Environment IT' },
+      { week: 17, task: 'AI citizen portal launch: proactive notification of eligible federal programs (Bolsa Familia, BPC, etc.)', owner: 'GOV.BR Program Director' },
+      { week: 18, task: 'SERPRO cloud platform: migrate 40% of mainframe workloads to containerized government cloud', owner: 'SERPRO CTO' },
+      { week: 19, task: 'eSocial AI: automated employer compliance verification across 8M+ registered businesses', owner: 'Receita Federal IT Director' },
+      { week: 20, task: 'SPED fiscal AI: automated tax document validation and cross-referencing across state boundaries', owner: 'Receita Federal IT Director' },
     ],
   },
   {
     quarter: 'Q4 2026',
-    title: 'Pan-Ministry Adoption & EU Interoperability',
-    items: ['EU AI Act compliance', 'Cross-border interoperability', 'Full digital government'],
+    title: 'Pan-Agency Adoption & Mercosul Interoperability',
+    items: ['LGPD AI compliance', 'Mercosul data exchange', 'Full digital government'],
     status: 'upcoming' as const,
     weekPlan: [
-      { week: 21, task: 'EU AI Act compliance certification for all government AI systems', owner: 'Data Protection Officer' },
-      { week: 22, task: 'Cross-border interoperability: connect Estonian X-Road AI gateway to EU eIDAS 2.0 framework', owner: 'CTO, Government Digital Office' },
-      { week: 23, task: 'Pan-ministry AI adoption: 28,500 civil servants trained, all 126 workflows operational', owner: 'Chief Learning Officer' },
-      { week: 24, task: 'Annual review: €8.0M in savings confirmed, 94 AI readiness score achieved, EU showcase presentation', owner: 'CTO, Government Digital Office' },
+      { week: 21, task: 'LGPD AI compliance certification for all government AI systems with ANPD audit', owner: 'ANPD Liaison' },
+      { week: 22, task: 'Mercosul interoperability: connect GOV.BR AI gateway to Mercosul digital trade framework', owner: 'Secretary of Digital Government' },
+      { week: 23, task: 'Pan-agency AI adoption: 180,000 civil servants trained, all 240 workflows operational', owner: 'Chief Learning Officer' },
+      { week: 24, task: 'Annual review: $50M in savings confirmed, 82 AI readiness score achieved, G20 digital showcase', owner: 'Secretary of Digital Government' },
     ],
   },
 ];
 
-const estoniaTopOpportunities: Opportunity[] = [
-  { name: 'Tax Compliance Automation', category: 'Tax & Revenue', savings: 1_620_000, effort: 'Medium', status: 'automated', priority: 10, timeToValue: 8, confidence: 94 },
-  { name: 'Citizen Services AI', category: 'Citizen Services', savings: 1_470_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 14, confidence: 86 },
-  { name: 'Healthcare Records Integration', category: 'Healthcare', savings: 1_310_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 16, confidence: 82 },
-  { name: 'Cross-Ministry Data Platform', category: 'Data Infrastructure', savings: 1_080_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 20, confidence: 78 },
-  { name: 'Procurement Optimization', category: 'Procurement', savings: 810_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 84 },
-  { name: 'Legacy System Modernization', category: 'Tech Stack', savings: 460_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 24, confidence: 72 },
-  { name: 'Education System Automation', category: 'Education', savings: 700_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 12, confidence: 80 },
-  { name: 'Environmental Compliance AI', category: 'Environment', savings: 550_000, effort: 'Medium', status: 'identified', priority: 5, timeToValue: 14, confidence: 76 },
+const brazilTopOpportunities: Opportunity[] = [
+  { name: 'Receita Federal Tax Automation (35M Returns)', category: 'Tax & Revenue', savings: 10_200_000, effort: 'Medium', status: 'automated', priority: 10, timeToValue: 8, confidence: 94 },
+  { name: 'GOV.BR Citizen Services AI (215M Citizens)', category: 'Citizen Services', savings: 9_200_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 14, confidence: 86 },
+  { name: 'SUS Health Records Integration', category: 'Healthcare', savings: 8_200_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 16, confidence: 82 },
+  { name: 'Cross-Agency Data Platform (GOV.BR)', category: 'Data Infrastructure', savings: 6_800_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 20, confidence: 78 },
+  { name: 'Federal Procurement Optimization', category: 'Procurement', savings: 5_100_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 84 },
+  { name: 'SERPRO Mainframe Modernization', category: 'Tech Stack', savings: 4_200_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 24, confidence: 72 },
+  { name: 'eSocial & SPED Fiscal AI', category: 'Compliance', savings: 3_600_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 12, confidence: 80 },
+  { name: 'BNDES Credit Analysis AI', category: 'Development Finance', savings: 2_700_000, effort: 'Medium', status: 'identified', priority: 5, timeToValue: 14, confidence: 76 },
 ];
 
-const estoniaCurrentStack: CurrentTool[] = [
-  { name: 'X-Road 7.0', category: 'Data Exchange', annualCost: 2_400_000, users: 28_500, score: 8, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Cross-Ministry Data Exchange', 'Service Registry', 'Citizen Authentication'] },
-  { name: 'RIHA', category: 'Info System Registry', annualCost: 800_000, users: 2_400, score: 7, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Service Catalog', 'Data Asset Registry', 'Compliance Tracking'] },
-  { name: 'eID / Smart-ID', category: 'Identity', annualCost: 3_200_000, users: 28_500, score: 9, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Citizen Authentication', 'Digital Signatures', 'Cross-Border Identity'] },
-  { name: 'TEHIK', category: 'Health IT', annualCost: 4_600_000, users: 8_200, score: 6, integrationComplexity: 'Medium', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Patient Records', 'Prescription System', 'Health Insurance'] },
-  { name: 'SAP', category: 'Financial Mgmt', annualCost: 3_800_000, users: 840, score: 5, integrationComplexity: 'High', migrationWeeks: 24, riskLevel: 'High', dependencies: ['Budget Management', 'Accounting', 'Financial Reporting'] },
-  { name: 'Custom Legacy', category: 'Social Services', annualCost: 1_200_000, users: 3_400, score: 3, integrationComplexity: 'High', migrationWeeks: 32, riskLevel: 'High', dependencies: ['Benefits Processing', 'Social Welfare', 'Pension Management'] },
-  { name: 'PostgreSQL', category: 'Database', annualCost: 600_000, users: 4_200, score: 7, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['Government Databases', 'Registry Systems', 'Audit Logging'] },
-  { name: 'e-Residency Platform', category: 'Digital Identity', annualCost: 1_800_000, users: 100_000, score: 8, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Digital Residency', 'Business Registration', 'Tax Filing'] },
+const brazilCurrentStack: CurrentTool[] = [
+  { name: 'GOV.BR Platform', category: 'Digital Government', annualCost: 48_000_000, users: 180_000, score: 7, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Citizen Services Portal', 'Digital Authentication', 'Service Registry'] },
+  { name: 'SIAFI', category: 'Federal Finance', annualCost: 32_000_000, users: 38_000, score: 5, integrationComplexity: 'High', migrationWeeks: 48, riskLevel: 'High', dependencies: ['Federal Budget Execution', 'Treasury Management', 'Financial Reporting'] },
+  { name: 'DATASUS / CNES', category: 'Health IT', annualCost: 86_000_000, users: 72_000, score: 4, integrationComplexity: 'High', migrationWeeks: 36, riskLevel: 'High', dependencies: ['Patient Records', 'Hospital Registry', 'Epidemiological Data', 'SUS Billing'] },
+  { name: 'SERPRO Data Centers', category: 'Infrastructure', annualCost: 120_000_000, users: 42_000, score: 5, integrationComplexity: 'High', migrationWeeks: 52, riskLevel: 'High', dependencies: ['Federal Data Processing', 'Mainframe Operations', 'CPF Registry', 'CNPJ Registry'] },
+  { name: 'eSocial', category: 'Labor Compliance', annualCost: 18_000_000, users: 28_000, score: 6, integrationComplexity: 'Medium', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Employer Compliance', 'Labor Registry', 'Social Security', 'FGTS'] },
+  { name: 'SPED Fiscal', category: 'Tax Documents', annualCost: 22_000_000, users: 38_000, score: 6, integrationComplexity: 'Medium', migrationWeeks: 20, riskLevel: 'Medium', dependencies: ['Electronic Invoicing', 'Tax Document Validation', 'State Tax Integration'] },
+  { name: 'BNDES FINEM/Automatico', category: 'Development Finance', annualCost: 14_000_000, users: 28_000, score: 5, integrationComplexity: 'High', migrationWeeks: 24, riskLevel: 'High', dependencies: ['Loan Processing', 'Project Evaluation', 'ESG Compliance', 'Disbursement'] },
+  { name: 'PostgreSQL / Oracle Mix', category: 'Database', annualCost: 8_000_000, users: 42_000, score: 6, integrationComplexity: 'Medium', migrationWeeks: 12, riskLevel: 'Medium', dependencies: ['Federal Databases', 'Registry Systems', 'Audit Logging'] },
 ];
 
-const estoniaLicenses: License[] = [
-  { vendor: 'SAP Financial Suite', totalLicenses: 840, active90d: 520, inactive: 320, annualWaste: 1_200_000, action: 'Reclaim 320 seats + evaluate open-source alternatives for smaller ministries', costPerLicense: 3_750, department: 'Ministry of Finance / Cross-Ministry', lastAuditDate: '2026-01-20', trend: [75, 70, 66, 62, 60, 62], complianceRisk: false },
-  { vendor: 'Oracle Database', totalLicenses: 280, active90d: 140, inactive: 140, annualWaste: 680_000, action: 'Migrate to PostgreSQL — Oracle license elimination program', costPerLicense: 4_860, department: 'Ministry of Justice / IT', lastAuditDate: '2025-12-15', trend: [68, 60, 55, 50, 48, 50], complianceRisk: true },
-  { vendor: 'Microsoft 365 E5', totalLicenses: 12000, active90d: 8400, inactive: 3600, annualWaste: 540_000, action: 'Downgrade 3,600 to E3 tier — E5 features unused by administrative staff', costPerLicense: 150, department: 'All Ministries', lastAuditDate: '2026-02-05', trend: [88, 82, 78, 74, 72, 70], complianceRisk: false },
-  { vendor: 'Custom Legacy Systems', totalLicenses: 42, active90d: 18, inactive: 24, annualWaste: 380_000, action: 'Decommission 24 legacy modules — replace with X-Road microservices', costPerLicense: 15_830, department: 'Ministry of Social Affairs', lastAuditDate: '2025-11-01', trend: [62, 55, 48, 42, 40, 43], complianceRisk: true },
-  { vendor: 'VMware vSphere', totalLicenses: 180, active90d: 120, inactive: 60, annualWaste: 200_000, action: 'Migrate 60 VMs to containerized deployment on Kubernetes', costPerLicense: 3_333, department: 'RIA (Information System Authority)', lastAuditDate: '2026-01-10', trend: [82, 76, 72, 68, 66, 67], complianceRisk: false },
+const brazilLicenses: License[] = [
+  { vendor: 'SERPRO Mainframe Licenses', totalLicenses: 4_200, active90d: 2_800, inactive: 1_400, annualWaste: 7_000_000, action: 'Migrate 1,400 workloads to containerized gov cloud — mainframe decommission program', costPerLicense: 5_000, department: 'SERPRO / All Agencies', lastAuditDate: '2026-01-20', trend: [75, 70, 66, 62, 60, 62], complianceRisk: false },
+  { vendor: 'Oracle Database', totalLicenses: 1_800, active90d: 900, inactive: 900, annualWaste: 4_500_000, action: 'Migrate to PostgreSQL — Oracle license elimination across DATASUS and legacy systems', costPerLicense: 5_000, department: 'SUS / DATASUS', lastAuditDate: '2025-12-15', trend: [68, 60, 55, 50, 48, 50], complianceRisk: true },
+  { vendor: 'Microsoft 365 E5', totalLicenses: 80_000, active90d: 56_000, inactive: 24_000, annualWaste: 3_600_000, action: 'Downgrade 24,000 to E3 tier — E5 features unused by field office staff', costPerLicense: 150, department: 'All Agencies', lastAuditDate: '2026-02-05', trend: [88, 82, 78, 74, 72, 70], complianceRisk: false },
+  { vendor: 'Custom Legacy Systems (SUS/CNES)', totalLicenses: 320, active90d: 140, inactive: 180, annualWaste: 1_800_000, action: 'Decommission 180 legacy modules — replace with GOV.BR microservices', costPerLicense: 10_000, department: 'SUS / Health Ministry', lastAuditDate: '2025-11-01', trend: [62, 55, 48, 42, 40, 43], complianceRisk: true },
+  { vendor: 'VMware vSphere', totalLicenses: 1_200, active90d: 800, inactive: 400, annualWaste: 1_100_000, action: 'Migrate 400 VMs to containerized deployment on Kubernetes gov cloud', costPerLicense: 2_750, department: 'SERPRO Infrastructure', lastAuditDate: '2026-01-10', trend: [82, 76, 72, 68, 66, 67], complianceRisk: false },
 ];
 
-const estoniaWorkflowSummary = {
-  total: 126,
-  fullyAutomatable: 62,
-  humanInLoop: 28,
-  humanRequired: 36,
-  currentLaborSpend: 32_000_000,
-  potentialSavings: 6_800_000,
+const brazilWorkflowSummary = {
+  total: 240,
+  fullyAutomatable: 86,
+  humanInLoop: 98,
+  humanRequired: 56,
+  currentLaborSpend: 280_000_000,
+  potentialSavings: 34_000_000,
 };
 
-const estoniaRoiSummary = {
-  techStackSavings: 4_200_000,
-  workflowAutomation: 6_800_000,
-  licenseRecovery: 2_400_000,
-  implementationCosts: 5_400_000,
-  netYear1: 8_000_000,
-  year2Projected: 13_600_000,
+const brazilRoiSummary = {
+  techStackSavings: 22_000_000,
+  workflowAutomation: 34_000_000,
+  licenseRecovery: 18_000_000,
+  implementationCosts: 24_000_000,
+  netYear1: 50_000_000,
+  year2Projected: 85_000_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// ─── Estonia: Fiscal Policy & Taxation (ee-finance) ──────────────────────────
+// ─── Brazil: Receita Federal — Tax & Revenue (br-receita) ──────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
-const eeFinanceCompanyProfile = {
-  name: 'Fiscal Policy & Taxation',
-  industry: 'Government — Tax & Revenue',
-  employees: 4_200,
+const brReceitaCompanyProfile = {
+  name: 'Receita Federal — Tax & Revenue',
+  industry: 'Government — Tax Administration',
+  employees: 38_000,
   opCos: 0,
   opCoNames: [] as string[],
-  techSpend: '€14M/yr',
-  aiReadinessScore: 74,
-  holdingPeriod: 'Government agency',
+  techSpend: '$140M/yr',
+  aiReadinessScore: 56,
+  holdingPeriod: 'Federal agency — 35M annual returns',
   ebitdaMargin: 'N/A',
   targetEbitdaMargin: 'N/A',
 };
 
-const eeFinanceAiReadinessBreakdown = [
-  { category: 'Data Infrastructure', score: 82, maxScore: 100, status: 'Strong — e-MTA tax portal processes 680,000+ annual returns with structured data pipelines, real-time revenue tracking' },
-  { category: 'Process Maturity', score: 74, maxScore: 100, status: 'Above Average — 28 of 34 tax workflows digitized, but VAT cross-border reconciliation and audit selection still partially manual' },
-  { category: 'Tech Stack Modernity', score: 78, maxScore: 100, status: 'Advanced — SAP FICO core with e-MTA portal, though legacy customs declaration system needs modernization' },
-  { category: 'Change Readiness', score: 66, maxScore: 100, status: 'Moderate — finance staff receptive to automation, but tax auditors require retraining on AI-assisted risk scoring' },
-  { category: 'Skills & Training', score: 70, maxScore: 100, status: 'Developing — tax analytics team proficient in data science, but broader workforce needs AI literacy upskilling' },
+const brReceitaAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 62, maxScore: 100, status: 'Moderate — SPED fiscal and eSocial generate massive structured data from 35M returns, but cross-state ICMS reconciliation still fragmented' },
+  { category: 'Process Maturity', score: 54, maxScore: 100, status: 'Moderate — 40 of 64 tax workflows digitized, but Nota Fiscal validation and audit selection across 27 states still partially manual' },
+  { category: 'Tech Stack Modernity', score: 58, maxScore: 100, status: 'Mixed — SPED and eSocial are modern, but SIAFI integration and legacy customs systems need modernization' },
+  { category: 'Change Readiness', score: 52, maxScore: 100, status: 'Moderate — Brasilia leadership supports AI, but 38,000 staff across 27 state offices have variable readiness' },
+  { category: 'Skills & Training', score: 48, maxScore: 100, status: 'Developing — tax analytics team proficient in data science, but field auditors across 5,570 municipalities need AI literacy' },
 ];
 
-const eeFinanceKpis = {
-  totalSavings: 2_200_000,
-  techScoreBefore: 74,
-  techScoreAfter: 95,
-  workflowsAnalyzed: 34,
-  automationReady: 18,
-  unusedLicenseWaste: 680_000,
-  savingsSparkline: [0, 140_000, 310_000, 520_000, 790_000, 1_050_000, 1_260_000, 1_470_000, 1_680_000, 1_890_000, 2_060_000, 2_200_000],
-  scoreSparkline: [74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 95],
-  workflowSparkline: [0, 3, 5, 8, 11, 15, 19, 23, 26, 29, 31, 34],
-  licenseSparkline: [680_000, 622_727, 565_455, 508_182, 440_000, 370_000, 300_000, 243_636, 194_545, 156_364, 125_455, 100_000],
-  headcountImpactSparkline: [0, -1, -3, -6, -9, -13, -17, -21, -24, -27, -29, -32],
+const brReceitaKpis = {
+  totalSavings: 14_000_000,
+  techScoreBefore: 56,
+  techScoreAfter: 88,
+  workflowsAnalyzed: 64,
+  automationReady: 28,
+  unusedLicenseWaste: 4_200_000,
+  savingsSparkline: [0, 900_000, 2_000_000, 3_300_000, 5_000_000, 6_700_000, 8_000_000, 9_400_000, 10_700_000, 12_000_000, 13_100_000, 14_000_000],
+  scoreSparkline: [56, 59, 62, 65, 68, 72, 75, 78, 81, 84, 86, 88],
+  workflowSparkline: [0, 5, 10, 16, 22, 30, 38, 44, 50, 56, 60, 64],
+  licenseSparkline: [4_200_000, 3_850_000, 3_500_000, 3_100_000, 2_700_000, 2_300_000, 1_900_000, 1_500_000, 1_200_000, 950_000, 750_000, 600_000],
+  headcountImpactSparkline: [0, -3, -8, -14, -22, -32, -42, -54, -64, -72, -78, -84],
 };
 
-const eeFinanceRoadmapPhases = [
+const brReceitaRoadmapPhases = [
   {
     quarter: 'Q1 2026',
     title: 'Tax Automation Foundation',
@@ -2592,7 +2592,7 @@ const eeFinanceRoadmapPhases = [
     status: 'upcoming' as const,
     weekPlan: [
       { week: 9, task: 'AI-powered risk-based audit selection replacing random sampling — targeting 3x higher yield', owner: 'Tax Audit Director' },
-      { week: 10, task: 'Transfer pricing AI analysis for multinational corporations operating in Estonia', owner: 'International Tax Lead' },
+      { week: 10, task: 'Transfer pricing AI analysis for multinational corporations operating in Brazil', owner: 'International Tax Lead' },
       { week: 11, task: 'Anti-fraud detection system: real-time VAT carousel fraud identification', owner: 'Fraud Prevention Unit' },
       { week: 12, task: 'Q3 review: audit yield improved 180%, fraud detection rate up 220%', owner: 'Tax IT Director' },
     ],
@@ -2605,22 +2605,22 @@ const eeFinanceRoadmapPhases = [
     weekPlan: [
       { week: 13, task: 'End-to-end automated tax processing: 95% of returns processed without human intervention', owner: 'Tax IT Director' },
       { week: 14, task: 'EU DAC7/DAC8 automated reporting for platform economy and crypto-asset transactions', owner: 'International Tax Lead' },
-      { week: 15, task: 'AI citizen tax assistant: natural language tax filing support in Estonian, Russian, English', owner: 'Citizen Services Lead' },
+      { week: 15, task: 'AI citizen tax assistant: natural language tax filing support in Portuguese, Spanish, English', owner: 'Citizen Services Lead' },
       { week: 16, task: 'Annual review: €2.2M savings confirmed, AI readiness 95, EU compliance showcase', owner: 'CFO, Ministry of Finance' },
     ],
   },
 ];
 
-const eeFinanceTopOpportunities: Opportunity[] = [
-  { name: 'Automated Tax Return Processing', category: 'Tax Automation', savings: 760_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 8, confidence: 94 },
-  { name: 'VAT Cross-Border Reconciliation', category: 'VAT Compliance', savings: 510_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 12, confidence: 88 },
-  { name: 'Budget Optimization Analytics', category: 'Budget Analytics', savings: 340_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 10, confidence: 86 },
-  { name: 'Risk-Based Audit Selection', category: 'Tax Audit', savings: 250_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 14, confidence: 82 },
-  { name: 'Revenue Forecasting AI', category: 'Fiscal Planning', savings: 200_000, effort: 'Low', status: 'identified', priority: 7, timeToValue: 8, confidence: 84 },
-  { name: 'Anti-Fraud Detection System', category: 'Fraud Prevention', savings: 140_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 16, confidence: 78 },
+const brReceitaTopOpportunities: Opportunity[] = [
+  { name: 'Automated Tax Return Processing (35M Returns)', category: 'Tax Automation', savings: 4_800_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 8, confidence: 94 },
+  { name: 'ICMS/PIS/COFINS Cross-State Reconciliation', category: 'Tax Compliance', savings: 3_200_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 12, confidence: 88 },
+  { name: 'Federal Budget Optimization Analytics', category: 'Budget Analytics', savings: 2_100_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 10, confidence: 86 },
+  { name: 'AI-Powered Risk-Based Audit Selection', category: 'Tax Audit', savings: 1_600_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 14, confidence: 82 },
+  { name: 'Revenue Forecasting AI', category: 'Fiscal Planning', savings: 1_200_000, effort: 'Low', status: 'identified', priority: 7, timeToValue: 8, confidence: 84 },
+  { name: 'Anti-Fraud Detection (Tax Evasion AI)', category: 'Fraud Prevention', savings: 1_100_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 16, confidence: 78 },
 ];
 
-const eeFinanceCurrentStack: CurrentTool[] = [
+const brReceitaCurrentStack: CurrentTool[] = [
   { name: 'SAP FICO', category: 'Financial ERP', annualCost: 1_800_000, users: 840, score: 6, integrationComplexity: 'High', migrationWeeks: 20, riskLevel: 'High', dependencies: ['Budget Management', 'General Ledger', 'Financial Reporting'] },
   { name: 'e-MTA Portal', category: 'Tax Platform', annualCost: 2_200_000, users: 4_200, score: 8, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Tax Filing', 'Return Processing', 'Taxpayer Registry'] },
   { name: 'X-Road (Finance)', category: 'Data Exchange', annualCost: 400_000, users: 4_200, score: 8, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Cross-Ministry Data', 'Bank Integrations', 'EU Tax Exchange'] },
@@ -2629,71 +2629,71 @@ const eeFinanceCurrentStack: CurrentTool[] = [
   { name: 'PostgreSQL', category: 'Database', annualCost: 120_000, users: 420, score: 7, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['Tax Records', 'Audit Trails', 'Reporting Data'] },
 ];
 
-const eeFinanceLicenses: License[] = [
+const brReceitaLicenses: License[] = [
   { vendor: 'SAP FICO Suite', totalLicenses: 840, active90d: 620, inactive: 220, annualWaste: 330_000, action: 'Reclaim 220 inactive seats and consolidate to S/4HANA Finance', costPerLicense: 1_500, department: 'Ministry of Finance', lastAuditDate: '2026-01-15', trend: [78, 74, 72, 70, 68, 74], complianceRisk: false },
   { vendor: 'Oracle BI Enterprise', totalLicenses: 320, active90d: 180, inactive: 140, annualWaste: 196_000, action: 'Migrate 140 seats to open-source Metabase or Superset', costPerLicense: 1_400, department: 'Budget Analytics Division', lastAuditDate: '2025-12-20', trend: [72, 66, 60, 56, 54, 56], complianceRisk: true },
   { vendor: 'Microsoft 365 E3', totalLicenses: 4_200, active90d: 3_600, inactive: 600, annualWaste: 108_000, action: 'Downgrade 600 seats to F3 frontline tier', costPerLicense: 180, department: 'All Finance Divisions', lastAuditDate: '2026-02-01', trend: [90, 86, 84, 82, 80, 86], complianceRisk: false },
   { vendor: 'Customs Legacy Modules', totalLicenses: 28, active90d: 14, inactive: 14, annualWaste: 46_000, action: 'Decommission legacy customs modules — migrate to EU NCTS Phase 5', costPerLicense: 3_286, department: 'Customs IT', lastAuditDate: '2025-11-10', trend: [58, 52, 48, 44, 42, 50], complianceRisk: true },
 ];
 
-const eeFinanceWorkflowSummary = {
-  total: 36,
-  fullyAutomatable: 18,
-  humanInLoop: 8,
-  humanRequired: 10,
-  currentLaborSpend: 8_400_000,
-  potentialSavings: 1_800_000,
+const brReceitaWorkflowSummary = {
+  total: 64,
+  fullyAutomatable: 28,
+  humanInLoop: 22,
+  humanRequired: 14,
+  currentLaborSpend: 62_000_000,
+  potentialSavings: 9_600_000,
 };
 
-const eeFinanceRoiSummary = {
-  techStackSavings: 1_200_000,
-  workflowAutomation: 1_800_000,
-  licenseRecovery: 680_000,
-  implementationCosts: 1_480_000,
-  netYear1: 2_200_000,
-  year2Projected: 3_740_000,
+const brReceitaRoiSummary = {
+  techStackSavings: 6_200_000,
+  workflowAutomation: 9_600_000,
+  licenseRecovery: 4_200_000,
+  implementationCosts: 6_000_000,
+  netYear1: 14_000_000,
+  year2Projected: 23_800_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// ─── Estonia: Healthcare & Social Welfare (ee-social) ────────────────────────
+// ─── Brazil: SUS — Unified Health System (br-sus) ────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
-const eeSocialCompanyProfile = {
-  name: 'Healthcare & Social Welfare',
-  industry: 'Government — Health & Social Services',
-  employees: 8_400,
+const brSusCompanyProfile = {
+  name: 'SUS — Unified Health System',
+  industry: 'Government — Public Healthcare',
+  employees: 72_000,
   opCos: 0,
   opCoNames: [] as string[],
-  techSpend: '€28M/yr',
-  aiReadinessScore: 68,
-  holdingPeriod: 'Government agency',
+  techSpend: '$280M/yr',
+  aiReadinessScore: 38,
+  holdingPeriod: 'Federal agency — 215M beneficiaries, 6,000+ hospitals',
   ebitdaMargin: 'N/A',
   targetEbitdaMargin: 'N/A',
 };
 
-const eeSocialAiReadinessBreakdown = [
-  { category: 'Data Infrastructure', score: 72, maxScore: 100, status: 'Good — TEHIK health information system connects 400+ healthcare providers, but social welfare data silos persist across regional offices' },
-  { category: 'Process Maturity', score: 64, maxScore: 100, status: 'Moderate — benefits processing 70% digitized, but case management and eligibility verification require significant manual review' },
-  { category: 'Tech Stack Modernity', score: 68, maxScore: 100, status: 'Mixed — TEHIK modern health records coexist with legacy social welfare case management system built in 2008' },
-  { category: 'Change Readiness', score: 62, maxScore: 100, status: 'Moderate — healthcare staff open to AI diagnostics, but social workers concerned about algorithmic bias in benefits decisions' },
-  { category: 'Skills & Training', score: 58, maxScore: 100, status: 'Developing — clinical informaticists strong, but social welfare workforce needs substantial AI literacy and change management support' },
+const brSusAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 35, maxScore: 100, status: 'Below Average — DATASUS connects 6,000+ facilities but data quality varies dramatically across 5,570 municipalities, CNES registry outdated' },
+  { category: 'Process Maturity', score: 42, maxScore: 100, status: 'Moderate — SUS billing (AIH/BPA) 80% digitized, but patient referrals, bed management, and drug distribution largely manual' },
+  { category: 'Tech Stack Modernity', score: 32, maxScore: 100, status: 'Legacy-Heavy — DATASUS systems built in early 2000s, CNES facility registry on legacy Oracle, e-SUS Atenção Básica partially modern' },
+  { category: 'Change Readiness', score: 40, maxScore: 100, status: 'Below Average — federal leadership supports AI in health, but 72,000 staff across 26 states have highly variable digital literacy' },
+  { category: 'Skills & Training', score: 34, maxScore: 100, status: 'Critical Gap — DATASUS has 2,000 IT staff but AI/ML concentrated in Brasilia, rural health units have minimal technical capacity' },
 ];
 
-const eeSocialKpis = {
-  totalSavings: 2_800_000,
-  techScoreBefore: 68,
-  techScoreAfter: 93,
-  workflowsAnalyzed: 42,
-  automationReady: 18,
-  unusedLicenseWaste: 920_000,
-  savingsSparkline: [0, 178_182, 394_545, 661_818, 1_005_455, 1_336_364, 1_603_636, 1_870_909, 2_138_182, 2_405_455, 2_621_818, 2_800_000],
-  scoreSparkline: [68, 70, 72, 75, 77, 80, 82, 85, 87, 89, 91, 93],
-  workflowSparkline: [0, 3, 6, 10, 14, 19, 25, 29, 33, 36, 39, 42],
-  licenseSparkline: [920_000, 843_636, 764_545, 681_818, 593_636, 504_545, 415_455, 340_000, 271_818, 214_545, 168_182, 130_000],
-  headcountImpactSparkline: [0, -2, -4, -8, -12, -18, -24, -31, -39, -45, -51, -56],
+const brSusKpis = {
+  totalSavings: 18_000_000,
+  techScoreBefore: 38,
+  techScoreAfter: 76,
+  workflowsAnalyzed: 82,
+  automationReady: 32,
+  unusedLicenseWaste: 5_800_000,
+  savingsSparkline: [0, 1_200_000, 2_600_000, 4_200_000, 6_400_000, 8_600_000, 10_300_000, 12_000_000, 13_800_000, 15_400_000, 16_800_000, 18_000_000],
+  scoreSparkline: [38, 41, 44, 48, 52, 56, 60, 64, 67, 71, 74, 76],
+  workflowSparkline: [0, 6, 14, 22, 32, 42, 50, 58, 66, 72, 78, 82],
+  licenseSparkline: [5_800_000, 5_300_000, 4_800_000, 4_300_000, 3_700_000, 3_200_000, 2_600_000, 2_100_000, 1_700_000, 1_400_000, 1_100_000, 850_000],
+  headcountImpactSparkline: [0, -4, -10, -18, -28, -40, -54, -68, -84, -96, -106, -114],
 };
 
-const eeSocialRoadmapPhases = [
+const brSusRoadmapPhases = [
   {
     quarter: 'Q1 2026',
     title: 'Health Records AI Integration',
@@ -2744,16 +2744,16 @@ const eeSocialRoadmapPhases = [
   },
 ];
 
-const eeSocialTopOpportunities: Opportunity[] = [
-  { name: 'TEHIK Health Records AI', category: 'Health IT', savings: 990_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 14, confidence: 86 },
-  { name: 'Benefits Eligibility Automation', category: 'Social Welfare', savings: 660_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 88 },
-  { name: 'Case Management AI', category: 'Social Services', savings: 410_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 82 },
-  { name: 'Prescription Fraud Detection', category: 'Health Insurance', savings: 330_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 90 },
-  { name: 'Population Health Analytics', category: 'Public Health', savings: 250_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 16, confidence: 76 },
-  { name: 'Hospital Resource Optimization', category: 'Healthcare Operations', savings: 160_000, effort: 'High', status: 'identified', priority: 6, timeToValue: 18, confidence: 74 },
+const brSusTopOpportunities: Opportunity[] = [
+  { name: 'DATASUS Health Records AI (215M Patients)', category: 'Health IT', savings: 6_200_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 14, confidence: 86 },
+  { name: 'SUS Billing & Claims Automation', category: 'Healthcare Finance', savings: 4_100_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 88 },
+  { name: 'Patient Referral & Bed Management AI', category: 'Healthcare Operations', savings: 2_600_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 82 },
+  { name: 'Drug Distribution Fraud Detection', category: 'Pharmaceutical', savings: 2_100_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 90 },
+  { name: 'Epidemiological Surveillance AI', category: 'Public Health', savings: 1_600_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 16, confidence: 76 },
+  { name: 'Hospital Resource Optimization (6K Facilities)', category: 'Healthcare Operations', savings: 1_400_000, effort: 'High', status: 'identified', priority: 6, timeToValue: 18, confidence: 74 },
 ];
 
-const eeSocialCurrentStack: CurrentTool[] = [
+const brSusCurrentStack: CurrentTool[] = [
   { name: 'TEHIK', category: 'Health Information', annualCost: 4_600_000, users: 8_200, score: 7, integrationComplexity: 'Medium', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Patient Records', 'Prescription System', 'Lab Results'] },
   { name: 'Social Welfare Legacy', category: 'Case Management', annualCost: 1_200_000, users: 3_400, score: 3, integrationComplexity: 'High', migrationWeeks: 28, riskLevel: 'High', dependencies: ['Benefits Processing', 'Case Tracking', 'Eligibility Verification'] },
   { name: 'Health Insurance Fund IS', category: 'Insurance', annualCost: 1_800_000, users: 1_200, score: 6, integrationComplexity: 'Medium', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Claims Processing', 'Provider Payments', 'Coverage Verification'] },
@@ -2762,81 +2762,81 @@ const eeSocialCurrentStack: CurrentTool[] = [
   { name: 'PostgreSQL', category: 'Database', annualCost: 180_000, users: 840, score: 7, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['Social Welfare Data', 'Benefits Records', 'Case History'] },
 ];
 
-const eeSocialLicenses: License[] = [
+const brSusLicenses: License[] = [
   { vendor: 'Social Welfare Legacy Suite', totalLicenses: 3_400, active90d: 2_200, inactive: 1_200, annualWaste: 420_000, action: 'Replace legacy system with modern case management platform', costPerLicense: 350, department: 'Social Welfare Division', lastAuditDate: '2025-12-01', trend: [72, 68, 64, 62, 60, 65], complianceRisk: true },
   { vendor: 'Health Insurance Fund IS', totalLicenses: 1_200, active90d: 880, inactive: 320, annualWaste: 256_000, action: 'Consolidate 320 inactive seats, modernize claims processing', costPerLicense: 800, department: 'Health Insurance Fund', lastAuditDate: '2026-01-20', trend: [80, 76, 74, 72, 70, 73], complianceRisk: false },
   { vendor: 'Microsoft 365 E3', totalLicenses: 8_400, active90d: 7_200, inactive: 1_200, annualWaste: 144_000, action: 'Downgrade 1,200 inactive seats to F1 tier', costPerLicense: 120, department: 'All Social Affairs', lastAuditDate: '2026-02-10', trend: [88, 86, 84, 82, 80, 86], complianceRisk: false },
   { vendor: 'Pension Registry Modules', totalLicenses: 420, active90d: 320, inactive: 100, annualWaste: 100_000, action: 'Retire 100 unused modules, migrate to unified benefits platform', costPerLicense: 1_000, department: 'Pension Division', lastAuditDate: '2025-11-15', trend: [82, 78, 76, 74, 72, 76], complianceRisk: false },
 ];
 
-const eeSocialWorkflowSummary = {
-  total: 38,
-  fullyAutomatable: 18,
-  humanInLoop: 8,
-  humanRequired: 12,
-  currentLaborSpend: 11_600_000,
-  potentialSavings: 2_400_000,
+const brSusWorkflowSummary = {
+  total: 82,
+  fullyAutomatable: 32,
+  humanInLoop: 30,
+  humanRequired: 20,
+  currentLaborSpend: 96_000_000,
+  potentialSavings: 12_400_000,
 };
 
-const eeSocialRoiSummary = {
-  techStackSavings: 1_400_000,
-  workflowAutomation: 2_400_000,
-  licenseRecovery: 920_000,
-  implementationCosts: 1_920_000,
-  netYear1: 2_800_000,
-  year2Projected: 4_760_000,
+const brSusRoiSummary = {
+  techStackSavings: 8_400_000,
+  workflowAutomation: 12_400_000,
+  licenseRecovery: 5_800_000,
+  implementationCosts: 8_600_000,
+  netYear1: 18_000_000,
+  year2Projected: 30_600_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// ─── Estonia: Trade & Digital Economy (ee-economic) ──────────────────────────
+// ─── Brazil: BNDES — Development Bank (br-bndes) ──────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
-const eeEconomicCompanyProfile = {
-  name: 'Trade & Digital Economy',
-  industry: 'Government — Economic Affairs & Digital Trade',
-  employees: 5_200,
+const brBndesCompanyProfile = {
+  name: 'BNDES — Development Bank',
+  industry: 'Government — Development Finance',
+  employees: 28_000,
   opCos: 0,
   opCoNames: [] as string[],
-  techSpend: '€18M/yr',
-  aiReadinessScore: 76,
-  holdingPeriod: 'Government agency',
+  techSpend: '$92M/yr',
+  aiReadinessScore: 52,
+  holdingPeriod: 'Federal development bank — $80B annual disbursement',
   ebitdaMargin: 'N/A',
   targetEbitdaMargin: 'N/A',
 };
 
-const eeEconomicAiReadinessBreakdown = [
-  { category: 'Data Infrastructure', score: 80, maxScore: 100, status: 'Strong — e-Residency platform and Business Registry provide structured digital-first data, real-time trade analytics pipeline operational' },
-  { category: 'Process Maturity', score: 76, maxScore: 100, status: 'Above Average — e-Residency onboarding fully automated, but trade facilitation and export licensing retain manual checkpoints' },
-  { category: 'Tech Stack Modernity', score: 82, maxScore: 100, status: 'Advanced — e-Residency built cloud-native, Business Registry on modern stack, though trade compliance tools are aging' },
-  { category: 'Change Readiness', score: 70, maxScore: 100, status: 'Good — digital economy team highly innovative, but trade compliance officers cautious about AI-driven export controls' },
-  { category: 'Skills & Training', score: 72, maxScore: 100, status: 'Good — e-Residency team has strong engineering culture, trade division needs upskilling in AI-assisted decision support' },
+const brBndesAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 52, maxScore: 100, status: 'Moderate — FINEM/Automatico loan systems well-structured, but project monitoring data fragmented across regional offices' },
+  { category: 'Process Maturity', score: 48, maxScore: 100, status: 'Below Average — credit analysis partially digitized, but ESG compliance and project disbursement monitoring largely manual' },
+  { category: 'Tech Stack Modernity', score: 55, maxScore: 100, status: 'Mixed — core banking platform modern, but risk assessment and project evaluation tools aging, legacy Oracle databases persist' },
+  { category: 'Change Readiness', score: 54, maxScore: 100, status: 'Moderate — leadership embraces AI for credit analysis, but field teams across 5 regional offices need significant upskilling' },
+  { category: 'Skills & Training', score: 50, maxScore: 100, status: 'Developing — strong quantitative talent in credit analysis, but AI/ML capability concentrated in Rio de Janeiro headquarters' },
 ];
 
-const eeEconomicKpis = {
-  totalSavings: 1_600_000,
-  techScoreBefore: 76,
-  techScoreAfter: 95,
-  workflowsAnalyzed: 26,
-  automationReady: 12,
-  unusedLicenseWaste: 420_000,
-  savingsSparkline: [0, 101_818, 225_455, 378_182, 574_545, 763_636, 916_364, 1_069_091, 1_221_818, 1_374_545, 1_498_182, 1_600_000],
-  scoreSparkline: [76, 78, 80, 82, 84, 86, 87, 89, 91, 92, 94, 95],
-  workflowSparkline: [0, 2, 4, 6, 8, 11, 15, 18, 20, 23, 25, 26],
-  licenseSparkline: [420_000, 381_818, 343_636, 305_455, 267_273, 229_091, 190_909, 157_273, 126_364, 100_909, 79_091, 60_000],
-  headcountImpactSparkline: [0, -1, -2, -4, -6, -9, -11, -15, -18, -21, -23, -26],
+const brBndesKpis = {
+  totalSavings: 10_000_000,
+  techScoreBefore: 52,
+  techScoreAfter: 86,
+  workflowsAnalyzed: 48,
+  automationReady: 16,
+  unusedLicenseWaste: 3_200_000,
+  savingsSparkline: [0, 640_000, 1_400_000, 2_400_000, 3_600_000, 4_800_000, 5_700_000, 6_700_000, 7_600_000, 8_600_000, 9_400_000, 10_000_000],
+  scoreSparkline: [52, 55, 58, 62, 66, 70, 73, 76, 79, 82, 84, 86],
+  workflowSparkline: [0, 4, 8, 12, 16, 22, 28, 34, 38, 42, 46, 48],
+  licenseSparkline: [3_200_000, 2_900_000, 2_600_000, 2_300_000, 2_000_000, 1_700_000, 1_400_000, 1_200_000, 950_000, 750_000, 600_000, 480_000],
+  headcountImpactSparkline: [0, -2, -4, -8, -12, -18, -24, -30, -36, -42, -46, -50],
 };
 
-const eeEconomicRoadmapPhases = [
+const brBndesRoadmapPhases = [
   {
     quarter: 'Q1 2026',
-    title: 'e-Residency AI Enhancement',
+    title: 'GOV.BR Digital AI Enhancement',
     items: ['AI-powered applicant screening', 'Business Registry automation', 'Digital onboarding optimization'],
     status: 'active' as const,
     weekPlan: [
-      { week: 1, task: 'e-Residency AI applicant screening: automated risk assessment for 10,000+ monthly applications', owner: 'e-Residency Program Director' },
+      { week: 1, task: 'GOV.BR Digital AI applicant screening: automated risk assessment for 10,000+ monthly applications', owner: 'GOV.BR Digital Program Director' },
       { week: 2, task: 'Business Registry automation: AI-assisted company formation reducing processing from 3 hours to 15 minutes', owner: 'Business Registry IT Lead' },
-      { week: 3, task: 'Digital onboarding optimization: AI chatbot for e-Resident support in 12 languages', owner: 'e-Residency CX Lead' },
-      { week: 4, task: 'Q1 checkpoint: applicant processing time reduced 70%, approval accuracy at 98%', owner: 'e-Residency Program Director' },
+      { week: 3, task: 'Digital onboarding optimization: AI chatbot for e-Resident support in 12 languages', owner: 'GOV.BR Digital CX Lead' },
+      { week: 4, task: 'Q1 checkpoint: applicant processing time reduced 70%, approval accuracy at 98%', owner: 'GOV.BR Digital Program Director' },
     ],
   },
   {
@@ -2857,10 +2857,10 @@ const eeEconomicRoadmapPhases = [
     items: ['Economic impact modeling', 'Startup ecosystem AI', 'Investment facilitation'],
     status: 'upcoming' as const,
     weekPlan: [
-      { week: 9, task: 'Economic impact modeling: AI-driven analysis of e-Residency contribution to GDP', owner: 'Economic Analysis Director' },
-      { week: 10, task: 'Startup ecosystem AI: automated grant evaluation and investment matching for 1,200+ startups', owner: 'Startup Estonia Lead' },
+      { week: 9, task: 'Economic impact modeling: AI-driven analysis of GOV.BR Digital contribution to GDP', owner: 'Economic Analysis Director' },
+      { week: 10, task: 'Startup ecosystem AI: automated grant evaluation and investment matching for 1,200+ startups', owner: 'Startup Brazil Lead' },
       { week: 11, task: 'Investment facilitation AI: predictive FDI targeting based on global economic signals', owner: 'Investment Agency Director' },
-      { week: 12, task: 'Q3 review: e-Residency revenue up 25%, startup grant processing time halved', owner: 'e-Residency Program Director' },
+      { week: 12, task: 'Q3 review: GOV.BR Digital revenue up 25%, startup grant processing time halved', owner: 'GOV.BR Digital Program Director' },
     ],
   },
   {
@@ -2877,89 +2877,89 @@ const eeEconomicRoadmapPhases = [
   },
 ];
 
-const eeEconomicTopOpportunities: Opportunity[] = [
-  { name: 'e-Residency AI Screening', category: 'Digital Identity', savings: 470_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 8, confidence: 92 },
-  { name: 'Trade Compliance Automation', category: 'Trade Facilitation', savings: 380_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 12, confidence: 84 },
-  { name: 'Business Registry Automation', category: 'Business Services', savings: 280_000, effort: 'Low', status: 'automated', priority: 9, timeToValue: 6, confidence: 94 },
-  { name: 'Export License AI Processing', category: 'Export Control', savings: 190_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 14, confidence: 80 },
-  { name: 'Startup Grant Evaluation AI', category: 'Innovation', savings: 160_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 82 },
-  { name: 'FDI Predictive Targeting', category: 'Investment', savings: 120_000, effort: 'High', status: 'identified', priority: 6, timeToValue: 18, confidence: 72 },
+const brBndesTopOpportunities: Opportunity[] = [
+  { name: 'Credit Analysis AI (Loan Evaluation)', category: 'Development Finance', savings: 3_200_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 8, confidence: 92 },
+  { name: 'ESG Compliance Automation', category: 'Compliance', savings: 2_400_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 12, confidence: 84 },
+  { name: 'Project Monitoring & Disbursement AI', category: 'Operations', savings: 1_800_000, effort: 'Low', status: 'automated', priority: 9, timeToValue: 6, confidence: 94 },
+  { name: 'Risk Assessment AI (Portfolio)', category: 'Risk Management', savings: 1_200_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 14, confidence: 80 },
+  { name: 'Development Impact Analytics', category: 'Analytics', savings: 800_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 82 },
+  { name: 'Infrastructure Project Evaluation AI', category: 'Investment', savings: 600_000, effort: 'High', status: 'identified', priority: 6, timeToValue: 18, confidence: 72 },
 ];
 
-const eeEconomicCurrentStack: CurrentTool[] = [
-  { name: 'e-Residency Platform', category: 'Digital Identity', annualCost: 1_800_000, users: 100_000, score: 9, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Digital Residency', 'Applicant Screening', 'ID Issuance'] },
+const brBndesCurrentStack: CurrentTool[] = [
+  { name: 'GOV.BR Digital Platform', category: 'Digital Identity', annualCost: 1_800_000, users: 100_000, score: 9, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Digital Residency', 'Applicant Screening', 'ID Issuance'] },
   { name: 'Business Registry IS', category: 'Registry', annualCost: 800_000, users: 2_400, score: 7, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['Company Formation', 'Annual Reports', 'Shareholder Registry'] },
   { name: 'Trade Compliance System', category: 'Trade', annualCost: 600_000, users: 480, score: 5, integrationComplexity: 'Medium', migrationWeeks: 14, riskLevel: 'Medium', dependencies: ['Sanctions Screening', 'Export Controls', 'Customs Declarations'] },
   { name: 'X-Road (Economic)', category: 'Data Exchange', annualCost: 350_000, users: 5_200, score: 8, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Cross-Ministry Data', 'Business Verification', 'Tax Data Exchange'] },
-  { name: 'Startup Estonia Portal', category: 'Innovation', annualCost: 280_000, users: 1_200, score: 7, integrationComplexity: 'Low', migrationWeeks: 6, riskLevel: 'Low', dependencies: ['Grant Applications', 'Startup Directory', 'Mentor Matching'] },
+  { name: 'Startup Brazil Portal', category: 'Innovation', annualCost: 280_000, users: 1_200, score: 7, integrationComplexity: 'Low', migrationWeeks: 6, riskLevel: 'Low', dependencies: ['Grant Applications', 'Startup Directory', 'Mentor Matching'] },
   { name: 'PostgreSQL', category: 'Database', annualCost: 140_000, users: 520, score: 7, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['Trade Records', 'Business Data', 'Economic Statistics'] },
 ];
 
-const eeEconomicLicenses: License[] = [
+const brBndesLicenses: License[] = [
   { vendor: 'Trade Compliance Suite', totalLicenses: 480, active90d: 320, inactive: 160, annualWaste: 192_000, action: 'Replace legacy trade compliance with AI-native solution', costPerLicense: 1_200, department: 'Trade & Customs Division', lastAuditDate: '2025-12-15', trend: [74, 70, 66, 64, 62, 67], complianceRisk: true },
   { vendor: 'Microsoft 365 E3', totalLicenses: 5_200, active90d: 4_400, inactive: 800, annualWaste: 96_000, action: 'Downgrade 800 inactive to F1 tier', costPerLicense: 120, department: 'All Economic Affairs', lastAuditDate: '2026-02-01', trend: [88, 86, 84, 82, 80, 85], complianceRisk: false },
   { vendor: 'Salesforce Gov Cloud', totalLicenses: 240, active90d: 180, inactive: 60, annualWaste: 84_000, action: 'Consolidate 60 seats — evaluate migration to open-source CRM', costPerLicense: 1_400, department: 'Investment Agency', lastAuditDate: '2026-01-05', trend: [82, 78, 76, 72, 70, 75], complianceRisk: false },
   { vendor: 'Data Analytics Platform', totalLicenses: 120, active90d: 84, inactive: 36, annualWaste: 48_000, action: 'Migrate to unified analytics on Metabase', costPerLicense: 1_333, department: 'Economic Analysis', lastAuditDate: '2025-11-20', trend: [76, 72, 68, 66, 64, 70], complianceRisk: false },
 ];
 
-const eeEconomicWorkflowSummary = {
-  total: 26,
-  fullyAutomatable: 12,
-  humanInLoop: 6,
-  humanRequired: 8,
-  currentLaborSpend: 6_200_000,
-  potentialSavings: 1_400_000,
+const brBndesWorkflowSummary = {
+  total: 48,
+  fullyAutomatable: 16,
+  humanInLoop: 22,
+  humanRequired: 10,
+  currentLaborSpend: 46_000_000,
+  potentialSavings: 6_800_000,
 };
 
-const eeEconomicRoiSummary = {
-  techStackSavings: 800_000,
-  workflowAutomation: 1_400_000,
-  licenseRecovery: 420_000,
-  implementationCosts: 1_020_000,
-  netYear1: 1_600_000,
-  year2Projected: 2_720_000,
+const brBndesRoiSummary = {
+  techStackSavings: 4_000_000,
+  workflowAutomation: 6_800_000,
+  licenseRecovery: 3_200_000,
+  implementationCosts: 4_000_000,
+  netYear1: 10_000_000,
+  year2Projected: 17_000_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// ─── Estonia: Cybersecurity & IT (ee-ria) ────────────────────────────────────
+// ─── Brazil: SERPRO — Federal Data Processing (br-serpro) ────────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
-const eeRiaCompanyProfile = {
-  name: 'Cybersecurity & IT (RIA)',
-  industry: 'Government — Cybersecurity & Information Systems',
-  employees: 480,
+const brSerproCompanyProfile = {
+  name: 'SERPRO — Federal Data Processing',
+  industry: 'Government — IT Infrastructure & Data Processing',
+  employees: 42_000,
   opCos: 0,
   opCoNames: [] as string[],
-  techSpend: '€42M/yr',
-  aiReadinessScore: 78,
-  holdingPeriod: 'Government agency',
+  techSpend: '$108M/yr',
+  aiReadinessScore: 55,
+  holdingPeriod: 'Federal IT enterprise — processes CPF/CNPJ for 215M citizens',
   ebitdaMargin: 'N/A',
   targetEbitdaMargin: 'N/A',
 };
 
-const eeRiaAiReadinessBreakdown = [
-  { category: 'Data Infrastructure', score: 84, maxScore: 100, status: 'Strong — X-Road infrastructure generates rich telemetry, SIEM collects 2M+ events/day, comprehensive threat intelligence feeds' },
-  { category: 'Process Maturity', score: 78, maxScore: 100, status: 'Above Average — incident response well-structured, but vulnerability management and patch coordination across 900+ services partially manual' },
-  { category: 'Tech Stack Modernity', score: 82, maxScore: 100, status: 'Advanced — modern SIEM/SOAR stack, X-Road 7.0, eID infrastructure, though legacy vulnerability scanning tools need replacement' },
-  { category: 'Change Readiness', score: 74, maxScore: 100, status: 'Good — cybersecurity team embraces AI-powered threat detection, strong culture of innovation at RIA' },
-  { category: 'Skills & Training', score: 72, maxScore: 100, status: 'Good — world-class cyber defense talent from NATO CCDCOE collaboration, but AI/ML specialization needs deepening' },
+const brSerproAiReadinessBreakdown = [
+  { category: 'Data Infrastructure', score: 58, maxScore: 100, status: 'Moderate — SERPRO operates 12 data centers processing CPF/CNPJ for 215M citizens, but mainframe-centric architecture limits AI integration' },
+  { category: 'Process Maturity', score: 52, maxScore: 100, status: 'Moderate — batch processing well-optimized, but real-time API services and cloud-native operations still maturing across 42,000 staff' },
+  { category: 'Tech Stack Modernity', score: 48, maxScore: 100, status: 'Mixed — government cloud initiative underway, but legacy mainframes still process 60% of workloads, migration timeline aggressive' },
+  { category: 'Change Readiness', score: 56, maxScore: 100, status: 'Moderate — leadership committed to cloud transformation, but unionized workforce of 42,000 requires careful change management' },
+  { category: 'Skills & Training', score: 54, maxScore: 100, status: 'Developing — 8,000 IT professionals with strong mainframe skills, but cloud-native and AI/ML expertise concentrated in small teams' },
 ];
 
-const eeRiaKpis = {
-  totalSavings: 1_400_000,
-  techScoreBefore: 78,
-  techScoreAfter: 96,
-  workflowsAnalyzed: 24,
-  automationReady: 14,
-  unusedLicenseWaste: 380_000,
-  savingsSparkline: [0, 89_091, 197_273, 330_909, 502_727, 668_182, 801_818, 935_455, 1_069_091, 1_202_727, 1_310_909, 1_400_000],
-  scoreSparkline: [78, 80, 82, 84, 86, 88, 89, 91, 92, 93, 95, 96],
-  workflowSparkline: [0, 2, 4, 6, 8, 11, 13, 16, 18, 21, 23, 24],
-  licenseSparkline: [380_000, 341_818, 303_636, 265_455, 227_273, 190_909, 159_091, 131_818, 107_273, 88_182, 69_091, 50_000],
-  headcountImpactSparkline: [0, -1, -2, -3, -5, -7, -9, -12, -14, -17, -19, -20],
+const brSerproKpis = {
+  totalSavings: 8_000_000,
+  techScoreBefore: 55,
+  techScoreAfter: 86,
+  workflowsAnalyzed: 46,
+  automationReady: 18,
+  unusedLicenseWaste: 2_800_000,
+  savingsSparkline: [0, 500_000, 1_100_000, 1_900_000, 2_900_000, 3_800_000, 4_600_000, 5_400_000, 6_100_000, 6_900_000, 7_500_000, 8_000_000],
+  scoreSparkline: [55, 58, 61, 64, 67, 70, 73, 76, 79, 82, 84, 86],
+  workflowSparkline: [0, 4, 8, 12, 16, 20, 26, 32, 36, 40, 44, 46],
+  licenseSparkline: [2_800_000, 2_500_000, 2_200_000, 2_000_000, 1_700_000, 1_400_000, 1_200_000, 1_000_000, 800_000, 650_000, 520_000, 400_000],
+  headcountImpactSparkline: [0, -2, -5, -10, -16, -22, -28, -36, -42, -48, -54, -58],
 };
 
-const eeRiaRoadmapPhases = [
+const brSerproRoadmapPhases = [
   {
     quarter: 'Q1 2026',
     title: 'AI-Powered Threat Detection',
@@ -3005,21 +3005,21 @@ const eeRiaRoadmapPhases = [
       { week: 13, task: 'AI cyber range: automated adversary simulation for continuous defense testing', owner: 'Red Team Lead' },
       { week: 14, task: 'Predictive defense posture: AI forecasting emerging threats based on global attack trends', owner: 'Threat Intelligence Lead' },
       { week: 15, task: 'National cyber resilience scoring: real-time security posture assessment across all government systems', owner: 'CISO' },
-      { week: 16, task: 'Annual review: €1.4M savings, 96 AI readiness, Estonia ranked #1 EU cyber resilience', owner: 'RIA Director General' },
+      { week: 16, task: 'Annual review: $8M savings, 86 AI readiness, Brazil digital government transformation complete', owner: 'SERPRO Director General' },
     ],
   },
 ];
 
-const eeRiaTopOpportunities: Opportunity[] = [
-  { name: 'AI-Powered SIEM', category: 'Threat Detection', savings: 440_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 8, confidence: 92 },
-  { name: 'Automated Vulnerability Scanning', category: 'Vulnerability Management', savings: 300_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 88 },
-  { name: 'X-Road Anomaly Detection', category: 'Infrastructure Security', savings: 230_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 8, confidence: 90 },
-  { name: 'SOAR Playbook Automation', category: 'Incident Response', savings: 190_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 84 },
-  { name: 'eID Security Enhancement', category: 'Identity Security', savings: 140_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 14, confidence: 80 },
-  { name: 'Automated Digital Forensics', category: 'Forensics', savings: 100_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 16, confidence: 76 },
+const brSerproTopOpportunities: Opportunity[] = [
+  { name: 'Mainframe-to-Cloud Migration AI', category: 'Infrastructure', savings: 2_600_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 14, confidence: 82 },
+  { name: 'CPF/CNPJ Registry Automation', category: 'Data Processing', savings: 1_800_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 88 },
+  { name: 'Government Cloud Platform AI', category: 'Cloud Infrastructure', savings: 1_400_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 8, confidence: 90 },
+  { name: 'Cybersecurity AI (SOC Automation)', category: 'Security', savings: 1_000_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 84 },
+  { name: 'Data Center Optimization AI', category: 'Infrastructure', savings: 700_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 14, confidence: 80 },
+  { name: 'API Gateway & Integration Platform', category: 'Platform', savings: 500_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 16, confidence: 76 },
 ];
 
-const eeRiaCurrentStack: CurrentTool[] = [
+const brSerproCurrentStack: CurrentTool[] = [
   { name: 'X-Road 7.0 (Core)', category: 'Data Exchange', annualCost: 2_400_000, users: 480, score: 9, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Government Data Exchange', 'Service Registry', 'API Gateway'] },
   { name: 'Splunk SIEM', category: 'Security Monitoring', annualCost: 1_600_000, users: 120, score: 7, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Medium', dependencies: ['Log Aggregation', 'Threat Detection', 'Compliance Monitoring'] },
   { name: 'Palo Alto SOAR', category: 'Incident Response', annualCost: 800_000, users: 60, score: 7, integrationComplexity: 'Medium', migrationWeeks: 6, riskLevel: 'Medium', dependencies: ['Playbook Automation', 'Incident Orchestration', 'Alert Triage'] },
@@ -3028,29 +3028,29 @@ const eeRiaCurrentStack: CurrentTool[] = [
   { name: 'CrowdStrike Falcon', category: 'Endpoint Security', annualCost: 360_000, users: 14_000, score: 8, integrationComplexity: 'Low', migrationWeeks: 2, riskLevel: 'Low', dependencies: ['Endpoint Detection', 'Threat Response', 'Device Management'] },
 ];
 
-const eeRiaLicenses: License[] = [
+const brSerproLicenses: License[] = [
   { vendor: 'Splunk Enterprise', totalLicenses: 120, active90d: 88, inactive: 32, annualWaste: 160_000, action: 'Consolidate 32 inactive seats, evaluate AI-native SIEM alternatives', costPerLicense: 5_000, department: 'SOC / Threat Detection', lastAuditDate: '2026-01-10', trend: [80, 76, 74, 72, 70, 73], complianceRisk: false },
   { vendor: 'Tenable.io', totalLicenses: 80, active90d: 56, inactive: 24, annualWaste: 96_000, action: 'Replace 24 legacy scanner licenses with AI-powered continuous scanning', costPerLicense: 4_000, department: 'Vulnerability Management', lastAuditDate: '2025-12-20', trend: [78, 72, 68, 66, 64, 70], complianceRisk: false },
   { vendor: 'Palo Alto XSOAR', totalLicenses: 60, active90d: 48, inactive: 12, annualWaste: 72_000, action: 'Optimize playbook coverage to utilize all 60 licenses effectively', costPerLicense: 6_000, department: 'Incident Response', lastAuditDate: '2026-01-25', trend: [86, 82, 80, 78, 76, 80], complianceRisk: false },
   { vendor: 'CrowdStrike Falcon', totalLicenses: 14_000, active90d: 12_800, inactive: 1_200, annualWaste: 52_000, action: 'Reclaim 1,200 seats from decommissioned endpoints', costPerLicense: 43, department: 'All Government Endpoints', lastAuditDate: '2026-02-05', trend: [94, 92, 90, 88, 86, 91], complianceRisk: false },
 ];
 
-const eeRiaWorkflowSummary = {
-  total: 26,
-  fullyAutomatable: 14,
-  humanInLoop: 6,
-  humanRequired: 6,
-  currentLaborSpend: 5_800_000,
-  potentialSavings: 1_200_000,
+const brSerproWorkflowSummary = {
+  total: 46,
+  fullyAutomatable: 18,
+  humanInLoop: 18,
+  humanRequired: 10,
+  currentLaborSpend: 68_000_000,
+  potentialSavings: 5_400_000,
 };
 
-const eeRiaRoiSummary = {
-  techStackSavings: 800_000,
-  workflowAutomation: 1_200_000,
-  licenseRecovery: 380_000,
-  implementationCosts: 980_000,
-  netYear1: 1_400_000,
-  year2Projected: 2_380_000,
+const brSerproRoiSummary = {
+  techStackSavings: 3_400_000,
+  workflowAutomation: 5_400_000,
+  licenseRecovery: 2_800_000,
+  implementationCosts: 3_600_000,
+  netYear1: 8_000_000,
+  year2Projected: 13_600_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -4306,10 +4306,10 @@ const nbHealthAiAgents: AIAgent[] = [
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// ─── AI Agents (Estonia + Subsidiaries) ──────────────────────────────────────
+// ─── AI Agents (Brazil + Agencies) ──────────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
-const estoniaAiAgents: AIAgent[] = [
+const brazilAiAgents: AIAgent[] = [
   { name: 'Governance AI', subtitle: 'Policy Compliance', accuracy: 94.3, metric2Label: 'Policy Gap Rate', metric2Value: 2.1, metric3Label: 'Scan Cycle', metric3Value: '2.4 hrs', overrideRate: 7.8, confidenceThreshold: 0.89, status: 'active', lastmileAgentId: 'governance-ai' },
   { name: 'X-Road Monitor', subtitle: 'Infrastructure Health', accuracy: 98.1, metric2Label: 'Service Miss', metric2Value: 0.7, metric3Label: 'Check Interval', metric3Value: '30s', overrideRate: 3.2, confidenceThreshold: 0.96, status: 'active', lastmileAgentId: 'x-road-monitor' },
   { name: 'Citizen Portal AI', subtitle: 'Service Optimization', accuracy: 91.7, metric2Label: 'Routing Error', metric2Value: 3.4, metric3Label: 'Response Time', metric3Value: '1.2s', overrideRate: 10.6, confidenceThreshold: 0.86, status: 'active', lastmileAgentId: 'citizen-portal-ai' },
@@ -4317,7 +4317,7 @@ const estoniaAiAgents: AIAgent[] = [
   { name: 'Legislative Impact Analyzer', subtitle: 'Policy Modeling', accuracy: 83.4, metric2Label: 'Impact Mispredict', metric2Value: 7.8, metric3Label: 'Analysis Time', metric3Value: '18 min', overrideRate: 19.7, confidenceThreshold: 0.76, status: 'planned', lastmileAgentId: 'legislative-impact-analyzer' },
 ];
 
-const eeFinanceAiAgents: AIAgent[] = [
+const brReceitaAiAgents: AIAgent[] = [
   { name: 'Tax AI', subtitle: 'Tax Processing', accuracy: 96.4, metric2Label: 'Filing Error', metric2Value: 1.3, metric3Label: 'Processing Time', metric3Value: '0.8s', overrideRate: 5.2, confidenceThreshold: 0.93, status: 'active', lastmileAgentId: 'tax-ai' },
   { name: 'Audit Bot', subtitle: 'Automated Auditing', accuracy: 93.7, metric2Label: 'Anomaly Miss', metric2Value: 2.4, metric3Label: 'Audit Cycle', metric3Value: '6.4 min', overrideRate: 8.4, confidenceThreshold: 0.89, status: 'active', lastmileAgentId: 'audit-bot' },
   { name: 'Revenue Predictor', subtitle: 'Fiscal Forecasting', accuracy: 90.1, metric2Label: 'Forecast Error', metric2Value: 3.9, metric3Label: 'Prediction Window', metric3Value: '6 months', overrideRate: 12.1, confidenceThreshold: 0.84, status: 'piloting', lastmileAgentId: 'revenue-predictor' },
@@ -4325,7 +4325,7 @@ const eeFinanceAiAgents: AIAgent[] = [
   { name: 'Treasury Optimizer', subtitle: 'Cash Management', accuracy: 86.3, metric2Label: 'Liquidity Error', metric2Value: 5.8, metric3Label: 'Optimization Cycle', metric3Value: '4 hrs', overrideRate: 16.4, confidenceThreshold: 0.79, status: 'planned', lastmileAgentId: 'treasury-optimizer' },
 ];
 
-const eeSocialAiAgents: AIAgent[] = [
+const brSusAiAgents: AIAgent[] = [
   { name: 'Benefits Engine', subtitle: 'Eligibility Processing', accuracy: 95.6, metric2Label: 'Eligibility Error', metric2Value: 1.6, metric3Label: 'Decision Time', metric3Value: '1.1s', overrideRate: 5.9, confidenceThreshold: 0.92, status: 'active', lastmileAgentId: 'benefits-engine' },
   { name: 'Health Records AI', subtitle: 'Medical Data Processing', accuracy: 97.4, metric2Label: 'Record Mismatch', metric2Value: 0.9, metric3Label: 'Matching Speed', metric3Value: '0.3s', overrideRate: 3.8, confidenceThreshold: 0.95, status: 'active', lastmileAgentId: 'health-records-ai' },
   { name: 'Case AI', subtitle: 'Case Management', accuracy: 92.1, metric2Label: 'Case Misroute', metric2Value: 3.2, metric3Label: 'Assignment Time', metric3Value: '2.4s', overrideRate: 9.7, confidenceThreshold: 0.87, status: 'active', lastmileAgentId: 'case-ai' },
@@ -4333,15 +4333,15 @@ const eeSocialAiAgents: AIAgent[] = [
   { name: 'Social Impact Modeler', subtitle: 'Policy Impact', accuracy: 83.7, metric2Label: 'Outcome Error', metric2Value: 7.4, metric3Label: 'Model Cycle', metric3Value: '48 hrs', overrideRate: 19.2, confidenceThreshold: 0.76, status: 'planned', lastmileAgentId: 'social-impact-modeler' },
 ];
 
-const eeEconomicAiAgents: AIAgent[] = [
+const brBndesAiAgents: AIAgent[] = [
   { name: 'Trade AI', subtitle: 'Trade Analytics', accuracy: 93.8, metric2Label: 'Trade Misclass', metric2Value: 2.3, metric3Label: 'Analysis Speed', metric3Value: '1.6s', overrideRate: 8.2, confidenceThreshold: 0.89, status: 'active', lastmileAgentId: 'trade-ai' },
-  { name: 'e-Residency Bot', subtitle: 'Application Processing', accuracy: 96.1, metric2Label: 'Processing Error', metric2Value: 1.4, metric3Label: 'Decision Time', metric3Value: '2.8s', overrideRate: 5.4, confidenceThreshold: 0.92, status: 'active', lastmileAgentId: 'e-residency-bot' },
+  { name: 'GOV.BR Digital Bot', subtitle: 'Application Processing', accuracy: 96.1, metric2Label: 'Processing Error', metric2Value: 1.4, metric3Label: 'Decision Time', metric3Value: '2.8s', overrideRate: 5.4, confidenceThreshold: 0.92, status: 'active', lastmileAgentId: 'e-residency-bot' },
   { name: 'Registry AI', subtitle: 'Business Registration', accuracy: 94.6, metric2Label: 'Filing Error', metric2Value: 1.9, metric3Label: 'Registration Time', metric3Value: '3.4 min', overrideRate: 7.1, confidenceThreshold: 0.90, status: 'active', lastmileAgentId: 'registry-ai' },
   { name: 'FDI Analyzer', subtitle: 'Investment Analytics', accuracy: 87.2, metric2Label: 'Sector Misclass', metric2Value: 5.6, metric3Label: 'Report Cycle', metric3Value: '12 hrs', overrideRate: 15.8, confidenceThreshold: 0.80, status: 'piloting', lastmileAgentId: 'fdi-analyzer' },
   { name: 'Export Compliance AI', subtitle: 'Trade Compliance', accuracy: 91.4, metric2Label: 'Sanction Miss', metric2Value: 0.8, metric3Label: 'Screen Time', metric3Value: '0.6s', overrideRate: 10.3, confidenceThreshold: 0.86, status: 'active', lastmileAgentId: 'export-compliance-ai' },
 ];
 
-const eeRiaAiAgents: AIAgent[] = [
+const brSerproAiAgents: AIAgent[] = [
   { name: 'Threat Hunter', subtitle: 'Cyber Threat Detection', accuracy: 97.6, metric2Label: 'Threat Miss Rate', metric2Value: 0.8, metric3Label: 'Detection Speed', metric3Value: '0.1s', overrideRate: 3.6, confidenceThreshold: 0.95, status: 'active', lastmileAgentId: 'threat-hunter' },
   { name: 'X-Road Health', subtitle: 'Service Monitoring', accuracy: 99.2, metric2Label: 'Downtime Miss', metric2Value: 0.3, metric3Label: 'Check Interval', metric3Value: '15s', overrideRate: 2.1, confidenceThreshold: 0.97, status: 'active', lastmileAgentId: 'x-road-health' },
   { name: 'Incident AI', subtitle: 'Incident Response', accuracy: 94.8, metric2Label: 'Severity Misclass', metric2Value: 2.1, metric3Label: 'Response Time', metric3Value: '4.2s', overrideRate: 6.7, confidenceThreshold: 0.91, status: 'active', lastmileAgentId: 'incident-ai' },
@@ -4425,18 +4425,18 @@ const nbHealthDataSources: IntegrationDataSource[] = [
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// ─── Data Sources (Estonia + Subsidiaries) ───────────────────────────────────
+// ─── Data Sources (Brazil + Agencies) ───────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
-const estoniaDataSources: IntegrationDataSource[] = [
+const brazilDataSources: IntegrationDataSource[] = [
   { system: 'X-Road Platform', division: 'National Data Exchange', recordsAnalyzed: '1.2B annual queries', coverage: 99, status: 'Complete' },
-  { system: 'eesti.ee Portal', division: 'Citizen Services', recordsAnalyzed: '1.3M registered users', coverage: 96, status: 'Complete' },
+  { system: 'gov.br Portal', division: 'Citizen Services', recordsAnalyzed: '1.3M registered users', coverage: 96, status: 'Complete' },
   { system: 'Population Registry', division: 'Demographics', recordsAnalyzed: '1.34M citizen records', coverage: 100, status: 'Complete' },
   { system: 'State Budget System', division: 'Fiscal Management', recordsAnalyzed: '8,400 budget items', coverage: 92, status: 'Complete' },
   { system: 'RIHA Information System', division: 'IT Governance', recordsAnalyzed: '2,400 state IT systems', coverage: 88, status: 'In Progress' },
 ];
 
-const eeFinanceDataSources: IntegrationDataSource[] = [
+const brReceitaDataSources: IntegrationDataSource[] = [
   { system: 'EMTA Tax System', division: 'Tax Administration', recordsAnalyzed: '680,000 taxpayers', coverage: 98, status: 'Complete' },
   { system: 'e-Customs Platform', division: 'Customs & Excise', recordsAnalyzed: '420,000 declarations', coverage: 95, status: 'Complete' },
   { system: 'State Treasury System', division: 'Treasury Management', recordsAnalyzed: '2.4M payment records', coverage: 93, status: 'Complete' },
@@ -4444,7 +4444,7 @@ const eeFinanceDataSources: IntegrationDataSource[] = [
   { system: 'EU Reporting Gateway', division: 'EU Compliance', recordsAnalyzed: '840 regulatory filings', coverage: 91, status: 'Complete' },
 ];
 
-const eeSocialDataSources: IntegrationDataSource[] = [
+const brSusDataSources: IntegrationDataSource[] = [
   { system: 'SKAIS Social System', division: 'Benefits Administration', recordsAnalyzed: '480,000 beneficiaries', coverage: 97, status: 'Complete' },
   { system: 'Health Insurance Fund', division: 'Health Coverage', recordsAnalyzed: '1.28M insured persons', coverage: 96, status: 'Complete' },
   { system: 'Pension Registry', division: 'Pension Management', recordsAnalyzed: '620,000 pension records', coverage: 94, status: 'Complete' },
@@ -4452,15 +4452,15 @@ const eeSocialDataSources: IntegrationDataSource[] = [
   { system: 'Unemployment Registry', division: 'Employment Services', recordsAnalyzed: '42,000 job seekers', coverage: 88, status: 'In Progress' },
 ];
 
-const eeEconomicDataSources: IntegrationDataSource[] = [
+const brBndesDataSources: IntegrationDataSource[] = [
   { system: 'Trade Registry', division: 'Business Registration', recordsAnalyzed: '240,000 companies', coverage: 99, status: 'Complete' },
-  { system: 'e-Residency Platform', division: 'Digital Residency', recordsAnalyzed: '108,000 e-residents', coverage: 97, status: 'Complete' },
-  { system: 'Statistics Estonia', division: 'Economic Statistics', recordsAnalyzed: '4.2M data points', coverage: 93, status: 'Complete' },
+  { system: 'GOV.BR Digital Platform', division: 'Digital Residency', recordsAnalyzed: '108,000 e-residents', coverage: 97, status: 'Complete' },
+  { system: 'IBGE Statistics', division: 'Economic Statistics', recordsAnalyzed: '4.2M data points', coverage: 93, status: 'Complete' },
   { system: 'Investment Gateway', division: 'FDI Tracking', recordsAnalyzed: '2,400 investment records', coverage: 86, status: 'In Progress' },
   { system: 'EU Funds Portal', division: 'Structural Funds', recordsAnalyzed: '1,800 grant applications', coverage: 91, status: 'Complete' },
 ];
 
-const eeRiaDataSources: IntegrationDataSource[] = [
+const brSerproDataSources: IntegrationDataSource[] = [
   { system: 'X-Road Security Layer', division: 'Infrastructure Security', recordsAnalyzed: '48M daily auth events', coverage: 99, status: 'Complete' },
   { system: 'CERT-EE Threat Feed', division: 'Cyber Threat Intel', recordsAnalyzed: '2.4M threat indicators', coverage: 96, status: 'Complete' },
   { system: 'eID Infrastructure', division: 'Digital Identity', recordsAnalyzed: '1.34M active certificates', coverage: 98, status: 'Complete' },
@@ -4544,18 +4544,18 @@ const nbHealthVendorHealth: IntegrationVendorHealth[] = [
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// ─── Vendor Health (Estonia + Subsidiaries) ──────────────────────────────────
+// ─── Vendor Health (Brazil + Agencies) ──────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
-const estoniaVendorHealth: IntegrationVendorHealth[] = [
+const brazilVendorHealth: IntegrationVendorHealth[] = [
   { name: 'X-Road Platform', status: 'green', uptime: 99.97, latency: 8, lastChecked: '2026-03-27T08:14:00Z' },
-  { name: 'eesti.ee Portal', status: 'green', uptime: 99.8, latency: 24, lastChecked: '2026-03-27T08:12:00Z' },
+  { name: 'gov.br Portal', status: 'green', uptime: 99.8, latency: 24, lastChecked: '2026-03-27T08:12:00Z' },
   { name: 'Population Registry', status: 'green', uptime: 99.9, latency: 16, lastChecked: '2026-03-27T08:10:00Z' },
   { name: 'State Budget System', status: 'green', uptime: 99.4, latency: 62, lastChecked: '2026-03-27T08:08:00Z' },
   { name: 'RIHA Information System', status: 'yellow', uptime: 98.1, latency: 176, lastChecked: '2026-03-27T08:06:00Z', note: 'IT asset catalog sync delays during quarterly audits' },
 ];
 
-const eeFinanceVendorHealth: IntegrationVendorHealth[] = [
+const brReceitaVendorHealth: IntegrationVendorHealth[] = [
   { name: 'EMTA Tax System', status: 'green', uptime: 99.9, latency: 18, lastChecked: '2026-03-27T08:14:00Z' },
   { name: 'e-Customs Platform', status: 'green', uptime: 99.6, latency: 42, lastChecked: '2026-03-27T08:12:00Z' },
   { name: 'State Treasury System', status: 'green', uptime: 99.7, latency: 28, lastChecked: '2026-03-27T08:10:00Z' },
@@ -4563,7 +4563,7 @@ const eeFinanceVendorHealth: IntegrationVendorHealth[] = [
   { name: 'EU Reporting Gateway', status: 'yellow', uptime: 98.4, latency: 164, lastChecked: '2026-03-27T08:06:00Z', note: 'EU gateway latency during cross-border reporting deadlines' },
 ];
 
-const eeSocialVendorHealth: IntegrationVendorHealth[] = [
+const brSusVendorHealth: IntegrationVendorHealth[] = [
   { name: 'SKAIS Social System', status: 'green', uptime: 99.7, latency: 32, lastChecked: '2026-03-27T08:14:00Z' },
   { name: 'Health Insurance Fund', status: 'green', uptime: 99.8, latency: 22, lastChecked: '2026-03-27T08:12:00Z' },
   { name: 'Pension Registry', status: 'green', uptime: 99.5, latency: 38, lastChecked: '2026-03-27T08:10:00Z' },
@@ -4571,15 +4571,15 @@ const eeSocialVendorHealth: IntegrationVendorHealth[] = [
   { name: 'Unemployment Registry', status: 'yellow', uptime: 98.1, latency: 146, lastChecked: '2026-03-27T08:06:00Z', note: 'Job matching API response times elevated during peak posting hours' },
 ];
 
-const eeEconomicVendorHealth: IntegrationVendorHealth[] = [
+const brBndesVendorHealth: IntegrationVendorHealth[] = [
   { name: 'Trade Registry', status: 'green', uptime: 99.9, latency: 14, lastChecked: '2026-03-27T08:14:00Z' },
-  { name: 'e-Residency Platform', status: 'green', uptime: 99.7, latency: 28, lastChecked: '2026-03-27T08:12:00Z' },
-  { name: 'Statistics Estonia', status: 'green', uptime: 99.4, latency: 56, lastChecked: '2026-03-27T08:10:00Z' },
+  { name: 'GOV.BR Digital Platform', status: 'green', uptime: 99.7, latency: 28, lastChecked: '2026-03-27T08:12:00Z' },
+  { name: 'IBGE Statistics', status: 'green', uptime: 99.4, latency: 56, lastChecked: '2026-03-27T08:10:00Z' },
   { name: 'Investment Gateway', status: 'yellow', uptime: 97.6, latency: 224, lastChecked: '2026-03-27T08:08:00Z', note: 'FDI data aggregation delays from partner country feeds' },
   { name: 'EU Funds Portal', status: 'green', uptime: 99.2, latency: 68, lastChecked: '2026-03-27T08:06:00Z' },
 ];
 
-const eeRiaVendorHealth: IntegrationVendorHealth[] = [
+const brSerproVendorHealth: IntegrationVendorHealth[] = [
   { name: 'X-Road Security Layer', status: 'green', uptime: 99.99, latency: 4, lastChecked: '2026-03-27T08:14:00Z' },
   { name: 'CERT-EE Threat Feed', status: 'green', uptime: 99.8, latency: 12, lastChecked: '2026-03-27T08:12:00Z' },
   { name: 'eID Infrastructure', status: 'green', uptime: 99.95, latency: 8, lastChecked: '2026-03-27T08:10:00Z' },
@@ -4656,38 +4656,38 @@ const nbHealthFailureModes: IntegrationFailureMode[] = [
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// ─── Failure Modes (Estonia + Subsidiaries) ──────────────────────────────────
+// ─── Failure Modes (Brazil + Agencies) ──────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
-const estoniaFailureModes: IntegrationFailureMode[] = [
+const brazilFailureModes: IntegrationFailureMode[] = [
   { vendor: 'X-Road Platform', scenario: 'X-Road message broker overload during cross-ministry data exchange peak', recovery: 'Auto-scaling message brokers with service-level priority queuing', status: 'Passing' },
-  { vendor: 'eesti.ee Portal', scenario: 'Citizen portal session overflow during tax filing deadline', recovery: 'Elastic session management with queue-based access control', status: 'Needs Attention' },
+  { vendor: 'gov.br Portal', scenario: 'Citizen portal session overflow during tax filing deadline', recovery: 'Elastic session management with queue-based access control', status: 'Needs Attention' },
   { vendor: 'Population Registry', scenario: 'Registry sync failure during census data integration update', recovery: 'Incremental sync with conflict detection and manual review queue', status: 'Passing' },
   { vendor: 'RIHA Information System', scenario: 'IT system catalog update failure during quarterly compliance audit', recovery: 'Staged catalog refresh with rollback capability and audit-mode freeze', status: 'Passing' },
 ];
 
-const eeFinanceFailureModes: IntegrationFailureMode[] = [
+const brReceitaFailureModes: IntegrationFailureMode[] = [
   { vendor: 'EMTA Tax System', scenario: 'Tax filing system overload during quarterly declaration deadline', recovery: 'Queue-based filing with priority for approaching-deadline submissions', status: 'Passing' },
   { vendor: 'e-Customs Platform', scenario: 'Customs declaration processing failure on complex multi-commodity shipments', recovery: 'Declaration segmentation with per-commodity validation and partial acceptance', status: 'Passing' },
   { vendor: 'State Treasury System', scenario: 'Payment batch processing timeout during government payroll cycle', recovery: 'Parallel payment processing with priority queuing for salary disbursements', status: 'Needs Attention' },
   { vendor: 'EU Reporting Gateway', scenario: 'EU reporting submission failure due to schema version incompatibility', recovery: 'Schema version detection with auto-transform and pre-submission validation', status: 'Passing' },
 ];
 
-const eeSocialFailureModes: IntegrationFailureMode[] = [
+const brSusFailureModes: IntegrationFailureMode[] = [
   { vendor: 'SKAIS Social System', scenario: 'Benefits recalculation timeout during annual indexation update', recovery: 'Batched recalculation with priority for pension payments and staged rollout', status: 'Passing' },
   { vendor: 'Health Insurance Fund', scenario: 'Claims processing backlog during flu season surge', recovery: 'Elastic claims processing with auto-adjudication for routine claims', status: 'Needs Attention' },
   { vendor: 'Case Management DB', scenario: 'Case assignment failure during social worker caseload rebalancing', recovery: 'Algorithmic load balancing with manual override and rollback capability', status: 'Passing' },
   { vendor: 'Unemployment Registry', scenario: 'Job matching engine timeout on large employer batch posting', recovery: 'Async matching with incremental result delivery and employer notification', status: 'Needs Attention' },
 ];
 
-const eeEconomicFailureModes: IntegrationFailureMode[] = [
-  { vendor: 'Trade Registry', scenario: 'Company registration queue backlog during e-Residency application surge', recovery: 'Priority queue separation for domestic vs e-Residency registrations', status: 'Passing' },
-  { vendor: 'e-Residency Platform', scenario: 'Identity verification timeout with partner country biometric systems', recovery: 'Async verification with status polling and applicant notification workflow', status: 'Needs Attention' },
-  { vendor: 'Statistics Estonia', scenario: 'Data pipeline failure during cross-ministry statistical aggregation', recovery: 'Incremental aggregation with source-level caching and gap detection', status: 'Passing' },
+const brBndesFailureModes: IntegrationFailureMode[] = [
+  { vendor: 'Trade Registry', scenario: 'Company registration queue backlog during GOV.BR Digital application surge', recovery: 'Priority queue separation for domestic vs GOV.BR Digital registrations', status: 'Passing' },
+  { vendor: 'GOV.BR Digital Platform', scenario: 'Identity verification timeout with partner country biometric systems', recovery: 'Async verification with status polling and applicant notification workflow', status: 'Needs Attention' },
+  { vendor: 'IBGE Statistics', scenario: 'Data pipeline failure during cross-ministry statistical aggregation', recovery: 'Incremental aggregation with source-level caching and gap detection', status: 'Passing' },
   { vendor: 'Investment Gateway', scenario: 'FDI tracking sync failure with international investment databases', recovery: 'Retry queue with partner-specific adapters and manual reconciliation fallback', status: 'Needs Attention' },
 ];
 
-const eeRiaFailureModes: IntegrationFailureMode[] = [
+const brSerproFailureModes: IntegrationFailureMode[] = [
   { vendor: 'X-Road Security Layer', scenario: 'Certificate chain validation failure during mass certificate rotation', recovery: 'Staged rotation with parallel old/new certificate acceptance window', status: 'Passing' },
   { vendor: 'CERT-EE Threat Feed', scenario: 'Threat intelligence feed overload during coordinated cyber attack', recovery: 'Priority threat classification with critical-only mode and bulk processing queue', status: 'Passing' },
   { vendor: 'eID Infrastructure', scenario: 'Digital signature validation bottleneck during election period', recovery: 'Distributed validation cluster with auto-scaling and cached certificate chains', status: 'Needs Attention' },
@@ -4760,38 +4760,38 @@ const nbHealthMethodologySteps: IntegrationMethodologyStep[] = [
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// ─── Methodology Steps (Estonia + Subsidiaries) ─────────────────────────────
+// ─── Methodology Steps (Brazil + Agencies) ─────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
-const estoniaMethodologySteps: IntegrationMethodologyStep[] = [
+const brazilMethodologySteps: IntegrationMethodologyStep[] = [
   { number: 1, title: 'Digital Government Discovery', description: 'Inventory 2,400 state IT systems in RIHA, X-Road service catalog, and citizen-facing digital services — mapping data flows across ministries and the 1.2B annual X-Road queries.' },
   { number: 2, title: 'Governance Workflow Mapping', description: 'Map 18 critical cross-ministry workflows from policy drafting through citizen service delivery, identifying AI augmentation points in compliance monitoring and budget planning.' },
-  { number: 3, title: 'e-Government Tech Audit', description: 'Assess X-Road platform, eesti.ee portal, Population Registry, and RIHA for AI integration readiness, interoperability maturity, and data quality across the national digital infrastructure.' },
-  { number: 4, title: 'National ROI Modeling', description: 'Model AI-driven improvements in citizen service efficiency, cross-ministry data utilization, and governance automation for Estonia\'s 1.34M-citizen digital society.' },
+  { number: 3, title: 'e-Government Tech Audit', description: 'Assess X-Road platform, gov.br portal, Population Registry, and RIHA for AI integration readiness, interoperability maturity, and data quality across the national digital infrastructure.' },
+  { number: 4, title: 'National ROI Modeling', description: 'Model AI-driven improvements in citizen service efficiency, cross-ministry data utilization, and governance automation for Brazil\'s 1.34M-citizen digital society.' },
 ];
 
-const eeFinanceMethodologySteps: IntegrationMethodologyStep[] = [
+const brReceitaMethodologySteps: IntegrationMethodologyStep[] = [
   { number: 1, title: 'Tax & Revenue Discovery', description: 'Catalog 680,000 taxpayer records, 420,000 customs declarations, and 2.4M treasury payments across the Ministry of Finance\'s tax administration and fiscal management systems.' },
   { number: 2, title: 'Fiscal Workflow Mapping', description: 'Map 12 critical fiscal workflows from tax filing through treasury disbursement, identifying automation opportunities in audit selection, VAT compliance, and EU reporting.' },
   { number: 3, title: 'Finance Tech Stack Audit', description: 'Assess EMTA Tax System, e-Customs Platform, State Treasury, and EU Reporting Gateway for AI-driven tax compliance, fraud detection, and fiscal forecasting readiness.' },
-  { number: 4, title: 'Fiscal ROI Modeling', description: 'Model AI-driven improvements in tax processing efficiency, VAT fraud detection, audit targeting accuracy, and treasury management optimization for Estonia\'s fiscal operations.' },
+  { number: 4, title: 'Fiscal ROI Modeling', description: 'Model AI-driven improvements in tax processing efficiency, VAT fraud detection, audit targeting accuracy, and treasury management optimization for Brazil\'s fiscal operations.' },
 ];
 
-const eeSocialMethodologySteps: IntegrationMethodologyStep[] = [
+const brSusMethodologySteps: IntegrationMethodologyStep[] = [
   { number: 1, title: 'Social Services Discovery', description: 'Catalog 480,000 benefit recipients, 1.28M health insurance records, and 86,000 active social cases across the Ministry of Social Affairs\' welfare and healthcare systems.' },
   { number: 2, title: 'Welfare Workflow Mapping', description: 'Map 14 critical social service workflows from benefit application through case resolution, identifying automation in eligibility determination, health records matching, and case assignment.' },
   { number: 3, title: 'Social Tech Stack Audit', description: 'Assess SKAIS, Health Insurance Fund, Pension Registry, and Case Management DB for AI-driven benefits processing, fraud prevention, and predictive social service readiness.' },
-  { number: 4, title: 'Social ROI Modeling', description: 'Model AI-driven improvements in benefit processing speed, health record interoperability, case management efficiency, and welfare fraud detection for Estonia\'s social safety net.' },
+  { number: 4, title: 'Social ROI Modeling', description: 'Model AI-driven improvements in benefit processing speed, health record interoperability, case management efficiency, and welfare fraud detection for Brazil\'s social safety net.' },
 ];
 
-const eeEconomicMethodologySteps: IntegrationMethodologyStep[] = [
+const brBndesMethodologySteps: IntegrationMethodologyStep[] = [
   { number: 1, title: 'Economic Data Discovery', description: 'Catalog 240,000 registered companies, 108,000 e-Residents, and 4.2M statistical data points across the Ministry of Economic Affairs\' business and trade platforms.' },
-  { number: 2, title: 'Economic Workflow Mapping', description: 'Map 10 critical economic workflows from business registration through FDI tracking, identifying AI opportunities in trade analytics, e-Residency processing, and export compliance.' },
-  { number: 3, title: 'Economic Tech Stack Audit', description: 'Assess Trade Registry, e-Residency Platform, Statistics Estonia, and Investment Gateway for AI-driven business analytics, automated registration, and trade intelligence readiness.' },
-  { number: 4, title: 'Economic ROI Modeling', description: 'Model AI-driven improvements in business registration speed, e-Residency application processing, FDI analysis accuracy, and export compliance automation for Estonia\'s economic development.' },
+  { number: 2, title: 'Economic Workflow Mapping', description: 'Map 10 critical economic workflows from business registration through FDI tracking, identifying AI opportunities in trade analytics, GOV.BR Digital processing, and export compliance.' },
+  { number: 3, title: 'Economic Tech Stack Audit', description: 'Assess Trade Registry, GOV.BR Digital Platform, IBGE Statistics, and Investment Gateway for AI-driven business analytics, automated registration, and trade intelligence readiness.' },
+  { number: 4, title: 'Economic ROI Modeling', description: 'Model AI-driven improvements in business registration speed, GOV.BR Digital application processing, FDI analysis accuracy, and export compliance automation for Brazil\'s economic development.' },
 ];
 
-const eeRiaMethodologySteps: IntegrationMethodologyStep[] = [
+const brSerproMethodologySteps: IntegrationMethodologyStep[] = [
   { number: 1, title: 'Cyber Infrastructure Discovery', description: 'Inventory X-Road security layer handling 48M daily auth events, 1.34M active eID certificates, and 12,000 monitored network nodes across RIA\'s national cybersecurity infrastructure.' },
   { number: 2, title: 'Security Operations Mapping', description: 'Map 8 critical security workflows from threat detection through incident resolution, identifying AI augmentation in threat hunting, vulnerability scanning, and digital identity verification.' },
   { number: 3, title: 'Cyber Tech Stack Audit', description: 'Assess X-Road Security Layer, CERT-EE Threat Feed, eID Infrastructure, and State Network Monitor for AI-driven threat intelligence, automated incident response, and zero-trust readiness.' },
@@ -6264,9 +6264,9 @@ const northbridgeWorkflows: Workflow[] = [
   },
 ];
 
-// ─── Estonia Government Workflows ────────────────────────────────────────────
+// ─── Brazil Government Workflows ────────────────────────────────────────────
 
-const estoniaWorkflows: Workflow[] = [
+const brazilWorkflows: Workflow[] = [
   {
     name: 'Citizen Service Request Processing',
     level: 'full',
@@ -6282,7 +6282,7 @@ const estoniaWorkflows: Workflow[] = [
     automationPercent: 78,
     details: '45 civil servants processing service requests across ministries. Average 8-day resolution time with significant variance by request type.',
     currentProcess: [
-      'Citizens submit requests via eesti.ee portal, email, phone, or in-person at service centers',
+      'Citizens submit requests via gov.br portal, email, phone, or in-person at service centers',
       'Requests manually classified and routed to appropriate ministry department — average 2-day routing delay',
       'Case officer reviews request, gathers required documentation, and processes according to regulations',
       'Status updates provided only when citizen inquires — no proactive notification system',
@@ -6294,21 +6294,21 @@ const estoniaWorkflows: Workflow[] = [
       'Cross-ministry coordination: 20% of requests span multiple ministries with no automated handoff',
       'Status tracking: citizens call service center for updates, consuming additional staff time',
     ],
-    aiArchitecture: 'AI citizen service platform: (1) NLP-powered request classification and routing using X-Road data for intelligent department matching. (2) Conversational AI (Estonian language NLP) handling first-line resolution for common requests. (3) Automated document processing with OCR and data extraction from citizen submissions. (4) Proactive status notifications via eesti.ee and mobile ID. (5) Cross-ministry orchestration engine for multi-department requests using X-Road service bus.',
+    aiArchitecture: 'AI citizen service platform: (1) NLP-powered request classification and routing using X-Road data for intelligent department matching. (2) Conversational AI (Portuguese language NLP) handling first-line resolution for common requests. (3) Automated document processing with OCR and data extraction from citizen submissions. (4) Proactive status notifications via gov.br and mobile ID. (5) Cross-ministry orchestration engine for multi-department requests using X-Road service bus.',
     implementationPlan: [
-      { phase: 'Request Classification AI', weeks: 'Weeks 1-6', description: 'Train Estonian NLP models on historical request data. Build intelligent routing engine connected to X-Road.' },
-      { phase: 'Conversational AI Pilot', weeks: 'Weeks 7-14', description: 'Deploy conversational AI for top 20 request types (covering 60% of volume). Estonian and Russian language support.' },
+      { phase: 'Request Classification AI', weeks: 'Weeks 1-6', description: 'Train Portuguese NLP models on historical request data. Build intelligent routing engine connected to X-Road.' },
+      { phase: 'Conversational AI Pilot', weeks: 'Weeks 7-14', description: 'Deploy conversational AI for top 20 request types (covering 60% of volume). Portuguese and Spanish language support.' },
       { phase: 'Cross-Ministry Orchestration', weeks: 'Weeks 15-20', description: 'Build automated handoff for multi-ministry requests. Deploy proactive citizen notifications.' },
       { phase: 'Full Deployment', weeks: 'Weeks 21-26', description: 'Expand AI handling to all request types. Target <2 day average resolution. Real-time citizen satisfaction tracking.' },
     ],
     risks: [
-      'Estonian language NLP accuracy — must handle Estonian grammar complexity and Russian-language requests',
+      'Portuguese language NLP accuracy — must handle Portuguese grammar complexity and Spanish-language requests',
       'Citizen trust in AI-processed government decisions — transparency requirements for automated processing',
       'Data privacy under EU GDPR — AI processing of citizen data requires legal basis and consent management',
     ],
     dependencies: [
       'X-Road infrastructure for cross-ministry data exchange',
-      'eesti.ee portal integration for citizen-facing AI interface',
+      'gov.br portal integration for citizen-facing AI interface',
       'Population registry and document register access for automated verification',
     ],
   },
@@ -6366,11 +6366,11 @@ const estoniaWorkflows: Workflow[] = [
     currentTime: 'Pre-filled returns: 3 min; Complex returns: 2-4 weeks review',
     aiSolution: 'AI-enhanced tax processing with expanded pre-fill coverage, anomaly detection for audit targeting, and automated compliance monitoring.',
     routing: 'Fully Automatable',
-    routingQuote: 'Estonia\'s pre-filled tax returns made even smarter by AI',
+    routingQuote: 'Brazil\'s pre-filled tax returns made even smarter by AI',
     costShift: 'Labor €1.5M → IT €350K + Labor €500K = €650K saved',
     savings: 650_000,
     automationPercent: 85,
-    details: '25 tax officers managing filing processing and audits. Estonia already has world-leading 98% e-filing rate — AI targets remaining manual review and audit processes.',
+    details: '25 tax officers managing filing processing and audits. Brazil processes 35M+ annual returns via SPED — AI targets remaining manual review and audit processes.',
     currentProcess: [
       'Pre-filled tax returns generated from employer, bank, and investment data via X-Road — 98% e-filing rate',
       'Most personal returns accepted automatically — but 12% require manual review for discrepancies',
@@ -6415,9 +6415,9 @@ const estoniaWorkflows: Workflow[] = [
     costShift: 'Labor €1.2M → IT €280K + Labor €500K = €420K saved',
     savings: 420_000,
     automationPercent: 52,
-    details: '20 case workers processing benefit applications. Estonia\'s "invisible government" vision: proactive service delivery using life events as triggers.',
+    details: '20 case workers processing benefit applications. Brazil\'s "invisible government" vision: proactive service delivery using life events as triggers.',
     currentProcess: [
-      'Citizen applies for benefits via eesti.ee or service center — must identify which benefits they are eligible for',
+      'Citizen applies for benefits via gov.br or service center — must identify which benefits they are eligible for',
       'Case worker verifies eligibility by checking multiple data sources via X-Road queries',
       'Documentation requirements vary by benefit type — citizen must provide proof documents for some benefits',
       'Determination made by case worker following regulatory guidelines — average 15-day processing time',
@@ -6443,7 +6443,7 @@ const estoniaWorkflows: Workflow[] = [
     ],
     dependencies: [
       'X-Road access to population registry, tax, health, and employment data',
-      'Digital notification infrastructure via eesti.ee and mobile ID',
+      'Digital notification infrastructure via gov.br and mobile ID',
       'Social benefits regulatory rules database for all benefit programs',
     ],
   },
@@ -6460,7 +6460,7 @@ const estoniaWorkflows: Workflow[] = [
     costShift: 'Labor €720K → IT €160K + Labor €240K = €320K saved',
     savings: 320_000,
     automationPercent: 82,
-    details: '12 registry officers managing registrations and compliance. Estonia\'s 18-minute registration is world-leading — AI targets compliance monitoring and complex filings.',
+    details: '12 registry officers managing registrations and compliance. Brazil\'s 18-minute registration is world-leading — AI targets compliance monitoring and complex filings.',
     currentProcess: [
       'Business registration via e-Business Register portal — 18-minute average for standard registrations',
       'Complex registrations (foreign owners, regulated industries) require manual review — 5-10 days',
@@ -6505,7 +6505,7 @@ const estoniaWorkflows: Workflow[] = [
     costShift: 'Labor €900K → IT €200K + Labor €300K = €400K saved',
     savings: 400_000,
     automationPercent: 75,
-    details: '15 staff managing ID issuance and authentication infrastructure. Estonia\'s eID is foundational to all digital services — AI enhances security and user experience.',
+    details: '15 staff managing ID issuance and authentication infrastructure. Brazil\'s eID is foundational to all digital services — AI enhances security and user experience.',
     currentProcess: [
       'eID card application processed at PPA service points — biometric data captured in person',
       'Identity verification performed manually against population registry and existing documents',
@@ -6546,7 +6546,7 @@ const estoniaWorkflows: Workflow[] = [
     currentTime: '4-8 weeks for new data service onboarding',
     aiSolution: 'AI-optimized data governance with automated service cataloging, intelligent access management, and performance optimization for X-Road infrastructure.',
     routing: 'Human-in-the-Loop',
-    routingQuote: 'AI governs the data highway that powers digital Estonia',
+    routingQuote: 'AI governs the data highway that powers digital Brazil',
     costShift: 'Labor €600K → IT €140K + Labor €280K = €180K saved',
     savings: 180_000,
     automationPercent: 42,
@@ -6908,9 +6908,9 @@ const northbridgeRecommendations: Recommendation[] = [
   },
 ];
 
-// ─── Estonia Government Recommendations ──────────────────────────────────────
+// ─── Brazil Government Recommendations ──────────────────────────────────────
 
-const estoniaRecommendations: Recommendation[] = [
+const brazilRecommendations: Recommendation[] = [
   {
     current: {
       name: 'Legacy Case Management Systems',
@@ -6922,7 +6922,7 @@ const estoniaRecommendations: Recommendation[] = [
     recommended: {
       name: 'AI-Native Citizen Service Platform',
       cost: 1_400_000,
-      description: 'Unified AI-native citizen service platform built on X-Road with NLP-powered request classification and routing. Conversational AI (Estonian + Russian) handling first-line resolution for 60% of common requests. Automated document processing with OCR and data extraction. Cross-ministry orchestration for multi-department requests. Proactive citizen notifications. Target: <2-day average resolution time.',
+      description: 'Unified AI-native citizen service platform built on X-Road with NLP-powered request classification and routing. Conversational AI (Braziln + Russian) handling first-line resolution for 60% of common requests. Automated document processing with OCR and data extraction. Cross-ministry orchestration for multi-department requests. Proactive citizen notifications. Target: <2-day average resolution time.',
     },
     annualSavings: 1_000_000,
   },
@@ -6937,7 +6937,7 @@ const estoniaRecommendations: Recommendation[] = [
     recommended: {
       name: 'AI Document Extraction & Processing',
       cost: 480_000,
-      description: 'AI-powered document processing platform with advanced OCR (99%+ accuracy for Estonian/Russian text), intelligent data extraction from structured and unstructured documents, automated cross-referencing via X-Road, and smart validation against regulatory requirements. Handles all document types: permits, benefits applications, tax filings, procurement bids. Reduces manual processing by 80%.',
+      description: 'AI-powered document processing platform with advanced OCR (99%+ accuracy for Braziln/Russian text), intelligent data extraction from structured and unstructured documents, automated cross-referencing via X-Road, and smart validation against regulatory requirements. Handles all document types: permits, benefits applications, tax filings, procurement bids. Reduces manual processing by 80%.',
     },
     annualSavings: 720_000,
   },
@@ -6947,12 +6947,12 @@ const estoniaRecommendations: Recommendation[] = [
       cost: 1_500_000,
       users: 25,
       score: 5,
-      description: 'Estonia\'s tax system is already world-leading with 98% e-filing and pre-filled returns. However, audit targeting uses simple rules and random sampling — 60% of audits find no significant issues. VAT compliance monitoring is periodic rather than real-time. Cross-border transaction verification is manual. Corporate return review requires officer judgment for deductions and transfer pricing.',
+      description: 'Brazil\'s tax system is already world-leading with 98% e-filing and pre-filled returns. However, audit targeting uses simple rules and random sampling — 60% of audits find no significant issues. VAT compliance monitoring is periodic rather than real-time. Cross-border transaction verification is manual. Corporate return review requires officer judgment for deductions and transfer pricing.',
     },
     recommended: {
       name: 'AI-Enhanced Tax Intelligence',
       cost: 900_000,
-      description: 'AI layer on top of existing tax infrastructure: ML audit targeting trained on historical outcomes (target 80% productive audit rate), real-time VAT transaction monitoring for fraud detection, cross-border verification automation via EU data exchange, and AI-assisted corporate return review for complex deductions and transfer pricing. Preserves Estonia\'s world-leading e-filing while adding predictive intelligence.',
+      description: 'AI layer on top of existing tax infrastructure: ML audit targeting trained on historical outcomes (target 80% productive audit rate), real-time VAT transaction monitoring for fraud detection, cross-border verification automation via EU data exchange, and AI-assisted corporate return review for complex deductions and transfer pricing. Preserves Brazil\'s world-leading e-filing while adding predictive intelligence.',
     },
     annualSavings: 600_000,
   },
@@ -6996,11 +6996,11 @@ const companyProfiles: Record<string, typeof companyProfile> = {
   'nb-energy': nbEnergyCompanyProfile,
   'nb-financial': nbFinancialCompanyProfile,
   'nb-health': nbHealthCompanyProfile,
-  estonia: estoniaCompanyProfile,
-  'ee-finance': eeFinanceCompanyProfile,
-  'ee-social': eeSocialCompanyProfile,
-  'ee-economic': eeEconomicCompanyProfile,
-  'ee-ria': eeRiaCompanyProfile,
+  brazil: brazilCompanyProfile,
+  'br-receita': brReceitaCompanyProfile,
+  'br-sus': brSusCompanyProfile,
+  'br-bndes': brBndesCompanyProfile,
+  'br-serpro': brSerproCompanyProfile,
 };
 
 const companyAiReadiness: Record<string, typeof aiReadinessBreakdown> = {
@@ -7020,11 +7020,11 @@ const companyAiReadiness: Record<string, typeof aiReadinessBreakdown> = {
   'nb-energy': nbEnergyAiReadinessBreakdown,
   'nb-financial': nbFinancialAiReadinessBreakdown,
   'nb-health': nbHealthAiReadinessBreakdown,
-  estonia: estoniaAiReadinessBreakdown,
-  'ee-finance': eeFinanceAiReadinessBreakdown,
-  'ee-social': eeSocialAiReadinessBreakdown,
-  'ee-economic': eeEconomicAiReadinessBreakdown,
-  'ee-ria': eeRiaAiReadinessBreakdown,
+  brazil: brazilAiReadinessBreakdown,
+  'br-receita': brReceitaAiReadinessBreakdown,
+  'br-sus': brSusAiReadinessBreakdown,
+  'br-bndes': brBndesAiReadinessBreakdown,
+  'br-serpro': brSerproAiReadinessBreakdown,
 };
 
 const companyKpis: Record<string, typeof kpis> = {
@@ -7044,11 +7044,11 @@ const companyKpis: Record<string, typeof kpis> = {
   'nb-energy': nbEnergyKpis,
   'nb-financial': nbFinancialKpis,
   'nb-health': nbHealthKpis,
-  estonia: estoniaKpis,
-  'ee-finance': eeFinanceKpis,
-  'ee-social': eeSocialKpis,
-  'ee-economic': eeEconomicKpis,
-  'ee-ria': eeRiaKpis,
+  brazil: brazilKpis,
+  'br-receita': brReceitaKpis,
+  'br-sus': brSusKpis,
+  'br-bndes': brBndesKpis,
+  'br-serpro': brSerproKpis,
 };
 
 const companyRoadmapPhases: Record<string, typeof roadmapPhases> = {
@@ -7068,11 +7068,11 @@ const companyRoadmapPhases: Record<string, typeof roadmapPhases> = {
   'nb-energy': nbEnergyRoadmapPhases,
   'nb-financial': nbFinancialRoadmapPhases,
   'nb-health': nbHealthRoadmapPhases,
-  estonia: estoniaRoadmapPhases,
-  'ee-finance': eeFinanceRoadmapPhases,
-  'ee-social': eeSocialRoadmapPhases,
-  'ee-economic': eeEconomicRoadmapPhases,
-  'ee-ria': eeRiaRoadmapPhases,
+  brazil: brazilRoadmapPhases,
+  'br-receita': brReceitaRoadmapPhases,
+  'br-sus': brSusRoadmapPhases,
+  'br-bndes': brBndesRoadmapPhases,
+  'br-serpro': brSerproRoadmapPhases,
 };
 
 const companyTopOpportunities: Record<string, Opportunity[]> = {
@@ -7092,11 +7092,11 @@ const companyTopOpportunities: Record<string, Opportunity[]> = {
   'nb-energy': nbEnergyTopOpportunities,
   'nb-financial': nbFinancialTopOpportunities,
   'nb-health': nbHealthTopOpportunities,
-  estonia: estoniaTopOpportunities,
-  'ee-finance': eeFinanceTopOpportunities,
-  'ee-social': eeSocialTopOpportunities,
-  'ee-economic': eeEconomicTopOpportunities,
-  'ee-ria': eeRiaTopOpportunities,
+  brazil: brazilTopOpportunities,
+  'br-receita': brReceitaTopOpportunities,
+  'br-sus': brSusTopOpportunities,
+  'br-bndes': brBndesTopOpportunities,
+  'br-serpro': brSerproTopOpportunities,
 };
 
 const companyCurrentStack: Record<string, CurrentTool[]> = {
@@ -7116,11 +7116,11 @@ const companyCurrentStack: Record<string, CurrentTool[]> = {
   'nb-energy': nbEnergyCurrentStack,
   'nb-financial': nbFinancialCurrentStack,
   'nb-health': nbHealthCurrentStack,
-  estonia: estoniaCurrentStack,
-  'ee-finance': eeFinanceCurrentStack,
-  'ee-social': eeSocialCurrentStack,
-  'ee-economic': eeEconomicCurrentStack,
-  'ee-ria': eeRiaCurrentStack,
+  brazil: brazilCurrentStack,
+  'br-receita': brReceitaCurrentStack,
+  'br-sus': brSusCurrentStack,
+  'br-bndes': brBndesCurrentStack,
+  'br-serpro': brSerproCurrentStack,
 };
 
 const companyLicenses: Record<string, License[]> = {
@@ -7140,11 +7140,11 @@ const companyLicenses: Record<string, License[]> = {
   'nb-energy': nbEnergyLicenses,
   'nb-financial': nbFinancialLicenses,
   'nb-health': nbHealthLicenses,
-  estonia: estoniaLicenses,
-  'ee-finance': eeFinanceLicenses,
-  'ee-social': eeSocialLicenses,
-  'ee-economic': eeEconomicLicenses,
-  'ee-ria': eeRiaLicenses,
+  brazil: brazilLicenses,
+  'br-receita': brReceitaLicenses,
+  'br-sus': brSusLicenses,
+  'br-bndes': brBndesLicenses,
+  'br-serpro': brSerproLicenses,
 };
 
 const companyWorkflowSummaries: Record<string, typeof workflowSummary> = {
@@ -7164,11 +7164,11 @@ const companyWorkflowSummaries: Record<string, typeof workflowSummary> = {
   'nb-energy': nbEnergyWorkflowSummary,
   'nb-financial': nbFinancialWorkflowSummary,
   'nb-health': nbHealthWorkflowSummary,
-  estonia: estoniaWorkflowSummary,
-  'ee-finance': eeFinanceWorkflowSummary,
-  'ee-social': eeSocialWorkflowSummary,
-  'ee-economic': eeEconomicWorkflowSummary,
-  'ee-ria': eeRiaWorkflowSummary,
+  brazil: brazilWorkflowSummary,
+  'br-receita': brReceitaWorkflowSummary,
+  'br-sus': brSusWorkflowSummary,
+  'br-bndes': brBndesWorkflowSummary,
+  'br-serpro': brSerproWorkflowSummary,
 };
 
 const companyWorkflowsMap: Record<string, Workflow[]> = {
@@ -7188,11 +7188,11 @@ const companyWorkflowsMap: Record<string, Workflow[]> = {
   'nb-energy': northbridgeWorkflows,
   'nb-financial': northbridgeWorkflows,
   'nb-health': northbridgeWorkflows,
-  estonia: estoniaWorkflows,
-  'ee-finance': estoniaWorkflows,
-  'ee-social': estoniaWorkflows,
-  'ee-economic': estoniaWorkflows,
-  'ee-ria': estoniaWorkflows,
+  brazil: brazilWorkflows,
+  'br-receita': brazilWorkflows,
+  'br-sus': brazilWorkflows,
+  'br-bndes': brazilWorkflows,
+  'br-serpro': brazilWorkflows,
 };
 
 const companyRecommendationsMap: Record<string, Recommendation[]> = {
@@ -7212,11 +7212,11 @@ const companyRecommendationsMap: Record<string, Recommendation[]> = {
   'nb-energy': northbridgeRecommendations,
   'nb-financial': northbridgeRecommendations,
   'nb-health': northbridgeRecommendations,
-  estonia: estoniaRecommendations,
-  'ee-finance': estoniaRecommendations,
-  'ee-social': estoniaRecommendations,
-  'ee-economic': estoniaRecommendations,
-  'ee-ria': estoniaRecommendations,
+  brazil: brazilRecommendations,
+  'br-receita': brazilRecommendations,
+  'br-sus': brazilRecommendations,
+  'br-bndes': brazilRecommendations,
+  'br-serpro': brazilRecommendations,
 };
 
 const companyRoiSummaries: Record<string, typeof roiSummary> = {
@@ -7236,11 +7236,11 @@ const companyRoiSummaries: Record<string, typeof roiSummary> = {
   'nb-energy': nbEnergyRoiSummary,
   'nb-financial': nbFinancialRoiSummary,
   'nb-health': nbHealthRoiSummary,
-  estonia: estoniaRoiSummary,
-  'ee-finance': eeFinanceRoiSummary,
-  'ee-social': eeSocialRoiSummary,
-  'ee-economic': eeEconomicRoiSummary,
-  'ee-ria': eeRiaRoiSummary,
+  brazil: brazilRoiSummary,
+  'br-receita': brReceitaRoiSummary,
+  'br-sus': brSusRoiSummary,
+  'br-bndes': brBndesRoiSummary,
+  'br-serpro': brSerproRoiSummary,
 };
 
 const companyAiAgents: Record<string, AIAgent[]> = {
@@ -7260,11 +7260,11 @@ const companyAiAgents: Record<string, AIAgent[]> = {
   'nb-energy': nbEnergyAiAgents,
   'nb-financial': nbFinancialAiAgents,
   'nb-health': nbHealthAiAgents,
-  estonia: estoniaAiAgents,
-  'ee-finance': eeFinanceAiAgents,
-  'ee-social': eeSocialAiAgents,
-  'ee-economic': eeEconomicAiAgents,
-  'ee-ria': eeRiaAiAgents,
+  brazil: brazilAiAgents,
+  'br-receita': brReceitaAiAgents,
+  'br-sus': brSusAiAgents,
+  'br-bndes': brBndesAiAgents,
+  'br-serpro': brSerproAiAgents,
 };
 
 const companyDataSources: Record<string, IntegrationDataSource[]> = {
@@ -7284,11 +7284,11 @@ const companyDataSources: Record<string, IntegrationDataSource[]> = {
   'nb-energy': nbEnergyDataSources,
   'nb-financial': nbFinancialDataSources,
   'nb-health': nbHealthDataSources,
-  estonia: estoniaDataSources,
-  'ee-finance': eeFinanceDataSources,
-  'ee-social': eeSocialDataSources,
-  'ee-economic': eeEconomicDataSources,
-  'ee-ria': eeRiaDataSources,
+  brazil: brazilDataSources,
+  'br-receita': brReceitaDataSources,
+  'br-sus': brSusDataSources,
+  'br-bndes': brBndesDataSources,
+  'br-serpro': brSerproDataSources,
 };
 
 const companyVendorHealth: Record<string, IntegrationVendorHealth[]> = {
@@ -7308,11 +7308,11 @@ const companyVendorHealth: Record<string, IntegrationVendorHealth[]> = {
   'nb-energy': nbEnergyVendorHealth,
   'nb-financial': nbFinancialVendorHealth,
   'nb-health': nbHealthVendorHealth,
-  estonia: estoniaVendorHealth,
-  'ee-finance': eeFinanceVendorHealth,
-  'ee-social': eeSocialVendorHealth,
-  'ee-economic': eeEconomicVendorHealth,
-  'ee-ria': eeRiaVendorHealth,
+  brazil: brazilVendorHealth,
+  'br-receita': brReceitaVendorHealth,
+  'br-sus': brSusVendorHealth,
+  'br-bndes': brBndesVendorHealth,
+  'br-serpro': brSerproVendorHealth,
 };
 
 const companyFailureModes: Record<string, IntegrationFailureMode[]> = {
@@ -7332,11 +7332,11 @@ const companyFailureModes: Record<string, IntegrationFailureMode[]> = {
   'nb-energy': nbEnergyFailureModes,
   'nb-financial': nbFinancialFailureModes,
   'nb-health': nbHealthFailureModes,
-  estonia: estoniaFailureModes,
-  'ee-finance': eeFinanceFailureModes,
-  'ee-social': eeSocialFailureModes,
-  'ee-economic': eeEconomicFailureModes,
-  'ee-ria': eeRiaFailureModes,
+  brazil: brazilFailureModes,
+  'br-receita': brReceitaFailureModes,
+  'br-sus': brSusFailureModes,
+  'br-bndes': brBndesFailureModes,
+  'br-serpro': brSerproFailureModes,
 };
 
 const companyMethodologySteps: Record<string, IntegrationMethodologyStep[]> = {
@@ -7356,11 +7356,11 @@ const companyMethodologySteps: Record<string, IntegrationMethodologyStep[]> = {
   'nb-energy': nbEnergyMethodologySteps,
   'nb-financial': nbFinancialMethodologySteps,
   'nb-health': nbHealthMethodologySteps,
-  estonia: estoniaMethodologySteps,
-  'ee-finance': eeFinanceMethodologySteps,
-  'ee-social': eeSocialMethodologySteps,
-  'ee-economic': eeEconomicMethodologySteps,
-  'ee-ria': eeRiaMethodologySteps,
+  brazil: brazilMethodologySteps,
+  'br-receita': brReceitaMethodologySteps,
+  'br-sus': brSusMethodologySteps,
+  'br-bndes': brBndesMethodologySteps,
+  'br-serpro': brSerproMethodologySteps,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════

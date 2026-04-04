@@ -14,12 +14,10 @@ import {
   X,
   Building2,
   Check,
-  ExternalLink,
   Network,
   GitCompareArrows,
 } from 'lucide-react';
 import { useCompany } from '../data/CompanyContext';
-import { LASTMILE_URL } from '../data/crosslinks';
 
 const assessmentItems = [
   { to: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
@@ -206,11 +204,11 @@ export default function Sidebar({ onNavClick, onClose }: { onNavClick?: () => vo
         {/* Dropdown menu */}
         {dropdownOpen && (
           <div className="absolute left-4 right-4 top-full mt-1 bg-[#2B2B2F] rounded-xl shadow-2xl z-50 border border-white/[0.08] overflow-hidden py-1">
-            {(['company', 'conglomerate'] as const).map((cat, catIdx) => {
+            {(['company', 'conglomerate', 'sovereign'] as const).map((cat, catIdx) => {
               const group = companies.filter((c) => c.category === cat && !c.parentId);
               if (group.length === 0) return null;
-              const catLabel = cat === 'conglomerate' ? 'Conglomerate' : 'Companies';
-              const CatIcon = cat === 'conglomerate' ? Building2 : null;
+              const catLabel = cat === 'conglomerate' ? 'Conglomerate' : cat === 'sovereign' ? 'Government' : 'Companies';
+              const CatIcon = cat === 'conglomerate' || cat === 'sovereign' ? Building2 : null;
 
               return (
                 <div key={cat}>
@@ -325,18 +323,6 @@ export default function Sidebar({ onNavClick, onClose }: { onNavClick?: () => vo
         </div>
       </nav>
 
-      {/* ── Cross-link to Last Mile ────────────────── */}
-      <div className="px-4 py-3 border-t border-white/[0.06]">
-        <a
-          href={`${LASTMILE_URL}?company=${company.id}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1.5 text-xs text-slate-500 hover:text-blue-400 transition-colors"
-        >
-          View Live Operations →
-          <ExternalLink className="w-3 h-3" strokeWidth={2} />
-        </a>
-      </div>
     </aside>
   );
 }

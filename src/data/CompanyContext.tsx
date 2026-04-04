@@ -21,12 +21,12 @@ const companies = [
   { id: 'nb-energy', name: 'Northbridge Energy', shortName: 'NB Energy', initials: 'NE', industry: 'Energy & Utilities', employees: 11500, opCos: 1, category: 'conglomerate' as const, parentId: 'northbridge', accentColor: '#F97316' },
   { id: 'nb-financial', name: 'Northbridge Financial Services', shortName: 'NB Financial', initials: 'NF', industry: 'Financial Services', employees: 6200, opCos: 1, category: 'conglomerate' as const, parentId: 'northbridge', accentColor: '#14B8A6' },
   { id: 'nb-health', name: 'Northbridge Health Sciences', shortName: 'NB Health Sciences', initials: 'NH', industry: 'Pharmaceuticals & Biotech', employees: 16100, opCos: 1, category: 'conglomerate' as const, parentId: 'northbridge', accentColor: '#E11D48' },
-  // ─── Republic of Estonia (Sovereign) ────────────────────────────────────
-  { id: 'estonia', name: 'Republic of Estonia — Digital Government', shortName: 'Republic of Estonia', initials: 'EE', industry: 'Digital Government', employees: 28500, opCos: 8, category: 'sovereign' as const, parentId: '', accentColor: '#0EA5E9' },
-  { id: 'ee-finance', name: 'Ministry of Finance', shortName: 'Min. of Finance', initials: 'MF', industry: 'Fiscal Policy & Taxation', employees: 4200, opCos: 1, category: 'sovereign' as const, parentId: 'estonia', accentColor: '#4338CA' },
-  { id: 'ee-social', name: 'Ministry of Social Affairs', shortName: 'Min. of Social Affairs', initials: 'MS', industry: 'Healthcare & Social Welfare', employees: 8400, opCos: 1, category: 'sovereign' as const, parentId: 'estonia', accentColor: '#DB2777' },
-  { id: 'ee-economic', name: 'Ministry of Economic Affairs', shortName: 'Min. of Economic Affairs', initials: 'ME', industry: 'Trade & Digital Economy', employees: 5200, opCos: 1, category: 'sovereign' as const, parentId: 'estonia', accentColor: '#65A30D' },
-  { id: 'ee-ria', name: 'Information System Authority (RIA)', shortName: 'RIA', initials: 'RI', industry: 'Cybersecurity & IT Infrastructure', employees: 480, opCos: 1, category: 'sovereign' as const, parentId: 'estonia', accentColor: '#0891B2' },
+  // ─── Federative Republic of Brazil (Sovereign) ──────────────────────────
+  { id: 'brazil', name: 'Federative Republic of Brazil — Digital Government', shortName: 'Republic of Brazil', initials: 'BR', industry: 'Digital Government & Public Services', employees: 180000, opCos: 4, category: 'sovereign' as const, parentId: '', accentColor: '#0EA5E9' },
+  { id: 'br-receita', name: 'Receita Federal — Tax & Revenue', shortName: 'Receita Federal', initials: 'RF', industry: 'Tax Administration & Revenue', employees: 38000, opCos: 1, category: 'sovereign' as const, parentId: 'brazil', accentColor: '#4338CA' },
+  { id: 'br-sus', name: 'SUS — Unified Health System', shortName: 'SUS', initials: 'SU', industry: 'Public Healthcare', employees: 72000, opCos: 1, category: 'sovereign' as const, parentId: 'brazil', accentColor: '#DB2777' },
+  { id: 'br-bndes', name: 'BNDES — Development Bank', shortName: 'BNDES', initials: 'BN', industry: 'Development Finance', employees: 28000, opCos: 1, category: 'sovereign' as const, parentId: 'brazil', accentColor: '#65A30D' },
+  { id: 'br-serpro', name: 'SERPRO — Federal Data Processing', shortName: 'SERPRO', initials: 'SP', industry: 'Government IT & Data Processing', employees: 42000, opCos: 1, category: 'sovereign' as const, parentId: 'brazil', accentColor: '#0891B2' },
 ];
 
 const validIds = new Set(companies.map(c => c.id));
