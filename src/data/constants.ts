@@ -3713,12 +3713,12 @@ const hccWorkflowSummary = {
   humanInLoop: 10,
   humanRequired: 6,
   currentLaborSpend: 3_200_000,
-  potentialSavings: 1_400_000,
+  potentialSavings: 1_600_000,
 };
 
 const hccRoiSummary = {
   techStackSavings: 800_000,
-  workflowAutomation: 1_400_000,
+  workflowAutomation: 1_600_000,
   licenseRecovery: 980_000,
   implementationCosts: 1_080_000,
   netYear1: 2_300_000,
@@ -3835,12 +3835,12 @@ const hrsiWorkflowSummary = {
   humanInLoop: 4,
   humanRequired: 2,
   currentLaborSpend: 1_100_000,
-  potentialSavings: 480_000,
+  potentialSavings: 580_000,
 };
 
 const hrsiRoiSummary = {
   techStackSavings: 280_000,
-  workflowAutomation: 480_000,
+  workflowAutomation: 580_000,
   licenseRecovery: 380_000,
   implementationCosts: 320_000,
   netYear1: 920_000,
@@ -3952,12 +3952,12 @@ const hsiWorkflowSummary = {
   humanInLoop: 3,
   humanRequired: 1,
   currentLaborSpend: 850_000,
-  potentialSavings: 380_000,
+  potentialSavings: 480_000,
 };
 
 const hsiRoiSummary = {
   techStackSavings: 220_000,
-  workflowAutomation: 380_000,
+  workflowAutomation: 480_000,
   licenseRecovery: 240_000,
   implementationCosts: 160_000,
   netYear1: 780_000,
@@ -4069,12 +4069,12 @@ const htiWorkflowSummary = {
   humanInLoop: 5,
   humanRequired: 2,
   currentLaborSpend: 1_000_000,
-  potentialSavings: 400_000,
+  potentialSavings: 500_000,
 };
 
 const htiRoiSummary = {
   techStackSavings: 320_000,
-  workflowAutomation: 400_000,
+  workflowAutomation: 500_000,
   licenseRecovery: 420_000,
   implementationCosts: 400_000,
   netYear1: 840_000,
@@ -4187,12 +4187,12 @@ const htsiWorkflowSummary = {
   humanInLoop: 5,
   humanRequired: 2,
   currentLaborSpend: 1_400_000,
-  potentialSavings: 520_000,
+  potentialSavings: 620_000,
 };
 
 const htsiRoiSummary = {
   techStackSavings: 360_000,
-  workflowAutomation: 520_000,
+  workflowAutomation: 620_000,
   licenseRecovery: 480_000,
   implementationCosts: 500_000,
   netYear1: 960_000,
