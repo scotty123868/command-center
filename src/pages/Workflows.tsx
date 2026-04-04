@@ -441,13 +441,13 @@ export default function Workflows() {
             <Clock size={20} className="text-emerald-400" />
           </div>
           <div>
-            <p className="text-[22px] font-bold text-emerald-400 leading-tight tabular-nums">2,847 hours</p>
+            <p className="text-[22px] font-bold text-emerald-400 leading-tight tabular-nums">{Math.round(totalSavings / 80 / 12).toLocaleString()} hours</p>
             <p className="text-[11px]" style={{ color: 'var(--cc-text-secondary)' }}>Total time saved this month</p>
           </div>
         </div>
         <div className="h-10 w-px" style={{ background: 'rgba(255,255,255,0.08)' }} />
         <div>
-          <p className="text-[18px] font-bold" style={{ color: 'var(--cc-text)' }}>16 FTEs</p>
+          <p className="text-[18px] font-bold" style={{ color: 'var(--cc-text)' }}>{Math.round(totalSavings / 120_000)} FTEs</p>
           <p className="text-[11px]" style={{ color: 'var(--cc-text-secondary)' }}>Equivalent headcount freed</p>
         </div>
         <div className="h-10 w-px hidden sm:block" style={{ background: 'rgba(255,255,255,0.08)' }} />
