@@ -417,11 +417,17 @@ function generateReportHTML(companyId = 'meridian', scenario: ScenarioKey = 'bas
 }
 
 export function openBoardReport(companyId = 'meridian', scenario: ScenarioKey = 'base') {
-  const reportWindow = window.open('', '_blank');
-  if (reportWindow) {
-    reportWindow.document.write(generateReportHTML(companyId, scenario));
-    reportWindow.document.close();
-  }
+  // Use Blob URL to avoid popup-blocker issues with about:blank
+  const html = generateReportHTML(companyId, scenario);
+  const blob = new Blob([html], { type: 'text/html' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.target = '_blank';
+  a.rel = 'noopener';
+  a.click();
+  // Revoke after a delay so the new tab has time to load
+  setTimeout(() => URL.revokeObjectURL(url), 10000);
 }
 
 export async function downloadBoardReportPDF(companyId = 'meridian', scenario: ScenarioKey = 'base') {

@@ -69,14 +69,14 @@ const allTimelineStops: Record<string, Record<number, TimelineData>> = {
     12: { savings: 5_800_000, scoreBefore: 38, scoreAfter: 86, workflows: 62, automationReady: 18, waste: 820_000 },
   },
   northwood: {
-    0: { savings: 0, scoreBefore: 41, scoreAfter: 41, workflows: 0, automationReady: 0, waste: 1_601_000 },
-    6: { savings: 1_600_000, scoreBefore: 41, scoreAfter: 58, workflows: 22, automationReady: 5, waste: 1_100_000 },
-    12: { savings: 3_800_000, scoreBefore: 41, scoreAfter: 78, workflows: 38, automationReady: 9, waste: 620_000 },
+    0: { savings: 0, scoreBefore: 41, scoreAfter: 41, workflows: 0, automationReady: 0, waste: 8_400_000 },
+    6: { savings: 9_600_000, scoreBefore: 41, scoreAfter: 58, workflows: 62, automationReady: 16, waste: 5_800_000 },
+    12: { savings: 22_000_000, scoreBefore: 41, scoreAfter: 78, workflows: 124, automationReady: 32, waste: 3_000_000 },
   },
   pinnacle: {
-    0: { savings: 0, scoreBefore: 28, scoreAfter: 28, workflows: 0, automationReady: 0, waste: 634_000 },
-    6: { savings: 800_000, scoreBefore: 28, scoreAfter: 48, workflows: 14, automationReady: 3, waste: 420_000 },
-    12: { savings: 1_900_000, scoreBefore: 28, scoreAfter: 71, workflows: 24, automationReady: 6, waste: 280_000 },
+    0: { savings: 0, scoreBefore: 28, scoreAfter: 28, workflows: 0, automationReady: 0, waste: 9_200_000 },
+    6: { savings: 10_400_000, scoreBefore: 28, scoreAfter: 48, workflows: 78, automationReady: 21, waste: 6_400_000 },
+    12: { savings: 24_000_000, scoreBefore: 28, scoreAfter: 74, workflows: 156, automationReady: 42, waste: 3_100_000 },
   },
   atlas: {
     0: { savings: 0, scoreBefore: 38, scoreAfter: 38, workflows: 0, automationReady: 0, waste: 2_400_000 },
@@ -553,7 +553,7 @@ function DivisionDrawer({
                 <p className="mt-1 font-mono text-[20px] font-bold" style={{ color: 'var(--cc-text)' }}>{subKpis.workflowsAnalyzed}</p>
               </div>
               <div className="rounded-xl p-4" style={{ background: 'var(--cc-bg-elevated)', border: '1px solid var(--cc-border)' }}>
-                <p className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: 'var(--cc-text-tertiary)' }}>Employees</p>
+                <p className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: 'var(--cc-text-tertiary)' }}>FTEs</p>
                 <p className="mt-1 font-mono text-[20px] font-bold" style={{ color: 'var(--cc-text)' }}>{entity.employees.toLocaleString()}</p>
               </div>
             </div>
@@ -604,26 +604,76 @@ function DivisionDrawer({
 
 // ─── Peer Benchmarking Data ─────────────────────────────────────────────────
 
-const peerCaseStudies = [
-  {
-    icon: <Building2 className="h-5 w-5" style={{ color: 'var(--cc-accent)' }} />,
-    headline: '31% Idle Time Reduction',
-    description: 'Mid-market infrastructure company (2,500 emp) achieved 31% idle time reduction through AI-powered crew scheduling and fleet optimization.',
-    timeline: '8 months',
-  },
-  {
-    icon: <Target className="h-5 w-5" style={{ color: 'var(--cc-green)' }} />,
-    headline: '$4.2M/yr Savings',
-    description: 'Railroad services firm achieved $4.2M annual savings through fleet intelligence, predictive maintenance, and license reclamation.',
-    timeline: '12 months',
-  },
-  {
-    icon: <Sparkles className="h-5 w-5" style={{ color: 'var(--cc-yellow)' }} />,
-    headline: 'AI Readiness Score 82',
-    description: 'Industrial conglomerate (5 divisions) raised AI readiness from 34 to 82 through unified data platform and cross-division automation.',
-    timeline: '12 months',
-  },
-];
+type PeerCaseStudy = { icon: React.ReactNode; headline: string; description: string; timeline: string };
+
+const peerCaseStudiesByIndustry: Record<string, PeerCaseStudy[]> = {
+  default: [
+    {
+      icon: <Building2 className="h-5 w-5" style={{ color: 'var(--cc-accent)' }} />,
+      headline: '31% Idle Time Reduction',
+      description: 'Mid-market infrastructure company (2,500 FTEs) achieved 31% idle time reduction through AI-powered crew scheduling and fleet optimization.',
+      timeline: '8 months',
+    },
+    {
+      icon: <Target className="h-5 w-5" style={{ color: 'var(--cc-green)' }} />,
+      headline: '$4.2M/yr Savings',
+      description: 'Railroad services firm achieved $4.2M annual savings through fleet intelligence, predictive maintenance, and license reclamation.',
+      timeline: '12 months',
+    },
+    {
+      icon: <Sparkles className="h-5 w-5" style={{ color: 'var(--cc-yellow)' }} />,
+      headline: 'AI Readiness Score 82',
+      description: 'Industrial conglomerate (5 divisions) raised AI readiness from 34 to 82 through unified data platform and cross-division automation.',
+      timeline: '12 months',
+    },
+  ],
+  Insurance: [
+    {
+      icon: <Building2 className="h-5 w-5" style={{ color: 'var(--cc-accent)' }} />,
+      headline: '42% Claims Processing Faster',
+      description: 'Regional P&C insurer (8,000 FTEs) cut claims cycle time by 42% with AI-powered intake and automated adjudication.',
+      timeline: '10 months',
+    },
+    {
+      icon: <Target className="h-5 w-5" style={{ color: 'var(--cc-green)' }} />,
+      headline: '$18M/yr Savings',
+      description: 'National insurance carrier achieved $18M annual savings through fraud detection AI, underwriting automation, and license consolidation.',
+      timeline: '12 months',
+    },
+    {
+      icon: <Sparkles className="h-5 w-5" style={{ color: 'var(--cc-yellow)' }} />,
+      headline: 'AI Readiness Score 76',
+      description: 'Insurance group (12,000 FTEs) raised AI readiness from 38 to 76 through claims digitization and legacy mainframe migration.',
+      timeline: '14 months',
+    },
+  ],
+  Healthcare: [
+    {
+      icon: <Building2 className="h-5 w-5" style={{ color: 'var(--cc-accent)' }} />,
+      headline: '60% Documentation Burden Reduced',
+      description: 'Multi-specialty health system (15,000 FTEs) cut physician documentation time by 60% with ambient AI clinical notes.',
+      timeline: '6 months',
+    },
+    {
+      icon: <Target className="h-5 w-5" style={{ color: 'var(--cc-green)' }} />,
+      headline: '$22M/yr Savings',
+      description: 'Regional health network achieved $22M annual savings through revenue cycle AI, prior auth automation, and scheduling optimization.',
+      timeline: '12 months',
+    },
+    {
+      icon: <Sparkles className="h-5 w-5" style={{ color: 'var(--cc-yellow)' }} />,
+      headline: 'AI Readiness Score 68',
+      description: 'Healthcare system (10,000 FTEs) raised AI readiness from 24 to 68 through Epic optimization and clinical AI deployment.',
+      timeline: '14 months',
+    },
+  ],
+};
+
+function getPeerCaseStudies(industry: string): PeerCaseStudy[] {
+  if (industry.includes('Insurance')) return peerCaseStudiesByIndustry.Insurance;
+  if (industry.includes('Healthcare')) return peerCaseStudiesByIndustry.Healthcare;
+  return peerCaseStudiesByIndustry.default;
+}
 
 // ─── Custom Scatter Tooltip ─────────────────────────────────────────────────
 
@@ -797,7 +847,7 @@ export default function Dashboard() {
             </div>
           </div>
           <p className="text-[12px] font-medium" style={{ color: 'var(--cc-text-muted)' }}>
-            Assessed March 2026 &middot; {company.employees.toLocaleString()} Employees &middot; {company.opCos} Division{company.opCos === 1 ? '' : 's'}
+            Assessed March 2026 &middot; {company.employees.toLocaleString()} FTEs &middot; {company.opCos} Division{company.opCos === 1 ? '' : 's'}
           </p>
 
           {/* Primary metric */}
@@ -827,6 +877,7 @@ export default function Dashboard() {
                   <span className="font-mono text-[24px] font-bold" style={{ color: 'var(--cc-accent)' }}>
                     <AnimatedCounter value={companyKpis.techScoreAfter} duration={1600} />
                   </span>
+                  <span className="text-[9px] font-medium ml-1" style={{ color: 'var(--cc-text-muted)' }}>(Projected)</span>
                 </div>
               </div>
               <div>
@@ -1006,7 +1057,7 @@ export default function Dashboard() {
                   {/* Bottom row */}
                   <div className="mt-3 flex items-center justify-between pt-3" style={{ borderTop: '1px solid var(--cc-border)' }}>
                     <span className="text-[11px]" style={{ color: 'var(--cc-text-tertiary)' }}>
-                      {sub.employees.toLocaleString()} employees
+                      {sub.employees.toLocaleString()} FTEs
                     </span>
                     <span className="rounded-full px-2 py-0.5 text-[11px] font-semibold" style={{ background: 'var(--cc-green-dim)', color: 'var(--cc-green)' }}>
                       {roiPct}% ROI
@@ -1507,7 +1558,7 @@ export default function Dashboard() {
       >
         <h2 className="text-[15px] font-semibold mb-5" style={{ color: 'var(--cc-text)' }}>Peer Benchmarks</h2>
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-          {peerCaseStudies.map((study, i) => (
+          {getPeerCaseStudies(company.industry).map((study, i) => (
             <motion.div
               key={study.headline}
               initial={{ opacity: 0, y: 16 }}

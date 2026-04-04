@@ -996,10 +996,10 @@ export const roiSummary = {
 const northwoodCompanyProfile = {
   name: 'Northwood Insurance Group',
   industry: 'Insurance',
-  employees: 800,
+  employees: 10_000,
   opCos: 1,
   opCoNames: ['Northwood Insurance Group'],
-  techSpend: '$5.8M/yr',
+  techSpend: '$48M/yr',
   aiReadinessScore: 41,
   holdingPeriod: '12 months into 5-year hold',
   ebitdaMargin: '11.8%',
@@ -1015,17 +1015,17 @@ const northwoodAiReadinessBreakdown = [
 ];
 
 const northwoodKpis = {
-  totalSavings: 3_800_000,
+  totalSavings: 22_000_000,
   techScoreBefore: 41,
   techScoreAfter: 78,
-  workflowsAnalyzed: 38,
-  automationReady: 9,
-  unusedLicenseWaste: 1_600_000,
-  savingsSparkline: [0, 60_000, 150_000, 290_000, 460_000, 680_000, 960_000, 1_300_000, 1_720_000, 2_280_000, 3_000_000, 3_800_000],
+  workflowsAnalyzed: 124,
+  automationReady: 32,
+  unusedLicenseWaste: 8_400_000,
+  savingsSparkline: [0, 400_000, 1_000_000, 2_100_000, 3_600_000, 5_800_000, 8_200_000, 11_000_000, 14_200_000, 17_400_000, 19_800_000, 22_000_000],
   scoreSparkline: [41, 43, 46, 50, 54, 58, 62, 66, 70, 73, 76, 78],
-  workflowSparkline: [0, 3, 7, 12, 17, 22, 26, 30, 33, 35, 37, 38],
-  licenseSparkline: [1_600_000, 1_560_000, 1_480_000, 1_360_000, 1_200_000, 1_050_000, 920_000, 810_000, 730_000, 680_000, 650_000, 630_000],
-  headcountImpactSparkline: [0, 0, -1, -3, -5, -8, -11, -14, -17, -19, -21, -23],
+  workflowSparkline: [0, 10, 22, 38, 54, 68, 82, 94, 104, 112, 119, 124],
+  licenseSparkline: [8_400_000, 8_200_000, 7_800_000, 7_200_000, 6_400_000, 5_600_000, 4_900_000, 4_300_000, 3_800_000, 3_400_000, 3_200_000, 3_000_000],
+  headcountImpactSparkline: [0, 0, -4, -12, -22, -36, -52, -68, -82, -94, -104, -112],
 };
 
 const northwoodRoadmapPhases = [
@@ -1112,16 +1112,16 @@ const northwoodRoadmapPhases = [
 ];
 
 const northwoodTopOpportunities: Opportunity[] = [
-  { name: 'Claims Intake Automation', category: 'Workflow Automation', savings: 650_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 10, confidence: 91 },
-  { name: 'Legacy Policy Migration (AS/400)', category: 'Tech Stack', savings: 540_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 24, confidence: 78 },
-  { name: 'Fraud Detection AI', category: 'Workflow Automation', savings: 430_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 84 },
-  { name: 'Underwriting Automation', category: 'Workflow Automation', savings: 360_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 76 },
-  { name: 'Customer Portal Modernization', category: 'Tech Stack', savings: 300_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 14, confidence: 82 },
-  { name: 'Unused License Reclamation', category: 'License Audit', savings: 730_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
-  { name: 'Regulatory Reporting Automation', category: 'Workflow Automation', savings: 220_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 10, confidence: 88 },
-  { name: 'Replace Salesforce → HubSpot', category: 'Tech Stack', savings: 150_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 8, confidence: 90 },
-  { name: 'Payment Processing Automation', category: 'Workflow Automation', savings: 250_000, effort: 'Low', status: 'identified', priority: 8, timeToValue: 6, confidence: 92 },
-  { name: 'Subrogation Recovery Optimization', category: 'Workflow Automation', savings: 170_000, effort: 'High', status: 'identified', priority: 5, timeToValue: 18, confidence: 70 },
+  { name: 'Claims Intake Automation', category: 'Workflow Automation', savings: 4_200_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 10, confidence: 91 },
+  { name: 'Legacy Policy Migration (AS/400)', category: 'Tech Stack', savings: 3_400_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 24, confidence: 78 },
+  { name: 'Fraud Detection AI', category: 'Workflow Automation', savings: 2_800_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 84 },
+  { name: 'Underwriting Automation', category: 'Workflow Automation', savings: 2_400_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 76 },
+  { name: 'Customer Portal Modernization', category: 'Tech Stack', savings: 1_800_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 14, confidence: 82 },
+  { name: 'Unused License Reclamation', category: 'License Audit', savings: 4_800_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
+  { name: 'Regulatory Reporting Automation', category: 'Workflow Automation', savings: 1_400_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 10, confidence: 88 },
+  { name: 'Replace Salesforce → HubSpot', category: 'Tech Stack', savings: 960_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 8, confidence: 90 },
+  { name: 'Payment Processing Automation', category: 'Workflow Automation', savings: 1_600_000, effort: 'Low', status: 'identified', priority: 8, timeToValue: 6, confidence: 92 },
+  { name: 'Subrogation Recovery Optimization', category: 'Workflow Automation', savings: 1_100_000, effort: 'High', status: 'identified', priority: 5, timeToValue: 18, confidence: 70 },
 ];
 
 const northwoodCurrentStack: CurrentTool[] = [
@@ -1194,31 +1194,31 @@ const northwoodCurrentStack: CurrentTool[] = [
 ];
 
 const northwoodLicenses: License[] = [
-  { vendor: 'Microsoft 365', totalLicenses: 800, active90d: 600, inactive: 200, annualWaste: 400_000, action: 'Reclaim 200 seats + downgrade 100 E5→E3', costPerLicense: 2_000, department: 'IT / All Departments', lastAuditDate: '2025-10-01', trend: [82, 78, 74, 70, 65, 60], complianceRisk: false },
-  { vendor: 'Salesforce', totalLicenses: 120, active90d: 75, inactive: 45, annualWaste: 225_000, action: 'Reclaim 45 seats → migrate to HubSpot in Q3', costPerLicense: 5_000, department: 'Sales & Agent Relations', lastAuditDate: '2025-11-15', trend: [80, 74, 69, 65, 60, 56], complianceRisk: false },
-  { vendor: 'Duck Creek', totalLicenses: 120, active90d: 88, inactive: 32, annualWaste: 192_000, action: 'Reclaim 32 inactive seats, optimize license tier', costPerLicense: 6_000, department: 'Underwriting & Policy Admin', lastAuditDate: '2025-09-20', trend: [85, 80, 76, 72, 68, 65], complianceRisk: false },
-  { vendor: 'Guidewire', totalLicenses: 180, active90d: 155, inactive: 25, annualWaste: 200_000, action: 'Reclaim 25 seats, evaluate ClaimCenter cloud migration', costPerLicense: 8_000, department: 'Claims Operations', lastAuditDate: '2025-12-01', trend: [92, 90, 88, 87, 86, 84], complianceRisk: false },
-  { vendor: 'Slack Enterprise', totalLicenses: 600, active90d: 480, inactive: 120, annualWaste: 144_000, action: 'Downgrade 120 inactive to free tier', costPerLicense: 1_200, department: 'IT / All Departments', lastAuditDate: '2026-01-05', trend: [90, 87, 84, 82, 80, 78], complianceRisk: false },
-  { vendor: 'Adobe Acrobat Pro', totalLicenses: 200, active90d: 90, inactive: 110, annualWaste: 263_000, action: 'Reclaim 110 seats — restrict to claims and legal only', costPerLicense: 2_400, department: 'Claims & Legal (provisioned company-wide)', lastAuditDate: '2025-08-18', trend: [70, 60, 52, 45, 40, 36], complianceRisk: true },
-  { vendor: 'LexisNexis', totalLicenses: 50, active90d: 18, inactive: 32, annualWaste: 176_000, action: 'Reclaim 32 seats — restrict to SIU and underwriting', costPerLicense: 5_500, department: 'Special Investigations & Underwriting', lastAuditDate: '2025-07-30', trend: [68, 58, 50, 44, 38, 34], complianceRisk: false },
+  { vendor: 'Microsoft 365', totalLicenses: 10_000, active90d: 7_200, inactive: 2_800, annualWaste: 2_100_000, action: 'Reclaim 2,800 seats + downgrade 1,500 E5→E3', costPerLicense: 2_000, department: 'IT / All Departments', lastAuditDate: '2025-10-01', trend: [82, 78, 74, 70, 65, 60], complianceRisk: false },
+  { vendor: 'Salesforce', totalLicenses: 1_400, active90d: 820, inactive: 580, annualWaste: 1_450_000, action: 'Reclaim 580 seats → migrate to HubSpot in Q3', costPerLicense: 5_000, department: 'Sales & Agent Relations', lastAuditDate: '2025-11-15', trend: [80, 74, 69, 65, 60, 56], complianceRisk: false },
+  { vendor: 'Duck Creek', totalLicenses: 1_200, active90d: 840, inactive: 360, annualWaste: 1_080_000, action: 'Reclaim 360 inactive seats, optimize license tier', costPerLicense: 6_000, department: 'Underwriting & Policy Admin', lastAuditDate: '2025-09-20', trend: [85, 80, 76, 72, 68, 65], complianceRisk: false },
+  { vendor: 'Guidewire', totalLicenses: 2_400, active90d: 1_900, inactive: 500, annualWaste: 1_600_000, action: 'Reclaim 500 seats, evaluate ClaimCenter cloud migration', costPerLicense: 8_000, department: 'Claims Operations', lastAuditDate: '2025-12-01', trend: [92, 90, 88, 87, 86, 84], complianceRisk: false },
+  { vendor: 'Slack Enterprise', totalLicenses: 8_000, active90d: 6_200, inactive: 1_800, annualWaste: 864_000, action: 'Downgrade 1,800 inactive to free tier', costPerLicense: 1_200, department: 'IT / All Departments', lastAuditDate: '2026-01-05', trend: [90, 87, 84, 82, 80, 78], complianceRisk: false },
+  { vendor: 'Adobe Acrobat Pro', totalLicenses: 2_600, active90d: 1_100, inactive: 1_500, annualWaste: 1_440_000, action: 'Reclaim 1,500 seats — restrict to claims and legal only', costPerLicense: 2_400, department: 'Claims & Legal (provisioned company-wide)', lastAuditDate: '2025-08-18', trend: [70, 60, 52, 45, 40, 36], complianceRisk: true },
+  { vendor: 'LexisNexis', totalLicenses: 600, active90d: 220, inactive: 380, annualWaste: 836_000, action: 'Reclaim 380 seats — restrict to SIU and underwriting', costPerLicense: 5_500, department: 'Special Investigations & Underwriting', lastAuditDate: '2025-07-30', trend: [68, 58, 50, 44, 38, 34], complianceRisk: false },
 ];
 
 const northwoodWorkflowSummary = {
-  total: 38,
-  fullyAutomatable: 9,
-  humanInLoop: 18,
-  humanRequired: 11,
-  currentLaborSpend: 4_200_000,
-  potentialSavings: 2_200_000,
+  total: 124,
+  fullyAutomatable: 32,
+  humanInLoop: 58,
+  humanRequired: 34,
+  currentLaborSpend: 28_000_000,
+  potentialSavings: 12_400_000,
 };
 
 const northwoodRoiSummary = {
-  techStackSavings: 1_250_000,
-  workflowAutomation: 2_200_000,
-  licenseRecovery: 1_600_000,
-  implementationCosts: 1_250_000,
-  netYear1: 3_800_000,
-  year2Projected: 5_200_000,
+  techStackSavings: 7_200_000,
+  workflowAutomation: 12_400_000,
+  licenseRecovery: 8_400_000,
+  implementationCosts: 6_000_000,
+  netYear1: 22_000_000,
+  year2Projected: 30_000_000,
 };
 
 // ─── Pinnacle Healthcare ─────────────────────────────────────────────────────
@@ -1226,10 +1226,10 @@ const northwoodRoiSummary = {
 const pinnacleCompanyProfile = {
   name: 'Pinnacle Healthcare',
   industry: 'Healthcare',
-  employees: 420,
+  employees: 13_000,
   opCos: 1,
   opCoNames: ['Pinnacle Healthcare'],
-  techSpend: '$3.2M/yr',
+  techSpend: '$62M/yr',
   aiReadinessScore: 28,
   holdingPeriod: '6 months into 5-year hold',
   ebitdaMargin: '8.4%',
@@ -1245,17 +1245,17 @@ const pinnacleAiReadinessBreakdown = [
 ];
 
 const pinnacleKpis = {
-  totalSavings: 1_900_000,
+  totalSavings: 24_000_000,
   techScoreBefore: 28,
-  techScoreAfter: 71,
-  workflowsAnalyzed: 24,
-  automationReady: 6,
-  unusedLicenseWaste: 640_000,
-  savingsSparkline: [0, 30_000, 80_000, 160_000, 270_000, 410_000, 580_000, 790_000, 1_040_000, 1_340_000, 1_600_000, 1_900_000],
-  scoreSparkline: [28, 30, 33, 37, 41, 46, 51, 56, 60, 64, 68, 71],
-  workflowSparkline: [0, 2, 5, 8, 11, 14, 16, 18, 20, 22, 23, 24],
-  licenseSparkline: [640_000, 625_000, 595_000, 550_000, 495_000, 440_000, 390_000, 345_000, 310_000, 285_000, 268_000, 255_000],
-  headcountImpactSparkline: [0, 0, -1, -2, -3, -5, -7, -9, -10, -12, -13, -14],
+  techScoreAfter: 74,
+  workflowsAnalyzed: 156,
+  automationReady: 42,
+  unusedLicenseWaste: 9_200_000,
+  savingsSparkline: [0, 420_000, 1_200_000, 2_600_000, 4_400_000, 7_000_000, 10_000_000, 13_400_000, 17_000_000, 20_400_000, 22_600_000, 24_000_000],
+  scoreSparkline: [28, 30, 33, 37, 41, 46, 51, 56, 60, 64, 70, 74],
+  workflowSparkline: [0, 12, 28, 48, 68, 86, 102, 118, 130, 142, 150, 156],
+  licenseSparkline: [9_200_000, 9_000_000, 8_500_000, 7_800_000, 7_000_000, 6_200_000, 5_400_000, 4_700_000, 4_100_000, 3_600_000, 3_300_000, 3_100_000],
+  headcountImpactSparkline: [0, 0, -5, -14, -26, -42, -60, -78, -92, -106, -118, -128],
 };
 
 const pinnacleRoadmapPhases = [
@@ -1342,16 +1342,16 @@ const pinnacleRoadmapPhases = [
 ];
 
 const pinnacleTopOpportunities: Opportunity[] = [
-  { name: 'Clinical Note Automation (DAX Copilot)', category: 'Workflow Automation', savings: 330_000, effort: 'Medium', status: 'identified', priority: 10, timeToValue: 8, confidence: 89 },
-  { name: 'Prior Authorization Automation', category: 'Workflow Automation', savings: 240_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 10, confidence: 85 },
-  { name: 'Patient Scheduling AI', category: 'Workflow Automation', savings: 170_000, effort: 'Low', status: 'identified', priority: 8, timeToValue: 6, confidence: 91 },
-  { name: 'Revenue Cycle Optimization', category: 'Workflow Automation', savings: 220_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 77 },
-  { name: 'Coding Accuracy Improvement', category: 'Workflow Automation', savings: 140_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 12, confidence: 82 },
-  { name: 'Unused License Reclamation', category: 'License Audit', savings: 410_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 97 },
-  { name: 'Denial Management AI', category: 'Workflow Automation', savings: 120_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 14, confidence: 74 },
-  { name: 'Patient Engagement Automation', category: 'Workflow Automation', savings: 90_000, effort: 'Low', status: 'identified', priority: 5, timeToValue: 6, confidence: 88 },
-  { name: 'Replace Salesforce Health Cloud', category: 'Tech Stack', savings: 100_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 10, confidence: 84 },
-  { name: 'Clinical Quality Reporting', category: 'Workflow Automation', savings: 80_000, effort: 'Low', status: 'identified', priority: 4, timeToValue: 8, confidence: 90 },
+  { name: 'Clinical Note Automation (DAX Copilot)', category: 'Workflow Automation', savings: 4_800_000, effort: 'Medium', status: 'identified', priority: 10, timeToValue: 8, confidence: 89 },
+  { name: 'Prior Authorization Automation', category: 'Workflow Automation', savings: 3_600_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 10, confidence: 85 },
+  { name: 'Patient Scheduling AI', category: 'Workflow Automation', savings: 2_400_000, effort: 'Low', status: 'identified', priority: 8, timeToValue: 6, confidence: 91 },
+  { name: 'Revenue Cycle Optimization', category: 'Workflow Automation', savings: 3_200_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 77 },
+  { name: 'Coding Accuracy Improvement', category: 'Workflow Automation', savings: 2_000_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 12, confidence: 82 },
+  { name: 'Unused License Reclamation', category: 'License Audit', savings: 5_200_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 97 },
+  { name: 'Denial Management AI', category: 'Workflow Automation', savings: 1_800_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 14, confidence: 74 },
+  { name: 'Patient Engagement Automation', category: 'Workflow Automation', savings: 1_200_000, effort: 'Low', status: 'identified', priority: 5, timeToValue: 6, confidence: 88 },
+  { name: 'Replace Salesforce Health Cloud', category: 'Tech Stack', savings: 1_400_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 10, confidence: 84 },
+  { name: 'Clinical Quality Reporting', category: 'Workflow Automation', savings: 1_100_000, effort: 'Low', status: 'identified', priority: 4, timeToValue: 8, confidence: 90 },
 ];
 
 const pinnacleCurrentStack: CurrentTool[] = [
@@ -1424,30 +1424,30 @@ const pinnacleCurrentStack: CurrentTool[] = [
 ];
 
 const pinnacleLicenses: License[] = [
-  { vendor: 'Salesforce Health Cloud', totalLicenses: 80, active90d: 32, inactive: 48, annualWaste: 240_000, action: 'Reclaim 48 seats → evaluate simpler CRM alternative', costPerLicense: 5_000, department: 'Care Coordination & Outreach', lastAuditDate: '2025-10-20', trend: [75, 68, 60, 54, 48, 42], complianceRisk: false },
-  { vendor: 'Microsoft Teams', totalLicenses: 420, active90d: 220, inactive: 200, annualWaste: 120_000, action: 'Downgrade 200 inactive to basic tier', costPerLicense: 600, department: 'IT / All Departments', lastAuditDate: '2025-11-10', trend: [82, 76, 70, 65, 58, 52], complianceRisk: false },
-  { vendor: 'DocuSign', totalLicenses: 150, active90d: 65, inactive: 85, annualWaste: 102_000, action: 'Reclaim 85 seats — restrict to admin and legal', costPerLicense: 1_200, department: 'Admin & Legal (provisioned org-wide)', lastAuditDate: '2025-09-05', trend: [72, 64, 56, 50, 44, 40], complianceRisk: false },
-  { vendor: 'ADP Modules', totalLicenses: 420, active90d: 380, inactive: 40, annualWaste: 48_000, action: 'Consolidate redundant modules, reclaim 40 inactive', costPerLicense: 1_200, department: 'HR', lastAuditDate: '2025-12-15', trend: [95, 93, 92, 91, 90, 89], complianceRisk: false },
-  { vendor: 'Zoom Healthcare', totalLicenses: 100, active90d: 42, inactive: 58, annualWaste: 76_000, action: 'Reclaim 58 seats — consolidate to Teams for non-telehealth', costPerLicense: 1_200, department: 'Clinical (telehealth) & Admin', lastAuditDate: '2025-08-28', trend: [78, 70, 62, 56, 48, 42], complianceRisk: true },
-  { vendor: 'Nuance PowerScribe', totalLicenses: 30, active90d: 12, inactive: 18, annualWaste: 54_000, action: 'Reclaim 18 seats — evaluate DAX Copilot replacement', costPerLicense: 3_000, department: 'Radiology', lastAuditDate: '2025-07-15', trend: [68, 58, 50, 44, 38, 34], complianceRisk: false },
+  { vendor: 'Salesforce Health Cloud', totalLicenses: 1_200, active90d: 480, inactive: 720, annualWaste: 1_800_000, action: 'Reclaim 720 seats → evaluate simpler CRM alternative', costPerLicense: 5_000, department: 'Care Coordination & Outreach', lastAuditDate: '2025-10-20', trend: [75, 68, 60, 54, 48, 42], complianceRisk: false },
+  { vendor: 'Microsoft Teams', totalLicenses: 13_000, active90d: 8_200, inactive: 4_800, annualWaste: 1_920_000, action: 'Downgrade 4,800 inactive to basic tier', costPerLicense: 600, department: 'IT / All Departments', lastAuditDate: '2025-11-10', trend: [82, 76, 70, 65, 58, 52], complianceRisk: false },
+  { vendor: 'DocuSign', totalLicenses: 2_400, active90d: 980, inactive: 1_420, annualWaste: 1_704_000, action: 'Reclaim 1,420 seats — restrict to admin and legal', costPerLicense: 1_200, department: 'Admin & Legal (provisioned org-wide)', lastAuditDate: '2025-09-05', trend: [72, 64, 56, 50, 44, 40], complianceRisk: false },
+  { vendor: 'ADP Modules', totalLicenses: 13_000, active90d: 11_200, inactive: 1_800, annualWaste: 1_080_000, action: 'Consolidate redundant modules, reclaim 1,800 inactive', costPerLicense: 1_200, department: 'HR', lastAuditDate: '2025-12-15', trend: [95, 93, 92, 91, 90, 89], complianceRisk: false },
+  { vendor: 'Zoom Healthcare', totalLicenses: 1_600, active90d: 680, inactive: 920, annualWaste: 1_104_000, action: 'Reclaim 920 seats — consolidate to Teams for non-telehealth', costPerLicense: 1_200, department: 'Clinical (telehealth) & Admin', lastAuditDate: '2025-08-28', trend: [78, 70, 62, 56, 48, 42], complianceRisk: true },
+  { vendor: 'Nuance PowerScribe', totalLicenses: 400, active90d: 160, inactive: 240, annualWaste: 720_000, action: 'Reclaim 240 seats — evaluate DAX Copilot replacement', costPerLicense: 3_000, department: 'Radiology', lastAuditDate: '2025-07-15', trend: [68, 58, 50, 44, 38, 34], complianceRisk: false },
 ];
 
 const pinnacleWorkflowSummary = {
-  total: 24,
-  fullyAutomatable: 6,
-  humanInLoop: 12,
-  humanRequired: 6,
-  currentLaborSpend: 2_800_000,
-  potentialSavings: 1_200_000,
+  total: 156,
+  fullyAutomatable: 42,
+  humanInLoop: 72,
+  humanRequired: 42,
+  currentLaborSpend: 38_000_000,
+  potentialSavings: 16_000_000,
 };
 
 const pinnacleRoiSummary = {
-  techStackSavings: 480_000,
-  workflowAutomation: 1_200_000,
-  licenseRecovery: 640_000,
-  implementationCosts: 420_000,
-  netYear1: 1_900_000,
-  year2Projected: 2_800_000,
+  techStackSavings: 6_200_000,
+  workflowAutomation: 16_000_000,
+  licenseRecovery: 9_200_000,
+  implementationCosts: 7_400_000,
+  netYear1: 24_000_000,
+  year2Projected: 34_000_000,
 };
 
 // ─── Atlas Manufacturing ─────────────────────────────────────────────────────

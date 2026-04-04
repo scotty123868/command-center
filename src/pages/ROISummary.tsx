@@ -238,7 +238,7 @@ function TimelineTooltip({ active, payload, label }: any) {
 
 // ─── Cost of Inaction Counter ───────────────────────────────────────────────
 
-function CostOfInactionCounter({ monthlyWaste }: { monthlyWaste: number }) {
+function CostOfInactionCounter({ monthlyWaste, companyName }: { monthlyWaste: number; companyName: string }) {
   const [elapsed, setElapsed] = useState(0);
   const perSecond = monthlyWaste / 30 / 24 / 3600; // per-second burn
 
@@ -268,7 +268,7 @@ function CostOfInactionCounter({ monthlyWaste }: { monthlyWaste: number }) {
         </p>
       </div>
       <p className="text-sm mb-2" style={{ color: 'var(--cc-text-secondary)' }}>
-        Every month of delay costs IndustrialsCo approximately
+        Every month of delay costs {companyName} approximately
       </p>
       <p
         className="text-3xl sm:text-4xl font-mono font-bold text-red-400"
@@ -288,7 +288,7 @@ function CostOfInactionCounter({ monthlyWaste }: { monthlyWaste: number }) {
           <span className="font-mono font-semibold text-red-400">
             +{fmtDollarsWithCommas(liveWaste)}
           </span>{' '}
-          wasted ({`~$${Math.round(perSecond)}/sec`})
+          wasted ({`~$${perSecond >= 1 ? Math.round(perSecond) : perSecond.toFixed(2)}/sec`})
         </p>
       </div>
       <style>{`
@@ -566,7 +566,7 @@ export default function ROISummary() {
       </span>
 
       {/* ── Cost of Inaction ──────────────────────────────────────────── */}
-      <CostOfInactionCounter monthlyWaste={monthlyWaste} />
+      <CostOfInactionCounter monthlyWaste={monthlyWaste} companyName={company.name} />
 
       {/* ── Scenario Selector ─────────────────────────────────────────── */}
       <ScenarioSelector active={scenario} onChange={setScenario} />

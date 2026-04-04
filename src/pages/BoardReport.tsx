@@ -279,7 +279,7 @@ export default function BoardReportPage() {
 
         <p style={{ fontSize: '12.5px', color: '#334155', marginBottom: '20px', lineHeight: 1.7 }}>
           UpSkiller AI conducted a comprehensive technology and AI readiness assessment of {companyProfile.name},
-          evaluating {companyKpis.workflowsAnalyzed} workflows across {companyProfile.employees.toLocaleString()} employee
+          evaluating {companyKpis.workflowsAnalyzed} workflows across {companyProfile.employees.toLocaleString()} FTE
           roles and {companyProfile.opCos} operating divisions. The assessment reveals significant opportunity for
           operational improvement through technology modernization and AI adoption.
         </p>

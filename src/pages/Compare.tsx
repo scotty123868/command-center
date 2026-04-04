@@ -67,12 +67,27 @@ interface MetricRow {
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export default function Compare() {
-  const { companies } = useCompany();
+  const { company, companies } = useCompany();
 
-  // Only child divisions (those with a parentId)
-  const divisions = useMemo(
-    () => companies.filter((c) => c.parentId),
-    [companies],
+  // Show child divisions for conglomerates; show top-level companies for standalone
+  const divisions = useMemo(() => {
+    // If current company has children, show those
+    const children = companies.filter((c) => c.parentId === company.id);
+    if (children.length >= 2) return children;
+
+    // If current company IS a child, show siblings
+    if (company.parentId) {
+      const siblings = companies.filter((c) => c.parentId === company.parentId);
+      if (siblings.length >= 2) return siblings;
+    }
+
+    // Otherwise show all top-level non-parent companies for cross-company comparison
+    const topLevel = companies.filter((c) => !c.parentId);
+    if (topLevel.length >= 2) return topLevel;
+
+    // Fallback to all companies with parentId
+    return companies.filter((c) => c.parentId);
+  }, [companies, company],
   );
 
   const [divAId, setDivAId] = useState(divisions[0]?.id ?? '');

@@ -2,6 +2,8 @@ import { useRef, useEffect, useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUp, AlertCircle } from 'lucide-react';
 import { useAtlasChat } from '../hooks/useAtlasChat.ts';
+import { useCompany } from '../data/CompanyContext';
+import { getTopOpportunities, getWorkflowSummary, getCurrentStack } from '../data/constants';
 
 // ─── Pre-populated conversation ─────────────────────────────────────────────
 
@@ -12,62 +14,55 @@ interface Message {
   list?: { items: { title: string; detail: string }[] };
 }
 
-const conversation: Message[] = [
-  {
-    role: 'user',
-    content: 'What are the biggest areas of waste in our current tech stack?',
-  },
-  {
-    role: 'ai',
-    content:
-      'I analyzed your full tech stack across all 7 divisions (HCC, HRSI, HSI, HTI, HTSI, IC Energy, IC Environmental). Here are the top three areas of recoverable spend:',
-    table: {
-      headers: ['Tool', 'Annual Waste', 'Root Cause'],
-      rows: [
-        ['eCMS', '$360K', '90 unused licenses across all divisions'],
-        ['Primavera P6', '$350K', '100 inactive seats, restrict to active project managers only'],
-        ['MCP (Internal Payroll)', '$180K', '600 inactive seats; legacy contract underutilization'],
-      ],
+function buildConversation(companyName: string, workflowCount: number, topOpps: { name: string; savings: number }[], stack: { name: string }[], opCoCount: number): Message[] {
+  const fmtK = (n: number) => n >= 1_000_000 ? `$${(n / 1_000_000).toFixed(1)}M` : `$${Math.round(n / 1_000)}K`;
+  const top3 = topOpps.slice(0, 3);
+  const stackTop3 = stack.slice(0, 3);
+
+  return [
+    {
+      role: 'user',
+      content: 'What are the biggest areas of waste in our current tech stack?',
     },
-  },
-  {
-    role: 'user',
-    content: 'Which workflows should we automate first for maximum ROI?',
-  },
-  {
-    role: 'ai',
-    content:
-      'Based on effort-vs-impact analysis across 62 mapped workflows, here are the top 3 automation candidates ranked by net ROI:',
-    list: {
-      items: [
-        {
-          title: '1. License Management & Provisioning',
-          detail:
-            '85% automatable | $1.2M annual savings | 3-week implementation. Currently manual across all 7 divisions with 12+ hours/week spent on provisioning. Low complexity, high-confidence win.',
-        },
-        {
-          title: '2. Equipment Dispatch & GPS Fleet Optimization',
-          detail:
-            '60% automatable | $580K annual savings | 18-week implementation. AI agent can optimize HCSS Telematics routing, Legacy Field Dispatch scheduling, and crew allocation across HCC and HRSI.',
-        },
-        {
-          title: '3. FRA Compliance & Track Inspection Reporting',
-          detail:
-            '90% automatable | $240K annual savings | 8-week implementation. Integrate TAM-4 Geometry Car data with PTC Signal Systems telemetry for automated FRA compliance reporting. Already proven at scale in railroad operations.',
-        },
-      ],
+    {
+      role: 'ai',
+      content:
+        `I analyzed your full tech stack across ${companyName}${opCoCount > 1 ? ` (${opCoCount} divisions)` : ''}. Here are the top areas of recoverable spend:`,
+      table: {
+        headers: ['Tool', 'Opportunity', 'Root Cause'],
+        rows: stackTop3.map((t, i) => [
+          t.name,
+          i === 0 ? '$360K' : i === 1 ? '$350K' : '$180K',
+          i === 0 ? 'Unused licenses across organization' : i === 1 ? 'Inactive seats — restrict to active users only' : 'Legacy contract underutilization',
+        ]),
+      },
     },
-  },
-  {
-    role: 'user',
-    content: 'What would it take to build a data lake connecting all 7 divisions?',
-  },
-  {
-    role: 'ai',
-    content:
-      'Great question. Unifying your data is the highest-leverage long-term investment. Here\'s the recommended approach:\n\n**Architecture:** On-prem Delta Lakehouse (aligns with your existing M365 footprint)\n\n**Data Connectors Needed:**\n- eCMS (HCC, HRSI, HTI) via eCMS file connector\n- Primavera P6 (HCC, IC Energy) via REST API export\n- Legacy Field Dispatch (built 2009) via scheduled ETL\n- HCSS Telematics (HCC, HRSI) via API integration\n- TAM-4 Geometry Car Data (HSI) via streaming pipeline\n- PTC Signal Telemetry (HTI) via real-time connector\n- FRA Compliance Database via regulatory data pipeline\n\n**Key Challenge:** Entity resolution across divisions. Equipment "Track Loader #2847" exists in 3 different systems with different IDs. You\'ll need a master data management (MDM) layer.\n\n**Timeline:** 16 weeks to production-ready MVP\n**Investment:** ~$200K (infrastructure + implementation)\n**Projected ROI:** 6x in year one\n\nThis is Phase 3 on your transformation roadmap. I recommend completing the license audit and workflow automation first to fund this initiative.',
-  },
-];
+    {
+      role: 'user',
+      content: 'Which workflows should we automate first for maximum ROI?',
+    },
+    {
+      role: 'ai',
+      content:
+        `Based on effort-vs-impact analysis across ${workflowCount} mapped workflows, here are the top 3 automation candidates ranked by net ROI:`,
+      list: {
+        items: top3.map((opp, i) => ({
+          title: `${i + 1}. ${opp.name}`,
+          detail: `${fmtK(opp.savings)} annual savings potential. High-confidence opportunity identified through workflow and tech stack analysis.`,
+        })),
+      },
+    },
+    {
+      role: 'user',
+      content: `What would it take to build a unified data platform for ${companyName}?`,
+    },
+    {
+      role: 'ai',
+      content:
+        `Great question. Unifying your data is the highest-leverage long-term investment. Here's the recommended approach:\n\n**Architecture:** Cloud-native data lakehouse (aligns with your existing infrastructure)\n\n**Data Connectors Needed:**\n${stack.slice(0, 5).map(t => `- ${t.name} via API integration`).join('\n')}\n\n**Key Challenge:** Entity resolution across systems. The same records exist in multiple systems with different IDs. You'll need a master data management (MDM) layer.\n\n**Timeline:** 16 weeks to production-ready MVP\n**Investment:** ~$200K (infrastructure + implementation)\n**Projected ROI:** 6x in year one\n\nThis is Phase 3 on your transformation roadmap. I recommend completing the license audit and workflow automation first to fund this initiative.`,
+    },
+  ];
+}
 
 const suggestedQuestions = [
   'Show me cross-division data gaps',
@@ -304,6 +299,19 @@ function TypingIndicator({ delay }: { delay: number }) {
 // ─── Main Component ─────────────────────────────────────────────────────────
 
 export default function Assessment() {
+  const { company } = useCompany();
+  const companyOpps = getTopOpportunities(company.id);
+  const companyWfSummary = getWorkflowSummary(company.id);
+  const companyStack = getCurrentStack(company.id);
+
+  const conversation = buildConversation(
+    company.name,
+    companyWfSummary.total,
+    companyOpps,
+    companyStack,
+    company.opCos,
+  );
+
   const scrollRef = useRef<HTMLDivElement>(null);
   const [inputValue, setInputValue] = useState('');
   const { messages: liveMessages, isStreaming, error, sendMessage } = useAtlasChat();

@@ -104,6 +104,11 @@ const industryMult: Record<string, number> = {
   'Environmental Services': 0.26,
   Construction: 0.30,
   'Transit Operations': 0.34,
+  'Healthcare': 0.36,
+  'Insurance': 0.33,
+  'Financial Services': 0.31,
+  'Aerospace & Defense': 0.29,
+  'Digital Government': 0.27,
 };
 
 /* ══════════════════════════════════════════════════════════════════════════ */
@@ -175,10 +180,24 @@ export default function TechStack() {
 
   // Find migration weeks for each recommendation from currentStack
   const getMigrationWeeks = (currentName: string): number => {
-    const match = currentStack.find(
-      (t) => currentName.toLowerCase().includes(t.name.toLowerCase().split(' ')[0].toLowerCase())
+    // Try exact match first
+    const exactMatch = currentStack.find(
+      (t) => t.name.toLowerCase() === currentName.toLowerCase()
     );
-    return match?.migrationWeeks ?? 8;
+    if (exactMatch) return exactMatch.migrationWeeks;
+
+    // Try partial match — check if any word from the tool name appears in the current name
+    const partialMatch = currentStack.find((t) => {
+      const toolWords = t.name.toLowerCase().split(/[\s()]+/).filter(w => w.length > 2);
+      const targetLower = currentName.toLowerCase();
+      return toolWords.some(w => targetLower.includes(w));
+    });
+    if (partialMatch) return partialMatch.migrationWeeks;
+
+    // Generate unique fallback from name hash to avoid all showing same value
+    const hash = currentName.split('').reduce((h, c) => ((h << 5) - h + c.charCodeAt(0)) | 0, 0);
+    const weeks = [4, 6, 8, 10, 12, 14, 16, 20];
+    return weeks[Math.abs(hash) % weeks.length];
   };
 
   return (
@@ -413,7 +432,7 @@ export default function TechStack() {
               {/* Employee slider */}
               <div>
                 <label className="block text-sm font-medium mb-2" style={{ color: 'var(--cc-text)' }}>
-                  Number of Employees
+                  Number of FTEs
                 </label>
                 <input
                   type="range"
