@@ -27,12 +27,13 @@ const assessmentItems = [
   { to: '/data-flow', icon: Network, label: 'Data Flow Intelligence' },
 ];
 
-const insightsItems = [
+const insightsItemsBase = [
   { to: '/stories', icon: BookOpen, label: 'Division Performance' },
-  { to: '/compare', icon: GitCompareArrows, label: 'Division Comparison' },
   { to: '/roi-summary', icon: TrendingUp, label: 'ROI Summary' },
   { to: '/assessment', icon: Sparkles, label: 'AI Assistant' },
 ];
+
+const compareItem = { to: '/compare', icon: GitCompareArrows, label: 'Division Comparison' };
 
 const platformItems = [
   { to: '/integrations', icon: Plug, label: 'Integration Hub' },
@@ -307,9 +308,13 @@ export default function Sidebar({ onNavClick, onClose }: { onNavClick?: () => vo
 
         <SectionLabel>Insights</SectionLabel>
         <div className="flex flex-col gap-0.5">
-          {insightsItems.map((item) => (
-            <NavItem key={item.to} {...item} onNavClick={onNavClick} />
-          ))}
+          {(() => {
+            const hasChildren = companies.some(c => c.parentId === company.id) || companies.some(c => c.parentId === company.parentId && company.parentId);
+            const items = hasChildren ? [insightsItemsBase[0], compareItem, ...insightsItemsBase.slice(1)] : insightsItemsBase;
+            return items.map((item) => (
+              <NavItem key={item.to} {...item} onNavClick={onNavClick} />
+            ));
+          })()}
         </div>
 
         {/* Divider between groups */}
