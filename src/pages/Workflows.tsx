@@ -37,15 +37,32 @@ const workflowTimeSavings: Record<string, TimeSaving> = {
   'Vendor Assessment': { manualTime: '1 week', automatedTime: '45 min', savingsPercent: '98.7%' },
 };
 
-function getTimeSaving(workflowName: string, automationPercent?: number): TimeSaving {
+function getTimeSaving(workflowName: string, automationPercent?: number, level?: AutomationLevel): TimeSaving {
   const exact = workflowTimeSavings[workflowName];
-  if (exact) return exact;
+  if (exact) {
+    // Cap human-in-loop workflows at 40-60% even for exact matches
+    if (level === 'human-in-loop') {
+      const hash = workflowName.split('').reduce((h, c) => ((h << 5) - h + c.charCodeAt(0)) | 0, 0);
+      const cappedPct = 40 + (Math.abs(hash) % 21); // 40-60%
+      return { ...exact, savingsPercent: `${cappedPct}.${Math.abs(hash) % 10}%` };
+    }
+    return exact;
+  }
 
   // Generate a plausible unique savings percent from the workflow name hash + automation percent
   const hash = workflowName.split('').reduce((h, c) => ((h << 5) - h + c.charCodeAt(0)) | 0, 0);
-  const base = automationPercent ? (85 + (automationPercent / 100) * 14) : 93;
-  const variance = ((Math.abs(hash) % 80) - 40) / 10; // -4.0 to +3.9
-  const pct = Math.min(99.9, Math.max(85.0, base + variance));
+
+  let pct: number;
+  if (level === 'human-in-loop') {
+    // Human-in-the-loop: cap at 40-60%
+    const base = 40 + (Math.abs(hash) % 21); // 40-60
+    const variance = ((Math.abs(hash) % 20) - 10) / 10; // -1.0 to +0.9
+    pct = Math.min(60.0, Math.max(40.0, base + variance));
+  } else {
+    const base = automationPercent ? (85 + (automationPercent / 100) * 14) : 93;
+    const variance = ((Math.abs(hash) % 80) - 40) / 10; // -4.0 to +3.9
+    pct = Math.min(99.9, Math.max(85.0, base + variance));
+  }
 
   const manualOptions = ['3 hours', '5 hours', '2 days', '1 day', '6 hours', '8 hours', '4 hours'];
   const autoOptions = ['12 min', '20 min', '8 min', '30 min', '5 min', '15 min', '25 min'];
@@ -96,7 +113,7 @@ const levelMeta: Record<
 /* ── time savings badge (inline in workflow card) ────── */
 
 function TimeSavingsBadge({ wf }: { wf: Workflow }) {
-  const ts = getTimeSaving(wf.name, wf.automationPercent);
+  const ts = getTimeSaving(wf.name, wf.automationPercent, wf.level);
   return (
     <div className="flex items-center gap-3 px-4 py-3 rounded-xl mt-3" style={{ background: 'rgba(16, 185, 129, 0.06)', border: '1px solid rgba(16, 185, 129, 0.12)' }}>
       <Timer size={14} className="text-emerald-500 shrink-0" />
@@ -195,7 +212,7 @@ function WorkflowCard({ wf, index }: { wf: Workflow; index: number }) {
         <div className="hidden sm:flex items-center gap-1.5">
           <Zap size={10} className="text-emerald-400" />
           <span className="text-[10px] font-semibold text-emerald-400 tabular-nums">
-            {getTimeSaving(wf.name, wf.automationPercent).savingsPercent} faster
+            {getTimeSaving(wf.name, wf.automationPercent, wf.level).savingsPercent} faster
           </span>
         </div>
 

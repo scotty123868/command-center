@@ -560,51 +560,94 @@ export default function TechStack() {
       </section>
 
       {/* ─── Section 4 : Critical Gap Alert ─────────────────────────────── */}
-      <motion.section
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3, delay: 0.1 }}
-        className="rounded-2xl p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
-      >
-        <div className="flex items-start gap-4">
-          <div className="flex-shrink-0 mt-0.5">
-            <AlertTriangle className="w-6 h-6 text-red-500" />
-          </div>
-          <div>
-            <div className="flex items-center gap-3 mb-3">
-              <span className="inline-block bg-red-500 text-white text-[11px] font-bold tracking-wider uppercase px-3 py-1 rounded-full">
-                Critical Gap
-              </span>
+      {(() => {
+        const criticalGaps: Record<string, { title: string; description: string; cost: string; roi: string; timeline: string }> = {
+          northwood: {
+            title: 'Manual Call Center Operations — 2,500 agents across 5 legacy CCaaS vendors',
+            description: 'Your contact center operates on 5 siloed CCaaS platforms with no unified routing, analytics, or AI assistance. Agent handle time averages 8.2 minutes with 34% repeat-call rate. We recommend implementing Parloa AI with Genesys to automate 60% of inbound calls and consolidate 5 siloed CCaaS deployments into one platform.',
+            cost: '$3,000,000',
+            roi: '$8M/yr savings',
+            timeline: '16 weeks',
+          },
+          pinnacle: {
+            title: 'Manual Prior Authorization — 340 staff processing prior auth requests',
+            description: 'Prior authorization requests are processed manually across 340 staff, averaging 45 minutes per request with a 30% initial denial rate. Patients wait an average of 5 business days for authorization. We recommend deploying Tennr AI for automated prior authorization, reducing approval time from 5 days to 4 hours.',
+            cost: '$1,500,000',
+            roi: '$5.5M/yr savings',
+            timeline: '12 weeks',
+          },
+          atlas: {
+            title: 'Disconnected MES-to-ERP pipeline — manual data entry between shop floor and SAP',
+            description: 'Production data is manually entered from shop floor MES systems into SAP at end of shift, creating 4-8 hour data lag with 3.2% transcription error rate. No real-time OEE visibility across plants. We recommend implementing a real-time MES-to-SAP integration layer with automated production reporting and AI-powered anomaly detection.',
+            cost: '$2,200,000',
+            roi: '$6.5M/yr savings',
+            timeline: '20 weeks',
+          },
+          northbridge: {
+            title: 'No unified cross-OpCo analytics — 12 operating companies with isolated BI instances',
+            description: 'Each of your 12 operating companies runs its own BI stack with no cross-portfolio visibility. Board reporting requires 3 weeks of manual data assembly. No standardized KPIs across OpCos. We recommend implementing a unified analytics platform with automated cross-OpCo data federation and standardized executive dashboards.',
+            cost: '$1,800,000',
+            roi: '$4.2M/yr savings',
+            timeline: '14 weeks',
+          },
+          brazil: {
+            title: 'No interoperable citizen data layer — 8 ministries with separate citizen databases',
+            description: 'Each of the 8 ministries maintains its own citizen database with no interoperability. Citizens must re-register for every government service. No unified identity resolution across agencies. We recommend implementing a federated citizen data layer with privacy-preserving identity resolution and cross-ministry data sharing protocols.',
+            cost: '$4,500,000',
+            roi: '$12M/yr savings',
+            timeline: '24 weeks',
+          },
+        };
+        const gap = criticalGaps[company.id] ?? {
+          title: 'No data lake infrastructure detected',
+          description: 'Your organization currently has no unified data infrastructure. Without a data lake, 73% of planned AI initiatives are impossible to execute and cross-division visibility remains zero. We recommend implementing On-prem Delta Lakehouse as the foundational layer — connecting all operating company systems, enabling real-time analytics, ML workloads, and enterprise-wide decision support.',
+          cost: '$200,000',
+          roi: '6x in year one',
+          timeline: '16 weeks',
+        };
+        return (
+          <motion.section
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
+            className="rounded-2xl p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
+          >
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 mt-0.5">
+                <AlertTriangle className="w-6 h-6 text-red-500" />
+              </div>
+              <div>
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="inline-block bg-red-500 text-white text-[11px] font-bold tracking-wider uppercase px-3 py-1 rounded-full">
+                    Critical Gap
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--cc-text)' }}>
+                  {gap.title}
+                </h3>
+                <p className="leading-relaxed max-w-3xl" style={{ color: 'var(--cc-text-secondary)' }}>
+                  {gap.description}
+                </p>
+                <div className="flex flex-wrap items-center gap-6 mt-4">
+                  <p className="text-sm font-semibold" style={{ color: 'var(--cc-text)' }}>
+                    Estimated implementation:{' '}
+                    <span className="font-mono text-orange-600">{gap.cost}</span>
+                  </p>
+                  <p className="text-sm font-semibold" style={{ color: 'var(--cc-text)' }}>
+                    Projected ROI:{' '}
+                    <span className="font-mono text-green-500">{gap.roi}</span>
+                  </p>
+                  <p className="text-sm font-semibold flex items-center gap-1" style={{ color: 'var(--cc-text)' }}>
+                    <Zap className="w-4 h-4 text-amber-500" />
+                    Timeline:{' '}
+                    <span className="font-mono" style={{ color: 'var(--cc-text)' }}>{gap.timeline}</span>
+                  </p>
+                </div>
+              </div>
             </div>
-            <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--cc-text)' }}>
-              No data lake infrastructure detected
-            </h3>
-            <p className="leading-relaxed max-w-3xl" style={{ color: 'var(--cc-text-secondary)' }}>
-              Your organization currently has no unified data infrastructure. Without a data lake,
-              73% of planned AI initiatives are impossible to execute and cross-division visibility
-              remains zero. We recommend implementing{' '}
-              <span className="font-semibold" style={{ color: 'var(--cc-text)' }}>On-prem Delta Lakehouse</span> as the
-              foundational layer — connecting all operating company systems, enabling real-time
-              analytics, ML workloads, and enterprise-wide decision support.
-            </p>
-            <div className="flex flex-wrap items-center gap-6 mt-4">
-              <p className="text-sm font-semibold" style={{ color: 'var(--cc-text)' }}>
-                Estimated implementation:{' '}
-                <span className="font-mono text-orange-600">$200,000</span>
-              </p>
-              <p className="text-sm font-semibold" style={{ color: 'var(--cc-text)' }}>
-                Projected ROI:{' '}
-                <span className="font-mono text-green-500">6x in year one</span>
-              </p>
-              <p className="text-sm font-semibold flex items-center gap-1" style={{ color: 'var(--cc-text)' }}>
-                <Zap className="w-4 h-4 text-amber-500" />
-                Timeline:{' '}
-                <span className="font-mono" style={{ color: 'var(--cc-text)' }}>16 weeks</span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </motion.section>
+          </motion.section>
+        );
+      })()}
     </div>
   );
 }

@@ -1421,6 +1421,17 @@ const pinnacleCurrentStack: CurrentTool[] = [
     riskLevel: 'Low',
     dependencies: ['Patient consent forms', 'Provider contracts', 'Insurance authorizations', 'Compliance documents'],
   },
+  {
+    name: 'Manual Prior Authorization',
+    category: 'Prior Authorization',
+    annualCost: 2_400_000,
+    users: 340,
+    score: 2,
+    integrationComplexity: 'High',
+    migrationWeeks: 12,
+    riskLevel: 'Critical',
+    dependencies: ['Payer portal access', 'Clinical documentation', 'EHR integration', 'Fax infrastructure'],
+  },
 ];
 
 const pinnacleLicenses: License[] = [
@@ -2377,7 +2388,7 @@ const brazilCompanyProfile = {
   employees: 280_000,
   opCos: 8,
   opCoNames: ['Receita Federal (Tax & Revenue)', 'SUS (Unified Health System)', 'BNDES (Development Bank)', 'SERPRO (Federal Data Processing)', 'INSS (Social Security)', 'DATASUS (Health Informatics)', 'Ministry of Defense (Cyber Command)', 'ANATEL (Telecommunications)'],
-  techSpend: '$920M/yr',
+  techSpend: '$9.2B/yr',
   aiReadinessScore: 45,
   holdingPeriod: 'Sovereign government — 215M population',
   ebitdaMargin: 'N/A',
@@ -2393,16 +2404,16 @@ const brazilAiReadinessBreakdown = [
 ];
 
 const brazilKpis = {
-  totalSavings: 72_000_000,
+  totalSavings: 720_000_000,
   techScoreBefore: 45,
   techScoreAfter: 82,
   workflowsAnalyzed: 380,
   automationReady: 134,
-  unusedLicenseWaste: 26_000_000,
-  savingsSparkline: [0, 4_600_000, 10_000_000, 17_000_000, 26_000_000, 34_600_000, 41_500_000, 48_400_000, 55_300_000, 62_200_000, 67_600_000, 72_000_000],
+  unusedLicenseWaste: 260_000_000,
+  savingsSparkline: [0, 46_000_000, 100_000_000, 170_000_000, 260_000_000, 346_000_000, 415_000_000, 484_000_000, 553_000_000, 622_000_000, 676_000_000, 720_000_000],
   scoreSparkline: [45, 51, 54, 57, 60, 64, 68, 72, 75, 78, 80, 82],
   workflowSparkline: [0, 32, 64, 98, 134, 176, 216, 256, 294, 328, 358, 380],
-  licenseSparkline: [26_000_000, 23_800_000, 21_400_000, 18_200_000, 15_000_000, 12_100_000, 9_500_000, 7_200_000, 5_500_000, 4_200_000, 3_200_000, 2_600_000],
+  licenseSparkline: [260_000_000, 238_000_000, 214_000_000, 182_000_000, 150_000_000, 121_000_000, 95_000_000, 72_000_000, 55_000_000, 42_000_000, 32_000_000, 26_000_000],
   headcountImpactSparkline: [0, -12, -28, -52, -84, -124, -168, -220, -276, -330, -374, -410],
 };
 
@@ -2474,33 +2485,33 @@ const brazilRoadmapPhases = [
 ];
 
 const brazilTopOpportunities: Opportunity[] = [
-  { name: 'Receita Federal Tax Automation (35M Returns)', category: 'Tax & Revenue', savings: 14_688_000, effort: 'Medium', status: 'automated', priority: 10, timeToValue: 8, confidence: 94 },
-  { name: 'GOV.BR Citizen Services AI (215M Citizens)', category: 'Citizen Services', savings: 13_248_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 14, confidence: 86 },
-  { name: 'SUS Health Records Integration', category: 'Healthcare', savings: 11_808_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 16, confidence: 82 },
-  { name: 'Cross-Agency Data Platform (GOV.BR)', category: 'Data Infrastructure', savings: 9_792_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 20, confidence: 78 },
-  { name: 'Federal Procurement Optimization', category: 'Procurement', savings: 7_344_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 84 },
-  { name: 'SERPRO Mainframe Modernization', category: 'Tech Stack', savings: 6_048_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 24, confidence: 72 },
-  { name: 'eSocial & SPED Fiscal AI', category: 'Compliance', savings: 5_184_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 12, confidence: 80 },
-  { name: 'BNDES Credit Analysis AI', category: 'Development Finance', savings: 3_888_000, effort: 'Medium', status: 'identified', priority: 5, timeToValue: 14, confidence: 76 },
+  { name: 'Receita Federal Tax Automation (35M Returns)', category: 'Tax & Revenue', savings: 146_880_000, effort: 'Medium', status: 'automated', priority: 10, timeToValue: 8, confidence: 94 },
+  { name: 'GOV.BR Citizen Services AI (215M Citizens)', category: 'Citizen Services', savings: 132_480_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 14, confidence: 86 },
+  { name: 'SUS Health Records Integration', category: 'Healthcare', savings: 118_080_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 16, confidence: 82 },
+  { name: 'Cross-Agency Data Platform (GOV.BR)', category: 'Data Infrastructure', savings: 97_920_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 20, confidence: 78 },
+  { name: 'Federal Procurement Optimization', category: 'Procurement', savings: 73_440_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 84 },
+  { name: 'SERPRO Mainframe Modernization', category: 'Tech Stack', savings: 60_480_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 24, confidence: 72 },
+  { name: 'eSocial & SPED Fiscal AI', category: 'Compliance', savings: 51_840_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 12, confidence: 80 },
+  { name: 'BNDES Credit Analysis AI', category: 'Development Finance', savings: 38_880_000, effort: 'Medium', status: 'identified', priority: 5, timeToValue: 14, confidence: 76 },
 ];
 
 const brazilCurrentStack: CurrentTool[] = [
-  { name: 'GOV.BR Platform', category: 'Digital Government', annualCost: 48_000_000, users: 180_000, score: 7, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Citizen Services Portal', 'Digital Authentication', 'Service Registry'] },
-  { name: 'SIAFI', category: 'Federal Finance', annualCost: 32_000_000, users: 38_000, score: 5, integrationComplexity: 'High', migrationWeeks: 48, riskLevel: 'High', dependencies: ['Federal Budget Execution', 'Treasury Management', 'Financial Reporting'] },
-  { name: 'DATASUS / CNES', category: 'Health IT', annualCost: 86_000_000, users: 72_000, score: 4, integrationComplexity: 'High', migrationWeeks: 36, riskLevel: 'High', dependencies: ['Patient Records', 'Hospital Registry', 'Epidemiological Data', 'SUS Billing'] },
-  { name: 'SERPRO Data Centers', category: 'Infrastructure', annualCost: 120_000_000, users: 42_000, score: 5, integrationComplexity: 'High', migrationWeeks: 52, riskLevel: 'High', dependencies: ['Federal Data Processing', 'Mainframe Operations', 'CPF Registry', 'CNPJ Registry'] },
-  { name: 'eSocial', category: 'Labor Compliance', annualCost: 18_000_000, users: 28_000, score: 6, integrationComplexity: 'Medium', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Employer Compliance', 'Labor Registry', 'Social Security', 'FGTS'] },
-  { name: 'SPED Fiscal', category: 'Tax Documents', annualCost: 22_000_000, users: 38_000, score: 6, integrationComplexity: 'Medium', migrationWeeks: 20, riskLevel: 'Medium', dependencies: ['Electronic Invoicing', 'Tax Document Validation', 'State Tax Integration'] },
-  { name: 'BNDES FINEM/Automatico', category: 'Development Finance', annualCost: 14_000_000, users: 28_000, score: 5, integrationComplexity: 'High', migrationWeeks: 24, riskLevel: 'High', dependencies: ['Loan Processing', 'Project Evaluation', 'ESG Compliance', 'Disbursement'] },
-  { name: 'PostgreSQL / Oracle Mix', category: 'Database', annualCost: 8_000_000, users: 42_000, score: 6, integrationComplexity: 'Medium', migrationWeeks: 12, riskLevel: 'Medium', dependencies: ['Federal Databases', 'Registry Systems', 'Audit Logging'] },
+  { name: 'GOV.BR Platform', category: 'Digital Government', annualCost: 480_000_000, users: 180_000, score: 7, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Citizen Services Portal', 'Digital Authentication', 'Service Registry'] },
+  { name: 'SIAFI', category: 'Federal Finance', annualCost: 320_000_000, users: 38_000, score: 5, integrationComplexity: 'High', migrationWeeks: 48, riskLevel: 'High', dependencies: ['Federal Budget Execution', 'Treasury Management', 'Financial Reporting'] },
+  { name: 'DATASUS / CNES', category: 'Health IT', annualCost: 860_000_000, users: 72_000, score: 4, integrationComplexity: 'High', migrationWeeks: 36, riskLevel: 'High', dependencies: ['Patient Records', 'Hospital Registry', 'Epidemiological Data', 'SUS Billing'] },
+  { name: 'SERPRO Data Centers', category: 'Infrastructure', annualCost: 1_200_000_000, users: 42_000, score: 5, integrationComplexity: 'High', migrationWeeks: 52, riskLevel: 'High', dependencies: ['Federal Data Processing', 'Mainframe Operations', 'CPF Registry', 'CNPJ Registry'] },
+  { name: 'eSocial', category: 'Labor Compliance', annualCost: 180_000_000, users: 28_000, score: 6, integrationComplexity: 'Medium', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Employer Compliance', 'Labor Registry', 'Social Security', 'FGTS'] },
+  { name: 'SPED Fiscal', category: 'Tax Documents', annualCost: 220_000_000, users: 38_000, score: 6, integrationComplexity: 'Medium', migrationWeeks: 20, riskLevel: 'Medium', dependencies: ['Electronic Invoicing', 'Tax Document Validation', 'State Tax Integration'] },
+  { name: 'BNDES FINEM/Automatico', category: 'Development Finance', annualCost: 140_000_000, users: 28_000, score: 5, integrationComplexity: 'High', migrationWeeks: 24, riskLevel: 'High', dependencies: ['Loan Processing', 'Project Evaluation', 'ESG Compliance', 'Disbursement'] },
+  { name: 'PostgreSQL / Oracle Mix', category: 'Database', annualCost: 80_000_000, users: 42_000, score: 6, integrationComplexity: 'Medium', migrationWeeks: 12, riskLevel: 'Medium', dependencies: ['Federal Databases', 'Registry Systems', 'Audit Logging'] },
 ];
 
 const brazilLicenses: License[] = [
-  { vendor: 'SERPRO Mainframe Licenses', totalLicenses: 4_200, active90d: 2_800, inactive: 1_400, annualWaste: 10_111_000, action: 'Migrate 1,400 workloads to containerized gov cloud — mainframe decommission program', costPerLicense: 5_000, department: 'SERPRO / All Agencies', lastAuditDate: '2026-01-20', trend: [75, 70, 66, 62, 60, 62], complianceRisk: false },
-  { vendor: 'Oracle Database', totalLicenses: 1_800, active90d: 900, inactive: 900, annualWaste: 6_500_000, action: 'Migrate to PostgreSQL — Oracle license elimination across DATASUS and legacy systems', costPerLicense: 5_000, department: 'SUS / DATASUS', lastAuditDate: '2025-12-15', trend: [68, 60, 55, 50, 48, 50], complianceRisk: true },
-  { vendor: 'Microsoft 365 E5', totalLicenses: 80_000, active90d: 56_000, inactive: 24_000, annualWaste: 5_200_000, action: 'Downgrade 24,000 to E3 tier — E5 features unused by field office staff', costPerLicense: 150, department: 'All Agencies', lastAuditDate: '2026-02-05', trend: [88, 82, 78, 74, 72, 70], complianceRisk: false },
-  { vendor: 'Custom Legacy Systems (SUS/CNES)', totalLicenses: 320, active90d: 140, inactive: 180, annualWaste: 2_600_000, action: 'Decommission 180 legacy modules — replace with GOV.BR microservices', costPerLicense: 10_000, department: 'SUS / Health Ministry', lastAuditDate: '2025-11-01', trend: [62, 55, 48, 42, 40, 43], complianceRisk: true },
-  { vendor: 'VMware vSphere', totalLicenses: 1_200, active90d: 800, inactive: 400, annualWaste: 1_589_000, action: 'Migrate 400 VMs to containerized deployment on Kubernetes gov cloud', costPerLicense: 2_750, department: 'SERPRO Infrastructure', lastAuditDate: '2026-01-10', trend: [82, 76, 72, 68, 66, 67], complianceRisk: false },
+  { vendor: 'SERPRO Mainframe Licenses', totalLicenses: 4_200, active90d: 2_800, inactive: 1_400, annualWaste: 101_110_000, action: 'Migrate 1,400 workloads to containerized gov cloud — mainframe decommission program', costPerLicense: 5_000, department: 'SERPRO / All Agencies', lastAuditDate: '2026-01-20', trend: [75, 70, 66, 62, 60, 62], complianceRisk: false },
+  { vendor: 'Oracle Database', totalLicenses: 1_800, active90d: 900, inactive: 900, annualWaste: 65_000_000, action: 'Migrate to PostgreSQL — Oracle license elimination across DATASUS and legacy systems', costPerLicense: 5_000, department: 'SUS / DATASUS', lastAuditDate: '2025-12-15', trend: [68, 60, 55, 50, 48, 50], complianceRisk: true },
+  { vendor: 'Microsoft 365 E5', totalLicenses: 80_000, active90d: 56_000, inactive: 24_000, annualWaste: 52_000_000, action: 'Downgrade 24,000 to E3 tier — E5 features unused by field office staff', costPerLicense: 150, department: 'All Agencies', lastAuditDate: '2026-02-05', trend: [88, 82, 78, 74, 72, 70], complianceRisk: false },
+  { vendor: 'Custom Legacy Systems (SUS/CNES)', totalLicenses: 320, active90d: 140, inactive: 180, annualWaste: 26_000_000, action: 'Decommission 180 legacy modules — replace with GOV.BR microservices', costPerLicense: 10_000, department: 'SUS / Health Ministry', lastAuditDate: '2025-11-01', trend: [62, 55, 48, 42, 40, 43], complianceRisk: true },
+  { vendor: 'VMware vSphere', totalLicenses: 1_200, active90d: 800, inactive: 400, annualWaste: 15_890_000, action: 'Migrate 400 VMs to containerized deployment on Kubernetes gov cloud', costPerLicense: 2_750, department: 'SERPRO Infrastructure', lastAuditDate: '2026-01-10', trend: [82, 76, 72, 68, 66, 67], complianceRisk: false },
 ];
 
 const brazilWorkflowSummary = {
@@ -2508,17 +2519,17 @@ const brazilWorkflowSummary = {
   fullyAutomatable: 134,
   humanInLoop: 152,
   humanRequired: 94,
-  currentLaborSpend: 462_000_000,
-  potentialSavings: 49_000_000,
+  currentLaborSpend: 4_620_000_000,
+  potentialSavings: 490_000_000,
 };
 
 const brazilRoiSummary = {
-  techStackSavings: 32_000_000,
-  workflowAutomation: 49_000_000,
-  licenseRecovery: 26_000_000,
-  implementationCosts: 35_000_000,
-  netYear1: 72_000_000,
-  year2Projected: 122_400_000,
+  techStackSavings: 320_000_000,
+  workflowAutomation: 490_000_000,
+  licenseRecovery: 260_000_000,
+  implementationCosts: 350_000_000,
+  netYear1: 720_000_000,
+  year2Projected: 1_224_000_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -2531,7 +2542,7 @@ const brReceitaCompanyProfile = {
   employees: 38_000,
   opCos: 0,
   opCoNames: [] as string[],
-  techSpend: '$140M/yr',
+  techSpend: '$1.4B/yr',
   aiReadinessScore: 55,
   holdingPeriod: 'Federal agency — 35M annual returns',
   ebitdaMargin: 'N/A',
@@ -2547,16 +2558,16 @@ const brReceitaAiReadinessBreakdown = [
 ];
 
 const brReceitaKpis = {
-  totalSavings: 14_000_000,
+  totalSavings: 140_000_000,
   techScoreBefore: 55,
   techScoreAfter: 88,
   workflowsAnalyzed: 64,
   automationReady: 28,
-  unusedLicenseWaste: 4_200_000,
-  savingsSparkline: [0, 900_000, 2_000_000, 3_300_000, 5_000_000, 6_700_000, 8_000_000, 9_400_000, 10_700_000, 12_000_000, 13_100_000, 14_000_000],
+  unusedLicenseWaste: 42_000_000,
+  savingsSparkline: [0, 9_000_000, 20_000_000, 33_000_000, 50_000_000, 67_000_000, 80_000_000, 94_000_000, 107_000_000, 120_000_000, 131_000_000, 140_000_000],
   scoreSparkline: [55, 59, 62, 65, 68, 72, 75, 78, 81, 84, 86, 88],
   workflowSparkline: [0, 5, 10, 16, 22, 30, 38, 44, 50, 56, 60, 64],
-  licenseSparkline: [4_200_000, 3_850_000, 3_500_000, 3_100_000, 2_700_000, 2_300_000, 1_900_000, 1_500_000, 1_200_000, 950_000, 750_000, 600_000],
+  licenseSparkline: [42_000_000, 38_500_000, 35_000_000, 31_000_000, 27_000_000, 23_000_000, 19_000_000, 15_000_000, 12_000_000, 9_500_000, 7_500_000, 6_000_000],
   headcountImpactSparkline: [0, -3, -8, -14, -22, -32, -42, -54, -64, -72, -78, -84],
 };
 
@@ -2612,12 +2623,12 @@ const brReceitaRoadmapPhases = [
 ];
 
 const brReceitaTopOpportunities: Opportunity[] = [
-  { name: 'Automated Tax Return Processing (35M Returns)', category: 'Tax Automation', savings: 4_800_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 8, confidence: 94 },
-  { name: 'ICMS/PIS/COFINS Cross-State Reconciliation', category: 'Tax Compliance', savings: 3_200_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 12, confidence: 88 },
-  { name: 'Federal Budget Optimization Analytics', category: 'Budget Analytics', savings: 2_100_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 10, confidence: 86 },
-  { name: 'AI-Powered Risk-Based Audit Selection', category: 'Tax Audit', savings: 1_600_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 14, confidence: 82 },
-  { name: 'Revenue Forecasting AI', category: 'Fiscal Planning', savings: 1_200_000, effort: 'Low', status: 'identified', priority: 7, timeToValue: 8, confidence: 84 },
-  { name: 'Anti-Fraud Detection (Tax Evasion AI)', category: 'Fraud Prevention', savings: 1_100_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 16, confidence: 78 },
+  { name: 'Automated Tax Return Processing (35M Returns)', category: 'Tax Automation', savings: 48_000_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 8, confidence: 94 },
+  { name: 'ICMS/PIS/COFINS Cross-State Reconciliation', category: 'Tax Compliance', savings: 32_000_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 12, confidence: 88 },
+  { name: 'Federal Budget Optimization Analytics', category: 'Budget Analytics', savings: 21_000_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 10, confidence: 86 },
+  { name: 'AI-Powered Risk-Based Audit Selection', category: 'Tax Audit', savings: 16_000_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 14, confidence: 82 },
+  { name: 'Revenue Forecasting AI', category: 'Fiscal Planning', savings: 12_000_000, effort: 'Low', status: 'identified', priority: 7, timeToValue: 8, confidence: 84 },
+  { name: 'Anti-Fraud Detection (Tax Evasion AI)', category: 'Fraud Prevention', savings: 11_000_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 16, confidence: 78 },
 ];
 
 const brReceitaCurrentStack: CurrentTool[] = [
@@ -2630,10 +2641,10 @@ const brReceitaCurrentStack: CurrentTool[] = [
 ];
 
 const brReceitaLicenses: License[] = [
-  { vendor: 'SAP FICO Suite', totalLicenses: 840, active90d: 620, inactive: 220, annualWaste: 2_038_000, action: 'Reclaim 220 inactive seats and consolidate to S/4HANA Finance', costPerLicense: 1_500, department: 'Ministry of Finance', lastAuditDate: '2026-01-15', trend: [78, 74, 72, 70, 68, 74], complianceRisk: false },
-  { vendor: 'Oracle BI Enterprise', totalLicenses: 320, active90d: 180, inactive: 140, annualWaste: 1_211_000, action: 'Migrate 140 seats to open-source Metabase or Superset', costPerLicense: 1_400, department: 'Budget Analytics Division', lastAuditDate: '2025-12-20', trend: [72, 66, 60, 56, 54, 56], complianceRisk: true },
-  { vendor: 'Microsoft 365 E3', totalLicenses: 4_200, active90d: 3_600, inactive: 600, annualWaste: 667_000, action: 'Downgrade 600 seats to F3 frontline tier', costPerLicense: 180, department: 'All Finance Divisions', lastAuditDate: '2026-02-01', trend: [90, 86, 84, 82, 80, 86], complianceRisk: false },
-  { vendor: 'Customs Legacy Modules', totalLicenses: 28, active90d: 14, inactive: 14, annualWaste: 284_000, action: 'Decommission legacy customs modules — migrate to EU NCTS Phase 5', costPerLicense: 3_286, department: 'Customs IT', lastAuditDate: '2025-11-10', trend: [58, 52, 48, 44, 42, 50], complianceRisk: true },
+  { vendor: 'SAP FICO Suite', totalLicenses: 840, active90d: 620, inactive: 220, annualWaste: 20_380_000, action: 'Reclaim 220 inactive seats and consolidate to S/4HANA Finance', costPerLicense: 1_500, department: 'Ministry of Finance', lastAuditDate: '2026-01-15', trend: [78, 74, 72, 70, 68, 74], complianceRisk: false },
+  { vendor: 'Oracle BI Enterprise', totalLicenses: 320, active90d: 180, inactive: 140, annualWaste: 12_110_000, action: 'Migrate 140 seats to open-source Metabase or Superset', costPerLicense: 1_400, department: 'Budget Analytics Division', lastAuditDate: '2025-12-20', trend: [72, 66, 60, 56, 54, 56], complianceRisk: true },
+  { vendor: 'Microsoft 365 E3', totalLicenses: 4_200, active90d: 3_600, inactive: 600, annualWaste: 6_670_000, action: 'Downgrade 600 seats to F3 frontline tier', costPerLicense: 180, department: 'All Finance Divisions', lastAuditDate: '2026-02-01', trend: [90, 86, 84, 82, 80, 86], complianceRisk: false },
+  { vendor: 'Customs Legacy Modules', totalLicenses: 28, active90d: 14, inactive: 14, annualWaste: 2_840_000, action: 'Decommission legacy customs modules — migrate to EU NCTS Phase 5', costPerLicense: 3_286, department: 'Customs IT', lastAuditDate: '2025-11-10', trend: [58, 52, 48, 44, 42, 50], complianceRisk: true },
 ];
 
 const brReceitaWorkflowSummary = {
@@ -2641,17 +2652,17 @@ const brReceitaWorkflowSummary = {
   fullyAutomatable: 28,
   humanInLoop: 22,
   humanRequired: 14,
-  currentLaborSpend: 62_000_000,
-  potentialSavings: 9_600_000,
+  currentLaborSpend: 620_000_000,
+  potentialSavings: 96_000_000,
 };
 
 const brReceitaRoiSummary = {
-  techStackSavings: 6_200_000,
-  workflowAutomation: 9_600_000,
-  licenseRecovery: 4_200_000,
-  implementationCosts: 6_000_000,
-  netYear1: 14_000_000,
-  year2Projected: 23_800_000,
+  techStackSavings: 62_000_000,
+  workflowAutomation: 96_000_000,
+  licenseRecovery: 42_000_000,
+  implementationCosts: 60_000_000,
+  netYear1: 140_000_000,
+  year2Projected: 238_000_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -2664,7 +2675,7 @@ const brSusCompanyProfile = {
   employees: 72_000,
   opCos: 0,
   opCoNames: [] as string[],
-  techSpend: '$280M/yr',
+  techSpend: '$2.8B/yr',
   aiReadinessScore: 37,
   holdingPeriod: 'Federal agency — 215M beneficiaries, 6,000+ hospitals',
   ebitdaMargin: 'N/A',
@@ -2680,16 +2691,16 @@ const brSusAiReadinessBreakdown = [
 ];
 
 const brSusKpis = {
-  totalSavings: 18_000_000,
+  totalSavings: 180_000_000,
   techScoreBefore: 37,
   techScoreAfter: 76,
   workflowsAnalyzed: 82,
   automationReady: 32,
-  unusedLicenseWaste: 5_800_000,
-  savingsSparkline: [0, 1_200_000, 2_600_000, 4_200_000, 6_400_000, 8_600_000, 10_300_000, 12_000_000, 13_800_000, 15_400_000, 16_800_000, 18_000_000],
+  unusedLicenseWaste: 58_000_000,
+  savingsSparkline: [0, 12_000_000, 26_000_000, 42_000_000, 64_000_000, 86_000_000, 103_000_000, 120_000_000, 138_000_000, 154_000_000, 168_000_000, 180_000_000],
   scoreSparkline: [37, 41, 44, 48, 52, 56, 60, 64, 67, 71, 74, 76],
   workflowSparkline: [0, 6, 14, 22, 32, 42, 50, 58, 66, 72, 78, 82],
-  licenseSparkline: [5_800_000, 5_300_000, 4_800_000, 4_300_000, 3_700_000, 3_200_000, 2_600_000, 2_100_000, 1_700_000, 1_400_000, 1_100_000, 850_000],
+  licenseSparkline: [58_000_000, 53_000_000, 48_000_000, 43_000_000, 37_000_000, 32_000_000, 26_000_000, 21_000_000, 17_000_000, 14_000_000, 11_000_000, 8_500_000],
   headcountImpactSparkline: [0, -4, -10, -18, -28, -40, -54, -68, -84, -96, -106, -114],
 };
 
@@ -7430,17 +7441,17 @@ const pinnacleRecommendations: Recommendation[] = [
   {
     current: {
       name: 'Manual Prior Authorization',
-      cost: 420_000,
-      users: 6,
+      cost: 2_400_000,
+      users: 340,
       score: 2,
-      description: 'Prior authorization processed manually — staff identifies payer requirements, assembles clinical documentation, and submits via fax (55%) or payer portals (35%). Average 45 minutes per request with 30% initial denial rate. Status tracking via manual follow-up calls with average 3 calls per request. Appeals prepared manually at 2 hours each. Patients wait average 5 business days for authorization.',
+      description: 'Prior authorization processed manually by 340 staff — identifying payer requirements, assembles clinical documentation, and submits via fax (55%) or payer portals (35%). Average 45 minutes per request with 30% initial denial rate. Status tracking via manual follow-up calls with average 3 calls per request. Appeals prepared manually at 2 hours each. Patients wait average 5 business days for authorization.',
     },
     recommended: {
-      name: 'AI Prior Auth Automation',
-      cost: 120_000,
-      description: 'Automated prior authorization with payer-specific rule engine, AI-powered clinical documentation assembly from EHR data, and electronic submission via X12 278 transactions. Real-time status tracking eliminates follow-up calls. Automated appeal generation for denials. Target 85% first-pass approval rate and <24-hour turnaround for standard authorizations.',
+      name: 'Tennr AI Prior Authorization',
+      cost: 1_500_000,
+      description: 'Tennr AI automates end-to-end prior authorization — intelligent document assembly, payer-specific rule matching, and electronic submission. Reduces approval time from 5 days to 4 hours. AI extracts clinical evidence from EHR to build compliant submissions automatically. Real-time status tracking eliminates follow-up calls. Automated appeal generation for denials with 92% overturn rate.',
     },
-    annualSavings: 300_000,
+    annualSavings: 5_500_000,
   },
 ];
 
