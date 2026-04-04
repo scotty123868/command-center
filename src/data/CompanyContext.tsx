@@ -3,14 +3,12 @@ import { useSearchParams } from 'react-router-dom';
 import type { ReactNode } from 'react';
 
 const companies = [
-  { id: 'meridian', name: 'IndustrialsCo', shortName: 'IndustrialsCo', initials: 'IC', industry: 'Railroad & Infrastructure Construction', employees: 2800, opCos: 7, category: 'conglomerate' as const, parentId: '' as string, accentColor: '#4285F4' },
+  { id: 'meridian', name: 'IndustrialsCo', shortName: 'IndustrialsCo', initials: 'IC', industry: 'Railroad & Infrastructure Construction', employees: 2800, opCos: 5, category: 'conglomerate' as const, parentId: '' as string, accentColor: '#4285F4' },
   { id: 'hcc', name: 'IC Construction Corp', shortName: 'IC Construction', initials: 'CC', industry: 'Rail & Highway Construction', employees: 1200, opCos: 1, category: 'company' as const, parentId: 'meridian', accentColor: '#D97706' },
   { id: 'hrsi', name: 'IC Rail Services', shortName: 'IC Rail Svc', initials: 'RS', industry: 'Railroad Maintenance & Equipment', employees: 380, opCos: 1, category: 'company' as const, parentId: 'meridian', accentColor: '#7C3AED' },
   { id: 'hsi', name: 'IC Testing Services', shortName: 'IC Services', initials: 'TS', industry: 'Ultrasonic Rail Testing', employees: 220, opCos: 1, category: 'company' as const, parentId: 'meridian', accentColor: '#2563EB' },
   { id: 'hti', name: 'IC Technologies', shortName: 'IC Technologies', initials: 'TK', industry: 'Signal & PTC Systems', employees: 310, opCos: 1, category: 'company' as const, parentId: 'meridian', accentColor: '#DC2626' },
   { id: 'htsi', name: 'IC Transit Services', shortName: 'IC Transit', initials: 'TR', industry: 'Passenger Rail Operations', employees: 480, opCos: 1, category: 'company' as const, parentId: 'meridian', accentColor: '#0D9488' },
-  { id: 'he', name: 'IC Energy', shortName: 'IC Energy', initials: 'EN', industry: 'Energy Infrastructure', employees: 120, opCos: 1, category: 'company' as const, parentId: 'meridian', accentColor: '#EA580C' },
-  { id: 'gg', name: 'IC Environmental LLC', shortName: 'IC Environmental', initials: 'EV', industry: 'Environmental Services', employees: 90, opCos: 1, category: 'company' as const, parentId: 'meridian', accentColor: '#059669' },
   // ─── Other Demo Companies ───────────────────────────────────────────────
   { id: 'northwood', name: 'Northwood Insurance Group', shortName: 'Northwood Insurance', initials: 'NI', industry: 'Insurance', employees: 10000, opCos: 1, category: 'company' as const, parentId: '', accentColor: '#8B5CF6' },
   { id: 'pinnacle', name: 'Pinnacle Healthcare Systems', shortName: 'Pinnacle Healthcare', initials: 'PH', industry: 'Healthcare Services', employees: 13000, opCos: 1, category: 'company' as const, parentId: '', accentColor: '#EC4899' },

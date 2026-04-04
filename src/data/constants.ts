@@ -4,8 +4,8 @@ export const companyProfile = {
   name: 'IndustrialsCo',
   industry: 'Railroad & Infrastructure Construction',
   employees: 2_800,
-  opCos: 7,
-  opCoNames: ['IC Construction Corp (HCC)', 'IC Rail Services (HRSI)', 'IC Services (HSI)', 'IC Technologies (HTI)', 'IC Transit Services (HTSI)', 'IC Energy', 'IC Environmental LLC'],
+  opCos: 5,
+  opCoNames: ['IC Construction Corp (HCC)', 'IC Rail Services (HRSI)', 'IC Services (HSI)', 'IC Technologies (HTI)', 'IC Transit Services (HTSI)'],
   techSpend: '$14.2M/yr',
   aiReadinessScore: 52,
   holdingPeriod: 'Founded 1969, 57 years in operation — 140-person technology group, TX/AZ data centers',
@@ -2756,12 +2756,12 @@ const brSusRoadmapPhases = [
 ];
 
 const brSusTopOpportunities: Opportunity[] = [
-  { name: 'DATASUS Health Records AI (215M Patients)', category: 'Health IT', savings: 6_200_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 14, confidence: 86 },
-  { name: 'SUS Billing & Claims Automation', category: 'Healthcare Finance', savings: 4_100_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 88 },
-  { name: 'Patient Referral & Bed Management AI', category: 'Healthcare Operations', savings: 2_600_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 82 },
-  { name: 'Drug Distribution Fraud Detection', category: 'Pharmaceutical', savings: 2_100_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 90 },
-  { name: 'Epidemiological Surveillance AI', category: 'Public Health', savings: 1_600_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 16, confidence: 76 },
-  { name: 'Hospital Resource Optimization (6K Facilities)', category: 'Healthcare Operations', savings: 1_400_000, effort: 'High', status: 'identified', priority: 6, timeToValue: 18, confidence: 74 },
+  { name: 'DATASUS Health Records AI (215M Patients)', category: 'Health IT', savings: 62_000_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 14, confidence: 86 },
+  { name: 'SUS Billing & Claims Automation', category: 'Healthcare Finance', savings: 41_000_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 88 },
+  { name: 'Patient Referral & Bed Management AI', category: 'Healthcare Operations', savings: 26_000_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 82 },
+  { name: 'Drug Distribution Fraud Detection', category: 'Pharmaceutical', savings: 21_000_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 90 },
+  { name: 'Epidemiological Surveillance AI', category: 'Public Health', savings: 16_000_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 16, confidence: 76 },
+  { name: 'Hospital Resource Optimization (6K Facilities)', category: 'Healthcare Operations', savings: 14_000_000, effort: 'High', status: 'identified', priority: 6, timeToValue: 18, confidence: 74 },
 ];
 
 const brSusCurrentStack: CurrentTool[] = [
@@ -2774,10 +2774,10 @@ const brSusCurrentStack: CurrentTool[] = [
 ];
 
 const brSusLicenses: License[] = [
-  { vendor: 'Social Welfare Legacy Suite', totalLicenses: 3_400, active90d: 2_200, inactive: 1_200, annualWaste: 2_648_000, action: 'Replace legacy system with modern case management platform', costPerLicense: 350, department: 'Social Welfare Division', lastAuditDate: '2025-12-01', trend: [72, 68, 64, 62, 60, 65], complianceRisk: true },
-  { vendor: 'Health Insurance Fund IS', totalLicenses: 1_200, active90d: 880, inactive: 320, annualWaste: 1_614_000, action: 'Consolidate 320 inactive seats, modernize claims processing', costPerLicense: 800, department: 'Health Insurance Fund', lastAuditDate: '2026-01-20', trend: [80, 76, 74, 72, 70, 73], complianceRisk: false },
-  { vendor: 'Microsoft 365 E3', totalLicenses: 8_400, active90d: 7_200, inactive: 1_200, annualWaste: 908_000, action: 'Downgrade 1,200 inactive seats to F1 tier', costPerLicense: 120, department: 'All Social Affairs', lastAuditDate: '2026-02-10', trend: [88, 86, 84, 82, 80, 86], complianceRisk: false },
-  { vendor: 'Pension Registry Modules', totalLicenses: 420, active90d: 320, inactive: 100, annualWaste: 630_000, action: 'Retire 100 unused modules, migrate to unified benefits platform', costPerLicense: 1_000, department: 'Pension Division', lastAuditDate: '2025-11-15', trend: [82, 78, 76, 74, 72, 76], complianceRisk: false },
+  { vendor: 'Social Welfare Legacy Suite', totalLicenses: 3_400, active90d: 2_200, inactive: 1_200, annualWaste: 26_480_000, action: 'Replace legacy system with modern case management platform', costPerLicense: 350, department: 'Social Welfare Division', lastAuditDate: '2025-12-01', trend: [72, 68, 64, 62, 60, 65], complianceRisk: true },
+  { vendor: 'Health Insurance Fund IS', totalLicenses: 1_200, active90d: 880, inactive: 320, annualWaste: 16_140_000, action: 'Consolidate 320 inactive seats, modernize claims processing', costPerLicense: 800, department: 'Health Insurance Fund', lastAuditDate: '2026-01-20', trend: [80, 76, 74, 72, 70, 73], complianceRisk: false },
+  { vendor: 'Microsoft 365 E3', totalLicenses: 8_400, active90d: 7_200, inactive: 1_200, annualWaste: 9_080_000, action: 'Downgrade 1,200 inactive seats to F1 tier', costPerLicense: 120, department: 'All Social Affairs', lastAuditDate: '2026-02-10', trend: [88, 86, 84, 82, 80, 86], complianceRisk: false },
+  { vendor: 'Pension Registry Modules', totalLicenses: 420, active90d: 320, inactive: 100, annualWaste: 6_300_000, action: 'Retire 100 unused modules, migrate to unified benefits platform', costPerLicense: 1_000, department: 'Pension Division', lastAuditDate: '2025-11-15', trend: [82, 78, 76, 74, 72, 76], complianceRisk: false },
 ];
 
 const brSusWorkflowSummary = {
@@ -2785,17 +2785,17 @@ const brSusWorkflowSummary = {
   fullyAutomatable: 32,
   humanInLoop: 30,
   humanRequired: 20,
-  currentLaborSpend: 96_000_000,
-  potentialSavings: 12_400_000,
+  currentLaborSpend: 960_000_000,
+  potentialSavings: 124_000_000,
 };
 
 const brSusRoiSummary = {
-  techStackSavings: 8_400_000,
-  workflowAutomation: 12_400_000,
-  licenseRecovery: 5_800_000,
-  implementationCosts: 8_600_000,
-  netYear1: 18_000_000,
-  year2Projected: 30_600_000,
+  techStackSavings: 84_000_000,
+  workflowAutomation: 124_000_000,
+  licenseRecovery: 58_000_000,
+  implementationCosts: 86_000_000,
+  netYear1: 180_000_000,
+  year2Projected: 306_000_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -2808,7 +2808,7 @@ const brBndesCompanyProfile = {
   employees: 28_000,
   opCos: 0,
   opCoNames: [] as string[],
-  techSpend: '$92M/yr',
+  techSpend: '$920M/yr',
   aiReadinessScore: 52,
   holdingPeriod: 'Federal development bank — $80B annual disbursement',
   ebitdaMargin: 'N/A',
@@ -2824,16 +2824,16 @@ const brBndesAiReadinessBreakdown = [
 ];
 
 const brBndesKpis = {
-  totalSavings: 10_000_000,
+  totalSavings: 100_000_000,
   techScoreBefore: 52,
   techScoreAfter: 86,
   workflowsAnalyzed: 48,
   automationReady: 16,
-  unusedLicenseWaste: 3_200_000,
-  savingsSparkline: [0, 640_000, 1_400_000, 2_400_000, 3_600_000, 4_800_000, 5_700_000, 6_700_000, 7_600_000, 8_600_000, 9_400_000, 10_000_000],
+  unusedLicenseWaste: 32_000_000,
+  savingsSparkline: [0, 6_400_000, 14_000_000, 24_000_000, 36_000_000, 48_000_000, 57_000_000, 67_000_000, 76_000_000, 86_000_000, 94_000_000, 100_000_000],
   scoreSparkline: [52, 55, 58, 62, 66, 70, 73, 76, 79, 82, 84, 86],
   workflowSparkline: [0, 4, 8, 12, 16, 22, 28, 34, 38, 42, 46, 48],
-  licenseSparkline: [3_200_000, 2_900_000, 2_600_000, 2_300_000, 2_000_000, 1_700_000, 1_400_000, 1_200_000, 950_000, 750_000, 600_000, 480_000],
+  licenseSparkline: [32_000_000, 29_000_000, 26_000_000, 23_000_000, 20_000_000, 17_000_000, 14_000_000, 12_000_000, 9_500_000, 7_500_000, 6_000_000, 4_800_000],
   headcountImpactSparkline: [0, -2, -4, -8, -12, -18, -24, -30, -36, -42, -46, -50],
 };
 
@@ -2889,12 +2889,12 @@ const brBndesRoadmapPhases = [
 ];
 
 const brBndesTopOpportunities: Opportunity[] = [
-  { name: 'Credit Analysis AI (Loan Evaluation)', category: 'Development Finance', savings: 3_200_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 8, confidence: 92 },
-  { name: 'ESG Compliance Automation', category: 'Compliance', savings: 2_400_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 12, confidence: 84 },
-  { name: 'Project Monitoring & Disbursement AI', category: 'Operations', savings: 1_800_000, effort: 'Low', status: 'automated', priority: 9, timeToValue: 6, confidence: 94 },
-  { name: 'Risk Assessment AI (Portfolio)', category: 'Risk Management', savings: 1_200_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 14, confidence: 80 },
-  { name: 'Development Impact Analytics', category: 'Analytics', savings: 800_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 82 },
-  { name: 'Infrastructure Project Evaluation AI', category: 'Investment', savings: 600_000, effort: 'High', status: 'identified', priority: 6, timeToValue: 18, confidence: 72 },
+  { name: 'Credit Analysis AI (Loan Evaluation)', category: 'Development Finance', savings: 32_000_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 8, confidence: 92 },
+  { name: 'ESG Compliance Automation', category: 'Compliance', savings: 24_000_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 12, confidence: 84 },
+  { name: 'Project Monitoring & Disbursement AI', category: 'Operations', savings: 18_000_000, effort: 'Low', status: 'automated', priority: 9, timeToValue: 6, confidence: 94 },
+  { name: 'Risk Assessment AI (Portfolio)', category: 'Risk Management', savings: 12_000_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 14, confidence: 80 },
+  { name: 'Development Impact Analytics', category: 'Analytics', savings: 8_000_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 82 },
+  { name: 'Infrastructure Project Evaluation AI', category: 'Investment', savings: 6_000_000, effort: 'High', status: 'identified', priority: 6, timeToValue: 18, confidence: 72 },
 ];
 
 const brBndesCurrentStack: CurrentTool[] = [
@@ -2907,10 +2907,10 @@ const brBndesCurrentStack: CurrentTool[] = [
 ];
 
 const brBndesLicenses: License[] = [
-  { vendor: 'Trade Compliance Suite', totalLicenses: 480, active90d: 320, inactive: 160, annualWaste: 1_463_000, action: 'Replace legacy trade compliance with AI-native solution', costPerLicense: 1_200, department: 'Trade & Customs Division', lastAuditDate: '2025-12-15', trend: [74, 70, 66, 64, 62, 67], complianceRisk: true },
-  { vendor: 'Microsoft 365 E3', totalLicenses: 5_200, active90d: 4_400, inactive: 800, annualWaste: 731_000, action: 'Downgrade 800 inactive to F1 tier', costPerLicense: 120, department: 'All Economic Affairs', lastAuditDate: '2026-02-01', trend: [88, 86, 84, 82, 80, 85], complianceRisk: false },
-  { vendor: 'Salesforce Gov Cloud', totalLicenses: 240, active90d: 180, inactive: 60, annualWaste: 640_000, action: 'Consolidate 60 seats — evaluate migration to open-source CRM', costPerLicense: 1_400, department: 'Investment Agency', lastAuditDate: '2026-01-05', trend: [82, 78, 76, 72, 70, 75], complianceRisk: false },
-  { vendor: 'Data Analytics Platform', totalLicenses: 120, active90d: 84, inactive: 36, annualWaste: 366_000, action: 'Migrate to unified analytics on Metabase', costPerLicense: 1_333, department: 'Economic Analysis', lastAuditDate: '2025-11-20', trend: [76, 72, 68, 66, 64, 70], complianceRisk: false },
+  { vendor: 'Trade Compliance Suite', totalLicenses: 480, active90d: 320, inactive: 160, annualWaste: 14_630_000, action: 'Replace legacy trade compliance with AI-native solution', costPerLicense: 1_200, department: 'Trade & Customs Division', lastAuditDate: '2025-12-15', trend: [74, 70, 66, 64, 62, 67], complianceRisk: true },
+  { vendor: 'Microsoft 365 E3', totalLicenses: 5_200, active90d: 4_400, inactive: 800, annualWaste: 7_310_000, action: 'Downgrade 800 inactive to F1 tier', costPerLicense: 120, department: 'All Economic Affairs', lastAuditDate: '2026-02-01', trend: [88, 86, 84, 82, 80, 85], complianceRisk: false },
+  { vendor: 'Salesforce Gov Cloud', totalLicenses: 240, active90d: 180, inactive: 60, annualWaste: 6_400_000, action: 'Consolidate 60 seats — evaluate migration to open-source CRM', costPerLicense: 1_400, department: 'Investment Agency', lastAuditDate: '2026-01-05', trend: [82, 78, 76, 72, 70, 75], complianceRisk: false },
+  { vendor: 'Data Analytics Platform', totalLicenses: 120, active90d: 84, inactive: 36, annualWaste: 3_660_000, action: 'Migrate to unified analytics on Metabase', costPerLicense: 1_333, department: 'Economic Analysis', lastAuditDate: '2025-11-20', trend: [76, 72, 68, 66, 64, 70], complianceRisk: false },
 ];
 
 const brBndesWorkflowSummary = {
@@ -2918,17 +2918,17 @@ const brBndesWorkflowSummary = {
   fullyAutomatable: 16,
   humanInLoop: 22,
   humanRequired: 10,
-  currentLaborSpend: 46_000_000,
-  potentialSavings: 6_800_000,
+  currentLaborSpend: 460_000_000,
+  potentialSavings: 68_000_000,
 };
 
 const brBndesRoiSummary = {
-  techStackSavings: 4_000_000,
-  workflowAutomation: 6_800_000,
-  licenseRecovery: 3_200_000,
-  implementationCosts: 4_000_000,
-  netYear1: 10_000_000,
-  year2Projected: 17_000_000,
+  techStackSavings: 40_000_000,
+  workflowAutomation: 68_000_000,
+  licenseRecovery: 32_000_000,
+  implementationCosts: 40_000_000,
+  netYear1: 100_000_000,
+  year2Projected: 170_000_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -2941,7 +2941,7 @@ const brSerproCompanyProfile = {
   employees: 42_000,
   opCos: 0,
   opCoNames: [] as string[],
-  techSpend: '$108M/yr',
+  techSpend: '$1.08B/yr',
   aiReadinessScore: 54,
   holdingPeriod: 'Federal IT enterprise — processes CPF/CNPJ for 215M citizens',
   ebitdaMargin: 'N/A',
@@ -2957,16 +2957,16 @@ const brSerproAiReadinessBreakdown = [
 ];
 
 const brSerproKpis = {
-  totalSavings: 8_000_000,
+  totalSavings: 80_000_000,
   techScoreBefore: 54,
   techScoreAfter: 86,
   workflowsAnalyzed: 46,
   automationReady: 18,
-  unusedLicenseWaste: 2_800_000,
-  savingsSparkline: [0, 500_000, 1_100_000, 1_900_000, 2_900_000, 3_800_000, 4_600_000, 5_400_000, 6_100_000, 6_900_000, 7_500_000, 8_000_000],
+  unusedLicenseWaste: 28_000_000,
+  savingsSparkline: [0, 5_000_000, 11_000_000, 19_000_000, 29_000_000, 38_000_000, 46_000_000, 54_000_000, 61_000_000, 69_000_000, 75_000_000, 80_000_000],
   scoreSparkline: [54, 58, 61, 64, 67, 70, 73, 76, 79, 82, 84, 86],
   workflowSparkline: [0, 4, 8, 12, 16, 20, 26, 32, 36, 40, 44, 46],
-  licenseSparkline: [2_800_000, 2_500_000, 2_200_000, 2_000_000, 1_700_000, 1_400_000, 1_200_000, 1_000_000, 800_000, 650_000, 520_000, 400_000],
+  licenseSparkline: [28_000_000, 25_000_000, 22_000_000, 20_000_000, 17_000_000, 14_000_000, 12_000_000, 10_000_000, 8_000_000, 6_500_000, 5_200_000, 4_000_000],
   headcountImpactSparkline: [0, -2, -5, -10, -16, -22, -28, -36, -42, -48, -54, -58],
 };
 
@@ -3022,12 +3022,12 @@ const brSerproRoadmapPhases = [
 ];
 
 const brSerproTopOpportunities: Opportunity[] = [
-  { name: 'Mainframe-to-Cloud Migration AI', category: 'Infrastructure', savings: 2_600_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 14, confidence: 82 },
-  { name: 'CPF/CNPJ Registry Automation', category: 'Data Processing', savings: 1_800_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 88 },
-  { name: 'Government Cloud Platform AI', category: 'Cloud Infrastructure', savings: 1_400_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 8, confidence: 90 },
-  { name: 'Cybersecurity AI (SOC Automation)', category: 'Security', savings: 1_000_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 84 },
-  { name: 'Data Center Optimization AI', category: 'Infrastructure', savings: 700_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 14, confidence: 80 },
-  { name: 'API Gateway & Integration Platform', category: 'Platform', savings: 500_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 16, confidence: 76 },
+  { name: 'Mainframe-to-Cloud Migration AI', category: 'Infrastructure', savings: 26_000_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 14, confidence: 82 },
+  { name: 'CPF/CNPJ Registry Automation', category: 'Data Processing', savings: 18_000_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 88 },
+  { name: 'Government Cloud Platform AI', category: 'Cloud Infrastructure', savings: 14_000_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 8, confidence: 90 },
+  { name: 'Cybersecurity AI (SOC Automation)', category: 'Security', savings: 10_000_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 84 },
+  { name: 'Data Center Optimization AI', category: 'Infrastructure', savings: 7_000_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 14, confidence: 80 },
+  { name: 'API Gateway & Integration Platform', category: 'Platform', savings: 5_000_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 16, confidence: 76 },
 ];
 
 const brSerproCurrentStack: CurrentTool[] = [
@@ -3040,10 +3040,10 @@ const brSerproCurrentStack: CurrentTool[] = [
 ];
 
 const brSerproLicenses: License[] = [
-  { vendor: 'Splunk Enterprise', totalLicenses: 120, active90d: 88, inactive: 32, annualWaste: 1_179_000, action: 'Consolidate 32 inactive seats, evaluate AI-native SIEM alternatives', costPerLicense: 5_000, department: 'SOC / Threat Detection', lastAuditDate: '2026-01-10', trend: [80, 76, 74, 72, 70, 73], complianceRisk: false },
-  { vendor: 'Tenable.io', totalLicenses: 80, active90d: 56, inactive: 24, annualWaste: 707_000, action: 'Replace 24 legacy scanner licenses with AI-powered continuous scanning', costPerLicense: 4_000, department: 'Vulnerability Management', lastAuditDate: '2025-12-20', trend: [78, 72, 68, 66, 64, 70], complianceRisk: false },
-  { vendor: 'Palo Alto XSOAR', totalLicenses: 60, active90d: 48, inactive: 12, annualWaste: 531_000, action: 'Optimize playbook coverage to utilize all 60 licenses effectively', costPerLicense: 6_000, department: 'Incident Response', lastAuditDate: '2026-01-25', trend: [86, 82, 80, 78, 76, 80], complianceRisk: false },
-  { vendor: 'CrowdStrike Falcon', totalLicenses: 14_000, active90d: 12_800, inactive: 1_200, annualWaste: 383_000, action: 'Reclaim 1,200 seats from decommissioned endpoints', costPerLicense: 43, department: 'All Government Endpoints', lastAuditDate: '2026-02-05', trend: [94, 92, 90, 88, 86, 91], complianceRisk: false },
+  { vendor: 'Splunk Enterprise', totalLicenses: 120, active90d: 88, inactive: 32, annualWaste: 11_790_000, action: 'Consolidate 32 inactive seats, evaluate AI-native SIEM alternatives', costPerLicense: 5_000, department: 'SOC / Threat Detection', lastAuditDate: '2026-01-10', trend: [80, 76, 74, 72, 70, 73], complianceRisk: false },
+  { vendor: 'Tenable.io', totalLicenses: 80, active90d: 56, inactive: 24, annualWaste: 7_070_000, action: 'Replace 24 legacy scanner licenses with AI-powered continuous scanning', costPerLicense: 4_000, department: 'Vulnerability Management', lastAuditDate: '2025-12-20', trend: [78, 72, 68, 66, 64, 70], complianceRisk: false },
+  { vendor: 'Palo Alto XSOAR', totalLicenses: 60, active90d: 48, inactive: 12, annualWaste: 5_310_000, action: 'Optimize playbook coverage to utilize all 60 licenses effectively', costPerLicense: 6_000, department: 'Incident Response', lastAuditDate: '2026-01-25', trend: [86, 82, 80, 78, 76, 80], complianceRisk: false },
+  { vendor: 'CrowdStrike Falcon', totalLicenses: 14_000, active90d: 12_800, inactive: 1_200, annualWaste: 3_830_000, action: 'Reclaim 1,200 seats from decommissioned endpoints', costPerLicense: 43, department: 'All Government Endpoints', lastAuditDate: '2026-02-05', trend: [94, 92, 90, 88, 86, 91], complianceRisk: false },
 ];
 
 const brSerproWorkflowSummary = {
@@ -3051,17 +3051,17 @@ const brSerproWorkflowSummary = {
   fullyAutomatable: 18,
   humanInLoop: 18,
   humanRequired: 10,
-  currentLaborSpend: 68_000_000,
-  potentialSavings: 5_400_000,
+  currentLaborSpend: 680_000_000,
+  potentialSavings: 54_000_000,
 };
 
 const brSerproRoiSummary = {
-  techStackSavings: 3_400_000,
-  workflowAutomation: 5_400_000,
-  licenseRecovery: 2_800_000,
-  implementationCosts: 3_600_000,
-  netYear1: 8_000_000,
-  year2Projected: 13_600_000,
+  techStackSavings: 34_000_000,
+  workflowAutomation: 54_000_000,
+  licenseRecovery: 28_000_000,
+  implementationCosts: 36_000_000,
+  netYear1: 80_000_000,
+  year2Projected: 136_000_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -3074,7 +3074,7 @@ const brInssCompanyProfile = {
   employees: 36_000,
   opCos: 0,
   opCoNames: [] as string[],
-  techSpend: '$120M/yr',
+  techSpend: '$1.2B/yr',
   aiReadinessScore: 41,
   holdingPeriod: 'Federal agency — 38M beneficiaries, pension & disability',
   ebitdaMargin: 'N/A',
@@ -3090,16 +3090,16 @@ const brInssAiReadinessBreakdown = [
 ];
 
 const brInssKpis = {
-  totalSavings: 8_000_000,
+  totalSavings: 80_000_000,
   techScoreBefore: 41,
   techScoreAfter: 78,
   workflowsAnalyzed: 56,
   automationReady: 22,
-  unusedLicenseWaste: 2_800_000,
-  savingsSparkline: [0, 520_000, 1_100_000, 1_900_000, 2_900_000, 3_800_000, 4_600_000, 5_400_000, 6_100_000, 6_900_000, 7_500_000, 8_000_000],
+  unusedLicenseWaste: 28_000_000,
+  savingsSparkline: [0, 5_200_000, 11_000_000, 19_000_000, 29_000_000, 38_000_000, 46_000_000, 54_000_000, 61_000_000, 69_000_000, 75_000_000, 80_000_000],
   scoreSparkline: [41, 45, 48, 52, 56, 60, 63, 66, 70, 73, 76, 78],
   workflowSparkline: [0, 4, 10, 16, 22, 28, 34, 40, 44, 48, 52, 56],
-  licenseSparkline: [2_800_000, 2_560_000, 2_300_000, 2_050_000, 1_780_000, 1_500_000, 1_240_000, 1_000_000, 800_000, 640_000, 500_000, 400_000],
+  licenseSparkline: [28_000_000, 25_600_000, 23_000_000, 20_500_000, 17_800_000, 15_000_000, 12_400_000, 10_000_000, 8_000_000, 6_400_000, 5_000_000, 4_000_000],
   headcountImpactSparkline: [0, -2, -6, -12, -18, -26, -34, -42, -50, -58, -64, -70],
 };
 
@@ -3155,12 +3155,12 @@ const brInssRoadmapPhases = [
 ];
 
 const brInssTopOpportunities: Opportunity[] = [
-  { name: 'AI Pension Calculation (38M Beneficiaries)', category: 'Pension Processing', savings: 2_800_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 12, confidence: 88 },
-  { name: 'Benefit Fraud Detection Engine', category: 'Fraud Prevention', savings: 1_600_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 86 },
-  { name: 'Disability Claims AI Assessment', category: 'Claims Processing', savings: 1_200_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 14, confidence: 80 },
-  { name: 'Citizen Portal AI Assistant', category: 'Citizen Services', savings: 900_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 84 },
-  { name: 'Appeals Processing Automation', category: 'Legal Processing', savings: 800_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 12, confidence: 78 },
-  { name: 'Actuarial Forecasting AI', category: 'Risk Analytics', savings: 700_000, effort: 'High', status: 'identified', priority: 6, timeToValue: 16, confidence: 74 },
+  { name: 'AI Pension Calculation (38M Beneficiaries)', category: 'Pension Processing', savings: 28_000_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 12, confidence: 88 },
+  { name: 'Benefit Fraud Detection Engine', category: 'Fraud Prevention', savings: 16_000_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 86 },
+  { name: 'Disability Claims AI Assessment', category: 'Claims Processing', savings: 12_000_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 14, confidence: 80 },
+  { name: 'Citizen Portal AI Assistant', category: 'Citizen Services', savings: 9_000_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 84 },
+  { name: 'Appeals Processing Automation', category: 'Legal Processing', savings: 8_000_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 12, confidence: 78 },
+  { name: 'Actuarial Forecasting AI', category: 'Risk Analytics', savings: 7_000_000, effort: 'High', status: 'identified', priority: 6, timeToValue: 16, confidence: 74 },
 ];
 
 const brInssCurrentStack: CurrentTool[] = [
@@ -3172,11 +3172,11 @@ const brInssCurrentStack: CurrentTool[] = [
 ];
 
 const brInssLicenses: License[] = [
-  { vendor: 'CNIS COBOL Mainframe', totalLicenses: 1_200, active90d: 800, inactive: 400, annualWaste: 1_200_000, action: 'Migrate 400 inactive workloads to modern microservices platform', costPerLicense: 3_000, department: 'IT Operations', lastAuditDate: '2026-01-15', trend: [72, 68, 64, 60, 58, 67], complianceRisk: true },
-  { vendor: 'Oracle Database (SABI)', totalLicenses: 480, active90d: 320, inactive: 160, annualWaste: 640_000, action: 'Migrate 160 inactive instances to PostgreSQL', costPerLicense: 4_000, department: 'Benefit Processing', lastAuditDate: '2025-12-20', trend: [74, 68, 64, 60, 58, 67], complianceRisk: true },
-  { vendor: 'Microsoft 365 E3', totalLicenses: 12_000, active90d: 9_600, inactive: 2_400, annualWaste: 432_000, action: 'Downgrade 2,400 inactive seats to F1 tier', costPerLicense: 180, department: 'All INSS Offices', lastAuditDate: '2026-02-01', trend: [86, 82, 80, 78, 76, 80], complianceRisk: false },
-  { vendor: 'Medical Evaluation Modules', totalLicenses: 320, active90d: 200, inactive: 120, annualWaste: 360_000, action: 'Consolidate 120 unused modules, replace with AI assessment tools', costPerLicense: 3_000, department: 'Medical Board', lastAuditDate: '2025-11-10', trend: [68, 62, 58, 54, 52, 62], complianceRisk: false },
-  { vendor: 'Document Management System', totalLicenses: 600, active90d: 420, inactive: 180, annualWaste: 168_000, action: 'Migrate to unified digital document platform with AI OCR', costPerLicense: 933, department: 'Claims Processing', lastAuditDate: '2026-01-20', trend: [76, 72, 70, 68, 66, 70], complianceRisk: false },
+  { vendor: 'CNIS COBOL Mainframe', totalLicenses: 1_200, active90d: 800, inactive: 400, annualWaste: 12_000_000, action: 'Migrate 400 inactive workloads to modern microservices platform', costPerLicense: 3_000, department: 'IT Operations', lastAuditDate: '2026-01-15', trend: [72, 68, 64, 60, 58, 67], complianceRisk: true },
+  { vendor: 'Oracle Database (SABI)', totalLicenses: 480, active90d: 320, inactive: 160, annualWaste: 6_400_000, action: 'Migrate 160 inactive instances to PostgreSQL', costPerLicense: 4_000, department: 'Benefit Processing', lastAuditDate: '2025-12-20', trend: [74, 68, 64, 60, 58, 67], complianceRisk: true },
+  { vendor: 'Microsoft 365 E3', totalLicenses: 12_000, active90d: 9_600, inactive: 2_400, annualWaste: 4_320_000, action: 'Downgrade 2,400 inactive seats to F1 tier', costPerLicense: 180, department: 'All INSS Offices', lastAuditDate: '2026-02-01', trend: [86, 82, 80, 78, 76, 80], complianceRisk: false },
+  { vendor: 'Medical Evaluation Modules', totalLicenses: 320, active90d: 200, inactive: 120, annualWaste: 3_600_000, action: 'Consolidate 120 unused modules, replace with AI assessment tools', costPerLicense: 3_000, department: 'Medical Board', lastAuditDate: '2025-11-10', trend: [68, 62, 58, 54, 52, 62], complianceRisk: false },
+  { vendor: 'Document Management System', totalLicenses: 600, active90d: 420, inactive: 180, annualWaste: 1_680_000, action: 'Migrate to unified digital document platform with AI OCR', costPerLicense: 933, department: 'Claims Processing', lastAuditDate: '2026-01-20', trend: [76, 72, 70, 68, 66, 70], complianceRisk: false },
 ];
 
 const brInssWorkflowSummary = {
@@ -3184,17 +3184,17 @@ const brInssWorkflowSummary = {
   fullyAutomatable: 22,
   humanInLoop: 20,
   humanRequired: 14,
-  currentLaborSpend: 72_000_000,
-  potentialSavings: 5_200_000,
+  currentLaborSpend: 720_000_000,
+  potentialSavings: 52_000_000,
 };
 
 const brInssRoiSummary = {
-  techStackSavings: 3_600_000,
-  workflowAutomation: 5_200_000,
-  licenseRecovery: 2_800_000,
-  implementationCosts: 3_600_000,
-  netYear1: 8_000_000,
-  year2Projected: 13_600_000,
+  techStackSavings: 36_000_000,
+  workflowAutomation: 52_000_000,
+  licenseRecovery: 28_000_000,
+  implementationCosts: 36_000_000,
+  netYear1: 80_000_000,
+  year2Projected: 136_000_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -3207,7 +3207,7 @@ const brDatasusCompanyProfile = {
   employees: 24_000,
   opCos: 0,
   opCoNames: [] as string[],
-  techSpend: '$96M/yr',
+  techSpend: '$960M/yr',
   aiReadinessScore: 43,
   holdingPeriod: 'Federal agency — health data for 215M citizens, 6,000+ facilities',
   ebitdaMargin: 'N/A',
@@ -3223,16 +3223,16 @@ const brDatasusAiReadinessBreakdown = [
 ];
 
 const brDatasusKpis = {
-  totalSavings: 6_000_000,
+  totalSavings: 60_000_000,
   techScoreBefore: 43,
   techScoreAfter: 80,
   workflowsAnalyzed: 42,
   automationReady: 16,
-  unusedLicenseWaste: 2_200_000,
-  savingsSparkline: [0, 380_000, 840_000, 1_400_000, 2_200_000, 2_900_000, 3_500_000, 4_000_000, 4_600_000, 5_200_000, 5_600_000, 6_000_000],
+  unusedLicenseWaste: 22_000_000,
+  savingsSparkline: [0, 3_800_000, 8_400_000, 14_000_000, 22_000_000, 29_000_000, 35_000_000, 40_000_000, 46_000_000, 52_000_000, 56_000_000, 60_000_000],
   scoreSparkline: [43, 47, 50, 54, 58, 62, 66, 69, 72, 75, 78, 80],
   workflowSparkline: [0, 3, 7, 12, 16, 20, 26, 30, 34, 38, 40, 42],
-  licenseSparkline: [2_200_000, 2_000_000, 1_800_000, 1_600_000, 1_400_000, 1_200_000, 1_000_000, 800_000, 640_000, 500_000, 400_000, 320_000],
+  licenseSparkline: [22_000_000, 20_000_000, 18_000_000, 16_000_000, 14_000_000, 12_000_000, 10_000_000, 8_000_000, 6_400_000, 5_000_000, 4_000_000, 3_200_000],
   headcountImpactSparkline: [0, -1, -4, -8, -14, -20, -26, -32, -38, -44, -48, -52],
 };
 
@@ -3288,12 +3288,12 @@ const brDatasusRoadmapPhases = [
 ];
 
 const brDatasusTopOpportunities: Opportunity[] = [
-  { name: 'Epidemiological Surveillance AI', category: 'Public Health', savings: 1_800_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 14, confidence: 84 },
-  { name: 'Health Data Warehouse Modernization', category: 'Data Infrastructure', savings: 1_400_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 16, confidence: 80 },
-  { name: 'Hospital Performance Analytics', category: 'Healthcare Operations', savings: 1_000_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 10, confidence: 86 },
-  { name: 'Drug Supply Chain Prediction', category: 'Pharmaceutical', savings: 800_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 88 },
-  { name: 'Patient Record Deduplication AI', category: 'Data Quality', savings: 600_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 12, confidence: 82 },
-  { name: 'Automated Health Reporting', category: 'Compliance', savings: 400_000, effort: 'Low', status: 'identified', priority: 6, timeToValue: 6, confidence: 90 },
+  { name: 'Epidemiological Surveillance AI', category: 'Public Health', savings: 18_000_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 14, confidence: 84 },
+  { name: 'Health Data Warehouse Modernization', category: 'Data Infrastructure', savings: 14_000_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 16, confidence: 80 },
+  { name: 'Hospital Performance Analytics', category: 'Healthcare Operations', savings: 10_000_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 10, confidence: 86 },
+  { name: 'Drug Supply Chain Prediction', category: 'Pharmaceutical', savings: 8_000_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 88 },
+  { name: 'Patient Record Deduplication AI', category: 'Data Quality', savings: 6_000_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 12, confidence: 82 },
+  { name: 'Automated Health Reporting', category: 'Compliance', savings: 4_000_000, effort: 'Low', status: 'identified', priority: 6, timeToValue: 6, confidence: 90 },
 ];
 
 const brDatasusCurrentStack: CurrentTool[] = [
@@ -3305,11 +3305,11 @@ const brDatasusCurrentStack: CurrentTool[] = [
 ];
 
 const brDatasusLicenses: License[] = [
-  { vendor: 'Oracle Database Enterprise', totalLicenses: 360, active90d: 220, inactive: 140, annualWaste: 840_000, action: 'Migrate 140 instances to PostgreSQL — Oracle elimination program', costPerLicense: 6_000, department: 'Data Warehouse', lastAuditDate: '2025-12-15', trend: [70, 64, 60, 56, 54, 61], complianceRisk: true },
-  { vendor: 'Legacy Health Modules', totalLicenses: 480, active90d: 300, inactive: 180, annualWaste: 540_000, action: 'Decommission 180 legacy modules — replace with modern FHIR-based systems', costPerLicense: 3_000, department: 'Health IT', lastAuditDate: '2025-11-01', trend: [66, 60, 56, 52, 50, 62], complianceRisk: true },
-  { vendor: 'Microsoft 365 E3', totalLicenses: 8_000, active90d: 6_400, inactive: 1_600, annualWaste: 288_000, action: 'Downgrade 1,600 inactive seats to F1 tier', costPerLicense: 180, department: 'All DATASUS', lastAuditDate: '2026-02-05', trend: [86, 82, 80, 78, 76, 80], complianceRisk: false },
-  { vendor: 'BI Reporting Tools', totalLicenses: 240, active90d: 160, inactive: 80, annualWaste: 240_000, action: 'Migrate 80 seats to open-source Metabase for health analytics', costPerLicense: 3_000, department: 'Epidemiology', lastAuditDate: '2026-01-10', trend: [72, 68, 64, 62, 60, 67], complianceRisk: false },
-  { vendor: 'GIS Mapping Software', totalLicenses: 120, active90d: 76, inactive: 44, annualWaste: 292_000, action: 'Consolidate to open-source QGIS for health geospatial analysis', costPerLicense: 6_636, department: 'Surveillance', lastAuditDate: '2025-12-20', trend: [74, 68, 64, 60, 58, 63], complianceRisk: false },
+  { vendor: 'Oracle Database Enterprise', totalLicenses: 360, active90d: 220, inactive: 140, annualWaste: 8_400_000, action: 'Migrate 140 instances to PostgreSQL — Oracle elimination program', costPerLicense: 6_000, department: 'Data Warehouse', lastAuditDate: '2025-12-15', trend: [70, 64, 60, 56, 54, 61], complianceRisk: true },
+  { vendor: 'Legacy Health Modules', totalLicenses: 480, active90d: 300, inactive: 180, annualWaste: 5_400_000, action: 'Decommission 180 legacy modules — replace with modern FHIR-based systems', costPerLicense: 3_000, department: 'Health IT', lastAuditDate: '2025-11-01', trend: [66, 60, 56, 52, 50, 62], complianceRisk: true },
+  { vendor: 'Microsoft 365 E3', totalLicenses: 8_000, active90d: 6_400, inactive: 1_600, annualWaste: 2_880_000, action: 'Downgrade 1,600 inactive seats to F1 tier', costPerLicense: 180, department: 'All DATASUS', lastAuditDate: '2026-02-05', trend: [86, 82, 80, 78, 76, 80], complianceRisk: false },
+  { vendor: 'BI Reporting Tools', totalLicenses: 240, active90d: 160, inactive: 80, annualWaste: 2_400_000, action: 'Migrate 80 seats to open-source Metabase for health analytics', costPerLicense: 3_000, department: 'Epidemiology', lastAuditDate: '2026-01-10', trend: [72, 68, 64, 62, 60, 67], complianceRisk: false },
+  { vendor: 'GIS Mapping Software', totalLicenses: 120, active90d: 76, inactive: 44, annualWaste: 2_920_000, action: 'Consolidate to open-source QGIS for health geospatial analysis', costPerLicense: 6_636, department: 'Surveillance', lastAuditDate: '2025-12-20', trend: [74, 68, 64, 60, 58, 63], complianceRisk: false },
 ];
 
 const brDatasusWorkflowSummary = {
@@ -3317,17 +3317,17 @@ const brDatasusWorkflowSummary = {
   fullyAutomatable: 16,
   humanInLoop: 16,
   humanRequired: 10,
-  currentLaborSpend: 48_000_000,
-  potentialSavings: 3_800_000,
+  currentLaborSpend: 480_000_000,
+  potentialSavings: 38_000_000,
 };
 
 const brDatasusRoiSummary = {
-  techStackSavings: 2_600_000,
-  workflowAutomation: 3_800_000,
-  licenseRecovery: 2_200_000,
-  implementationCosts: 2_600_000,
-  netYear1: 6_000_000,
-  year2Projected: 10_200_000,
+  techStackSavings: 26_000_000,
+  workflowAutomation: 38_000_000,
+  licenseRecovery: 22_000_000,
+  implementationCosts: 26_000_000,
+  netYear1: 60_000_000,
+  year2Projected: 102_000_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -3340,7 +3340,7 @@ const brDefesaCompanyProfile = {
   employees: 22_000,
   opCos: 0,
   opCoNames: [] as string[],
-  techSpend: '$180M/yr',
+  techSpend: '$1.8B/yr',
   aiReadinessScore: 50,
   holdingPeriod: 'Federal defense — cyber operations, satellite imagery, secure comms',
   ebitdaMargin: 'N/A',
@@ -3356,16 +3356,16 @@ const brDefesaAiReadinessBreakdown = [
 ];
 
 const brDefesaKpis = {
-  totalSavings: 5_000_000,
+  totalSavings: 50_000_000,
   techScoreBefore: 50,
   techScoreAfter: 84,
   workflowsAnalyzed: 34,
   automationReady: 14,
-  unusedLicenseWaste: 1_800_000,
-  savingsSparkline: [0, 320_000, 700_000, 1_200_000, 1_800_000, 2_400_000, 2_900_000, 3_400_000, 3_800_000, 4_300_000, 4_700_000, 5_000_000],
+  unusedLicenseWaste: 18_000_000,
+  savingsSparkline: [0, 3_200_000, 7_000_000, 12_000_000, 18_000_000, 24_000_000, 29_000_000, 34_000_000, 38_000_000, 43_000_000, 47_000_000, 50_000_000],
   scoreSparkline: [50, 53, 56, 60, 64, 68, 71, 74, 77, 80, 82, 84],
   workflowSparkline: [0, 3, 6, 10, 14, 18, 22, 26, 28, 30, 32, 34],
-  licenseSparkline: [1_800_000, 1_640_000, 1_480_000, 1_300_000, 1_140_000, 980_000, 820_000, 680_000, 540_000, 420_000, 340_000, 260_000],
+  licenseSparkline: [18_000_000, 16_400_000, 14_800_000, 13_000_000, 11_400_000, 9_800_000, 8_200_000, 6_800_000, 5_400_000, 4_200_000, 3_400_000, 2_600_000],
   headcountImpactSparkline: [0, -1, -3, -6, -10, -14, -18, -24, -28, -34, -38, -42],
 };
 
@@ -3421,12 +3421,12 @@ const brDefesaRoadmapPhases = [
 ];
 
 const brDefesaTopOpportunities: Opportunity[] = [
-  { name: 'AI Threat Detection (5M Events/Day)', category: 'Cybersecurity', savings: 1_600_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 12, confidence: 86 },
-  { name: 'Satellite Imagery AI Analysis', category: 'Intelligence', savings: 1_200_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 14, confidence: 82 },
-  { name: 'Automated Incident Response', category: 'Cyber Operations', savings: 800_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 10, confidence: 84 },
-  { name: 'Secure Communications AI', category: 'Communications', savings: 600_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 76 },
-  { name: 'Intelligence Fusion Platform', category: 'Intelligence', savings: 500_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 18, confidence: 72 },
-  { name: 'Vulnerability Management AI', category: 'Security', savings: 300_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 8, confidence: 88 },
+  { name: 'AI Threat Detection (5M Events/Day)', category: 'Cybersecurity', savings: 16_000_000, effort: 'High', status: 'in-progress', priority: 10, timeToValue: 12, confidence: 86 },
+  { name: 'Satellite Imagery AI Analysis', category: 'Intelligence', savings: 12_000_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 14, confidence: 82 },
+  { name: 'Automated Incident Response', category: 'Cyber Operations', savings: 8_000_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 10, confidence: 84 },
+  { name: 'Secure Communications AI', category: 'Communications', savings: 6_000_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 76 },
+  { name: 'Intelligence Fusion Platform', category: 'Intelligence', savings: 5_000_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 18, confidence: 72 },
+  { name: 'Vulnerability Management AI', category: 'Security', savings: 3_000_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 8, confidence: 88 },
 ];
 
 const brDefesaCurrentStack: CurrentTool[] = [
@@ -3437,10 +3437,10 @@ const brDefesaCurrentStack: CurrentTool[] = [
 ];
 
 const brDefesaLicenses: License[] = [
-  { vendor: 'Splunk Enterprise Security', totalLicenses: 480, active90d: 360, inactive: 120, annualWaste: 600_000, action: 'Consolidate 120 inactive seats, optimize log ingestion tiers', costPerLicense: 5_000, department: 'Cyber Command SOC', lastAuditDate: '2026-01-10', trend: [80, 76, 74, 72, 70, 75], complianceRisk: false },
-  { vendor: 'Satellite Processing Suite', totalLicenses: 120, active90d: 84, inactive: 36, annualWaste: 432_000, action: 'Replace 36 legacy licenses with AI-native imagery processing', costPerLicense: 12_000, department: 'Imagery Intelligence', lastAuditDate: '2025-12-15', trend: [76, 70, 66, 64, 62, 70], complianceRisk: false },
-  { vendor: 'C4ISR Legacy Modules', totalLicenses: 240, active90d: 160, inactive: 80, annualWaste: 480_000, action: 'Decommission 80 legacy C4ISR modules as modernization proceeds', costPerLicense: 6_000, department: 'Joint Operations', lastAuditDate: '2025-11-20', trend: [72, 66, 62, 58, 56, 67], complianceRisk: true },
-  { vendor: 'CrowdStrike Falcon (Defense)', totalLicenses: 8_000, active90d: 7_200, inactive: 800, annualWaste: 288_000, action: 'Reclaim 800 seats from decommissioned endpoints', costPerLicense: 360, department: 'All Defense Endpoints', lastAuditDate: '2026-02-01', trend: [92, 90, 88, 86, 84, 90], complianceRisk: false },
+  { vendor: 'Splunk Enterprise Security', totalLicenses: 480, active90d: 360, inactive: 120, annualWaste: 6_000_000, action: 'Consolidate 120 inactive seats, optimize log ingestion tiers', costPerLicense: 5_000, department: 'Cyber Command SOC', lastAuditDate: '2026-01-10', trend: [80, 76, 74, 72, 70, 75], complianceRisk: false },
+  { vendor: 'Satellite Processing Suite', totalLicenses: 120, active90d: 84, inactive: 36, annualWaste: 4_320_000, action: 'Replace 36 legacy licenses with AI-native imagery processing', costPerLicense: 12_000, department: 'Imagery Intelligence', lastAuditDate: '2025-12-15', trend: [76, 70, 66, 64, 62, 70], complianceRisk: false },
+  { vendor: 'C4ISR Legacy Modules', totalLicenses: 240, active90d: 160, inactive: 80, annualWaste: 4_800_000, action: 'Decommission 80 legacy C4ISR modules as modernization proceeds', costPerLicense: 6_000, department: 'Joint Operations', lastAuditDate: '2025-11-20', trend: [72, 66, 62, 58, 56, 67], complianceRisk: true },
+  { vendor: 'CrowdStrike Falcon (Defense)', totalLicenses: 8_000, active90d: 7_200, inactive: 800, annualWaste: 2_880_000, action: 'Reclaim 800 seats from decommissioned endpoints', costPerLicense: 360, department: 'All Defense Endpoints', lastAuditDate: '2026-02-01', trend: [92, 90, 88, 86, 84, 90], complianceRisk: false },
 ];
 
 const brDefesaWorkflowSummary = {
@@ -3448,17 +3448,17 @@ const brDefesaWorkflowSummary = {
   fullyAutomatable: 14,
   humanInLoop: 12,
   humanRequired: 8,
-  currentLaborSpend: 58_000_000,
-  potentialSavings: 3_200_000,
+  currentLaborSpend: 580_000_000,
+  potentialSavings: 32_000_000,
 };
 
 const brDefesaRoiSummary = {
-  techStackSavings: 2_200_000,
-  workflowAutomation: 3_200_000,
-  licenseRecovery: 1_800_000,
-  implementationCosts: 2_200_000,
-  netYear1: 5_000_000,
-  year2Projected: 8_500_000,
+  techStackSavings: 22_000_000,
+  workflowAutomation: 32_000_000,
+  licenseRecovery: 18_000_000,
+  implementationCosts: 22_000_000,
+  netYear1: 50_000_000,
+  year2Projected: 85_000_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -3471,7 +3471,7 @@ const brAnatelCompanyProfile = {
   employees: 18_000,
   opCos: 0,
   opCoNames: [] as string[],
-  techSpend: '$64M/yr',
+  techSpend: '$640M/yr',
   aiReadinessScore: 46,
   holdingPeriod: 'Federal regulatory agency — telecom licensing, spectrum allocation, 5G deployment',
   ebitdaMargin: 'N/A',
@@ -3487,16 +3487,16 @@ const brAnatelAiReadinessBreakdown = [
 ];
 
 const brAnatelKpis = {
-  totalSavings: 3_000_000,
+  totalSavings: 30_000_000,
   techScoreBefore: 46,
   techScoreAfter: 82,
   workflowsAnalyzed: 28,
   automationReady: 10,
-  unusedLicenseWaste: 1_200_000,
-  savingsSparkline: [0, 200_000, 420_000, 700_000, 1_100_000, 1_400_000, 1_700_000, 2_000_000, 2_300_000, 2_600_000, 2_800_000, 3_000_000],
+  unusedLicenseWaste: 12_000_000,
+  savingsSparkline: [0, 2_000_000, 4_200_000, 7_000_000, 11_000_000, 14_000_000, 17_000_000, 20_000_000, 23_000_000, 26_000_000, 28_000_000, 30_000_000],
   scoreSparkline: [46, 49, 52, 56, 60, 64, 68, 72, 75, 78, 80, 82],
   workflowSparkline: [0, 2, 5, 8, 10, 14, 18, 20, 22, 24, 26, 28],
-  licenseSparkline: [1_200_000, 1_100_000, 980_000, 860_000, 740_000, 640_000, 540_000, 440_000, 360_000, 280_000, 220_000, 180_000],
+  licenseSparkline: [12_000_000, 11_000_000, 9_800_000, 8_600_000, 7_400_000, 6_400_000, 5_400_000, 4_400_000, 3_600_000, 2_800_000, 2_200_000, 1_800_000],
   headcountImpactSparkline: [0, -1, -2, -4, -6, -8, -12, -16, -18, -22, -24, -26],
 };
 
@@ -3552,12 +3552,12 @@ const brAnatelRoadmapPhases = [
 ];
 
 const brAnatelTopOpportunities: Opportunity[] = [
-  { name: 'Spectrum Monitoring AI (40K Points)', category: 'Spectrum Management', savings: 900_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 10, confidence: 88 },
-  { name: 'Telecom Compliance Automation', category: 'Regulatory', savings: 700_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 8, confidence: 86 },
-  { name: '5G Coverage Planning AI', category: 'Infrastructure', savings: 500_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 14, confidence: 80 },
-  { name: 'Consumer Complaint AI Routing', category: 'Consumer Services', savings: 400_000, effort: 'Low', status: 'identified', priority: 8, timeToValue: 6, confidence: 90 },
-  { name: 'License Processing Automation', category: 'Licensing', savings: 300_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 84 },
-  { name: 'Spectrum Auction Analytics', category: 'Economics', savings: 200_000, effort: 'High', status: 'identified', priority: 6, timeToValue: 16, confidence: 76 },
+  { name: 'Spectrum Monitoring AI (40K Points)', category: 'Spectrum Management', savings: 9_000_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 10, confidence: 88 },
+  { name: 'Telecom Compliance Automation', category: 'Regulatory', savings: 7_000_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 8, confidence: 86 },
+  { name: '5G Coverage Planning AI', category: 'Infrastructure', savings: 5_000_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 14, confidence: 80 },
+  { name: 'Consumer Complaint AI Routing', category: 'Consumer Services', savings: 4_000_000, effort: 'Low', status: 'identified', priority: 8, timeToValue: 6, confidence: 90 },
+  { name: 'License Processing Automation', category: 'Licensing', savings: 3_000_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 84 },
+  { name: 'Spectrum Auction Analytics', category: 'Economics', savings: 2_000_000, effort: 'High', status: 'identified', priority: 6, timeToValue: 16, confidence: 76 },
 ];
 
 const brAnatelCurrentStack: CurrentTool[] = [
@@ -3569,11 +3569,11 @@ const brAnatelCurrentStack: CurrentTool[] = [
 ];
 
 const brAnatelLicenses: License[] = [
-  { vendor: 'Legacy Licensing Platform', totalLicenses: 400, active90d: 280, inactive: 120, annualWaste: 360_000, action: 'Replace legacy licensing with modern AI-native regulatory platform', costPerLicense: 3_000, department: 'Licensing Division', lastAuditDate: '2025-12-15', trend: [76, 70, 66, 64, 62, 70], complianceRisk: true },
-  { vendor: 'Spectrum Analysis Software', totalLicenses: 240, active90d: 180, inactive: 60, annualWaste: 300_000, action: 'Consolidate 60 seats — migrate to AI-integrated spectrum tools', costPerLicense: 5_000, department: 'Spectrum Management', lastAuditDate: '2026-01-10', trend: [80, 76, 74, 72, 70, 75], complianceRisk: false },
-  { vendor: 'Microsoft 365 E3', totalLicenses: 6_000, active90d: 4_800, inactive: 1_200, annualWaste: 216_000, action: 'Downgrade 1,200 inactive seats to F1 tier', costPerLicense: 180, department: 'All ANATEL', lastAuditDate: '2026-02-01', trend: [86, 82, 80, 78, 76, 80], complianceRisk: false },
-  { vendor: 'GIS & Coverage Tools', totalLicenses: 180, active90d: 120, inactive: 60, annualWaste: 180_000, action: 'Migrate 60 seats to open-source QGIS with AI extensions', costPerLicense: 3_000, department: 'Coverage Planning', lastAuditDate: '2025-11-20', trend: [74, 70, 66, 64, 62, 67], complianceRisk: false },
-  { vendor: 'Data Analytics Platform', totalLicenses: 120, active90d: 84, inactive: 36, annualWaste: 144_000, action: 'Consolidate to unified analytics on Metabase', costPerLicense: 4_000, department: 'Market Analysis', lastAuditDate: '2026-01-20', trend: [76, 72, 68, 66, 64, 70], complianceRisk: false },
+  { vendor: 'Legacy Licensing Platform', totalLicenses: 400, active90d: 280, inactive: 120, annualWaste: 3_600_000, action: 'Replace legacy licensing with modern AI-native regulatory platform', costPerLicense: 3_000, department: 'Licensing Division', lastAuditDate: '2025-12-15', trend: [76, 70, 66, 64, 62, 70], complianceRisk: true },
+  { vendor: 'Spectrum Analysis Software', totalLicenses: 240, active90d: 180, inactive: 60, annualWaste: 3_000_000, action: 'Consolidate 60 seats — migrate to AI-integrated spectrum tools', costPerLicense: 5_000, department: 'Spectrum Management', lastAuditDate: '2026-01-10', trend: [80, 76, 74, 72, 70, 75], complianceRisk: false },
+  { vendor: 'Microsoft 365 E3', totalLicenses: 6_000, active90d: 4_800, inactive: 1_200, annualWaste: 2_160_000, action: 'Downgrade 1,200 inactive seats to F1 tier', costPerLicense: 180, department: 'All ANATEL', lastAuditDate: '2026-02-01', trend: [86, 82, 80, 78, 76, 80], complianceRisk: false },
+  { vendor: 'GIS & Coverage Tools', totalLicenses: 180, active90d: 120, inactive: 60, annualWaste: 1_800_000, action: 'Migrate 60 seats to open-source QGIS with AI extensions', costPerLicense: 3_000, department: 'Coverage Planning', lastAuditDate: '2025-11-20', trend: [74, 70, 66, 64, 62, 67], complianceRisk: false },
+  { vendor: 'Data Analytics Platform', totalLicenses: 120, active90d: 84, inactive: 36, annualWaste: 1_440_000, action: 'Consolidate to unified analytics on Metabase', costPerLicense: 4_000, department: 'Market Analysis', lastAuditDate: '2026-01-20', trend: [76, 72, 68, 66, 64, 70], complianceRisk: false },
 ];
 
 const brAnatelWorkflowSummary = {
@@ -3581,17 +3581,17 @@ const brAnatelWorkflowSummary = {
   fullyAutomatable: 10,
   humanInLoop: 12,
   humanRequired: 6,
-  currentLaborSpend: 32_000_000,
-  potentialSavings: 1_800_000,
+  currentLaborSpend: 320_000_000,
+  potentialSavings: 18_000_000,
 };
 
 const brAnatelRoiSummary = {
-  techStackSavings: 1_200_000,
-  workflowAutomation: 1_800_000,
-  licenseRecovery: 1_200_000,
-  implementationCosts: 1_200_000,
-  netYear1: 3_000_000,
-  year2Projected: 5_100_000,
+  techStackSavings: 12_000_000,
+  workflowAutomation: 18_000_000,
+  licenseRecovery: 12_000_000,
+  implementationCosts: 12_000_000,
+  netYear1: 30_000_000,
+  year2Projected: 51_000_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -3620,13 +3620,13 @@ const hccAiReadinessBreakdown = [
 ];
 
 const hccKpis = {
-  totalSavings: 2_100_000,
+  totalSavings: 2_300_000,
   techScoreBefore: 29,
   techScoreAfter: 78,
   workflowsAnalyzed: 22,
   automationReady: 6,
   unusedLicenseWaste: 980_000,
-  savingsSparkline: [0, 133_636, 283_636, 455_455, 665_455, 889_091, 1_130_909, 1_381_818, 1_622_727, 1_781_818, 1_940_909, 2_100_000],
+  savingsSparkline: [0, 133_636, 283_636, 455_455, 665_455, 889_091, 1_130_909, 1_381_818, 1_622_727, 1_781_818, 1_940_909, 2_300_000],
   scoreSparkline: [29, 36, 40, 43, 47, 51, 57, 61, 65, 70, 74, 78],
   workflowSparkline: [0, 2, 4, 6, 8, 11, 12, 14, 16, 18, 20, 22],
   licenseSparkline: [980_000, 916_364, 847_273, 770_909, 694_545, 618_182, 541_818, 465_455, 390_909, 327_273, 270_909, 220_000],
@@ -3685,7 +3685,7 @@ const hccRoadmapPhases = [
 ];
 
 const hccTopOpportunities: Opportunity[] = [
-  { name: 'Project Estimation AI', category: 'Workflow Automation', savings: 520_000, effort: 'High', status: 'identified', priority: 10, timeToValue: 16, confidence: 76 },
+  { name: 'Project Estimation AI', category: 'Workflow Automation', savings: 720_000, effort: 'High', status: 'identified', priority: 10, timeToValue: 16, confidence: 76 },
   { name: 'Equipment Dispatch Optimization', category: 'Data Infrastructure', savings: 380_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 84 },
   { name: 'License Reclamation (P6 + CAD)', category: 'License Audit', savings: 480_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
   { name: 'Paving Operations Automation', category: 'Workflow Automation', savings: 320_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 14, confidence: 78 },
@@ -3721,7 +3721,7 @@ const hccRoiSummary = {
   workflowAutomation: 1_400_000,
   licenseRecovery: 980_000,
   implementationCosts: 1_080_000,
-  netYear1: 2_100_000,
+  netYear1: 2_300_000,
   year2Projected: 3_200_000,
 };
 
@@ -3751,13 +3751,13 @@ const hrsiAiReadinessBreakdown = [
 ];
 
 const hrsiKpis = {
-  totalSavings: 820_000,
+  totalSavings: 920_000,
   techScoreBefore: 35,
   techScoreAfter: 80,
   workflowsAnalyzed: 8,
   automationReady: 2,
   unusedLicenseWaste: 380_000,
-  savingsSparkline: [0, 50_909, 107_273, 170_909, 256_364, 349_091, 450_909, 534_545, 610_909, 687_273, 756_364, 820_000],
+  savingsSparkline: [0, 50_909, 107_273, 170_909, 256_364, 349_091, 450_909, 534_545, 610_909, 687_273, 756_364, 920_000],
   scoreSparkline: [35, 40, 44, 47, 52, 56, 61, 65, 69, 73, 77, 80],
   workflowSparkline: [0, 1, 1, 2, 3, 3, 4, 4, 5, 6, 7, 8],
   licenseSparkline: [380_000, 354_545, 329_091, 303_636, 278_182, 252_727, 227_273, 201_818, 176_364, 150_909, 125_455, 100_000],
@@ -3810,7 +3810,7 @@ const hrsiRoadmapPhases = [
 ];
 
 const hrsiTopOpportunities: Opportunity[] = [
-  { name: 'Maintenance Scheduling AI', category: 'Workflow Automation', savings: 240_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 82 },
+  { name: 'Maintenance Scheduling AI', category: 'Workflow Automation', savings: 340_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 82 },
   { name: 'Car Repair Tracking Automation', category: 'Workflow Automation', savings: 180_000, effort: 'Medium', status: 'in-progress', priority: 8, timeToValue: 8, confidence: 86 },
   { name: 'License Reclamation', category: 'License Audit', savings: 200_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 95 },
   { name: 'Equipment Leasing Optimization', category: 'Workflow Automation', savings: 200_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 14, confidence: 78 },
@@ -3843,7 +3843,7 @@ const hrsiRoiSummary = {
   workflowAutomation: 480_000,
   licenseRecovery: 380_000,
   implementationCosts: 320_000,
-  netYear1: 820_000,
+  netYear1: 920_000,
   year2Projected: 1_250_000,
 };
 
@@ -3873,13 +3873,13 @@ const hsiAiReadinessBreakdown = [
 ];
 
 const hsiKpis = {
-  totalSavings: 680_000,
+  totalSavings: 780_000,
   techScoreBefore: 42,
   techScoreAfter: 84,
   workflowsAnalyzed: 6,
   automationReady: 2,
   unusedLicenseWaste: 240_000,
-  savingsSparkline: [0, 38_182, 84_545, 141_818, 220_909, 301_818, 378_182, 454_545, 528_182, 585_455, 635_455, 680_000],
+  savingsSparkline: [0, 38_182, 84_545, 141_818, 220_909, 301_818, 378_182, 454_545, 528_182, 585_455, 635_455, 780_000],
   scoreSparkline: [42, 46, 50, 53, 57, 61, 65, 69, 73, 76, 80, 84],
   workflowSparkline: [0, 1, 1, 2, 3, 3, 4, 4, 5, 5, 5, 6],
   licenseSparkline: [240_000, 227_273, 211_818, 192_727, 173_636, 154_545, 135_455, 116_364, 98_182, 85_455, 72_727, 60_000],
@@ -3928,7 +3928,7 @@ const hsiRoadmapPhases = [
 ];
 
 const hsiTopOpportunities: Opportunity[] = [
-  { name: 'AI Defect Detection (Vision + Ultrasonic)', category: 'Workflow Automation', savings: 280_000, effort: 'High', status: 'identified', priority: 10, timeToValue: 16, confidence: 82 },
+  { name: 'AI Defect Detection (Vision + Ultrasonic)', category: 'Workflow Automation', savings: 380_000, effort: 'High', status: 'identified', priority: 10, timeToValue: 16, confidence: 82 },
   { name: 'Automated FRA Reporting', category: 'Workflow Automation', savings: 120_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 90 },
   { name: 'License Reclamation', category: 'License Audit', savings: 140_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
   { name: 'LIDAR Ballast Analysis Automation', category: 'Workflow Automation', savings: 140_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 18, confidence: 74 },
@@ -3960,7 +3960,7 @@ const hsiRoiSummary = {
   workflowAutomation: 380_000,
   licenseRecovery: 240_000,
   implementationCosts: 160_000,
-  netYear1: 680_000,
+  netYear1: 780_000,
   year2Projected: 1_020_000,
 };
 
@@ -3990,13 +3990,13 @@ const htiAiReadinessBreakdown = [
 ];
 
 const htiKpis = {
-  totalSavings: 740_000,
+  totalSavings: 840_000,
   techScoreBefore: 48,
   techScoreAfter: 86,
   workflowsAnalyzed: 10,
   automationReady: 3,
   unusedLicenseWaste: 420_000,
-  savingsSparkline: [0, 44_545, 97_273, 160_909, 240_909, 325_455, 414_545, 494_545, 569_091, 632_727, 689_091, 740_000],
+  savingsSparkline: [0, 44_545, 97_273, 160_909, 240_909, 325_455, 414_545, 494_545, 569_091, 632_727, 689_091, 840_000],
   scoreSparkline: [48, 52, 56, 59, 63, 67, 71, 75, 78, 81, 83, 86],
   workflowSparkline: [0, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
   licenseSparkline: [420_000, 394_545, 369_091, 343_636, 318_182, 292_727, 267_273, 232_727, 196_364, 170_909, 145_455, 120_000],
@@ -4045,7 +4045,7 @@ const htiRoadmapPhases = [
 ];
 
 const htiTopOpportunities: Opportunity[] = [
-  { name: 'PTC System Data Integration', category: 'Data Infrastructure', savings: 200_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 14, confidence: 78 },
+  { name: 'PTC System Data Integration', category: 'Data Infrastructure', savings: 300_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 14, confidence: 78 },
   { name: 'AI Signal Design Optimization', category: 'Workflow Automation', savings: 180_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 76 },
   { name: 'License Reclamation (CAD + GIS)', category: 'License Audit', savings: 220_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 95 },
   { name: 'GIS Data Management Automation', category: 'Workflow Automation', savings: 140_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 82 },
@@ -4077,7 +4077,7 @@ const htiRoiSummary = {
   workflowAutomation: 400_000,
   licenseRecovery: 420_000,
   implementationCosts: 400_000,
-  netYear1: 740_000,
+  netYear1: 840_000,
   year2Projected: 1_120_000,
 };
 
@@ -4107,13 +4107,13 @@ const htsiAiReadinessBreakdown = [
 ];
 
 const htsiKpis = {
-  totalSavings: 860_000,
+  totalSavings: 960_000,
   techScoreBefore: 39,
   techScoreAfter: 82,
   workflowsAnalyzed: 10,
   automationReady: 3,
   unusedLicenseWaste: 480_000,
-  savingsSparkline: [0, 50_909, 112_727, 189_091, 276_364, 369_091, 470_909, 563_636, 650_909, 727_273, 796_364, 860_000],
+  savingsSparkline: [0, 50_909, 112_727, 189_091, 276_364, 369_091, 470_909, 563_636, 650_909, 727_273, 796_364, 960_000],
   scoreSparkline: [39, 44, 48, 51, 55, 59, 63, 67, 71, 74, 78, 82],
   workflowSparkline: [0, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
   licenseSparkline: [480_000, 448_182, 416_364, 384_545, 347_273, 309_091, 270_909, 232_727, 195_455, 163_636, 135_455, 110_000],
@@ -4162,7 +4162,7 @@ const htsiRoadmapPhases = [
 ];
 
 const htsiTopOpportunities: Opportunity[] = [
-  { name: 'Transit Schedule Optimization', category: 'Workflow Automation', savings: 280_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 14, confidence: 80 },
+  { name: 'Transit Schedule Optimization', category: 'Workflow Automation', savings: 380_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 14, confidence: 80 },
   { name: 'Predictive Vehicle Maintenance', category: 'Workflow Automation', savings: 200_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 82 },
   { name: 'License Reclamation', category: 'License Audit', savings: 240_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
   { name: 'Passenger Flow Analytics', category: 'Data Infrastructure', savings: 140_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 78 },
@@ -4195,7 +4195,7 @@ const htsiRoiSummary = {
   workflowAutomation: 520_000,
   licenseRecovery: 480_000,
   implementationCosts: 500_000,
-  netYear1: 860_000,
+  netYear1: 960_000,
   year2Projected: 1_300_000,
 };
 
