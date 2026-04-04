@@ -69,9 +69,9 @@ interface MetricRow {
 export default function Compare() {
   const { company, companies } = useCompany();
 
-  // Only show divisions within the same parent company (no cross-company comparisons)
+  // Determine which companies to show in comparison dropdowns
   const divisions = useMemo(() => {
-    // If current company has children, show those
+    // If current company has children (is a parent/conglomerate), show those children
     const children = companies.filter((c) => c.parentId === company.id);
     if (children.length >= 2) return children;
 
@@ -81,8 +81,14 @@ export default function Compare() {
       if (siblings.length >= 2) return siblings;
     }
 
-    // For standalone companies with no parent and no children, return empty
-    // (no cross-company comparisons allowed)
+    // For standalone companies (no parent, no children): show other standalone companies
+    // that are not conglomerate parents (i.e., companies without children of their own)
+    const parentIds = new Set(companies.filter((c) => c.parentId).map((c) => c.parentId));
+    const standalones = companies.filter(
+      (c) => !c.parentId && !parentIds.has(c.id)
+    );
+    if (standalones.length >= 2) return standalones;
+
     return [];
   }, [companies, company],
   );

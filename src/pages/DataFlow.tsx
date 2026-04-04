@@ -201,12 +201,12 @@ const gapDataByCompany: Record<string, CompanyGapData> = {
       },
     ],
     gapDivisionMap: {
-      1: ['meridian', 'hcc', 'hrsi', 'he', 'htsi'],
-      2: ['meridian', 'hcc', 'hrsi', 'hsi', 'hti', 'htsi', 'he', 'gg'],
-      3: ['meridian', 'hcc', 'hti', 'htsi', 'he'],
-      4: ['meridian', 'hrsi', 'hsi', 'he'],
+      1: ['meridian', 'hcc', 'hrsi', 'htsi'],
+      2: ['meridian', 'hcc', 'hrsi', 'hsi', 'hti', 'htsi'],
+      3: ['meridian', 'hcc', 'hti', 'htsi'],
+      4: ['meridian', 'hrsi', 'hsi'],
       5: ['meridian', 'hsi', 'hrsi'],
-      6: ['meridian', 'hcc', 'hrsi', 'hsi', 'hti', 'htsi', 'he', 'gg'],
+      6: ['meridian', 'hcc', 'hrsi', 'hsi', 'hti', 'htsi'],
     },
     statCards: [
       { label: '18 Systems Mapped', color: 'blue' },
@@ -215,7 +215,7 @@ const gapDataByCompany: Record<string, CompanyGapData> = {
       { label: '$6.05M Annual Impact', color: 'red' },
     ],
     totalImpact: '$6.05M/year',
-    divisionBadges: ['HCC — Rail & Highway Construction', 'HRSI — Railroad Services', 'HSI — Rail Testing', 'HTI — Signal & PTC', 'HTSI — Transit Services', 'HE — Energy', 'GG — Environmental'],
+    divisionBadges: ['IC Construction — Rail & Highway Construction', 'IC Rail Svc — Railroad Services', 'IC Services — Rail Testing', 'IC Technologies — Signal & PTC', 'IC Transit — Transit Services'],
     investment: '$280K',
     annualReturn: '$6.05M',
     roi: '21.6x Year 1',
@@ -965,9 +965,7 @@ const gapDataByCompany: Record<string, CompanyGapData> = {
 function fmtImpact(n: number): string {
   if (n >= 1_000_000) {
     const m = n / 1_000_000;
-    // Use up to 2 decimals, but strip unnecessary trailing zeros (keep at least 1)
-    const s = m.toFixed(2).replace(/0$/, '');
-    return `$${s}M/year`;
+    return `$${m.toFixed(1)}M/year`;
   }
   if (n >= 1_000) return `$${(n / 1_000).toFixed(0)}K/year`;
   return `$${n}/year`;
@@ -984,7 +982,7 @@ function resolveGapData(companyId: string): CompanyGapData {
   // Child company mapping to parent
   const childToParent: Record<string, string> = {
     hcc: 'meridian', hrsi: 'meridian', hsi: 'meridian', hti: 'meridian',
-    htsi: 'meridian', he: 'meridian', gg: 'meridian',
+    htsi: 'meridian',
     'nb-aerospace': 'northbridge', 'nb-energy': 'northbridge',
     'nb-financial': 'northbridge', 'nb-health': 'northbridge',
     'ee-finance': 'estonia', 'ee-social': 'estonia',
@@ -1051,6 +1049,27 @@ export default function DataFlow() {
 
   const toggle = (id: number) =>
     setExpandedGap((prev) => (prev === id ? null : id));
+
+  // Company-specific proposed architecture
+  const proposedArchitectures: Record<string, { title: string; subtitle: string }> = {
+    meridian: { title: 'On-prem Databricks Lakehouse', subtitle: 'Unified on-premises lakehouse connecting all 18 ERP systems across operating companies' },
+    northwood: { title: 'Cloud Data Fabric + Claims Intelligence Layer', subtitle: 'Cloud-native data fabric unifying claims, underwriting, and distribution data' },
+    pinnacle: { title: 'FHIR-compliant Health Data Lakehouse', subtitle: 'Interoperable health data lakehouse with FHIR APIs for clinical and operational analytics' },
+    atlas: { title: 'Industrial IoT Data Mesh', subtitle: 'Distributed data mesh connecting shop floor IoT, MES, and enterprise systems' },
+    northbridge: { title: 'Cross-OpCo Analytics Platform', subtitle: 'Federated analytics platform spanning all 12 operating companies with unified governance' },
+    brazil: { title: 'GOV.BR Interoperable Data Layer', subtitle: 'Federated government data layer with LGPD-compliant cross-agency interoperability' },
+  };
+
+  // Resolve architecture for child companies via parent
+  const childToParentArch: Record<string, string> = {
+    hcc: 'meridian', hrsi: 'meridian', hsi: 'meridian', hti: 'meridian', htsi: 'meridian',
+    'nb-aerospace': 'northbridge', 'nb-energy': 'northbridge', 'nb-financial': 'northbridge', 'nb-health': 'northbridge',
+    'br-receita': 'brazil', 'br-sus': 'brazil', 'br-bndes': 'brazil', 'br-serpro': 'brazil',
+    'br-inss': 'brazil', 'br-datasus': 'brazil', 'br-defesa': 'brazil', 'br-anatel': 'brazil',
+  };
+
+  const archKey = proposedArchitectures[company.id] ? company.id : (childToParentArch[company.id] || 'meridian');
+  const proposedArchitecture = proposedArchitectures[archKey] || proposedArchitectures.meridian;
 
   return (
     <div className="space-y-12 pb-16">
@@ -1315,7 +1334,7 @@ export default function DataFlow() {
       {/* ── Section 4: Recommended Architecture ───────────────────────────── */}
       <div>
         <h2 className="text-lg font-semibold mb-4" style={{ color: 'var(--cc-text)' }}>
-          Proposed: Unified Data Architecture
+          Proposed: {proposedArchitecture.title}
         </h2>
 
         <div className="rounded-2xl shadow-sm p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}>
@@ -1360,11 +1379,11 @@ export default function DataFlow() {
             <div className="flex items-center justify-center gap-3">
               <Layers className="h-6 w-6 text-green-400" />
               <span className="text-lg font-bold text-white">
-                Unified Data Platform
+                {proposedArchitecture.title}
               </span>
             </div>
             <p className="mt-1 text-xs text-gray-400">
-              Unified data platform — single source of truth
+              {proposedArchitecture.subtitle}
             </p>
           </motion.div>
 
