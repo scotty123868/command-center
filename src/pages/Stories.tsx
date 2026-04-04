@@ -314,7 +314,7 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
       employees: 280,
       aiScoreBefore: 28,
       aiScoreAfter: 74,
-      totalSavings: '$1.8M/yr',
+      totalSavings: '$9.5M/yr',
       metrics: [
         { label: 'Claims Processing Time', value: '-62%', trend: -62, trendPositive: true, sparkline: [14, 12, 10, 8, 7, 6, 5.3] },
         { label: 'Loss Ratio', value: '58%', trend: -12, trendPositive: true, sparkline: [66, 64, 63, 61, 60, 59, 58] },
@@ -324,10 +324,10 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
         { label: 'First-Contact Resolution', value: '88%', trend: 22, trendPositive: true, sparkline: [72, 75, 78, 81, 84, 86, 88] },
       ],
       savings: [
-        { category: 'Claims Auto-Adjudication', amount: 820 },
-        { category: 'Fraud Detection AI', amount: 480 },
-        { category: 'Process Automation', amount: 320 },
-        { category: 'Customer Self-Service', amount: 180 },
+        { category: 'Claims Auto-Adjudication', amount: 4320 },
+        { category: 'Fraud Detection AI', amount: 2540 },
+        { category: 'Process Automation', amount: 1680 },
+        { category: 'Customer Self-Service', amount: 960 },
       ],
       beforeAfter: [
         { label: 'Claims Processing', before: '14 days', after: '5.3 days' },
@@ -348,7 +348,7 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
       employees: 180,
       aiScoreBefore: 35,
       aiScoreAfter: 80,
-      totalSavings: '$1.2M/yr',
+      totalSavings: '$6.3M/yr',
       metrics: [
         { label: 'Quote Turnaround', value: '-55%', trend: -55, trendPositive: true, sparkline: [48, 40, 34, 28, 24, 22, 21.6] },
         { label: 'Risk Accuracy', value: '96%', trend: 18, trendPositive: true, sparkline: [81, 84, 87, 90, 93, 95, 96] },
@@ -358,10 +358,10 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
         { label: 'Portfolio Mix Score', value: '88', trend: 22, trendPositive: true, sparkline: [72, 75, 78, 81, 84, 86, 88] },
       ],
       savings: [
-        { category: 'AI Underwriting Assist', amount: 480 },
-        { category: 'Submission Automation', amount: 340 },
-        { category: 'Risk Model Enhancement', amount: 240 },
-        { category: 'Portfolio Optimization', amount: 140 },
+        { category: 'AI Underwriting Assist', amount: 2520 },
+        { category: 'Submission Automation', amount: 1790 },
+        { category: 'Risk Model Enhancement', amount: 1260 },
+        { category: 'Portfolio Optimization', amount: 730 },
       ],
       beforeAfter: [
         { label: 'Quote Turnaround', before: '48 hours', after: '21.6 hours' },
@@ -382,7 +382,7 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
       employees: 160,
       aiScoreBefore: 30,
       aiScoreAfter: 72,
-      totalSavings: '$640K/yr',
+      totalSavings: '$3.4M/yr',
       metrics: [
         { label: 'Policy Issuance Time', value: '-48%', trend: -48, trendPositive: true, sparkline: [7.2, 6.4, 5.6, 5, 4.4, 4, 3.7] },
         { label: 'Data Entry Errors', value: '-82%', trend: -82, trendPositive: true, sparkline: [12, 9, 7, 5, 3.5, 2.5, 2.2] },
@@ -392,10 +392,10 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
         { label: 'Customer Portal Adoption', value: '74%', trend: 74, trendPositive: true, sparkline: [8, 20, 32, 44, 56, 66, 74] },
       ],
       savings: [
-        { category: 'Policy Automation', amount: 260 },
-        { category: 'Error Reduction', amount: 180 },
-        { category: 'Self-Service Portal', amount: 120 },
-        { category: 'Renewal Automation', amount: 80 },
+        { category: 'Policy Automation', amount: 1380 },
+        { category: 'Error Reduction', amount: 960 },
+        { category: 'Self-Service Portal', amount: 640 },
+        { category: 'Renewal Automation', amount: 420 },
       ],
       beforeAfter: [
         { label: 'Policy Issuance', before: '7.2 days', after: '3.7 days' },
@@ -416,7 +416,7 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
       employees: 180,
       aiScoreBefore: 26,
       aiScoreAfter: 70,
-      totalSavings: '$520K/yr',
+      totalSavings: '$2.8M/yr',
       metrics: [
         { label: 'Agent Onboarding', value: '-40%', trend: -40, trendPositive: true, sparkline: [30, 26, 24, 22, 20, 19, 18] },
         { label: 'Lead Conversion', value: '+32%', trend: 32, trendPositive: true, sparkline: [14, 16, 18, 20, 22, 24, 26] },
@@ -426,10 +426,10 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
         { label: 'Digital Channel Share', value: '44%', trend: 44, trendPositive: true, sparkline: [12, 18, 24, 30, 35, 40, 44] },
       ],
       savings: [
-        { category: 'Lead Scoring AI', amount: 200 },
-        { category: 'Agent Productivity', amount: 160 },
-        { category: 'Cross-Sell Engine', amount: 100 },
-        { category: 'Digital Distribution', amount: 60 },
+        { category: 'Lead Scoring AI', amount: 1080 },
+        { category: 'Agent Productivity', amount: 860 },
+        { category: 'Cross-Sell Engine', amount: 520 },
+        { category: 'Digital Distribution', amount: 340 },
       ],
       beforeAfter: [
         { label: 'Agent Onboarding', before: '30 days', after: '18 days' },
@@ -454,7 +454,7 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
       employees: 160,
       aiScoreBefore: 34,
       aiScoreAfter: 78,
-      totalSavings: '$1.4M/yr',
+      totalSavings: '$9.4M/yr',
       metrics: [
         { label: 'Patient Wait Time', value: '-44%', trend: -44, trendPositive: true, sparkline: [42, 36, 32, 28, 26, 24, 23.5] },
         { label: 'Documentation Accuracy', value: '97%', trend: 14, trendPositive: true, sparkline: [85, 87, 90, 92, 94, 96, 97] },
@@ -464,10 +464,10 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
         { label: 'Staff Utilization', value: '88%', trend: 18, trendPositive: true, sparkline: [74, 77, 80, 82, 84, 86, 88] },
       ],
       savings: [
-        { category: 'Clinical Documentation AI', amount: 520 },
-        { category: 'Scheduling Optimization', amount: 380 },
-        { category: 'Readmission Prevention', amount: 320 },
-        { category: 'Staff Allocation AI', amount: 180 },
+        { category: 'Clinical Documentation AI', amount: 3500 },
+        { category: 'Scheduling Optimization', amount: 2560 },
+        { category: 'Readmission Prevention', amount: 2140 },
+        { category: 'Staff Allocation AI', amount: 1200 },
       ],
       beforeAfter: [
         { label: 'Patient Wait Time', before: '42 min', after: '23.5 min' },
@@ -488,7 +488,7 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
       employees: 100,
       aiScoreBefore: 30,
       aiScoreAfter: 76,
-      totalSavings: '$960K/yr',
+      totalSavings: '$6.5M/yr',
       metrics: [
         { label: 'Billing Cycle Time', value: '-52%', trend: -52, trendPositive: true, sparkline: [45, 38, 32, 28, 24, 22, 21.6] },
         { label: 'Clean Claim Rate', value: '96%', trend: 14, trendPositive: true, sparkline: [84, 86, 88, 90, 92, 94, 96] },
@@ -498,10 +498,10 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
         { label: 'Patient Payment Rate', value: '82%', trend: 22, trendPositive: true, sparkline: [67, 70, 73, 76, 78, 80, 82] },
       ],
       savings: [
-        { category: 'AI Coding & Billing', amount: 380 },
-        { category: 'Denial Prevention', amount: 280 },
-        { category: 'A/R Optimization', amount: 180 },
-        { category: 'Patient Payment AI', amount: 120 },
+        { category: 'AI Coding & Billing', amount: 2560 },
+        { category: 'Denial Prevention', amount: 1900 },
+        { category: 'A/R Optimization', amount: 1220 },
+        { category: 'Patient Payment AI', amount: 820 },
       ],
       beforeAfter: [
         { label: 'Billing Cycle Time', before: '45 days', after: '21.6 days' },
@@ -522,7 +522,7 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
       employees: 80,
       aiScoreBefore: 38,
       aiScoreAfter: 80,
-      totalSavings: '$720K/yr',
+      totalSavings: '$4.9M/yr',
       metrics: [
         { label: 'Medication Errors', value: '-78%', trend: -78, trendPositive: true, sparkline: [4.5, 3.6, 2.8, 2.1, 1.5, 1.1, 1.0] },
         { label: 'Formulary Compliance', value: '96%', trend: 16, trendPositive: true, sparkline: [82, 84, 87, 90, 92, 94, 96] },
@@ -532,10 +532,10 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
         { label: 'Supply Chain Visibility', value: 'Real-time', trend: 100, trendPositive: true, sparkline: [0, 15, 32, 50, 68, 85, 100] },
       ],
       savings: [
-        { category: 'Medication Safety AI', amount: 280 },
-        { category: 'Inventory Optimization', amount: 200 },
-        { category: 'Formulary Management', amount: 140 },
-        { category: 'Supply Chain AI', amount: 100 },
+        { category: 'Medication Safety AI', amount: 1900 },
+        { category: 'Inventory Optimization', amount: 1360 },
+        { category: 'Formulary Management', amount: 960 },
+        { category: 'Supply Chain AI', amount: 680 },
       ],
       beforeAfter: [
         { label: 'Medication Errors', before: '4.5/1000', after: '1.0/1000' },
@@ -556,7 +556,7 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
       employees: 80,
       aiScoreBefore: 32,
       aiScoreAfter: 74,
-      totalSavings: '$480K/yr',
+      totalSavings: '$3.2M/yr',
       metrics: [
         { label: 'Compliance Score', value: '98%', trend: 14, trendPositive: true, sparkline: [86, 88, 90, 92, 94, 96, 98] },
         { label: 'Audit Readiness', value: 'Real-time', trend: 100, trendPositive: true, sparkline: [0, 18, 36, 54, 72, 88, 100] },
@@ -566,10 +566,10 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
         { label: 'Report Generation', value: '-70% time', trend: -70, trendPositive: true, sparkline: [100, 82, 65, 52, 42, 34, 30] },
       ],
       savings: [
-        { category: 'Compliance Automation', amount: 200 },
-        { category: 'Quality Monitoring AI', amount: 140 },
-        { category: 'Audit Preparation', amount: 80 },
-        { category: 'Training Management', amount: 60 },
+        { category: 'Compliance Automation', amount: 1340 },
+        { category: 'Quality Monitoring AI', amount: 940 },
+        { category: 'Audit Preparation', amount: 540 },
+        { category: 'Training Management', amount: 380 },
       ],
       beforeAfter: [
         { label: 'Compliance Score', before: '86%', after: '98%' },
@@ -594,7 +594,7 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
       employees: 620,
       aiScoreBefore: 38,
       aiScoreAfter: 82,
-      totalSavings: '$1.6M/yr',
+      totalSavings: '$7.2M/yr',
       metrics: [
         { label: 'OEE', value: '87%', trend: 24, trendPositive: true, sparkline: [70, 73, 76, 79, 82, 85, 87] },
         { label: 'Defect Rate', value: '0.8%', trend: -72, trendPositive: true, sparkline: [2.9, 2.4, 2.0, 1.6, 1.2, 1.0, 0.8] },
@@ -604,10 +604,10 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
         { label: 'Cycle Time', value: '-18%', trend: -18, trendPositive: true, sparkline: [100, 96, 92, 90, 88, 84, 82] },
       ],
       savings: [
-        { category: 'OEE Optimization', amount: 580 },
-        { category: 'Defect Prevention AI', amount: 420 },
-        { category: 'Predictive Maintenance', amount: 360 },
-        { category: 'Scrap Reduction', amount: 240 },
+        { category: 'OEE Optimization', amount: 2620 },
+        { category: 'Defect Prevention AI', amount: 1900 },
+        { category: 'Predictive Maintenance', amount: 1620 },
+        { category: 'Scrap Reduction', amount: 1060 },
       ],
       beforeAfter: [
         { label: 'OEE', before: '70%', after: '87%' },
@@ -628,7 +628,7 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
       employees: 540,
       aiScoreBefore: 34,
       aiScoreAfter: 78,
-      totalSavings: '$1.2M/yr',
+      totalSavings: '$5.4M/yr',
       metrics: [
         { label: 'OEE', value: '84%', trend: 20, trendPositive: true, sparkline: [70, 72, 74, 77, 80, 82, 84] },
         { label: 'Defect Rate', value: '1.2%', trend: -64, trendPositive: true, sparkline: [3.4, 2.8, 2.3, 1.9, 1.6, 1.4, 1.2] },
@@ -638,10 +638,10 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
         { label: 'Worker Safety Score', value: '98', trend: 8, trendPositive: true, sparkline: [91, 92, 93, 94, 96, 97, 98] },
       ],
       savings: [
-        { category: 'Assembly Line AI', amount: 440 },
-        { category: 'Quality Vision System', amount: 320 },
-        { category: 'Changeover Optimization', amount: 260 },
-        { category: 'Safety Analytics', amount: 180 },
+        { category: 'Assembly Line AI', amount: 1980 },
+        { category: 'Quality Vision System', amount: 1440 },
+        { category: 'Changeover Optimization', amount: 1180 },
+        { category: 'Safety Analytics', amount: 800 },
       ],
       beforeAfter: [
         { label: 'OEE', before: '70%', after: '84%' },
@@ -662,7 +662,7 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
       employees: 480,
       aiScoreBefore: 30,
       aiScoreAfter: 74,
-      totalSavings: '$980K/yr',
+      totalSavings: '$4.4M/yr',
       metrics: [
         { label: 'Inventory Turns', value: '12.4x', trend: 42, trendPositive: true, sparkline: [8.7, 9.2, 9.8, 10.4, 11.0, 11.8, 12.4] },
         { label: 'Stockout Rate', value: '1.8%', trend: -68, trendPositive: true, sparkline: [5.6, 4.8, 4.0, 3.4, 2.8, 2.2, 1.8] },
@@ -672,10 +672,10 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
         { label: 'Demand Forecast Accuracy', value: '91%', trend: 24, trendPositive: true, sparkline: [73, 76, 80, 83, 86, 89, 91] },
       ],
       savings: [
-        { category: 'Inventory Optimization', amount: 360 },
-        { category: 'Demand Forecasting AI', amount: 280 },
-        { category: 'Freight Optimization', amount: 200 },
-        { category: 'Warehouse Automation', amount: 140 },
+        { category: 'Inventory Optimization', amount: 1620 },
+        { category: 'Demand Forecasting AI', amount: 1260 },
+        { category: 'Freight Optimization', amount: 900 },
+        { category: 'Warehouse Automation', amount: 620 },
       ],
       beforeAfter: [
         { label: 'Inventory Turns', before: '8.7x', after: '12.4x' },
@@ -696,7 +696,7 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
       employees: 460,
       aiScoreBefore: 42,
       aiScoreAfter: 84,
-      totalSavings: '$1.1M/yr',
+      totalSavings: '$5.0M/yr',
       metrics: [
         { label: 'First Pass Yield', value: '97.2%', trend: 8, trendPositive: true, sparkline: [90, 91, 93, 94, 95, 96, 97.2] },
         { label: 'Design Iteration Time', value: '-42%', trend: -42, trendPositive: true, sparkline: [21, 18, 16, 14, 13, 12.5, 12.2] },
@@ -706,10 +706,10 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
         { label: 'Certification Speed', value: '2.1x', trend: 110, trendPositive: true, sparkline: [1, 1.2, 1.4, 1.6, 1.8, 2.0, 2.1] },
       ],
       savings: [
-        { category: 'Quality AI System', amount: 420 },
-        { category: 'R&D Acceleration', amount: 340 },
-        { category: 'Test Automation', amount: 200 },
-        { category: 'Certification AI', amount: 140 },
+        { category: 'Quality AI System', amount: 1900 },
+        { category: 'R&D Acceleration', amount: 1540 },
+        { category: 'Test Automation', amount: 920 },
+        { category: 'Certification AI', amount: 640 },
       ],
       beforeAfter: [
         { label: 'First Pass Yield', before: '90%', after: '97.2%' },

@@ -1,5 +1,5 @@
 import { config } from '../data/config';
-import { getRoiSummary, getKpis, getWorkflowSummary, getLicenses, getCompanyProfile } from '../data/constants';
+import { getRoiSummary, getKpis, getWorkflowSummary, getLicenses, getCompanyProfile, getTopOpportunities } from '../data/constants';
 
 const today = new Date().toLocaleDateString('en-US', {
   year: 'numeric',
@@ -107,6 +107,7 @@ function generateReportHTML(companyId = 'meridian', scenario: ScenarioKey = 'bas
   const wfSummary = getWorkflowSummary(companyId);
   const licenses = getLicenses(companyId);
   const totalLicenseWaste = licenses.reduce((sum, l) => sum + l.annualWaste, 0);
+  const topOpps = getTopOpportunities(companyId).slice(0, 5);
   const profile = getCompanyProfile(companyId);
   const safeName = escapeHtml(profile.name || config.name);
   const safeEmployees = escapeHtml((profile.employees || config.employees).toLocaleString());
@@ -326,41 +327,13 @@ function generateReportHTML(companyId = 'meridian', scenario: ScenarioKey = 'bas
         <tr><th>#</th><th>Opportunity</th><th>Category</th><th>Est. Savings</th><th>Confidence</th></tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td class="bold">Predictive Track Maintenance</td>
-          <td>Workflow Automation</td>
-          <td class="num green">$1.4M/yr</td>
-          <td class="num">78%</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td class="bold">Unused License Reclamation</td>
-          <td>License Audit</td>
-          <td class="num green">$1.2M/yr</td>
-          <td class="num">97%</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td class="bold">Fleet GPS Intelligence &amp; Utilization</td>
-          <td>Data Infrastructure</td>
-          <td class="num green">$980K/yr</td>
-          <td class="num">86%</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td class="bold">AI Rail Inspection (Ultrasonic + Vision)</td>
-          <td>Workflow Automation</td>
-          <td class="num green">$860K/yr</td>
-          <td class="num">82%</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td class="bold">Crew Scheduling Optimization</td>
-          <td>Workflow Automation</td>
-          <td class="num green">$720K/yr</td>
-          <td class="num">84%</td>
-        </tr>
+        ${topOpps.map((opp, i) => `<tr>
+          <td>${i + 1}</td>
+          <td class="bold">${escapeHtml(opp.name)}</td>
+          <td>${escapeHtml(opp.category)}</td>
+          <td class="num green">${fmtMoney(opp.savings)}/yr</td>
+          <td class="num">${opp.confidence}%</td>
+        </tr>`).join('\n        ')}
       </tbody>
     </table>
   </div>
