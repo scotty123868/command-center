@@ -1065,7 +1065,7 @@ export default function Dashboard() {
                   </div>
 
                   {/* Metrics row */}
-                  <div className="mt-4 grid grid-cols-3 gap-2">
+                  <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-2">
                     <div>
                       <p className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: 'var(--cc-text-muted)' }}>Savings</p>
                       <p className="mt-0.5 font-mono text-[14px] font-bold" style={{ color: 'var(--cc-green)' }}>

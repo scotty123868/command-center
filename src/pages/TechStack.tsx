@@ -505,7 +505,7 @@ export default function TechStack() {
               {/* Big projected number */}
               <div className="text-center">
                 <p className="text-sm font-medium mb-1" style={{ color: 'var(--cc-text-secondary)' }}>Projected Annual Savings</p>
-                <p className="text-5xl font-extrabold text-green-500 font-mono">{fmt(projected)}</p>
+                <p className="text-3xl sm:text-5xl font-extrabold text-green-500 font-mono">{fmt(projected)}</p>
                 <div className="flex items-center justify-center gap-1 mt-2 text-green-600">
                   <TrendingUp className="w-4 h-4" />
                   <span className="text-sm font-medium">

@@ -1505,22 +1505,38 @@ function DivisionDashboard({ company }: { company: CompanyData }) {
 
       {/* Section 4: Before & After Comparison */}
       <div className="rounded-2xl shadow-sm p-6" style={{ background: 'var(--cc-bg-card)', borderColor: 'var(--cc-border)', borderWidth: 1, borderStyle: 'solid' }}>
-        <h3 className="text-sm font-semibold uppercase tracking-wide mb-4" style={{ color: 'var(--cc-text)' }}>
+        <h3 className="text-sm font-semibold uppercase tracking-wide mb-5" style={{ color: 'var(--cc-text)' }}>
           Before &amp; After
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {company.beforeAfter.map((item) => (
             <div
               key={item.label}
-              className="rounded-xl p-4 text-center" style={{ background: 'var(--cc-bg-elevated)', borderColor: 'var(--cc-border)', borderWidth: 1, borderStyle: 'solid' }}
+              className="group relative rounded-xl overflow-hidden"
+              style={{ background: 'var(--cc-bg-elevated)', borderColor: 'var(--cc-border)', borderWidth: 1, borderStyle: 'solid' }}
             >
-              <p className="text-xs font-medium uppercase tracking-wide mb-3" style={{ color: 'var(--cc-text-secondary)' }}>
-                {item.label}
-              </p>
-              <div className="flex items-center justify-center gap-2">
-                <span className="text-lg font-bold font-mono text-[#EF4444]/70">{item.before}</span>
-                <ArrowRight className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--cc-text-tertiary)' }} />
-                <span className="text-lg font-bold font-mono text-[#10B981]">{item.after}</span>
+              {/* Subtle top gradient accent */}
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#EF4444]/40 via-[#F59E0B]/30 to-[#10B981]/60" />
+              <div className="p-4 pt-5">
+                <p className="text-[11px] font-semibold uppercase tracking-wider mb-4 text-center" style={{ color: 'var(--cc-text-secondary)' }}>
+                  {item.label}
+                </p>
+                <div className="flex items-center justify-between gap-2">
+                  {/* Before */}
+                  <div className="flex-1 text-center rounded-lg py-2 px-1" style={{ background: 'rgba(239, 68, 68, 0.06)' }}>
+                    <p className="text-[10px] font-medium uppercase tracking-wider mb-1" style={{ color: 'var(--cc-text-muted)' }}>Before</p>
+                    <p className="text-base sm:text-lg font-bold font-mono text-[#EF4444]/80">{item.before}</p>
+                  </div>
+                  {/* Arrow */}
+                  <div className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center" style={{ background: 'var(--cc-bg-card)' }}>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#10B981] transition-transform group-hover:translate-x-0.5" />
+                  </div>
+                  {/* After */}
+                  <div className="flex-1 text-center rounded-lg py-2 px-1" style={{ background: 'rgba(16, 185, 129, 0.06)' }}>
+                    <p className="text-[10px] font-medium uppercase tracking-wider mb-1" style={{ color: 'var(--cc-text-muted)' }}>After</p>
+                    <p className="text-base sm:text-lg font-bold font-mono text-[#10B981]">{item.after}</p>
+                  </div>
+                </div>
               </div>
             </div>
           ))}
@@ -1621,13 +1637,13 @@ export default function Stories() {
       </motion.div>
 
       {/* Division Switcher Tab Bar */}
-      <div className="border-b" style={{ borderColor: 'var(--cc-border)' }}>
-        <nav className="flex gap-1 -mb-px overflow-x-auto scrollbar-hide" style={{ WebkitOverflowScrolling: 'touch' }} aria-label="Division tabs">
+      <div className="border-b overflow-hidden" style={{ borderColor: 'var(--cc-border)' }}>
+        <nav className="flex gap-1 -mb-px overflow-x-auto scrollbar-hide min-w-0" style={{ WebkitOverflowScrolling: 'touch' }} aria-label="Division tabs">
           {divisions.map((division, index) => (
             <button
               key={division.name}
               onClick={() => setActiveIndex(index)}
-              className={`relative whitespace-nowrap px-5 py-3 text-sm font-medium transition-colors ${
+              className={`relative whitespace-nowrap px-3 sm:px-5 py-3 text-xs sm:text-sm font-medium transition-colors ${
                 activeIndex === index
                   ? 'text-[#4285F4] font-semibold'
                   : ''
