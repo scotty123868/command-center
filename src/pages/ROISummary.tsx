@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect, useCallback } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import {
   Cpu,
@@ -9,13 +9,8 @@ import {
   Clock,
   BarChart3,
   DollarSign,
-  FileDown,
-  FileText,
-  PieChart,
-  Presentation,
   AlertTriangle,
 } from 'lucide-react';
-import { openBoardReport, downloadBoardReportPDF } from '../components/BoardReport';
 import {
   BarChart,
   Bar,
@@ -548,17 +543,6 @@ export default function ROISummary() {
     roiSummary.techStackSavings + roiSummary.workflowAutomation + roiSummary.licenseRecovery
   );
 
-  const handleDownloadPDF = useCallback(() => {
-    downloadBoardReportPDF(company.id, scenario).catch(() => {
-      // Fallback: open as HTML if PDF generation fails
-      openBoardReport(company.id, scenario);
-    });
-  }, [company.id, scenario]);
-
-  const handleOpenReport = useCallback(() => {
-    openBoardReport(company.id, scenario);
-  }, [company.id, scenario]);
-
   return (
     <div className="space-y-12">
       {/* Preliminary Estimate Banner */}
@@ -572,25 +556,7 @@ export default function ROISummary() {
       {/* ── Scenario Selector ─────────────────────────────────────────── */}
       <ScenarioSelector active={scenario} onChange={setScenario} />
 
-      {/* ── Generate Board Report Buttons ──────────────────────────────── */}
-      <div className="flex flex-col sm:flex-row justify-end gap-3">
-        <button
-          onClick={handleDownloadPDF}
-          className="group relative inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all duration-300 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-600/30 cursor-pointer overflow-hidden"
-        >
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: 'linear-gradient(110deg, transparent 25%, rgba(255,255,255,0.2) 50%, transparent 75%)', animation: 'shimmer 2s ease-in-out infinite' }} />
-          <style>{`@keyframes shimmer { 0%, 100% { transform: translateX(-100%); } 50% { transform: translateX(100%); } }`}</style>
-          <FileDown size={16} className="relative" />
-          <span className="relative">Download PDF ({SCENARIOS[scenario].label})</span>
-        </button>
-        <button
-          onClick={handleOpenReport}
-          className="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold shadow-sm transition-colors duration-200 cursor-pointer" style={{ background: 'var(--cc-bg-card)', color: 'var(--cc-text)', border: '1px solid var(--cc-border)' }}
-        >
-          <FileDown size={16} />
-          Preview Report
-        </button>
-      </div>
+      {/* Board Report buttons removed — PDF generation unreliable in browser */}
 
       {/* ── Section 1: Hero ───────────────────────────────────────────── */}
       <motion.div
@@ -815,84 +781,7 @@ export default function ROISummary() {
         </div>
       </motion.div>
 
-      {/* ── Section 7: Board Report Preview ─────────────────────────── */}
-      <motion.div
-        className="rounded-2xl shadow-sm p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.3 }}
-      >
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-          <div>
-            <h2 className="text-lg font-semibold">Board Report Preview</h2>
-            <p className="text-sm mt-1">Executive-ready report with key findings and recommendations</p>
-          </div>
-          <button
-            onClick={handleDownloadPDF}
-            className="group relative inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all duration-300 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-600/30 cursor-pointer overflow-hidden"
-          >
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: 'linear-gradient(110deg, transparent 25%, rgba(255,255,255,0.2) 50%, transparent 75%)', animation: 'shimmer 2s ease-in-out infinite' }} />
-            <FileDown size={16} className="relative" />
-            <span className="relative">Download PDF</span>
-          </button>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {/* Page 1 Preview */}
-          <div className="rounded-xl p-5 hover:shadow-md transition-shadow duration-200" style={{ background: 'var(--cc-bg-input)', border: '1px solid var(--cc-border)' }}>
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: 'var(--cc-accent-glow)' }}>
-                <Presentation size={18} className="text-blue-500" />
-              </div>
-              <div>
-                <p className="text-sm font-semibold">Executive Summary</p>
-                <p className="text-[11px]">Page 1</p>
-              </div>
-            </div>
-            <ul className="space-y-1.5 text-xs">
-              <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-blue-400" />Total savings opportunity</li>
-              <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-blue-400" />Implementation timeline</li>
-              <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-blue-400" />Key recommendations</li>
-            </ul>
-          </div>
-
-          {/* Page 2 Preview */}
-          <div className="rounded-xl p-5 hover:shadow-md transition-shadow duration-200" style={{ background: 'var(--cc-bg-input)', border: '1px solid var(--cc-border)' }}>
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: 'var(--cc-green-dim)' }}>
-                <PieChart size={18} className="text-emerald-500" />
-              </div>
-              <div>
-                <p className="text-sm font-semibold">Financial Analysis</p>
-                <p className="text-[11px]">Page 2</p>
-              </div>
-            </div>
-            <ul className="space-y-1.5 text-xs">
-              <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-emerald-400" />Savings waterfall breakdown</li>
-              <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-emerald-400" />Payback period analysis</li>
-              <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-emerald-400" />Year 1 vs Year 2 projections</li>
-            </ul>
-          </div>
-
-          {/* Page 3 Preview */}
-          <div className="rounded-xl p-5 hover:shadow-md transition-shadow duration-200" style={{ background: 'var(--cc-bg-input)', border: '1px solid var(--cc-border)' }}>
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: 'rgba(139,92,246,0.15)' }}>
-                <FileText size={18} className="text-purple-500" />
-              </div>
-              <div>
-                <p className="text-sm font-semibold">Action Plan</p>
-                <p className="text-[11px]">Page 3</p>
-              </div>
-            </div>
-            <ul className="space-y-1.5 text-xs">
-              <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-purple-400" />Division-by-division roadmap</li>
-              <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-purple-400" />Quick wins vs. strategic bets</li>
-              <li className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-purple-400" />Next steps and timeline</li>
-            </ul>
-          </div>
-        </div>
-      </motion.div>
+      {/* Board Report Preview section removed */}
     </div>
   );
 }
