@@ -732,7 +732,7 @@ export default function ROISummary() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.35, duration: 0.3 }}
       >
-        <div className="p-8">
+        <div className="p-5 sm:p-8">
           <div className="flex items-center gap-3 mb-6">
             <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#4285F4]/10">
               <BarChart3 size={20} className="text-[#4285F4]" />

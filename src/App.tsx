@@ -224,7 +224,7 @@ export default function App() {
           </div>
         ) : (
           <div className="flex-1 overflow-y-auto">
-            <div className="max-w-[1400px] mx-auto px-4 py-4 lg:px-10 lg:py-8">
+            <div className="max-w-[1400px] mx-auto px-3 py-4 sm:px-6 lg:px-10 lg:py-8">
               <AnimatedRoutes />
             </div>
           </div>

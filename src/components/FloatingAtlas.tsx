@@ -165,7 +165,7 @@ export default function FloatingAtlas() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="fixed bottom-24 right-6 z-50 w-[400px] h-[500px] rounded-2xl flex flex-col overflow-hidden"
+            className="fixed bottom-24 right-3 sm:right-6 z-50 w-[calc(100vw-1.5rem)] sm:w-[400px] h-[70vh] sm:h-[500px] rounded-2xl flex flex-col overflow-hidden"
             style={{
               background: 'var(--cc-bg-elevated)',
               border: '1px solid var(--cc-border)',

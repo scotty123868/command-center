@@ -1488,13 +1488,13 @@ function DivisionDashboard({ company }: { company: CompanyData }) {
         </h3>
         <div className="h-56">
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={savingsData} layout="vertical" margin={{ left: 10, right: 24 }}>
+            <BarChart data={savingsData} layout="vertical" margin={{ left: 0, right: 24 }}>
               <XAxis type="number" tick={{ fontSize: 12, fill: '#6B7280' }} tickFormatter={(v) => `$${v}K`} />
               <YAxis
                 type="category"
                 dataKey="category"
-                tick={{ fontSize: 12, fill: '#6B7280' }}
-                width={160}
+                tick={{ fontSize: 11, fill: '#6B7280' }}
+                width={140}
               />
               <Tooltip content={<SavingsTooltip />} cursor={{ fill: 'rgba(66,133,244,0.06)' }} />
               <Bar dataKey="amount" fill="#4285F4" radius={[0, 6, 6, 0]} barSize={24} />

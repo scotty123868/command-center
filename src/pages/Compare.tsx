@@ -42,7 +42,7 @@ type Winner = 'a' | 'b' | 'tie';
 
 function winnerClass(winner: Winner, side: 'a' | 'b'): string {
   if (winner === 'tie') return '';
-  if (winner === side) return 'bg-emerald-50 text-emerald-700';
+  if (winner === side) return 'text-emerald-400';
   return '';
 }
 
@@ -188,8 +188,8 @@ export default function Compare() {
 
       {/* Page header */}
       <div>
-        <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Division Comparison</h1>
-        <p className="text-sm text-gray-500 mt-1">
+        <h1 className="text-2xl font-bold tracking-tight" style={{ color: 'var(--cc-text)' }}>Division Comparison</h1>
+        <p className="text-sm mt-1" style={{ color: 'var(--cc-text-secondary)' }}>
           Compare two divisions side-by-side across key automation and technology metrics
         </p>
       </div>
@@ -213,40 +213,40 @@ export default function Compare() {
       </div>
 
       {divAId === divBId && (
-        <div className="rounded-xl bg-amber-50 border border-amber-200 px-4 py-3 text-sm text-amber-800">
+        <div className="rounded-xl px-4 py-3 text-sm" style={{ background: 'rgba(245, 158, 11, 0.08)', border: '1px solid rgba(245, 158, 11, 0.2)', color: 'var(--cc-yellow)' }}>
           Select two different divisions to see a meaningful comparison.
         </div>
       )}
 
       {/* Comparison table */}
-      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-        <div className="px-6 py-4 border-b border-gray-100">
-          <h2 className="text-sm font-semibold text-gray-900">Key Metrics Comparison</h2>
+      <div className="rounded-2xl shadow-sm overflow-hidden" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}>
+        <div className="px-4 sm:px-6 py-4" style={{ borderBottom: '1px solid var(--cc-border)' }}>
+          <h2 className="text-sm font-semibold" style={{ color: 'var(--cc-text)' }}>Key Metrics Comparison</h2>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-gray-50/60">
-                <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider w-1/3">
+              <tr style={{ background: 'var(--cc-bg-elevated)' }}>
+                <th className="text-left px-4 sm:px-6 py-3 text-xs font-semibold uppercase tracking-wider w-1/3" style={{ color: 'var(--cc-text-secondary)' }}>
                   Metric
                 </th>
-                <th className="text-center px-6 py-3 text-xs font-semibold text-blue-600 uppercase tracking-wider w-1/3">
+                <th className="text-center px-4 sm:px-6 py-3 text-xs font-semibold text-blue-400 uppercase tracking-wider w-1/3">
                   {divA.shortName}
                 </th>
-                <th className="text-center px-6 py-3 text-xs font-semibold text-violet-600 uppercase tracking-wider w-1/3">
+                <th className="text-center px-4 sm:px-6 py-3 text-xs font-semibold text-violet-400 uppercase tracking-wider w-1/3">
                   {divB.shortName}
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-50">
+            <tbody>
               {metrics.map((m) => (
-                <tr key={m.label} className="hover:bg-gray-50/40 transition-colors">
-                  <td className="px-6 py-3.5 font-medium text-gray-700">{m.label}</td>
-                  <td className={`px-6 py-3.5 text-center font-semibold rounded-md ${winnerClass(m.winner, 'a')}`}>
+                <tr key={m.label} className="transition-colors" style={{ borderBottom: '1px solid var(--cc-border)' }}>
+                  <td className="px-4 sm:px-6 py-3.5 font-medium" style={{ color: 'var(--cc-text-secondary)' }}>{m.label}</td>
+                  <td className={`px-4 sm:px-6 py-3.5 text-center font-semibold rounded-md ${winnerClass(m.winner, 'a')}`} style={m.winner !== 'a' ? { color: 'var(--cc-text)' } : undefined}>
                     {m.valueA}
                     {winnerBadge(m.winner, 'a')}
                   </td>
-                  <td className={`px-6 py-3.5 text-center font-semibold rounded-md ${winnerClass(m.winner, 'b')}`}>
+                  <td className={`px-4 sm:px-6 py-3.5 text-center font-semibold rounded-md ${winnerClass(m.winner, 'b')}`} style={m.winner !== 'b' ? { color: 'var(--cc-text)' } : undefined}>
                     {m.valueB}
                     {winnerBadge(m.winner, 'b')}
                   </td>
@@ -260,12 +260,12 @@ export default function Compare() {
       {/* Charts row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Radar chart */}
-        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
-          <h3 className="text-sm font-semibold text-gray-900 mb-4">Capability Radar</h3>
+        <div className="rounded-2xl shadow-sm p-4 sm:p-6" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}>
+          <h3 className="text-sm font-semibold mb-4" style={{ color: 'var(--cc-text)' }}>Capability Radar</h3>
           <ResponsiveContainer width="100%" height={320}>
             <RadarChart data={radarData} cx="50%" cy="50%" outerRadius="70%">
-              <PolarGrid stroke="#e5e7eb" />
-              <PolarAngleAxis dataKey="metric" tick={{ fontSize: 11, fill: '#6b7280' }} />
+              <PolarGrid stroke="var(--cc-border)" />
+              <PolarAngleAxis dataKey="metric" tick={{ fontSize: 11, fill: 'var(--cc-text-secondary)' }} />
               <PolarRadiusAxis angle={90} domain={[0, 100]} tick={false} axisLine={false} />
               <Radar
                 name={divA.shortName}
@@ -291,20 +291,20 @@ export default function Compare() {
         </div>
 
         {/* Bar chart — savings breakdown */}
-        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
-          <h3 className="text-sm font-semibold text-gray-900 mb-4">Savings Breakdown</h3>
+        <div className="rounded-2xl shadow-sm p-4 sm:p-6" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}>
+          <h3 className="text-sm font-semibold mb-4" style={{ color: 'var(--cc-text)' }}>Savings Breakdown</h3>
           <ResponsiveContainer width="100%" height={320}>
             <BarChart data={barData} barGap={4}>
-              <XAxis dataKey="name" tick={{ fontSize: 11, fill: '#6b7280' }} axisLine={false} tickLine={false} />
+              <XAxis dataKey="name" tick={{ fontSize: 11, fill: 'var(--cc-text-secondary)' }} axisLine={false} tickLine={false} />
               <YAxis
-                tick={{ fontSize: 11, fill: '#9ca3af' }}
+                tick={{ fontSize: 11, fill: 'var(--cc-text-tertiary)' }}
                 axisLine={false}
                 tickLine={false}
                 tickFormatter={(v: number) => fmt(v)}
               />
               <Tooltip
                 formatter={(value) => fmt(Number(value))}
-                contentStyle={{ borderRadius: 12, border: '1px solid #e5e7eb', fontSize: 12 }}
+                contentStyle={{ borderRadius: 12, background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)', fontSize: 12, color: 'var(--cc-text)' }}
               />
               <Legend wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
               <Bar dataKey="A" name={divA.shortName} radius={[6, 6, 0, 0]} maxBarSize={48}>
@@ -354,17 +354,19 @@ function DivisionSelector({
   divisions: { id: string; shortName: string; industry: string }[];
   color: 'blue' | 'violet';
 }) {
-  const accent = color === 'blue' ? 'border-blue-200 bg-blue-50/30' : 'border-violet-200 bg-violet-50/30';
-  const labelColor = color === 'blue' ? 'text-blue-600' : 'text-violet-600';
+  const borderColor = color === 'blue' ? 'rgba(59, 130, 246, 0.25)' : 'rgba(139, 92, 246, 0.25)';
+  const bgColor = color === 'blue' ? 'rgba(59, 130, 246, 0.06)' : 'rgba(139, 92, 246, 0.06)';
+  const labelColor = color === 'blue' ? 'text-blue-400' : 'text-violet-400';
 
   return (
-    <div className={`rounded-xl border ${accent} p-4`}>
+    <div className="rounded-xl p-4" style={{ background: bgColor, border: `1px solid ${borderColor}` }}>
       <span className={`text-[10px] font-bold uppercase tracking-wider ${labelColor}`}>{label}</span>
       <div className="relative mt-2">
         <select
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full appearance-none bg-white border border-gray-200 rounded-lg pl-4 pr-10 py-2.5 text-sm font-medium text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-100 focus:border-blue-300 cursor-pointer transition-all"
+          className="w-full appearance-none rounded-lg pl-4 pr-10 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500/20 cursor-pointer transition-all"
+          style={{ background: 'var(--cc-bg-elevated)', border: '1px solid var(--cc-border)', color: 'var(--cc-text)' }}
         >
           {divisions.map((d) => (
             <option key={d.id} value={d.id}>
@@ -372,7 +374,7 @@ function DivisionSelector({
             </option>
           ))}
         </select>
-        <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" strokeWidth={2} />
+        <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none" style={{ color: 'var(--cc-text-tertiary)' }} strokeWidth={2} />
       </div>
     </div>
   );
@@ -388,23 +390,23 @@ function OpportunityCard({
   color: 'blue' | 'violet';
 }) {
   const accentBorder = color === 'blue' ? 'border-l-blue-500' : 'border-l-violet-500';
-  const accentText = color === 'blue' ? 'text-blue-600' : 'text-violet-600';
+  const accentText = color === 'blue' ? 'text-blue-400' : 'text-violet-400';
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-      <div className="px-6 py-4 border-b border-gray-100">
-        <h3 className="text-sm font-semibold text-gray-900">{title}</h3>
+    <div className="rounded-2xl shadow-sm overflow-hidden" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}>
+      <div className="px-4 sm:px-6 py-4" style={{ borderBottom: '1px solid var(--cc-border)' }}>
+        <h3 className="text-sm font-semibold" style={{ color: 'var(--cc-text)' }}>{title}</h3>
       </div>
-      <div className="divide-y divide-gray-50">
+      <div>
         {opportunities.map((opp, i) => (
-          <div key={i} className={`px-6 py-4 border-l-[3px] ${accentBorder}`}>
+          <div key={i} className={`px-4 sm:px-6 py-4 border-l-[3px] ${accentBorder}`} style={{ borderBottom: '1px solid var(--cc-border)' }}>
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0">
-                <p className="text-sm font-semibold text-gray-900 truncate">{opp.name}</p>
-                <div className="flex items-center gap-3 mt-1.5 text-xs text-gray-500">
+                <p className="text-sm font-semibold truncate" style={{ color: 'var(--cc-text)' }}>{opp.name}</p>
+                <div className="flex items-center gap-2 sm:gap-3 mt-1.5 text-xs flex-wrap" style={{ color: 'var(--cc-text-secondary)' }}>
                   <span className="flex items-center gap-1">
                     <Target className="w-3 h-3" strokeWidth={2} />
-                    {opp.confidence}% confidence
+                    {opp.confidence}%
                   </span>
                   <span className="flex items-center gap-1">
                     <Clock className="w-3 h-3" strokeWidth={2} />
@@ -412,7 +414,7 @@ function OpportunityCard({
                   </span>
                   <span className="flex items-center gap-1">
                     <Zap className="w-3 h-3" strokeWidth={2} />
-                    {opp.effort} effort
+                    {opp.effort}
                   </span>
                 </div>
               </div>
@@ -423,7 +425,7 @@ function OpportunityCard({
           </div>
         ))}
         {opportunities.length === 0 && (
-          <div className="px-6 py-8 text-center text-sm text-gray-400">No opportunities data available</div>
+          <div className="px-6 py-8 text-center text-sm" style={{ color: 'var(--cc-text-tertiary)' }}>No opportunities data available</div>
         )}
       </div>
     </div>

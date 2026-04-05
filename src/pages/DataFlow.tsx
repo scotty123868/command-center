@@ -1195,8 +1195,8 @@ export default function DataFlow() {
         </div>
 
         {/* Summary Bar */}
-        <div className="mt-4 rounded-2xl bg-gray-900 px-6 py-4 text-center">
-          <span className="text-sm font-semibold text-gray-300">
+        <div className="mt-4 rounded-2xl px-6 py-4 text-center" style={{ background: 'var(--cc-bg-elevated)', border: '1px solid var(--cc-border)' }}>
+          <span className="text-sm font-semibold" style={{ color: 'var(--cc-text-secondary)' }}>
             Total Quantified Data Gap Impact:{' '}
           </span>
           <span className="font-mono text-lg font-bold text-red-400">
@@ -1374,15 +1374,16 @@ export default function DataFlow() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.7 }}
-            className="mx-auto max-w-md rounded-2xl bg-gray-900 px-8 py-5 text-center shadow-lg"
+            className="mx-auto max-w-md rounded-2xl px-8 py-5 text-center shadow-lg"
+            style={{ background: 'var(--cc-bg-elevated)', border: '1px solid var(--cc-border)' }}
           >
             <div className="flex items-center justify-center gap-3">
               <Layers className="h-6 w-6 text-green-400" />
-              <span className="text-lg font-bold text-white">
+              <span className="text-lg font-bold" style={{ color: 'var(--cc-text)' }}>
                 {proposedArchitecture.title}
               </span>
             </div>
-            <p className="mt-1 text-xs text-gray-400">
+            <p className="mt-1 text-xs" style={{ color: 'var(--cc-text-secondary)' }}>
               {proposedArchitecture.subtitle}
             </p>
           </motion.div>

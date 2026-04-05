@@ -101,7 +101,7 @@ export default function LicenseAudit() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.25 }}
-        className="rounded-2xl shadow-sm p-8 flex flex-col lg:flex-row items-center gap-10" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
+        className="rounded-2xl shadow-sm p-5 sm:p-8 flex flex-col lg:flex-row items-center gap-6 sm:gap-10" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
       >
         {/* Left — hero number */}
         <div className="flex-1 text-center lg:text-left">

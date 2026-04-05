@@ -459,12 +459,12 @@ export default function Workflows() {
       </motion.div>
 
       {/* ── discovery summary row ── */}
-      <div className="flex items-center gap-10 flex-wrap">
+      <div className="flex items-center gap-6 sm:gap-10 flex-wrap">
         {/* total workflows donut */}
         <DonutStat value={String(workflowSummary.total)} label="Workflows Analyzed" color="#4285F4" />
 
         {/* type split — stacked bar */}
-        <div className="flex-1 min-w-[260px]">
+        <div className="flex-1 min-w-0 sm:min-w-[260px]">
           <p className="text-xs mb-2" style={{ color: 'var(--cc-text-secondary)' }}>Split by Automation Type</p>
           <div className="flex h-5 w-full overflow-hidden rounded-full">
             <div

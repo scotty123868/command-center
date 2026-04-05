@@ -583,7 +583,7 @@ function DivisionDrawer({
             </div>
 
             {/* Stats grid */}
-            <div className="mt-6 grid grid-cols-2 gap-3">
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="rounded-xl p-4" style={{ background: 'var(--cc-bg-elevated)', border: '1px solid var(--cc-border)' }}>
                 <p className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: 'var(--cc-text-tertiary)' }}>Savings</p>
                 <p className="mt-1 font-mono text-[20px] font-bold" style={{ color: 'var(--cc-green)' }}>{fmtCompact(subKpis.totalSavings)}</p>
@@ -862,13 +862,13 @@ export default function Dashboard() {
         }}
       >
         {/* Blue accent glow behind number */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full opacity-20" style={{ background: 'radial-gradient(circle, var(--cc-accent-glow) 0%, transparent 70%)' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] rounded-full opacity-20" style={{ background: 'radial-gradient(circle, var(--cc-accent-glow) 0%, transparent 70%)' }} />
 
-        <div className="relative z-10 px-8 py-10 lg:px-12 lg:py-14">
+        <div className="relative z-10 px-5 py-6 sm:px-8 sm:py-10 lg:px-12 lg:py-14">
           {/* Company name + timestamp */}
           <div className="flex items-center justify-between mb-2">
             <h1
-              className="text-[28px] lg:text-[36px] font-bold tracking-tight"
+              className="text-[22px] sm:text-[28px] lg:text-[36px] font-bold tracking-tight"
               style={{ color: 'var(--cc-text)', letterSpacing: '-0.02em' }}
             >
               {company.name}
