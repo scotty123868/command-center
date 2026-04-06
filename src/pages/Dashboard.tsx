@@ -25,6 +25,7 @@ import {
   getRoadmapPhases,
   getTopOpportunities,
   getWorkflowSummary,
+  getWorkflows,
   getRoiSummary,
   getCurrentStack,
   getLicenses,
@@ -85,7 +86,7 @@ const allTimelineStops: Record<string, Record<number, TimelineData>> = {
   northbridge: {
     0: { savings: 0, scoreBefore: 52, scoreAfter: 52, workflows: 0, automationReady: 0, waste: 18_000_000 },
     6: { savings: 24_900_000, scoreBefore: 52, scoreAfter: 71, workflows: 85, automationReady: 22, waste: 9_000_000 },
-    12: { savings: 55_500_000, scoreBefore: 52, scoreAfter: 88, workflows: 184, automationReady: 48, waste: 1_600_000 },
+    12: { savings: 55_500_000, scoreBefore: 52, scoreAfter: 88, workflows: 182, automationReady: 48, waste: 1_600_000 },
   },
   estonia: {
     0: { savings: 0, scoreBefore: 68, scoreAfter: 68, workflows: 0, automationReady: 0, waste: 3_000_000 },
@@ -94,28 +95,28 @@ const allTimelineStops: Record<string, Record<number, TimelineData>> = {
   },
   hcc: {
     0: { savings: 0, scoreBefore: 29, scoreAfter: 29, workflows: 0, automationReady: 0, waste: 980_000 },
-    6: { savings: 1_050_000, scoreBefore: 29, scoreAfter: 51, workflows: 11, automationReady: 3, waste: 520_000 },
-    12: { savings: 2_100_000, scoreBefore: 29, scoreAfter: 78, workflows: 22, automationReady: 6, waste: 220_000 },
+    6: { savings: 1_150_000, scoreBefore: 29, scoreAfter: 51, workflows: 11, automationReady: 3, waste: 520_000 },
+    12: { savings: 2_300_000, scoreBefore: 29, scoreAfter: 78, workflows: 22, automationReady: 6, waste: 220_000 },
   },
   hrsi: {
     0: { savings: 0, scoreBefore: 35, scoreAfter: 35, workflows: 0, automationReady: 0, waste: 380_000 },
-    6: { savings: 410_000, scoreBefore: 35, scoreAfter: 56, workflows: 4, automationReady: 1, waste: 200_000 },
-    12: { savings: 820_000, scoreBefore: 35, scoreAfter: 80, workflows: 8, automationReady: 2, waste: 100_000 },
+    6: { savings: 460_000, scoreBefore: 35, scoreAfter: 56, workflows: 4, automationReady: 1, waste: 200_000 },
+    12: { savings: 920_000, scoreBefore: 35, scoreAfter: 80, workflows: 8, automationReady: 2, waste: 100_000 },
   },
   hsi: {
     0: { savings: 0, scoreBefore: 42, scoreAfter: 42, workflows: 0, automationReady: 0, waste: 240_000 },
-    6: { savings: 340_000, scoreBefore: 42, scoreAfter: 63, workflows: 3, automationReady: 1, waste: 130_000 },
-    12: { savings: 680_000, scoreBefore: 42, scoreAfter: 84, workflows: 6, automationReady: 2, waste: 60_000 },
+    6: { savings: 390_000, scoreBefore: 42, scoreAfter: 63, workflows: 3, automationReady: 1, waste: 130_000 },
+    12: { savings: 780_000, scoreBefore: 42, scoreAfter: 84, workflows: 6, automationReady: 2, waste: 60_000 },
   },
   hti: {
     0: { savings: 0, scoreBefore: 48, scoreAfter: 48, workflows: 0, automationReady: 0, waste: 420_000 },
-    6: { savings: 370_000, scoreBefore: 48, scoreAfter: 67, workflows: 5, automationReady: 2, waste: 220_000 },
-    12: { savings: 740_000, scoreBefore: 48, scoreAfter: 86, workflows: 10, automationReady: 3, waste: 120_000 },
+    6: { savings: 420_000, scoreBefore: 48, scoreAfter: 67, workflows: 5, automationReady: 2, waste: 220_000 },
+    12: { savings: 840_000, scoreBefore: 48, scoreAfter: 86, workflows: 10, automationReady: 3, waste: 120_000 },
   },
   htsi: {
     0: { savings: 0, scoreBefore: 39, scoreAfter: 39, workflows: 0, automationReady: 0, waste: 480_000 },
-    6: { savings: 430_000, scoreBefore: 39, scoreAfter: 59, workflows: 5, automationReady: 2, waste: 260_000 },
-    12: { savings: 860_000, scoreBefore: 39, scoreAfter: 82, workflows: 10, automationReady: 3, waste: 110_000 },
+    6: { savings: 480_000, scoreBefore: 39, scoreAfter: 59, workflows: 5, automationReady: 2, waste: 260_000 },
+    12: { savings: 960_000, scoreBefore: 39, scoreAfter: 82, workflows: 10, automationReady: 3, waste: 110_000 },
   },
   he: {
     0: { savings: 0, scoreBefore: 32, scoreAfter: 32, workflows: 0, automationReady: 0, waste: 180_000 },
@@ -169,8 +170,8 @@ const allTimelineStops: Record<string, Record<number, TimelineData>> = {
   },
   brazil: {
     0: { savings: 0, scoreBefore: 45, scoreAfter: 45, workflows: 0, automationReady: 0, waste: 260_000_000 },
-    6: { savings: 324_000_000, scoreBefore: 45, scoreAfter: 64, workflows: 176, automationReady: 62, waste: 130_000_000 },
-    12: { savings: 720_000_000, scoreBefore: 45, scoreAfter: 82, workflows: 380, automationReady: 134, waste: 26_000_000 },
+    6: { savings: 324_000_000, scoreBefore: 45, scoreAfter: 64, workflows: 186, automationReady: 62, waste: 130_000_000 },
+    12: { savings: 720_000_000, scoreBefore: 45, scoreAfter: 82, workflows: 400, automationReady: 134, waste: 26_000_000 },
   },
   'br-receita': {
     0: { savings: 0, scoreBefore: 55, scoreAfter: 55, workflows: 0, automationReady: 0, waste: 42_000_000 },
@@ -401,11 +402,15 @@ function ScoreDrillDown() {
 function WorkflowsDrillDown() {
   const { company } = useCompany();
   const wfSummary = getWorkflowSummary(company.id);
-  const topWorkflows = [
-    { name: 'Track Inspection & Maintenance Planning', savings: '$420K/yr', level: 'Full Automation' },
-    { name: 'Crew Scheduling & Dispatch', savings: '$380K/yr', level: 'Human-in-Loop' },
-    { name: 'Equipment Fleet Management', savings: '$310K/yr', level: 'Full Automation' },
-  ];
+  const topWorkflows = getWorkflows(company.id)
+    .slice()
+    .sort((a, b) => b.savings - a.savings)
+    .slice(0, 3)
+    .map((w) => ({
+      name: w.name,
+      savings: w.savings >= 1_000_000 ? `$${(w.savings / 1_000_000).toFixed(1)}M/yr` : `$${Math.round(w.savings / 1_000)}K/yr`,
+      level: w.level,
+    }));
 
   return (
     <div>
@@ -882,7 +887,7 @@ export default function Dashboard() {
             </div>
           </div>
           <p className="text-[12px] font-medium" style={{ color: 'var(--cc-text-muted)' }}>
-            Assessed March 2026 &middot; {company.employees.toLocaleString()} FTEs &middot; {company.opCos} Division{company.opCos === 1 ? '' : 's'}
+            Assessed {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })} &middot; {company.employees.toLocaleString()} FTEs &middot; {company.opCos} Division{company.opCos === 1 ? '' : 's'}
           </p>
 
           {/* Primary metric */}

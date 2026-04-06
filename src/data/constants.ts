@@ -49,7 +49,7 @@ export const roadmapPhases = [
     items: ['Procore AI activation', 'HCSS Telematics AI overlay', 'RailSentry MLOps pipeline', 'QMirror replacement scoping'],
     status: 'active' as const,
     weekPlan: [
-      { week: 1, task: 'Kickoff & stakeholder interviews across all 7 divisions — map 18 production apps, 2 data centers (TX/AZ), 140-person tech group', owner: 'Sarah Chen (Engagement Lead)' },
+      { week: 1, task: 'Kickoff & stakeholder interviews across all 5 divisions — map 18 production apps, 2 data centers (TX/AZ), 140-person tech group', owner: 'Sarah Chen (Engagement Lead)' },
       { week: 2, task: 'License usage audit: eCMS (250 seats), HCSS Suite (2,800), P6 (280), Procore (300), Business Objects (160), iCIMS (80), Heavy Bid (200)', owner: 'Jason Park (DevOps)' },
       { week: 3, task: 'Procore AI features activation — enable AI-powered project insights on existing Procore deployment (200 users, low effort)', owner: 'Mike Torres (Tech Lead)' },
       { week: 4, task: 'HCSS Telematics AI overlay scoping — predictive maintenance and route optimization from 800+ vehicle GPS/diagnostics data', owner: 'Mike Torres (Tech Lead)' },
@@ -112,7 +112,7 @@ export const roadmapPhases = [
       { week: 37, task: 'Full lakehouse operational: all 18 systems connected — eCMS, HCSS suite, P6, CMMS, RailSentry, MCP, Business Objects feeds', owner: 'Mike Torres (Tech Lead)' },
       { week: 38, task: 'AI analytics platform deployment: natural language query interface replacing static Business Objects dashboards (80 users)', owner: 'Priya Sharma (ML Engineering)' },
       { week: 39, task: 'RailSentry edge deployment: AI inference running on inspection vehicles with offline capability and sync-on-reconnect', owner: 'Priya Sharma (ML Engineering)' },
-      { week: 40, task: 'Crew scheduling AI full rollout: MCP + HCSS optimization across all 7 divisions (2,800 employees), Purview-approved', owner: 'Mike Torres (Tech Lead)' },
+      { week: 40, task: 'Crew scheduling AI full rollout: MCP + HCSS optimization across all 5 divisions (2,800 employees), Purview-approved', owner: 'Mike Torres (Tech Lead)' },
       { week: 41, task: 'Enterprise AI agent activation: eCMS Invoice Intelligence, HCSS Fleet Predictor, P6 Schedule Optimizer — all Purview-governed', owner: 'Priya Sharma (ML Engineering)' },
       { week: 42, task: 'QMirror full decommission: all consumers migrated to real-time CDC pipeline, AS/400 batch replication retired', owner: 'Mike Torres (Tech Lead)' },
       { week: 43, task: 'Business Objects phase-down: migrate remaining report consumers to AI analytics platform with automated cross-division insights', owner: 'Jason Park (DevOps)' },
@@ -354,7 +354,7 @@ export const recommendations: Recommendation[] = [
       cost: 520_000,
       users: 160,
       score: 3,
-      description: 'On-premise eCMS instance (Computer Guidance Corp) serving 7 divisions with 160 named users. Heavy customization for railroad project cost accounting. Report generation averages 5.1 minutes. No API layer for modern integrations — all data exchange via flat-file exports and QMirror AS/400 replication. Multi-division consolidation requires 3-day month-end close process. 160 users but SSO logs show only 92 unique logins/month.',
+      description: 'On-premise eCMS instance (Computer Guidance Corp) serving 5 divisions with 160 named users. Heavy customization for railroad project cost accounting. Report generation averages 5.1 minutes. No API layer for modern integrations — all data exchange via flat-file exports and QMirror AS/400 replication. Multi-division consolidation requires 3-day month-end close process. 160 users but SSO logs show only 92 unique logins/month.',
     },
     recommended: {
       name: 'eCMS + AI Middleware',
@@ -414,12 +414,12 @@ export const recommendations: Recommendation[] = [
       cost: 0,
       users: 0,
       score: 1,
-      description: 'Zero centralized data infrastructure across 7 divisions. Each division operates independent data silos: HCC on eCMS + Primavera, HRSI on legacy field dispatch, HSI on TAM-4 testing databases, HTI on proprietary PTC/signal systems, HTSI on transit scheduling software, Energy on standalone asset tracking, IC Environmental on environmental monitoring databases. Cross-division reporting requires manual data pulls taking 4-5 days/month. GPS/LIDAR data from rail testing generates 2TB/month but sits unanalyzed. No ability to train ML models on historical operational data — every AI initiative blocked by this gap.',
+      description: 'Zero centralized data infrastructure across 5 divisions. Each division operates independent data silos: HCC on eCMS + Primavera, HRSI on legacy field dispatch, HSI on TAM-4 testing databases, HTI on proprietary PTC/signal systems, HTSI on transit scheduling software, Energy on standalone asset tracking, IC Environmental on environmental monitoring databases. Cross-division reporting requires manual data pulls taking 4-5 days/month. GPS/LIDAR data from rail testing generates 2TB/month but sits unanalyzed. No ability to train ML models on historical operational data — every AI initiative blocked by this gap.',
     },
     recommended: {
       name: 'Databricks',
       cost: 280_000,
-      description: 'Proposed Data Lakehouse unifies all 7 division data sources via Delta Lake with ACID transactions and schema enforcement. Unity Catalog provides cross-division data governance. Purpose-built for railroad data: time-series GPS/telematics from HCSS Equipment360 (800+ vehicles), LIDAR point clouds from geometry cars, track geometry measurements from TAM-4, PTC event logs from HTI, and transit ridership data from HTSI. MLflow manages model lifecycle for predictive maintenance, defect detection, and crew optimization. Structured Streaming ingests real-time fleet telemetry. Estimated data footprint: 28TB initial load, 2.5TB/month growth. The data lake is the prerequisite for 78% of the AI initiatives on this roadmap — without it, $4.2M in workflow automation savings cannot be realized.',
+      description: 'Proposed Data Lakehouse unifies all 5 division data sources via Delta Lake with ACID transactions and schema enforcement. Unity Catalog provides cross-division data governance. Purpose-built for railroad data: time-series GPS/telematics from HCSS Equipment360 (800+ vehicles), LIDAR point clouds from geometry cars, track geometry measurements from TAM-4, PTC event logs from HTI, and transit ridership data from HTSI. MLflow manages model lifecycle for predictive maintenance, defect detection, and crew optimization. Structured Streaming ingests real-time fleet telemetry. Estimated data footprint: 28TB initial load, 2.5TB/month growth. The data lake is the prerequisite for 78% of the AI initiatives on this roadmap — without it, $4.2M in workflow automation savings cannot be realized.',
     },
     annualSavings: 1_200_000,
   },
@@ -507,7 +507,7 @@ export const workflows: Workflow[] = [
     level: 'full',
     currentFTEs: 8,
     currentCost: 720_000,
-    volume: '2,800 employees across 7 divisions',
+    volume: '2,800 employees across 5 divisions',
     currentTime: 'Weekly manual scheduling, 22% idle time',
     aiSolution: 'AI-optimized crew scheduling considering certifications, FRA hours-of-service, union rules, travel time, and equipment availability. Automated dispatch replaces phone/radio-based coordination.',
     routing: 'Fully Automatable',
@@ -537,7 +537,7 @@ export const workflows: Workflow[] = [
       { phase: 'Constraint Modeling', weeks: 'Weeks 1-3', description: 'Model all FRA hours-of-service rules, union contract provisions, crew certifications, and equipment qualifications in MCP AI scheduling engine. Map 42 certification types and cross-division sharing rules.' },
       { phase: 'Historical Optimization', weeks: 'Weeks 4-7', description: 'Train scheduling optimizer on 12 months of actual crew assignments and project outcomes. Identify optimization opportunities. Benchmark AI schedules against historical manual schedules.' },
       { phase: 'Pilot Deployment', weeks: 'Weeks 8-11', description: 'Deploy AI scheduling for HRSI division (340 crew members). Supervisor override capability for all AI recommendations. Measure idle time reduction, compliance improvement, and crew satisfaction.' },
-      { phase: 'Full Rollout', weeks: 'Weeks 12-16', description: 'Expand to all 7 divisions (2,800 employees). Enable cross-division crew sharing. Automated dispatch via mobile app. MCP integration for real-time compliance monitoring.' },
+      { phase: 'Full Rollout', weeks: 'Weeks 12-16', description: 'Expand to all 5 divisions (2,800 employees). Enable cross-division crew sharing. Automated dispatch via mobile app. MCP integration for real-time compliance monitoring.' },
     ],
     risks: [
       'Union resistance to AI-driven scheduling — UTU and IBEW contracts have seniority-based assignment provisions that must be strictly honored by the algorithm',
@@ -565,7 +565,7 @@ export const workflows: Workflow[] = [
     costShift: 'Labor $960K → IT $240K + Labor $340K = $380K saved',
     savings: 380_000,
     automationPercent: 50,
-    details: '12 FTEs managing fleet across 7 divisions. 800+ vehicles and heavy equipment. No cross-division visibility, 18% equipment idle rate, $580K in duplicate rentals last year.',
+    details: '12 FTEs managing fleet across 5 divisions. 800+ vehicles and heavy equipment. No cross-division visibility, 18% equipment idle rate, $580K in duplicate rentals last year.',
     currentProcess: [
       'Each division maintains independent equipment tracking — HCC in Primavera P6, HRSI in legacy field dispatch, others in Excel spreadsheets',
       'Equipment location updated manually by field supervisors via end-of-day radio reports to division offices',
@@ -583,7 +583,7 @@ export const workflows: Workflow[] = [
     ],
     aiArchitecture: 'HCSS Equipment360 fleet management with proposed data analytics layer. Real-time GPS tracking and geofencing for all 800+ assets. Engine diagnostic data (J1939/OBD-II) feeds ML-based predictive maintenance models trained on 3 years of maintenance records (12K work orders). Equipment utilization dashboard provides cross-division visibility with AI-generated transfer recommendations when idle assets exist within 100-mile radius of active demand. Fuel analytics: real-time consumption monitoring with anomaly detection for theft and inefficiency. Automated maintenance scheduling based on actual equipment condition (vibration analysis, oil analysis data, engine hours) rather than calendar intervals.',
     implementationPlan: [
-      { phase: 'Fleet Onboarding', weeks: 'Weeks 1-4', description: 'Install HCSS hardware on all 800+ vehicles and equipment. Configure geofencing for all job sites and yards. Build unified equipment registry across 7 divisions.' },
+      { phase: 'Fleet Onboarding', weeks: 'Weeks 1-4', description: 'Install HCSS hardware on all 800+ vehicles and equipment. Configure geofencing for all job sites and yards. Build unified equipment registry across 5 divisions.' },
       { phase: 'Data Integration & Modeling', weeks: 'Weeks 5-9', description: 'Connect HCSS telemetry to the proposed data lakehouse. Train predictive maintenance models on historical work orders. Build utilization analytics and cross-division matching algorithms.' },
       { phase: 'Dashboard & Recommendations', weeks: 'Weeks 10-13', description: 'Deploy executive fleet dashboard showing real-time utilization across all divisions. Enable AI-generated transfer recommendations. Implement automated rental prevention alerts.' },
       { phase: 'Optimization & Predictive', weeks: 'Weeks 14-18', description: 'Activate predictive maintenance scheduling. Deploy fuel analytics with theft detection. Implement condition-based maintenance replacing calendar-based schedules.' },
@@ -598,7 +598,7 @@ export const workflows: Workflow[] = [
       'HCSS enterprise contract (800+ vehicle tier, estimated $380K/yr including hardware)',
       'proposed data lakehouse workspace for analytics (shared with other workloads)',
       'Executive mandate for cross-division equipment sharing policy',
-      'Maintenance history data export from all 7 division systems',
+      'Maintenance history data export from all 5 division systems',
     ],
   },
   {
@@ -614,7 +614,7 @@ export const workflows: Workflow[] = [
     costShift: 'Labor $540K → IT $80K + Labor $140K = $320K saved',
     savings: 320_000,
     automationPercent: 70,
-    details: '6 FTEs dedicated to safety compliance — FRA reporting (Form 6180), OSHA recordkeeping, state DOT filings, and internal safety audits across 7 divisions.',
+    details: '6 FTEs dedicated to safety compliance — FRA reporting (Form 6180), OSHA recordkeeping, state DOT filings, and internal safety audits across 5 divisions.',
     currentProcess: [
       'Field supervisors complete paper safety inspection forms daily at each job site — different forms for track work, signal/PTC, transit, and environmental operations',
       'Safety coordinators collect paper forms weekly, manually enter data into Excel tracking spreadsheets — average 3-day lag between inspection and data availability',
@@ -627,10 +627,10 @@ export const workflows: Workflow[] = [
       'Paper-based field inspection creates 3-day data lag — safety trends not visible until problems have already escalated',
       'Manual FRA reporting (4.2 hrs/report, 180/month) consumes 756 labor hours/month — purely administrative work that adds zero safety value',
       'No predictive safety analytics — all analysis is backward-looking, missing patterns that could prevent incidents',
-      'Audit preparation (3 weeks annually) requires pulling physical files from 7 division offices across multiple states',
+      'Audit preparation (3 weeks annually) requires pulling physical files from 5 division offices across multiple states',
       'Drug/alcohol testing compliance tracked in isolation — scheduling conflicts with FRA hours-of-service not caught until after the fact',
     ],
-    aiArchitecture: 'Mobile-first safety platform with AI analytics layer on proposed data lakehouse. Digital inspection forms via mobile app replace paper — field supervisors complete inspections with guided checklists, photo capture, and GPS-stamped submissions. Automated FRA Form 6180 generation from structured incident data with AI-assisted narrative generation (GPT-4 with FRA regulatory language fine-tuning). Predictive safety analytics: ML models (gradient boosted trees) trained on 5 years of incident data identify leading indicators — weather conditions, crew fatigue patterns, equipment age, and work type combinations that correlate with elevated risk. Real-time compliance dashboard monitoring FRA, OSHA, and state DOT requirements across all 7 divisions. Automated audit trail eliminates 3-week annual preparation.',
+    aiArchitecture: 'Mobile-first safety platform with AI analytics layer on proposed data lakehouse. Digital inspection forms via mobile app replace paper — field supervisors complete inspections with guided checklists, photo capture, and GPS-stamped submissions. Automated FRA Form 6180 generation from structured incident data with AI-assisted narrative generation (GPT-4 with FRA regulatory language fine-tuning). Predictive safety analytics: ML models (gradient boosted trees) trained on 5 years of incident data identify leading indicators — weather conditions, crew fatigue patterns, equipment age, and work type combinations that correlate with elevated risk. Real-time compliance dashboard monitoring FRA, OSHA, and state DOT requirements across all 5 divisions. Automated audit trail eliminates 3-week annual preparation.',
     implementationPlan: [
       { phase: 'Digital Form Migration', weeks: 'Weeks 1-3', description: 'Digitize all paper safety inspection forms into mobile app. Configure division-specific form templates. Train field supervisors on mobile submission workflow.' },
       { phase: 'FRA Report Automation', weeks: 'Weeks 4-7', description: 'Build automated FRA Form 6180 generation pipeline. Train AI narrative generator on 3 years of historical reports. Validate against FRA submission requirements.' },
@@ -646,7 +646,7 @@ export const workflows: Workflow[] = [
     dependencies: [
       'Mobile app development or vendor selection for safety inspection platform',
       'FRA Form 6180 submission API access (currently manual web portal upload)',
-      'Historical safety data consolidation from 7 division file systems',
+      'Historical safety data consolidation from 5 division file systems',
       'CSO LeAnna Cumber sponsorship for safety culture change management',
     ],
   },
@@ -663,7 +663,7 @@ export const workflows: Workflow[] = [
     costShift: 'Labor $1.1M → IT $120K + Labor $700K = $280K saved',
     savings: 280_000,
     automationPercent: 30,
-    details: '10 estimators producing bids for railroad construction, maintenance, and testing contracts across 7 divisions. Competitive, accurate bidding is critical.',
+    details: '10 estimators producing bids for railroad construction, maintenance, and testing contracts across 5 divisions. Competitive, accurate bidding is critical.',
     currentProcess: [
       'Bid opportunity identified from railroad client RFP or direct solicitation — estimators manually review scope documents (avg 200-400 pages per bid package)',
       'Quantity takeoff: estimators manually calculate material quantities from engineering drawings — ballast tonnage, rail footage, tie count, signal equipment, and earthwork volumes',
@@ -864,8 +864,8 @@ export const transformationStories: TransformationStory[] = [
   {
     id: 'fleet-blind-spots',
     title: 'The Railroad Contractor That Couldn\'t See Its Own Fleet',
-    company: 'Heavy/highway & railroad contractor, 7 divisions, 800+ vehicles',
-    problem: '7 divisions tracking 800+ vehicles and heavy equipment in separate systems. No cross-division visibility. $580K in duplicate equipment rentals annually.',
+    company: 'Heavy/highway & railroad contractor, 5 divisions, 800+ vehicles',
+    problem: '5 divisions tracking 800+ vehicles and heavy equipment in separate systems. No cross-division visibility. $580K in duplicate equipment rentals annually.',
     discovery: 'Command Center mapped all fleet systems and found 18% equipment idle rate — approximately 144 assets sitting unused while other divisions rented the same equipment externally.',
     solution: 'Deployed HCSS fleet intelligence across all 800+ assets. Built proposed data analytics layer for cross-division visibility. AI-generated equipment transfer recommendations.',
     impact: [
@@ -873,7 +873,7 @@ export const transformationStories: TransformationStory[] = [
       '18% idle rate reduced to 6% through cross-division sharing',
       'Predictive maintenance reducing unplanned downtime by 34%',
     ],
-    quote: 'We had seven divisions buying the same equipment because nobody could see what we already owned.',
+    quote: 'We had five divisions buying the same equipment because nobody could see what we already owned.',
     totalImpact: 980_000,
     tags: ['Fleet Intelligence', 'HCSS Equipment360', 'Railroad', 'Equipment Utilization'],
     beforeMetrics: [
@@ -920,7 +920,7 @@ export const transformationStories: TransformationStory[] = [
   {
     id: 'crew-scheduling',
     title: 'The Contractor That Scheduled 2,800 Crew Members by Spreadsheet',
-    company: 'Railroad contractor, 2,800 field employees, 7 divisions across 36 states',
+    company: 'Railroad contractor, 2,800 field employees, 5 divisions across 36 states',
     problem: '8 scheduling coordinators building weekly crew assignments manually in Excel. 22% crew idle time. FRA hours-of-service violations costing $45K/yr in fines.',
     discovery: 'Command Center analysis showed that AI-optimized scheduling considering certifications, union rules, travel time, and equipment proximity could reduce idle time from 22% to under 8%.',
     solution: 'Deployed MCP AI scheduling enhancement with railroad-specific constraint modeling for FRA compliance and union work rules. Cross-division crew sharing enabled.',
@@ -948,10 +948,10 @@ export const transformationStories: TransformationStory[] = [
   {
     id: 'license-waste',
     title: 'The Company Bleeding $2.8M in Unused Software',
-    company: 'Railroad & infrastructure contractor, 2,800 employees, 7 divisions',
-    problem: 'Tech stack had grown organically across 7 divisions over 57 years. 1,000 unused Microsoft licenses, 100 unused Primavera seats, and $2.8M/yr in total license waste.',
+    company: 'Railroad & infrastructure contractor, 2,800 employees, 5 divisions',
+    problem: 'Tech stack had grown organically across 5 divisions over 57 years. 1,000 unused Microsoft licenses, 100 unused Primavera seats, and $2.8M/yr in total license waste.',
     discovery: 'Command Center license audit found massive over-provisioning — field crews given E5 licenses when they needed basic email, engineering software provisioned to retired employees, and 40 Salesforce seats never logged in.',
-    solution: 'Reclaimed unused licenses across all 7 vendors. Downgraded field crew M365 from E5 to E3. Replaced aging tools with AI-native alternatives.',
+    solution: 'Reclaimed unused licenses across all vendors. Downgraded field crew M365 from E5 to E3. Replaced aging tools with AI-native alternatives.',
     impact: [
       '$2.8M/yr in immediate license savings',
       'New AI-native tools (HCSS Equipment360, Procore, MCP AI enhancement) increased field productivity 28%',
@@ -1720,7 +1720,7 @@ const northbridgeKpis = {
   totalSavings: 55_500_000,
   techScoreBefore: 52,
   techScoreAfter: 88,
-  workflowsAnalyzed: 184,
+  workflowsAnalyzed: 182,
   automationReady: 48,
   unusedLicenseWaste: 18_000_000,
   savingsSparkline: [0, 3_500_000, 7_800_000, 13_000_000, 19_800_000, 26_300_000, 31_500_000, 36_800_000, 42_000_000, 47_300_000, 51_500_000, 55_500_000],
@@ -1829,7 +1829,7 @@ const northbridgeLicenses: License[] = [
 ];
 
 const northbridgeWorkflowSummary = {
-  total: 184,
+  total: 182,
   fullyAutomatable: 48,
   humanInLoop: 94,
   humanRequired: 42,
@@ -2407,7 +2407,7 @@ const brazilKpis = {
   totalSavings: 720_000_000,
   techScoreBefore: 45,
   techScoreAfter: 82,
-  workflowsAnalyzed: 380,
+  workflowsAnalyzed: 400,
   automationReady: 134,
   unusedLicenseWaste: 260_000_000,
   savingsSparkline: [0, 46_000_000, 100_000_000, 170_000_000, 260_000_000, 346_000_000, 415_000_000, 484_000_000, 553_000_000, 622_000_000, 676_000_000, 720_000_000],
@@ -2515,7 +2515,7 @@ const brazilLicenses: License[] = [
 ];
 
 const brazilWorkflowSummary = {
-  total: 380,
+  total: 400,
   fullyAutomatable: 134,
   humanInLoop: 152,
   humanRequired: 94,
@@ -4575,7 +4575,7 @@ const meridianDataSources: IntegrationDataSource[] = [
   { system: 'eCMS', division: 'Enterprise ERP', recordsAnalyzed: '24,847 work orders', coverage: 92, status: 'Complete' },
   { system: 'HCSS Telematics (All Divisions)', division: 'Fleet Operations', recordsAnalyzed: '700+ vehicles', coverage: 94, status: 'Complete' },
   { system: 'MCP (All Divisions)', division: 'Workforce', recordsAnalyzed: '2,800 employees', coverage: 100, status: 'Complete' },
-  { system: 'Proposed Data Lakehouse', division: 'Cross-Division Analytics', recordsAnalyzed: '7 division feeds consolidated', coverage: 86, status: 'In Progress' },
+  { system: 'Proposed Data Lakehouse', division: 'Cross-Division Analytics', recordsAnalyzed: '5 division feeds consolidated', coverage: 86, status: 'In Progress' },
   { system: 'HCSS Equipment360', division: 'Telematics', recordsAnalyzed: '300+ connected assets', coverage: 88, status: 'Complete' },
   { system: 'Legacy Field Dispatch', division: 'Field Operations', recordsAnalyzed: '27,760 dispatch records', coverage: 73, status: 'Pending Access' },
 ];
@@ -4766,7 +4766,7 @@ const ggMethodologySteps: IntegrationMethodologyStep[] = [
 ];
 
 const meridianMethodologySteps: IntegrationMethodologyStep[] = [
-  { number: 1, title: 'License Discovery', description: 'Comprehensive audit of software licenses across all 7 divisions — identify unused seats, redundant tools, and consolidation opportunities across 2,800 employees.' },
+  { number: 1, title: 'License Discovery', description: 'Comprehensive audit of software licenses across all 5 divisions — identify unused seats, redundant tools, and consolidation opportunities across 2,800 employees.' },
   { number: 2, title: 'Workflow Mapping', description: 'Map 62 critical workflows across rail construction, testing, signals, transit, energy, and environmental divisions to identify automation candidates.' },
   { number: 3, title: 'Tech Stack Health', description: 'Assess the full enterprise tech stack — eCMS, Primavera P6, HCSS Telematics, legacy field dispatch, and division-specific tools — for AI readiness and integration maturity.' },
   { number: 4, title: 'ROI Modeling', description: 'Model Year 1 savings of $5.8M across license reclamation, workflow automation, fleet intelligence, and AI-native railroad operations transformation.' },
