@@ -440,7 +440,7 @@ export default function Workflows() {
             <Clock size={20} className="text-emerald-400" />
           </div>
           <div>
-            <p className="text-[22px] font-bold text-emerald-400 leading-tight tabular-nums">{Math.round(totalSavings / 80 / 12).toLocaleString()} hours</p>
+            <p className="text-[18px] sm:text-[22px] font-bold text-emerald-400 leading-tight tabular-nums">{Math.round(totalSavings / 80 / 12).toLocaleString()} hours</p>
             <p className="text-[11px]" style={{ color: 'var(--cc-text-secondary)' }}>Total time saved this month</p>
           </div>
         </div>

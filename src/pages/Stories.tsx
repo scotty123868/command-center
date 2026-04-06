@@ -1422,7 +1422,7 @@ function DivisionDashboard({ company }: { company: CompanyData }) {
       {/* Section 1: Division Overview Bar */}
       <div className="rounded-2xl shadow-sm p-6" style={{ background: 'var(--cc-bg-card)', borderColor: 'var(--cc-border)', borderWidth: 1, borderStyle: 'solid' }}>
         <div className="flex flex-wrap items-center justify-between gap-6">
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-6">
             <div>
               <h2 className="text-2xl font-bold" style={{ color: 'var(--cc-text)' }}>{company.name}</h2>
               <p className="text-sm" style={{ color: 'var(--cc-text-secondary)' }}>{company.industry}</p>

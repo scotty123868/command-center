@@ -279,7 +279,7 @@ export default function TechStack() {
               />
             ))}
           </div>
-          <div className="flex gap-6 mt-3">
+          <div className="flex flex-wrap gap-6 mt-3">
             {segments.slice(0, 3).map((seg) => (
               <div key={seg.label} className="flex items-center gap-1.5 text-xs" style={{ color: 'var(--cc-text-secondary)' }}>
                 <span className="w-2 h-2 rounded-full" style={{ backgroundColor: seg.color }} />

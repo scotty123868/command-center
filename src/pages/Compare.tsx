@@ -427,7 +427,7 @@ function OpportunityCard({
       <div>
         {opportunities.map((opp, i) => (
           <div key={i} className={`px-4 sm:px-6 py-4 border-l-[3px] ${accentBorder}`} style={{ borderBottom: '1px solid var(--cc-border)' }}>
-            <div className="flex items-start justify-between gap-3">
+            <div className="flex items-start justify-between gap-3 overflow-hidden">
               <div className="min-w-0">
                 <p className="text-sm font-semibold truncate" style={{ color: 'var(--cc-text)' }}>{opp.name}</p>
                 <div className="flex items-center gap-2 sm:gap-3 mt-1.5 text-xs flex-wrap" style={{ color: 'var(--cc-text-secondary)' }}>

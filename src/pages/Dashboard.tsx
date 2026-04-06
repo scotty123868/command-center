@@ -874,7 +874,7 @@ export default function Dashboard() {
           {/* Company name + timestamp */}
           <div className="flex items-center justify-between mb-2">
             <h1
-              className="text-[22px] sm:text-[28px] lg:text-[36px] font-bold tracking-tight"
+              className="text-[22px] sm:text-[28px] lg:text-[36px] font-bold tracking-tight truncate"
               style={{ color: 'var(--cc-text)', letterSpacing: '-0.02em' }}
             >
               {company.name}
@@ -1019,7 +1019,7 @@ export default function Dashboard() {
                     <p className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: 'var(--cc-red)' }}>
                       {metric.label}
                     </p>
-                    <p className="mt-2 font-mono text-[26px] font-bold leading-none" style={{ color: 'var(--cc-red)' }}>
+                    <p className="mt-2 font-mono text-[20px] sm:text-[26px] font-bold leading-none" style={{ color: 'var(--cc-red)' }}>
                       {metric.value}
                     </p>
                     <p className="mt-1 text-[11px]" style={{ color: 'rgba(239,68,68,0.6)' }}>{metric.sub}</p>
@@ -1704,7 +1704,7 @@ export default function Dashboard() {
           </div>
 
           {/* Legend */}
-          <div className="mt-2 flex items-center justify-center gap-6">
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-6">
             {[{ label: 'Current', color: '#EF4444' }, { label: 'Target', color: '#4285F4' }, { label: 'Industry Avg', color: '#6B7280' }].map(l => (
               <div key={l.label} className="flex items-center gap-1.5">
                 <div className="w-3 h-[2px]" style={{ background: l.color }} />
