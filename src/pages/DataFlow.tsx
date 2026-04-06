@@ -1222,7 +1222,7 @@ export default function DataFlow() {
                 {/* Collapsed Header */}
                 <button
                   onClick={() => toggle(gap.id)}
-                  className="flex w-full items-center justify-between px-5 py-4 text-left transition-colors"
+                  className="flex w-full items-center justify-between px-5 py-4 text-left transition-colors cursor-pointer"
                 >
                   <div className="flex items-center gap-3">
                     <div className="flex h-8 w-8 items-center justify-center rounded-lg" style={{ background: 'var(--cc-red-dim)' }}>

@@ -3,18 +3,18 @@ import { motion } from 'framer-motion';
 import { ArrowUp, AlertCircle } from 'lucide-react';
 import { useAtlasChat } from '../hooks/useAtlasChat.ts';
 import { useCompany } from '../data/CompanyContext';
-import { getTopOpportunities, getWorkflowSummary, getCurrentStack } from '../data/constants';
+import { getTopOpportunities, getWorkflowSummary, getCurrentStack, getLicenses } from '../data/constants';
 
 // ─── Pre-populated conversation ─────────────────────────────────────────────
 
 interface Message {
   role: 'user' | 'ai';
   content: string;
-  table?: { headers: string[]; rows: string[][] };
+  table?: { headers: string[]; rows: string[][]; footer?: string };
   list?: { items: { title: string; detail: string }[] };
 }
 
-function buildConversation(companyName: string, workflowCount: number, topOpps: { name: string; savings: number }[], stack: { name: string }[], opCoCount: number): Message[] {
+function buildConversation(companyName: string, workflowCount: number, topOpps: { name: string; savings: number }[], stack: { name: string }[], opCoCount: number, totalWaste: number): Message[] {
   const fmtK = (n: number) => n >= 1_000_000 ? `$${(n / 1_000_000).toFixed(1)}M` : `$${Math.round(n / 1_000)}K`;
   const top3 = topOpps.slice(0, 3);
   const stackTop3 = stack.slice(0, 3);
@@ -30,11 +30,15 @@ function buildConversation(companyName: string, workflowCount: number, topOpps: 
         `I analyzed your full tech stack across ${companyName}${opCoCount > 1 ? ` (${opCoCount} divisions)` : ''}. Here are the top areas of recoverable spend:`,
       table: {
         headers: ['Tool', 'Opportunity', 'Root Cause'],
-        rows: stackTop3.map((t, i) => [
-          t.name,
-          i === 0 ? '$360K' : i === 1 ? '$350K' : '$180K',
-          i === 0 ? 'Unused licenses across organization' : i === 1 ? 'Inactive seats — restrict to active users only' : 'Legacy contract underutilization',
-        ]),
+        rows: stackTop3.map((t, i) => {
+          const perTool = Math.round(totalWaste * (i === 0 ? 0.4 : i === 1 ? 0.35 : 0.25));
+          return [
+            t.name,
+            fmtK(perTool),
+            i === 0 ? 'Unused licenses across organization' : i === 1 ? 'Inactive seats — restrict to active users only' : 'Legacy contract underutilization',
+          ];
+        }),
+        footer: `Total recoverable: ${fmtK(totalWaste)}/yr`,
       },
     },
     {
@@ -180,9 +184,11 @@ function AIMessage({
                 ))}
               </tbody>
             </table>
-            <div className="px-4 py-2.5 text-[12px] font-semibold text-red-400" style={{ background: 'var(--cc-red-dim)' }}>
-              Total recoverable: $2.8M/yr
-            </div>
+            {table.footer && (
+              <div className="px-4 py-2.5 text-[12px] font-semibold text-red-400" style={{ background: 'var(--cc-red-dim)' }}>
+                {table.footer}
+              </div>
+            )}
           </div>
         )}
 
@@ -303,6 +309,8 @@ export default function Assessment() {
   const companyOpps = getTopOpportunities(company.id);
   const companyWfSummary = getWorkflowSummary(company.id);
   const companyStack = getCurrentStack(company.id);
+  const companyLicenses = getLicenses(company.id);
+  const totalWaste = companyLicenses.reduce((sum, l) => sum + l.annualWaste, 0);
 
   const conversation = buildConversation(
     company.name,
@@ -310,6 +318,7 @@ export default function Assessment() {
     companyOpps,
     companyStack,
     company.opCos,
+    totalWaste,
   );
 
   const scrollRef = useRef<HTMLDivElement>(null);

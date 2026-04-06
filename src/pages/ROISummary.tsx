@@ -388,7 +388,7 @@ function WaterfallChartSection({ waterfallChartData }: { waterfallChartData: Ret
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
       transition={{ delay: 0.25, duration: 0.4 }}
     >
-      <h2 className="text-lg font-semibold mb-6">
+      <h2 className="text-lg font-semibold mb-6" style={{ color: 'var(--cc-text)' }}>
         Savings Waterfall
       </h2>
       <ResponsiveContainer width="100%" height={350}>
@@ -465,7 +465,7 @@ function ScenarioComparisonTable({
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.35, duration: 0.4 }}
     >
-      <h2 className="text-lg font-semibold mb-5">Scenario Comparison</h2>
+      <h2 className="text-lg font-semibold mb-5" style={{ color: 'var(--cc-text)' }}>Scenario Comparison</h2>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
@@ -636,7 +636,7 @@ export default function ROISummary() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.3 }}
       >
-        <h2 className="text-lg font-semibold mb-6">
+        <h2 className="text-lg font-semibold mb-6" style={{ color: 'var(--cc-text)' }}>
           Implementation Timeline &amp; Cost Curve
           <span className="text-xs font-normal ml-2" style={{ color: 'var(--cc-text-tertiary)' }}>
             ({SCENARIOS[scenario].rollout})
@@ -737,7 +737,7 @@ export default function ROISummary() {
             <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#4285F4]/10">
               <BarChart3 size={20} className="text-[#4285F4]" />
             </div>
-            <h2 className="text-lg font-semibold">Payback Analysis</h2>
+            <h2 className="text-lg font-semibold" style={{ color: 'var(--cc-text)' }}>Payback Analysis</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">

@@ -18,7 +18,7 @@ export default function BoardReportPage() {
   const roi = Math.round((roiSummary.netYear1 / roiSummary.implementationCosts) * 100);
 
   const divisions = companies
-    .filter(c => c.parentId === 'meridian' && c.id !== 'meridian')
+    .filter(c => c.parentId === company.id && c.id !== company.id)
     .map(c => {
       const k = getKpis(c.id);
       return {
@@ -414,8 +414,8 @@ export default function BoardReportPage() {
           lineHeight: 1.7,
         }}>
           {[
-            { num: '1', text: 'Initiate license audit across all 7 divisions to capture $2.8M in waste (4-week timeline)' },
-            { num: '2', text: 'Approve HCSS Equipment360 fleet intelligence pilot for 200 vehicles in HCC division' },
+            { num: '1', text: `Initiate license audit across all ${divisions.length} divisions to capture ${fmtDollar(companyKpis.unusedLicenseWaste)} in waste (4-week timeline)` },
+            { num: '2', text: 'Approve fleet intelligence pilot for initial division rollout' },
             { num: '3', text: 'Schedule deep-dive technical assessment with division GMs and IT leadership' },
             { num: '4', text: 'Establish AI Transformation Steering Committee with CEO and CFO sponsorship' },
           ].map((item) => (

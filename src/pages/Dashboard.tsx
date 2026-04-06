@@ -511,7 +511,7 @@ function DrillDownPanel({ type, onClose }: { type: DrillDownType; onClose: () =>
           >
             <button
               onClick={onClose}
-              className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full transition-colors"
+              className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full transition-colors cursor-pointer"
               style={{ background: 'var(--cc-bg-elevated)', color: 'var(--cc-text-secondary)' }}
             >
               <X className="h-4 w-4" />
@@ -565,7 +565,7 @@ function DivisionDrawer({
           >
             <button
               onClick={onClose}
-              className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full transition-colors"
+              className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full transition-colors cursor-pointer"
               style={{ background: 'var(--cc-bg-elevated)', color: 'var(--cc-text-secondary)' }}
             >
               <X className="h-4 w-4" />
@@ -950,7 +950,7 @@ export default function Dashboard() {
       >
         <button
           onClick={() => setShowCostOfInaction(!showCostOfInaction)}
-          className="relative inline-flex h-5 w-9 shrink-0 items-center rounded-full transition-colors duration-200"
+          className="relative inline-flex h-5 w-9 shrink-0 items-center rounded-full transition-colors duration-200 cursor-pointer"
           style={{ background: showCostOfInaction ? 'var(--cc-red)' : 'var(--cc-text-muted)' }}
         >
           <span
@@ -1218,7 +1218,7 @@ export default function Dashboard() {
               <button
                 key={m}
                 onClick={() => setTimelineMonth(m)}
-                className="text-[12px] font-medium transition-colors"
+                className="text-[12px] font-medium transition-colors cursor-pointer"
                 style={{ color: timelineMonth === m ? 'var(--cc-accent)' : 'var(--cc-text-muted)' }}
               >
                 {label}
@@ -1251,14 +1251,14 @@ export default function Dashboard() {
             </div>
             <button
               onClick={() => setEnabledOpps(new Set(companyOpps.map(o => o.name)))}
-              className="text-[11px] font-medium px-3 py-1.5 rounded-lg transition-colors"
+              className="text-[11px] font-medium px-3 py-1.5 rounded-lg transition-colors cursor-pointer"
               style={{ color: 'var(--cc-accent)', background: 'rgba(66,133,244,0.1)' }}
             >
               Select All
             </button>
             <button
               onClick={() => setEnabledOpps(new Set())}
-              className="text-[11px] font-medium px-3 py-1.5 rounded-lg transition-colors"
+              className="text-[11px] font-medium px-3 py-1.5 rounded-lg transition-colors cursor-pointer"
               style={{ color: 'var(--cc-text-tertiary)', background: 'var(--cc-bg-elevated)' }}
             >
               Clear
@@ -1317,7 +1317,7 @@ export default function Dashboard() {
                     {/* Toggle */}
                     <button
                       onClick={() => toggleOpp(opp.name)}
-                      className="relative inline-flex h-5 w-9 shrink-0 items-center rounded-full transition-colors duration-200"
+                      className="relative inline-flex h-5 w-9 shrink-0 items-center rounded-full transition-colors duration-200 cursor-pointer"
                       style={{ background: enabled ? 'var(--cc-green)' : 'var(--cc-text-muted)' }}
                     >
                       <span

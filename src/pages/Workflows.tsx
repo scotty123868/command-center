@@ -199,7 +199,7 @@ function WorkflowCard({ wf, index }: { wf: Workflow; index: number }) {
       {/* ── collapsed row ── */}
       <button
         onClick={() => setOpen(!open)}
-        className="flex w-full items-center gap-4 px-7 py-5 text-left transition-colors" style={{ color: 'var(--cc-text)' }}
+        className="flex w-full items-center gap-4 px-7 py-5 text-left transition-colors cursor-pointer" style={{ color: 'var(--cc-text)' }}
       >
         <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${meta.dot}`} />
         <span className="flex-1 text-[15px] font-semibold truncate" style={{ color: 'var(--cc-text)' }}>{wf.name}</span>
