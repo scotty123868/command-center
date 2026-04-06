@@ -199,7 +199,7 @@ function WorkflowCard({ wf, index }: { wf: Workflow; index: number }) {
       {/* ── collapsed row ── */}
       <button
         onClick={() => setOpen(!open)}
-        className="flex w-full items-center gap-4 px-7 py-5 text-left transition-colors cursor-pointer" style={{ color: 'var(--cc-text)' }}
+        className="flex w-full items-center gap-3 sm:gap-4 px-4 sm:px-7 py-4 sm:py-5 text-left transition-colors cursor-pointer" style={{ color: 'var(--cc-text)' }}
       >
         <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${meta.dot}`} />
         <span className="flex-1 text-[15px] font-semibold truncate" style={{ color: 'var(--cc-text)' }}>{wf.name}</span>
@@ -245,7 +245,7 @@ function WorkflowCard({ wf, index }: { wf: Workflow; index: number }) {
             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
             className="overflow-hidden"
           >
-            <div className="px-8 pb-8 pt-2">
+            <div className="px-4 sm:px-8 pb-6 sm:pb-8 pt-2">
               {/* ── TIME SAVINGS ── */}
               <TimeSavingsBadge wf={wf} />
 
@@ -433,7 +433,7 @@ export default function Workflows() {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.05, duration: 0.4 }}
-        className="rounded-2xl px-7 py-5 flex items-center gap-5 flex-wrap"
+        className="rounded-2xl px-4 sm:px-7 py-4 sm:py-5 flex items-center gap-4 sm:gap-5 flex-wrap"
         style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.08) 0%, rgba(59,130,246,0.06) 100%)', border: '1px solid rgba(16,185,129,0.15)' }}
       >
         <div className="flex items-center gap-3">

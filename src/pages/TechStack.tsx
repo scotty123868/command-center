@@ -444,7 +444,7 @@ export default function TechStack() {
           transition={{ duration: 0.3 }}
           className="rounded-2xl shadow-sm p-6 md:p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10">
             {/* Left: Inputs */}
             <div className="space-y-8">
               {/* Spend slider */}
@@ -544,7 +544,7 @@ export default function TechStack() {
                 </PieChart>
               </ResponsiveContainer>
 
-              <div className="flex gap-8 text-sm" style={{ color: 'var(--cc-text-secondary)' }}>
+              <div className="flex flex-wrap gap-4 sm:gap-8 text-sm" style={{ color: 'var(--cc-text-secondary)' }}>
                 <div className="flex items-center gap-2">
                   <span className="inline-block w-3 h-3 rounded-full bg-blue-500" />
                   Optimized Spend
@@ -610,7 +610,7 @@ export default function TechStack() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.1 }}
-            className="rounded-2xl p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
+            className="rounded-2xl p-5 sm:p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
           >
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0 mt-0.5">

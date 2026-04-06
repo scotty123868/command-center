@@ -85,7 +85,7 @@ function UserMessage({ content, delay }: { content: string; delay: number }) {
       transition={{ duration: 0.4, delay }}
       className="flex justify-end"
     >
-      <div className="max-w-[70%] rounded-2xl rounded-br-md bg-[#4285F4] px-5 py-3.5 text-[14px] leading-relaxed text-white">
+      <div className="max-w-[85%] sm:max-w-[70%] rounded-2xl rounded-br-md bg-[#4285F4] px-4 sm:px-5 py-3.5 text-[14px] leading-relaxed text-white">
         {content}
       </div>
     </motion.div>
@@ -130,7 +130,7 @@ function AIMessage({
         <span className="text-[11px] font-bold text-white">AI</span>
       </div>
 
-      <div className="max-w-[75%] rounded-2xl rounded-bl-md px-5 py-4 shadow-sm" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}>
+      <div className="max-w-[90%] sm:max-w-[75%] rounded-2xl rounded-bl-md px-4 sm:px-5 py-4 shadow-sm" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}>
         {/* Main text */}
         <div className="text-[14px] leading-relaxed whitespace-pre-line" style={{ color: 'var(--cc-text-secondary)' }}>
           {content.split('\n').map((line, i) => (

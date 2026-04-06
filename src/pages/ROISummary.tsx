@@ -315,7 +315,7 @@ function ScenarioSelector({
       <p className="text-sm font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--cc-text-tertiary)' }}>
         ROI Scenario
       </p>
-      <div className="flex gap-2">
+      <div className="flex flex-col sm:flex-row gap-2">
         {keys.map((key) => {
           const s = SCENARIOS[key];
           const isActive = key === active;
@@ -585,7 +585,7 @@ export default function ROISummary() {
           Projected Net Impact
         </p>
         <h1
-          className="font-mono font-bold leading-none bg-clip-text text-transparent text-5xl sm:text-6xl md:text-[80px]"
+          className="font-mono font-bold leading-none bg-clip-text text-transparent text-4xl sm:text-6xl md:text-[80px]"
           style={{ backgroundImage: 'linear-gradient(135deg, #10B981 0%, #059669 40%, #047857 100%)' }}
         >
           {fmtCompact(Math.round(animatedNetYear1))}

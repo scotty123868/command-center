@@ -527,7 +527,7 @@ export default function Integrations() {
           background: 'linear-gradient(135deg, #1B1B1F 0%, #2B2B2F 100%)',
         }}
       >
-        <div className="p-8">
+        <div className="p-5 sm:p-8">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: 'rgba(16, 185, 129, 0.1)' }}>
               <Shield className="w-5 h-5" style={{ color: '#34D399' }} strokeWidth={1.8} />
@@ -573,7 +573,7 @@ export default function Integrations() {
 
       {/* -- Data Pipeline Status ------------------------------------------ */}
       <motion.div
-        className="rounded-2xl p-8"
+        className="rounded-2xl p-5 sm:p-8"
         style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
@@ -581,8 +581,8 @@ export default function Integrations() {
       >
         <h2 className="text-lg font-semibold mb-6" style={{ color: 'var(--cc-text)' }}>Data Pipeline Status</h2>
 
-        <div className="flex items-center justify-between gap-6 mb-8">
-          <div className="flex-1 rounded-xl p-5 text-center" style={{ background: 'var(--cc-bg-elevated)', border: '1px solid var(--cc-border)' }}>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
+          <div className="w-full sm:flex-1 rounded-xl p-5 text-center" style={{ background: 'var(--cc-bg-elevated)', border: '1px solid var(--cc-border)' }}>
             <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3" style={{ background: 'var(--cc-accent-glow)' }}>
               <Database className="w-6 h-6" style={{ color: 'var(--cc-accent)' }} strokeWidth={1.8} />
             </div>
@@ -591,11 +591,11 @@ export default function Integrations() {
           </div>
 
           <div className="flex flex-col items-center gap-1 flex-shrink-0">
-            <ArrowRight className="w-5 h-5" style={{ color: 'var(--cc-text-muted)' }} />
+            <ArrowRight className="w-5 h-5 rotate-90 sm:rotate-0" style={{ color: 'var(--cc-text-muted)' }} />
             <span className="text-[10px] font-medium" style={{ color: 'var(--cc-text-tertiary)' }}>Extract</span>
           </div>
 
-          <div className="flex-1 rounded-xl p-5 text-center" style={{ background: 'var(--cc-bg-elevated)', border: '1px solid var(--cc-border)' }}>
+          <div className="w-full sm:flex-1 rounded-xl p-5 text-center" style={{ background: 'var(--cc-bg-elevated)', border: '1px solid var(--cc-border)' }}>
             <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3" style={{ background: 'var(--cc-yellow-dim)' }}>
               <Activity className="w-6 h-6" style={{ color: 'var(--cc-yellow)' }} strokeWidth={1.8} />
             </div>
@@ -604,11 +604,11 @@ export default function Integrations() {
           </div>
 
           <div className="flex flex-col items-center gap-1 flex-shrink-0">
-            <ArrowRight className="w-5 h-5" style={{ color: 'var(--cc-text-muted)' }} />
+            <ArrowRight className="w-5 h-5 rotate-90 sm:rotate-0" style={{ color: 'var(--cc-text-muted)' }} />
             <span className="text-[10px] font-medium" style={{ color: 'var(--cc-text-tertiary)' }}>Report</span>
           </div>
 
-          <div className="flex-1 rounded-xl p-5 text-center" style={{ background: 'var(--cc-bg-elevated)', border: '1px solid var(--cc-border)' }}>
+          <div className="w-full sm:flex-1 rounded-xl p-5 text-center" style={{ background: 'var(--cc-bg-elevated)', border: '1px solid var(--cc-border)' }}>
             <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3" style={{ background: 'var(--cc-green-dim)' }}>
               <Zap className="w-6 h-6" style={{ color: 'var(--cc-green)' }} strokeWidth={1.8} />
             </div>
@@ -617,7 +617,7 @@ export default function Integrations() {
           </div>
         </div>
 
-        <div className="flex items-center justify-center gap-2 text-xs" style={{ color: 'var(--cc-text-secondary)' }}>
+        <div className="flex flex-wrap items-center justify-center gap-2 text-xs" style={{ color: 'var(--cc-text-secondary)' }}>
           <span className="flex items-center gap-1.5">
             <Database className="w-3.5 h-3.5" style={{ color: 'var(--cc-text-tertiary)' }} />
             Total records scanned:

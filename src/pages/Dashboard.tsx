@@ -903,7 +903,7 @@ export default function Dashboard() {
             </div>
 
             {/* Secondary stats */}
-            <div className="mt-6 lg:mt-0 flex flex-wrap gap-8 lg:gap-12">
+            <div className="mt-6 lg:mt-0 flex flex-wrap gap-5 sm:gap-8 lg:gap-12">
               <div>
                 <p className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: 'var(--cc-text-muted)' }}>AI Score</p>
                 <div className="mt-1 flex items-baseline gap-1">
@@ -1659,8 +1659,8 @@ export default function Dashboard() {
                   </div>
                 </div>
                 <div className="flex justify-between mt-1">
-                  <span className="text-[9px]" style={{ color: 'var(--cc-text-muted)' }}>Target: {d.target}</span>
-                  <span className="text-[9px]" style={{ color: 'var(--cc-text-muted)' }}>Industry: {d.industry}</span>
+                  <span className="text-[10px]" style={{ color: 'var(--cc-text-muted)' }}>Target: {d.target}</span>
+                  <span className="text-[10px]" style={{ color: 'var(--cc-text-muted)' }}>Industry: {d.industry}</span>
                 </div>
               </div>
             ))}

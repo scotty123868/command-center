@@ -1337,7 +1337,7 @@ export default function DataFlow() {
           Proposed: {proposedArchitecture.title}
         </h2>
 
-        <div className="rounded-2xl shadow-sm p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}>
+        <div className="rounded-2xl shadow-sm p-4 sm:p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}>
           {/* Division Badges */}
           <div className="flex flex-wrap items-center justify-center gap-4">
             {gapData.divisionBadges.map(
@@ -1374,7 +1374,7 @@ export default function DataFlow() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.7 }}
-            className="mx-auto max-w-md rounded-2xl px-8 py-5 text-center shadow-lg"
+            className="mx-auto max-w-md rounded-2xl px-5 sm:px-8 py-5 text-center shadow-lg"
             style={{ background: 'var(--cc-bg-elevated)', border: '1px solid var(--cc-border)' }}
           >
             <div className="flex items-center justify-center gap-3">
@@ -1442,18 +1442,18 @@ export default function DataFlow() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.4 }}
-            className="mt-6 rounded-xl px-6 py-4 text-center" style={{ background: 'var(--cc-bg-input)', border: '1px solid var(--cc-border)' }}
+            className="mt-6 rounded-xl px-4 sm:px-6 py-4 text-center" style={{ background: 'var(--cc-bg-input)', border: '1px solid var(--cc-border)' }}
           >
-            <span className="text-sm" style={{ color: 'var(--cc-text-secondary)' }}>
+            <span className="text-xs sm:text-sm" style={{ color: 'var(--cc-text-secondary)' }}>
               Investment:{' '}
               <span className="font-mono font-semibold" style={{ color: 'var(--cc-text)' }}>
                 {gapData.investment}
               </span>{' '}
-              &middot; Annual Return:{' '}
+              <span className="hidden sm:inline">&middot;</span><br className="sm:hidden" /> Annual Return:{' '}
               <span className="font-mono font-semibold text-green-600">
                 {gapData.annualReturn}
               </span>{' '}
-              &middot; ROI:{' '}
+              <span className="hidden sm:inline">&middot;</span><br className="sm:hidden" /> ROI:{' '}
               <span className="font-mono font-bold text-green-600">
                 {gapData.roi}
               </span>
