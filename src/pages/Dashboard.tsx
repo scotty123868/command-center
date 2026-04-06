@@ -1616,10 +1616,10 @@ export default function Dashboard() {
               </ScatterChart>
             </ResponsiveContainer>
             {/* Quadrant labels — positioned outside chart plot area */}
-            <div className="absolute top-0 left-12 text-[8px] font-medium pointer-events-none" style={{ color: 'var(--cc-green)', opacity: 0.35 }}>HIGH IMPACT / LOW EFFORT</div>
-            <div className="absolute top-0 right-4 text-[8px] font-medium pointer-events-none" style={{ color: 'var(--cc-yellow)', opacity: 0.35 }}>HIGH IMPACT / HIGH EFFORT</div>
-            <div className="absolute bottom-10 left-12 text-[8px] font-medium pointer-events-none" style={{ color: 'var(--cc-text-muted)', opacity: 0.35 }}>LOW IMPACT / LOW EFFORT</div>
-            <div className="absolute bottom-10 right-4 text-[8px] font-medium pointer-events-none" style={{ color: 'var(--cc-red)', opacity: 0.35 }}>LOW IMPACT / HIGH EFFORT</div>
+            <div className="hidden xl:block absolute top-0 left-12 text-[8px] font-medium pointer-events-none" style={{ color: 'var(--cc-green)', opacity: 0.35 }}>HIGH IMPACT / LOW EFFORT</div>
+            <div className="hidden xl:block absolute top-0 right-4 text-[8px] font-medium pointer-events-none" style={{ color: 'var(--cc-yellow)', opacity: 0.35 }}>HIGH IMPACT / HIGH EFFORT</div>
+            <div className="hidden xl:block absolute bottom-10 left-12 text-[8px] font-medium pointer-events-none" style={{ color: 'var(--cc-text-muted)', opacity: 0.35 }}>LOW IMPACT / LOW EFFORT</div>
+            <div className="hidden xl:block absolute bottom-10 right-4 text-[8px] font-medium pointer-events-none" style={{ color: 'var(--cc-red)', opacity: 0.35 }}>LOW IMPACT / HIGH EFFORT</div>
           </div>
 
           {/* Legend */}
