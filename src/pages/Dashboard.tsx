@@ -943,27 +943,37 @@ export default function Dashboard() {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.1 }}
-        className="flex items-center gap-3 rounded-xl px-4 py-3 transition-all duration-500"
-        style={{
-          background: showCostOfInaction ? 'var(--cc-red-dim)' : 'transparent',
-        }}
       >
         <button
           onClick={() => setShowCostOfInaction(!showCostOfInaction)}
-          className="relative inline-flex h-5 w-9 shrink-0 items-center rounded-full transition-colors duration-200 cursor-pointer"
-          style={{ background: showCostOfInaction ? 'var(--cc-red)' : 'var(--cc-text-muted)' }}
+          className="flex items-center gap-3 rounded-xl px-4 py-3 w-full cursor-pointer transition-all duration-300"
+          style={{
+            background: showCostOfInaction ? 'var(--cc-red-dim)' : 'var(--cc-bg-card)',
+            border: showCostOfInaction ? '1px solid rgba(239, 68, 68, 0.3)' : '1px solid var(--cc-border)',
+          }}
         >
+          {/* Toggle track */}
           <span
-            className="inline-block h-3.5 w-3.5 transform rounded-full shadow transition-transform duration-200"
-            style={{
-              background: 'var(--cc-text)',
-              transform: showCostOfInaction ? 'translateX(18px)' : 'translateX(3px)',
-            }}
-          />
+            className="relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors duration-200"
+            style={{ background: showCostOfInaction ? 'var(--cc-red)' : 'var(--cc-text-muted)' }}
+          >
+            {/* Toggle knob */}
+            <span
+              className="inline-block h-4 w-4 rounded-full bg-white shadow-sm transition-transform duration-200"
+              style={{
+                transform: showCostOfInaction ? 'translateX(22px)' : 'translateX(4px)',
+              }}
+            />
+          </span>
+          <div className="flex flex-col items-start">
+            <span className="text-[13px] font-semibold" style={{ color: showCostOfInaction ? 'var(--cc-red)' : 'var(--cc-text)' }}>
+              Cost of Inaction
+            </span>
+            <span className="text-[11px]" style={{ color: 'var(--cc-text-tertiary)' }}>
+              {showCostOfInaction ? '3-year projection shown below' : 'Show projected losses if no action taken'}
+            </span>
+          </div>
         </button>
-        <span className="text-[12px] font-medium" style={{ color: showCostOfInaction ? 'var(--cc-red)' : 'var(--cc-text-secondary)' }}>
-          Show Cost of Inaction
-        </span>
       </motion.div>
 
       <AnimatePresence>
@@ -975,7 +985,7 @@ export default function Dashboard() {
             transition={{ duration: 0.4, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <div className="rounded-2xl p-6" style={{ background: 'var(--cc-red-dim)', border: '1px solid rgba(239, 68, 68, 0.2)' }}>
+            <div className="rounded-2xl p-4 sm:p-6" style={{ background: 'var(--cc-red-dim)', border: '1px solid rgba(239, 68, 68, 0.2)' }}>
               <h2 className="text-[14px] font-semibold" style={{ color: 'var(--cc-red)' }}>
                 If No Action Is Taken — 3-Year Projection
               </h2>

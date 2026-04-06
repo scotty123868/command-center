@@ -245,7 +245,7 @@ function CostOfInactionCounter({ monthlyWaste, companyName }: { monthlyWaste: nu
 
   return (
     <motion.div
-      className="rounded-2xl p-6 text-center relative overflow-hidden"
+      className="rounded-2xl p-4 sm:p-6 text-center relative overflow-hidden"
       style={{
         background: 'linear-gradient(135deg, rgba(239,68,68,0.08) 0%, rgba(239,68,68,0.02) 100%)',
         border: '1px solid rgba(239,68,68,0.2)',
@@ -306,13 +306,13 @@ function ScenarioSelector({
   const keys: ScenarioKey[] = ['conservative', 'base', 'aggressive'];
   return (
     <motion.div
-      className="rounded-2xl p-5"
+      className="rounded-2xl p-4 sm:p-5"
       style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: 0.05 }}
     >
-      <p className="text-sm font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--cc-text-tertiary)' }}>
+      <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--cc-text-tertiary)' }}>
         ROI Scenario
       </p>
       <div className="flex flex-col sm:flex-row gap-2">
@@ -323,7 +323,7 @@ function ScenarioSelector({
             <button
               key={key}
               onClick={() => onChange(key)}
-              className="flex-1 rounded-xl px-3 py-3 text-left transition-all duration-200 cursor-pointer"
+              className="flex-1 rounded-xl px-3 py-2.5 sm:py-3 text-left transition-all duration-200 cursor-pointer min-h-[44px]"
               style={{
                 background: isActive
                   ? key === 'base'
@@ -383,12 +383,12 @@ function WaterfallChartSection({ waterfallChartData }: { waterfallChartData: Ret
   return (
     <motion.div
       ref={ref}
-      className="rounded-2xl shadow-sm p-6" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
+      className="rounded-2xl shadow-sm p-4 sm:p-6" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
       initial={{ opacity: 0, y: 24 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
       transition={{ delay: 0.25, duration: 0.4 }}
     >
-      <h2 className="text-lg font-semibold mb-6" style={{ color: 'var(--cc-text)' }}>
+      <h2 className="text-lg font-semibold mb-4 sm:mb-6" style={{ color: 'var(--cc-text)' }}>
         Savings Waterfall
       </h2>
       <ResponsiveContainer width="100%" height={350}>
@@ -459,13 +459,13 @@ function ScenarioComparisonTable({
 
   return (
     <motion.div
-      className="rounded-2xl shadow-sm p-6"
+      className="rounded-2xl shadow-sm p-4 sm:p-6"
       style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.35, duration: 0.4 }}
     >
-      <h2 className="text-lg font-semibold mb-5" style={{ color: 'var(--cc-text)' }}>Scenario Comparison</h2>
+      <h2 className="text-lg font-semibold mb-4 sm:mb-5" style={{ color: 'var(--cc-text)' }}>Scenario Comparison</h2>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
@@ -631,12 +631,12 @@ export default function ROISummary() {
 
       {/* ── Section 4: Timeline Chart ─────────────────────────────────── */}
       <motion.div
-        className="rounded-2xl shadow-sm p-6" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
+        className="rounded-2xl shadow-sm p-4 sm:p-6" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.3 }}
       >
-        <h2 className="text-lg font-semibold mb-6" style={{ color: 'var(--cc-text)' }}>
+        <h2 className="text-lg font-semibold mb-4 sm:mb-6" style={{ color: 'var(--cc-text)' }}>
           Implementation Timeline &amp; Cost Curve
           <span className="text-xs font-normal ml-2" style={{ color: 'var(--cc-text-tertiary)' }}>
             ({SCENARIOS[scenario].rollout})

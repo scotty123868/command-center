@@ -1639,30 +1639,36 @@ export default function Stories() {
       {/* Division Switcher Tab Bar */}
       <div className="border-b overflow-hidden" style={{ borderColor: 'var(--cc-border)' }}>
         <nav className="flex gap-1 -mb-px overflow-x-auto scrollbar-hide min-w-0" style={{ WebkitOverflowScrolling: 'touch' }} aria-label="Division tabs">
-          {divisions.map((division, index) => (
-            <button
-              key={division.name}
-              onClick={() => setActiveIndex(index)}
-              className={`relative whitespace-nowrap px-3 sm:px-5 py-3 text-xs sm:text-sm font-medium transition-colors ${
-                activeIndex === index
-                  ? 'text-[#4285F4] font-semibold'
-                  : ''
-              }`}
-              style={activeIndex !== index ? { color: 'var(--cc-text-secondary)' } : undefined}
-            >
-              <span className="flex items-center gap-2">
-                <Building2 className="w-4 h-4" />
-                {division.name}
-              </span>
-              {activeIndex === index && (
-                <motion.div
-                  layoutId="activeTab"
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#4285F4]"
-                  transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
-                />
-              )}
-            </button>
-          ))}
+          {divisions.map((division, index) => {
+            // Extract short code from name like "IC Construction Corp (HCC)" -> "HCC"
+            const codeMatch = division.name.match(/\(([^)]+)\)/);
+            const shortCode = codeMatch ? codeMatch[1] : division.name;
+            return (
+              <button
+                key={division.name}
+                onClick={() => setActiveIndex(index)}
+                className={`relative whitespace-nowrap flex-shrink-0 px-3 sm:px-5 py-3 text-xs sm:text-sm font-medium transition-colors ${
+                  activeIndex === index
+                    ? 'text-[#4285F4] font-semibold'
+                    : ''
+                }`}
+                style={activeIndex !== index ? { color: 'var(--cc-text-secondary)' } : undefined}
+              >
+                <span className="flex items-center gap-1.5 sm:gap-2">
+                  <Building2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  <span className="sm:hidden">{shortCode}</span>
+                  <span className="hidden sm:inline">{division.name}</span>
+                </span>
+                {activeIndex === index && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#4285F4]"
+                    transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+                  />
+                )}
+              </button>
+            );
+          })}
         </nav>
       </div>
 

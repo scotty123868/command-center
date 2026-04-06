@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { Routes, Route, Navigate, useLocation, useSearchParams } from 'react-router-dom';
 import { Search, Menu, Moon, Sun } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -168,9 +168,15 @@ export default function App() {
     }
   }, [searchParams]);
 
-  // Close sidebar on route change (mobile)
+  // Ref for the scrollable content area
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Close sidebar on route change (mobile) + scroll content to top
   useEffect(() => {
     setSidebarOpen(false);
+    if (scrollRef.current) {
+      scrollRef.current.scrollTo({ top: 0 });
+    }
   }, [location.pathname]);
 
   // Board report page: standalone, no chrome at all
@@ -223,7 +229,7 @@ export default function App() {
             <AnimatedRoutes />
           </div>
         ) : (
-          <div className="flex-1 overflow-y-auto">
+          <div ref={scrollRef} className="flex-1 overflow-y-auto overflow-x-hidden">
             <div className="max-w-[1400px] mx-auto px-3 py-4 sm:px-6 lg:px-10 lg:py-8">
               <AnimatedRoutes />
             </div>
