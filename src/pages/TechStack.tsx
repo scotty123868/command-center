@@ -5,6 +5,7 @@ import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 import { getCurrentStack, getRecommendations, getKpis, getCompanyProfile } from '../data/constants';
 import type { CurrentTool, Recommendation } from '../data/constants';
 import { useCompany } from '../data/CompanyContext';
+import PreliminaryBanner from '../components/PreliminaryBanner';
 
 /* ── helpers ─────────────────────────────────────────────────────────────── */
 
@@ -240,11 +241,9 @@ export default function TechStack() {
   };
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-8 pb-20">
       {/* Preliminary Estimate Banner */}
-      <span className="text-xs px-3 py-1 rounded inline-block" style={{ color: 'var(--cc-text-secondary)', background: 'var(--cc-bg-card)' }}>
-        Preliminary Estimate — Based on Industry Benchmarks
-      </span>
+      <PreliminaryBanner />
 
       {/* ─── Section 1 : Stack Health Overview ─────────────────────────────── */}
       <section>
@@ -340,7 +339,7 @@ export default function TechStack() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.04, duration: 0.3 }}
-                className="rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-200 p-6 md:p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
+                className="rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-200 p-4 sm:p-6" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
               >
                 <div className="grid grid-cols-1 md:grid-cols-[2fr_auto_2fr_auto] gap-4 md:gap-6 items-center">
                   {/* CURRENT — left 40% */}
@@ -456,7 +455,7 @@ export default function TechStack() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="rounded-2xl shadow-sm p-6 md:p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
+          className="rounded-2xl shadow-sm p-4 sm:p-6" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10">
             {/* Left: Inputs */}
@@ -624,7 +623,7 @@ export default function TechStack() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.1 }}
-            className="rounded-2xl p-5 sm:p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
+            className="rounded-2xl p-4 sm:p-6" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
           >
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0 mt-0.5">

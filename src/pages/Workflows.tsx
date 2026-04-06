@@ -9,6 +9,7 @@ import {
   Timer,
 } from 'lucide-react';
 import { getWorkflows, getWorkflowSummary } from '../data/constants';
+import PreliminaryBanner from '../components/PreliminaryBanner';
 import type { Workflow, AutomationLevel } from '../data/constants';
 import { useCompany } from '../data/CompanyContext';
 
@@ -199,7 +200,7 @@ function WorkflowCard({ wf, index }: { wf: Workflow; index: number }) {
       {/* ── collapsed row ── */}
       <button
         onClick={() => setOpen(!open)}
-        className="flex w-full items-center gap-3 sm:gap-4 px-4 sm:px-7 py-4 sm:py-5 text-left transition-colors cursor-pointer" style={{ color: 'var(--cc-text)' }}
+        className="flex w-full items-center gap-3 sm:gap-4 px-4 sm:px-7 py-4 sm:py-5 text-left transition-colors cursor-pointer hover:bg-white/[0.02]" style={{ color: 'var(--cc-text)' }}
       >
         <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${meta.dot}`} />
         <span className="flex-1 text-[15px] font-semibold truncate" style={{ color: 'var(--cc-text)' }}>{wf.name}</span>
@@ -414,11 +415,9 @@ export default function Workflows() {
   const totalSavings = companyWorkflows.reduce((sum, wf) => sum + wf.savings, 0);
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 pb-20">
       {/* Preliminary Estimate Banner */}
-      <span className="text-xs px-3 py-1 rounded inline-block" style={{ color: 'var(--cc-text-secondary)', background: 'var(--cc-bg-card)' }}>
-        Preliminary Estimate — Based on Industry Benchmarks
-      </span>
+      <PreliminaryBanner />
 
       {/* ── page title ── */}
       <div>

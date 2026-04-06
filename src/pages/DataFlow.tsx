@@ -1072,7 +1072,7 @@ export default function DataFlow() {
   const proposedArchitecture = proposedArchitectures[archKey] || proposedArchitectures.meridian;
 
   return (
-    <div className="space-y-12 pb-16">
+    <div className="space-y-8 pb-20">
       <PreliminaryBanner />
 
       {/* ── Section 1: Header ─────────────────────────────────────────────── */}
@@ -1222,7 +1222,7 @@ export default function DataFlow() {
                 {/* Collapsed Header */}
                 <button
                   onClick={() => toggle(gap.id)}
-                  className="flex w-full items-center justify-between px-5 py-4 text-left transition-colors cursor-pointer"
+                  className="flex w-full items-center justify-between px-5 py-4 text-left transition-colors cursor-pointer hover:bg-white/[0.02]"
                 >
                   <div className="flex items-center gap-3">
                     <div className="flex h-8 w-8 items-center justify-center rounded-lg" style={{ background: 'var(--cc-red-dim)' }}>

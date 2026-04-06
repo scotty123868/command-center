@@ -14,6 +14,7 @@ import { ChevronDown, ChevronUp, ShieldAlert, AlertTriangle } from 'lucide-react
 import { getLicenses } from '../data/constants';
 import type { License } from '../data/constants';
 import { useCompany } from '../data/CompanyContext';
+import PreliminaryBanner from '../components/PreliminaryBanner';
 
 const COLORS = ['#EF4444', '#F59E0B', '#4285F4', '#10B981', '#8B5CF6', '#EC4899', '#E8600A'];
 
@@ -90,18 +91,16 @@ export default function LicenseAudit() {
   const toggle = (i: number) => setExpandedRow(expandedRow === i ? null : i);
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-8 pb-20">
       {/* Preliminary Estimate Banner */}
-      <span className="text-xs px-3 py-1 rounded inline-block" style={{ color: 'var(--cc-text-secondary)', background: 'var(--cc-bg-card)' }}>
-        Preliminary Estimate — Based on Industry Benchmarks
-      </span>
+      <PreliminaryBanner />
 
       {/* ── Hero Section ──────────────────────────────────────────────────── */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.25 }}
-        className="rounded-2xl shadow-sm p-5 sm:p-8 flex flex-col lg:flex-row items-center gap-6 sm:gap-10" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
+        className="rounded-2xl shadow-sm p-4 sm:p-6 flex flex-col lg:flex-row items-center gap-6 sm:gap-10" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
       >
         {/* Left — hero number */}
         <div className="flex-1 text-center lg:text-left">
@@ -157,7 +156,7 @@ export default function LicenseAudit() {
         transition={{ duration: 0.25, delay: 0.08 }}
         className="rounded-2xl shadow-sm overflow-hidden" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
       >
-        <div className="px-4 sm:px-8 pt-6 pb-4">
+        <div className="px-4 sm:px-6 pt-6 pb-4">
           <h2 className="text-xl font-semibold" style={{ color: 'var(--cc-text)' }}>License Inventory</h2>
           <p className="text-sm mt-1" style={{ color: 'var(--cc-text-secondary)' }}>Tap any item for detailed breakdown</p>
         </div>
@@ -170,7 +169,7 @@ export default function LicenseAudit() {
               <div key={l.vendor}>
                 <div
                   onClick={() => toggle(i)}
-                  className="rounded-xl p-4 cursor-pointer transition-colors"
+                  className="rounded-xl p-4 cursor-pointer transition-colors hover:bg-white/[0.04]"
                   style={{ background: i % 2 === 0 ? 'var(--cc-bg-elevated)' : 'rgba(255,255,255,0.02)', border: '1px solid var(--cc-border)' }}
                 >
                   <div className="flex items-start justify-between gap-2">
@@ -260,7 +259,7 @@ export default function LicenseAudit() {
           <table className="w-full min-w-[640px] text-sm">
             <thead>
               <tr className="text-left text-xs font-semibold uppercase tracking-wider" style={{ borderBottom: '1px solid var(--cc-border)', color: 'var(--cc-text-secondary)' }}>
-                <th className="px-8 py-3">Vendor</th>
+                <th className="px-6 py-3">Vendor</th>
                 <th className="px-4 py-3">Dept</th>
                 <th className="px-4 py-3 text-right">Total</th>
                 <th className="px-4 py-3 text-right">Active</th>
@@ -278,10 +277,10 @@ export default function LicenseAudit() {
                   <React.Fragment key={l.vendor}>
                     <tr
                       onClick={() => toggle(i)}
-                      className="cursor-pointer transition-colors"
+                      className="cursor-pointer transition-colors hover:bg-white/[0.02]"
                       style={{ borderBottom: '1px solid var(--cc-border)', background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)' }}
                     >
-                      <td className="px-8 py-4 font-semibold" style={{ color: 'var(--cc-text)' }}>{l.vendor}</td>
+                      <td className="px-6 py-4 font-semibold" style={{ color: 'var(--cc-text)' }}>{l.vendor}</td>
                       <td className="px-4 py-4" style={{ color: 'var(--cc-text-secondary)' }}>{l.department}</td>
                       <td className="px-4 py-4 text-right font-mono" style={{ color: 'var(--cc-text)' }}>
                         {l.totalLicenses.toLocaleString()}
@@ -325,7 +324,7 @@ export default function LicenseAudit() {
                               transition={{ duration: 0.25 }}
                               className="overflow-hidden"
                             >
-                              <div className="px-4 sm:px-8 py-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6" style={{ background: 'var(--cc-bg-input)', borderBottom: '1px solid var(--cc-border)' }}>
+                              <div className="px-4 sm:px-6 py-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6" style={{ background: 'var(--cc-bg-input)', borderBottom: '1px solid var(--cc-border)' }}>
                                 {/* Usage bar */}
                                 <div>
                                   <p className="text-xs font-semibold uppercase tracking-wider mb-2">

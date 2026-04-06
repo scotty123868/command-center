@@ -28,6 +28,7 @@ import {
 } from 'recharts';
 import { getRoiSummary } from '../data/constants';
 import { useCompany } from '../data/CompanyContext';
+import PreliminaryBanner from '../components/PreliminaryBanner';
 
 // ─── Scenario Types ──────────────────────────────────────────────────────────
 
@@ -306,7 +307,7 @@ function ScenarioSelector({
   const keys: ScenarioKey[] = ['conservative', 'base', 'aggressive'];
   return (
     <motion.div
-      className="rounded-2xl p-4 sm:p-5"
+      className="rounded-2xl p-4 sm:p-6"
       style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
@@ -584,11 +585,9 @@ export default function ROISummary() {
   );
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-8 pb-20">
       {/* Preliminary Estimate Banner */}
-      <span className="text-xs px-3 py-1 rounded inline-block" style={{ color: 'var(--cc-text-secondary)', background: 'var(--cc-bg-card)' }}>
-        Preliminary Estimate — Based on Industry Benchmarks
-      </span>
+      <PreliminaryBanner />
 
       {/* ── Cost of Inaction ──────────────────────────────────────────── */}
       <CostOfInactionCounter monthlyWaste={monthlyWaste} companyName={company.name} />

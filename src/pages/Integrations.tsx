@@ -113,7 +113,7 @@ export default function Integrations() {
   const pendingCount = dataSources.filter((d: IntegrationDataSource) => d.status === 'Pending Access').length;
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-8 pb-20">
       {/* Inject pulse keyframes */}
       <style>{pulseKeyframes}</style>
 

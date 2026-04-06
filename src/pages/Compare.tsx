@@ -183,7 +183,7 @@ export default function Compare() {
   const top3OppsB = oppsB.slice(0, 3);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 pb-20">
       <PreliminaryBanner />
 
       {/* Page header */}

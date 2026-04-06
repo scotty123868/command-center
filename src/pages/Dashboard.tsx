@@ -304,7 +304,7 @@ function KpiCard({
       transition={{ duration: 0.4, delay }}
       whileHover={{ y: -2, scale: 1.02 }}
       onClick={onClick}
-      className={`group relative flex flex-col justify-between rounded-2xl p-6 transition-all duration-200 ${onClick ? 'cursor-pointer' : ''}`}
+      className={`group relative flex flex-col justify-between rounded-2xl p-4 sm:p-6 transition-all duration-200 ${onClick ? 'cursor-pointer hover:border-white/10' : ''}`}
       style={{
         background: 'var(--cc-bg-card)',
         border: '1px solid var(--cc-border)',
@@ -849,7 +849,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 pb-20">
       {/* ── 1. CINEMATIC HERO SECTION ────────────────────────────── */}
       <motion.section
         key={`hero-${company.id}`}
@@ -1058,7 +1058,7 @@ export default function Dashboard() {
                   transition={{ duration: 0.4, delay: 0.12 + i * 0.05 }}
                   whileHover={{ y: -2 }}
                   onClick={() => setSelectedDivision(sub)}
-                  className="group cursor-pointer rounded-2xl p-5 transition-colors"
+                  className="group cursor-pointer rounded-2xl p-4 sm:p-5 transition-colors hover:border-white/10"
                   style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
                 >
                   {/* Header */}
@@ -1203,7 +1203,7 @@ export default function Dashboard() {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.25 }}
-        className="rounded-2xl p-6"
+        className="rounded-2xl p-4 sm:p-6"
         style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
       >
         <h2 className="text-[15px] font-semibold" style={{ color: 'var(--cc-text)' }}>Transformation Timeline</h2>
@@ -1243,7 +1243,7 @@ export default function Dashboard() {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.3 }}
-        className="rounded-2xl p-6 lg:p-8"
+        className="rounded-2xl p-4 sm:p-6"
         style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
       >
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
@@ -1470,7 +1470,7 @@ export default function Dashboard() {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.35 }}
-        className="rounded-2xl p-6 lg:p-8"
+        className="rounded-2xl p-4 sm:p-6"
         style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
       >
         <h2 className="text-[15px] font-semibold mb-1" style={{ color: 'var(--cc-text)' }}>What-If Assumptions</h2>
@@ -1752,7 +1752,7 @@ export default function Dashboard() {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.55 }}
-        className="rounded-2xl p-6 lg:p-8"
+        className="rounded-2xl p-4 sm:p-6"
         style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
       >
         <h2 className="text-[15px] font-semibold mb-1" style={{ color: 'var(--cc-text)' }}>Transformation Roadmap</h2>
