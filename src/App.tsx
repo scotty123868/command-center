@@ -171,13 +171,13 @@ export default function App() {
   // Ref for the scrollable content area
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // Close sidebar on route change (mobile) + scroll content to top
+  // Close sidebar on route change or company switch + scroll content to top
   useEffect(() => {
     setSidebarOpen(false);
     if (scrollRef.current) {
       scrollRef.current.scrollTo({ top: 0 });
     }
-  }, [location.pathname]);
+  }, [location.pathname, location.search]);
 
   // Board report page: standalone, no chrome at all
   if (location.pathname === '/board-report') {

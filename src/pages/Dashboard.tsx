@@ -1438,13 +1438,21 @@ export default function Dashboard() {
                           &ldquo;Companies with {company.employees.toLocaleString()}+ employees typically realize {savingsLow}&ndash;{savingsHigh} in {opp.category.toLowerCase()} within 12 months.&rdquo;
                         </div>
 
-                        {/* Link to workflows */}
+                        {/* Link to relevant detail page based on category */}
                         <button
-                          onClick={() => navigate('/workflows')}
-                          className="inline-flex items-center gap-1.5 text-[12px] font-medium transition-colors hover:underline"
+                          onClick={() => {
+                            const categoryRoutes: Record<string, string> = {
+                              'Workflow Automation': '/workflows',
+                              'License Audit': '/license-audit',
+                              'Tech Stack': '/tech-stack',
+                              'Data Infrastructure': '/data-flow',
+                            };
+                            navigate(categoryRoutes[opp.category] || '/workflows');
+                          }}
+                          className="inline-flex items-center gap-1.5 text-[12px] font-medium transition-colors hover:underline cursor-pointer"
                           style={{ color: 'var(--cc-accent)' }}
                         >
-                          View Workflow Details
+                          View {opp.category === 'License Audit' ? 'License Audit' : opp.category === 'Tech Stack' ? 'Tech Stack' : opp.category === 'Data Infrastructure' ? 'Data Flow' : 'Workflow'} Details
                           <ArrowRight size={12} />
                         </button>
                       </div>
