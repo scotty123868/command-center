@@ -336,52 +336,52 @@ export const recommendations: Recommendation[] = [
   {
     current: {
       name: 'Legacy Field Dispatch',
-      cost: 680_000,
+      cost: 5_440_000,
       users: 340,
       score: 3,
       description: 'Custom-built dispatch and fleet management system from 2009, maintained by 2 internal developers. Handles crew dispatch, equipment tracking, and work order management across HCC and HRSI divisions. No mobile interface — field supervisors call dispatch center to update status. Zero integration with GPS fleet data despite HCSS Telematics tracking all 800+ vehicles. Average dispatch-to-arrival time unknown because system cannot track it. 340 users but no usage analytics to identify inactive accounts.',
     },
     recommended: {
       name: 'HCSS Equipment360 Intelligence',
-      cost: 300_000,
+      cost: 2_400_000,
       description: 'HCSS Equipment360\'s AI-powered fleet management platform provides real-time visibility across all 800+ vehicles and equipment assets. GPS tracking with geofencing, automated dispatch routing using ML-optimized algorithms that reduce drive time by 18% on comparable fleets. Mobile-first interface enables field crews to update work orders, capture photos, and submit safety reports from job sites. Predictive maintenance alerts based on engine diagnostics and usage patterns. Integration with proposed data lakehouse via REST API for cross-division analytics. Driver safety scoring and dash cam AI for FMCSA compliance.',
     },
-    annualSavings: 380_000,
+    annualSavings: 3_040_000,
   },
   {
     current: {
       name: 'eCMS (Computer Guidance)',
-      cost: 520_000,
+      cost: 4_160_000,
       users: 160,
       score: 3,
       description: 'On-premise eCMS instance (Computer Guidance Corp) serving 5 divisions with 160 named users. Heavy customization for railroad project cost accounting. Report generation averages 5.1 minutes. No API layer for modern integrations — all data exchange via flat-file exports and QMirror AS/400 replication. Multi-division consolidation requires 3-day month-end close process. 160 users but SSO logs show only 92 unique logins/month.',
     },
     recommended: {
       name: 'eCMS + AI Middleware',
-      cost: 240_000,
+      cost: 1_920_000,
       description: 'AI middleware layer deployed alongside existing eCMS in IC data centers. Automated invoice matching reduces AP processing by 65%. Predictive project cost modeling uses historical eCMS data to forecast overruns 4-6 weeks early. Real-time API bridge enables live sync with HCSS field data, Procore project management, and proposed data lakehouse. Eliminates 3-day month-end close via automated multi-division consolidation. Mobile expense capture for field crews. Respects IC\'s on-prem preference — runs in TX/AZ data centers alongside eCMS.',
     },
-    annualSavings: 280_000,
+    annualSavings: 2_240_000,
   },
   {
     current: {
       name: 'Primavera P6',
-      cost: 420_000,
+      cost: 3_360_000,
       users: 180,
       score: 4,
       description: 'Oracle Primavera P6 Professional with 180 licenses across HCC, HRSI, and HTI divisions. Strong CPM scheduling capability but no AI-assisted planning. 280 active projects tracked, but resource leveling is manual (project managers spend avg 6 hrs/week on schedule updates). No field mobile access — all updates must be entered from office workstations. Integration with eCMS is batch-only (nightly CSV export). 100 of 280 licenses show <2 logins/month.',
     },
     recommended: {
       name: 'Procore + AI',
-      cost: 220_000,
+      cost: 1_760_000,
       description: 'Procore construction management platform with AI-powered scheduling provides mobile-first project management for railroad construction. Field crews update progress directly from job sites via mobile app, eliminating office-only data entry. AI scheduling assistant optimizes resource allocation across 280+ active projects using historical performance data. Native integration with eCMS (real-time cost sync via AI middleware), HCSS Equipment360 (equipment availability), and proposed data lakehouse (predictive analytics). Automated submittals, RFI tracking, and daily log generation. Document management with AI-powered search across project archives.',
     },
-    annualSavings: 200_000,
+    annualSavings: 1_600_000,
   },
   {
     current: {
       name: 'TAM-4 Rail Testing',
-      cost: 240_000,
+      cost: 1_920_000,
       users: 45,
       score: 4,
       description: 'IndustrialsCo\'s custom TAM-4 rail testing software processes geometry car data for track condition assessment. Handles gauge, cross-level, alignment, and surface measurements from HSI testing fleet. Software is functional but aging — built on legacy architecture with limited AI/ML integration capability. Video Track Chart and SpeedTrax modules provide visual inspection data but require manual review by 20 analysts. No automated defect detection — every anomaly flagged manually.',
@@ -391,22 +391,22 @@ export const recommendations: Recommendation[] = [
       cost: 0,
       description: 'Custom AI layer built on top of existing TAM-4 data pipeline using proposed data lakehouse ML. Computer vision models (fine-tuned on 240K labeled track images) automatically detect rail surface defects, tie degradation, and gauge anomalies with >92% accuracy. LIDAR point cloud analysis for ballast profile assessment. Automated severity scoring reduces manual review time by 70% — analysts focus only on AI-flagged exceptions. Predictive models forecast track degradation 6-8 weeks ahead, enabling proactive maintenance scheduling. Integration with HCSS Equipment360 for real-time geometry car location and Procore for automatic maintenance work order generation. Zero licensing cost — runs on proposed data lakehouse compute (included in data lake cost).',
     },
-    annualSavings: 520_000,
+    annualSavings: 4_160_000,
   },
   {
     current: {
       name: 'MCP (Internal)',
-      cost: 340_000,
+      cost: 2_720_000,
       users: 2_800,
       score: 4,
       description: 'MCP (Internal) custom payroll and time tracking system deployed across all 2,800 employees for time tracking and basic scheduling. Handles FRA hours-of-service compliance tracking for train crews and union contract rule enforcement. However, crew scheduling itself is manual — division supervisors build weekly schedules in spreadsheets, then enter into MCP for tracking. No optimization capability — supervisors rely on experience and tribal knowledge to balance crew certifications, travel time, and availability. Estimated 22% crew idle time due to suboptimal scheduling.',
     },
     recommended: {
       name: 'MCP AI Enhancement Layer',
-      cost: 160_000,
+      cost: 1_280_000,
       description: 'MCP AI-powered scheduling enhancement layer with railroad-specific modules for FRA hours-of-service compliance and union work rules. ML-based scheduling optimizer considers crew certifications, location, travel time, equipment availability, and fatigue risk to generate optimal weekly schedules — targeting 22% idle time reduction to <8%. Mobile app enables real-time schedule visibility, shift swaps, and availability updates. Automated compliance monitoring alerts supervisors before hours-of-service violations occur (currently caught retrospectively). Integration with HCSS Equipment360 for crew location data and eCMS for payroll sync.',
     },
-    annualSavings: 180_000,
+    annualSavings: 1_440_000,
   },
   {
     current: {
@@ -418,10 +418,10 @@ export const recommendations: Recommendation[] = [
     },
     recommended: {
       name: 'Databricks',
-      cost: 280_000,
+      cost: 2_240_000,
       description: 'Proposed Data Lakehouse unifies all 5 division data sources via Delta Lake with ACID transactions and schema enforcement. Unity Catalog provides cross-division data governance. Purpose-built for railroad data: time-series GPS/telematics from HCSS Equipment360 (800+ vehicles), LIDAR point clouds from geometry cars, track geometry measurements from TAM-4, PTC event logs from HTI, and transit ridership data from HTSI. MLflow manages model lifecycle for predictive maintenance, defect detection, and crew optimization. Structured Streaming ingests real-time fleet telemetry. Estimated data footprint: 28TB initial load, 2.5TB/month growth. The data lake is the prerequisite for 78% of the AI initiatives on this roadmap — without it, $4.2M in workflow automation savings cannot be realized.',
     },
-    annualSavings: 1_200_000,
+    annualSavings: 9_600_000,
   },
 ];
 
@@ -7331,62 +7331,62 @@ const northwoodRecommendations: Recommendation[] = [
   {
     current: {
       name: 'Guidewire ClaimCenter',
-      cost: 1_800_000,
+      cost: 14_400_000,
       users: 280,
       score: 4,
       description: 'Legacy Guidewire ClaimCenter deployment (v9) handling P&C claims across all lines. Limited AI integration — all claim triage, assignment, and settlement performed manually. No NLP for document processing. Settlement recommendations based on adjuster experience rather than data analytics. Mobile capabilities limited to basic status lookup.',
     },
     recommended: {
       name: 'AI-Native Claims Platform',
-      cost: 1_200_000,
+      cost: 9_600_000,
       description: 'Modern AI-native claims platform with NLP-powered FNOL processing, computer vision for damage assessment, ML-based fraud detection at intake, and AI-recommended settlement ranges. Mobile-first with field adjuster tools including photo AI damage estimation. Real-time claims analytics and automated compliance reporting across all state jurisdictions.',
     },
-    annualSavings: 600_000,
+    annualSavings: 4_800_000,
   },
   {
     current: {
       name: 'Legacy Underwriting Workbench',
-      cost: 680_000,
+      cost: 5_440_000,
       users: 45,
       score: 3,
       description: 'Custom-built underwriting workbench from 2015 with manual risk assessment workflow. No predictive modeling — underwriters rely on experience and basic rating manuals. Data enrichment (credit, MVR, property) requires manual ordering. Inconsistent pricing across underwriters with 15% variance on comparable risks. No portfolio-level view for book management.',
     },
     recommended: {
       name: 'AI Underwriting Engine',
-      cost: 420_000,
+      cost: 3_360_000,
       description: 'AI-powered underwriting platform with automated data enrichment, ML risk scoring trained on 10 years of loss data, and portfolio optimization. Instant decisioning for low-complexity risks. AI copilot for complex risks providing pricing recommendations with consistency enforcement. Real-time portfolio analytics showing impact of each decision on book composition and profitability.',
     },
-    annualSavings: 260_000,
+    annualSavings: 2_080_000,
   },
   {
     current: {
       name: 'Manual Fraud Review Process',
-      cost: 540_000,
+      cost: 4_320_000,
       users: 6,
       score: 2,
       description: 'SIU team using manual red flag checklists and adjuster referrals for fraud detection. No systematic pattern analysis across claims. Investigation dossiers compiled manually. Only 3% of claims referred to SIU — industry estimates 10-15% have fraudulent elements. Estimated $4.2M in annual undetected fraud leakage based on industry benchmarks.',
     },
     recommended: {
       name: 'ML Fraud Detection Network',
-      cost: 280_000,
+      cost: 2_240_000,
       description: 'Graph neural network fraud detection platform analyzing claimant-provider-attorney relationships across entire portfolio. Real-time fraud scoring at FNOL before any payment. NLP analysis of claim narratives for scripted fraud indicators. Social network analysis identifying organized fraud rings. Automated investigation dossier generation for SIU. Expected fraud recovery improvement of $2.1M annually.',
     },
-    annualSavings: 260_000,
+    annualSavings: 2_080_000,
   },
   {
     current: {
       name: 'Spreadsheet Reinsurance Analysis',
-      cost: 320_000,
+      cost: 2_560_000,
       users: 4,
       score: 2,
       description: 'Reinsurance portfolio management using Excel spreadsheets for exposure aggregation, cession modeling, and bordereau preparation. Exposure analysis takes 2 weeks per renewal. Limited scenario testing due to manual calculation constraints. No real-time catastrophe exposure monitoring. Bordereau preparation consumes 1 FTE full-time.',
     },
     recommended: {
       name: 'AI Reinsurance Optimization Platform',
-      cost: 180_000,
+      cost: 1_440_000,
       description: 'AI-powered reinsurance management with real-time exposure aggregation from policy admin and claims systems. Monte Carlo simulation for optimal cession structure modeling. Market intelligence tracking reinsurer pricing and capacity. Automated bordereau generation. Real-time catastrophe exposure monitoring with automated aggregate tracking.',
     },
-    annualSavings: 140_000,
+    annualSavings: 1_120_000,
   },
 ];
 
@@ -7396,62 +7396,62 @@ const pinnacleRecommendations: Recommendation[] = [
   {
     current: {
       name: 'Legacy EHR System',
-      cost: 480_000,
+      cost: 3_840_000,
       users: 85,
       score: 3,
       description: 'On-premise EHR system installed in 2016 with limited interoperability. No FHIR API support. Clinical documentation requires manual entry — providers spend 2 hours/day after-hours on documentation. No integration with patient engagement tools. Reporting limited to pre-built reports with no custom analytics. HL7v2 interfaces only, requiring custom point-to-point integrations for every connected system.',
     },
     recommended: {
       name: 'Cloud-Native EHR with AI',
-      cost: 320_000,
+      cost: 2_560_000,
       description: 'Modern cloud-native EHR with FHIR R4 API, ambient AI documentation, and integrated patient engagement. Providers dictate notes via AI ambient listening — auto-generated SOAP notes reduce after-hours documentation by 80%. Native telehealth, patient portal, and mobile access. Open API ecosystem for rapid integration with specialty tools. Population health analytics built-in.',
     },
-    annualSavings: 160_000,
+    annualSavings: 1_280_000,
   },
   {
     current: {
       name: 'Paper Fax Referral System',
-      cost: 180_000,
+      cost: 1_440_000,
       users: 30,
       score: 2,
       description: 'Referral management via fax machines and phone calls. Referral orders printed from EHR, clinical notes manually assembled, and faxed to specialist offices. No confirmation of receipt — estimated 15% of referrals lost in fax transmission. 35% of referrals never completed by patients with zero tracking or follow-up. Specialist consultation notes received back via fax with poor OCR quality.',
     },
     recommended: {
       name: 'AI Digital Referral Exchange',
-      cost: 60_000,
+      cost: 480_000,
       description: 'Electronic referral network with AI-powered specialist matching based on clinical need, insurance network, and quality outcomes. Automated clinical documentation assembly and transmission. Patient engagement with scheduling assistance and reminders. Closed-loop tracking ensuring consultation completion and note receipt. Analytics on referral patterns and specialist performance.',
     },
-    annualSavings: 120_000,
+    annualSavings: 960_000,
   },
   {
     current: {
       name: 'Manual Medical Coding',
-      cost: 420_000,
+      cost: 3_360_000,
       users: 6,
       score: 3,
       description: 'Medical coding performed by certified coders reviewing clinical documentation after each encounter. Average 8 minutes per encounter with 12% first-pass denial rate due to coding errors or insufficient documentation. Coding queries bounce between coders and providers adding 3 days per encounter. Documentation improvement (CDI) performed reactively after coding — not integrated into clinical workflow.',
     },
     recommended: {
       name: 'AI-Assisted Coding Engine',
-      cost: 180_000,
+      cost: 1_440_000,
       description: 'AI-powered medical coding with NLP analysis of clinical documentation for automated ICD-10 and CPT code suggestion. Real-time CDI prompts during documentation — improving code accuracy at the source. Automated claim scrubbing before submission with predictive denial prevention. AI validates coding accuracy against clinical evidence, reducing first-pass denials to <5%. Coders review AI suggestions for complex cases only.',
     },
-    annualSavings: 240_000,
+    annualSavings: 1_920_000,
   },
   {
     current: {
       name: 'Manual Prior Authorization',
-      cost: 2_400_000,
+      cost: 19_200_000,
       users: 340,
       score: 2,
       description: 'Prior authorization processed manually by 340 staff — identifying payer requirements, assembles clinical documentation, and submits via fax (55%) or payer portals (35%). Average 45 minutes per request with 30% initial denial rate. Status tracking via manual follow-up calls with average 3 calls per request. Appeals prepared manually at 2 hours each. Patients wait average 5 business days for authorization.',
     },
     recommended: {
       name: 'Tennr AI Prior Authorization',
-      cost: 1_500_000,
+      cost: 12_000_000,
       description: 'Tennr AI automates end-to-end prior authorization — intelligent document assembly, payer-specific rule matching, and electronic submission. Reduces approval time from 5 days to 4 hours. AI extracts clinical evidence from EHR to build compliant submissions automatically. Real-time status tracking eliminates follow-up calls. Automated appeal generation for denials with 92% overturn rate.',
     },
-    annualSavings: 5_500_000,
+    annualSavings: 44_000_000,
   },
 ];
 
@@ -7461,62 +7461,62 @@ const atlasRecommendations: Recommendation[] = [
   {
     current: {
       name: 'Legacy MES Systems',
-      cost: 680_000,
+      cost: 5_440_000,
       users: 120,
       score: 3,
       description: 'Three different MES platforms across 4 OpCos — one using a system from 2011. Limited IoT integration. Production data entered manually at end of shift. No real-time OEE visibility — calculated weekly from manual reports. SPC charts maintained on paper. No integration with ERP for automated production reporting.',
     },
     recommended: {
       name: 'Cloud MES with AI Analytics',
-      cost: 420_000,
+      cost: 3_360_000,
       description: 'Unified cloud MES platform across all 4 OpCos with real-time IoT data collection from production equipment. AI-powered OEE optimization with automated downtime analysis and root cause identification. Digital SPC with real-time out-of-control detection. Predictive maintenance integration. Automated production reporting to ERP. Mobile dashboards for floor supervisors.',
     },
-    annualSavings: 260_000,
+    annualSavings: 2_080_000,
   },
   {
     current: {
       name: 'Paper Quality Logs',
-      cost: 280_000,
+      cost: 2_240_000,
       users: 14,
       score: 2,
       description: 'Quality inspection data recorded on paper forms at inspection stations. Data entered into QMS spreadsheets at end of shift — 4-8 hour delay for SPC response. No automated defect detection. 2.8% defect escape rate costing $890K/year in customer returns. Root cause analysis manual and averages 5 days. No traceability from customer complaint back to production conditions.',
     },
     recommended: {
       name: 'Digital QMS with Computer Vision',
-      cost: 140_000,
+      cost: 1_120_000,
       description: 'Digital quality management with tablet-based inspection forms, computer vision automated inspection at key stations, and real-time SPC dashboards. AI defect detection trained on historical defect images. Automated root cause analysis linking defects to production parameters. Full traceability from complaint to production lot, shift, and machine settings. Target <1% defect escape rate.',
     },
-    annualSavings: 140_000,
+    annualSavings: 1_120_000,
   },
   {
     current: {
       name: 'Spreadsheet Inventory Management',
-      cost: 420_000,
+      cost: 3_360_000,
       users: 6,
       score: 2,
       description: 'Inventory managed via ERP min/max settings reviewed annually with supplemental Excel tracking. Static reorder points cause simultaneous stockouts (12%) and $6.8M excess inventory. No demand forecasting beyond historical averages. No cross-OpCo inventory visibility. Cycle count accuracy at 97% — insufficient for lean operations. Annual physical inventory costs $180K in labor.',
     },
     recommended: {
       name: 'AI Inventory Optimization',
-      cost: 180_000,
+      cost: 1_440_000,
       description: 'AI-driven inventory management with ML demand forecasting using sales history, economic indicators, and customer signals. Dynamic safety stock adjusting for lead time variability and service targets. Cross-OpCo inventory visibility with automated transfer recommendations. Predictive obsolescence identification. Target: 7+ inventory turns, <3% stockout rate, $4M excess inventory reduction.',
     },
-    annualSavings: 240_000,
+    annualSavings: 1_920_000,
   },
   {
     current: {
       name: 'Calendar-Based Maintenance',
-      cost: 640_000,
+      cost: 5_120_000,
       users: 8,
       score: 3,
       description: 'Preventive maintenance on fixed calendar intervals using basic CMMS. 35% of PM performed unnecessarily while 12% of failures are still unplanned. No IoT sensor data from equipment. Work order scheduling manual. Parts availability unknown until technician arrives at machine — 18% of WOs delayed. Unplanned downtime accounts for 12% of production time ($3.2M annual impact).',
     },
     recommended: {
       name: 'AI Predictive Maintenance Platform',
-      cost: 320_000,
+      cost: 2_560_000,
       description: 'IoT-connected predictive maintenance with vibration, temperature, and power sensors on critical assets. ML models predict equipment degradation 2-4 weeks before failure. Automated work order generation with parts pre-staging. Maintenance schedule optimization balancing predictive, preventive, and production schedules. Target: 50% reduction in unplanned downtime, 25% reduction in maintenance costs.',
     },
-    annualSavings: 320_000,
+    annualSavings: 2_560_000,
   },
 ];
 
@@ -7526,62 +7526,62 @@ const northbridgeRecommendations: Recommendation[] = [
   {
     current: {
       name: 'Siloed Division ERPs',
-      cost: 4_200_000,
+      cost: 33_600_000,
       users: 2_400,
       score: 3,
       description: 'Four different ERP systems across divisions — SAP (Aerospace), Oracle (Energy), NetSuite (Financial Services), and Sage (Health). No unified chart of accounts. Month-end consolidation requires 15-day close process with manual journal entries. No cross-division reporting without external consultants. $4.2M combined annual cost for 4 separate licensing, hosting, and support contracts.',
     },
     recommended: {
       name: 'Unified ERP Platform with AI',
-      cost: 2_800_000,
+      cost: 22_400_000,
       description: 'Unified cloud ERP with multi-subsidiary architecture supporting all 4 divisions on shared infrastructure. Automated intercompany eliminations and real-time consolidation — reducing close to 3 days. AI-powered financial forecasting and anomaly detection. Cross-division analytics and KPI dashboards. Shared services model for common functions. Maintained division-specific modules for industry requirements.',
     },
-    annualSavings: 1_400_000,
+    annualSavings: 11_200_000,
   },
   {
     current: {
       name: 'Manual Compliance Processes',
-      cost: 1_000_000,
+      cost: 8_000_000,
       users: 10,
       score: 2,
       description: 'Compliance managed via spreadsheets across 4 different regulatory regimes — FAA (Aerospace), FERC/NERC (Energy), SEC/FINRA (Financial Services), and FDA/CMS (Health). 180+ requirements tracked manually. Quarterly control testing via sampling. Regulatory change monitoring through newsletter subscriptions. 60% of compliance team capacity consumed by report preparation. Board sees fragmented compliance picture.',
     },
     recommended: {
       name: 'Automated GRC Platform',
-      cost: 500_000,
+      cost: 4_000_000,
       description: 'AI-powered GRC platform with unified compliance requirements mapping across all 4 regulatory regimes. Continuous control monitoring replacing quarterly sampling. AI regulatory change detection scanning 200+ sources with automated impact assessment. Automated compliance report generation for board and regulators. Real-time compliance dashboards per division. Risk-based testing prioritization.',
     },
-    annualSavings: 500_000,
+    annualSavings: 4_000_000,
   },
   {
     current: {
       name: 'Legacy Treasury Management',
-      cost: 480_000,
+      cost: 3_840_000,
       users: 8,
       score: 3,
       description: 'Treasury operations using spreadsheets and basic banking portals across 4 divisions. Cash position compiled manually each morning from separate bank accounts. No cash flow forecasting beyond simple trend projection. FX exposure managed reactively. Intercompany lending tracked in Excel. No automated payment factory — each division processes payments independently.',
     },
     recommended: {
       name: 'Modern AI-Powered TMS',
-      cost: 280_000,
+      cost: 2_240_000,
       description: 'Cloud treasury management system with real-time cash visibility across all divisions and bank accounts. ML-powered cash flow forecasting with 95%+ accuracy at 30-day horizon. Automated FX hedging recommendations. Centralized payment factory with fraud detection. Intercompany netting and settlement automation. Working capital optimization analytics.',
     },
-    annualSavings: 200_000,
+    annualSavings: 1_600_000,
   },
   {
     current: {
       name: 'Spreadsheet Strategic Planning',
-      cost: 600_000,
+      cost: 4_800_000,
       users: 8,
       score: 2,
       description: 'Strategic planning and portfolio analysis performed in PowerPoint and Excel. Quarterly data aggregation takes 3-4 weeks. No real-time competitive intelligence. Portfolio rebalancing analysis uses external consultants at $500K per engagement. Strategic initiative tracking via quarterly review meetings. Board materials prepared manually with 2-3 week lead time.',
     },
     recommended: {
       name: 'AI Strategic Intelligence Platform',
-      cost: 320_000,
+      cost: 2_560_000,
       description: 'AI-powered strategic planning with real-time portfolio analytics from all 4 division ERPs. Competitive intelligence monitoring using NLP on news, filings, and market data. Monte Carlo scenario modeling for capital allocation. AI-generated board materials with real-time data. Strategic initiative tracking with automated progress assessment. Replace $500K annual consulting spend.',
     },
-    annualSavings: 280_000,
+    annualSavings: 2_240_000,
   },
   {
     current: {
@@ -7593,10 +7593,10 @@ const northbridgeRecommendations: Recommendation[] = [
     },
     recommended: {
       name: 'Enterprise Data Lakehouse',
-      cost: 480_000,
+      cost: 3_840_000,
       description: 'Enterprise Databricks Lakehouse connecting all 4 divisions with Delta Lake for ACID transactions. Unity Catalog for cross-division data governance. Real-time data pipelines from all ERPs, CRMs, and operational systems. MLflow for enterprise ML model lifecycle management. Foundation for all AI initiatives on the roadmap — prerequisite for 78% of planned automation projects.',
     },
-    annualSavings: 1_800_000,
+    annualSavings: 14_400_000,
   },
 ];
 
@@ -7606,62 +7606,62 @@ const brazilRecommendations: Recommendation[] = [
   {
     current: {
       name: 'Legacy Case Management Systems',
-      cost: 2_400_000,
+      cost: 43_200_000,
       users: 180,
       score: 3,
       description: 'Multiple legacy case management systems across ministries — some dating to 2008. No unified citizen view across services. Case routing is manual. Document processing requires manual data entry. Cross-ministry cases require phone/email coordination. Average 8-day resolution for citizen service requests. 180,000 requests/month across all ministries with 20% requiring multi-ministry coordination.',
     },
     recommended: {
       name: 'AI-Native Citizen Service Platform',
-      cost: 1_400_000,
+      cost: 25_200_000,
       description: 'Unified AI-native citizen service platform built on X-Road with NLP-powered request classification and routing. Conversational AI (Braziln + Russian) handling first-line resolution for 60% of common requests. Automated document processing with OCR and data extraction. Cross-ministry orchestration for multi-department requests. Proactive citizen notifications. Target: <2-day average resolution time.',
     },
-    annualSavings: 1_000_000,
+    annualSavings: 18_000_000,
   },
   {
     current: {
       name: 'Manual Document Processing',
-      cost: 1_200_000,
+      cost: 21_600_000,
       users: 85,
       score: 2,
       description: 'Government document processing across ministries relies on manual review and data entry. 42,000 permit applications, 340,000 benefit applications, and 12,000 procurement tenders processed annually — each requiring manual document review. OCR quality on scanned documents averages 82% accuracy, requiring manual correction. Cross-referencing citizen data across systems requires manual X-Road queries. Average document processing time: 12 minutes per document.',
     },
     recommended: {
       name: 'AI Document Extraction & Processing',
-      cost: 480_000,
+      cost: 8_640_000,
       description: 'AI-powered document processing platform with advanced OCR (99%+ accuracy for Braziln/Russian text), intelligent data extraction from structured and unstructured documents, automated cross-referencing via X-Road, and smart validation against regulatory requirements. Handles all document types: permits, benefits applications, tax filings, procurement bids. Reduces manual processing by 80%.',
     },
-    annualSavings: 720_000,
+    annualSavings: 12_960_000,
   },
   {
     current: {
       name: 'Rules-Based Tax Processing',
-      cost: 1_500_000,
+      cost: 27_000_000,
       users: 25,
       score: 5,
       description: 'Brazil\'s tax system is already world-leading with 98% e-filing and pre-filled returns. However, audit targeting uses simple rules and random sampling — 60% of audits find no significant issues. VAT compliance monitoring is periodic rather than real-time. Cross-border transaction verification is manual. Corporate return review requires officer judgment for deductions and transfer pricing.',
     },
     recommended: {
       name: 'AI-Enhanced Tax Intelligence',
-      cost: 900_000,
+      cost: 16_200_000,
       description: 'AI layer on top of existing tax infrastructure: ML audit targeting trained on historical outcomes (target 80% productive audit rate), real-time VAT transaction monitoring for fraud detection, cross-border verification automation via EU data exchange, and AI-assisted corporate return review for complex deductions and transfer pricing. Preserves Brazil\'s world-leading e-filing while adding predictive intelligence.',
     },
-    annualSavings: 600_000,
+    annualSavings: 10_800_000,
   },
   {
     current: {
       name: 'Manual Procurement Review',
-      cost: 1_080_000,
+      cost: 19_440_000,
       users: 18,
       score: 3,
       description: 'Public procurement officers manually prepare tender documents (2-3 weeks each), evaluate bids against criteria, and monitor contract performance. 12,000 tenders/year worth €4.2B. Tender preparation is largely repetitive — similar specifications for similar procurements. Bid evaluation is manual and time-intensive for large tenders. No market intelligence for optimal procurement strategy.',
     },
     recommended: {
       name: 'AI Procurement Platform',
-      cost: 640_000,
+      cost: 11_520_000,
       description: 'AI-powered public procurement with template-based tender generation from historical procurements (3 weeks to 3 days), AI-assisted bid evaluation for technical proposals, market intelligence for pricing and competition analysis, and automated contract performance monitoring. Fully compliant with EU Public Procurement Directives. Smart contract monitoring with early warning for delivery risks.',
     },
-    annualSavings: 440_000,
+    annualSavings: 7_920_000,
   },
 ];
 
