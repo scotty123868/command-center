@@ -187,15 +187,15 @@ export interface Opportunity {
 }
 
 export const topOpportunities: Opportunity[] = [
-  { name: 'RailSentry Enhancement', category: 'Workflow Automation', savings: 1_140_000, effort: 'Medium', status: 'automated', priority: 10, timeToValue: 8, confidence: 94 },
-  { name: 'Predictive Maintenance (HCSS + Equipment360)', category: 'Workflow Automation', savings: 930_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 86 },
-  { name: 'Project Cost Intelligence (eCMS + P6)', category: 'Workflow Automation', savings: 810_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 16, confidence: 78 },
-  { name: 'Field Ops AI (HCSS Field + Heavy Job)', category: 'Workflow Automation', savings: 690_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 82 },
-  { name: 'Bid Intelligence (Heavy Bid)', category: 'Workflow Automation', savings: 610_000, effort: 'Low', status: 'identified', priority: 8, timeToValue: 8, confidence: 84 },
-  { name: 'Crew Scheduling (MCP + HCSS)', category: 'Workflow Automation', savings: 550_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 14, confidence: 80 },
-  { name: 'Document Intelligence (Prolog + Procore)', category: 'Workflow Automation', savings: 400_000, effort: 'Low', status: 'identified', priority: 7, timeToValue: 8, confidence: 88 },
-  { name: 'HSI Ultrasonic Expansion (B→A scan)', category: 'Workflow Automation', savings: 360_000, effort: 'High', status: 'automated', priority: 8, timeToValue: 18, confidence: 76 },
-  { name: 'Safety Risk Prediction (HCSS Safety)', category: 'Workflow Automation', savings: 310_000, effort: 'Low', status: 'identified', priority: 6, timeToValue: 6, confidence: 90 },
+  { name: 'RailSentry Enhancement', category: 'Workflow Automation', savings: 2_736_000, effort: 'Medium', status: 'automated', priority: 10, timeToValue: 8, confidence: 94 },
+  { name: 'Predictive Maintenance (HCSS + Equipment360)', category: 'Workflow Automation', savings: 2_232_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 86 },
+  { name: 'Project Cost Intelligence (eCMS + P6)', category: 'Workflow Automation', savings: 1_944_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 16, confidence: 78 },
+  { name: 'Field Ops AI (HCSS Field + Heavy Job)', category: 'Workflow Automation', savings: 1_656_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 82 },
+  { name: 'Bid Intelligence (Heavy Bid)', category: 'Workflow Automation', savings: 1_464_000, effort: 'Low', status: 'identified', priority: 8, timeToValue: 8, confidence: 84 },
+  { name: 'Crew Scheduling (MCP + HCSS)', category: 'Workflow Automation', savings: 1_320_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 14, confidence: 80 },
+  { name: 'Document Intelligence (Prolog + Procore)', category: 'Workflow Automation', savings: 960_000, effort: 'Low', status: 'identified', priority: 7, timeToValue: 8, confidence: 88 },
+  { name: 'HSI Ultrasonic Expansion (B→A scan)', category: 'Workflow Automation', savings: 864_000, effort: 'High', status: 'automated', priority: 8, timeToValue: 18, confidence: 76 },
+  { name: 'Safety Risk Prediction (HCSS Safety)', category: 'Workflow Automation', savings: 744_000, effort: 'Low', status: 'identified', priority: 6, timeToValue: 6, confidence: 90 },
   { name: 'Real-time Data Foundation (QMirror replacement)', category: 'Data Infrastructure', savings: 0, effort: 'High', status: 'identified', priority: 10, timeToValue: 20, confidence: 92 },
 ];
 
@@ -456,14 +456,14 @@ export const workflows: Workflow[] = [
     name: 'Track Inspection & Maintenance Planning',
     level: 'human-in-loop',
     currentFTEs: 18,
-    currentCost: 18_900_000,
+    currentCost: 3_024_000,
     volume: '4,200 track-miles/month inspected',
     currentTime: '3.5 hrs per track segment analysis',
     aiSolution: 'AI-enhanced track inspection using computer vision on geometry car data + LIDAR analysis. Automated defect detection and severity scoring. Human engineers review AI-flagged segments and approve maintenance plans.',
     routing: 'Human-in-the-Loop',
     routingQuote: 'Let AI find the defects so your engineers can plan the fixes',
     costShift: 'Labor $1.26M → IT $280K + Labor $500K = $480K saved',
-    savings: 17_280_000,
+    savings: 1_209_600,
     automationPercent: 55,
     details: '18 FTEs analyzing geometry car data, LIDAR scans, and visual inspection footage. 4,200 track-miles/month across Class 1 railroad customers.',
     currentProcess: [
@@ -506,14 +506,14 @@ export const workflows: Workflow[] = [
     name: 'Crew Scheduling & Dispatch',
     level: 'full',
     currentFTEs: 8,
-    currentCost: 10_800_000,
+    currentCost: 1_728_000,
     volume: '2,800 employees across 5 divisions',
     currentTime: 'Weekly manual scheduling, 22% idle time',
     aiSolution: 'AI-optimized crew scheduling considering certifications, FRA hours-of-service, union rules, travel time, and equipment availability. Automated dispatch replaces phone/radio-based coordination.',
     routing: 'Fully Automatable',
     routingQuote: 'Stop scheduling railroad crews with spreadsheets and phone calls',
     costShift: 'Labor $720K → IT $120K + Labor $180K = $420K saved',
-    savings: 15_120_000,
+    savings: 691_200,
     automationPercent: 75,
     details: '8 scheduling coordinators building weekly schedules manually in spreadsheets, then calling/texting crew members. 22% crew idle time due to suboptimal scheduling.',
     currentProcess: [
@@ -556,14 +556,14 @@ export const workflows: Workflow[] = [
     name: 'Equipment Fleet Management',
     level: 'human-in-loop',
     currentFTEs: 12,
-    currentCost: 14_400_000,
+    currentCost: 2_304_000,
     volume: '800+ vehicles and heavy equipment',
     currentTime: 'No real-time cross-division visibility',
     aiSolution: 'HCSS fleet intelligence platform with AI-powered utilization optimization. Predictive maintenance using engine diagnostics and usage patterns. Cross-division equipment sharing with automated transfer recommendations.',
     routing: 'Human-in-the-Loop',
     routingQuote: 'You cannot optimize what you cannot see across your divisions',
     costShift: 'Labor $960K → IT $240K + Labor $340K = $380K saved',
-    savings: 13_680_000,
+    savings: 921_600,
     automationPercent: 50,
     details: '12 FTEs managing fleet across 5 divisions. 800+ vehicles and heavy equipment. No cross-division visibility, 18% equipment idle rate, $580K in duplicate rentals last year.',
     currentProcess: [
@@ -605,14 +605,14 @@ export const workflows: Workflow[] = [
     name: 'Safety Compliance & Reporting',
     level: 'full',
     currentFTEs: 6,
-    currentCost: 8_100_000,
+    currentCost: 1_296_000,
     volume: '180 FRA reports/month + daily job site safety',
     currentTime: '4.2 hrs per compliance report',
     aiSolution: 'Automated FRA report generation from digital inspection data. AI-powered safety incident analysis and prevention. Real-time compliance monitoring replacing periodic manual audits.',
     routing: 'Fully Automatable',
     routingQuote: 'Automate the paperwork so your safety team can focus on keeping people safe',
     costShift: 'Labor $540K → IT $80K + Labor $140K = $320K saved',
-    savings: 11_520_000,
+    savings: 518_400,
     automationPercent: 70,
     details: '6 FTEs dedicated to safety compliance — FRA reporting (Form 6180), OSHA recordkeeping, state DOT filings, and internal safety audits across 5 divisions.',
     currentProcess: [
@@ -654,14 +654,14 @@ export const workflows: Workflow[] = [
     name: 'Project Estimation & Bidding',
     level: 'human-required',
     currentFTEs: 10,
-    currentCost: 16_500_000,
+    currentCost: 2_640_000,
     volume: '~25 major bids/quarter',
     currentTime: '3-4 weeks per bid package',
     aiSolution: 'AI assists with historical cost analysis, material quantity takeoffs, and risk factor identification. Estimators focus on judgment calls, client relationships, and strategic pricing. Bid cycle drops from 3-4 weeks to 1-2 weeks.',
     routing: 'Human-Required, AI-Assisted',
     routingQuote: 'Let AI crunch the numbers so your estimators can win the deals',
     costShift: 'Labor $1.1M → IT $120K + Labor $700K = $280K saved',
-    savings: 10_080_000,
+    savings: 1_056_000,
     automationPercent: 30,
     details: '10 estimators producing bids for railroad construction, maintenance, and testing contracts across 5 divisions. Competitive, accurate bidding is critical.',
     currentProcess: [
@@ -704,14 +704,14 @@ export const workflows: Workflow[] = [
     name: 'Material & Ballast Logistics',
     level: 'human-in-loop',
     currentFTEs: 14,
-    currentCost: 14_700_000,
+    currentCost: 2_352_000,
     volume: '2.4M tons ballast/year + rail/tie deliveries',
     currentTime: 'Manual logistics coordination',
     aiSolution: 'AI-optimized material logistics using GPS fleet data, project schedules, and quarry inventory. Automated ballast train scheduling and material pre-positioning based on predictive project needs.',
     routing: 'Human-in-the-Loop',
     routingQuote: 'Move the right material to the right place before they even ask for it',
     costShift: 'Labor $980K → IT $160K + Labor $460K = $360K saved',
-    savings: 12_960_000,
+    savings: 940_800,
     automationPercent: 45,
     details: '14 logistics coordinators managing ballast delivery, rail supply, tie distribution, and material pre-staging across 36 states of railroad construction operations.',
     currentProcess: [
@@ -753,14 +753,14 @@ export const workflows: Workflow[] = [
     name: 'Rail Testing & Flaw Detection',
     level: 'human-in-loop',
     currentFTEs: 20,
-    currentCost: 27_000_000,
+    currentCost: 4_320_000,
     volume: '8,400 track-miles/month tested',
     currentTime: '100% manual analysis of test data',
     aiSolution: 'AI-enhanced ultrasonic and visual rail flaw detection. Computer vision processes continuous inspection data, flagging potential defects for human verification. Reduces false-positive rate and increases detection speed.',
     routing: 'Human-in-the-Loop',
     routingQuote: 'AI sees every inch of rail — your inspectors verify the critical finds',
     costShift: 'Labor $1.8M → IT $320K + Labor $860K = $620K saved',
-    savings: 22_320_000,
+    savings: 1_728_000,
     automationPercent: 50,
     details: '20 rail testing analysts processing ultrasonic, electromagnetic, and visual inspection data from HSI testing fleet. 8,400 track-miles/month across Class 1 railroad customers.',
     currentProcess: [
@@ -828,13 +828,13 @@ export interface License {
 }
 
 export const licenses: License[] = [
-  { vendor: 'Primavera P6', totalLicenses: 280, active90d: 180, inactive: 100, annualWaste: 350_000, action: 'Reclaim 100 seats — restrict to active project managers only', costPerLicense: 3_500, department: 'Project Management (HCC, HRSI, HTI)', lastAuditDate: '2025-10-15', trend: [82, 76, 70, 68, 65, 64], complianceRisk: false },
-  { vendor: 'eCMS', totalLicenses: 250, active90d: 160, inactive: 90, annualWaste: 360_000, action: 'Reclaim 90 inactive seats, deploy AI middleware layer', costPerLicense: 4_000, department: 'Finance & Accounting (all divisions)', lastAuditDate: '2025-11-02', trend: [78, 72, 68, 65, 64, 64], complianceRisk: false },
-  { vendor: 'AutoCAD/Civil 3D', totalLicenses: 120, active90d: 65, inactive: 55, annualWaste: 440_000, action: 'Reclaim 55 seats — consolidate to engineering department only', costPerLicense: 8_000, department: 'Engineering & Design (HCC, HTI)', lastAuditDate: '2025-08-20', trend: [68, 62, 58, 55, 54, 54], complianceRisk: true },
-  { vendor: 'MCP (Internal)', totalLicenses: 2_800, active90d: 2_200, inactive: 600, annualWaste: 180_000, action: 'Reclaim 600 inactive → deploy AI enhancement layer on MCP in Q4', costPerLicense: 300, department: 'HR / All Divisions (workforce-wide)', lastAuditDate: '2026-01-10', trend: [88, 85, 82, 80, 79, 79], complianceRisk: false },
-  { vendor: 'Microsoft 365', totalLicenses: 2_800, active90d: 1_800, inactive: 1_000, annualWaste: 800_000, action: 'Reclaim 1,000 seats + downgrade 400 E5→E3 for field crews', costPerLicense: 800, department: 'IT / All Divisions (company-wide)', lastAuditDate: '2025-09-15', trend: [76, 70, 66, 64, 64, 64], complianceRisk: false },
-  { vendor: 'Trimble Business Center', totalLicenses: 80, active90d: 35, inactive: 45, annualWaste: 360_000, action: 'Reclaim 45 seats — restrict to active survey/GPS engineers', costPerLicense: 8_000, department: 'Survey & GPS Engineering (HSI, HCC)', lastAuditDate: '2025-07-22', trend: [62, 55, 48, 44, 44, 44], complianceRisk: false },
-  { vendor: 'Salesforce', totalLicenses: 85, active90d: 45, inactive: 40, annualWaste: 310_000, action: 'Reclaim 40 seats — evaluate CRM consolidation', costPerLicense: 7_750, department: 'Business Development & Client Relations', lastAuditDate: '2026-02-01', trend: [72, 66, 60, 55, 53, 53], complianceRisk: false },
+  { vendor: 'Primavera P6', totalLicenses: 280, active90d: 180, inactive: 100, annualWaste: 840_000, action: 'Reclaim 100 seats — restrict to active project managers only', costPerLicense: 3_500, department: 'Project Management (HCC, HRSI, HTI)', lastAuditDate: '2025-10-15', trend: [82, 76, 70, 68, 65, 64], complianceRisk: false },
+  { vendor: 'eCMS', totalLicenses: 250, active90d: 160, inactive: 90, annualWaste: 864_000, action: 'Reclaim 90 inactive seats, deploy AI middleware layer', costPerLicense: 4_000, department: 'Finance & Accounting (all divisions)', lastAuditDate: '2025-11-02', trend: [78, 72, 68, 65, 64, 64], complianceRisk: false },
+  { vendor: 'AutoCAD/Civil 3D', totalLicenses: 120, active90d: 65, inactive: 55, annualWaste: 1_056_000, action: 'Reclaim 55 seats — consolidate to engineering department only', costPerLicense: 8_000, department: 'Engineering & Design (HCC, HTI)', lastAuditDate: '2025-08-20', trend: [68, 62, 58, 55, 54, 54], complianceRisk: true },
+  { vendor: 'MCP (Internal)', totalLicenses: 2_800, active90d: 2_200, inactive: 600, annualWaste: 432_000, action: 'Reclaim 600 inactive → deploy AI enhancement layer on MCP in Q4', costPerLicense: 300, department: 'HR / All Divisions (workforce-wide)', lastAuditDate: '2026-01-10', trend: [88, 85, 82, 80, 79, 79], complianceRisk: false },
+  { vendor: 'Microsoft 365', totalLicenses: 2_800, active90d: 1_800, inactive: 1_000, annualWaste: 1_920_000, action: 'Reclaim 1,000 seats + downgrade 400 E5→E3 for field crews', costPerLicense: 800, department: 'IT / All Divisions (company-wide)', lastAuditDate: '2025-09-15', trend: [76, 70, 66, 64, 64, 64], complianceRisk: false },
+  { vendor: 'Trimble Business Center', totalLicenses: 80, active90d: 35, inactive: 45, annualWaste: 864_000, action: 'Reclaim 45 seats — restrict to active survey/GPS engineers', costPerLicense: 8_000, department: 'Survey & GPS Engineering (HSI, HCC)', lastAuditDate: '2025-07-22', trend: [62, 55, 48, 44, 44, 44], complianceRisk: false },
+  { vendor: 'Salesforce', totalLicenses: 85, active90d: 45, inactive: 40, annualWaste: 744_000, action: 'Reclaim 40 seats — evaluate CRM consolidation', costPerLicense: 7_750, department: 'Business Development & Client Relations', lastAuditDate: '2026-02-01', trend: [72, 66, 60, 55, 53, 53], complianceRisk: false },
 ];
 
 // ─── Transformation Stories ─────────────────────────────────────────────────
@@ -1112,16 +1112,16 @@ const northwoodRoadmapPhases = [
 ];
 
 const northwoodTopOpportunities: Opportunity[] = [
-  { name: 'Claims Intake Automation', category: 'Workflow Automation', savings: 3_777_000, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 10, confidence: 91 },
-  { name: 'Legacy Policy Migration (AS/400)', category: 'Tech Stack', savings: 3_058_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 24, confidence: 78 },
-  { name: 'Fraud Detection AI', category: 'Workflow Automation', savings: 2_518_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 84 },
-  { name: 'Underwriting Automation', category: 'Workflow Automation', savings: 2_159_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 76 },
-  { name: 'Customer Portal Modernization', category: 'Tech Stack', savings: 1_619_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 14, confidence: 82 },
-  { name: 'Unused License Reclamation', category: 'License Audit', savings: 4_317_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
-  { name: 'Regulatory Reporting Automation', category: 'Workflow Automation', savings: 1_259_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 10, confidence: 88 },
-  { name: 'Replace Salesforce → HubSpot', category: 'Tech Stack', savings: 863_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 8, confidence: 90 },
-  { name: 'Payment Processing Automation', category: 'Workflow Automation', savings: 1_439_000, effort: 'Low', status: 'identified', priority: 8, timeToValue: 6, confidence: 92 },
-  { name: 'Subrogation Recovery Optimization', category: 'Workflow Automation', savings: 991_000, effort: 'High', status: 'identified', priority: 5, timeToValue: 18, confidence: 70 },
+  { name: 'Claims Intake Automation', category: 'Workflow Automation', savings: 4_808_121, effort: 'Medium', status: 'in-progress', priority: 10, timeToValue: 10, confidence: 91 },
+  { name: 'Legacy Policy Migration (AS/400)', category: 'Tech Stack', savings: 3_892_834, effort: 'High', status: 'identified', priority: 9, timeToValue: 24, confidence: 78 },
+  { name: 'Fraud Detection AI', category: 'Workflow Automation', savings: 3_205_414, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 84 },
+  { name: 'Underwriting Automation', category: 'Workflow Automation', savings: 2_748_407, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 76 },
+  { name: 'Customer Portal Modernization', category: 'Tech Stack', savings: 2_060_987, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 14, confidence: 82 },
+  { name: 'Unused License Reclamation', category: 'License Audit', savings: 5_495_541, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
+  { name: 'Regulatory Reporting Automation', category: 'Workflow Automation', savings: 1_602_707, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 10, confidence: 88 },
+  { name: 'Replace Salesforce → HubSpot', category: 'Tech Stack', savings: 1_098_599, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 8, confidence: 90 },
+  { name: 'Payment Processing Automation', category: 'Workflow Automation', savings: 1_831_847, effort: 'Low', status: 'identified', priority: 8, timeToValue: 6, confidence: 92 },
+  { name: 'Subrogation Recovery Optimization', category: 'Workflow Automation', savings: 1_261_543, effort: 'High', status: 'identified', priority: 5, timeToValue: 18, confidence: 70 },
 ];
 
 const northwoodCurrentStack: CurrentTool[] = [
@@ -1194,13 +1194,13 @@ const northwoodCurrentStack: CurrentTool[] = [
 ];
 
 const northwoodLicenses: License[] = [
-  { vendor: 'Microsoft 365', totalLicenses: 10_000, active90d: 7_200, inactive: 2_800, annualWaste: 1_883_000, action: 'Reclaim 2,800 seats + downgrade 1,500 E5→E3', costPerLicense: 2_000, department: 'IT / All Departments', lastAuditDate: '2025-10-01', trend: [82, 78, 74, 70, 65, 60], complianceRisk: false },
-  { vendor: 'Salesforce', totalLicenses: 1_400, active90d: 820, inactive: 580, annualWaste: 1_300_000, action: 'Reclaim 580 seats → migrate to HubSpot in Q3', costPerLicense: 5_000, department: 'Sales & Agent Relations', lastAuditDate: '2025-11-15', trend: [80, 74, 69, 65, 60, 56], complianceRisk: false },
-  { vendor: 'Duck Creek', totalLicenses: 1_200, active90d: 840, inactive: 360, annualWaste: 968_000, action: 'Reclaim 360 inactive seats, optimize license tier', costPerLicense: 6_000, department: 'Underwriting & Policy Admin', lastAuditDate: '2025-09-20', trend: [85, 80, 76, 72, 68, 65], complianceRisk: false },
-  { vendor: 'Guidewire', totalLicenses: 2_400, active90d: 1_900, inactive: 500, annualWaste: 1_434_000, action: 'Reclaim 500 seats, evaluate ClaimCenter cloud migration', costPerLicense: 8_000, department: 'Claims Operations', lastAuditDate: '2025-12-01', trend: [92, 90, 88, 87, 86, 84], complianceRisk: false },
-  { vendor: 'Slack Enterprise', totalLicenses: 8_000, active90d: 6_200, inactive: 1_800, annualWaste: 775_000, action: 'Downgrade 1,800 inactive to free tier', costPerLicense: 1_200, department: 'IT / All Departments', lastAuditDate: '2026-01-05', trend: [90, 87, 84, 82, 80, 78], complianceRisk: false },
-  { vendor: 'Adobe Acrobat Pro', totalLicenses: 2_600, active90d: 1_100, inactive: 1_500, annualWaste: 1_291_000, action: 'Reclaim 1,500 seats — restrict to claims and legal only', costPerLicense: 2_400, department: 'Claims & Legal (provisioned company-wide)', lastAuditDate: '2025-08-18', trend: [70, 60, 52, 45, 40, 36], complianceRisk: true },
-  { vendor: 'LexisNexis', totalLicenses: 600, active90d: 220, inactive: 380, annualWaste: 749_000, action: 'Reclaim 380 seats — restrict to SIU and underwriting', costPerLicense: 5_500, department: 'Special Investigations & Underwriting', lastAuditDate: '2025-07-30', trend: [68, 58, 50, 44, 38, 34], complianceRisk: false },
+  { vendor: 'Microsoft 365', totalLicenses: 10_000, active90d: 7_200, inactive: 2_800, annualWaste: 2_397_059, action: 'Reclaim 2,800 seats + downgrade 1,500 E5→E3', costPerLicense: 2_000, department: 'IT / All Departments', lastAuditDate: '2025-10-01', trend: [82, 78, 74, 70, 65, 60], complianceRisk: false },
+  { vendor: 'Salesforce', totalLicenses: 1_400, active90d: 820, inactive: 580, annualWaste: 1_654_900, action: 'Reclaim 580 seats → migrate to HubSpot in Q3', costPerLicense: 5_000, department: 'Sales & Agent Relations', lastAuditDate: '2025-11-15', trend: [80, 74, 69, 65, 60, 56], complianceRisk: false },
+  { vendor: 'Duck Creek', totalLicenses: 1_200, active90d: 840, inactive: 360, annualWaste: 1_232_264, action: 'Reclaim 360 inactive seats, optimize license tier', costPerLicense: 6_000, department: 'Underwriting & Policy Admin', lastAuditDate: '2025-09-20', trend: [85, 80, 76, 72, 68, 65], complianceRisk: false },
+  { vendor: 'Guidewire', totalLicenses: 2_400, active90d: 1_900, inactive: 500, annualWaste: 1_825_482, action: 'Reclaim 500 seats, evaluate ClaimCenter cloud migration', costPerLicense: 8_000, department: 'Claims Operations', lastAuditDate: '2025-12-01', trend: [92, 90, 88, 87, 86, 84], complianceRisk: false },
+  { vendor: 'Slack Enterprise', totalLicenses: 8_000, active90d: 6_200, inactive: 1_800, annualWaste: 986_575, action: 'Downgrade 1,800 inactive to free tier', costPerLicense: 1_200, department: 'IT / All Departments', lastAuditDate: '2026-01-05', trend: [90, 87, 84, 82, 80, 78], complianceRisk: false },
+  { vendor: 'Adobe Acrobat Pro', totalLicenses: 2_600, active90d: 1_100, inactive: 1_500, annualWaste: 1_643_443, action: 'Reclaim 1,500 seats — restrict to claims and legal only', costPerLicense: 2_400, department: 'Claims & Legal (provisioned company-wide)', lastAuditDate: '2025-08-18', trend: [70, 60, 52, 45, 40, 36], complianceRisk: true },
+  { vendor: 'LexisNexis', totalLicenses: 600, active90d: 220, inactive: 380, annualWaste: 953_477, action: 'Reclaim 380 seats — restrict to SIU and underwriting', costPerLicense: 5_500, department: 'Special Investigations & Underwriting', lastAuditDate: '2025-07-30', trend: [68, 58, 50, 44, 38, 34], complianceRisk: false },
 ];
 
 const northwoodWorkflowSummary = {
@@ -1342,16 +1342,16 @@ const pinnacleRoadmapPhases = [
 ];
 
 const pinnacleTopOpportunities: Opportunity[] = [
-  { name: 'Clinical Note Automation (DAX Copilot)', category: 'Workflow Automation', savings: 4_315_000, effort: 'Medium', status: 'identified', priority: 10, timeToValue: 8, confidence: 89 },
-  { name: 'Prior Authorization Automation', category: 'Workflow Automation', savings: 3_236_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 10, confidence: 85 },
-  { name: 'Patient Scheduling AI', category: 'Workflow Automation', savings: 2_157_000, effort: 'Low', status: 'identified', priority: 8, timeToValue: 6, confidence: 91 },
-  { name: 'Revenue Cycle Optimization', category: 'Workflow Automation', savings: 2_877_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 77 },
-  { name: 'Coding Accuracy Improvement', category: 'Workflow Automation', savings: 1_798_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 12, confidence: 82 },
-  { name: 'Unused License Reclamation', category: 'License Audit', savings: 4_674_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 97 },
-  { name: 'Denial Management AI', category: 'Workflow Automation', savings: 1_618_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 14, confidence: 74 },
-  { name: 'Patient Engagement Automation', category: 'Workflow Automation', savings: 1_079_000, effort: 'Low', status: 'identified', priority: 5, timeToValue: 6, confidence: 88 },
-  { name: 'Replace Salesforce Health Cloud', category: 'Tech Stack', savings: 1_259_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 10, confidence: 84 },
-  { name: 'Clinical Quality Reporting', category: 'Workflow Automation', savings: 987_000, effort: 'Low', status: 'identified', priority: 4, timeToValue: 8, confidence: 90 },
+  { name: 'Clinical Note Automation (DAX Copilot)', category: 'Workflow Automation', savings: 5_393_750, effort: 'Medium', status: 'identified', priority: 10, timeToValue: 8, confidence: 89 },
+  { name: 'Prior Authorization Automation', category: 'Workflow Automation', savings: 4_045_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 10, confidence: 85 },
+  { name: 'Patient Scheduling AI', category: 'Workflow Automation', savings: 2_696_250, effort: 'Low', status: 'identified', priority: 8, timeToValue: 6, confidence: 91 },
+  { name: 'Revenue Cycle Optimization', category: 'Workflow Automation', savings: 3_596_250, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 77 },
+  { name: 'Coding Accuracy Improvement', category: 'Workflow Automation', savings: 2_247_500, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 12, confidence: 82 },
+  { name: 'Unused License Reclamation', category: 'License Audit', savings: 5_842_500, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 97 },
+  { name: 'Denial Management AI', category: 'Workflow Automation', savings: 2_022_500, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 14, confidence: 74 },
+  { name: 'Patient Engagement Automation', category: 'Workflow Automation', savings: 1_348_750, effort: 'Low', status: 'identified', priority: 5, timeToValue: 6, confidence: 88 },
+  { name: 'Replace Salesforce Health Cloud', category: 'Tech Stack', savings: 1_573_750, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 10, confidence: 84 },
+  { name: 'Clinical Quality Reporting', category: 'Workflow Automation', savings: 1_233_750, effort: 'Low', status: 'identified', priority: 4, timeToValue: 8, confidence: 90 },
 ];
 
 const pinnacleCurrentStack: CurrentTool[] = [
@@ -1435,12 +1435,12 @@ const pinnacleCurrentStack: CurrentTool[] = [
 ];
 
 const pinnacleLicenses: License[] = [
-  { vendor: 'Salesforce Health Cloud', totalLicenses: 1_200, active90d: 480, inactive: 720, annualWaste: 1_988_000, action: 'Reclaim 720 seats → evaluate simpler CRM alternative', costPerLicense: 5_000, department: 'Care Coordination & Outreach', lastAuditDate: '2025-10-20', trend: [75, 68, 60, 54, 48, 42], complianceRisk: false },
-  { vendor: 'Microsoft Teams', totalLicenses: 13_000, active90d: 8_200, inactive: 4_800, annualWaste: 2_121_000, action: 'Downgrade 4,800 inactive to basic tier', costPerLicense: 600, department: 'IT / All Departments', lastAuditDate: '2025-11-10', trend: [82, 76, 70, 65, 58, 52], complianceRisk: false },
-  { vendor: 'DocuSign', totalLicenses: 2_400, active90d: 980, inactive: 1_420, annualWaste: 1_882_000, action: 'Reclaim 1,420 seats — restrict to admin and legal', costPerLicense: 1_200, department: 'Admin & Legal (provisioned org-wide)', lastAuditDate: '2025-09-05', trend: [72, 64, 56, 50, 44, 40], complianceRisk: false },
-  { vendor: 'ADP Modules', totalLicenses: 13_000, active90d: 11_200, inactive: 1_800, annualWaste: 1_193_000, action: 'Consolidate redundant modules, reclaim 1,800 inactive', costPerLicense: 1_200, department: 'HR', lastAuditDate: '2025-12-15', trend: [95, 93, 92, 91, 90, 89], complianceRisk: false },
-  { vendor: 'Zoom Healthcare', totalLicenses: 1_600, active90d: 680, inactive: 920, annualWaste: 1_220_000, action: 'Reclaim 920 seats — consolidate to Teams for non-telehealth', costPerLicense: 1_200, department: 'Clinical (telehealth) & Admin', lastAuditDate: '2025-08-28', trend: [78, 70, 62, 56, 48, 42], complianceRisk: true },
-  { vendor: 'Nuance PowerScribe', totalLicenses: 400, active90d: 160, inactive: 240, annualWaste: 796_000, action: 'Reclaim 240 seats — evaluate DAX Copilot replacement', costPerLicense: 3_000, department: 'Radiology', lastAuditDate: '2025-07-15', trend: [68, 58, 50, 44, 38, 34], complianceRisk: false },
+  { vendor: 'Salesforce Health Cloud', totalLicenses: 1_200, active90d: 480, inactive: 720, annualWaste: 2_485_000, action: 'Reclaim 720 seats → evaluate simpler CRM alternative', costPerLicense: 5_000, department: 'Care Coordination & Outreach', lastAuditDate: '2025-10-20', trend: [75, 68, 60, 54, 48, 42], complianceRisk: false },
+  { vendor: 'Microsoft Teams', totalLicenses: 13_000, active90d: 8_200, inactive: 4_800, annualWaste: 2_651_250, action: 'Downgrade 4,800 inactive to basic tier', costPerLicense: 600, department: 'IT / All Departments', lastAuditDate: '2025-11-10', trend: [82, 76, 70, 65, 58, 52], complianceRisk: false },
+  { vendor: 'DocuSign', totalLicenses: 2_400, active90d: 980, inactive: 1_420, annualWaste: 2_352_500, action: 'Reclaim 1,420 seats — restrict to admin and legal', costPerLicense: 1_200, department: 'Admin & Legal (provisioned org-wide)', lastAuditDate: '2025-09-05', trend: [72, 64, 56, 50, 44, 40], complianceRisk: false },
+  { vendor: 'ADP Modules', totalLicenses: 13_000, active90d: 11_200, inactive: 1_800, annualWaste: 1_491_250, action: 'Consolidate redundant modules, reclaim 1,800 inactive', costPerLicense: 1_200, department: 'HR', lastAuditDate: '2025-12-15', trend: [95, 93, 92, 91, 90, 89], complianceRisk: false },
+  { vendor: 'Zoom Healthcare', totalLicenses: 1_600, active90d: 680, inactive: 920, annualWaste: 1_525_000, action: 'Reclaim 920 seats — consolidate to Teams for non-telehealth', costPerLicense: 1_200, department: 'Clinical (telehealth) & Admin', lastAuditDate: '2025-08-28', trend: [78, 70, 62, 56, 48, 42], complianceRisk: true },
+  { vendor: 'Nuance PowerScribe', totalLicenses: 400, active90d: 160, inactive: 240, annualWaste: 995_000, action: 'Reclaim 240 seats — evaluate DAX Copilot replacement', costPerLicense: 3_000, department: 'Radiology', lastAuditDate: '2025-07-15', trend: [68, 58, 50, 44, 38, 34], complianceRisk: false },
 ];
 
 const pinnacleWorkflowSummary = {
@@ -1582,16 +1582,16 @@ const atlasRoadmapPhases = [
 ];
 
 const atlasTopOpportunities: Opportunity[] = [
-  { name: 'Predictive Maintenance (4 Plants)', category: 'Workflow Automation', savings: 3_800_000, effort: 'High', status: 'identified', priority: 10, timeToValue: 14, confidence: 82 },
-  { name: 'Cross-Plant Inventory Consolidation', category: 'Data Infrastructure', savings: 2_600_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 18, confidence: 79 },
-  { name: 'Quality Inspection AI', category: 'Workflow Automation', savings: 2_200_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 85 },
-  { name: 'Production Scheduling Optimization', category: 'Workflow Automation', savings: 1_900_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 76 },
-  { name: 'Supplier Risk Monitoring', category: 'Data Infrastructure', savings: 1_400_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 80 },
-  { name: 'Enterprise License Reclamation', category: 'License Audit', savings: 4_200_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
-  { name: 'Energy Consumption Optimization', category: 'Workflow Automation', savings: 1_200_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 14, confidence: 72 },
-  { name: 'SAP Instance Harmonization', category: 'Tech Stack', savings: 1_800_000, effort: 'High', status: 'in-progress', priority: 8, timeToValue: 20, confidence: 74 },
-  { name: 'Automated Receiving & Shipping', category: 'Workflow Automation', savings: 1_100_000, effort: 'Low', status: 'identified', priority: 5, timeToValue: 8, confidence: 88 },
-  { name: 'Demand Forecasting AI', category: 'Workflow Automation', savings: 1_800_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 12, confidence: 78 },
+  { name: 'Predictive Maintenance (4 Plants)', category: 'Workflow Automation', savings: 4_484_000, effort: 'High', status: 'identified', priority: 10, timeToValue: 14, confidence: 82 },
+  { name: 'Cross-Plant Inventory Consolidation', category: 'Data Infrastructure', savings: 3_068_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 18, confidence: 79 },
+  { name: 'Quality Inspection AI', category: 'Workflow Automation', savings: 2_596_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 85 },
+  { name: 'Production Scheduling Optimization', category: 'Workflow Automation', savings: 2_242_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 76 },
+  { name: 'Supplier Risk Monitoring', category: 'Data Infrastructure', savings: 1_652_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 80 },
+  { name: 'Enterprise License Reclamation', category: 'License Audit', savings: 4_956_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
+  { name: 'Energy Consumption Optimization', category: 'Workflow Automation', savings: 1_416_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 14, confidence: 72 },
+  { name: 'SAP Instance Harmonization', category: 'Tech Stack', savings: 2_124_000, effort: 'High', status: 'in-progress', priority: 8, timeToValue: 20, confidence: 74 },
+  { name: 'Automated Receiving & Shipping', category: 'Workflow Automation', savings: 1_298_000, effort: 'Low', status: 'identified', priority: 5, timeToValue: 8, confidence: 88 },
+  { name: 'Demand Forecasting AI', category: 'Workflow Automation', savings: 2_124_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 12, confidence: 78 },
 ];
 
 const atlasCurrentStack: CurrentTool[] = [
@@ -1664,13 +1664,13 @@ const atlasCurrentStack: CurrentTool[] = [
 ];
 
 const atlasLicenses: License[] = [
-  { vendor: 'SAP S/4HANA', totalLicenses: 2_600, active90d: 1_600, inactive: 1_000, annualWaste: 3_000_000, action: 'Reclaim 1,000 seats + harmonize 2 legacy MES plants onto SAP', costPerLicense: 3_000, department: 'Manufacturing & Finance (all plants)', lastAuditDate: '2025-09-28', trend: [80, 74, 68, 64, 60, 56], complianceRisk: false },
-  { vendor: 'AutoCAD', totalLicenses: 800, active90d: 340, inactive: 460, annualWaste: 1_840_000, action: 'Reclaim 460 seats — restrict to engineering departments only', costPerLicense: 4_000, department: 'Engineering (provisioned to all managers)', lastAuditDate: '2025-10-15', trend: [72, 64, 56, 50, 44, 40], complianceRisk: false },
-  { vendor: 'Microsoft 365', totalLicenses: 8_000, active90d: 6_400, inactive: 1_600, annualWaste: 1_920_000, action: 'Reclaim 1,600 seats + downgrade 1,200 E5→E1 for plant floor', costPerLicense: 1_200, department: 'IT / All Plants', lastAuditDate: '2025-11-20', trend: [88, 84, 82, 80, 78, 76], complianceRisk: false },
-  { vendor: 'Jira', totalLicenses: 1_200, active90d: 720, inactive: 480, annualWaste: 576_000, action: 'Reclaim 480 seats — consolidate to engineering and IT only', costPerLicense: 1_200, department: 'Engineering & IT (provisioned broadly)', lastAuditDate: '2025-08-10', trend: [82, 76, 70, 66, 62, 58], complianceRisk: false },
-  { vendor: 'Slack Enterprise', totalLicenses: 4_800, active90d: 3_600, inactive: 1_200, annualWaste: 480_000, action: 'Downgrade 1,200 inactive to free tier', costPerLicense: 400, department: 'IT / All Plants', lastAuditDate: '2026-01-08', trend: [90, 86, 82, 78, 74, 72], complianceRisk: false },
-  { vendor: 'Siemens MindSphere', totalLicenses: 480, active90d: 320, inactive: 160, annualWaste: 240_000, action: 'Reclaim 160 unused plant licenses, optimize data tier', costPerLicense: 1_500, department: 'Plant Operations & Engineering', lastAuditDate: '2025-07-25', trend: [85, 78, 72, 68, 64, 62], complianceRisk: false },
-  { vendor: 'MATLAB / Simulink', totalLicenses: 160, active90d: 48, inactive: 112, annualWaste: 144_000, action: 'Reclaim 112 seats — restrict to R&D team only', costPerLicense: 1_286, department: 'R&D & Quality Engineering', lastAuditDate: '2025-06-30', trend: [65, 55, 48, 42, 36, 32], complianceRisk: false },
+  { vendor: 'SAP S/4HANA', totalLicenses: 2_600, active90d: 1_600, inactive: 1_000, annualWaste: 3_540_000, action: 'Reclaim 1,000 seats + harmonize 2 legacy MES plants onto SAP', costPerLicense: 3_000, department: 'Manufacturing & Finance (all plants)', lastAuditDate: '2025-09-28', trend: [80, 74, 68, 64, 60, 56], complianceRisk: false },
+  { vendor: 'AutoCAD', totalLicenses: 800, active90d: 340, inactive: 460, annualWaste: 2_171_200, action: 'Reclaim 460 seats — restrict to engineering departments only', costPerLicense: 4_000, department: 'Engineering (provisioned to all managers)', lastAuditDate: '2025-10-15', trend: [72, 64, 56, 50, 44, 40], complianceRisk: false },
+  { vendor: 'Microsoft 365', totalLicenses: 8_000, active90d: 6_400, inactive: 1_600, annualWaste: 2_265_600, action: 'Reclaim 1,600 seats + downgrade 1,200 E5→E1 for plant floor', costPerLicense: 1_200, department: 'IT / All Plants', lastAuditDate: '2025-11-20', trend: [88, 84, 82, 80, 78, 76], complianceRisk: false },
+  { vendor: 'Jira', totalLicenses: 1_200, active90d: 720, inactive: 480, annualWaste: 679_680, action: 'Reclaim 480 seats — consolidate to engineering and IT only', costPerLicense: 1_200, department: 'Engineering & IT (provisioned broadly)', lastAuditDate: '2025-08-10', trend: [82, 76, 70, 66, 62, 58], complianceRisk: false },
+  { vendor: 'Slack Enterprise', totalLicenses: 4_800, active90d: 3_600, inactive: 1_200, annualWaste: 566_400, action: 'Downgrade 1,200 inactive to free tier', costPerLicense: 400, department: 'IT / All Plants', lastAuditDate: '2026-01-08', trend: [90, 86, 82, 78, 74, 72], complianceRisk: false },
+  { vendor: 'Siemens MindSphere', totalLicenses: 480, active90d: 320, inactive: 160, annualWaste: 283_200, action: 'Reclaim 160 unused plant licenses, optimize data tier', costPerLicense: 1_500, department: 'Plant Operations & Engineering', lastAuditDate: '2025-07-25', trend: [85, 78, 72, 68, 64, 62], complianceRisk: false },
+  { vendor: 'MATLAB / Simulink', totalLicenses: 160, active90d: 48, inactive: 112, annualWaste: 169_920, action: 'Reclaim 112 seats — restrict to R&D team only', costPerLicense: 1_286, department: 'R&D & Quality Engineering', lastAuditDate: '2025-06-30', trend: [65, 55, 48, 42, 36, 32], complianceRisk: false },
 ];
 
 const atlasWorkflowSummary = {
@@ -3685,26 +3685,26 @@ const hccRoadmapPhases = [
 ];
 
 const hccTopOpportunities: Opportunity[] = [
-  { name: 'Project Estimation AI', category: 'Workflow Automation', savings: 720_000, effort: 'High', status: 'identified', priority: 10, timeToValue: 16, confidence: 76 },
-  { name: 'Equipment Dispatch Optimization', category: 'Data Infrastructure', savings: 380_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 84 },
-  { name: 'License Reclamation (P6 + CAD)', category: 'License Audit', savings: 480_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
-  { name: 'Paving Operations Automation', category: 'Workflow Automation', savings: 320_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 14, confidence: 78 },
-  { name: 'Subcontractor Management Portal', category: 'Tech Stack', savings: 240_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 8, confidence: 82 },
-  { name: 'Material Logistics AI', category: 'Workflow Automation', savings: 160_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 12, confidence: 74 },
+  { name: 'Project Estimation AI', category: 'Workflow Automation', savings: 1_728_000, effort: 'High', status: 'identified', priority: 10, timeToValue: 16, confidence: 76 },
+  { name: 'Equipment Dispatch Optimization', category: 'Data Infrastructure', savings: 912_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 84 },
+  { name: 'License Reclamation (P6 + CAD)', category: 'License Audit', savings: 1_152_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
+  { name: 'Paving Operations Automation', category: 'Workflow Automation', savings: 768_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 14, confidence: 78 },
+  { name: 'Subcontractor Management Portal', category: 'Tech Stack', savings: 576_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 8, confidence: 82 },
+  { name: 'Material Logistics AI', category: 'Workflow Automation', savings: 384_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 12, confidence: 74 },
 ];
 
 const hccCurrentStack: CurrentTool[] = [
-  { name: 'Primavera P6', category: 'Project Management', annualCost: 280_000, users: 120, score: 4, integrationComplexity: 'High', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Rail construction scheduling', 'Resource allocation', 'Critical path analysis'] },
-  { name: 'AutoCAD Civil 3D', category: 'Engineering Design', annualCost: 440_000, users: 55, score: 5, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Low', dependencies: ['Highway design', 'Grading plans', 'Rail alignment'] },
-  { name: 'Legacy Field Dispatch', category: 'Fleet Management', annualCost: 340_000, users: 180, score: 3, integrationComplexity: 'High', migrationWeeks: 20, riskLevel: 'High', dependencies: ['Crew dispatch', 'Equipment tracking', 'Work orders'] },
-  { name: 'HCSS Telematics', category: 'GPS/Telematics', annualCost: 190_000, users: 400, score: 5, integrationComplexity: 'Low', migrationWeeks: 6, riskLevel: 'Low', dependencies: ['Vehicle tracking', 'Geofencing', 'Route optimization'] },
+  { name: 'Primavera P6', category: 'Project Management', annualCost: 672_000, users: 120, score: 4, integrationComplexity: 'High', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Rail construction scheduling', 'Resource allocation', 'Critical path analysis'] },
+  { name: 'AutoCAD Civil 3D', category: 'Engineering Design', annualCost: 1_056_000, users: 55, score: 5, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Low', dependencies: ['Highway design', 'Grading plans', 'Rail alignment'] },
+  { name: 'Legacy Field Dispatch', category: 'Fleet Management', annualCost: 816_000, users: 180, score: 3, integrationComplexity: 'High', migrationWeeks: 20, riskLevel: 'High', dependencies: ['Crew dispatch', 'Equipment tracking', 'Work orders'] },
+  { name: 'HCSS Telematics', category: 'GPS/Telematics', annualCost: 456_000, users: 400, score: 5, integrationComplexity: 'Low', migrationWeeks: 6, riskLevel: 'Low', dependencies: ['Vehicle tracking', 'Geofencing', 'Route optimization'] },
 ];
 
 const hccLicenses: License[] = [
-  { vendor: 'Primavera P6', totalLicenses: 120, active90d: 60, inactive: 60, annualWaste: 210_000, action: 'Reclaim 60 inactive seats — restrict to active PMs only', costPerLicense: 3_500, department: 'Project Management', lastAuditDate: '2025-10-15', trend: [82, 76, 70, 65, 60, 50], complianceRisk: false },
-  { vendor: 'AutoCAD Civil 3D', totalLicenses: 55, active90d: 25, inactive: 30, annualWaste: 240_000, action: 'Reclaim 30 seats from non-engineering staff', costPerLicense: 8_000, department: 'Engineering & Design', lastAuditDate: '2025-08-20', trend: [68, 60, 54, 50, 46, 45], complianceRisk: true },
-  { vendor: 'Microsoft 365', totalLicenses: 1_200, active90d: 800, inactive: 400, annualWaste: 320_000, action: 'Reclaim 400 seats + downgrade field crews E5→E3', costPerLicense: 800, department: 'IT / All Staff', lastAuditDate: '2025-09-15', trend: [78, 72, 68, 66, 66, 67], complianceRisk: false },
-  { vendor: 'Trimble Business Center', totalLicenses: 40, active90d: 15, inactive: 25, annualWaste: 210_000, action: 'Reclaim 25 seats from inactive survey crews', costPerLicense: 8_400, department: 'Survey & GPS', lastAuditDate: '2025-07-22', trend: [62, 54, 46, 40, 38, 38], complianceRisk: false },
+  { vendor: 'Primavera P6', totalLicenses: 120, active90d: 60, inactive: 60, annualWaste: 504_000, action: 'Reclaim 60 inactive seats — restrict to active PMs only', costPerLicense: 3_500, department: 'Project Management', lastAuditDate: '2025-10-15', trend: [82, 76, 70, 65, 60, 50], complianceRisk: false },
+  { vendor: 'AutoCAD Civil 3D', totalLicenses: 55, active90d: 25, inactive: 30, annualWaste: 576_000, action: 'Reclaim 30 seats from non-engineering staff', costPerLicense: 8_000, department: 'Engineering & Design', lastAuditDate: '2025-08-20', trend: [68, 60, 54, 50, 46, 45], complianceRisk: true },
+  { vendor: 'Microsoft 365', totalLicenses: 1_200, active90d: 800, inactive: 400, annualWaste: 768_000, action: 'Reclaim 400 seats + downgrade field crews E5→E3', costPerLicense: 800, department: 'IT / All Staff', lastAuditDate: '2025-09-15', trend: [78, 72, 68, 66, 66, 67], complianceRisk: false },
+  { vendor: 'Trimble Business Center', totalLicenses: 40, active90d: 15, inactive: 25, annualWaste: 504_000, action: 'Reclaim 25 seats from inactive survey crews', costPerLicense: 8_400, department: 'Survey & GPS', lastAuditDate: '2025-07-22', trend: [62, 54, 46, 40, 38, 38], complianceRisk: false },
 ];
 
 const hccWorkflowSummary = {
@@ -3810,23 +3810,23 @@ const hrsiRoadmapPhases = [
 ];
 
 const hrsiTopOpportunities: Opportunity[] = [
-  { name: 'Maintenance Scheduling AI', category: 'Workflow Automation', savings: 340_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 82 },
-  { name: 'Car Repair Tracking Automation', category: 'Workflow Automation', savings: 180_000, effort: 'Medium', status: 'in-progress', priority: 8, timeToValue: 8, confidence: 86 },
-  { name: 'License Reclamation', category: 'License Audit', savings: 200_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 95 },
-  { name: 'Equipment Leasing Optimization', category: 'Workflow Automation', savings: 200_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 14, confidence: 78 },
+  { name: 'Maintenance Scheduling AI', category: 'Workflow Automation', savings: 816_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 82 },
+  { name: 'Car Repair Tracking Automation', category: 'Workflow Automation', savings: 432_000, effort: 'Medium', status: 'in-progress', priority: 8, timeToValue: 8, confidence: 86 },
+  { name: 'License Reclamation', category: 'License Audit', savings: 480_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 95 },
+  { name: 'Equipment Leasing Optimization', category: 'Workflow Automation', savings: 480_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 14, confidence: 78 },
 ];
 
 const hrsiCurrentStack: CurrentTool[] = [
-  { name: 'Legacy Field Dispatch', category: 'Fleet Management', annualCost: 200_000, users: 120, score: 3, integrationComplexity: 'High', migrationWeeks: 18, riskLevel: 'High', dependencies: ['Crew dispatch', 'Equipment tracking', 'Work orders'] },
-  { name: 'MCP (Internal)', category: 'Workforce', annualCost: 120_000, users: 380, score: 4, integrationComplexity: 'Medium', migrationWeeks: 10, riskLevel: 'Medium', dependencies: ['Time tracking', 'FRA compliance', 'Payroll'] },
-  { name: 'eCMS', category: 'Finance', annualCost: 160_000, users: 40, score: 3, integrationComplexity: 'High', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Financial reporting', 'AP/AR', 'Cost accounting'] },
+  { name: 'Legacy Field Dispatch', category: 'Fleet Management', annualCost: 480_000, users: 120, score: 3, integrationComplexity: 'High', migrationWeeks: 18, riskLevel: 'High', dependencies: ['Crew dispatch', 'Equipment tracking', 'Work orders'] },
+  { name: 'MCP (Internal)', category: 'Workforce', annualCost: 288_000, users: 380, score: 4, integrationComplexity: 'Medium', migrationWeeks: 10, riskLevel: 'Medium', dependencies: ['Time tracking', 'FRA compliance', 'Payroll'] },
+  { name: 'eCMS', category: 'Finance', annualCost: 384_000, users: 40, score: 3, integrationComplexity: 'High', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Financial reporting', 'AP/AR', 'Cost accounting'] },
 ];
 
 const hrsiLicenses: License[] = [
-  { vendor: 'Legacy Field Dispatch', totalLicenses: 120, active90d: 80, inactive: 40, annualWaste: 160_000, action: 'Consolidate into HCSS suite — reclaim all legacy dispatch seats', costPerLicense: 4_000, department: 'Operations', lastAuditDate: '2025-11-10', trend: [78, 72, 68, 65, 64, 67], complianceRisk: false },
-  { vendor: 'MCP (Internal)', totalLicenses: 380, active90d: 280, inactive: 100, annualWaste: 30_000, action: 'Reclaim 100 inactive crew seats', costPerLicense: 300, department: 'HR / All Staff', lastAuditDate: '2026-01-10', trend: [86, 82, 78, 74, 74, 74], complianceRisk: false },
-  { vendor: 'eCMS', totalLicenses: 40, active90d: 20, inactive: 20, annualWaste: 80_000, action: 'Reclaim 20 seats — consolidate to finance team', costPerLicense: 4_000, department: 'Finance', lastAuditDate: '2025-11-02', trend: [72, 66, 58, 52, 50, 50], complianceRisk: false },
-  { vendor: 'Microsoft 365', totalLicenses: 380, active90d: 240, inactive: 140, annualWaste: 110_000, action: 'Reclaim 140 seats + downgrade field crews', costPerLicense: 786, department: 'IT / All Staff', lastAuditDate: '2025-09-15', trend: [76, 70, 66, 63, 63, 63], complianceRisk: false },
+  { vendor: 'Legacy Field Dispatch', totalLicenses: 120, active90d: 80, inactive: 40, annualWaste: 384_000, action: 'Consolidate into HCSS suite — reclaim all legacy dispatch seats', costPerLicense: 4_000, department: 'Operations', lastAuditDate: '2025-11-10', trend: [78, 72, 68, 65, 64, 67], complianceRisk: false },
+  { vendor: 'MCP (Internal)', totalLicenses: 380, active90d: 280, inactive: 100, annualWaste: 72_000, action: 'Reclaim 100 inactive crew seats', costPerLicense: 300, department: 'HR / All Staff', lastAuditDate: '2026-01-10', trend: [86, 82, 78, 74, 74, 74], complianceRisk: false },
+  { vendor: 'eCMS', totalLicenses: 40, active90d: 20, inactive: 20, annualWaste: 192_000, action: 'Reclaim 20 seats — consolidate to finance team', costPerLicense: 4_000, department: 'Finance', lastAuditDate: '2025-11-02', trend: [72, 66, 58, 52, 50, 50], complianceRisk: false },
+  { vendor: 'Microsoft 365', totalLicenses: 380, active90d: 240, inactive: 140, annualWaste: 264_000, action: 'Reclaim 140 seats + downgrade field crews', costPerLicense: 786, department: 'IT / All Staff', lastAuditDate: '2025-09-15', trend: [76, 70, 66, 63, 63, 63], complianceRisk: false },
 ];
 
 const hrsiWorkflowSummary = {
@@ -3928,22 +3928,22 @@ const hsiRoadmapPhases = [
 ];
 
 const hsiTopOpportunities: Opportunity[] = [
-  { name: 'AI Defect Detection (Vision + Ultrasonic)', category: 'Workflow Automation', savings: 380_000, effort: 'High', status: 'identified', priority: 10, timeToValue: 16, confidence: 82 },
-  { name: 'Automated FRA Reporting', category: 'Workflow Automation', savings: 120_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 90 },
-  { name: 'License Reclamation', category: 'License Audit', savings: 140_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
-  { name: 'LIDAR Ballast Analysis Automation', category: 'Workflow Automation', savings: 140_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 18, confidence: 74 },
+  { name: 'AI Defect Detection (Vision + Ultrasonic)', category: 'Workflow Automation', savings: 912_000, effort: 'High', status: 'identified', priority: 10, timeToValue: 16, confidence: 82 },
+  { name: 'Automated FRA Reporting', category: 'Workflow Automation', savings: 288_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 90 },
+  { name: 'License Reclamation', category: 'License Audit', savings: 336_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
+  { name: 'LIDAR Ballast Analysis Automation', category: 'Workflow Automation', savings: 336_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 18, confidence: 74 },
 ];
 
 const hsiCurrentStack: CurrentTool[] = [
-  { name: 'TAM-4 Rail Testing', category: 'Rail Inspection', annualCost: 240_000, users: 45, score: 4, integrationComplexity: 'Medium', migrationWeeks: 12, riskLevel: 'Medium', dependencies: ['Track geometry', 'Defect detection', 'FRA compliance'] },
-  { name: 'Trimble Business Center', category: 'Survey/GPS', annualCost: 160_000, users: 20, score: 5, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['Survey data', 'LIDAR processing', 'GIS mapping'] },
-  { name: 'Custom Video Track Chart', category: 'Inspection', annualCost: 80_000, users: 20, score: 3, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Medium', dependencies: ['Visual inspection', 'Defect correlation', 'Analyst review'] },
+  { name: 'TAM-4 Rail Testing', category: 'Rail Inspection', annualCost: 576_000, users: 45, score: 4, integrationComplexity: 'Medium', migrationWeeks: 12, riskLevel: 'Medium', dependencies: ['Track geometry', 'Defect detection', 'FRA compliance'] },
+  { name: 'Trimble Business Center', category: 'Survey/GPS', annualCost: 384_000, users: 20, score: 5, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['Survey data', 'LIDAR processing', 'GIS mapping'] },
+  { name: 'Custom Video Track Chart', category: 'Inspection', annualCost: 192_000, users: 20, score: 3, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Medium', dependencies: ['Visual inspection', 'Defect correlation', 'Analyst review'] },
 ];
 
 const hsiLicenses: License[] = [
-  { vendor: 'TAM-4 Rail Testing', totalLicenses: 45, active90d: 30, inactive: 15, annualWaste: 90_000, action: 'Reclaim 15 inactive analyst seats — consolidate to active testing crews', costPerLicense: 6_000, department: 'Rail Testing Operations', lastAuditDate: '2025-10-20', trend: [80, 74, 68, 66, 66, 67], complianceRisk: false },
-  { vendor: 'Trimble Business Center', totalLicenses: 20, active90d: 10, inactive: 10, annualWaste: 80_000, action: 'Reclaim 10 seats from inactive survey engineers', costPerLicense: 8_000, department: 'Survey & GPS', lastAuditDate: '2025-07-22', trend: [65, 58, 52, 50, 50, 50], complianceRisk: false },
-  { vendor: 'Microsoft 365', totalLicenses: 220, active90d: 130, inactive: 90, annualWaste: 70_000, action: 'Reclaim 90 seats + downgrade field technicians', costPerLicense: 778, department: 'IT / All Staff', lastAuditDate: '2025-09-15', trend: [72, 66, 62, 59, 59, 59], complianceRisk: false },
+  { vendor: 'TAM-4 Rail Testing', totalLicenses: 45, active90d: 30, inactive: 15, annualWaste: 216_000, action: 'Reclaim 15 inactive analyst seats — consolidate to active testing crews', costPerLicense: 6_000, department: 'Rail Testing Operations', lastAuditDate: '2025-10-20', trend: [80, 74, 68, 66, 66, 67], complianceRisk: false },
+  { vendor: 'Trimble Business Center', totalLicenses: 20, active90d: 10, inactive: 10, annualWaste: 192_000, action: 'Reclaim 10 seats from inactive survey engineers', costPerLicense: 8_000, department: 'Survey & GPS', lastAuditDate: '2025-07-22', trend: [65, 58, 52, 50, 50, 50], complianceRisk: false },
+  { vendor: 'Microsoft 365', totalLicenses: 220, active90d: 130, inactive: 90, annualWaste: 168_000, action: 'Reclaim 90 seats + downgrade field technicians', costPerLicense: 778, department: 'IT / All Staff', lastAuditDate: '2025-09-15', trend: [72, 66, 62, 59, 59, 59], complianceRisk: false },
 ];
 
 const hsiWorkflowSummary = {
@@ -4045,22 +4045,22 @@ const htiRoadmapPhases = [
 ];
 
 const htiTopOpportunities: Opportunity[] = [
-  { name: 'PTC System Data Integration', category: 'Data Infrastructure', savings: 300_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 14, confidence: 78 },
-  { name: 'AI Signal Design Optimization', category: 'Workflow Automation', savings: 180_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 76 },
-  { name: 'License Reclamation (CAD + GIS)', category: 'License Audit', savings: 220_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 95 },
-  { name: 'GIS Data Management Automation', category: 'Workflow Automation', savings: 140_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 82 },
+  { name: 'PTC System Data Integration', category: 'Data Infrastructure', savings: 720_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 14, confidence: 78 },
+  { name: 'AI Signal Design Optimization', category: 'Workflow Automation', savings: 432_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 16, confidence: 76 },
+  { name: 'License Reclamation (CAD + GIS)', category: 'License Audit', savings: 528_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 95 },
+  { name: 'GIS Data Management Automation', category: 'Workflow Automation', savings: 336_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 82 },
 ];
 
 const htiCurrentStack: CurrentTool[] = [
-  { name: 'Proprietary Signal Design', category: 'Engineering', annualCost: 320_000, users: 80, score: 4, integrationComplexity: 'High', migrationWeeks: 20, riskLevel: 'High', dependencies: ['Signal placement', 'Circuit design', 'PTC integration'] },
-  { name: 'ArcGIS Pro', category: 'GIS', annualCost: 180_000, users: 40, score: 6, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Low', dependencies: ['Geographic data', 'Track mapping', 'Field surveys'] },
-  { name: 'AutoCAD Electrical', category: 'CAD', annualCost: 240_000, users: 60, score: 5, integrationComplexity: 'Medium', migrationWeeks: 10, riskLevel: 'Medium', dependencies: ['Electrical design', 'Signal schematics', 'Panel layouts'] },
+  { name: 'Proprietary Signal Design', category: 'Engineering', annualCost: 768_000, users: 80, score: 4, integrationComplexity: 'High', migrationWeeks: 20, riskLevel: 'High', dependencies: ['Signal placement', 'Circuit design', 'PTC integration'] },
+  { name: 'ArcGIS Pro', category: 'GIS', annualCost: 432_000, users: 40, score: 6, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Low', dependencies: ['Geographic data', 'Track mapping', 'Field surveys'] },
+  { name: 'AutoCAD Electrical', category: 'CAD', annualCost: 576_000, users: 60, score: 5, integrationComplexity: 'Medium', migrationWeeks: 10, riskLevel: 'Medium', dependencies: ['Electrical design', 'Signal schematics', 'Panel layouts'] },
 ];
 
 const htiLicenses: License[] = [
-  { vendor: 'AutoCAD Electrical', totalLicenses: 60, active90d: 35, inactive: 25, annualWaste: 200_000, action: 'Reclaim 25 seats from non-active designers', costPerLicense: 8_000, department: 'Signal Engineering', lastAuditDate: '2025-08-20', trend: [72, 66, 60, 58, 58, 58], complianceRisk: false },
-  { vendor: 'ArcGIS Pro', totalLicenses: 40, active90d: 22, inactive: 18, annualWaste: 126_000, action: 'Reclaim 18 seats — restrict to active GIS analysts', costPerLicense: 7_000, department: 'GIS & Survey', lastAuditDate: '2025-09-10', trend: [68, 62, 56, 55, 55, 55], complianceRisk: false },
-  { vendor: 'Microsoft 365', totalLicenses: 310, active90d: 190, inactive: 120, annualWaste: 94_000, action: 'Reclaim 120 seats + downgrade field technicians', costPerLicense: 783, department: 'IT / All Staff', lastAuditDate: '2025-09-15', trend: [74, 68, 64, 61, 61, 61], complianceRisk: false },
+  { vendor: 'AutoCAD Electrical', totalLicenses: 60, active90d: 35, inactive: 25, annualWaste: 480_000, action: 'Reclaim 25 seats from non-active designers', costPerLicense: 8_000, department: 'Signal Engineering', lastAuditDate: '2025-08-20', trend: [72, 66, 60, 58, 58, 58], complianceRisk: false },
+  { vendor: 'ArcGIS Pro', totalLicenses: 40, active90d: 22, inactive: 18, annualWaste: 302_400, action: 'Reclaim 18 seats — restrict to active GIS analysts', costPerLicense: 7_000, department: 'GIS & Survey', lastAuditDate: '2025-09-10', trend: [68, 62, 56, 55, 55, 55], complianceRisk: false },
+  { vendor: 'Microsoft 365', totalLicenses: 310, active90d: 190, inactive: 120, annualWaste: 225_600, action: 'Reclaim 120 seats + downgrade field technicians', costPerLicense: 783, department: 'IT / All Staff', lastAuditDate: '2025-09-15', trend: [74, 68, 64, 61, 61, 61], complianceRisk: false },
 ];
 
 const htiWorkflowSummary = {
@@ -4162,23 +4162,23 @@ const htsiRoadmapPhases = [
 ];
 
 const htsiTopOpportunities: Opportunity[] = [
-  { name: 'Transit Schedule Optimization', category: 'Workflow Automation', savings: 380_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 14, confidence: 80 },
-  { name: 'Predictive Vehicle Maintenance', category: 'Workflow Automation', savings: 200_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 82 },
-  { name: 'License Reclamation', category: 'License Audit', savings: 240_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
-  { name: 'Passenger Flow Analytics', category: 'Data Infrastructure', savings: 140_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 78 },
+  { name: 'Transit Schedule Optimization', category: 'Workflow Automation', savings: 912_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 14, confidence: 80 },
+  { name: 'Predictive Vehicle Maintenance', category: 'Workflow Automation', savings: 480_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 82 },
+  { name: 'License Reclamation', category: 'License Audit', savings: 576_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 96 },
+  { name: 'Passenger Flow Analytics', category: 'Data Infrastructure', savings: 336_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 78 },
 ];
 
 const htsiCurrentStack: CurrentTool[] = [
-  { name: 'Transit Scheduling System', category: 'Operations', annualCost: 280_000, users: 60, score: 4, integrationComplexity: 'High', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Route scheduling', 'Crew assignments', 'Service planning'] },
-  { name: 'Vehicle Maintenance Tracker', category: 'Maintenance', annualCost: 160_000, users: 40, score: 3, integrationComplexity: 'Medium', migrationWeeks: 10, riskLevel: 'Medium', dependencies: ['Maintenance scheduling', 'Parts inventory', 'Compliance records'] },
-  { name: 'Fare Collection System', category: 'Revenue', annualCost: 180_000, users: 480, score: 6, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['Fare processing', 'Ridership data', 'Revenue reporting'] },
-  { name: 'MCP (Internal)', category: 'Workforce', annualCost: 140_000, users: 480, score: 4, integrationComplexity: 'Medium', migrationWeeks: 10, riskLevel: 'Medium', dependencies: ['Time tracking', 'Crew scheduling', 'Payroll'] },
+  { name: 'Transit Scheduling System', category: 'Operations', annualCost: 672_000, users: 60, score: 4, integrationComplexity: 'High', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Route scheduling', 'Crew assignments', 'Service planning'] },
+  { name: 'Vehicle Maintenance Tracker', category: 'Maintenance', annualCost: 384_000, users: 40, score: 3, integrationComplexity: 'Medium', migrationWeeks: 10, riskLevel: 'Medium', dependencies: ['Maintenance scheduling', 'Parts inventory', 'Compliance records'] },
+  { name: 'Fare Collection System', category: 'Revenue', annualCost: 432_000, users: 480, score: 6, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['Fare processing', 'Ridership data', 'Revenue reporting'] },
+  { name: 'MCP (Internal)', category: 'Workforce', annualCost: 336_000, users: 480, score: 4, integrationComplexity: 'Medium', migrationWeeks: 10, riskLevel: 'Medium', dependencies: ['Time tracking', 'Crew scheduling', 'Payroll'] },
 ];
 
 const htsiLicenses: License[] = [
-  { vendor: 'Transit Scheduling System', totalLicenses: 60, active90d: 30, inactive: 30, annualWaste: 210_000, action: 'Reclaim 30 inactive seats — restrict to active dispatchers and planners', costPerLicense: 7_000, department: 'Transit Operations', lastAuditDate: '2025-11-15', trend: [72, 66, 58, 52, 50, 50], complianceRisk: false },
-  { vendor: 'Vehicle Maintenance Tracker', totalLicenses: 40, active90d: 22, inactive: 18, annualWaste: 90_000, action: 'Reclaim 18 seats — migrate to predictive maintenance platform', costPerLicense: 5_000, department: 'Maintenance', lastAuditDate: '2025-10-20', trend: [68, 62, 56, 55, 55, 55], complianceRisk: false },
-  { vendor: 'Microsoft 365', totalLicenses: 480, active90d: 300, inactive: 180, annualWaste: 180_000, action: 'Reclaim 180 seats + downgrade operators to basic tier', costPerLicense: 1_000, department: 'IT / All Staff', lastAuditDate: '2025-09-15', trend: [76, 70, 64, 62, 62, 63], complianceRisk: false },
+  { vendor: 'Transit Scheduling System', totalLicenses: 60, active90d: 30, inactive: 30, annualWaste: 504_000, action: 'Reclaim 30 inactive seats — restrict to active dispatchers and planners', costPerLicense: 7_000, department: 'Transit Operations', lastAuditDate: '2025-11-15', trend: [72, 66, 58, 52, 50, 50], complianceRisk: false },
+  { vendor: 'Vehicle Maintenance Tracker', totalLicenses: 40, active90d: 22, inactive: 18, annualWaste: 216_000, action: 'Reclaim 18 seats — migrate to predictive maintenance platform', costPerLicense: 5_000, department: 'Maintenance', lastAuditDate: '2025-10-20', trend: [68, 62, 56, 55, 55, 55], complianceRisk: false },
+  { vendor: 'Microsoft 365', totalLicenses: 480, active90d: 300, inactive: 180, annualWaste: 432_000, action: 'Reclaim 180 seats + downgrade operators to basic tier', costPerLicense: 1_000, department: 'IT / All Staff', lastAuditDate: '2025-09-15', trend: [76, 70, 64, 62, 62, 63], complianceRisk: false },
 ];
 
 const htsiWorkflowSummary = {
@@ -4280,22 +4280,22 @@ const heRoadmapPhases = [
 ];
 
 const heTopOpportunities: Opportunity[] = [
-  { name: 'Energy Project Management Digitization', category: 'Workflow Automation', savings: 120_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 84 },
-  { name: 'Compliance Automation', category: 'Workflow Automation', savings: 80_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 86 },
-  { name: 'License Reclamation', category: 'License Audit', savings: 100_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 95 },
-  { name: 'Equipment Tracking Optimization', category: 'Data Infrastructure', savings: 60_000, effort: 'Low', status: 'identified', priority: 7, timeToValue: 6, confidence: 88 },
+  { name: 'Energy Project Management Digitization', category: 'Workflow Automation', savings: 288_000, effort: 'Medium', status: 'in-progress', priority: 9, timeToValue: 10, confidence: 84 },
+  { name: 'Compliance Automation', category: 'Workflow Automation', savings: 192_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 8, confidence: 86 },
+  { name: 'License Reclamation', category: 'License Audit', savings: 240_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 95 },
+  { name: 'Equipment Tracking Optimization', category: 'Data Infrastructure', savings: 144_000, effort: 'Low', status: 'identified', priority: 7, timeToValue: 6, confidence: 88 },
 ];
 
 const heCurrentStack: CurrentTool[] = [
-  { name: 'Excel/SharePoint', category: 'Project Management', annualCost: 60_000, users: 40, score: 2, integrationComplexity: 'Low', migrationWeeks: 8, riskLevel: 'Low', dependencies: ['Project tracking', 'Cost estimation', 'Resource planning'] },
-  { name: 'eCMS (shared)', category: 'Finance', annualCost: 80_000, users: 15, score: 3, integrationComplexity: 'High', migrationWeeks: 12, riskLevel: 'Medium', dependencies: ['Financial reporting', 'AP/AR', 'Cost accounting'] },
-  { name: 'MCP (Internal)', category: 'Workforce', annualCost: 40_000, users: 120, score: 4, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Low', dependencies: ['Time tracking', 'Crew scheduling', 'Payroll'] },
+  { name: 'Excel/SharePoint', category: 'Project Management', annualCost: 144_000, users: 40, score: 2, integrationComplexity: 'Low', migrationWeeks: 8, riskLevel: 'Low', dependencies: ['Project tracking', 'Cost estimation', 'Resource planning'] },
+  { name: 'eCMS (shared)', category: 'Finance', annualCost: 192_000, users: 15, score: 3, integrationComplexity: 'High', migrationWeeks: 12, riskLevel: 'Medium', dependencies: ['Financial reporting', 'AP/AR', 'Cost accounting'] },
+  { name: 'MCP (Internal)', category: 'Workforce', annualCost: 96_000, users: 120, score: 4, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Low', dependencies: ['Time tracking', 'Crew scheduling', 'Payroll'] },
 ];
 
 const heLicenses: License[] = [
-  { vendor: 'Microsoft 365', totalLicenses: 120, active90d: 70, inactive: 50, annualWaste: 40_000, action: 'Reclaim 50 inactive seats + downgrade field crews', costPerLicense: 800, department: 'IT / All Staff', lastAuditDate: '2025-09-15', trend: [74, 68, 62, 58, 58, 58], complianceRisk: false },
-  { vendor: 'eCMS', totalLicenses: 15, active90d: 5, inactive: 10, annualWaste: 40_000, action: 'Reclaim 10 seats — consolidate to finance only', costPerLicense: 4_000, department: 'Finance', lastAuditDate: '2025-11-02', trend: [60, 50, 40, 33, 33, 33], complianceRisk: false },
-  { vendor: 'AutoCAD', totalLicenses: 20, active90d: 7, inactive: 13, annualWaste: 100_000, action: 'Reclaim 13 seats from non-engineering staff', costPerLicense: 7_692, department: 'Engineering', lastAuditDate: '2025-08-20', trend: [55, 45, 38, 35, 35, 35], complianceRisk: false },
+  { vendor: 'Microsoft 365', totalLicenses: 120, active90d: 70, inactive: 50, annualWaste: 96_000, action: 'Reclaim 50 inactive seats + downgrade field crews', costPerLicense: 800, department: 'IT / All Staff', lastAuditDate: '2025-09-15', trend: [74, 68, 62, 58, 58, 58], complianceRisk: false },
+  { vendor: 'eCMS', totalLicenses: 15, active90d: 5, inactive: 10, annualWaste: 96_000, action: 'Reclaim 10 seats — consolidate to finance only', costPerLicense: 4_000, department: 'Finance', lastAuditDate: '2025-11-02', trend: [60, 50, 40, 33, 33, 33], complianceRisk: false },
+  { vendor: 'AutoCAD', totalLicenses: 20, active90d: 7, inactive: 13, annualWaste: 240_000, action: 'Reclaim 13 seats from non-engineering staff', costPerLicense: 7_692, department: 'Engineering', lastAuditDate: '2025-08-20', trend: [55, 45, 38, 35, 35, 35], complianceRisk: false },
 ];
 
 const heWorkflowSummary = {
@@ -4397,21 +4397,21 @@ const ggRoadmapPhases = [
 ];
 
 const ggTopOpportunities: Opportunity[] = [
-  { name: 'Environmental Compliance Automation', category: 'Workflow Automation', savings: 120_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 10, confidence: 84 },
-  { name: 'Waste Logistics AI Routing', category: 'Workflow Automation', savings: 60_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 12, confidence: 76 },
-  { name: 'License Reclamation', category: 'License Audit', savings: 60_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 95 },
+  { name: 'Environmental Compliance Automation', category: 'Workflow Automation', savings: 288_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 10, confidence: 84 },
+  { name: 'Waste Logistics AI Routing', category: 'Workflow Automation', savings: 144_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 12, confidence: 76 },
+  { name: 'License Reclamation', category: 'License Audit', savings: 144_000, effort: 'Low', status: 'in-progress', priority: 10, timeToValue: 3, confidence: 95 },
 ];
 
 const ggCurrentStack: CurrentTool[] = [
-  { name: 'Excel/SharePoint', category: 'Project Management', annualCost: 30_000, users: 30, score: 2, integrationComplexity: 'Low', migrationWeeks: 6, riskLevel: 'Low', dependencies: ['Project tracking', 'Compliance logs', 'Waste manifests'] },
-  { name: 'Environmental Monitoring', category: 'Compliance', annualCost: 60_000, users: 15, score: 4, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Medium', dependencies: ['Sensor data', 'Air quality', 'Water sampling'] },
-  { name: 'MCP (Internal)', category: 'Workforce', annualCost: 28_000, users: 90, score: 4, integrationComplexity: 'Medium', migrationWeeks: 6, riskLevel: 'Low', dependencies: ['Time tracking', 'Crew scheduling', 'Payroll'] },
+  { name: 'Excel/SharePoint', category: 'Project Management', annualCost: 72_000, users: 30, score: 2, integrationComplexity: 'Low', migrationWeeks: 6, riskLevel: 'Low', dependencies: ['Project tracking', 'Compliance logs', 'Waste manifests'] },
+  { name: 'Environmental Monitoring', category: 'Compliance', annualCost: 144_000, users: 15, score: 4, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Medium', dependencies: ['Sensor data', 'Air quality', 'Water sampling'] },
+  { name: 'MCP (Internal)', category: 'Workforce', annualCost: 67_200, users: 90, score: 4, integrationComplexity: 'Medium', migrationWeeks: 6, riskLevel: 'Low', dependencies: ['Time tracking', 'Crew scheduling', 'Payroll'] },
 ];
 
 const ggLicenses: License[] = [
-  { vendor: 'Microsoft 365', totalLicenses: 90, active90d: 50, inactive: 40, annualWaste: 32_000, action: 'Reclaim 40 inactive seats + downgrade field crews', costPerLicense: 800, department: 'IT / All Staff', lastAuditDate: '2025-09-15', trend: [72, 66, 60, 56, 56, 56], complianceRisk: false },
-  { vendor: 'Environmental Monitoring', totalLicenses: 15, active90d: 8, inactive: 7, annualWaste: 28_000, action: 'Reclaim 7 inactive sensor monitoring seats', costPerLicense: 4_000, department: 'Environmental Services', lastAuditDate: '2025-10-20', trend: [68, 60, 54, 53, 53, 53], complianceRisk: false },
-  { vendor: 'AutoCAD LT', totalLicenses: 10, active90d: 3, inactive: 7, annualWaste: 60_000, action: 'Reclaim 7 seats — only 3 active drafters', costPerLicense: 8_571, department: 'Engineering', lastAuditDate: '2025-08-20', trend: [50, 40, 32, 30, 30, 30], complianceRisk: false },
+  { vendor: 'Microsoft 365', totalLicenses: 90, active90d: 50, inactive: 40, annualWaste: 76_800, action: 'Reclaim 40 inactive seats + downgrade field crews', costPerLicense: 800, department: 'IT / All Staff', lastAuditDate: '2025-09-15', trend: [72, 66, 60, 56, 56, 56], complianceRisk: false },
+  { vendor: 'Environmental Monitoring', totalLicenses: 15, active90d: 8, inactive: 7, annualWaste: 67_200, action: 'Reclaim 7 inactive sensor monitoring seats', costPerLicense: 4_000, department: 'Environmental Services', lastAuditDate: '2025-10-20', trend: [68, 60, 54, 53, 53, 53], complianceRisk: false },
+  { vendor: 'AutoCAD LT', totalLicenses: 10, active90d: 3, inactive: 7, annualWaste: 144_000, action: 'Reclaim 7 seats — only 3 active drafters', costPerLicense: 8_571, department: 'Engineering', lastAuditDate: '2025-08-20', trend: [50, 40, 32, 30, 30, 30], complianceRisk: false },
 ];
 
 const ggWorkflowSummary = {
