@@ -1,9 +1,9 @@
-import { useRef, useEffect, useState, useCallback } from 'react';
+import { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUp, AlertCircle } from 'lucide-react';
 import { useAtlasChat } from '../hooks/useAtlasChat.ts';
 import { useCompany } from '../data/CompanyContext';
-import { getTopOpportunities, getWorkflowSummary, getCurrentStack, getLicenses } from '../data/constants';
+import { getTopOpportunities, getWorkflowSummary, getCurrentStack, getLicenses, getKpis, getRoiSummary, getCompanyProfile } from '../data/constants';
 
 // ─── Pre-populated conversation ─────────────────────────────────────────────
 
@@ -14,10 +14,20 @@ interface Message {
   list?: { items: { title: string; detail: string }[] };
 }
 
-function buildConversation(companyName: string, workflowCount: number, topOpps: { name: string; savings: number }[], stack: { name: string }[], opCoCount: number, totalWaste: number): Message[] {
+function buildConversation(
+  companyName: string,
+  workflowCount: number,
+  topOpps: { name: string; savings: number }[],
+  stack: { name: string }[],
+  opCoCount: number,
+  totalWaste: number,
+  totalSavings: number,
+  implementationCost: number,
+): Message[] {
   const fmtK = (n: number) => n >= 1_000_000 ? `$${(n / 1_000_000).toFixed(1)}M` : `$${Math.round(n / 1_000)}K`;
   const top3 = topOpps.slice(0, 3);
   const stackTop3 = stack.slice(0, 3);
+  const roiMultiple = implementationCost > 0 ? Math.max(1, Math.round((totalSavings / implementationCost) * 10) / 10) : 6;
 
   return [
     {
@@ -63,17 +73,60 @@ function buildConversation(companyName: string, workflowCount: number, topOpps: 
     {
       role: 'ai',
       content:
-        `Great question. Unifying your data is the highest-leverage long-term investment. Here's the recommended approach:\n\n**Architecture:** Cloud-native data lakehouse (aligns with your existing infrastructure)\n\n**Data Connectors Needed:**\n${stack.slice(0, 5).map(t => `- ${t.name} via API integration`).join('\n')}\n\n**Key Challenge:** Entity resolution across systems. The same records exist in multiple systems with different IDs. You'll need a master data management (MDM) layer.\n\n**Timeline:** 16 weeks to production-ready MVP\n**Investment:** ~$200K (infrastructure + implementation)\n**Projected ROI:** 6x in year one\n\nThis is Phase 3 on your transformation roadmap. I recommend completing the license audit and workflow automation first to fund this initiative.`,
+        `Great question. Unifying your data is the highest-leverage long-term investment. Here's the recommended approach:\n\n**Architecture:** Cloud-native data lakehouse (aligns with your existing infrastructure)\n\n**Data Connectors Needed:**\n${stack.slice(0, 5).map(t => `- ${t.name} via API integration`).join('\n')}\n\n**Key Challenge:** Entity resolution across systems. The same records exist in multiple systems with different IDs. You'll need a master data management (MDM) layer.\n\n**Timeline:** 16 weeks to production-ready MVP\n**Investment:** ~${fmtK(implementationCost)} (infrastructure + implementation)\n**Projected ROI:** ${roiMultiple}x in year one (${fmtK(totalSavings)} projected annual savings)\n\nThis is Phase 3 on your transformation roadmap. I recommend completing the license audit and workflow automation first to fund this initiative.`,
     },
   ];
 }
 
-const suggestedQuestions = [
-  'Show me cross-division data gaps',
-  'Compare eCMS AI middleware options',
-  "What's our AI readiness score?",
-  'Generate Q1 board report',
-];
+function buildSuggestedQuestions(companyName: string, topStack: string | undefined): string[] {
+  const questions = [
+    `Show me ${companyName}'s biggest savings opportunities`,
+    "What's our AI readiness score?",
+    'Generate a board-ready summary',
+  ];
+  if (topStack) {
+    questions.push(`How can we optimize ${topStack}?`);
+  } else {
+    questions.push('Where should we start the transformation?');
+  }
+  return questions;
+}
+
+function buildCompanyContext(
+  companyName: string,
+  industry: string,
+  employees: number,
+  opCos: number,
+  techSpend: string,
+  aiReadinessScore: number,
+  totalSavings: number,
+  unusedLicenseWaste: number,
+  workflowsAnalyzed: number,
+  automationReady: number,
+  topOpps: { name: string; savings: number; effort?: string; status?: string }[],
+  stack: { name: string; annualCost: number; users: number; category: string }[],
+): string {
+  const fmt$ = (n: number) => n >= 1_000_000 ? `$${(n / 1_000_000).toFixed(1)}M` : `$${Math.round(n / 1_000)}K`;
+  return `COMPANY PROFILE:
+- Name: ${companyName}
+- Industry: ${industry}
+- Employees: ${employees.toLocaleString()}
+- Operating Companies / Divisions: ${opCos}
+- Total Tech Spend: ${techSpend}
+- AI Readiness Score: ${aiReadinessScore}/100
+
+KEY METRICS:
+- Total Projected Savings: ${fmt$(totalSavings)}/yr
+- Unused License Waste: ${fmt$(unusedLicenseWaste)}/yr
+- Workflows Analyzed: ${workflowsAnalyzed}
+- Automation-Ready Workflows: ${automationReady}
+
+TOP SAVINGS OPPORTUNITIES:
+${topOpps.slice(0, 8).map((o, i) => `${i + 1}. ${o.name} — ${fmt$(o.savings)} savings${o.effort ? `, ${o.effort} effort` : ''}${o.status ? ` (${o.status})` : ''}`).join('\n')}
+
+CURRENT TECH STACK:
+${stack.slice(0, 10).map(s => `- ${s.name} (${s.category}): ${fmt$(s.annualCost)}/yr, ${s.users.toLocaleString()} users`).join('\n')}`;
+}
 
 // ─── Chat Components ────────────────────────────────────────────────────────
 
@@ -324,20 +377,48 @@ export default function Assessment() {
   const companyWfSummary = getWorkflowSummary(company.id);
   const companyStack = getCurrentStack(company.id);
   const companyLicenses = getLicenses(company.id);
+  const companyKpis = getKpis(company.id);
+  const companyRoi = getRoiSummary(company.id);
+  const companyProfile = getCompanyProfile(company.id);
   const totalWaste = companyLicenses.reduce((sum, l) => sum + l.annualWaste, 0);
 
-  const conversation = buildConversation(
+  const conversation = useMemo(() => buildConversation(
     company.name,
     companyWfSummary.total,
     companyOpps,
     companyStack,
     company.opCos,
     totalWaste,
+    companyKpis.totalSavings,
+    companyRoi.implementationCosts,
+  ), [company.id, company.name, company.opCos, companyWfSummary.total, companyOpps, companyStack, totalWaste, companyKpis.totalSavings, companyRoi.implementationCosts]);
+
+  const suggestedQuestions = useMemo(
+    () => buildSuggestedQuestions(company.name, companyStack[0]?.name),
+    [company.name, companyStack],
+  );
+
+  const companyContext = useMemo(
+    () => buildCompanyContext(
+      company.name,
+      companyProfile.industry,
+      companyProfile.employees,
+      companyProfile.opCos,
+      companyProfile.techSpend,
+      companyProfile.aiReadinessScore,
+      companyKpis.totalSavings,
+      companyKpis.unusedLicenseWaste,
+      companyKpis.workflowsAnalyzed,
+      companyKpis.automationReady,
+      companyOpps,
+      companyStack,
+    ),
+    [company.name, companyProfile, companyKpis, companyOpps, companyStack],
   );
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const [inputValue, setInputValue] = useState('');
-  const { messages: liveMessages, isStreaming, error, sendMessage } = useAtlasChat();
+  const { messages: liveMessages, isStreaming, error, sendMessage } = useAtlasChat({ companyContext });
 
   // Auto-scroll on new messages or streaming updates
   useEffect(() => {

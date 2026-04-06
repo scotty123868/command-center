@@ -26,17 +26,17 @@ export const aiReadinessBreakdown = [
 // ─── KPI Data ───────────────────────────────────────────────────────────────
 
 export const kpis = {
-  totalSavings: 5_800_000,
+  totalSavings: 13_920_000,
   techScoreBefore: 52,
   techScoreAfter: 86,
   workflowsAnalyzed: 62,
   automationReady: 18,
-  unusedLicenseWaste: 2_800_000,
+  unusedLicenseWaste: 6_720_000,
 
-  savingsSparkline: [0, 120_000, 310_000, 580_000, 920_000, 1_400_000, 2_000_000, 2_700_000, 3_500_000, 4_400_000, 5_100_000, 5_800_000],
+  savingsSparkline: [0, 288_000, 744_000, 1_392_000, 2_208_000, 3_360_000, 4_800_000, 6_480_000, 8_400_000, 10_560_000, 12_240_000, 13_920_000],
   scoreSparkline: [52, 54, 57, 61, 65, 69, 73, 76, 79, 82, 84, 86],
   workflowSparkline: [0, 5, 11, 18, 25, 32, 38, 44, 49, 54, 58, 62],
-  licenseSparkline: [2_800_000, 2_700_000, 2_550_000, 2_380_000, 2_180_000, 1_940_000, 1_700_000, 1_470_000, 1_260_000, 1_080_000, 930_000, 820_000],
+  licenseSparkline: [6_720_000, 6_480_000, 6_120_000, 5_712_000, 5_232_000, 4_656_000, 4_080_000, 3_528_000, 3_024_000, 2_592_000, 2_232_000, 1_968_000],
   headcountImpactSparkline: [0, 0, -2, -5, -9, -14, -18, -22, -26, -30, -33, -36],
 };
 
@@ -217,7 +217,7 @@ export const currentStack: CurrentTool[] = [
   {
     name: 'eCMS (Computer Guidance)',
     category: 'Construction ERP',
-    annualCost: 680_000,
+    annualCost: 1_632_000,
     users: 160,
     score: 3,
     integrationComplexity: 'High',
@@ -228,7 +228,7 @@ export const currentStack: CurrentTool[] = [
   {
     name: 'HCSS Telematics',
     category: 'Fleet/GPS',
-    annualCost: 240_000,
+    annualCost: 576_000,
     users: 2_400,
     score: 7,
     integrationComplexity: 'Low',
@@ -239,7 +239,7 @@ export const currentStack: CurrentTool[] = [
   {
     name: 'Primavera P6 (Oracle)',
     category: 'Project Portfolio Management',
-    annualCost: 420_000,
+    annualCost: 1_008_000,
     users: 180,
     score: 5,
     integrationComplexity: 'High',
@@ -250,7 +250,7 @@ export const currentStack: CurrentTool[] = [
   {
     name: 'Procore',
     category: 'Construction Management',
-    annualCost: 280_000,
+    annualCost: 672_000,
     users: 200,
     score: 8,
     integrationComplexity: 'Low',
@@ -261,7 +261,7 @@ export const currentStack: CurrentTool[] = [
   {
     name: 'Heavy Job (HCSS)',
     category: 'Field Ops/Job Costing',
-    annualCost: 180_000,
+    annualCost: 432_000,
     users: 600,
     score: 6,
     integrationComplexity: 'Medium',
@@ -272,7 +272,7 @@ export const currentStack: CurrentTool[] = [
   {
     name: 'Heavy Bid (HCSS)',
     category: 'Estimating',
-    annualCost: 160_000,
+    annualCost: 384_000,
     users: 120,
     score: 6,
     integrationComplexity: 'Medium',
@@ -283,7 +283,7 @@ export const currentStack: CurrentTool[] = [
   {
     name: 'Equipment360 (HCSS)',
     category: 'Fleet Maintenance',
-    annualCost: 140_000,
+    annualCost: 336_000,
     users: 800,
     score: 7,
     integrationComplexity: 'Low',
@@ -294,7 +294,7 @@ export const currentStack: CurrentTool[] = [
   {
     name: 'MCP (Internal)',
     category: 'Payroll/Time',
-    annualCost: 320_000,
+    annualCost: 768_000,
     users: 2_800,
     score: 3,
     integrationComplexity: 'High',
@@ -305,7 +305,7 @@ export const currentStack: CurrentTool[] = [
   {
     name: 'QMirror (MTL Systems)',
     category: 'Data Replication',
-    annualCost: 80_000,
+    annualCost: 192_000,
     users: 20,
     score: 1,
     integrationComplexity: 'High',
@@ -316,7 +316,7 @@ export const currentStack: CurrentTool[] = [
   {
     name: 'Business Objects (SAP)',
     category: 'BI/Reporting',
-    annualCost: 180_000,
+    annualCost: 432_000,
     users: 80,
     score: 3,
     integrationComplexity: 'Medium',
@@ -336,14 +336,14 @@ export const recommendations: Recommendation[] = [
   {
     current: {
       name: 'Legacy Field Dispatch',
-      cost: 5_440_000,
+      cost: 13_056_000,
       users: 340,
       score: 3,
       description: 'Custom-built dispatch and fleet management system from 2009, maintained by 2 internal developers. Handles crew dispatch, equipment tracking, and work order management across HCC and HRSI divisions. No mobile interface — field supervisors call dispatch center to update status. Zero integration with GPS fleet data despite HCSS Telematics tracking all 800+ vehicles. Average dispatch-to-arrival time unknown because system cannot track it. 340 users but no usage analytics to identify inactive accounts.',
     },
     recommended: {
       name: 'HCSS Equipment360 Intelligence',
-      cost: 2_400_000,
+      cost: 5_760_000,
       description: 'HCSS Equipment360\'s AI-powered fleet management platform provides real-time visibility across all 800+ vehicles and equipment assets. GPS tracking with geofencing, automated dispatch routing using ML-optimized algorithms that reduce drive time by 18% on comparable fleets. Mobile-first interface enables field crews to update work orders, capture photos, and submit safety reports from job sites. Predictive maintenance alerts based on engine diagnostics and usage patterns. Integration with proposed data lakehouse via REST API for cross-division analytics. Driver safety scoring and dash cam AI for FMCSA compliance.',
     },
     annualSavings: 3_040_000,
@@ -351,14 +351,14 @@ export const recommendations: Recommendation[] = [
   {
     current: {
       name: 'eCMS (Computer Guidance)',
-      cost: 4_160_000,
+      cost: 9_984_000,
       users: 160,
       score: 3,
       description: 'On-premise eCMS instance (Computer Guidance Corp) serving 5 divisions with 160 named users. Heavy customization for railroad project cost accounting. Report generation averages 5.1 minutes. No API layer for modern integrations — all data exchange via flat-file exports and QMirror AS/400 replication. Multi-division consolidation requires 3-day month-end close process. 160 users but SSO logs show only 92 unique logins/month.',
     },
     recommended: {
       name: 'eCMS + AI Middleware',
-      cost: 1_920_000,
+      cost: 4_608_000,
       description: 'AI middleware layer deployed alongside existing eCMS in IC data centers. Automated invoice matching reduces AP processing by 65%. Predictive project cost modeling uses historical eCMS data to forecast overruns 4-6 weeks early. Real-time API bridge enables live sync with HCSS field data, Procore project management, and proposed data lakehouse. Eliminates 3-day month-end close via automated multi-division consolidation. Mobile expense capture for field crews. Respects IC\'s on-prem preference — runs in TX/AZ data centers alongside eCMS.',
     },
     annualSavings: 2_240_000,
@@ -366,14 +366,14 @@ export const recommendations: Recommendation[] = [
   {
     current: {
       name: 'Primavera P6',
-      cost: 3_360_000,
+      cost: 8_064_000,
       users: 180,
       score: 4,
       description: 'Oracle Primavera P6 Professional with 180 licenses across HCC, HRSI, and HTI divisions. Strong CPM scheduling capability but no AI-assisted planning. 280 active projects tracked, but resource leveling is manual (project managers spend avg 6 hrs/week on schedule updates). No field mobile access — all updates must be entered from office workstations. Integration with eCMS is batch-only (nightly CSV export). 100 of 280 licenses show <2 logins/month.',
     },
     recommended: {
       name: 'Procore + AI',
-      cost: 1_760_000,
+      cost: 4_224_000,
       description: 'Procore construction management platform with AI-powered scheduling provides mobile-first project management for railroad construction. Field crews update progress directly from job sites via mobile app, eliminating office-only data entry. AI scheduling assistant optimizes resource allocation across 280+ active projects using historical performance data. Native integration with eCMS (real-time cost sync via AI middleware), HCSS Equipment360 (equipment availability), and proposed data lakehouse (predictive analytics). Automated submittals, RFI tracking, and daily log generation. Document management with AI-powered search across project archives.',
     },
     annualSavings: 1_600_000,
@@ -381,7 +381,7 @@ export const recommendations: Recommendation[] = [
   {
     current: {
       name: 'TAM-4 Rail Testing',
-      cost: 1_920_000,
+      cost: 4_608_000,
       users: 45,
       score: 4,
       description: 'IndustrialsCo\'s custom TAM-4 rail testing software processes geometry car data for track condition assessment. Handles gauge, cross-level, alignment, and surface measurements from HSI testing fleet. Software is functional but aging — built on legacy architecture with limited AI/ML integration capability. Video Track Chart and SpeedTrax modules provide visual inspection data but require manual review by 20 analysts. No automated defect detection — every anomaly flagged manually.',
@@ -396,14 +396,14 @@ export const recommendations: Recommendation[] = [
   {
     current: {
       name: 'MCP (Internal)',
-      cost: 2_720_000,
+      cost: 6_528_000,
       users: 2_800,
       score: 4,
       description: 'MCP (Internal) custom payroll and time tracking system deployed across all 2,800 employees for time tracking and basic scheduling. Handles FRA hours-of-service compliance tracking for train crews and union contract rule enforcement. However, crew scheduling itself is manual — division supervisors build weekly schedules in spreadsheets, then enter into MCP for tracking. No optimization capability — supervisors rely on experience and tribal knowledge to balance crew certifications, travel time, and availability. Estimated 22% crew idle time due to suboptimal scheduling.',
     },
     recommended: {
       name: 'MCP AI Enhancement Layer',
-      cost: 1_280_000,
+      cost: 3_072_000,
       description: 'MCP AI-powered scheduling enhancement layer with railroad-specific modules for FRA hours-of-service compliance and union work rules. ML-based scheduling optimizer considers crew certifications, location, travel time, equipment availability, and fatigue risk to generate optimal weekly schedules — targeting 22% idle time reduction to <8%. Mobile app enables real-time schedule visibility, shift swaps, and availability updates. Automated compliance monitoring alerts supervisors before hours-of-service violations occur (currently caught retrospectively). Integration with HCSS Equipment360 for crew location data and eCMS for payroll sync.',
     },
     annualSavings: 1_440_000,
@@ -418,7 +418,7 @@ export const recommendations: Recommendation[] = [
     },
     recommended: {
       name: 'Databricks',
-      cost: 2_240_000,
+      cost: 5_376_000,
       description: 'Proposed Data Lakehouse unifies all 5 division data sources via Delta Lake with ACID transactions and schema enforcement. Unity Catalog provides cross-division data governance. Purpose-built for railroad data: time-series GPS/telematics from HCSS Equipment360 (800+ vehicles), LIDAR point clouds from geometry cars, track geometry measurements from TAM-4, PTC event logs from HTI, and transit ridership data from HTSI. MLflow manages model lifecycle for predictive maintenance, defect detection, and crew optimization. Structured Streaming ingests real-time fleet telemetry. Estimated data footprint: 28TB initial load, 2.5TB/month growth. The data lake is the prerequisite for 78% of the AI initiatives on this roadmap — without it, $4.2M in workflow automation savings cannot be realized.',
     },
     annualSavings: 9_600_000,
@@ -463,7 +463,7 @@ export const workflows: Workflow[] = [
     routing: 'Human-in-the-Loop',
     routingQuote: 'Let AI find the defects so your engineers can plan the fixes',
     costShift: 'Labor $1.26M → IT $280K + Labor $500K = $480K saved',
-    savings: 7_200_000,
+    savings: 17_280_000,
     automationPercent: 55,
     details: '18 FTEs analyzing geometry car data, LIDAR scans, and visual inspection footage. 4,200 track-miles/month across Class 1 railroad customers.',
     currentProcess: [
@@ -513,7 +513,7 @@ export const workflows: Workflow[] = [
     routing: 'Fully Automatable',
     routingQuote: 'Stop scheduling railroad crews with spreadsheets and phone calls',
     costShift: 'Labor $720K → IT $120K + Labor $180K = $420K saved',
-    savings: 6_300_000,
+    savings: 15_120_000,
     automationPercent: 75,
     details: '8 scheduling coordinators building weekly schedules manually in spreadsheets, then calling/texting crew members. 22% crew idle time due to suboptimal scheduling.',
     currentProcess: [
@@ -563,7 +563,7 @@ export const workflows: Workflow[] = [
     routing: 'Human-in-the-Loop',
     routingQuote: 'You cannot optimize what you cannot see across your divisions',
     costShift: 'Labor $960K → IT $240K + Labor $340K = $380K saved',
-    savings: 5_700_000,
+    savings: 13_680_000,
     automationPercent: 50,
     details: '12 FTEs managing fleet across 5 divisions. 800+ vehicles and heavy equipment. No cross-division visibility, 18% equipment idle rate, $580K in duplicate rentals last year.',
     currentProcess: [
@@ -612,7 +612,7 @@ export const workflows: Workflow[] = [
     routing: 'Fully Automatable',
     routingQuote: 'Automate the paperwork so your safety team can focus on keeping people safe',
     costShift: 'Labor $540K → IT $80K + Labor $140K = $320K saved',
-    savings: 4_800_000,
+    savings: 11_520_000,
     automationPercent: 70,
     details: '6 FTEs dedicated to safety compliance — FRA reporting (Form 6180), OSHA recordkeeping, state DOT filings, and internal safety audits across 5 divisions.',
     currentProcess: [
@@ -661,7 +661,7 @@ export const workflows: Workflow[] = [
     routing: 'Human-Required, AI-Assisted',
     routingQuote: 'Let AI crunch the numbers so your estimators can win the deals',
     costShift: 'Labor $1.1M → IT $120K + Labor $700K = $280K saved',
-    savings: 4_200_000,
+    savings: 10_080_000,
     automationPercent: 30,
     details: '10 estimators producing bids for railroad construction, maintenance, and testing contracts across 5 divisions. Competitive, accurate bidding is critical.',
     currentProcess: [
@@ -711,7 +711,7 @@ export const workflows: Workflow[] = [
     routing: 'Human-in-the-Loop',
     routingQuote: 'Move the right material to the right place before they even ask for it',
     costShift: 'Labor $980K → IT $160K + Labor $460K = $360K saved',
-    savings: 5_400_000,
+    savings: 12_960_000,
     automationPercent: 45,
     details: '14 logistics coordinators managing ballast delivery, rail supply, tie distribution, and material pre-staging across 36 states of railroad construction operations.',
     currentProcess: [
@@ -760,7 +760,7 @@ export const workflows: Workflow[] = [
     routing: 'Human-in-the-Loop',
     routingQuote: 'AI sees every inch of rail — your inspectors verify the critical finds',
     costShift: 'Labor $1.8M → IT $320K + Labor $860K = $620K saved',
-    savings: 9_300_000,
+    savings: 22_320_000,
     automationPercent: 50,
     details: '20 rail testing analysts processing ultrasonic, electromagnetic, and visual inspection data from HSI testing fleet. 8,400 track-miles/month across Class 1 railroad customers.',
     currentProcess: [
@@ -807,8 +807,8 @@ export const workflowSummary = {
   fullyAutomatable: 18,
   humanInLoop: 30,
   humanRequired: 14,
-  currentLaborSpend: 8_200_000,
-  potentialSavings: 3_600_000,
+  currentLaborSpend: 19_680_000,
+  potentialSavings: 8_640_000,
 };
 
 // ─── License Audit Data ─────────────────────────────────────────────────────
@@ -978,12 +978,12 @@ export const transformationStories: TransformationStory[] = [
 // ─── ROI Summary Data ───────────────────────────────────────────────────────
 
 export const roiSummary = {
-  techStackSavings: 2_200_000,
-  workflowAutomation: 3_600_000,
-  licenseRecovery: 2_800_000,
-  implementationCosts: 2_800_000,
-  netYear1: 5_800_000,
-  year2Projected: 8_700_000,
+  techStackSavings: 5_280_000,
+  workflowAutomation: 8_640_000,
+  licenseRecovery: 6_720_000,
+  implementationCosts: 6_720_000,
+  netYear1: 13_920_000,
+  year2Projected: 20_880_000,
 };
 
 
@@ -1015,16 +1015,16 @@ const northwoodAiReadinessBreakdown = [
 ];
 
 const northwoodKpis = {
-  totalSavings: 22_000_000,
+  totalSavings: 28_006_000,
   techScoreBefore: 39,
   techScoreAfter: 78,
   workflowsAnalyzed: 124,
   automationReady: 32,
-  unusedLicenseWaste: 8_400_000,
-  savingsSparkline: [0, 400_000, 1_000_000, 2_100_000, 3_600_000, 5_800_000, 8_200_000, 11_000_000, 14_200_000, 17_400_000, 19_800_000, 22_000_000],
+  unusedLicenseWaste: 10_693_200,
+  savingsSparkline: [0, 509_200, 1_273_000, 2_673_300, 4_582_800, 7_383_400, 10_438_600, 14_003_000, 18_076_600, 22_150_200, 25_205_400, 28_006_000],
   scoreSparkline: [39, 43, 46, 50, 54, 58, 62, 66, 70, 73, 76, 78],
   workflowSparkline: [0, 10, 22, 38, 54, 68, 82, 94, 104, 112, 119, 124],
-  licenseSparkline: [8_400_000, 8_200_000, 7_800_000, 7_200_000, 6_400_000, 5_600_000, 4_900_000, 4_300_000, 3_800_000, 3_400_000, 3_200_000, 3_000_000],
+  licenseSparkline: [10_693_200, 10_438_600, 9_929_400, 9_165_600, 8_147_200, 7_128_800, 6_237_700, 5_473_900, 4_837_400, 4_328_200, 4_073_600, 3_819_000],
   headcountImpactSparkline: [0, 0, -4, -12, -22, -36, -52, -68, -82, -94, -104, -112],
 };
 
@@ -1128,7 +1128,7 @@ const northwoodCurrentStack: CurrentTool[] = [
   {
     name: 'Guidewire ClaimCenter',
     category: 'Claims Management',
-    annualCost: 620_000,
+    annualCost: 789_260,
     users: 180,
     score: 5,
     integrationComplexity: 'Medium',
@@ -1139,7 +1139,7 @@ const northwoodCurrentStack: CurrentTool[] = [
   {
     name: 'Duck Creek Policy Admin',
     category: 'Policy Administration',
-    annualCost: 480_000,
+    annualCost: 611_040,
     users: 120,
     score: 4,
     integrationComplexity: 'High',
@@ -1150,7 +1150,7 @@ const northwoodCurrentStack: CurrentTool[] = [
   {
     name: 'AS/400 Mainframe',
     category: 'Legacy Systems',
-    annualCost: 340_000,
+    annualCost: 432_820,
     users: 45,
     score: 1,
     integrationComplexity: 'High',
@@ -1161,7 +1161,7 @@ const northwoodCurrentStack: CurrentTool[] = [
   {
     name: 'Salesforce CRM',
     category: 'Agent Management',
-    annualCost: 360_000,
+    annualCost: 458_280,
     users: 120,
     score: 3,
     integrationComplexity: 'Medium',
@@ -1172,7 +1172,7 @@ const northwoodCurrentStack: CurrentTool[] = [
   {
     name: 'Microsoft 365',
     category: 'Productivity & Collaboration',
-    annualCost: 480_000,
+    annualCost: 611_040,
     users: 800,
     score: 6,
     integrationComplexity: 'Low',
@@ -1183,7 +1183,7 @@ const northwoodCurrentStack: CurrentTool[] = [
   {
     name: 'Slack',
     category: 'Communication',
-    annualCost: 144_000,
+    annualCost: 183_312,
     users: 600,
     score: 7,
     integrationComplexity: 'Low',
@@ -1208,17 +1208,17 @@ const northwoodWorkflowSummary = {
   fullyAutomatable: 32,
   humanInLoop: 58,
   humanRequired: 34,
-  currentLaborSpend: 28_000_000,
-  potentialSavings: 12_400_000,
+  currentLaborSpend: 35_644_000,
+  potentialSavings: 15_785_200,
 };
 
 const northwoodRoiSummary = {
-  techStackSavings: 7_200_000,
-  workflowAutomation: 12_400_000,
-  licenseRecovery: 8_400_000,
-  implementationCosts: 6_000_000,
-  netYear1: 22_000_000,
-  year2Projected: 30_000_000,
+  techStackSavings: 9_165_600,
+  workflowAutomation: 15_785_200,
+  licenseRecovery: 10_693_200,
+  implementationCosts: 7_638_000,
+  netYear1: 28_006_000,
+  year2Projected: 38_190_000,
 };
 
 // ─── Pinnacle Healthcare ─────────────────────────────────────────────────────
@@ -1245,16 +1245,16 @@ const pinnacleAiReadinessBreakdown = [
 ];
 
 const pinnacleKpis = {
-  totalSavings: 24_000_000,
+  totalSavings: 30_000_000,
   techScoreBefore: 26,
   techScoreAfter: 74,
   workflowsAnalyzed: 156,
   automationReady: 42,
-  unusedLicenseWaste: 9_200_000,
-  savingsSparkline: [0, 420_000, 1_200_000, 2_600_000, 4_400_000, 7_000_000, 10_000_000, 13_400_000, 17_000_000, 20_400_000, 22_600_000, 24_000_000],
+  unusedLicenseWaste: 11_500_000,
+  savingsSparkline: [0, 525_000, 1_500_000, 3_250_000, 5_500_000, 8_750_000, 12_500_000, 16_750_000, 21_250_000, 25_500_000, 28_250_000, 30_000_000],
   scoreSparkline: [26, 30, 33, 37, 41, 46, 51, 56, 60, 64, 70, 74],
   workflowSparkline: [0, 12, 28, 48, 68, 86, 102, 118, 130, 142, 150, 156],
-  licenseSparkline: [9_200_000, 9_000_000, 8_500_000, 7_800_000, 7_000_000, 6_200_000, 5_400_000, 4_700_000, 4_100_000, 3_600_000, 3_300_000, 3_100_000],
+  licenseSparkline: [11_500_000, 11_250_000, 10_625_000, 9_750_000, 8_750_000, 7_750_000, 6_750_000, 5_875_000, 5_125_000, 4_500_000, 4_125_000, 3_875_000],
   headcountImpactSparkline: [0, 0, -5, -14, -26, -42, -60, -78, -92, -106, -118, -128],
 };
 
@@ -1358,7 +1358,7 @@ const pinnacleCurrentStack: CurrentTool[] = [
   {
     name: 'Epic EHR',
     category: 'Electronic Health Record',
-    annualCost: 1_200_000,
+    annualCost: 1_500_000,
     users: 350,
     score: 6,
     integrationComplexity: 'High',
@@ -1369,7 +1369,7 @@ const pinnacleCurrentStack: CurrentTool[] = [
   {
     name: 'Availity',
     category: 'Revenue Cycle / Clearinghouse',
-    annualCost: 180_000,
+    annualCost: 225_000,
     users: 45,
     score: 5,
     integrationComplexity: 'Medium',
@@ -1380,7 +1380,7 @@ const pinnacleCurrentStack: CurrentTool[] = [
   {
     name: 'Microsoft Teams',
     category: 'Communication & Collaboration',
-    annualCost: 240_000,
+    annualCost: 300_000,
     users: 420,
     score: 6,
     integrationComplexity: 'Low',
@@ -1391,7 +1391,7 @@ const pinnacleCurrentStack: CurrentTool[] = [
   {
     name: 'ADP Workforce Now',
     category: 'HR & Payroll',
-    annualCost: 156_000,
+    annualCost: 195_000,
     users: 420,
     score: 5,
     integrationComplexity: 'Low',
@@ -1402,7 +1402,7 @@ const pinnacleCurrentStack: CurrentTool[] = [
   {
     name: 'Salesforce Health Cloud',
     category: 'Patient Relationship Management',
-    annualCost: 320_000,
+    annualCost: 400_000,
     users: 80,
     score: 3,
     integrationComplexity: 'Medium',
@@ -1413,7 +1413,7 @@ const pinnacleCurrentStack: CurrentTool[] = [
   {
     name: 'DocuSign',
     category: 'Document Management',
-    annualCost: 108_000,
+    annualCost: 135_000,
     users: 150,
     score: 5,
     integrationComplexity: 'Low',
@@ -1424,7 +1424,7 @@ const pinnacleCurrentStack: CurrentTool[] = [
   {
     name: 'Manual Prior Authorization',
     category: 'Prior Authorization',
-    annualCost: 2_400_000,
+    annualCost: 3_000_000,
     users: 340,
     score: 2,
     integrationComplexity: 'High',
@@ -1448,17 +1448,17 @@ const pinnacleWorkflowSummary = {
   fullyAutomatable: 42,
   humanInLoop: 72,
   humanRequired: 42,
-  currentLaborSpend: 38_000_000,
-  potentialSavings: 16_000_000,
+  currentLaborSpend: 47_500_000,
+  potentialSavings: 20_000_000,
 };
 
 const pinnacleRoiSummary = {
-  techStackSavings: 6_200_000,
-  workflowAutomation: 16_000_000,
-  licenseRecovery: 9_200_000,
-  implementationCosts: 7_400_000,
-  netYear1: 24_000_000,
-  year2Projected: 34_000_000,
+  techStackSavings: 7_750_000,
+  workflowAutomation: 20_000_000,
+  licenseRecovery: 11_500_000,
+  implementationCosts: 9_250_000,
+  netYear1: 30_000_000,
+  year2Projected: 42_500_000,
 };
 
 // ─── Atlas Manufacturing ─────────────────────────────────────────────────────
@@ -1485,16 +1485,16 @@ const atlasAiReadinessBreakdown = [
 ];
 
 const atlasKpis = {
-  totalSavings: 22_000_000,
+  totalSavings: 25_960_000,
   techScoreBefore: 37,
   techScoreAfter: 84,
   workflowsAnalyzed: 86,
   automationReady: 28,
-  unusedLicenseWaste: 8_200_000,
-  savingsSparkline: [0, 400_000, 1_000_000, 2_000_000, 3_400_000, 5_400_000, 7_800_000, 10_600_000, 13_800_000, 17_200_000, 19_800_000, 22_000_000],
+  unusedLicenseWaste: 9_676_000,
+  savingsSparkline: [0, 472_000, 1_180_000, 2_360_000, 4_012_000, 6_372_000, 9_204_000, 12_508_000, 16_284_000, 20_296_000, 23_364_000, 25_960_000],
   scoreSparkline: [37, 40, 44, 49, 54, 60, 65, 70, 74, 78, 81, 84],
   workflowSparkline: [0, 7, 16, 26, 36, 46, 56, 64, 70, 76, 82, 86],
-  licenseSparkline: [8_200_000, 7_900_000, 7_400_000, 6_700_000, 5_900_000, 5_100_000, 4_400_000, 3_800_000, 3_300_000, 2_900_000, 2_600_000, 2_400_000],
+  licenseSparkline: [9_676_000, 9_322_000, 8_732_000, 7_906_000, 6_962_000, 6_018_000, 5_192_000, 4_484_000, 3_894_000, 3_422_000, 3_068_000, 2_832_000],
   headcountImpactSparkline: [0, 0, -4, -10, -18, -28, -38, -48, -58, -66, -72, -78],
 };
 
@@ -1598,7 +1598,7 @@ const atlasCurrentStack: CurrentTool[] = [
   {
     name: 'SAP S/4HANA',
     category: 'ERP & Production',
-    annualCost: 4_800_000,
+    annualCost: 5_664_000,
     users: 2_600,
     score: 6,
     integrationComplexity: 'High',
@@ -1609,7 +1609,7 @@ const atlasCurrentStack: CurrentTool[] = [
   {
     name: 'Siemens MindSphere',
     category: 'Industrial IoT',
-    annualCost: 1_800_000,
+    annualCost: 2_124_000,
     users: 480,
     score: 5,
     integrationComplexity: 'High',
@@ -1620,7 +1620,7 @@ const atlasCurrentStack: CurrentTool[] = [
   {
     name: 'Jira',
     category: 'Project & Issue Tracking',
-    annualCost: 720_000,
+    annualCost: 849_600,
     users: 1_200,
     score: 7,
     integrationComplexity: 'Low',
@@ -1631,7 +1631,7 @@ const atlasCurrentStack: CurrentTool[] = [
   {
     name: 'AutoCAD',
     category: 'Engineering & Design',
-    annualCost: 2_100_000,
+    annualCost: 2_478_000,
     users: 800,
     score: 5,
     integrationComplexity: 'Medium',
@@ -1642,7 +1642,7 @@ const atlasCurrentStack: CurrentTool[] = [
   {
     name: 'Microsoft 365',
     category: 'Productivity & Collaboration',
-    annualCost: 3_200_000,
+    annualCost: 3_776_000,
     users: 8_000,
     score: 6,
     integrationComplexity: 'Low',
@@ -1653,7 +1653,7 @@ const atlasCurrentStack: CurrentTool[] = [
   {
     name: 'Slack',
     category: 'Communication',
-    annualCost: 960_000,
+    annualCost: 1_132_800,
     users: 4_800,
     score: 7,
     integrationComplexity: 'Low',
@@ -1678,17 +1678,17 @@ const atlasWorkflowSummary = {
   fullyAutomatable: 28,
   humanInLoop: 40,
   humanRequired: 18,
-  currentLaborSpend: 34_000_000,
-  potentialSavings: 14_800_000,
+  currentLaborSpend: 40_120_000,
+  potentialSavings: 17_464_000,
 };
 
 const atlasRoiSummary = {
-  techStackSavings: 8_400_000,
-  workflowAutomation: 14_800_000,
-  licenseRecovery: 8_200_000,
-  implementationCosts: 9_400_000,
-  netYear1: 22_000_000,
-  year2Projected: 33_000_000,
+  techStackSavings: 9_912_000,
+  workflowAutomation: 17_464_000,
+  licenseRecovery: 9_676_000,
+  implementationCosts: 11_092_000,
+  netYear1: 25_960_000,
+  year2Projected: 38_940_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -3620,16 +3620,16 @@ const hccAiReadinessBreakdown = [
 ];
 
 const hccKpis = {
-  totalSavings: 2_300_000,
+  totalSavings: 5_520_000,
   techScoreBefore: 29,
   techScoreAfter: 78,
   workflowsAnalyzed: 22,
   automationReady: 6,
-  unusedLicenseWaste: 980_000,
-  savingsSparkline: [0, 133_636, 283_636, 455_455, 665_455, 889_091, 1_130_909, 1_381_818, 1_622_727, 1_781_818, 1_940_909, 2_300_000],
+  unusedLicenseWaste: 2_352_000,
+  savingsSparkline: [0, 320_726, 680_726, 1_093_092, 1_597_092, 2_133_818, 2_714_182, 3_316_363, 3_894_545, 4_276_363, 4_658_182, 5_520_000],
   scoreSparkline: [29, 36, 40, 43, 47, 51, 57, 61, 65, 70, 74, 78],
   workflowSparkline: [0, 2, 4, 6, 8, 11, 12, 14, 16, 18, 20, 22],
-  licenseSparkline: [980_000, 916_364, 847_273, 770_909, 694_545, 618_182, 541_818, 465_455, 390_909, 327_273, 270_909, 220_000],
+  licenseSparkline: [2_352_000, 2_199_274, 2_033_455, 1_850_182, 1_666_908, 1_483_637, 1_300_363, 1_117_092, 938_182, 785_455, 650_182, 528_000],
   headcountImpactSparkline: [0, 0, 0, -1, -2, -3, -5, -6, -8, -9, -11, -12],
 };
 
@@ -3712,17 +3712,17 @@ const hccWorkflowSummary = {
   fullyAutomatable: 6,
   humanInLoop: 10,
   humanRequired: 6,
-  currentLaborSpend: 3_200_000,
-  potentialSavings: 1_600_000,
+  currentLaborSpend: 7_680_000,
+  potentialSavings: 3_840_000,
 };
 
 const hccRoiSummary = {
-  techStackSavings: 800_000,
-  workflowAutomation: 1_600_000,
-  licenseRecovery: 980_000,
-  implementationCosts: 1_080_000,
-  netYear1: 2_300_000,
-  year2Projected: 3_200_000,
+  techStackSavings: 1_920_000,
+  workflowAutomation: 3_840_000,
+  licenseRecovery: 2_352_000,
+  implementationCosts: 2_592_000,
+  netYear1: 5_520_000,
+  year2Projected: 7_680_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -3751,16 +3751,16 @@ const hrsiAiReadinessBreakdown = [
 ];
 
 const hrsiKpis = {
-  totalSavings: 920_000,
+  totalSavings: 2_208_000,
   techScoreBefore: 35,
   techScoreAfter: 80,
   workflowsAnalyzed: 8,
   automationReady: 2,
-  unusedLicenseWaste: 380_000,
-  savingsSparkline: [0, 50_909, 107_273, 170_909, 256_364, 349_091, 450_909, 534_545, 610_909, 687_273, 756_364, 920_000],
+  unusedLicenseWaste: 912_000,
+  savingsSparkline: [0, 122_182, 257_455, 410_182, 615_274, 837_818, 1_082_182, 1_282_908, 1_466_182, 1_649_455, 1_815_274, 2_208_000],
   scoreSparkline: [35, 40, 44, 47, 52, 56, 61, 65, 69, 73, 77, 80],
   workflowSparkline: [0, 1, 1, 2, 3, 3, 4, 4, 5, 6, 7, 8],
-  licenseSparkline: [380_000, 354_545, 329_091, 303_636, 278_182, 252_727, 227_273, 201_818, 176_364, 150_909, 125_455, 100_000],
+  licenseSparkline: [912_000, 850_908, 789_818, 728_726, 667_637, 606_545, 545_455, 484_363, 423_274, 362_182, 301_092, 240_000],
   headcountImpactSparkline: [0, 0, 0, -1, -1, -1, -2, -2, -3, -4, -4, -5],
 };
 
@@ -3834,17 +3834,17 @@ const hrsiWorkflowSummary = {
   fullyAutomatable: 2,
   humanInLoop: 4,
   humanRequired: 2,
-  currentLaborSpend: 1_100_000,
-  potentialSavings: 580_000,
+  currentLaborSpend: 2_640_000,
+  potentialSavings: 1_392_000,
 };
 
 const hrsiRoiSummary = {
-  techStackSavings: 280_000,
-  workflowAutomation: 580_000,
-  licenseRecovery: 380_000,
-  implementationCosts: 320_000,
-  netYear1: 920_000,
-  year2Projected: 1_250_000,
+  techStackSavings: 672_000,
+  workflowAutomation: 1_392_000,
+  licenseRecovery: 912_000,
+  implementationCosts: 768_000,
+  netYear1: 2_208_000,
+  year2Projected: 3_000_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -3873,16 +3873,16 @@ const hsiAiReadinessBreakdown = [
 ];
 
 const hsiKpis = {
-  totalSavings: 780_000,
+  totalSavings: 1_872_000,
   techScoreBefore: 42,
   techScoreAfter: 84,
   workflowsAnalyzed: 6,
   automationReady: 2,
-  unusedLicenseWaste: 240_000,
-  savingsSparkline: [0, 38_182, 84_545, 141_818, 220_909, 301_818, 378_182, 454_545, 528_182, 585_455, 635_455, 780_000],
+  unusedLicenseWaste: 576_000,
+  savingsSparkline: [0, 91_637, 202_908, 340_363, 530_182, 724_363, 907_637, 1_090_908, 1_267_637, 1_405_092, 1_525_092, 1_872_000],
   scoreSparkline: [42, 46, 50, 53, 57, 61, 65, 69, 73, 76, 80, 84],
   workflowSparkline: [0, 1, 1, 2, 3, 3, 4, 4, 5, 5, 5, 6],
-  licenseSparkline: [240_000, 227_273, 211_818, 192_727, 173_636, 154_545, 135_455, 116_364, 98_182, 85_455, 72_727, 60_000],
+  licenseSparkline: [576_000, 545_455, 508_363, 462_545, 416_726, 370_908, 325_092, 279_274, 235_637, 205_092, 174_545, 144_000],
   headcountImpactSparkline: [0, 0, 0, -1, -1, -1, -2, -2, -3, -3, -3, -4],
 };
 
@@ -3951,17 +3951,17 @@ const hsiWorkflowSummary = {
   fullyAutomatable: 2,
   humanInLoop: 3,
   humanRequired: 1,
-  currentLaborSpend: 850_000,
-  potentialSavings: 480_000,
+  currentLaborSpend: 2_040_000,
+  potentialSavings: 1_152_000,
 };
 
 const hsiRoiSummary = {
-  techStackSavings: 220_000,
-  workflowAutomation: 480_000,
-  licenseRecovery: 240_000,
-  implementationCosts: 160_000,
-  netYear1: 780_000,
-  year2Projected: 1_020_000,
+  techStackSavings: 528_000,
+  workflowAutomation: 1_152_000,
+  licenseRecovery: 576_000,
+  implementationCosts: 384_000,
+  netYear1: 1_872_000,
+  year2Projected: 2_448_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -3990,16 +3990,16 @@ const htiAiReadinessBreakdown = [
 ];
 
 const htiKpis = {
-  totalSavings: 840_000,
+  totalSavings: 2_016_000,
   techScoreBefore: 48,
   techScoreAfter: 86,
   workflowsAnalyzed: 10,
   automationReady: 3,
-  unusedLicenseWaste: 420_000,
-  savingsSparkline: [0, 44_545, 97_273, 160_909, 240_909, 325_455, 414_545, 494_545, 569_091, 632_727, 689_091, 840_000],
+  unusedLicenseWaste: 1_008_000,
+  savingsSparkline: [0, 106_908, 233_455, 386_182, 578_182, 781_092, 994_908, 1_186_908, 1_365_818, 1_518_545, 1_653_818, 2_016_000],
   scoreSparkline: [48, 52, 56, 59, 63, 67, 71, 75, 78, 81, 83, 86],
   workflowSparkline: [0, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-  licenseSparkline: [420_000, 394_545, 369_091, 343_636, 318_182, 292_727, 267_273, 232_727, 196_364, 170_909, 145_455, 120_000],
+  licenseSparkline: [1_008_000, 946_908, 885_818, 824_726, 763_637, 702_545, 641_455, 558_545, 471_274, 410_182, 349_092, 288_000],
   headcountImpactSparkline: [0, 0, 0, -1, -2, -2, -3, -3, -4, -5, -5, -6],
 };
 
@@ -4068,17 +4068,17 @@ const htiWorkflowSummary = {
   fullyAutomatable: 3,
   humanInLoop: 5,
   humanRequired: 2,
-  currentLaborSpend: 1_000_000,
-  potentialSavings: 500_000,
+  currentLaborSpend: 2_400_000,
+  potentialSavings: 1_200_000,
 };
 
 const htiRoiSummary = {
-  techStackSavings: 320_000,
-  workflowAutomation: 500_000,
-  licenseRecovery: 420_000,
-  implementationCosts: 400_000,
-  netYear1: 840_000,
-  year2Projected: 1_120_000,
+  techStackSavings: 768_000,
+  workflowAutomation: 1_200_000,
+  licenseRecovery: 1_008_000,
+  implementationCosts: 960_000,
+  netYear1: 2_016_000,
+  year2Projected: 2_688_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -4107,16 +4107,16 @@ const htsiAiReadinessBreakdown = [
 ];
 
 const htsiKpis = {
-  totalSavings: 960_000,
+  totalSavings: 2_304_000,
   techScoreBefore: 39,
   techScoreAfter: 82,
   workflowsAnalyzed: 10,
   automationReady: 3,
-  unusedLicenseWaste: 480_000,
-  savingsSparkline: [0, 50_909, 112_727, 189_091, 276_364, 369_091, 470_909, 563_636, 650_909, 727_273, 796_364, 960_000],
+  unusedLicenseWaste: 1_152_000,
+  savingsSparkline: [0, 122_182, 270_545, 453_818, 663_274, 885_818, 1_130_182, 1_352_726, 1_562_182, 1_745_455, 1_911_274, 2_304_000],
   scoreSparkline: [39, 44, 48, 51, 55, 59, 63, 67, 71, 74, 78, 82],
   workflowSparkline: [0, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-  licenseSparkline: [480_000, 448_182, 416_364, 384_545, 347_273, 309_091, 270_909, 232_727, 195_455, 163_636, 135_455, 110_000],
+  licenseSparkline: [1_152_000, 1_075_637, 999_274, 922_908, 833_455, 741_818, 650_182, 558_545, 469_092, 392_726, 325_092, 264_000],
   headcountImpactSparkline: [0, 0, 0, -1, -2, -2, -3, -4, -5, -6, -6, -7],
 };
 
@@ -4186,17 +4186,17 @@ const htsiWorkflowSummary = {
   fullyAutomatable: 3,
   humanInLoop: 5,
   humanRequired: 2,
-  currentLaborSpend: 1_400_000,
-  potentialSavings: 620_000,
+  currentLaborSpend: 3_360_000,
+  potentialSavings: 1_488_000,
 };
 
 const htsiRoiSummary = {
-  techStackSavings: 360_000,
-  workflowAutomation: 620_000,
-  licenseRecovery: 480_000,
-  implementationCosts: 500_000,
-  netYear1: 960_000,
-  year2Projected: 1_300_000,
+  techStackSavings: 864_000,
+  workflowAutomation: 1_488_000,
+  licenseRecovery: 1_152_000,
+  implementationCosts: 1_200_000,
+  netYear1: 2_304_000,
+  year2Projected: 3_120_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -4225,16 +4225,16 @@ const heAiReadinessBreakdown = [
 ];
 
 const heKpis = {
-  totalSavings: 360_000,
+  totalSavings: 864_000,
   techScoreBefore: 32,
   techScoreAfter: 76,
   workflowsAnalyzed: 4,
   automationReady: 1,
-  unusedLicenseWaste: 180_000,
-  savingsSparkline: [0, 19_091, 43_636, 75_455, 112_727, 152_727, 197_273, 237_273, 274_545, 306_364, 334_545, 360_000],
+  unusedLicenseWaste: 432_000,
+  savingsSparkline: [0, 45_818, 104_726, 181_092, 270_545, 366_545, 473_455, 569_455, 658_908, 735_274, 802_908, 864_000],
   scoreSparkline: [32, 38, 42, 45, 49, 53, 57, 61, 65, 68, 72, 76],
   workflowSparkline: [0, 0, 0, 1, 1, 1, 2, 2, 3, 3, 3, 4],
-  licenseSparkline: [180_000, 170_455, 160_364, 149_545, 138_182, 126_364, 113_636, 100_909, 88_182, 75_455, 64_545, 55_000],
+  licenseSparkline: [432_000, 409_092, 384_874, 358_908, 331_637, 303_274, 272_726, 242_182, 211_637, 181_092, 154_908, 132_000],
   headcountImpactSparkline: [0, 0, 0, 0, -1, -1, -1, -1, -2, -2, -2, -3],
 };
 
@@ -4303,17 +4303,17 @@ const heWorkflowSummary = {
   fullyAutomatable: 1,
   humanInLoop: 2,
   humanRequired: 1,
-  currentLaborSpend: 480_000,
-  potentialSavings: 220_000,
+  currentLaborSpend: 1_152_000,
+  potentialSavings: 528_000,
 };
 
 const heRoiSummary = {
-  techStackSavings: 120_000,
-  workflowAutomation: 220_000,
-  licenseRecovery: 180_000,
-  implementationCosts: 160_000,
-  netYear1: 360_000,
-  year2Projected: 540_000,
+  techStackSavings: 288_000,
+  workflowAutomation: 528_000,
+  licenseRecovery: 432_000,
+  implementationCosts: 384_000,
+  netYear1: 864_000,
+  year2Projected: 1_296_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -4342,16 +4342,16 @@ const ggAiReadinessBreakdown = [
 ];
 
 const ggKpis = {
-  totalSavings: 240_000,
+  totalSavings: 576_000,
   techScoreBefore: 28,
   techScoreAfter: 72,
   workflowsAnalyzed: 2,
   automationReady: 1,
-  unusedLicenseWaste: 120_000,
-  savingsSparkline: [0, 12_727, 28_182, 47_273, 71_818, 99_091, 130_909, 158_182, 182_727, 201_818, 220_909, 240_000],
+  unusedLicenseWaste: 288_000,
+  savingsSparkline: [0, 30_545, 67_637, 113_455, 172_363, 237_818, 314_182, 379_637, 438_545, 484_363, 530_182, 576_000],
   scoreSparkline: [28, 34, 38, 41, 45, 49, 53, 57, 61, 64, 68, 72],
   workflowSparkline: [0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2],
-  licenseSparkline: [120_000, 113_636, 106_727, 99_091, 91_455, 83_455, 74_545, 65_636, 56_727, 47_818, 39_636, 32_000],
+  licenseSparkline: [288_000, 272_726, 256_145, 237_818, 219_492, 200_292, 178_908, 157_526, 136_145, 114_763, 95_126, 76_800],
   headcountImpactSparkline: [0, 0, 0, 0, 0, 0, -1, -1, -1, -1, -1, -2],
 };
 
@@ -4419,17 +4419,17 @@ const ggWorkflowSummary = {
   fullyAutomatable: 1,
   humanInLoop: 1,
   humanRequired: 0,
-  currentLaborSpend: 320_000,
-  potentialSavings: 200_000,
+  currentLaborSpend: 768_000,
+  potentialSavings: 480_000,
 };
 
 const ggRoiSummary = {
-  techStackSavings: 100_000,
-  workflowAutomation: 200_000,
-  licenseRecovery: 120_000,
-  implementationCosts: 180_000,
-  netYear1: 240_000,
-  year2Projected: 380_000,
+  techStackSavings: 240_000,
+  workflowAutomation: 480_000,
+  licenseRecovery: 288_000,
+  implementationCosts: 432_000,
+  netYear1: 576_000,
+  year2Projected: 912_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -8120,8 +8120,56 @@ const companyMethodologySteps: Record<string, IntegrationMethodologyStep[]> = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
+// ─── Integration Hub Scan Stats (per-company) ─────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+export interface ScanStats {
+  recordsScanned: number;
+  avgCoverage: number; // percentage 0-100
+}
+
+const companyScanStats: Record<string, ScanStats> = {
+  // ─── Meridian (IndustrialsCo) ──────────────────────────────────────────
+  meridian:       { recordsScanned: 487_360,   avgCoverage: 92 },
+  hcc:            { recordsScanned: 142_800,   avgCoverage: 91 },
+  hrsi:           { recordsScanned: 64_300,    avgCoverage: 89 },
+  hsi:            { recordsScanned: 38_400,    avgCoverage: 90 },
+  hti:            { recordsScanned: 52_100,    avgCoverage: 88 },
+  htsi:           { recordsScanned: 78_900,    avgCoverage: 90 },
+  he:             { recordsScanned: 18_400,    avgCoverage: 87 },
+  gg:             { recordsScanned: 12_200,    avgCoverage: 86 },
+
+  // ─── Standalone conglomerates (high accuracy, hundreds of thousands) ──
+  northwood:      { recordsScanned: 624_800,   avgCoverage: 96 },
+  pinnacle:       { recordsScanned: 812_400,   avgCoverage: 97 },
+  atlas:          { recordsScanned: 386_700,   avgCoverage: 95 },
+
+  // ─── Northbridge conglomerate (largest non-sovereign) ─────────────────
+  northbridge:    { recordsScanned: 1_840_000, avgCoverage: 97 },
+  'nb-aerospace': { recordsScanned: 412_000,   avgCoverage: 95 },
+  'nb-energy':    { recordsScanned: 538_000,   avgCoverage: 96 },
+  'nb-financial': { recordsScanned: 296_000,   avgCoverage: 94 },
+  'nb-health':    { recordsScanned: 728_000,   avgCoverage: 96 },
+
+  // ─── Brazil (sovereign — millions of records, lower accuracy due to legacy data quality) ──
+  brazil:         { recordsScanned: 14_280_000, avgCoverage: 82 },
+  'br-receita':   { recordsScanned: 4_620_000,  avgCoverage: 84 },
+  'br-sus':       { recordsScanned: 8_400_000,  avgCoverage: 79 },
+  'br-bndes':     { recordsScanned: 1_840_000,  avgCoverage: 86 },
+  'br-serpro':    { recordsScanned: 6_200_000,  avgCoverage: 85 },
+  'br-inss':      { recordsScanned: 5_460_000,  avgCoverage: 81 },
+  'br-datasus':   { recordsScanned: 3_920_000,  avgCoverage: 78 },
+  'br-defesa':    { recordsScanned: 2_240_000,  avgCoverage: 87 },
+  'br-anatel':    { recordsScanned: 1_680_000,  avgCoverage: 85 },
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
 // ─── Lookup Functions ──────────────────────────────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
+
+export function getScanStats(companyId: CompanyId): ScanStats {
+  return companyScanStats[companyId] ?? companyScanStats.meridian;
+}
 
 export function getCompanyProfile(companyId: CompanyId) {
   return companyProfiles[companyId] ?? companyProfiles.meridian;

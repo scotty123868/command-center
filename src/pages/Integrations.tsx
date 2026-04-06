@@ -29,6 +29,7 @@ import {
   getVendorHealth,
   getFailureModes,
   getMethodologySteps,
+  getScanStats,
   type IntegrationDataSource,
   type IntegrationVendorHealth,
 } from '../data/constants';
@@ -106,6 +107,7 @@ export default function Integrations() {
   const vendorHealthData = getVendorHealth(company.id);
   const failureModes = getFailureModes(company.id);
   const methodologySteps = getMethodologySteps(company.id);
+  const scanStats = getScanStats(company.id);
   const accentColor = company.accentColor;
 
   const completedCount = dataSources.filter((d: IntegrationDataSource) => d.status === 'Complete').length;
@@ -661,9 +663,9 @@ export default function Integrations() {
             <Database className="w-3.5 h-3.5" style={{ color: 'var(--cc-text-tertiary)' }} />
             Total records scanned:
           </span>
-          <span className="font-semibold" style={{ color: 'var(--cc-text)' }}>48,736</span>
+          <span className="font-semibold" style={{ color: 'var(--cc-text)' }}>{scanStats.recordsScanned.toLocaleString()}</span>
           <span style={{ color: 'var(--cc-text-muted)' }}>|</span>
-          <span className="font-semibold" style={{ color: 'var(--cc-green)' }}>83% avg coverage</span>
+          <span className="font-semibold" style={{ color: 'var(--cc-green)' }}>{scanStats.avgCoverage}% avg coverage</span>
           <span style={{ color: 'var(--cc-text-muted)' }}>|</span>
           <span>{completedCount} of {dataSources.length} systems complete</span>
         </div>
