@@ -187,7 +187,7 @@ export default function LicenseAudit() {
                       {isExpanded ? <ChevronUp size={14} style={{ color: 'var(--cc-text-tertiary)' }} /> : <ChevronDown size={14} style={{ color: 'var(--cc-text-tertiary)' }} />}
                     </div>
                   </div>
-                  <div className="mt-3 grid grid-cols-3 gap-2 text-xs">
+                  <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
                     <div>
                       <span style={{ color: 'var(--cc-text-tertiary)' }}>Active</span>
                       <p className="font-mono font-medium" style={{ color: 'var(--cc-text)' }}>{l.active90d}/{l.totalLicenses}</p>
