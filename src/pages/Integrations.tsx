@@ -268,7 +268,46 @@ export default function Integrations() {
           <h2 className="text-lg font-semibold" style={{ color: 'var(--cc-text)' }}>Failure Mode Registry</h2>
         </div>
         <div className="rounded-2xl overflow-hidden" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}>
-          <div className="overflow-x-auto">
+          {/* Mobile: stacked cards */}
+          <div className="sm:hidden px-4 py-3 space-y-3">
+            {failureModes.map((fm, i) => (
+              <motion.div
+                key={fm.vendor + fm.scenario}
+                initial={{ opacity: 0, x: -8 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.2, delay: 0.2 + i * 0.04 }}
+                className="rounded-xl p-4"
+                style={{ background: 'var(--cc-bg-elevated)', border: '1px solid var(--cc-border)' }}
+              >
+                <div className="flex items-start justify-between gap-2 mb-2">
+                  <p className="text-sm font-medium" style={{ color: 'var(--cc-text)' }}>{fm.vendor}</p>
+                  <span
+                    className="inline-flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-full flex-shrink-0"
+                    style={{
+                      background: fm.status === 'Passing' ? 'var(--cc-green-dim)' : 'var(--cc-yellow-dim)',
+                      color: fm.status === 'Passing' ? 'var(--cc-green)' : 'var(--cc-yellow)',
+                    }}
+                  >
+                    {fm.status === 'Passing' ? (
+                      <CheckCircle2 className="w-2.5 h-2.5" strokeWidth={2.5} />
+                    ) : (
+                      <AlertTriangle className="w-2.5 h-2.5" strokeWidth={2.5} />
+                    )}
+                    {fm.status}
+                  </span>
+                </div>
+                <p className="text-xs mb-1" style={{ color: 'var(--cc-text-secondary)' }}>
+                  <span style={{ color: 'var(--cc-text-tertiary)' }}>Scenario:</span> {fm.scenario}
+                </p>
+                <p className="text-xs" style={{ color: 'var(--cc-text-secondary)' }}>
+                  <span style={{ color: 'var(--cc-text-tertiary)' }}>Recovery:</span> {fm.recovery}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Desktop: table */}
+          <div className="hidden sm:block overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr style={{ borderBottom: '1px solid var(--cc-border)' }}>

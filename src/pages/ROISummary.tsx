@@ -466,7 +466,47 @@ function ScenarioComparisonTable({
       transition={{ delay: 0.35, duration: 0.4 }}
     >
       <h2 className="text-lg font-semibold mb-4 sm:mb-5" style={{ color: 'var(--cc-text)' }}>Scenario Comparison</h2>
-      <div className="overflow-x-auto">
+
+      {/* Mobile: stacked cards */}
+      <div className="sm:hidden space-y-3">
+        {rows.map((r) => {
+          const isActive = r.key === activeScenario;
+          return (
+            <div
+              key={r.key}
+              className="rounded-xl p-4"
+              style={{
+                background: isActive ? 'rgba(16,185,129,0.06)' : 'var(--cc-bg-elevated)',
+                border: isActive ? '1px solid rgba(16,185,129,0.3)' : '1px solid var(--cc-border)',
+              }}
+            >
+              <div className="flex items-center justify-between mb-3">
+                <p className="text-sm font-semibold" style={{ color: isActive ? '#10B981' : 'var(--cc-text)' }}>
+                  {r.label}
+                  {isActive && <span className="ml-1.5 text-[10px] px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-medium">ACTIVE</span>}
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs">
+                {[
+                  { label: 'Net Year 1', field: 'netYear1' as const },
+                  { label: 'Year 1 ROI', field: 'year1ROI' as const },
+                  { label: 'Payback', field: 'payback' as const },
+                  { label: '3-Year NPV', field: 'npv3yr' as const },
+                  { label: 'Impl. Cost', field: 'implCost' as const },
+                ].map((metric) => (
+                  <div key={metric.field} className="flex justify-between py-1" style={{ borderBottom: '1px solid var(--cc-border)' }}>
+                    <span style={{ color: 'var(--cc-text-tertiary)' }}>{metric.label}</span>
+                    <span className="font-mono font-semibold" style={{ color: isActive ? 'var(--cc-text)' : 'var(--cc-text-secondary)' }}>{r[metric.field]}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Desktop: table */}
+      <div className="hidden sm:block overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
             <tr style={{ borderBottom: '1px solid var(--cc-border)' }}>

@@ -342,7 +342,7 @@ export default function TechStack() {
                 transition={{ delay: i * 0.04, duration: 0.3 }}
                 className="rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-200 p-6 md:p-8" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
               >
-                <div className="grid grid-cols-1 md:grid-cols-[2fr_auto_2fr_auto] gap-6 items-center">
+                <div className="grid grid-cols-1 md:grid-cols-[2fr_auto_2fr_auto] gap-4 md:gap-6 items-center">
                   {/* CURRENT — left 40% */}
                   <div>
                     <p className="text-[10px] font-semibold tracking-widest uppercase mb-2">
@@ -381,7 +381,21 @@ export default function TechStack() {
                     </div>
                   </div>
 
-                  {/* ARROW — center */}
+                  {/* ARROW — center (desktop: horizontal, mobile: vertical) */}
+                  <div className="flex md:hidden justify-center py-1">
+                    <div className="flex items-center gap-2">
+                      <motion.div
+                        animate={{ y: [0, 4, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+                      >
+                        <ArrowRight className="w-5 h-5 text-blue-500 rotate-90" />
+                      </motion.div>
+                      <span className="text-[10px] font-medium px-2 py-0.5 rounded-full flex items-center gap-1" style={{ color: 'var(--cc-text-tertiary)', background: 'var(--cc-bg-input)' }}>
+                        <Clock className="w-3 h-3" />
+                        ~{weeks} weeks
+                      </span>
+                    </div>
+                  </div>
                   <div className="hidden md:flex flex-col items-center gap-2">
                     <motion.div
                       animate={{ x: [0, 6, 0] }}

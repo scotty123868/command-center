@@ -151,7 +151,21 @@ function AIMessage({
         {/* Data table */}
         {table && (
           <div className="mt-4 overflow-hidden rounded-xl" style={{ border: '1px solid var(--cc-border)' }}>
-            <table className="w-full text-[13px]">
+            {/* Mobile: stacked cards for chat tables */}
+            <div className="sm:hidden">
+              {table.rows.map((row, i) => (
+                <div key={i} className="px-4 py-3" style={{ borderTop: i > 0 ? '1px solid var(--cc-border)' : undefined, background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)' }}>
+                  {row.map((cell, j) => (
+                    <div key={j} className={`${j > 0 ? 'mt-1' : ''}`}>
+                      <span className="text-[10px] uppercase tracking-wider" style={{ color: 'var(--cc-text-tertiary)' }}>{table.headers[j]}: </span>
+                      <span className={`text-[12px] ${j === 1 ? 'font-mono font-semibold text-red-400' : ''}`} style={j !== 1 ? { color: 'var(--cc-text-secondary)' } : undefined}>{cell}</span>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+            {/* Desktop: table */}
+            <table className="hidden sm:table w-full text-[13px]">
               <thead>
                 <tr style={{ background: 'var(--cc-bg-input)' }}>
                   {table.headers.map((h) => (

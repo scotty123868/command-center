@@ -159,10 +159,104 @@ export default function LicenseAudit() {
       >
         <div className="px-4 sm:px-8 pt-6 pb-4">
           <h2 className="text-xl font-semibold" style={{ color: 'var(--cc-text)' }}>License Inventory</h2>
-          <p className="text-sm mt-1" style={{ color: 'var(--cc-text-secondary)' }}>Click any row for detailed breakdown</p>
+          <p className="text-sm mt-1" style={{ color: 'var(--cc-text-secondary)' }}>Tap any item for detailed breakdown</p>
         </div>
 
-        <div className="overflow-x-auto">
+        {/* Mobile: stacked cards */}
+        <div className="sm:hidden px-4 pb-4 space-y-3">
+          {licenses.map((l, i) => {
+            const isExpanded = expandedRow === i;
+            return (
+              <div key={l.vendor}>
+                <div
+                  onClick={() => toggle(i)}
+                  className="rounded-xl p-4 cursor-pointer transition-colors"
+                  style={{ background: i % 2 === 0 ? 'var(--cc-bg-elevated)' : 'rgba(255,255,255,0.02)', border: '1px solid var(--cc-border)' }}
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="min-w-0">
+                      <p className="font-semibold text-sm" style={{ color: 'var(--cc-text)' }}>{l.vendor}</p>
+                      <p className="text-xs mt-0.5" style={{ color: 'var(--cc-text-tertiary)' }}>{l.department}</p>
+                    </div>
+                    <div className="flex items-center gap-2 flex-shrink-0">
+                      <span
+                        className={`inline-block px-2 py-0.5 rounded-full text-[10px] font-semibold ${actionColor(l.action)}`}
+                        style={actionBgStyle(l.action)}
+                      >
+                        {l.action}
+                      </span>
+                      {isExpanded ? <ChevronUp size={14} style={{ color: 'var(--cc-text-tertiary)' }} /> : <ChevronDown size={14} style={{ color: 'var(--cc-text-tertiary)' }} />}
+                    </div>
+                  </div>
+                  <div className="mt-3 grid grid-cols-3 gap-2 text-xs">
+                    <div>
+                      <span style={{ color: 'var(--cc-text-tertiary)' }}>Active</span>
+                      <p className="font-mono font-medium" style={{ color: 'var(--cc-text)' }}>{l.active90d}/{l.totalLicenses}</p>
+                    </div>
+                    <div>
+                      <span style={{ color: 'var(--cc-text-tertiary)' }}>Usage</span>
+                      <p className="font-mono font-medium" style={{ color: 'var(--cc-text)' }}>{usagePct(l)}%</p>
+                    </div>
+                    <div>
+                      <span style={{ color: 'var(--cc-text-tertiary)' }}>Waste</span>
+                      <p className="font-mono font-semibold text-[#EF4444]">{fmt(l.annualWaste)}/yr</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Expanded detail */}
+                <AnimatePresence>
+                  {isExpanded && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-4 py-4 space-y-4 rounded-b-xl" style={{ background: 'var(--cc-bg-input)', border: '1px solid var(--cc-border)', borderTop: 'none' }}>
+                        {/* Usage bar */}
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-wider mb-2">Usage (90-day)</p>
+                          <div className="w-full h-3 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
+                            <div className="h-full rounded-full" style={{ width: `${usagePct(l)}%`, backgroundColor: usagePct(l) > 70 ? '#10B981' : usagePct(l) > 40 ? '#F59E0B' : '#EF4444' }} />
+                          </div>
+                          <p className="mt-1 text-xs font-mono" style={{ color: 'var(--cc-text-secondary)' }}>{usagePct(l)}% active ({l.active90d} / {l.totalLicenses})</p>
+                        </div>
+                        {/* Cost */}
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-wider mb-1">Cost per License</p>
+                          <p className="text-lg font-mono font-bold" style={{ color: 'var(--cc-text)' }}>{fmtFull(l.costPerLicense)}<span className="text-xs font-normal ml-1" style={{ color: 'var(--cc-text-secondary)' }}>per seat / year</span></p>
+                        </div>
+                        {/* Recommendation */}
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-wider mb-1">Recommended Action</p>
+                          <p className="text-xs leading-relaxed" style={{ color: 'var(--cc-text-secondary)' }}>{actionDescription(l)}</p>
+                        </div>
+                        {/* Compliance */}
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-wider mb-1">Compliance Risk</p>
+                          {l.complianceRisk ? (
+                            <div className="flex items-center gap-2">
+                              <AlertTriangle size={14} className="text-red-500" />
+                              <span className="inline-block px-2 py-0.5 rounded-full text-[10px] font-semibold text-red-400" style={{ background: 'var(--cc-red-dim)' }}>Compliance Risk</span>
+                            </div>
+                          ) : (
+                            <p className="text-xs" style={{ color: 'var(--cc-text-tertiary)' }}>No compliance risk identified</p>
+                          )}
+                          <p className="text-[10px] mt-1" style={{ color: 'var(--cc-text-tertiary)' }}>Last audited: {l.lastAuditDate}</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Desktop: table */}
+        <div className="hidden sm:block overflow-x-auto">
           <table className="w-full min-w-[640px] text-sm">
             <thead>
               <tr className="text-left text-xs font-semibold uppercase tracking-wider" style={{ borderBottom: '1px solid var(--cc-border)', color: 'var(--cc-text-secondary)' }}>

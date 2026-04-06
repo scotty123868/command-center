@@ -223,7 +223,34 @@ export default function Compare() {
         <div className="px-4 sm:px-6 py-4" style={{ borderBottom: '1px solid var(--cc-border)' }}>
           <h2 className="text-sm font-semibold" style={{ color: 'var(--cc-text)' }}>Key Metrics Comparison</h2>
         </div>
-        <div className="overflow-x-auto">
+
+        {/* Mobile: stacked cards */}
+        <div className="sm:hidden px-4 py-3 space-y-3">
+          {metrics.map((m) => (
+            <div key={m.label} className="rounded-xl p-3" style={{ background: 'var(--cc-bg-elevated)', border: '1px solid var(--cc-border)' }}>
+              <p className="text-xs font-medium mb-2" style={{ color: 'var(--cc-text-secondary)' }}>{m.label}</p>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="text-center rounded-lg py-2" style={{ background: 'rgba(59, 130, 246, 0.06)' }}>
+                  <p className="text-[10px] font-semibold text-blue-400 mb-0.5">{divA.shortName}</p>
+                  <p className={`text-sm font-semibold ${winnerClass(m.winner, 'a')}`} style={m.winner !== 'a' ? { color: 'var(--cc-text)' } : undefined}>
+                    {m.valueA}
+                    {winnerBadge(m.winner, 'a')}
+                  </p>
+                </div>
+                <div className="text-center rounded-lg py-2" style={{ background: 'rgba(139, 92, 246, 0.06)' }}>
+                  <p className="text-[10px] font-semibold text-violet-400 mb-0.5">{divB.shortName}</p>
+                  <p className={`text-sm font-semibold ${winnerClass(m.winner, 'b')}`} style={m.winner !== 'b' ? { color: 'var(--cc-text)' } : undefined}>
+                    {m.valueB}
+                    {winnerBadge(m.winner, 'b')}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop: table */}
+        <div className="hidden sm:block overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
               <tr style={{ background: 'var(--cc-bg-elevated)' }}>
