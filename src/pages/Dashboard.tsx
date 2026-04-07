@@ -64,9 +64,9 @@ type TimelineData = {
 
 const allTimelineStops: Record<string, Record<number, TimelineData>> = {
   meridian: {
-    0: { savings: 0, scoreBefore: 52, scoreAfter: 52, workflows: 0, automationReady: 0, waste: 6_720_000 },
-    6: { savings: 6_000_000, scoreBefore: 52, scoreAfter: 69, workflows: 35, automationReady: 9, waste: 4_320_000 },
-    12: { savings: 13_920_000, scoreBefore: 52, scoreAfter: 86, workflows: 62, automationReady: 18, waste: 1_968_000 },
+    0: { savings: 0, scoreBefore: 52, scoreAfter: 52, workflows: 0, automationReady: 0, waste: 7_414_848 },
+    6: { savings: 6_620_400, scoreBefore: 52, scoreAfter: 69, workflows: 35, automationReady: 9, waste: 4_766_688 },
+    12: { savings: 15_359_328, scoreBefore: 52, scoreAfter: 86, workflows: 62, automationReady: 18, waste: 2_171_491 },
   },
   northwood: {
     0: { savings: 0, scoreBefore: 39, scoreAfter: 39, workflows: 0, automationReady: 0, waste: 10_693_200 },
@@ -169,9 +169,9 @@ const allTimelineStops: Record<string, Record<number, TimelineData>> = {
     12: { savings: 1_400_000, scoreBefore: 78, scoreAfter: 96, workflows: 24, automationReady: 14, waste: 40_000 },
   },
   brazil: {
-    0: { savings: 0, scoreBefore: 45, scoreAfter: 45, workflows: 0, automationReady: 0, waste: 260_000_000 },
-    6: { savings: 324_000_000, scoreBefore: 45, scoreAfter: 64, workflows: 186, automationReady: 62, waste: 130_000_000 },
-    12: { savings: 720_000_000, scoreBefore: 45, scoreAfter: 82, workflows: 400, automationReady: 134, waste: 26_000_000 },
+    0: { savings: 0, scoreBefore: 45, scoreAfter: 45, workflows: 0, automationReady: 0, waste: 2_986_360_000 },
+    6: { savings: 3_721_464_000, scoreBefore: 45, scoreAfter: 64, workflows: 186, automationReady: 62, waste: 1_493_180_000 },
+    12: { savings: 8_269_920_000, scoreBefore: 45, scoreAfter: 82, workflows: 400, automationReady: 134, waste: 298_636_000 },
   },
   'br-receita': {
     0: { savings: 0, scoreBefore: 55, scoreAfter: 55, workflows: 0, automationReady: 0, waste: 420_000_000 },

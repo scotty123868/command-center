@@ -26,17 +26,17 @@ export const aiReadinessBreakdown = [
 // ─── KPI Data ───────────────────────────────────────────────────────────────
 
 export const kpis = {
-  totalSavings: 13_920_000,
+  totalSavings: 15_359_328,
   techScoreBefore: 52,
   techScoreAfter: 86,
   workflowsAnalyzed: 62,
   automationReady: 18,
-  unusedLicenseWaste: 6_720_000,
+  unusedLicenseWaste: 7_414_848,
 
-  savingsSparkline: [0, 288_000, 744_000, 1_392_000, 2_208_000, 3_360_000, 4_800_000, 6_480_000, 8_400_000, 10_560_000, 12_240_000, 13_920_000],
+  savingsSparkline: [0, 317_779, 820_930, 1_535_933, 2_436_307, 3_707_424, 5_296_320, 7_150_032, 9_268_560, 11_651_904, 13_505_616, 15_359_328],
   scoreSparkline: [52, 54, 57, 61, 65, 69, 73, 76, 79, 82, 84, 86],
   workflowSparkline: [0, 5, 11, 18, 25, 32, 38, 44, 49, 54, 58, 62],
-  licenseSparkline: [6_720_000, 6_480_000, 6_120_000, 5_712_000, 5_232_000, 4_656_000, 4_080_000, 3_528_000, 3_024_000, 2_592_000, 2_232_000, 1_968_000],
+  licenseSparkline: [7_414_848, 7_150_032, 6_752_808, 6_302_621, 5_772_989, 5_137_430, 4_501_872, 3_892_795, 3_336_682, 2_860_013, 2_462_789, 2_171_491],
   headcountImpactSparkline: [0, 0, -2, -5, -9, -14, -18, -22, -26, -30, -33, -36],
 };
 
@@ -187,15 +187,15 @@ export interface Opportunity {
 }
 
 export const topOpportunities: Opportunity[] = [
-  { name: 'RailSentry Enhancement', category: 'Workflow Automation', savings: 2_736_000, effort: 'Medium', status: 'automated', priority: 10, timeToValue: 8, confidence: 94 },
-  { name: 'Predictive Maintenance (HCSS + Equipment360)', category: 'Workflow Automation', savings: 2_232_000, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 86 },
-  { name: 'Project Cost Intelligence (eCMS + P6)', category: 'Workflow Automation', savings: 1_944_000, effort: 'High', status: 'identified', priority: 9, timeToValue: 16, confidence: 78 },
-  { name: 'Field Ops AI (HCSS Field + Heavy Job)', category: 'Workflow Automation', savings: 1_656_000, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 82 },
-  { name: 'Bid Intelligence (Heavy Bid)', category: 'Workflow Automation', savings: 1_464_000, effort: 'Low', status: 'identified', priority: 8, timeToValue: 8, confidence: 84 },
-  { name: 'Crew Scheduling (MCP + HCSS)', category: 'Workflow Automation', savings: 1_320_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 14, confidence: 80 },
-  { name: 'Document Intelligence (Prolog + Procore)', category: 'Workflow Automation', savings: 960_000, effort: 'Low', status: 'identified', priority: 7, timeToValue: 8, confidence: 88 },
-  { name: 'HSI Ultrasonic Expansion (B→A scan)', category: 'Workflow Automation', savings: 864_000, effort: 'High', status: 'automated', priority: 8, timeToValue: 18, confidence: 76 },
-  { name: 'Safety Risk Prediction (HCSS Safety)', category: 'Workflow Automation', savings: 744_000, effort: 'Low', status: 'identified', priority: 6, timeToValue: 6, confidence: 90 },
+  { name: 'RailSentry Enhancement', category: 'Workflow Automation', savings: 3_018_902, effort: 'Medium', status: 'automated', priority: 10, timeToValue: 8, confidence: 94 },
+  { name: 'Predictive Maintenance (HCSS + Equipment360)', category: 'Workflow Automation', savings: 2_462_789, effort: 'Medium', status: 'identified', priority: 9, timeToValue: 12, confidence: 86 },
+  { name: 'Project Cost Intelligence (eCMS + P6)', category: 'Workflow Automation', savings: 2_145_010, effort: 'High', status: 'identified', priority: 9, timeToValue: 16, confidence: 78 },
+  { name: 'Field Ops AI (HCSS Field + Heavy Job)', category: 'Workflow Automation', savings: 1_827_230, effort: 'Medium', status: 'identified', priority: 8, timeToValue: 12, confidence: 82 },
+  { name: 'Bid Intelligence (Heavy Bid)', category: 'Workflow Automation', savings: 1_615_378, effort: 'Low', status: 'identified', priority: 8, timeToValue: 8, confidence: 84 },
+  { name: 'Crew Scheduling (MCP + HCSS)', category: 'Workflow Automation', savings: 1_456_488, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 14, confidence: 80 },
+  { name: 'Document Intelligence (Prolog + Procore)', category: 'Workflow Automation', savings: 1_059_264, effort: 'Low', status: 'identified', priority: 7, timeToValue: 8, confidence: 88 },
+  { name: 'HSI Ultrasonic Expansion (B→A scan)', category: 'Workflow Automation', savings: 953_338, effort: 'High', status: 'automated', priority: 8, timeToValue: 18, confidence: 76 },
+  { name: 'Safety Risk Prediction (HCSS Safety)', category: 'Workflow Automation', savings: 820_930, effort: 'Low', status: 'identified', priority: 6, timeToValue: 6, confidence: 90 },
   { name: 'Real-time Data Foundation (QMirror replacement)', category: 'Data Infrastructure', savings: 0, effort: 'High', status: 'identified', priority: 10, timeToValue: 20, confidence: 92 },
 ];
 
@@ -217,7 +217,7 @@ export const currentStack: CurrentTool[] = [
   {
     name: 'eCMS (Computer Guidance)',
     category: 'Construction ERP',
-    annualCost: 1_632_000,
+    annualCost: 1_800_749,
     users: 160,
     score: 3,
     integrationComplexity: 'High',
@@ -228,7 +228,7 @@ export const currentStack: CurrentTool[] = [
   {
     name: 'HCSS Telematics',
     category: 'Fleet/GPS',
-    annualCost: 576_000,
+    annualCost: 635_558,
     users: 2_400,
     score: 7,
     integrationComplexity: 'Low',
@@ -239,7 +239,7 @@ export const currentStack: CurrentTool[] = [
   {
     name: 'Primavera P6 (Oracle)',
     category: 'Project Portfolio Management',
-    annualCost: 1_008_000,
+    annualCost: 1_112_227,
     users: 180,
     score: 5,
     integrationComplexity: 'High',
@@ -250,7 +250,7 @@ export const currentStack: CurrentTool[] = [
   {
     name: 'Procore',
     category: 'Construction Management',
-    annualCost: 672_000,
+    annualCost: 741_485,
     users: 200,
     score: 8,
     integrationComplexity: 'Low',
@@ -261,7 +261,7 @@ export const currentStack: CurrentTool[] = [
   {
     name: 'Heavy Job (HCSS)',
     category: 'Field Ops/Job Costing',
-    annualCost: 432_000,
+    annualCost: 476_669,
     users: 600,
     score: 6,
     integrationComplexity: 'Medium',
@@ -272,7 +272,7 @@ export const currentStack: CurrentTool[] = [
   {
     name: 'Heavy Bid (HCSS)',
     category: 'Estimating',
-    annualCost: 384_000,
+    annualCost: 423_706,
     users: 120,
     score: 6,
     integrationComplexity: 'Medium',
@@ -283,7 +283,7 @@ export const currentStack: CurrentTool[] = [
   {
     name: 'Equipment360 (HCSS)',
     category: 'Fleet Maintenance',
-    annualCost: 336_000,
+    annualCost: 370_742,
     users: 800,
     score: 7,
     integrationComplexity: 'Low',
@@ -294,7 +294,7 @@ export const currentStack: CurrentTool[] = [
   {
     name: 'MCP (Internal)',
     category: 'Payroll/Time',
-    annualCost: 768_000,
+    annualCost: 847_411,
     users: 2_800,
     score: 3,
     integrationComplexity: 'High',
@@ -305,7 +305,7 @@ export const currentStack: CurrentTool[] = [
   {
     name: 'QMirror (MTL Systems)',
     category: 'Data Replication',
-    annualCost: 192_000,
+    annualCost: 211_853,
     users: 20,
     score: 1,
     integrationComplexity: 'High',
@@ -316,7 +316,7 @@ export const currentStack: CurrentTool[] = [
   {
     name: 'Business Objects (SAP)',
     category: 'BI/Reporting',
-    annualCost: 432_000,
+    annualCost: 476_669,
     users: 80,
     score: 3,
     integrationComplexity: 'Medium',
@@ -456,14 +456,14 @@ export const workflows: Workflow[] = [
     name: 'Track Inspection & Maintenance Planning',
     level: 'human-in-loop',
     currentFTEs: 18,
-    currentCost: 3_024_000,
+    currentCost: 3_336_682,
     volume: '4,200 track-miles/month inspected',
     currentTime: '3.5 hrs per track segment analysis',
     aiSolution: 'AI-enhanced track inspection using computer vision on geometry car data + LIDAR analysis. Automated defect detection and severity scoring. Human engineers review AI-flagged segments and approve maintenance plans.',
     routing: 'Human-in-the-Loop',
     routingQuote: 'Let AI find the defects so your engineers can plan the fixes',
     costShift: 'Labor $1.26M → IT $280K + Labor $500K = $480K saved',
-    savings: 1_209_600,
+    savings: 1_334_673,
     automationPercent: 55,
     details: '18 FTEs analyzing geometry car data, LIDAR scans, and visual inspection footage. 4,200 track-miles/month across Class 1 railroad customers.',
     currentProcess: [
@@ -506,14 +506,14 @@ export const workflows: Workflow[] = [
     name: 'Crew Scheduling & Dispatch',
     level: 'full',
     currentFTEs: 8,
-    currentCost: 1_728_000,
+    currentCost: 1_906_675,
     volume: '2,800 employees across 5 divisions',
     currentTime: 'Weekly manual scheduling, 22% idle time',
     aiSolution: 'AI-optimized crew scheduling considering certifications, FRA hours-of-service, union rules, travel time, and equipment availability. Automated dispatch replaces phone/radio-based coordination.',
     routing: 'Fully Automatable',
     routingQuote: 'Stop scheduling railroad crews with spreadsheets and phone calls',
     costShift: 'Labor $720K → IT $120K + Labor $180K = $420K saved',
-    savings: 691_200,
+    savings: 762_670,
     automationPercent: 75,
     details: '8 scheduling coordinators building weekly schedules manually in spreadsheets, then calling/texting crew members. 22% crew idle time due to suboptimal scheduling.',
     currentProcess: [
@@ -556,14 +556,14 @@ export const workflows: Workflow[] = [
     name: 'Equipment Fleet Management',
     level: 'human-in-loop',
     currentFTEs: 12,
-    currentCost: 2_304_000,
+    currentCost: 2_542_234,
     volume: '800+ vehicles and heavy equipment',
     currentTime: 'No real-time cross-division visibility',
     aiSolution: 'HCSS fleet intelligence platform with AI-powered utilization optimization. Predictive maintenance using engine diagnostics and usage patterns. Cross-division equipment sharing with automated transfer recommendations.',
     routing: 'Human-in-the-Loop',
     routingQuote: 'You cannot optimize what you cannot see across your divisions',
     costShift: 'Labor $960K → IT $240K + Labor $340K = $380K saved',
-    savings: 921_600,
+    savings: 1_016_893,
     automationPercent: 50,
     details: '12 FTEs managing fleet across 5 divisions. 800+ vehicles and heavy equipment. No cross-division visibility, 18% equipment idle rate, $580K in duplicate rentals last year.',
     currentProcess: [
@@ -605,14 +605,14 @@ export const workflows: Workflow[] = [
     name: 'Safety Compliance & Reporting',
     level: 'full',
     currentFTEs: 6,
-    currentCost: 1_296_000,
+    currentCost: 1_430_006,
     volume: '180 FRA reports/month + daily job site safety',
     currentTime: '4.2 hrs per compliance report',
     aiSolution: 'Automated FRA report generation from digital inspection data. AI-powered safety incident analysis and prevention. Real-time compliance monitoring replacing periodic manual audits.',
     routing: 'Fully Automatable',
     routingQuote: 'Automate the paperwork so your safety team can focus on keeping people safe',
     costShift: 'Labor $540K → IT $80K + Labor $140K = $320K saved',
-    savings: 518_400,
+    savings: 572_003,
     automationPercent: 70,
     details: '6 FTEs dedicated to safety compliance — FRA reporting (Form 6180), OSHA recordkeeping, state DOT filings, and internal safety audits across 5 divisions.',
     currentProcess: [
@@ -654,14 +654,14 @@ export const workflows: Workflow[] = [
     name: 'Project Estimation & Bidding',
     level: 'human-required',
     currentFTEs: 10,
-    currentCost: 2_640_000,
+    currentCost: 2_912_976,
     volume: '~25 major bids/quarter',
     currentTime: '3-4 weeks per bid package',
     aiSolution: 'AI assists with historical cost analysis, material quantity takeoffs, and risk factor identification. Estimators focus on judgment calls, client relationships, and strategic pricing. Bid cycle drops from 3-4 weeks to 1-2 weeks.',
     routing: 'Human-Required, AI-Assisted',
     routingQuote: 'Let AI crunch the numbers so your estimators can win the deals',
     costShift: 'Labor $1.1M → IT $120K + Labor $700K = $280K saved',
-    savings: 1_056_000,
+    savings: 1_165_190,
     automationPercent: 30,
     details: '10 estimators producing bids for railroad construction, maintenance, and testing contracts across 5 divisions. Competitive, accurate bidding is critical.',
     currentProcess: [
@@ -704,14 +704,14 @@ export const workflows: Workflow[] = [
     name: 'Material & Ballast Logistics',
     level: 'human-in-loop',
     currentFTEs: 14,
-    currentCost: 2_352_000,
+    currentCost: 2_595_197,
     volume: '2.4M tons ballast/year + rail/tie deliveries',
     currentTime: 'Manual logistics coordination',
     aiSolution: 'AI-optimized material logistics using GPS fleet data, project schedules, and quarry inventory. Automated ballast train scheduling and material pre-positioning based on predictive project needs.',
     routing: 'Human-in-the-Loop',
     routingQuote: 'Move the right material to the right place before they even ask for it',
     costShift: 'Labor $980K → IT $160K + Labor $460K = $360K saved',
-    savings: 940_800,
+    savings: 1_038_079,
     automationPercent: 45,
     details: '14 logistics coordinators managing ballast delivery, rail supply, tie distribution, and material pre-staging across 36 states of railroad construction operations.',
     currentProcess: [
@@ -753,14 +753,14 @@ export const workflows: Workflow[] = [
     name: 'Rail Testing & Flaw Detection',
     level: 'human-in-loop',
     currentFTEs: 20,
-    currentCost: 4_320_000,
+    currentCost: 4_766_688,
     volume: '8,400 track-miles/month tested',
     currentTime: '100% manual analysis of test data',
     aiSolution: 'AI-enhanced ultrasonic and visual rail flaw detection. Computer vision processes continuous inspection data, flagging potential defects for human verification. Reduces false-positive rate and increases detection speed.',
     routing: 'Human-in-the-Loop',
     routingQuote: 'AI sees every inch of rail — your inspectors verify the critical finds',
     costShift: 'Labor $1.8M → IT $320K + Labor $860K = $620K saved',
-    savings: 1_728_000,
+    savings: 1_906_675,
     automationPercent: 50,
     details: '20 rail testing analysts processing ultrasonic, electromagnetic, and visual inspection data from HSI testing fleet. 8,400 track-miles/month across Class 1 railroad customers.',
     currentProcess: [
@@ -828,13 +828,13 @@ export interface License {
 }
 
 export const licenses: License[] = [
-  { vendor: 'Primavera P6', totalLicenses: 280, active90d: 180, inactive: 100, annualWaste: 840_000, action: 'Reclaim 100 seats — restrict to active project managers only', costPerLicense: 3_500, department: 'Project Management (HCC, HRSI, HTI)', lastAuditDate: '2025-10-15', trend: [82, 76, 70, 68, 65, 64], complianceRisk: false },
-  { vendor: 'eCMS', totalLicenses: 250, active90d: 160, inactive: 90, annualWaste: 864_000, action: 'Reclaim 90 inactive seats, deploy AI middleware layer', costPerLicense: 4_000, department: 'Finance & Accounting (all divisions)', lastAuditDate: '2025-11-02', trend: [78, 72, 68, 65, 64, 64], complianceRisk: false },
-  { vendor: 'AutoCAD/Civil 3D', totalLicenses: 120, active90d: 65, inactive: 55, annualWaste: 1_056_000, action: 'Reclaim 55 seats — consolidate to engineering department only', costPerLicense: 8_000, department: 'Engineering & Design (HCC, HTI)', lastAuditDate: '2025-08-20', trend: [68, 62, 58, 55, 54, 54], complianceRisk: true },
-  { vendor: 'MCP (Internal)', totalLicenses: 2_800, active90d: 2_200, inactive: 600, annualWaste: 432_000, action: 'Reclaim 600 inactive → deploy AI enhancement layer on MCP in Q4', costPerLicense: 300, department: 'HR / All Divisions (workforce-wide)', lastAuditDate: '2026-01-10', trend: [88, 85, 82, 80, 79, 79], complianceRisk: false },
-  { vendor: 'Microsoft 365', totalLicenses: 2_800, active90d: 1_800, inactive: 1_000, annualWaste: 1_920_000, action: 'Reclaim 1,000 seats + downgrade 400 E5→E3 for field crews', costPerLicense: 800, department: 'IT / All Divisions (company-wide)', lastAuditDate: '2025-09-15', trend: [76, 70, 66, 64, 64, 64], complianceRisk: false },
-  { vendor: 'Trimble Business Center', totalLicenses: 80, active90d: 35, inactive: 45, annualWaste: 864_000, action: 'Reclaim 45 seats — restrict to active survey/GPS engineers', costPerLicense: 8_000, department: 'Survey & GPS Engineering (HSI, HCC)', lastAuditDate: '2025-07-22', trend: [62, 55, 48, 44, 44, 44], complianceRisk: false },
-  { vendor: 'Salesforce', totalLicenses: 85, active90d: 45, inactive: 40, annualWaste: 744_000, action: 'Reclaim 40 seats — evaluate CRM consolidation', costPerLicense: 7_750, department: 'Business Development & Client Relations', lastAuditDate: '2026-02-01', trend: [72, 66, 60, 55, 53, 53], complianceRisk: false },
+  { vendor: 'Primavera P6', totalLicenses: 280, active90d: 180, inactive: 100, annualWaste: 926_856, action: 'Reclaim 100 seats — restrict to active project managers only', costPerLicense: 3_500, department: 'Project Management (HCC, HRSI, HTI)', lastAuditDate: '2025-10-15', trend: [82, 76, 70, 68, 65, 64], complianceRisk: false },
+  { vendor: 'eCMS', totalLicenses: 250, active90d: 160, inactive: 90, annualWaste: 953_338, action: 'Reclaim 90 inactive seats, deploy AI middleware layer', costPerLicense: 4_000, department: 'Finance & Accounting (all divisions)', lastAuditDate: '2025-11-02', trend: [78, 72, 68, 65, 64, 64], complianceRisk: false },
+  { vendor: 'AutoCAD/Civil 3D', totalLicenses: 120, active90d: 65, inactive: 55, annualWaste: 1_165_190, action: 'Reclaim 55 seats — consolidate to engineering department only', costPerLicense: 8_000, department: 'Engineering & Design (HCC, HTI)', lastAuditDate: '2025-08-20', trend: [68, 62, 58, 55, 54, 54], complianceRisk: true },
+  { vendor: 'MCP (Internal)', totalLicenses: 2_800, active90d: 2_200, inactive: 600, annualWaste: 476_669, action: 'Reclaim 600 inactive → deploy AI enhancement layer on MCP in Q4', costPerLicense: 300, department: 'HR / All Divisions (workforce-wide)', lastAuditDate: '2026-01-10', trend: [88, 85, 82, 80, 79, 79], complianceRisk: false },
+  { vendor: 'Microsoft 365', totalLicenses: 2_800, active90d: 1_800, inactive: 1_000, annualWaste: 2_118_528, action: 'Reclaim 1,000 seats + downgrade 400 E5→E3 for field crews', costPerLicense: 800, department: 'IT / All Divisions (company-wide)', lastAuditDate: '2025-09-15', trend: [76, 70, 66, 64, 64, 64], complianceRisk: false },
+  { vendor: 'Trimble Business Center', totalLicenses: 80, active90d: 35, inactive: 45, annualWaste: 953_338, action: 'Reclaim 45 seats — restrict to active survey/GPS engineers', costPerLicense: 8_000, department: 'Survey & GPS Engineering (HSI, HCC)', lastAuditDate: '2025-07-22', trend: [62, 55, 48, 44, 44, 44], complianceRisk: false },
+  { vendor: 'Salesforce', totalLicenses: 85, active90d: 45, inactive: 40, annualWaste: 820_930, action: 'Reclaim 40 seats — evaluate CRM consolidation', costPerLicense: 7_750, department: 'Business Development & Client Relations', lastAuditDate: '2026-02-01', trend: [72, 66, 60, 55, 53, 53], complianceRisk: false },
 ];
 
 // ─── Transformation Stories ─────────────────────────────────────────────────
@@ -978,12 +978,12 @@ export const transformationStories: TransformationStory[] = [
 // ─── ROI Summary Data ───────────────────────────────────────────────────────
 
 export const roiSummary = {
-  techStackSavings: 5_280_000,
-  workflowAutomation: 8_640_000,
-  licenseRecovery: 6_720_000,
-  implementationCosts: 6_720_000,
-  netYear1: 13_920_000,
-  year2Projected: 20_880_000,
+  techStackSavings: 5_825_952,
+  workflowAutomation: 9_533_376,
+  licenseRecovery: 7_414_848,
+  implementationCosts: 7_414_848,
+  netYear1: 15_359_328,
+  year2Projected: 23_038_992,
 };
 
 
@@ -2404,16 +2404,16 @@ const brazilAiReadinessBreakdown = [
 ];
 
 const brazilKpis = {
-  totalSavings: 720_000_000,
+  totalSavings: 8_269_920_000,
   techScoreBefore: 45,
   techScoreAfter: 82,
   workflowsAnalyzed: 400,
   automationReady: 134,
-  unusedLicenseWaste: 260_000_000,
-  savingsSparkline: [0, 46_000_000, 100_000_000, 170_000_000, 260_000_000, 346_000_000, 415_000_000, 484_000_000, 553_000_000, 622_000_000, 676_000_000, 720_000_000],
+  unusedLicenseWaste: 2_986_360_000,
+  savingsSparkline: [0, 528_356_000, 1_148_600_000, 1_952_620_000, 2_986_360_000, 3_974_156_000, 4_766_690_000, 5_559_224_000, 6_351_758_000, 7_144_292_000, 7_764_536_000, 8_269_920_000],
   scoreSparkline: [45, 51, 54, 57, 60, 64, 68, 72, 75, 78, 80, 82],
   workflowSparkline: [0, 32, 64, 98, 134, 176, 216, 256, 294, 328, 358, 380],
-  licenseSparkline: [260_000_000, 238_000_000, 214_000_000, 182_000_000, 150_000_000, 121_000_000, 95_000_000, 72_000_000, 55_000_000, 42_000_000, 32_000_000, 26_000_000],
+  licenseSparkline: [2_986_360_000, 2_733_668_000, 2_458_004_000, 2_090_452_000, 1_722_900_000, 1_389_806_000, 1_091_170_000, 826_992_000, 631_730_000, 482_412_000, 367_552_000, 298_636_000],
   headcountImpactSparkline: [0, -12, -28, -52, -84, -124, -168, -220, -276, -330, -374, -410],
 };
 
@@ -2485,33 +2485,33 @@ const brazilRoadmapPhases = [
 ];
 
 const brazilTopOpportunities: Opportunity[] = [
-  { name: 'Receita Federal Tax Automation (35M Returns)', category: 'Tax & Revenue', savings: 146_880_000, effort: 'Medium', status: 'automated', priority: 10, timeToValue: 8, confidence: 94 },
-  { name: 'GOV.BR Citizen Services AI (215M Citizens)', category: 'Citizen Services', savings: 132_480_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 14, confidence: 86 },
-  { name: 'SUS Health Records Integration', category: 'Healthcare', savings: 118_080_000, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 16, confidence: 82 },
-  { name: 'Cross-Agency Data Platform (GOV.BR)', category: 'Data Infrastructure', savings: 97_920_000, effort: 'High', status: 'identified', priority: 8, timeToValue: 20, confidence: 78 },
-  { name: 'Federal Procurement Optimization', category: 'Procurement', savings: 73_440_000, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 84 },
-  { name: 'SERPRO Mainframe Modernization', category: 'Tech Stack', savings: 60_480_000, effort: 'High', status: 'identified', priority: 7, timeToValue: 24, confidence: 72 },
-  { name: 'eSocial & SPED Fiscal AI', category: 'Compliance', savings: 51_840_000, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 12, confidence: 80 },
-  { name: 'BNDES Credit Analysis AI', category: 'Development Finance', savings: 38_880_000, effort: 'Medium', status: 'identified', priority: 5, timeToValue: 14, confidence: 76 },
+  { name: 'Receita Federal Tax Automation (35M Returns)', category: 'Tax & Revenue', savings: 1_687_063_680, effort: 'Medium', status: 'automated', priority: 10, timeToValue: 8, confidence: 94 },
+  { name: 'GOV.BR Citizen Services AI (215M Citizens)', category: 'Citizen Services', savings: 1_521_665_280, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 14, confidence: 86 },
+  { name: 'SUS Health Records Integration', category: 'Healthcare', savings: 1_356_266_880, effort: 'High', status: 'in-progress', priority: 9, timeToValue: 16, confidence: 82 },
+  { name: 'Cross-Agency Data Platform (GOV.BR)', category: 'Data Infrastructure', savings: 1_124_709_120, effort: 'High', status: 'identified', priority: 8, timeToValue: 20, confidence: 78 },
+  { name: 'Federal Procurement Optimization', category: 'Procurement', savings: 843_531_840, effort: 'Medium', status: 'identified', priority: 7, timeToValue: 10, confidence: 84 },
+  { name: 'SERPRO Mainframe Modernization', category: 'Tech Stack', savings: 694_673_280, effort: 'High', status: 'identified', priority: 7, timeToValue: 24, confidence: 72 },
+  { name: 'eSocial & SPED Fiscal AI', category: 'Compliance', savings: 595_434_240, effort: 'Medium', status: 'identified', priority: 6, timeToValue: 12, confidence: 80 },
+  { name: 'BNDES Credit Analysis AI', category: 'Development Finance', savings: 446_575_680, effort: 'Medium', status: 'identified', priority: 5, timeToValue: 14, confidence: 76 },
 ];
 
 const brazilCurrentStack: CurrentTool[] = [
-  { name: 'GOV.BR Platform', category: 'Digital Government', annualCost: 480_000_000, users: 180_000, score: 7, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Citizen Services Portal', 'Digital Authentication', 'Service Registry'] },
-  { name: 'SIAFI', category: 'Federal Finance', annualCost: 320_000_000, users: 38_000, score: 5, integrationComplexity: 'High', migrationWeeks: 48, riskLevel: 'High', dependencies: ['Federal Budget Execution', 'Treasury Management', 'Financial Reporting'] },
-  { name: 'DATASUS / CNES', category: 'Health IT', annualCost: 860_000_000, users: 72_000, score: 4, integrationComplexity: 'High', migrationWeeks: 36, riskLevel: 'High', dependencies: ['Patient Records', 'Hospital Registry', 'Epidemiological Data', 'SUS Billing'] },
-  { name: 'SERPRO Data Centers', category: 'Infrastructure', annualCost: 1_200_000_000, users: 42_000, score: 5, integrationComplexity: 'High', migrationWeeks: 52, riskLevel: 'High', dependencies: ['Federal Data Processing', 'Mainframe Operations', 'CPF Registry', 'CNPJ Registry'] },
-  { name: 'eSocial', category: 'Labor Compliance', annualCost: 180_000_000, users: 28_000, score: 6, integrationComplexity: 'Medium', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Employer Compliance', 'Labor Registry', 'Social Security', 'FGTS'] },
-  { name: 'SPED Fiscal', category: 'Tax Documents', annualCost: 220_000_000, users: 38_000, score: 6, integrationComplexity: 'Medium', migrationWeeks: 20, riskLevel: 'Medium', dependencies: ['Electronic Invoicing', 'Tax Document Validation', 'State Tax Integration'] },
-  { name: 'BNDES FINEM/Automatico', category: 'Development Finance', annualCost: 140_000_000, users: 28_000, score: 5, integrationComplexity: 'High', migrationWeeks: 24, riskLevel: 'High', dependencies: ['Loan Processing', 'Project Evaluation', 'ESG Compliance', 'Disbursement'] },
-  { name: 'PostgreSQL / Oracle Mix', category: 'Database', annualCost: 80_000_000, users: 42_000, score: 6, integrationComplexity: 'Medium', migrationWeeks: 12, riskLevel: 'Medium', dependencies: ['Federal Databases', 'Registry Systems', 'Audit Logging'] },
+  { name: 'GOV.BR Platform', category: 'Digital Government', annualCost: 5_513_280_000, users: 180_000, score: 7, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Citizen Services Portal', 'Digital Authentication', 'Service Registry'] },
+  { name: 'SIAFI', category: 'Federal Finance', annualCost: 3_675_520_000, users: 38_000, score: 5, integrationComplexity: 'High', migrationWeeks: 48, riskLevel: 'High', dependencies: ['Federal Budget Execution', 'Treasury Management', 'Financial Reporting'] },
+  { name: 'DATASUS / CNES', category: 'Health IT', annualCost: 9_877_960_000, users: 72_000, score: 4, integrationComplexity: 'High', migrationWeeks: 36, riskLevel: 'High', dependencies: ['Patient Records', 'Hospital Registry', 'Epidemiological Data', 'SUS Billing'] },
+  { name: 'SERPRO Data Centers', category: 'Infrastructure', annualCost: 13_783_200_000, users: 42_000, score: 5, integrationComplexity: 'High', migrationWeeks: 52, riskLevel: 'High', dependencies: ['Federal Data Processing', 'Mainframe Operations', 'CPF Registry', 'CNPJ Registry'] },
+  { name: 'eSocial', category: 'Labor Compliance', annualCost: 2_067_480_000, users: 28_000, score: 6, integrationComplexity: 'Medium', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Employer Compliance', 'Labor Registry', 'Social Security', 'FGTS'] },
+  { name: 'SPED Fiscal', category: 'Tax Documents', annualCost: 2_526_920_000, users: 38_000, score: 6, integrationComplexity: 'Medium', migrationWeeks: 20, riskLevel: 'Medium', dependencies: ['Electronic Invoicing', 'Tax Document Validation', 'State Tax Integration'] },
+  { name: 'BNDES FINEM/Automatico', category: 'Development Finance', annualCost: 1_608_040_000, users: 28_000, score: 5, integrationComplexity: 'High', migrationWeeks: 24, riskLevel: 'High', dependencies: ['Loan Processing', 'Project Evaluation', 'ESG Compliance', 'Disbursement'] },
+  { name: 'PostgreSQL / Oracle Mix', category: 'Database', annualCost: 918_880_000, users: 42_000, score: 6, integrationComplexity: 'Medium', migrationWeeks: 12, riskLevel: 'Medium', dependencies: ['Federal Databases', 'Registry Systems', 'Audit Logging'] },
 ];
 
 const brazilLicenses: License[] = [
-  { vendor: 'SERPRO Mainframe Licenses', totalLicenses: 4_200, active90d: 2_800, inactive: 1_400, annualWaste: 101_110_000, action: 'Migrate 1,400 workloads to containerized gov cloud — mainframe decommission program', costPerLicense: 5_000, department: 'SERPRO / All Agencies', lastAuditDate: '2026-01-20', trend: [75, 70, 66, 62, 60, 62], complianceRisk: false },
-  { vendor: 'Oracle Database', totalLicenses: 1_800, active90d: 900, inactive: 900, annualWaste: 65_000_000, action: 'Migrate to PostgreSQL — Oracle license elimination across DATASUS and legacy systems', costPerLicense: 5_000, department: 'SUS / DATASUS', lastAuditDate: '2025-12-15', trend: [68, 60, 55, 50, 48, 50], complianceRisk: true },
-  { vendor: 'Microsoft 365 E5', totalLicenses: 80_000, active90d: 56_000, inactive: 24_000, annualWaste: 52_000_000, action: 'Downgrade 24,000 to E3 tier — E5 features unused by field office staff', costPerLicense: 150, department: 'All Agencies', lastAuditDate: '2026-02-05', trend: [88, 82, 78, 74, 72, 70], complianceRisk: false },
-  { vendor: 'Custom Legacy Systems (SUS/CNES)', totalLicenses: 320, active90d: 140, inactive: 180, annualWaste: 26_000_000, action: 'Decommission 180 legacy modules — replace with GOV.BR microservices', costPerLicense: 10_000, department: 'SUS / Health Ministry', lastAuditDate: '2025-11-01', trend: [62, 55, 48, 42, 40, 43], complianceRisk: true },
-  { vendor: 'VMware vSphere', totalLicenses: 1_200, active90d: 800, inactive: 400, annualWaste: 15_890_000, action: 'Migrate 400 VMs to containerized deployment on Kubernetes gov cloud', costPerLicense: 2_750, department: 'SERPRO Infrastructure', lastAuditDate: '2026-01-10', trend: [82, 76, 72, 68, 66, 67], complianceRisk: false },
+  { vendor: 'SERPRO Mainframe Licenses', totalLicenses: 4_200, active90d: 2_800, inactive: 1_400, annualWaste: 1_161_349_460, action: 'Migrate 1,400 workloads to containerized gov cloud — mainframe decommission program', costPerLicense: 5_000, department: 'SERPRO / All Agencies', lastAuditDate: '2026-01-20', trend: [75, 70, 66, 62, 60, 62], complianceRisk: false },
+  { vendor: 'Oracle Database', totalLicenses: 1_800, active90d: 900, inactive: 900, annualWaste: 746_590_000, action: 'Migrate to PostgreSQL — Oracle license elimination across DATASUS and legacy systems', costPerLicense: 5_000, department: 'SUS / DATASUS', lastAuditDate: '2025-12-15', trend: [68, 60, 55, 50, 48, 50], complianceRisk: true },
+  { vendor: 'Microsoft 365 E5', totalLicenses: 80_000, active90d: 56_000, inactive: 24_000, annualWaste: 597_272_000, action: 'Downgrade 24,000 to E3 tier — E5 features unused by field office staff', costPerLicense: 150, department: 'All Agencies', lastAuditDate: '2026-02-05', trend: [88, 82, 78, 74, 72, 70], complianceRisk: false },
+  { vendor: 'Custom Legacy Systems (SUS/CNES)', totalLicenses: 320, active90d: 140, inactive: 180, annualWaste: 298_636_000, action: 'Decommission 180 legacy modules — replace with GOV.BR microservices', costPerLicense: 10_000, department: 'SUS / Health Ministry', lastAuditDate: '2025-11-01', trend: [62, 55, 48, 42, 40, 43], complianceRisk: true },
+  { vendor: 'VMware vSphere', totalLicenses: 1_200, active90d: 800, inactive: 400, annualWaste: 182_512_540, action: 'Migrate 400 VMs to containerized deployment on Kubernetes gov cloud', costPerLicense: 2_750, department: 'SERPRO Infrastructure', lastAuditDate: '2026-01-10', trend: [82, 76, 72, 68, 66, 67], complianceRisk: false },
 ];
 
 const brazilWorkflowSummary = {
@@ -2519,17 +2519,17 @@ const brazilWorkflowSummary = {
   fullyAutomatable: 134,
   humanInLoop: 152,
   humanRequired: 94,
-  currentLaborSpend: 4_620_000_000,
-  potentialSavings: 490_000_000,
+  currentLaborSpend: 53_065_320_000,
+  potentialSavings: 5_628_140_000,
 };
 
 const brazilRoiSummary = {
-  techStackSavings: 320_000_000,
-  workflowAutomation: 490_000_000,
-  licenseRecovery: 260_000_000,
-  implementationCosts: 350_000_000,
-  netYear1: 720_000_000,
-  year2Projected: 1_224_000_000,
+  techStackSavings: 3_675_520_000,
+  workflowAutomation: 5_628_140_000,
+  licenseRecovery: 2_986_360_000,
+  implementationCosts: 4_020_100_000,
+  netYear1: 8_269_920_000,
+  year2Projected: 14_058_864_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
