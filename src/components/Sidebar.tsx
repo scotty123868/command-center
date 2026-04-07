@@ -9,7 +9,6 @@ import {
   BookOpen,
   TrendingUp,
   ChevronDown,
-  Zap,
   Sparkles,
   X,
   Building2,
@@ -133,11 +132,6 @@ export default function Sidebar({ onNavClick, onClose }: { onNavClick?: () => vo
       {/* ── Brand ─────────────────────────────────── */}
       <div className="relative px-5 pt-6 pb-2">
         <div className="flex items-center gap-2.5">
-          {/* Logo mark */}
-          <div className="w-7 h-7 rounded-lg bg-accent/90 flex items-center justify-center flex-shrink-0">
-            <Zap className="w-3.5 h-3.5 text-white" strokeWidth={2.2} fill="currentColor" />
-          </div>
-
           {/* Wordmark */}
           <div className="flex items-baseline gap-0">
             <span
