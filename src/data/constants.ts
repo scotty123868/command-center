@@ -2580,7 +2580,7 @@ const brReceitaRoadmapPhases = [
     weekPlan: [
       { week: 1, task: 'e-MTA portal AI gateway deployment for automated return processing', owner: 'Tax IT Director' },
       { week: 2, task: 'Income tax verification model training on 680,000 historical returns', owner: 'Tax Analytics Lead' },
-      { week: 3, task: 'VAT cross-border reconciliation AI pilot with EU partner states', owner: 'VAT Compliance Manager' },
+      { week: 3, task: 'VAT cross-border reconciliation AI pilot with Mercosul partner states', owner: 'VAT Compliance Manager' },
       { week: 4, task: 'Q1 checkpoint: automated verification covering 40% of personal income returns', owner: 'Tax IT Director' },
     ],
   },
@@ -2610,14 +2610,14 @@ const brReceitaRoadmapPhases = [
   },
   {
     quarter: 'Q4 2026',
-    title: 'Full Tax Automation & EU Reporting',
-    items: ['End-to-end tax processing', 'EU DAC7/DAC8 compliance', 'Citizen tax assistant'],
+    title: 'Full Tax Automation & OECD Reporting',
+    items: ['End-to-end tax processing', 'OECD CRS / Common Reporting Standard compliance', 'Citizen tax assistant'],
     status: 'upcoming' as const,
     weekPlan: [
       { week: 13, task: 'End-to-end automated tax processing: 95% of returns processed without human intervention', owner: 'Tax IT Director' },
-      { week: 14, task: 'EU DAC7/DAC8 automated reporting for platform economy and crypto-asset transactions', owner: 'International Tax Lead' },
+      { week: 14, task: 'OECD CRS / Common Reporting Standard automated reporting for platform economy and crypto-asset transactions', owner: 'International Tax Lead' },
       { week: 15, task: 'AI citizen tax assistant: natural language tax filing support in Portuguese, Spanish, English', owner: 'Citizen Services Lead' },
-      { week: 16, task: 'Annual review: €2.2M savings confirmed, AI readiness 95, EU compliance showcase', owner: 'CFO, Ministry of Finance' },
+      { week: 16, task: 'Annual review: $2.2M savings confirmed, AI readiness 95, Mercosul compliance showcase', owner: 'CFO, Ministry of Finance' },
     ],
   },
 ];
@@ -2634,9 +2634,9 @@ const brReceitaTopOpportunities: Opportunity[] = [
 const brReceitaCurrentStack: CurrentTool[] = [
   { name: 'SAP FICO', category: 'Financial ERP', annualCost: 86_000_000, users: 8_400, score: 6, integrationComplexity: 'High', migrationWeeks: 20, riskLevel: 'High', dependencies: ['Budget Management', 'General Ledger', 'Financial Reporting'] },
   { name: 'e-MTA Portal', category: 'Tax Platform', annualCost: 64_000_000, users: 18_000, score: 8, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Tax Filing', 'Return Processing', 'Taxpayer Registry'] },
-  { name: 'X-Road (Finance)', category: 'Data Exchange', annualCost: 28_000_000, users: 12_400, score: 8, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Cross-Ministry Data', 'Bank Integrations', 'EU Tax Exchange'] },
+  { name: 'GOV.BR Interoperability (Finance)', category: 'Data Exchange', annualCost: 28_000_000, users: 12_400, score: 8, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Cross-Ministry Data', 'Bank Integrations', 'Mercosul Tax Exchange'] },
   { name: 'Oracle BI', category: 'Analytics', annualCost: 38_000_000, users: 3_200, score: 5, integrationComplexity: 'Medium', migrationWeeks: 12, riskLevel: 'Medium', dependencies: ['Revenue Dashboards', 'Budget Reports', 'Audit Analytics'] },
-  { name: 'Customs Declaration System', category: 'Customs', annualCost: 52_000_000, users: 2_800, score: 4, integrationComplexity: 'High', migrationWeeks: 16, riskLevel: 'High', dependencies: ['Import/Export Processing', 'Tariff Classification', 'EU NCTS'] },
+  { name: 'Customs Declaration System', category: 'Customs', annualCost: 52_000_000, users: 2_800, score: 4, integrationComplexity: 'High', migrationWeeks: 16, riskLevel: 'High', dependencies: ['Import/Export Processing', 'Tariff Classification', 'Mercosul Customs Transit'] },
   { name: 'PostgreSQL', category: 'Database', annualCost: 18_000_000, users: 4_200, score: 7, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['Tax Records', 'Audit Trails', 'Reporting Data'] },
 ];
 
@@ -2644,7 +2644,7 @@ const brReceitaLicenses: License[] = [
   { vendor: 'SAP FICO Suite', totalLicenses: 8_400, active90d: 6_200, inactive: 2_200, annualWaste: 203_800_000, action: 'Reclaim 2,200 inactive seats and consolidate to S/4HANA Finance', costPerLicense: 15_000, department: 'Ministry of Finance', lastAuditDate: '2026-01-15', trend: [78, 74, 72, 70, 68, 74], complianceRisk: false },
   { vendor: 'Oracle BI Enterprise', totalLicenses: 3_200, active90d: 1_800, inactive: 1_400, annualWaste: 121_100_000, action: 'Migrate 1,400 seats to open-source Metabase or Superset', costPerLicense: 14_000, department: 'Budget Analytics Division', lastAuditDate: '2025-12-20', trend: [72, 66, 60, 56, 54, 56], complianceRisk: true },
   { vendor: 'Microsoft 365 E3', totalLicenses: 42_000, active90d: 36_000, inactive: 6_000, annualWaste: 66_700_000, action: 'Downgrade 6,000 seats to F3 frontline tier', costPerLicense: 1_800, department: 'All Finance Divisions', lastAuditDate: '2026-02-01', trend: [90, 86, 84, 82, 80, 86], complianceRisk: false },
-  { vendor: 'Customs Legacy Modules', totalLicenses: 280, active90d: 140, inactive: 140, annualWaste: 28_400_000, action: 'Decommission legacy customs modules — migrate to EU NCTS Phase 5', costPerLicense: 32_860, department: 'Customs IT', lastAuditDate: '2025-11-10', trend: [58, 52, 48, 44, 42, 50], complianceRisk: true },
+  { vendor: 'Customs Legacy Modules', totalLicenses: 280, active90d: 140, inactive: 140, annualWaste: 28_400_000, action: 'Decommission legacy customs modules — migrate to Mercosul Customs Transit Phase 5', costPerLicense: 32_860, department: 'Customs IT', lastAuditDate: '2025-11-10', trend: [58, 52, 48, 44, 42, 50], complianceRisk: true },
 ];
 
 const brReceitaWorkflowSummary = {
@@ -2708,13 +2708,13 @@ const brSusRoadmapPhases = [
   {
     quarter: 'Q1 2026',
     title: 'Health Records AI Integration',
-    items: ['TEHIK AI diagnostic support', 'Patient timeline unification', 'Prescription fraud detection'],
+    items: ['DATASUS AI diagnostic support', 'Patient timeline unification', 'Prescription fraud detection'],
     status: 'active' as const,
     weekPlan: [
-      { week: 1, task: 'TEHIK health information system AI gateway — enabling cross-provider patient data analysis', owner: 'TEHIK Director' },
+      { week: 1, task: 'DATASUS health information system AI gateway — enabling cross-provider patient data analysis', owner: 'DATASUS Director' },
       { week: 2, task: 'Patient timeline unification: merging records from 400+ providers into single longitudinal view', owner: 'Health IT Architect' },
-      { week: 3, task: 'Prescription fraud detection model training on 5 years of dispensing data', owner: 'Health Insurance Fund IT' },
-      { week: 4, task: 'Q1 checkpoint: unified patient timeline operational for 50 pilot clinics', owner: 'TEHIK Director' },
+      { week: 3, task: 'Prescription fraud detection model training on 5 years of dispensing data', owner: 'SUS Federal Health Fund IT' },
+      { week: 4, task: 'Q1 checkpoint: unified patient timeline operational for 50 pilot clinics', owner: 'DATASUS Director' },
     ],
   },
   {
@@ -2723,7 +2723,7 @@ const brSusRoadmapPhases = [
     items: ['Automated eligibility verification', 'Benefits fraud detection', 'Case priority scoring'],
     status: 'upcoming' as const,
     weekPlan: [
-      { week: 5, task: 'Automated benefits eligibility verification via X-Road cross-registry lookups', owner: 'Social Welfare IT Lead' },
+      { week: 5, task: 'Automated benefits eligibility verification via GOV.BR cross-registry lookups', owner: 'Social Welfare IT Lead' },
       { week: 6, task: 'Benefits fraud detection AI: pattern analysis across pension, disability, and child benefits', owner: 'Fraud Prevention Unit' },
       { week: 7, task: 'Social worker case priority scoring — AI-assisted urgency triage for 12,000 active cases', owner: 'Case Management Director' },
       { week: 8, task: 'Mid-year review: eligibility processing time reduced 60%, fraud detection rate up 150%', owner: 'Deputy Minister, Social Affairs' },
@@ -2738,19 +2738,19 @@ const brSusRoadmapPhases = [
       { week: 9, task: 'Population health risk model: predicting chronic disease onset for preventive intervention', owner: 'Public Health Director' },
       { week: 10, task: 'Early intervention alert system for at-risk families and vulnerable populations', owner: 'Social Welfare IT Lead' },
       { week: 11, task: 'Hospital resource allocation AI: bed management, staffing, and equipment optimization', owner: 'Hospital Network Director' },
-      { week: 12, task: 'Q3 review: preventive interventions increased 40%, hospital wait times reduced 25%', owner: 'TEHIK Director' },
+      { week: 12, task: 'Q3 review: preventive interventions increased 40%, hospital wait times reduced 25%', owner: 'DATASUS Director' },
     ],
   },
   {
     quarter: 'Q4 2026',
     title: 'Citizen Health Portal & Full Automation',
-    items: ['AI health assistant', 'Automated referral processing', 'EU health data space compliance'],
+    items: ['AI health assistant', 'Automated referral processing', 'Pan-American Health Data Space compliance'],
     status: 'upcoming' as const,
     weekPlan: [
       { week: 13, task: 'AI citizen health assistant: symptom checker, appointment booking, medication reminders', owner: 'Citizen Health Services Lead' },
       { week: 14, task: 'Automated referral processing: GP to specialist routing with AI-suggested pathways', owner: 'Primary Care IT Lead' },
-      { week: 15, task: 'EU European Health Data Space (EHDS) compliance and cross-border health record exchange', owner: 'EU Compliance Officer' },
-      { week: 16, task: 'Annual review: €2.8M savings confirmed, 93 AI readiness, 42 workflows automated', owner: 'Deputy Minister, Social Affairs' },
+      { week: 15, task: 'Pan-American Health Data Space (EHDS) compliance and cross-border health record exchange', owner: 'Mercosul Compliance Officer' },
+      { week: 16, task: 'Annual review: $2.8M savings confirmed, 93 AI readiness, 42 workflows automated', owner: 'Deputy Minister, Social Affairs' },
     ],
   },
 ];
@@ -2767,15 +2767,15 @@ const brSusTopOpportunities: Opportunity[] = [
 const brSusCurrentStack: CurrentTool[] = [
   { name: 'DATASUS Core Platform', category: 'Health Information', annualCost: 86_000_000, users: 82_000, score: 7, integrationComplexity: 'Medium', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Patient Records', 'Prescription System', 'Lab Results'] },
   { name: 'Social Welfare Legacy', category: 'Case Management', annualCost: 32_000_000, users: 18_400, score: 3, integrationComplexity: 'High', migrationWeeks: 28, riskLevel: 'High', dependencies: ['Benefits Processing', 'Case Tracking', 'Eligibility Verification'] },
-  { name: 'Health Insurance Fund IS', category: 'Insurance', annualCost: 48_000_000, users: 12_000, score: 6, integrationComplexity: 'Medium', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Claims Processing', 'Provider Payments', 'Coverage Verification'] },
-  { name: 'X-Road (Social)', category: 'Data Exchange', annualCost: 22_000_000, users: 18_400, score: 8, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Cross-Registry Lookups', 'Benefit Verification', 'Health Data Exchange'] },
+  { name: 'SUS Federal Health Fund IS', category: 'Insurance', annualCost: 48_000_000, users: 12_000, score: 6, integrationComplexity: 'Medium', migrationWeeks: 16, riskLevel: 'Medium', dependencies: ['Claims Processing', 'Provider Payments', 'Coverage Verification'] },
+  { name: 'GOV.BR Interoperability (Social)', category: 'Data Exchange', annualCost: 22_000_000, users: 18_400, score: 8, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Cross-Registry Lookups', 'Benefit Verification', 'Health Data Exchange'] },
   { name: 'Pension Registry', category: 'Pension Management', annualCost: 38_000_000, users: 4_200, score: 5, integrationComplexity: 'Medium', migrationWeeks: 12, riskLevel: 'Medium', dependencies: ['Pension Calculations', 'Benefit Disbursement', 'Retirement Processing'] },
   { name: 'PostgreSQL', category: 'Database', annualCost: 14_000_000, users: 8_400, score: 7, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['Social Welfare Data', 'Benefits Records', 'Case History'] },
 ];
 
 const brSusLicenses: License[] = [
   { vendor: 'Social Welfare Legacy Suite', totalLicenses: 18_400, active90d: 12_200, inactive: 6_200, annualWaste: 264_800_000, action: 'Replace legacy system with modern case management platform', costPerLicense: 3_500, department: 'Social Welfare Division', lastAuditDate: '2025-12-01', trend: [72, 68, 64, 62, 60, 65], complianceRisk: true },
-  { vendor: 'Health Insurance Fund IS', totalLicenses: 12_000, active90d: 8_800, inactive: 3_200, annualWaste: 161_400_000, action: 'Consolidate 3,200 inactive seats, modernize claims processing', costPerLicense: 8_000, department: 'Health Insurance Fund', lastAuditDate: '2026-01-20', trend: [80, 76, 74, 72, 70, 73], complianceRisk: false },
+  { vendor: 'SUS Federal Health Fund IS', totalLicenses: 12_000, active90d: 8_800, inactive: 3_200, annualWaste: 161_400_000, action: 'Consolidate 3,200 inactive seats, modernize claims processing', costPerLicense: 8_000, department: 'SUS Federal Health Fund', lastAuditDate: '2026-01-20', trend: [80, 76, 74, 72, 70, 73], complianceRisk: false },
   { vendor: 'Microsoft 365 E3', totalLicenses: 84_000, active90d: 72_000, inactive: 12_000, annualWaste: 90_800_000, action: 'Downgrade 12,000 inactive seats to F1 tier', costPerLicense: 1_200, department: 'All Social Affairs', lastAuditDate: '2026-02-10', trend: [88, 86, 84, 82, 80, 86], complianceRisk: false },
   { vendor: 'Pension Registry Modules', totalLicenses: 4_200, active90d: 3_200, inactive: 1_000, annualWaste: 63_000_000, action: 'Retire 1,000 unused modules, migrate to unified benefits platform', costPerLicense: 10_000, department: 'Pension Division', lastAuditDate: '2025-11-15', trend: [82, 78, 76, 74, 72, 76], complianceRisk: false },
 ];
@@ -2856,7 +2856,7 @@ const brBndesRoadmapPhases = [
     items: ['Automated trade compliance', 'Export license processing', 'Customs AI integration'],
     status: 'upcoming' as const,
     weekPlan: [
-      { week: 5, task: 'Automated trade compliance checks against EU sanctions lists and dual-use regulations', owner: 'Trade Compliance Director' },
+      { week: 5, task: 'Automated trade compliance checks against Mercosul and OECD sanctions lists and dual-use regulations', owner: 'Trade Compliance Director' },
       { week: 6, task: 'Export license AI processing: document analysis and risk scoring for controlled goods', owner: 'Export Control IT Lead' },
       { week: 7, task: 'Customs AI integration: automated tariff classification and origin determination', owner: 'Customs Modernization Lead' },
       { week: 8, task: 'Mid-year review: trade processing time reduced 50%, compliance accuracy improved to 99.2%', owner: 'Deputy Minister, Economic Affairs' },
@@ -2877,13 +2877,13 @@ const brBndesRoadmapPhases = [
   {
     quarter: 'Q4 2026',
     title: 'Full Digital Economy Platform',
-    items: ['Unified business services portal', 'Cross-border trade AI', 'EU Digital Markets compliance'],
+    items: ['Unified business services portal', 'Cross-border trade AI', 'Marco Civil compliance'],
     status: 'upcoming' as const,
     weekPlan: [
       { week: 13, task: 'Unified business services portal: single AI-powered entry point for all economic affairs services', owner: 'Digital Economy IT Lead' },
       { week: 14, task: 'Cross-border trade AI: automated documentation and compliance for 150+ trading partners', owner: 'Trade Compliance Director' },
-      { week: 15, task: 'EU Digital Markets Act compliance monitoring: automated platform regulation enforcement', owner: 'EU Compliance Officer' },
-      { week: 16, task: 'Annual review: €1.6M savings confirmed, 95 AI readiness, trade digitization showcase', owner: 'Deputy Minister, Economic Affairs' },
+      { week: 15, task: 'Marco Civil da Internet compliance monitoring: automated platform regulation enforcement', owner: 'Mercosul Compliance Officer' },
+      { week: 16, task: 'Annual review: $1.6M savings confirmed, 95 AI readiness, trade digitization showcase', owner: 'Deputy Minister, Economic Affairs' },
     ],
   },
 ];
@@ -2901,7 +2901,7 @@ const brBndesCurrentStack: CurrentTool[] = [
   { name: 'BNDES Core Banking Platform', category: 'Development Banking', annualCost: 92_000_000, users: 24_000, score: 9, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Loan Origination', 'Credit Analysis', 'Disbursement'] },
   { name: 'FINEM/Automatico Loan System', category: 'Loan Processing', annualCost: 48_000_000, users: 12_400, score: 7, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['Project Evaluation', 'ESG Compliance', 'Disbursement Tracking'] },
   { name: 'Trade Compliance System', category: 'Trade', annualCost: 36_000_000, users: 4_800, score: 5, integrationComplexity: 'Medium', migrationWeeks: 14, riskLevel: 'Medium', dependencies: ['Sanctions Screening', 'Export Controls', 'Customs Declarations'] },
-  { name: 'X-Road (Economic)', category: 'Data Exchange', annualCost: 24_000_000, users: 16_200, score: 8, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Cross-Ministry Data', 'Business Verification', 'Tax Data Exchange'] },
+  { name: 'GOV.BR Interoperability (Economic)', category: 'Data Exchange', annualCost: 24_000_000, users: 16_200, score: 8, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Cross-Ministry Data', 'Business Verification', 'Tax Data Exchange'] },
   { name: 'Startup Brazil Portal', category: 'Innovation', annualCost: 22_000_000, users: 12_000, score: 7, integrationComplexity: 'Low', migrationWeeks: 6, riskLevel: 'Low', dependencies: ['Grant Applications', 'Startup Directory', 'Mentor Matching'] },
   { name: 'PostgreSQL', category: 'Database', annualCost: 14_000_000, users: 5_200, score: 7, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['Trade Records', 'Business Data', 'Economic Statistics'] },
 ];
@@ -2974,12 +2974,12 @@ const brSerproRoadmapPhases = [
   {
     quarter: 'Q1 2026',
     title: 'AI-Powered Threat Detection',
-    items: ['SIEM AI enhancement', 'Automated threat hunting', 'X-Road anomaly detection'],
+    items: ['SIEM AI enhancement', 'Automated threat hunting', 'GOV.BR Bus anomaly detection'],
     status: 'active' as const,
     weekPlan: [
       { week: 1, task: 'SIEM AI model deployment: real-time threat classification on 2M+ daily events', owner: 'SOC Director' },
       { week: 2, task: 'Automated threat hunting: AI-driven proactive scanning across all government network segments', owner: 'Threat Intelligence Lead' },
-      { week: 3, task: 'X-Road anomaly detection: AI monitoring of data exchange patterns for 900+ connected services', owner: 'X-Road Security Lead' },
+      { week: 3, task: 'GOV.BR Bus anomaly detection: AI monitoring of data exchange patterns for 900+ connected services', owner: 'GOV.BR Security Lead' },
       { week: 4, task: 'Q1 checkpoint: mean time to detect (MTTD) reduced from 4 hours to 12 minutes', owner: 'SOC Director' },
     ],
   },
@@ -3003,7 +3003,7 @@ const brSerproRoadmapPhases = [
     weekPlan: [
       { week: 9, task: 'SOAR playbook AI: automated incident response for 80% of common attack patterns', owner: 'Incident Response Lead' },
       { week: 10, task: 'Automated digital forensics: AI-assisted evidence collection and timeline reconstruction', owner: 'Forensics Team Lead' },
-      { week: 11, task: 'Cross-border threat sharing: AI-curated threat intel exchange with NATO CCDCOE and EU CERT', owner: 'Threat Intelligence Lead' },
+      { week: 11, task: 'Cross-border threat sharing: AI-curated threat intel exchange with Inter-American Cyber Defense Forum and CERT.br', owner: 'Threat Intelligence Lead' },
       { week: 12, task: 'Q3 review: mean time to respond (MTTR) reduced from 6 hours to 45 minutes', owner: 'SOC Director' },
     ],
   },
@@ -3031,11 +3031,11 @@ const brSerproTopOpportunities: Opportunity[] = [
 ];
 
 const brSerproCurrentStack: CurrentTool[] = [
-  { name: 'X-Road 7.0 (Core)', category: 'Data Exchange', annualCost: 96_000_000, users: 4_800, score: 9, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Government Data Exchange', 'Service Registry', 'API Gateway'] },
+  { name: 'GOV.BR Interoperability Bus', category: 'Data Exchange', annualCost: 96_000_000, users: 4_800, score: 9, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Government Data Exchange', 'Service Registry', 'API Gateway'] },
   { name: 'Splunk SIEM', category: 'Security Monitoring', annualCost: 64_000_000, users: 1_200, score: 7, integrationComplexity: 'Medium', migrationWeeks: 8, riskLevel: 'Medium', dependencies: ['Log Aggregation', 'Threat Detection', 'Compliance Monitoring'] },
   { name: 'Palo Alto SOAR', category: 'Incident Response', annualCost: 32_000_000, users: 600, score: 7, integrationComplexity: 'Medium', migrationWeeks: 6, riskLevel: 'Medium', dependencies: ['Playbook Automation', 'Incident Orchestration', 'Alert Triage'] },
   { name: 'Tenable.io', category: 'Vulnerability Scanning', annualCost: 19_000_000, users: 800, score: 6, integrationComplexity: 'Low', migrationWeeks: 4, riskLevel: 'Low', dependencies: ['Asset Discovery', 'CVE Scanning', 'Risk Scoring'] },
-  { name: 'eID Infrastructure', category: 'Identity', annualCost: 128_000_000, users: 4_800, score: 9, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Citizen Authentication', 'Digital Signatures', 'Smart-ID'] },
+  { name: 'ICP-Brasil PKI', category: 'Identity', annualCost: 128_000_000, users: 4_800, score: 9, integrationComplexity: 'Low', migrationWeeks: 0, riskLevel: 'Low', dependencies: ['Citizen Authentication', 'Digital Signatures', 'Smart-ID'] },
   { name: 'CrowdStrike Falcon', category: 'Endpoint Security', annualCost: 14_400_000, users: 140_000, score: 8, integrationComplexity: 'Low', migrationWeeks: 2, riskLevel: 'Low', dependencies: ['Endpoint Detection', 'Threat Response', 'Device Management'] },
 ];
 
@@ -4852,7 +4852,7 @@ const nbHealthAiAgents: AIAgent[] = [
 
 const brazilAiAgents: AIAgent[] = [
   { name: 'Governance AI', subtitle: 'Policy Compliance', accuracy: 94.3, metric2Label: 'Policy Gap Rate', metric2Value: 2.1, metric3Label: 'Scan Cycle', metric3Value: '2.4 hrs', overrideRate: 7.8, confidenceThreshold: 0.89, status: 'active', lastmileAgentId: 'governance-ai' },
-  { name: 'X-Road Monitor', subtitle: 'Infrastructure Health', accuracy: 98.1, metric2Label: 'Service Miss', metric2Value: 0.7, metric3Label: 'Check Interval', metric3Value: '30s', overrideRate: 3.2, confidenceThreshold: 0.96, status: 'active', lastmileAgentId: 'x-road-monitor' },
+  { name: 'GOV.BR Bus Monitor', subtitle: 'Infrastructure Health', accuracy: 98.1, metric2Label: 'Service Miss', metric2Value: 0.7, metric3Label: 'Check Interval', metric3Value: '30s', overrideRate: 3.2, confidenceThreshold: 0.96, status: 'active', lastmileAgentId: 'x-road-monitor' },
   { name: 'Citizen Portal AI', subtitle: 'Service Optimization', accuracy: 91.7, metric2Label: 'Routing Error', metric2Value: 3.4, metric3Label: 'Response Time', metric3Value: '1.2s', overrideRate: 10.6, confidenceThreshold: 0.86, status: 'active', lastmileAgentId: 'citizen-portal-ai' },
   { name: 'Budget Forecast AI', subtitle: 'Fiscal Planning', accuracy: 87.9, metric2Label: 'Forecast Variance', metric2Value: 5.6, metric3Label: 'Planning Horizon', metric3Value: '12 months', overrideRate: 15.1, confidenceThreshold: 0.81, status: 'piloting', lastmileAgentId: 'budget-forecast-ai' },
   { name: 'Legislative Impact Analyzer', subtitle: 'Policy Modeling', accuracy: 83.4, metric2Label: 'Impact Mispredict', metric2Value: 7.8, metric3Label: 'Analysis Time', metric3Value: '18 min', overrideRate: 19.7, confidenceThreshold: 0.76, status: 'planned', lastmileAgentId: 'legislative-impact-analyzer' },
@@ -4884,7 +4884,7 @@ const brBndesAiAgents: AIAgent[] = [
 
 const brSerproAiAgents: AIAgent[] = [
   { name: 'Threat Hunter', subtitle: 'Cyber Threat Detection', accuracy: 97.6, metric2Label: 'Threat Miss Rate', metric2Value: 0.8, metric3Label: 'Detection Speed', metric3Value: '0.1s', overrideRate: 3.6, confidenceThreshold: 0.95, status: 'active', lastmileAgentId: 'threat-hunter' },
-  { name: 'X-Road Health', subtitle: 'Service Monitoring', accuracy: 99.2, metric2Label: 'Downtime Miss', metric2Value: 0.3, metric3Label: 'Check Interval', metric3Value: '15s', overrideRate: 2.1, confidenceThreshold: 0.97, status: 'active', lastmileAgentId: 'x-road-health' },
+  { name: 'GOV.BR Health Monitor', subtitle: 'Service Monitoring', accuracy: 99.2, metric2Label: 'Downtime Miss', metric2Value: 0.3, metric3Label: 'Check Interval', metric3Value: '15s', overrideRate: 2.1, confidenceThreshold: 0.97, status: 'active', lastmileAgentId: 'x-road-health' },
   { name: 'Incident AI', subtitle: 'Incident Response', accuracy: 94.8, metric2Label: 'Severity Misclass', metric2Value: 2.1, metric3Label: 'Response Time', metric3Value: '4.2s', overrideRate: 6.7, confidenceThreshold: 0.91, status: 'active', lastmileAgentId: 'incident-ai' },
   { name: 'Vulnerability Scanner AI', subtitle: 'Vuln Detection', accuracy: 92.3, metric2Label: 'False Positive', metric2Value: 3.6, metric3Label: 'Scan Cycle', metric3Value: '30 min', overrideRate: 9.8, confidenceThreshold: 0.87, status: 'piloting', lastmileAgentId: 'vulnerability-scanner-ai' },
   { name: 'Digital Identity Verifier', subtitle: 'eID Validation', accuracy: 98.7, metric2Label: 'Verification Error', metric2Value: 0.4, metric3Label: 'Verify Time', metric3Value: '0.3s', overrideRate: 2.8, confidenceThreshold: 0.96, status: 'active', lastmileAgentId: 'digital-identity-verifier' },
@@ -5002,42 +5002,42 @@ const nbHealthDataSources: IntegrationDataSource[] = [
 // ═══════════════════════════════════════════════════════════════════════════════
 
 const brazilDataSources: IntegrationDataSource[] = [
-  { system: 'X-Road Platform', division: 'National Data Exchange', recordsAnalyzed: '1.2B annual queries', coverage: 99, status: 'Complete' },
-  { system: 'gov.br Portal', division: 'Citizen Services', recordsAnalyzed: '1.3M registered users', coverage: 96, status: 'Complete' },
-  { system: 'Population Registry', division: 'Demographics', recordsAnalyzed: '1.34M citizen records', coverage: 100, status: 'Complete' },
-  { system: 'State Budget System', division: 'Fiscal Management', recordsAnalyzed: '8,400 budget items', coverage: 92, status: 'Complete' },
-  { system: 'RIHA Information System', division: 'IT Governance', recordsAnalyzed: '2,400 state IT systems', coverage: 88, status: 'In Progress' },
+  { system: 'GOV.BR Interoperability Bus', division: 'National Data Exchange', recordsAnalyzed: '24B annual API calls', coverage: 99, status: 'Complete' },
+  { system: 'gov.br Portal', division: 'Citizen Services', recordsAnalyzed: '180M registered citizens', coverage: 96, status: 'Complete' },
+  { system: 'CPF/CNPJ National Registry', division: 'Demographics', recordsAnalyzed: '215M citizens + 56M companies', coverage: 100, status: 'Complete' },
+  { system: 'SIAFI Federal Budget System', division: 'Fiscal Management', recordsAnalyzed: '240,000 budget line items', coverage: 92, status: 'Complete' },
+  { system: 'SISP IT Asset Catalog', division: 'IT Governance', recordsAnalyzed: '5,800 federal IT systems', coverage: 88, status: 'In Progress' },
 ];
 
 const brReceitaDataSources: IntegrationDataSource[] = [
-  { system: 'EMTA Tax System', division: 'Tax Administration', recordsAnalyzed: '680,000 taxpayers', coverage: 98, status: 'Complete' },
-  { system: 'e-Customs Platform', division: 'Customs & Excise', recordsAnalyzed: '420,000 declarations', coverage: 95, status: 'Complete' },
-  { system: 'State Treasury System', division: 'Treasury Management', recordsAnalyzed: '2.4M payment records', coverage: 93, status: 'Complete' },
-  { system: 'Audit Trail Database', division: 'Internal Audit', recordsAnalyzed: '12,800 audit records', coverage: 89, status: 'Complete' },
-  { system: 'EU Reporting Gateway', division: 'EU Compliance', recordsAnalyzed: '840 regulatory filings', coverage: 91, status: 'Complete' },
+  { system: 'SPED Fiscal System', division: 'Tax Administration', recordsAnalyzed: '680,000 taxpayers', coverage: 98, status: 'Complete' },
+  { system: 'Siscomex Customs Platform', division: 'Customs & Excise', recordsAnalyzed: '420,000 declarations', coverage: 95, status: 'Complete' },
+  { system: 'STN National Treasury System', division: 'Treasury Management', recordsAnalyzed: '2.4M payment records', coverage: 93, status: 'Complete' },
+  { system: 'TCU Audit Trail Database', division: 'Internal Audit', recordsAnalyzed: '12,800 audit records', coverage: 89, status: 'Complete' },
+  { system: 'Mercosul Reporting Gateway', division: 'Mercosul Compliance', recordsAnalyzed: '840 regulatory filings', coverage: 91, status: 'Complete' },
 ];
 
 const brSusDataSources: IntegrationDataSource[] = [
-  { system: 'SKAIS Social System', division: 'Benefits Administration', recordsAnalyzed: '480,000 beneficiaries', coverage: 97, status: 'Complete' },
-  { system: 'Health Insurance Fund', division: 'Health Coverage', recordsAnalyzed: '1.28M insured persons', coverage: 96, status: 'Complete' },
+  { system: 'SUAS Federal Social System', division: 'Benefits Administration', recordsAnalyzed: '480,000 beneficiaries', coverage: 97, status: 'Complete' },
+  { system: 'SUS Federal Health Fund', division: 'Health Coverage', recordsAnalyzed: '1.28M insured persons', coverage: 96, status: 'Complete' },
   { system: 'Pension Registry', division: 'Pension Management', recordsAnalyzed: '620,000 pension records', coverage: 94, status: 'Complete' },
   { system: 'Case Management DB', division: 'Social Services', recordsAnalyzed: '86,000 active cases', coverage: 90, status: 'Complete' },
   { system: 'Unemployment Registry', division: 'Employment Services', recordsAnalyzed: '42,000 job seekers', coverage: 88, status: 'In Progress' },
 ];
 
 const brBndesDataSources: IntegrationDataSource[] = [
-  { system: 'Trade Registry', division: 'Business Registration', recordsAnalyzed: '240,000 companies', coverage: 99, status: 'Complete' },
-  { system: 'GOV.BR Digital Platform', division: 'Digital Residency', recordsAnalyzed: '108,000 e-residents', coverage: 97, status: 'Complete' },
-  { system: 'IBGE Statistics', division: 'Economic Statistics', recordsAnalyzed: '4.2M data points', coverage: 93, status: 'Complete' },
-  { system: 'Investment Gateway', division: 'FDI Tracking', recordsAnalyzed: '2,400 investment records', coverage: 86, status: 'In Progress' },
-  { system: 'EU Funds Portal', division: 'Structural Funds', recordsAnalyzed: '1,800 grant applications', coverage: 91, status: 'Complete' },
+  { system: 'Cadastro Empresarial Federal', division: 'Business Registration', recordsAnalyzed: '8.4M active CNPJs', coverage: 99, status: 'Complete' },
+  { system: 'GOV.BR Citizen Platform', division: 'Business Identity', recordsAnalyzed: '8.4M registered businesses', coverage: 97, status: 'Complete' },
+  { system: 'IBGE Statistics', division: 'Economic Statistics', recordsAnalyzed: '1.8B economic data points', coverage: 93, status: 'Complete' },
+  { system: 'ApexBrasil Investment Gateway', division: 'FDI Tracking', recordsAnalyzed: '62,000 investment records', coverage: 86, status: 'In Progress' },
+  { system: 'BNDES Funds Portal', division: 'Development Finance', recordsAnalyzed: '42,000 active grant programs', coverage: 91, status: 'Complete' },
 ];
 
 const brSerproDataSources: IntegrationDataSource[] = [
-  { system: 'X-Road Security Layer', division: 'Infrastructure Security', recordsAnalyzed: '48M daily auth events', coverage: 99, status: 'Complete' },
-  { system: 'CERT-EE Threat Feed', division: 'Cyber Threat Intel', recordsAnalyzed: '2.4M threat indicators', coverage: 96, status: 'Complete' },
-  { system: 'eID Infrastructure', division: 'Digital Identity', recordsAnalyzed: '1.34M active certificates', coverage: 98, status: 'Complete' },
-  { system: 'State Network Monitor', division: 'Network Operations', recordsAnalyzed: '12,000 network nodes', coverage: 94, status: 'Complete' },
+  { system: 'GOV.BR Security Gateway', division: 'Infrastructure Security', recordsAnalyzed: '48M daily auth events', coverage: 99, status: 'Complete' },
+  { system: 'CERT.br Threat Feed', division: 'Cyber Threat Intel', recordsAnalyzed: '2.4M threat indicators', coverage: 96, status: 'Complete' },
+  { system: 'ICP-Brasil PKI', division: 'Digital Identity', recordsAnalyzed: '85M active ICP-Brasil certificates', coverage: 98, status: 'Complete' },
+  { system: 'Federal Network Monitor', division: 'Network Operations', recordsAnalyzed: '12,000 network nodes', coverage: 94, status: 'Complete' },
   { system: 'Incident Response DB', division: 'CSIRT Operations', recordsAnalyzed: '6,800 incidents/year', coverage: 91, status: 'Complete' },
 ];
 
@@ -5153,42 +5153,42 @@ const nbHealthVendorHealth: IntegrationVendorHealth[] = [
 // ═══════════════════════════════════════════════════════════════════════════════
 
 const brazilVendorHealth: IntegrationVendorHealth[] = [
-  { name: 'X-Road Platform', status: 'green', uptime: 99.97, latency: 8, lastChecked: '2026-03-27T08:14:00Z' },
+  { name: 'GOV.BR Interoperability Bus', status: 'green', uptime: 99.97, latency: 8, lastChecked: '2026-03-27T08:14:00Z' },
   { name: 'gov.br Portal', status: 'green', uptime: 99.8, latency: 24, lastChecked: '2026-03-27T08:12:00Z' },
-  { name: 'Population Registry', status: 'green', uptime: 99.9, latency: 16, lastChecked: '2026-03-27T08:10:00Z' },
-  { name: 'State Budget System', status: 'green', uptime: 99.4, latency: 62, lastChecked: '2026-03-27T08:08:00Z' },
-  { name: 'RIHA Information System', status: 'yellow', uptime: 98.1, latency: 176, lastChecked: '2026-03-27T08:06:00Z', note: 'IT asset catalog sync delays during quarterly audits' },
+  { name: 'CPF/CNPJ National Registry', status: 'green', uptime: 99.9, latency: 16, lastChecked: '2026-03-27T08:10:00Z' },
+  { name: 'SIAFI Federal Budget System', status: 'green', uptime: 99.4, latency: 62, lastChecked: '2026-03-27T08:08:00Z' },
+  { name: 'SISP IT Asset Catalog', status: 'yellow', uptime: 98.1, latency: 176, lastChecked: '2026-03-27T08:06:00Z', note: 'IT asset catalog sync delays during quarterly audits' },
 ];
 
 const brReceitaVendorHealth: IntegrationVendorHealth[] = [
-  { name: 'EMTA Tax System', status: 'green', uptime: 99.9, latency: 18, lastChecked: '2026-03-27T08:14:00Z' },
-  { name: 'e-Customs Platform', status: 'green', uptime: 99.6, latency: 42, lastChecked: '2026-03-27T08:12:00Z' },
-  { name: 'State Treasury System', status: 'green', uptime: 99.7, latency: 28, lastChecked: '2026-03-27T08:10:00Z' },
-  { name: 'Audit Trail Database', status: 'green', uptime: 99.2, latency: 54, lastChecked: '2026-03-27T08:08:00Z' },
-  { name: 'EU Reporting Gateway', status: 'yellow', uptime: 98.4, latency: 164, lastChecked: '2026-03-27T08:06:00Z', note: 'EU gateway latency during cross-border reporting deadlines' },
+  { name: 'SPED Fiscal System', status: 'green', uptime: 99.9, latency: 18, lastChecked: '2026-03-27T08:14:00Z' },
+  { name: 'Siscomex Customs Platform', status: 'green', uptime: 99.6, latency: 42, lastChecked: '2026-03-27T08:12:00Z' },
+  { name: 'STN National Treasury System', status: 'green', uptime: 99.7, latency: 28, lastChecked: '2026-03-27T08:10:00Z' },
+  { name: 'TCU Audit Trail Database', status: 'green', uptime: 99.2, latency: 54, lastChecked: '2026-03-27T08:08:00Z' },
+  { name: 'Mercosul Reporting Gateway', status: 'yellow', uptime: 98.4, latency: 164, lastChecked: '2026-03-27T08:06:00Z', note: 'Mercosul gateway latency during cross-border reporting deadlines' },
 ];
 
 const brSusVendorHealth: IntegrationVendorHealth[] = [
-  { name: 'SKAIS Social System', status: 'green', uptime: 99.7, latency: 32, lastChecked: '2026-03-27T08:14:00Z' },
-  { name: 'Health Insurance Fund', status: 'green', uptime: 99.8, latency: 22, lastChecked: '2026-03-27T08:12:00Z' },
+  { name: 'SUAS Federal Social System', status: 'green', uptime: 99.7, latency: 32, lastChecked: '2026-03-27T08:14:00Z' },
+  { name: 'SUS Federal Health Fund', status: 'green', uptime: 99.8, latency: 22, lastChecked: '2026-03-27T08:12:00Z' },
   { name: 'Pension Registry', status: 'green', uptime: 99.5, latency: 38, lastChecked: '2026-03-27T08:10:00Z' },
   { name: 'Case Management DB', status: 'yellow', uptime: 97.9, latency: 198, lastChecked: '2026-03-27T08:08:00Z', note: 'Case assignment queue backlog during benefit enrollment periods' },
   { name: 'Unemployment Registry', status: 'yellow', uptime: 98.1, latency: 146, lastChecked: '2026-03-27T08:06:00Z', note: 'Job matching API response times elevated during peak posting hours' },
 ];
 
 const brBndesVendorHealth: IntegrationVendorHealth[] = [
-  { name: 'Trade Registry', status: 'green', uptime: 99.9, latency: 14, lastChecked: '2026-03-27T08:14:00Z' },
-  { name: 'GOV.BR Digital Platform', status: 'green', uptime: 99.7, latency: 28, lastChecked: '2026-03-27T08:12:00Z' },
+  { name: 'Cadastro Empresarial Federal', status: 'green', uptime: 99.9, latency: 14, lastChecked: '2026-03-27T08:14:00Z' },
+  { name: 'GOV.BR Citizen Platform', status: 'green', uptime: 99.7, latency: 28, lastChecked: '2026-03-27T08:12:00Z' },
   { name: 'IBGE Statistics', status: 'green', uptime: 99.4, latency: 56, lastChecked: '2026-03-27T08:10:00Z' },
-  { name: 'Investment Gateway', status: 'yellow', uptime: 97.6, latency: 224, lastChecked: '2026-03-27T08:08:00Z', note: 'FDI data aggregation delays from partner country feeds' },
-  { name: 'EU Funds Portal', status: 'green', uptime: 99.2, latency: 68, lastChecked: '2026-03-27T08:06:00Z' },
+  { name: 'ApexBrasil Investment Gateway', status: 'yellow', uptime: 97.6, latency: 224, lastChecked: '2026-03-27T08:08:00Z', note: 'FDI data aggregation delays from partner country feeds' },
+  { name: 'BNDES Funds Portal', status: 'green', uptime: 99.2, latency: 68, lastChecked: '2026-03-27T08:06:00Z' },
 ];
 
 const brSerproVendorHealth: IntegrationVendorHealth[] = [
-  { name: 'X-Road Security Layer', status: 'green', uptime: 99.99, latency: 4, lastChecked: '2026-03-27T08:14:00Z' },
-  { name: 'CERT-EE Threat Feed', status: 'green', uptime: 99.8, latency: 12, lastChecked: '2026-03-27T08:12:00Z' },
-  { name: 'eID Infrastructure', status: 'green', uptime: 99.95, latency: 8, lastChecked: '2026-03-27T08:10:00Z' },
-  { name: 'State Network Monitor', status: 'green', uptime: 99.6, latency: 18, lastChecked: '2026-03-27T08:08:00Z' },
+  { name: 'GOV.BR Security Gateway', status: 'green', uptime: 99.99, latency: 4, lastChecked: '2026-03-27T08:14:00Z' },
+  { name: 'CERT.br Threat Feed', status: 'green', uptime: 99.8, latency: 12, lastChecked: '2026-03-27T08:12:00Z' },
+  { name: 'ICP-Brasil PKI', status: 'green', uptime: 99.95, latency: 8, lastChecked: '2026-03-27T08:10:00Z' },
+  { name: 'Federal Network Monitor', status: 'green', uptime: 99.6, latency: 18, lastChecked: '2026-03-27T08:08:00Z' },
   { name: 'Incident Response DB', status: 'green', uptime: 99.4, latency: 34, lastChecked: '2026-03-27T08:06:00Z' },
 ];
 
@@ -5296,38 +5296,38 @@ const nbHealthFailureModes: IntegrationFailureMode[] = [
 // ═══════════════════════════════════════════════════════════════════════════════
 
 const brazilFailureModes: IntegrationFailureMode[] = [
-  { vendor: 'X-Road Platform', scenario: 'X-Road message broker overload during cross-ministry data exchange peak', recovery: 'Auto-scaling message brokers with service-level priority queuing', status: 'Passing' },
+  { vendor: 'GOV.BR Interoperability Bus', scenario: 'GOV.BR Bus message broker overload during cross-ministry data exchange peak', recovery: 'Auto-scaling message brokers with service-level priority queuing', status: 'Passing' },
   { vendor: 'gov.br Portal', scenario: 'Citizen portal session overflow during tax filing deadline', recovery: 'Elastic session management with queue-based access control', status: 'Needs Attention' },
-  { vendor: 'Population Registry', scenario: 'Registry sync failure during census data integration update', recovery: 'Incremental sync with conflict detection and manual review queue', status: 'Passing' },
-  { vendor: 'RIHA Information System', scenario: 'IT system catalog update failure during quarterly compliance audit', recovery: 'Staged catalog refresh with rollback capability and audit-mode freeze', status: 'Passing' },
+  { vendor: 'CPF/CNPJ National Registry', scenario: 'Registry sync failure during census data integration update', recovery: 'Incremental sync with conflict detection and manual review queue', status: 'Passing' },
+  { vendor: 'SISP IT Asset Catalog', scenario: 'IT system catalog update failure during quarterly compliance audit', recovery: 'Staged catalog refresh with rollback capability and audit-mode freeze', status: 'Passing' },
 ];
 
 const brReceitaFailureModes: IntegrationFailureMode[] = [
-  { vendor: 'EMTA Tax System', scenario: 'Tax filing system overload during quarterly declaration deadline', recovery: 'Queue-based filing with priority for approaching-deadline submissions', status: 'Passing' },
-  { vendor: 'e-Customs Platform', scenario: 'Customs declaration processing failure on complex multi-commodity shipments', recovery: 'Declaration segmentation with per-commodity validation and partial acceptance', status: 'Passing' },
-  { vendor: 'State Treasury System', scenario: 'Payment batch processing timeout during government payroll cycle', recovery: 'Parallel payment processing with priority queuing for salary disbursements', status: 'Needs Attention' },
-  { vendor: 'EU Reporting Gateway', scenario: 'EU reporting submission failure due to schema version incompatibility', recovery: 'Schema version detection with auto-transform and pre-submission validation', status: 'Passing' },
+  { vendor: 'SPED Fiscal System', scenario: 'Tax filing system overload during quarterly declaration deadline', recovery: 'Queue-based filing with priority for approaching-deadline submissions', status: 'Passing' },
+  { vendor: 'Siscomex Customs Platform', scenario: 'Customs declaration processing failure on complex multi-commodity shipments', recovery: 'Declaration segmentation with per-commodity validation and partial acceptance', status: 'Passing' },
+  { vendor: 'STN National Treasury System', scenario: 'Payment batch processing timeout during government payroll cycle', recovery: 'Parallel payment processing with priority queuing for salary disbursements', status: 'Needs Attention' },
+  { vendor: 'Mercosul Reporting Gateway', scenario: 'OECD reporting submission failure due to schema version incompatibility', recovery: 'Schema version detection with auto-transform and pre-submission validation', status: 'Passing' },
 ];
 
 const brSusFailureModes: IntegrationFailureMode[] = [
-  { vendor: 'SKAIS Social System', scenario: 'Benefits recalculation timeout during annual indexation update', recovery: 'Batched recalculation with priority for pension payments and staged rollout', status: 'Passing' },
-  { vendor: 'Health Insurance Fund', scenario: 'Claims processing backlog during flu season surge', recovery: 'Elastic claims processing with auto-adjudication for routine claims', status: 'Needs Attention' },
+  { vendor: 'SUAS Federal Social System', scenario: 'Benefits recalculation timeout during annual indexation update', recovery: 'Batched recalculation with priority for pension payments and staged rollout', status: 'Passing' },
+  { vendor: 'SUS Federal Health Fund', scenario: 'Claims processing backlog during flu season surge', recovery: 'Elastic claims processing with auto-adjudication for routine claims', status: 'Needs Attention' },
   { vendor: 'Case Management DB', scenario: 'Case assignment failure during social worker caseload rebalancing', recovery: 'Algorithmic load balancing with manual override and rollback capability', status: 'Passing' },
   { vendor: 'Unemployment Registry', scenario: 'Job matching engine timeout on large employer batch posting', recovery: 'Async matching with incremental result delivery and employer notification', status: 'Needs Attention' },
 ];
 
 const brBndesFailureModes: IntegrationFailureMode[] = [
-  { vendor: 'Trade Registry', scenario: 'Company registration queue backlog during GOV.BR Digital application surge', recovery: 'Priority queue separation for domestic vs GOV.BR Digital registrations', status: 'Passing' },
-  { vendor: 'GOV.BR Digital Platform', scenario: 'Identity verification timeout with partner country biometric systems', recovery: 'Async verification with status polling and applicant notification workflow', status: 'Needs Attention' },
+  { vendor: 'Cadastro Empresarial Federal', scenario: 'Company registration queue backlog during GOV.BR Digital application surge', recovery: 'Priority queue separation for domestic vs GOV.BR Digital registrations', status: 'Passing' },
+  { vendor: 'GOV.BR Citizen Platform', scenario: 'Identity verification timeout with partner country biometric systems', recovery: 'Async verification with status polling and applicant notification workflow', status: 'Needs Attention' },
   { vendor: 'IBGE Statistics', scenario: 'Data pipeline failure during cross-ministry statistical aggregation', recovery: 'Incremental aggregation with source-level caching and gap detection', status: 'Passing' },
-  { vendor: 'Investment Gateway', scenario: 'FDI tracking sync failure with international investment databases', recovery: 'Retry queue with partner-specific adapters and manual reconciliation fallback', status: 'Needs Attention' },
+  { vendor: 'ApexBrasil Investment Gateway', scenario: 'FDI tracking sync failure with international investment databases', recovery: 'Retry queue with partner-specific adapters and manual reconciliation fallback', status: 'Needs Attention' },
 ];
 
 const brSerproFailureModes: IntegrationFailureMode[] = [
-  { vendor: 'X-Road Security Layer', scenario: 'Certificate chain validation failure during mass certificate rotation', recovery: 'Staged rotation with parallel old/new certificate acceptance window', status: 'Passing' },
-  { vendor: 'CERT-EE Threat Feed', scenario: 'Threat intelligence feed overload during coordinated cyber attack', recovery: 'Priority threat classification with critical-only mode and bulk processing queue', status: 'Passing' },
-  { vendor: 'eID Infrastructure', scenario: 'Digital signature validation bottleneck during election period', recovery: 'Distributed validation cluster with auto-scaling and cached certificate chains', status: 'Needs Attention' },
-  { vendor: 'State Network Monitor', scenario: 'Monitoring probe failure cascade across government network segments', recovery: 'Redundant probe deployment with automatic failover and gap detection', status: 'Passing' },
+  { vendor: 'GOV.BR Security Gateway', scenario: 'Certificate chain validation failure during mass certificate rotation', recovery: 'Staged rotation with parallel old/new certificate acceptance window', status: 'Passing' },
+  { vendor: 'CERT.br Threat Feed', scenario: 'Threat intelligence feed overload during coordinated cyber attack', recovery: 'Priority threat classification with critical-only mode and bulk processing queue', status: 'Passing' },
+  { vendor: 'ICP-Brasil PKI', scenario: 'Digital signature validation bottleneck during election period', recovery: 'Distributed validation cluster with auto-scaling and cached certificate chains', status: 'Needs Attention' },
+  { vendor: 'Federal Network Monitor', scenario: 'Monitoring probe failure cascade across government network segments', recovery: 'Redundant probe deployment with automatic failover and gap detection', status: 'Passing' },
   { vendor: 'Incident Response DB', scenario: 'Incident correlation engine overload during multi-vector attack', recovery: 'Tiered correlation with critical-first processing and analyst escalation queue', status: 'Passing' },
 ];
 
@@ -5428,38 +5428,38 @@ const nbHealthMethodologySteps: IntegrationMethodologyStep[] = [
 // ═══════════════════════════════════════════════════════════════════════════════
 
 const brazilMethodologySteps: IntegrationMethodologyStep[] = [
-  { number: 1, title: 'Digital Government Discovery', description: 'Inventory 2,400 state IT systems in RIHA, X-Road service catalog, and citizen-facing digital services — mapping data flows across ministries and the 1.2B annual X-Road queries.' },
+  { number: 1, title: 'Digital Government Discovery', description: 'Inventory 2,400 state IT systems in SISP, GOV.BR service catalog, and citizen-facing digital services — mapping data flows across ministries and the 1.2B annual GOV.BR API queries.' },
   { number: 2, title: 'Governance Workflow Mapping', description: 'Map 18 critical cross-ministry workflows from policy drafting through citizen service delivery, identifying AI augmentation points in compliance monitoring and budget planning.' },
-  { number: 3, title: 'e-Government Tech Audit', description: 'Assess X-Road platform, gov.br portal, Population Registry, and RIHA for AI integration readiness, interoperability maturity, and data quality across the national digital infrastructure.' },
-  { number: 4, title: 'National ROI Modeling', description: 'Model AI-driven improvements in citizen service efficiency, cross-ministry data utilization, and governance automation for Brazil\'s 1.34M-citizen digital society.' },
+  { number: 3, title: 'e-Government Tech Audit', description: 'Assess GOV.BR Interoperability platform, gov.br portal, CPF/CNPJ National Registry, and SISP for AI integration readiness, interoperability maturity, and data quality across the national digital infrastructure.' },
+  { number: 4, title: 'National ROI Modeling', description: 'Model AI-driven improvements in citizen service efficiency, cross-ministry data utilization, and governance automation for Brazil\'s 215M-citizen digital society.' },
 ];
 
 const brReceitaMethodologySteps: IntegrationMethodologyStep[] = [
   { number: 1, title: 'Tax & Revenue Discovery', description: 'Catalog 680,000 taxpayer records, 420,000 customs declarations, and 2.4M treasury payments across the Ministry of Finance\'s tax administration and fiscal management systems.' },
-  { number: 2, title: 'Fiscal Workflow Mapping', description: 'Map 12 critical fiscal workflows from tax filing through treasury disbursement, identifying automation opportunities in audit selection, VAT compliance, and EU reporting.' },
-  { number: 3, title: 'Finance Tech Stack Audit', description: 'Assess EMTA Tax System, e-Customs Platform, State Treasury, and EU Reporting Gateway for AI-driven tax compliance, fraud detection, and fiscal forecasting readiness.' },
+  { number: 2, title: 'Fiscal Workflow Mapping', description: 'Map 12 critical fiscal workflows from tax filing through treasury disbursement, identifying automation opportunities in audit selection, VAT compliance, and OECD reporting.' },
+  { number: 3, title: 'Finance Tech Stack Audit', description: 'Assess SPED Fiscal System, Siscomex Customs Platform, State Treasury, and Mercosul Reporting Gateway for AI-driven tax compliance, fraud detection, and fiscal forecasting readiness.' },
   { number: 4, title: 'Fiscal ROI Modeling', description: 'Model AI-driven improvements in tax processing efficiency, VAT fraud detection, audit targeting accuracy, and treasury management optimization for Brazil\'s fiscal operations.' },
 ];
 
 const brSusMethodologySteps: IntegrationMethodologyStep[] = [
   { number: 1, title: 'Social Services Discovery', description: 'Catalog 480,000 benefit recipients, 1.28M health insurance records, and 86,000 active social cases across the Ministry of Social Affairs\' welfare and healthcare systems.' },
   { number: 2, title: 'Welfare Workflow Mapping', description: 'Map 14 critical social service workflows from benefit application through case resolution, identifying automation in eligibility determination, health records matching, and case assignment.' },
-  { number: 3, title: 'Social Tech Stack Audit', description: 'Assess SKAIS, Health Insurance Fund, Pension Registry, and Case Management DB for AI-driven benefits processing, fraud prevention, and predictive social service readiness.' },
+  { number: 3, title: 'Social Tech Stack Audit', description: 'Assess SUAS, SUS Federal Health Fund, Pension Registry, and Case Management DB for AI-driven benefits processing, fraud prevention, and predictive social service readiness.' },
   { number: 4, title: 'Social ROI Modeling', description: 'Model AI-driven improvements in benefit processing speed, health record interoperability, case management efficiency, and welfare fraud detection for Brazil\'s social safety net.' },
 ];
 
 const brBndesMethodologySteps: IntegrationMethodologyStep[] = [
   { number: 1, title: 'Economic Data Discovery', description: 'Catalog 240,000 registered companies, 108,000 e-Residents, and 4.2M statistical data points across the Ministry of Economic Affairs\' business and trade platforms.' },
   { number: 2, title: 'Economic Workflow Mapping', description: 'Map 10 critical economic workflows from business registration through FDI tracking, identifying AI opportunities in trade analytics, GOV.BR Digital processing, and export compliance.' },
-  { number: 3, title: 'Economic Tech Stack Audit', description: 'Assess Trade Registry, GOV.BR Digital Platform, IBGE Statistics, and Investment Gateway for AI-driven business analytics, automated registration, and trade intelligence readiness.' },
+  { number: 3, title: 'Economic Tech Stack Audit', description: 'Assess Cadastro Empresarial Federal, GOV.BR Citizen Platform, IBGE Statistics, and ApexBrasil Investment Gateway for AI-driven business analytics, automated registration, and trade intelligence readiness.' },
   { number: 4, title: 'Economic ROI Modeling', description: 'Model AI-driven improvements in business registration speed, GOV.BR Digital application processing, FDI analysis accuracy, and export compliance automation for Brazil\'s economic development.' },
 ];
 
 const brSerproMethodologySteps: IntegrationMethodologyStep[] = [
-  { number: 1, title: 'Cyber Infrastructure Discovery', description: 'Inventory X-Road security layer handling 48M daily auth events, 1.34M active eID certificates, and 12,000 monitored network nodes across RIA\'s national cybersecurity infrastructure.' },
+  { number: 1, title: 'Cyber Infrastructure Discovery', description: 'Inventory GOV.BR Interoperability security layer handling 48M daily auth events, 85M active ICP-Brasil certificates, and 12,000 monitored network nodes across Brazil Cyber Command\'s national cybersecurity infrastructure.' },
   { number: 2, title: 'Security Operations Mapping', description: 'Map 8 critical security workflows from threat detection through incident resolution, identifying AI augmentation in threat hunting, vulnerability scanning, and digital identity verification.' },
-  { number: 3, title: 'Cyber Tech Stack Audit', description: 'Assess X-Road Security Layer, CERT-EE Threat Feed, eID Infrastructure, and State Network Monitor for AI-driven threat intelligence, automated incident response, and zero-trust readiness.' },
-  { number: 4, title: 'Cybersecurity ROI Modeling', description: 'Model AI-driven improvements in threat detection speed, incident response time, X-Road availability, and digital identity verification throughput for RIA\'s national cyber defense operations.' },
+  { number: 3, title: 'Cyber Tech Stack Audit', description: 'Assess GOV.BR Security Gateway, CERT.br Threat Feed, ICP-Brasil PKI, and Federal Network Monitor for AI-driven threat intelligence, automated incident response, and zero-trust readiness.' },
+  { number: 4, title: 'Cybersecurity ROI Modeling', description: 'Model AI-driven improvements in threat detection speed, incident response time, GOV.BR availability, and digital identity verification throughput for Brazil Cyber Command\'s national cyber defense operations.' },
 ];
 
 const brInssMethodologySteps: IntegrationMethodologyStep[] = [
@@ -6986,9 +6986,9 @@ const brazilWorkflows: Workflow[] = [
       'Cross-ministry coordination: 20% of requests span multiple ministries with no automated handoff',
       'Status tracking: citizens call service center for updates, consuming additional staff time',
     ],
-    aiArchitecture: 'AI citizen service platform: (1) NLP-powered request classification and routing using X-Road data for intelligent department matching. (2) Conversational AI (Portuguese language NLP) handling first-line resolution for common requests. (3) Automated document processing with OCR and data extraction from citizen submissions. (4) Proactive status notifications via gov.br and mobile ID. (5) Cross-ministry orchestration engine for multi-department requests using X-Road service bus.',
+    aiArchitecture: 'AI citizen service platform: (1) NLP-powered request classification and routing using GOV.BR data for intelligent department matching. (2) Conversational AI (Portuguese language NLP) handling first-line resolution for common requests. (3) Automated document processing with OCR and data extraction from citizen submissions. (4) Proactive status notifications via gov.br and mobile ID. (5) Cross-ministry orchestration engine for multi-department requests using GOV.BR service bus.',
     implementationPlan: [
-      { phase: 'Request Classification AI', weeks: 'Weeks 1-6', description: 'Train Portuguese NLP models on historical request data. Build intelligent routing engine connected to X-Road.' },
+      { phase: 'Request Classification AI', weeks: 'Weeks 1-6', description: 'Train Portuguese NLP models on historical request data. Build intelligent routing engine connected to GOV.BR Interoperability.' },
       { phase: 'Conversational AI Pilot', weeks: 'Weeks 7-14', description: 'Deploy conversational AI for top 20 request types (covering 60% of volume). Portuguese and Spanish language support.' },
       { phase: 'Cross-Ministry Orchestration', weeks: 'Weeks 15-20', description: 'Build automated handoff for multi-ministry requests. Deploy proactive citizen notifications.' },
       { phase: 'Full Deployment', weeks: 'Weeks 21-26', description: 'Expand AI handling to all request types. Target <2 day average resolution. Real-time citizen satisfaction tracking.' },
@@ -6996,10 +6996,10 @@ const brazilWorkflows: Workflow[] = [
     risks: [
       'Portuguese language NLP accuracy — must handle Portuguese grammar complexity and Spanish-language requests',
       'Citizen trust in AI-processed government decisions — transparency requirements for automated processing',
-      'Data privacy under EU GDPR — AI processing of citizen data requires legal basis and consent management',
+      'Data privacy under LGPD — AI processing of citizen data requires legal basis and consent management',
     ],
     dependencies: [
-      'X-Road infrastructure for cross-ministry data exchange',
+      'GOV.BR infrastructure for cross-ministry data exchange',
       'gov.br portal integration for citizen-facing AI interface',
       'Population registry and document register access for automated verification',
     ],
@@ -7031,12 +7031,12 @@ const brazilWorkflows: Workflow[] = [
       'Cross-ministry consultation: 10-day average response time for required inter-ministry approvals',
       'No risk-based routing: simple low-risk permits wait in same queue as complex high-impact applications',
     ],
-    aiArchitecture: 'AI permit platform: (1) Intelligent application forms with real-time completeness validation and AI-guided document upload. (2) Automated compliance checking against regulatory databases and spatial data (GIS). (3) Risk-based routing — AI classifies permits by complexity and risk, auto-approving low-risk applications. (4) Cross-ministry consultation automation via X-Road with structured review requests and deadline tracking. Permit officers review AI-prepared assessments, handle complex applications, and make final decisions on high-impact permits.',
+    aiArchitecture: 'AI permit platform: (1) Intelligent application forms with real-time completeness validation and AI-guided document upload. (2) Automated compliance checking against regulatory databases and spatial data (GIS). (3) Risk-based routing — AI classifies permits by complexity and risk, auto-approving low-risk applications. (4) Cross-ministry consultation automation via GOV.BR Interoperability with structured review requests and deadline tracking. Permit officers review AI-prepared assessments, handle complex applications, and make final decisions on high-impact permits.',
     implementationPlan: [
       { phase: 'Smart Application Forms', weeks: 'Weeks 1-6', description: 'Build intelligent forms with real-time validation. Reduce incomplete submissions by 80%.' },
       { phase: 'Automated Compliance', weeks: 'Weeks 7-14', description: 'Connect regulatory databases and GIS data. Build automated compliance checking engine.' },
       { phase: 'Risk-Based Routing', weeks: 'Weeks 15-20', description: 'Deploy AI risk classification. Auto-approve low-risk permits. Route complex permits to senior officers.' },
-      { phase: 'Cross-Ministry Automation', weeks: 'Weeks 21-26', description: 'Automate inter-ministry consultation via X-Road. Track consultation deadlines. Target <10 day average processing.' },
+      { phase: 'Cross-Ministry Automation', weeks: 'Weeks 21-26', description: 'Automate inter-ministry consultation via GOV.BR Interoperability. Track consultation deadlines. Target <10 day average processing.' },
     ],
     risks: [
       'Automated permit approval must comply with administrative law requirements — right of appeal must be preserved',
@@ -7044,7 +7044,7 @@ const brazilWorkflows: Workflow[] = [
       'Cross-ministry automated routing requires agreement on service levels between ministries',
     ],
     dependencies: [
-      'X-Road services for cross-ministry data exchange and consultation',
+      'GOV.BR services for cross-ministry data exchange and consultation',
       'National GIS and spatial data infrastructure',
       'Regulatory compliance databases maintained by each ministry',
     ],
@@ -7064,7 +7064,7 @@ const brazilWorkflows: Workflow[] = [
     automationPercent: 85,
     details: '25 tax officers managing filing processing and audits. Brazil processes 35M+ annual returns via SPED — AI targets remaining manual review and audit processes.',
     currentProcess: [
-      'Pre-filled tax returns generated from employer, bank, and investment data via X-Road — 98% e-filing rate',
+      'Pre-filled tax returns generated from employer, bank, and investment data via GOV.BR Interoperability — 98% e-filing rate',
       'Most personal returns accepted automatically — but 12% require manual review for discrepancies',
       'Corporate returns reviewed by tax officers — manual verification of deductions, transfers, and compliance',
       'Audit selection based on simple rules and random sampling — estimated 60% of audits find no significant issues',
@@ -7074,23 +7074,23 @@ const brazilWorkflows: Workflow[] = [
       '12% of personal returns flagged for manual review — many are false positives consuming officer time',
       'Corporate audit selection: 60% of audits find no issues — poor targeting wastes limited audit resources',
       'VAT compliance gaps: quarterly monitoring allows 3-month window for VAT fraud before detection',
-      'Cross-border transaction monitoring limited — EU intra-community supplies difficult to verify in real-time',
+      'Cross-border transaction monitoring limited — Mercosul intra-bloc supplies difficult to verify in real-time',
     ],
-    aiArchitecture: 'AI tax platform: (1) Expanded pre-fill using AI to incorporate additional data sources (e-commerce platforms, sharing economy, crypto exchanges). (2) ML anomaly detection for audit targeting — replacing rules-based selection with predictive models trained on historical audit outcomes. (3) Real-time VAT compliance monitoring analyzing transaction patterns for fraud indicators. (4) Cross-border verification using EU tax data exchange automation. Tax officers review AI-flagged returns, conduct targeted audits, and handle complex compliance cases.',
+    aiArchitecture: 'AI tax platform: (1) Expanded pre-fill using AI to incorporate additional data sources (e-commerce platforms, sharing economy, crypto exchanges). (2) ML anomaly detection for audit targeting — replacing rules-based selection with predictive models trained on historical audit outcomes. (3) Real-time VAT compliance monitoring analyzing transaction patterns for fraud indicators. (4) Cross-border verification using OECD CRS tax data exchange automation. Tax officers review AI-flagged returns, conduct targeted audits, and handle complex compliance cases.',
     implementationPlan: [
       { phase: 'Enhanced Pre-Fill', weeks: 'Weeks 1-6', description: 'Integrate additional data sources into pre-fill system. Reduce manual review rate from 12% to 5%.' },
       { phase: 'AI Audit Targeting', weeks: 'Weeks 7-14', description: 'Train ML audit selection model on 5 years of audit outcomes. Validate targeting improvement against random sampling baseline.' },
       { phase: 'VAT Monitoring', weeks: 'Weeks 15-20', description: 'Deploy real-time VAT transaction monitoring. Build fraud pattern detection. Reduce detection window to <7 days.' },
-      { phase: 'Cross-Border AI', weeks: 'Weeks 21-26', description: 'Integrate EU tax data exchange feeds. Automated cross-border transaction verification. Target 80% productive audit rate.' },
+      { phase: 'Cross-Border AI', weeks: 'Weeks 21-26', description: 'Integrate OECD CRS tax data exchange feeds. Automated cross-border transaction verification. Target 80% productive audit rate.' },
     ],
     risks: [
       'Tax data is extremely sensitive — AI processing must comply with strict data protection and taxpayer rights',
       'ML audit targeting must not discriminate against any demographic groups — fairness auditing required',
-      'EU regulatory framework for automated tax processing still evolving — must maintain flexibility',
+      'ANPD regulatory framework for automated tax processing still evolving — must maintain flexibility',
     ],
     dependencies: [
-      'X-Road connections to expanded data sources (e-commerce, crypto, sharing economy)',
-      'EU tax data exchange (DAC7, DAC8) technical infrastructure',
+      'GOV.BR connections to expanded data sources (e-commerce, crypto, sharing economy)',
+      'OECD CRS tax data exchange (OECD CRS) technical infrastructure',
       'Historical audit outcome data for ML model training',
     ],
   },
@@ -7110,20 +7110,20 @@ const brazilWorkflows: Workflow[] = [
     details: '20 case workers processing benefit applications. Brazil\'s "invisible government" vision: proactive service delivery using life events as triggers.',
     currentProcess: [
       'Citizen applies for benefits via gov.br or service center — must identify which benefits they are eligible for',
-      'Case worker verifies eligibility by checking multiple data sources via X-Road queries',
+      'Case worker verifies eligibility by checking multiple data sources via GOV.BR API queries',
       'Documentation requirements vary by benefit type — citizen must provide proof documents for some benefits',
       'Determination made by case worker following regulatory guidelines — average 15-day processing time',
       'Benefit payment initiated after approval — separate process for each benefit type',
     ],
     bottlenecks: [
       'Citizens must know which benefits exist and apply for them — estimated 15-20% of eligible benefits unclaimed',
-      'Eligibility verification across multiple data sources is manual — X-Road data available but not automatically analyzed',
+      'Eligibility verification across multiple data sources is manual — GOV.BR data available but not automatically analyzed',
       '15-day average processing: citizens in urgent need wait while application processes through queue',
       'Each benefit processed independently — no unified view of citizen\'s social support needs',
     ],
-    aiArchitecture: 'AI proactive benefits: (1) Life-event detection engine monitoring population registry, tax data, and health data via X-Road for triggering events (birth, death, job loss, disability). (2) Automated eligibility determination checking all applicable benefits simultaneously. (3) Proactive citizen notification of benefit entitlements with pre-filled applications. (4) Predictive needs model identifying citizens likely to need social services before crisis. Case workers review complex cases, manage high-need individuals, and provide personalized social support.',
+    aiArchitecture: 'AI proactive benefits: (1) Life-event detection engine monitoring population registry, tax data, and health data via GOV.BR Interoperability for triggering events (birth, death, job loss, disability). (2) Automated eligibility determination checking all applicable benefits simultaneously. (3) Proactive citizen notification of benefit entitlements with pre-filled applications. (4) Predictive needs model identifying citizens likely to need social services before crisis. Case workers review complex cases, manage high-need individuals, and provide personalized social support.',
     implementationPlan: [
-      { phase: 'Life-Event Engine', weeks: 'Weeks 1-8', description: 'Build life-event detection from X-Road data sources. Map benefit eligibility rules for all major benefit programs.' },
+      { phase: 'Life-Event Engine', weeks: 'Weeks 1-8', description: 'Build life-event detection from GOV.BR data sources. Map benefit eligibility rules for all major benefit programs.' },
       { phase: 'Proactive Notification', weeks: 'Weeks 9-14', description: 'Deploy proactive benefit notifications for birth-related, job loss, and disability events. Pre-fill applications.' },
       { phase: 'Automated Determination', weeks: 'Weeks 15-20', description: 'Automate eligibility determination for standard cases. Case workers handle exceptions and complex needs.' },
       { phase: 'Predictive Social Services', weeks: 'Weeks 21-26', description: 'Deploy needs prediction model. Proactive outreach to at-risk citizens. Unified social support dashboard.' },
@@ -7134,7 +7134,7 @@ const brazilWorkflows: Workflow[] = [
       'Predictive social needs model risks stigmatization — must be used for positive outreach, not profiling',
     ],
     dependencies: [
-      'X-Road access to population registry, tax, health, and employment data',
+      'GOV.BR Interoperability access to population registry, tax, health, and employment data',
       'Digital notification infrastructure via gov.br and mobile ID',
       'Social benefits regulatory rules database for all benefit programs',
     ],
@@ -7166,7 +7166,7 @@ const brazilWorkflows: Workflow[] = [
       'Beneficial ownership verification for AML: manual process cannot keep pace with ownership change volume',
       'Regulatory guidance: businesses unaware of compliance requirements until they receive penalties',
     ],
-    aiArchitecture: 'AI business registry: (1) Automated complex registration handling using AI analysis of ownership structures, industry regulations, and international entity verification. (2) AI-powered annual report review with automated compliance checking and materiality assessment. (3) Real-time beneficial ownership monitoring using X-Road corporate data with AML risk scoring. (4) Proactive regulatory guidance chatbot providing business-specific compliance information.',
+    aiArchitecture: 'AI business registry: (1) Automated complex registration handling using AI analysis of ownership structures, industry regulations, and international entity verification. (2) AI-powered annual report review with automated compliance checking and materiality assessment. (3) Real-time beneficial ownership monitoring using GOV.BR Interoperability corporate data with AML risk scoring. (4) Proactive regulatory guidance chatbot providing business-specific compliance information.',
     implementationPlan: [
       { phase: 'Complex Registration AI', weeks: 'Weeks 1-6', description: 'Build AI analysis for complex ownership structures. Automate international entity verification. Reduce complex processing to <2 days.' },
       { phase: 'Compliance Monitoring', weeks: 'Weeks 7-12', description: 'Deploy AI annual report review. Automated compliance checking. Proactive filing reminders.' },
@@ -7174,14 +7174,14 @@ const brazilWorkflows: Workflow[] = [
       { phase: 'Proactive Guidance', weeks: 'Weeks 19-24', description: 'Deploy regulatory guidance chatbot. Business-specific compliance calendar. Reduce late filings by 50%.' },
     ],
     risks: [
-      'Automated registration decisions must comply with EU company law directives',
+      'Automated registration decisions must comply with Brazilian corporate law',
       'AML risk scoring must not create discriminatory outcomes against legitimate businesses from certain jurisdictions',
       'Chatbot regulatory guidance must be accurate — incorrect advice could expose government to liability',
     ],
     dependencies: [
       'e-Business Register platform integration',
-      'X-Road access to international company registries for verification',
-      'EU Anti-Money Laundering Directive compliance framework',
+      'GOV.BR Interoperability access to international company registries for verification',
+      'COAF Anti-Money Laundering Framework compliance framework',
     ],
   },
   {
@@ -7191,7 +7191,7 @@ const brazilWorkflows: Workflow[] = [
     currentCost: 18_000_000,
     volume: '215M active eID cards, 80M mobile ID users',
     currentTime: '5 business days for physical ID issuance',
-    aiSolution: 'AI-enhanced digital identity with biometric verification, fraud detection, and seamless cross-border authentication under eIDAS.',
+    aiSolution: 'AI-enhanced digital identity with biometric verification, fraud detection, and seamless cross-border authentication under ICP-Brasil.',
     routing: 'Fully Automatable',
     routingQuote: 'Secure digital identity at the speed of light',
     costShift: 'Labor $18M → IT $4M + Labor $6M = $8M saved',
@@ -7209,67 +7209,67 @@ const brazilWorkflows: Workflow[] = [
       '5-day physical ID turnaround: citizens without valid ID cannot access digital services during wait',
       'Manual identity verification: bottleneck at service points during peak periods (elections, ID expiration waves)',
       'Fraud detection lag: suspicious patterns identified hours or days after occurrence',
-      'Cross-border authentication: eIDAS technical integration with other EU member states is complex and manual',
+      'Cross-border authentication: ICP-Brasil technical integration with other Mercosul member states is complex and manual',
     ],
-    aiArchitecture: 'AI digital identity platform: (1) AI-powered biometric verification reducing in-person processing time. (2) Real-time fraud detection using ML models analyzing authentication patterns, device fingerprints, and behavioral biometrics. (3) Automated identity proofing for remote issuance of digital credentials (reducing physical visit requirements). (4) Cross-border authentication automation under eIDAS with AI-powered identity matching across EU registries.',
+    aiArchitecture: 'AI digital identity platform: (1) AI-powered biometric verification reducing in-person processing time. (2) Real-time fraud detection using ML models analyzing authentication patterns, device fingerprints, and behavioral biometrics. (3) Automated identity proofing for remote issuance of digital credentials (reducing physical visit requirements). (4) Cross-border authentication automation under ICP-Brasil with AI-powered identity matching across Mercosul partner registries.',
     implementationPlan: [
       { phase: 'Biometric AI', weeks: 'Weeks 1-6', description: 'Deploy AI-enhanced biometric verification. Reduce identity verification time at service points by 60%.' },
       { phase: 'Fraud Detection', weeks: 'Weeks 7-12', description: 'Build real-time authentication fraud detection. Deploy ML models for anomaly detection on 48M monthly events.' },
       { phase: 'Remote Issuance', weeks: 'Weeks 13-18', description: 'Enable remote identity proofing for credential renewal. Reduce physical visit requirements.' },
-      { phase: 'eIDAS Automation', weeks: 'Weeks 19-24', description: 'Automate cross-border authentication under eIDAS. AI-powered identity matching with EU member state registries.' },
+      { phase: 'ICP-Brasil Automation', weeks: 'Weeks 19-24', description: 'Automate cross-border authentication under ICP-Brasil. AI-powered identity matching with Mercosul member states registries.' },
     ],
     risks: [
       'Digital identity is national security critical — AI must not introduce vulnerabilities into authentication infrastructure',
-      'Biometric data handling under GDPR requires strict purpose limitation and storage controls',
-      'Remote identity proofing must meet EU eIDAS high assurance level requirements',
+      'Biometric data handling under LGPD requires strict purpose limitation and storage controls',
+      'Remote identity proofing must meet ICP-Brasil high assurance level requirements',
     ],
     dependencies: [
       'Population registry biometric data access',
       'Authentication log infrastructure for fraud detection training (48M events/month)',
-      'EU eIDAS node connectivity for cross-border authentication',
+      'ICP-Brasil node connectivity for cross-border authentication',
     ],
   },
   {
-    name: 'Inter-Ministry Data Sharing & X-Road Governance',
+    name: 'Inter-Ministry Data Sharing & GOV.BR Interoperability Governance',
     level: 'human-in-loop',
     currentFTEs: 1_000,
     currentCost: 12_000_000,
-    volume: '24B X-Road transactions/year, 4,000+ data services',
+    volume: '24B GOV.BR API transactions/year, 4,000+ data services',
     currentTime: '4-8 weeks for new data service onboarding',
-    aiSolution: 'AI-optimized data governance with automated service cataloging, intelligent access management, and performance optimization for X-Road infrastructure.',
+    aiSolution: 'AI-optimized data governance with automated service cataloging, intelligent access management, and performance optimization for GOV.BR infrastructure.',
     routing: 'Human-in-the-Loop',
     routingQuote: 'AI governs the data highway that powers digital Brazil',
     costShift: 'Labor $12M → IT $2.8M + Labor $5.6M = $3.6M saved',
     savings: 3_600_000,
     automationPercent: 42,
-    details: '10 X-Road governance staff managing 900+ data services and 1.2B annual transactions. Service onboarding takes 4-8 weeks — limiting innovation speed.',
+    details: '10 GOV.BR governance staff managing 900+ data services and 1.2B annual transactions. Service onboarding takes 4-8 weeks — limiting innovation speed.',
     currentProcess: [
-      'Ministry requests new X-Road data service — formal application with data model, access requirements, and security assessment',
-      'X-Road governance team reviews application against data protection and security policies',
-      'Technical onboarding performed by ministry IT team with X-Road team support — configuration, testing, certification',
+      'Ministry requests new GOV.BR data service — formal application with data model, access requirements, and security assessment',
+      'GOV.BR governance team reviews application against data protection and security policies',
+      'Technical onboarding performed by ministry IT team with GOV.BR Interoperability team support — configuration, testing, certification',
       'Access management: each consuming ministry must request access to each data service individually',
       'Performance monitoring via dashboards — but no automated capacity planning or optimization',
     ],
     bottlenecks: [
-      '4-8 week service onboarding: ministries build workarounds while waiting for X-Road access',
+      '4-8 week service onboarding: ministries build workarounds while waiting for GOV.BR Interoperability access',
       'Manual access management: 900+ services x multiple consuming ministries = thousands of access decisions',
       'No automated data quality monitoring — consuming ministries discover data issues through application errors',
       'Capacity planning is reactive — performance degradation during peak usage periods',
     ],
-    aiArchitecture: 'AI X-Road governance: (1) Automated service cataloging with AI-generated data dictionaries and impact assessments. (2) ML-based access management recommending appropriate data access based on ministry function and existing patterns. (3) Real-time data quality monitoring with automated alerting for schema changes and data anomalies. (4) Predictive capacity management using traffic pattern analysis for proactive scaling. Governance team reviews AI access recommendations, handles complex policy decisions, and drives data architecture strategy.',
+    aiArchitecture: 'AI GOV.BR governance: (1) Automated service cataloging with AI-generated data dictionaries and impact assessments. (2) ML-based access management recommending appropriate data access based on ministry function and existing patterns. (3) Real-time data quality monitoring with automated alerting for schema changes and data anomalies. (4) Predictive capacity management using traffic pattern analysis for proactive scaling. Governance team reviews AI access recommendations, handles complex policy decisions, and drives data architecture strategy.',
     implementationPlan: [
       { phase: 'Service Cataloging', weeks: 'Weeks 1-5', description: 'Build AI-powered service catalog for all 900+ data services. Auto-generate data dictionaries and usage documentation.' },
       { phase: 'Smart Access Management', weeks: 'Weeks 6-12', description: 'Deploy ML-based access recommendation engine. Streamline access approval workflow. Reduce onboarding to <2 weeks.' },
-      { phase: 'Data Quality Monitoring', weeks: 'Weeks 13-18', description: 'Deploy real-time data quality monitoring across all X-Road services. Automated alerting for anomalies.' },
+      { phase: 'Data Quality Monitoring', weeks: 'Weeks 13-18', description: 'Deploy real-time data quality monitoring across all GOV.BR services. Automated alerting for anomalies.' },
       { phase: 'Predictive Infrastructure', weeks: 'Weeks 19-24', description: 'Build predictive capacity management. Auto-scaling based on traffic patterns. Ensure 99.99% availability target.' },
     ],
     risks: [
-      'X-Road is critical national infrastructure — AI changes must not impact availability or security',
+      'GOV.BR Interoperability is critical national infrastructure — AI changes must not impact availability or security',
       'Automated access management must comply with data protection regulations — cannot grant access without proper legal basis',
       'Some ministries may resist automated governance of their data services',
     ],
     dependencies: [
-      'X-Road monitoring infrastructure for performance data',
+      'GOV.BR Interoperability monitoring infrastructure for performance data',
       'Data protection regulation database for automated compliance checking',
       'Ministry IT team coordination for service onboarding improvements',
     ],
@@ -7287,7 +7287,7 @@ const brazilWorkflows: Workflow[] = [
     costShift: 'Labor $21.6M → IT $4.8M + Labor $8M = $8.8M saved',
     savings: 8_800_000,
     automationPercent: 72,
-    details: '18 procurement officers across ministries managing €4.2B in annual procurement. Manual processes add 15-20 days to average procurement cycle.',
+    details: '18 procurement officers across ministries managing $42B in annual procurement. Manual processes add 15-20 days to average procurement cycle.',
     currentProcess: [
       'Procurement need identified by ministry — specification written manually in compliance with Public Procurement Act',
       'Tender documents prepared and published on e-Procurement portal — 2-3 weeks for document preparation',
@@ -7304,19 +7304,19 @@ const brazilWorkflows: Workflow[] = [
     aiArchitecture: 'AI procurement platform: (1) Automated tender generation using templates from similar historical procurements with AI-optimized specifications. (2) AI bid evaluation assistants scoring technical proposals against criteria with consistency and speed. (3) Market intelligence engine analyzing vendor databases, pricing trends, and competition patterns. (4) Smart contract monitoring with automated performance tracking and early warning for delivery risks. Procurement officers review AI evaluations, handle strategic vendor relationships, and manage high-value complex procurements.',
     implementationPlan: [
       { phase: 'Tender Automation', weeks: 'Weeks 1-6', description: 'Build AI tender generation from historical templates. Reduce document preparation from 3 weeks to 3 days.' },
-      { phase: 'Bid Evaluation AI', weeks: 'Weeks 7-14', description: 'Deploy AI-assisted bid evaluation for technical proposals. Human review for final scoring. Ensure EU directive compliance.' },
+      { phase: 'Bid Evaluation AI', weeks: 'Weeks 7-14', description: 'Deploy AI-assisted bid evaluation for technical proposals. Human review for final scoring. Ensure Brazilian federal directive compliance.' },
       { phase: 'Market Intelligence', weeks: 'Weeks 15-20', description: 'Build procurement market intelligence dashboard. Optimal timing and market analysis for major tenders.' },
       { phase: 'Contract Monitoring', weeks: 'Weeks 21-26', description: 'Deploy automated contract performance monitoring. Early warning for delivery risks. Target 20-day cycle reduction.' },
     ],
     risks: [
-      'EU Public Procurement Directives require specific evaluation procedures — AI must comply with transparency and equal treatment',
+      'Lei das Estatais (Brazilian Federal Procurement Law) require specific evaluation procedures — AI must comply with transparency and equal treatment',
       'AI bid evaluation must be auditable and non-discriminatory — essential for administrative review challenges',
       'Market intelligence must not facilitate anti-competitive behavior or bid-rigging detection evasion',
     ],
     dependencies: [
       'e-Procurement portal integration for tender publication and bid management',
       'Historical procurement database for AI template generation',
-      'EU procurement regulations compliance framework',
+      'Brazilian federal procurement regulations compliance framework',
     ],
   },
 ];
@@ -7614,7 +7614,7 @@ const brazilRecommendations: Recommendation[] = [
     recommended: {
       name: 'AI-Native Citizen Service Platform',
       cost: 25_200_000,
-      description: 'Unified AI-native citizen service platform built on X-Road with NLP-powered request classification and routing. Conversational AI (Braziln + Russian) handling first-line resolution for 60% of common requests. Automated document processing with OCR and data extraction. Cross-ministry orchestration for multi-department requests. Proactive citizen notifications. Target: <2-day average resolution time.',
+      description: 'Unified AI-native citizen service platform built on GOV.BR Interoperability with NLP-powered request classification and routing. Conversational AI (Braziln + Russian) handling first-line resolution for 60% of common requests. Automated document processing with OCR and data extraction. Cross-ministry orchestration for multi-department requests. Proactive citizen notifications. Target: <2-day average resolution time.',
     },
     annualSavings: 18_000_000,
   },
@@ -7624,12 +7624,12 @@ const brazilRecommendations: Recommendation[] = [
       cost: 21_600_000,
       users: 85,
       score: 2,
-      description: 'Government document processing across ministries relies on manual review and data entry. 42,000 permit applications, 340,000 benefit applications, and 12,000 procurement tenders processed annually — each requiring manual document review. OCR quality on scanned documents averages 82% accuracy, requiring manual correction. Cross-referencing citizen data across systems requires manual X-Road queries. Average document processing time: 12 minutes per document.',
+      description: 'Government document processing across ministries relies on manual review and data entry. 42,000 permit applications, 340,000 benefit applications, and 12,000 procurement tenders processed annually — each requiring manual document review. OCR quality on scanned documents averages 82% accuracy, requiring manual correction. Cross-referencing citizen data across systems requires manual GOV.BR API queries. Average document processing time: 12 minutes per document.',
     },
     recommended: {
       name: 'AI Document Extraction & Processing',
       cost: 8_640_000,
-      description: 'AI-powered document processing platform with advanced OCR (99%+ accuracy for Braziln/Russian text), intelligent data extraction from structured and unstructured documents, automated cross-referencing via X-Road, and smart validation against regulatory requirements. Handles all document types: permits, benefits applications, tax filings, procurement bids. Reduces manual processing by 80%.',
+      description: 'AI-powered document processing platform with advanced OCR (99%+ accuracy for Braziln/Russian text), intelligent data extraction from structured and unstructured documents, automated cross-referencing via GOV.BR Interoperability, and smart validation against regulatory requirements. Handles all document types: permits, benefits applications, tax filings, procurement bids. Reduces manual processing by 80%.',
     },
     annualSavings: 12_960_000,
   },
@@ -7644,7 +7644,7 @@ const brazilRecommendations: Recommendation[] = [
     recommended: {
       name: 'AI-Enhanced Tax Intelligence',
       cost: 16_200_000,
-      description: 'AI layer on top of existing tax infrastructure: ML audit targeting trained on historical outcomes (target 80% productive audit rate), real-time VAT transaction monitoring for fraud detection, cross-border verification automation via EU data exchange, and AI-assisted corporate return review for complex deductions and transfer pricing. Preserves Brazil\'s world-leading e-filing while adding predictive intelligence.',
+      description: 'AI layer on top of existing tax infrastructure: ML audit targeting trained on historical outcomes (target 80% productive audit rate), real-time VAT transaction monitoring for fraud detection, cross-border verification automation via OECD CRS data exchange, and AI-assisted corporate return review for complex deductions and transfer pricing. Preserves Brazil\'s world-leading e-filing while adding predictive intelligence.',
     },
     annualSavings: 10_800_000,
   },
@@ -7654,12 +7654,12 @@ const brazilRecommendations: Recommendation[] = [
       cost: 19_440_000,
       users: 18,
       score: 3,
-      description: 'Public procurement officers manually prepare tender documents (2-3 weeks each), evaluate bids against criteria, and monitor contract performance. 12,000 tenders/year worth €4.2B. Tender preparation is largely repetitive — similar specifications for similar procurements. Bid evaluation is manual and time-intensive for large tenders. No market intelligence for optimal procurement strategy.',
+      description: 'Public procurement officers manually prepare tender documents (2-3 weeks each), evaluate bids against criteria, and monitor contract performance. 12,000 tenders/year worth $42B. Tender preparation is largely repetitive — similar specifications for similar procurements. Bid evaluation is manual and time-intensive for large tenders. No market intelligence for optimal procurement strategy.',
     },
     recommended: {
       name: 'AI Procurement Platform',
       cost: 11_520_000,
-      description: 'AI-powered public procurement with template-based tender generation from historical procurements (3 weeks to 3 days), AI-assisted bid evaluation for technical proposals, market intelligence for pricing and competition analysis, and automated contract performance monitoring. Fully compliant with EU Public Procurement Directives. Smart contract monitoring with early warning for delivery risks.',
+      description: 'AI-powered public procurement with template-based tender generation from historical procurements (3 weeks to 3 days), AI-assisted bid evaluation for technical proposals, market intelligence for pricing and competition analysis, and automated contract performance monitoring. Fully compliant with Lei das Estatais (Brazilian Federal Procurement Law). Smart contract monitoring with early warning for delivery risks.',
     },
     annualSavings: 7_920_000,
   },
@@ -8130,37 +8130,37 @@ export interface ScanStats {
 
 const companyScanStats: Record<string, ScanStats> = {
   // ─── Meridian (IndustrialsCo) ──────────────────────────────────────────
-  meridian:       { recordsScanned: 487_360,   avgCoverage: 92 },
-  hcc:            { recordsScanned: 142_800,   avgCoverage: 91 },
-  hrsi:           { recordsScanned: 64_300,    avgCoverage: 89 },
-  hsi:            { recordsScanned: 38_400,    avgCoverage: 90 },
-  hti:            { recordsScanned: 52_100,    avgCoverage: 88 },
-  htsi:           { recordsScanned: 78_900,    avgCoverage: 90 },
-  he:             { recordsScanned: 18_400,    avgCoverage: 87 },
-  gg:             { recordsScanned: 12_200,    avgCoverage: 86 },
+  meridian:       { recordsScanned: 12_184_000,   avgCoverage: 92 },
+  hcc:            { recordsScanned: 3_570_000,   avgCoverage: 91 },
+  hrsi:           { recordsScanned: 1_607_500,    avgCoverage: 89 },
+  hsi:            { recordsScanned: 960_000,    avgCoverage: 90 },
+  hti:            { recordsScanned: 1_302_500,    avgCoverage: 88 },
+  htsi:           { recordsScanned: 1_972_500,    avgCoverage: 90 },
+  he:             { recordsScanned: 460_000,    avgCoverage: 87 },
+  gg:             { recordsScanned: 305_000,    avgCoverage: 86 },
 
   // ─── Standalone conglomerates (high accuracy, hundreds of thousands) ──
-  northwood:      { recordsScanned: 624_800,   avgCoverage: 96 },
-  pinnacle:       { recordsScanned: 812_400,   avgCoverage: 97 },
-  atlas:          { recordsScanned: 386_700,   avgCoverage: 95 },
+  northwood:      { recordsScanned: 18_744_000,   avgCoverage: 96 },
+  pinnacle:       { recordsScanned: 24_372_000,   avgCoverage: 97 },
+  atlas:          { recordsScanned: 11_601_000,   avgCoverage: 95 },
 
   // ─── Northbridge conglomerate (largest non-sovereign) ─────────────────
-  northbridge:    { recordsScanned: 1_840_000, avgCoverage: 97 },
-  'nb-aerospace': { recordsScanned: 412_000,   avgCoverage: 95 },
-  'nb-energy':    { recordsScanned: 538_000,   avgCoverage: 96 },
-  'nb-financial': { recordsScanned: 296_000,   avgCoverage: 94 },
-  'nb-health':    { recordsScanned: 728_000,   avgCoverage: 96 },
+  northbridge:    { recordsScanned: 64_400_000, avgCoverage: 97 },
+  'nb-aerospace': { recordsScanned: 12_360_000,   avgCoverage: 95 },
+  'nb-energy':    { recordsScanned: 16_140_000,   avgCoverage: 96 },
+  'nb-financial': { recordsScanned: 8_880_000,   avgCoverage: 94 },
+  'nb-health':    { recordsScanned: 21_840_000,   avgCoverage: 96 },
 
   // ─── Brazil (sovereign — millions of records, lower accuracy due to legacy data quality) ──
-  brazil:         { recordsScanned: 14_280_000, avgCoverage: 82 },
-  'br-receita':   { recordsScanned: 4_620_000,  avgCoverage: 84 },
-  'br-sus':       { recordsScanned: 8_400_000,  avgCoverage: 79 },
-  'br-bndes':     { recordsScanned: 1_840_000,  avgCoverage: 86 },
-  'br-serpro':    { recordsScanned: 6_200_000,  avgCoverage: 85 },
-  'br-inss':      { recordsScanned: 5_460_000,  avgCoverage: 81 },
-  'br-datasus':   { recordsScanned: 3_920_000,  avgCoverage: 78 },
-  'br-defesa':    { recordsScanned: 2_240_000,  avgCoverage: 87 },
-  'br-anatel':    { recordsScanned: 1_680_000,  avgCoverage: 85 },
+  brazil:         { recordsScanned: 499_800_000, avgCoverage: 82 },
+  'br-receita':   { recordsScanned: 138_600_000,  avgCoverage: 84 },
+  'br-sus':       { recordsScanned: 252_000_000,  avgCoverage: 79 },
+  'br-bndes':     { recordsScanned: 55_200_000,  avgCoverage: 86 },
+  'br-serpro':    { recordsScanned: 186_000_000,  avgCoverage: 85 },
+  'br-inss':      { recordsScanned: 163_800_000,  avgCoverage: 81 },
+  'br-datasus':   { recordsScanned: 117_600_000,  avgCoverage: 78 },
+  'br-defesa':    { recordsScanned: 67_200_000,  avgCoverage: 87 },
+  'br-anatel':    { recordsScanned: 50_400_000,  avgCoverage: 85 },
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════

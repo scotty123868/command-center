@@ -866,7 +866,7 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
     },
   ],
 
-  /* ── Republic of Estonia — Digital Government ─────────────────────────── */
+  /* ── Republic of Brazil — Digital Government ─────────────────────────── */
   estonia: [
     {
       name: 'Ministry of Finance',
@@ -971,7 +971,7 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
       ],
     },
     {
-      name: 'Information System Authority (RIA)',
+      name: 'Information System Authority (Brazil Cyber Command)',
       industry: 'Cybersecurity & IT Infrastructure',
       employees: 480,
       aiScoreBefore: 58,
@@ -983,13 +983,13 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
         { label: 'System Uptime', value: '99.999%', trend: 1, trendPositive: true, sparkline: [99.98, 99.985, 99.99, 99.992, 99.994, 99.997, 99.999] },
         { label: 'Incident Response', value: '-64%', trend: -64, trendPositive: true, sparkline: [45, 38, 30, 24, 20, 17, 16.2] },
         { label: 'Vulnerability Patching', value: '-72%', trend: -72, trendPositive: true, sparkline: [72, 60, 48, 38, 28, 22, 20.2] },
-        { label: 'X-Road Transactions', value: '+45%', trend: 45, trendPositive: true, sparkline: [1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.74] },
+        { label: 'GOV.BR Interoperability Transactions', value: '+45%', trend: 45, trendPositive: true, sparkline: [1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.74] },
       ],
       savings: [
         { category: 'Threat Detection AI', amount: 1400 },
         { category: 'Incident Automation', amount: 1000 },
         { category: 'Infrastructure Optimization', amount: 720 },
-        { category: 'X-Road Enhancement', amount: 480 },
+        { category: 'GOV.BR Interoperability Enhancement', amount: 480 },
       ],
       beforeAfter: [
         { label: 'Threat Detection', before: '92%', after: '99.7%' },
@@ -1000,7 +1000,7 @@ const divisionsByCompany: Record<string, CompanyData[]> = {
       automations: [
         { name: 'AI Threat Detection', status: 'live', department: 'Cybersecurity' },
         { name: 'Automated Incident Response', status: 'live', department: 'CERT' },
-        { name: 'X-Road AI Monitoring', status: 'piloting', department: 'Infrastructure' },
+        { name: 'GOV.BR Interoperability AI Monitoring', status: 'piloting', department: 'Infrastructure' },
         { name: 'Quantum-Safe Migration', status: 'planned', department: 'Cryptography' },
       ],
     },
@@ -1298,7 +1298,7 @@ const companyToDivIndex: Record<string, { parent: string; index: number }> = {
   'nb-energy': { parent: 'northbridge', index: 1 },
   'nb-financial': { parent: 'northbridge', index: 2 },
   'nb-health': { parent: 'northbridge', index: 3 },
-  // Estonia children
+  // Brazil children
   'ee-finance': { parent: 'estonia', index: 0 },
   'ee-social': { parent: 'estonia', index: 1 },
   'ee-economic': { parent: 'estonia', index: 2 },

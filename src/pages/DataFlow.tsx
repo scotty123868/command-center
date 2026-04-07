@@ -713,25 +713,25 @@ const gapDataByCompany: Record<string, CompanyGapData> = {
     roi: '13.3x Year 1',
   },
 
-  /* ── Republic of Estonia — Digital Government ─────────────────────────── */
+  /* ── Republic of Brazil — Digital Government ─────────────────────────── */
   estonia: {
     gaps: [
       {
         id: 1,
         name: 'Cross-Ministry Data Exchange',
-        sources: 'X-Road partial, ministry databases',
+        sources: 'GOV.BR Interoperability partial, ministry databases',
         gapLabel: 'Incomplete cross-ministry data sharing',
         blocked: 'Proactive citizen services, policy modeling',
         impact: '$3.8M/yr',
         impactNum: 3800000,
         sourceList: [
-          'X-Road data exchange layer (partial coverage)',
+          'GOV.BR data exchange layer (partial coverage)',
           'Ministry-specific databases (Finance, Social, Economic)',
           'Population registry',
           'Business registry',
         ],
         missingLayer:
-          'While X-Road enables basic data exchange, many ministry datasets remain siloed. Complex cross-ministry queries require manual coordination and data sharing agreements.',
+          'While GOV.BR Interoperability enables basic data exchange, many ministry datasets remain siloed. Complex cross-ministry queries require manual coordination and data sharing agreements.',
         blockedCapabilities: [
           'Proactive citizen service delivery',
           'Cross-ministry policy impact modeling',
@@ -739,7 +739,7 @@ const gapDataByCompany: Record<string, CompanyGapData> = {
           'AI-driven policy recommendation engine',
         ],
         recommendedSolution:
-          'Expand X-Road with a semantic data catalog and automated data sharing agreements. Deploy a cross-ministry analytics platform. Estimated implementation: 12-16 weeks.',
+          'Expand GOV.BR Interoperability with a semantic data catalog and automated data sharing agreements. Deploy a cross-ministry analytics platform. Estimated implementation: 12-16 weeks.',
       },
       {
         id: 2,
@@ -778,7 +778,7 @@ const gapDataByCompany: Record<string, CompanyGapData> = {
           'Tax assessment AI models (Finance)',
           'Benefit eligibility models (Social Affairs)',
           'Business classification models (Economic Affairs)',
-          'Threat detection models (RIA)',
+          'Threat detection models (Brazil Cyber Command)',
         ],
         missingLayer:
           'AI models deployed across ministries lack centralized governance. No unified model registry, bias monitoring, or impact assessment framework exists.',
@@ -794,15 +794,15 @@ const gapDataByCompany: Record<string, CompanyGapData> = {
       {
         id: 4,
         name: 'Cybersecurity Threat Intelligence',
-        sources: 'CERT-EE, ministry SOCs, NATO feeds',
+        sources: 'CERT.br, ministry SOCs, NATO feeds',
         gapLabel: 'No unified threat intelligence platform',
         blocked: 'Coordinated incident response, threat prediction',
         impact: '$2.2M/yr',
         impactNum: 2200000,
         sourceList: [
-          'CERT-EE threat monitoring',
+          'CERT.br threat monitoring',
           'Ministry-level security operations centers',
-          'NATO CCDCOE threat feeds',
+          'Inter-American Cyber Defense Forum threat feeds',
           'EU ENISA advisory database',
         ],
         missingLayer:
@@ -814,7 +814,7 @@ const gapDataByCompany: Record<string, CompanyGapData> = {
           'AI-powered vulnerability prioritization',
         ],
         recommendedSolution:
-          'Build a national threat intelligence platform aggregating CERT-EE, SOC, and international feeds. Deploy AI-driven threat prediction. Estimated implementation: 12-16 weeks.',
+          'Build a national threat intelligence platform aggregating CERT.br, SOC, and international feeds. Deploy AI-driven threat prediction. Estimated implementation: 12-16 weeks.',
       },
     ],
     gapDivisionMap: {
@@ -830,7 +830,7 @@ const gapDataByCompany: Record<string, CompanyGapData> = {
       { label: '$10.0M Annual Impact', color: 'red' },
     ],
     totalImpact: '$10.0M/year',
-    divisionBadges: ['Ministry of Finance', 'Ministry of Social Affairs', 'Ministry of Economic Affairs', 'RIA — Cybersecurity'],
+    divisionBadges: ['Ministry of Finance', 'Ministry of Social Affairs', 'Ministry of Economic Affairs', 'Brazil Cyber Command — Cybersecurity'],
     investment: '$600K',
     annualReturn: '$10.0M',
     roi: '16.7x Year 1',
