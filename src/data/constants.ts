@@ -2404,16 +2404,16 @@ const brazilAiReadinessBreakdown = [
 ];
 
 const brazilKpis = {
-  totalSavings: 8_269_920_000,
+  totalSavings: 6_483_560_000,
   techScoreBefore: 45,
   techScoreAfter: 82,
   workflowsAnalyzed: 400,
   automationReady: 134,
-  unusedLicenseWaste: 2_986_360_000,
-  savingsSparkline: [0, 528_356_000, 1_148_600_000, 1_952_620_000, 2_986_360_000, 3_974_156_000, 4_766_690_000, 5_559_224_000, 6_351_758_000, 7_144_292_000, 7_764_536_000, 8_269_920_000],
+  unusedLicenseWaste: 1_200_000_000,
+  savingsSparkline: [0, 414_200_000, 900_500_000, 1_530_900_000, 2_341_300_000, 3_115_700_000, 3_737_100_000, 4_358_400_000, 4_979_800_000, 5_601_100_000, 6_087_400_000, 6_483_560_000],
   scoreSparkline: [45, 51, 54, 57, 60, 64, 68, 72, 75, 78, 80, 82],
   workflowSparkline: [0, 32, 64, 98, 134, 176, 216, 256, 294, 328, 358, 380],
-  licenseSparkline: [2_986_360_000, 2_733_668_000, 2_458_004_000, 2_090_452_000, 1_722_900_000, 1_389_806_000, 1_091_170_000, 826_992_000, 631_730_000, 482_412_000, 367_552_000, 298_636_000],
+  licenseSparkline: [1_200_000_000, 1_098_500_000, 987_700_000, 840_000_000, 692_300_000, 558_500_000, 438_500_000, 332_300_000, 253_800_000, 193_800_000, 147_700_000, 120_000_000],
   headcountImpactSparkline: [0, -12, -28, -52, -84, -124, -168, -220, -276, -330, -374, -410],
 };
 
@@ -2507,11 +2507,11 @@ const brazilCurrentStack: CurrentTool[] = [
 ];
 
 const brazilLicenses: License[] = [
-  { vendor: 'SERPRO Mainframe Licenses', totalLicenses: 4_200, active90d: 2_800, inactive: 1_400, annualWaste: 1_161_349_460, action: 'Migrate 1,400 workloads to containerized gov cloud — mainframe decommission program', costPerLicense: 5_000, department: 'SERPRO / All Agencies', lastAuditDate: '2026-01-20', trend: [75, 70, 66, 62, 60, 62], complianceRisk: false },
-  { vendor: 'Oracle Database', totalLicenses: 1_800, active90d: 900, inactive: 900, annualWaste: 746_590_000, action: 'Migrate to PostgreSQL — Oracle license elimination across DATASUS and legacy systems', costPerLicense: 5_000, department: 'SUS / DATASUS', lastAuditDate: '2025-12-15', trend: [68, 60, 55, 50, 48, 50], complianceRisk: true },
-  { vendor: 'Microsoft 365 E5', totalLicenses: 80_000, active90d: 56_000, inactive: 24_000, annualWaste: 597_272_000, action: 'Downgrade 24,000 to E3 tier — E5 features unused by field office staff', costPerLicense: 150, department: 'All Agencies', lastAuditDate: '2026-02-05', trend: [88, 82, 78, 74, 72, 70], complianceRisk: false },
-  { vendor: 'Custom Legacy Systems (SUS/CNES)', totalLicenses: 320, active90d: 140, inactive: 180, annualWaste: 298_636_000, action: 'Decommission 180 legacy modules — replace with GOV.BR microservices', costPerLicense: 10_000, department: 'SUS / Health Ministry', lastAuditDate: '2025-11-01', trend: [62, 55, 48, 42, 40, 43], complianceRisk: true },
-  { vendor: 'VMware vSphere', totalLicenses: 1_200, active90d: 800, inactive: 400, annualWaste: 182_512_540, action: 'Migrate 400 VMs to containerized deployment on Kubernetes gov cloud', costPerLicense: 2_750, department: 'SERPRO Infrastructure', lastAuditDate: '2026-01-10', trend: [82, 76, 72, 68, 66, 67], complianceRisk: false },
+  { vendor: 'SERPRO Mainframe Licenses', totalLicenses: 4_200, active90d: 2_800, inactive: 1_400, annualWaste: 466_650_000, action: 'Migrate 1,400 workloads to containerized gov cloud — mainframe decommission program', costPerLicense: 5_000, department: 'SERPRO / All Agencies', lastAuditDate: '2026-01-20', trend: [75, 70, 66, 62, 60, 62], complianceRisk: false },
+  { vendor: 'Oracle Database', totalLicenses: 1_800, active90d: 900, inactive: 900, annualWaste: 300_000_000, action: 'Migrate to PostgreSQL — Oracle license elimination across DATASUS and legacy systems', costPerLicense: 5_000, department: 'SUS / DATASUS', lastAuditDate: '2025-12-15', trend: [68, 60, 55, 50, 48, 50], complianceRisk: true },
+  { vendor: 'Microsoft 365 E5', totalLicenses: 80_000, active90d: 56_000, inactive: 24_000, annualWaste: 240_000_000, action: 'Downgrade 24,000 to E3 tier — E5 features unused by field office staff', costPerLicense: 150, department: 'All Agencies', lastAuditDate: '2026-02-05', trend: [88, 82, 78, 74, 72, 70], complianceRisk: false },
+  { vendor: 'Custom Legacy Systems (SUS/CNES)', totalLicenses: 320, active90d: 140, inactive: 180, annualWaste: 120_000_000, action: 'Decommission 180 legacy modules — replace with GOV.BR microservices', costPerLicense: 10_000, department: 'SUS / Health Ministry', lastAuditDate: '2025-11-01', trend: [62, 55, 48, 42, 40, 43], complianceRisk: true },
+  { vendor: 'VMware vSphere', totalLicenses: 1_200, active90d: 800, inactive: 400, annualWaste: 73_350_000, action: 'Migrate 400 VMs to containerized deployment on Kubernetes gov cloud', costPerLicense: 2_750, department: 'SERPRO Infrastructure', lastAuditDate: '2026-01-10', trend: [82, 76, 72, 68, 66, 67], complianceRisk: false },
 ];
 
 const brazilWorkflowSummary = {
@@ -2526,10 +2526,10 @@ const brazilWorkflowSummary = {
 const brazilRoiSummary = {
   techStackSavings: 3_675_520_000,
   workflowAutomation: 5_628_140_000,
-  licenseRecovery: 2_986_360_000,
+  licenseRecovery: 1_200_000_000,
   implementationCosts: 4_020_100_000,
-  netYear1: 8_269_920_000,
-  year2Projected: 14_058_864_000,
+  netYear1: 6_483_560_000,
+  year2Projected: 11_022_052_000,
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════

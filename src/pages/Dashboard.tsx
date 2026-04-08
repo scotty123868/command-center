@@ -169,9 +169,9 @@ const allTimelineStops: Record<string, Record<number, TimelineData>> = {
     12: { savings: 1_400_000, scoreBefore: 78, scoreAfter: 96, workflows: 24, automationReady: 14, waste: 40_000 },
   },
   brazil: {
-    0: { savings: 0, scoreBefore: 45, scoreAfter: 45, workflows: 0, automationReady: 0, waste: 2_986_360_000 },
-    6: { savings: 3_721_464_000, scoreBefore: 45, scoreAfter: 64, workflows: 186, automationReady: 62, waste: 1_493_180_000 },
-    12: { savings: 8_269_920_000, scoreBefore: 45, scoreAfter: 82, workflows: 400, automationReady: 134, waste: 298_636_000 },
+    0: { savings: 0, scoreBefore: 45, scoreAfter: 45, workflows: 0, automationReady: 0, waste: 1_200_000_000 },
+    6: { savings: 2_917_602_000, scoreBefore: 45, scoreAfter: 64, workflows: 186, automationReady: 62, waste: 600_000_000 },
+    12: { savings: 6_483_560_000, scoreBefore: 45, scoreAfter: 82, workflows: 400, automationReady: 134, waste: 120_000_000 },
   },
   'br-receita': {
     0: { savings: 0, scoreBefore: 55, scoreAfter: 55, workflows: 0, automationReady: 0, waste: 420_000_000 },
