@@ -251,7 +251,7 @@ function Sparkline({
   const chartData = data.map((v, i) => ({ v, i }));
   return (
     <div className="h-[32px] w-[100px]">
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height="100%" minWidth={1} minHeight={1}>
         <AreaChart data={chartData} margin={{ top: 2, right: 0, bottom: 0, left: 0 }}>
           <defs>
             <linearGradient id={`grad-${id}`} x1="0" y1="0" x2="0" y2="1">
@@ -1602,7 +1602,7 @@ export default function Dashboard() {
 
           {/* Desktop: scatter chart */}
           <div className="hidden sm:block relative h-[320px]">
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height="100%" minWidth={1} minHeight={1}>
               <ScatterChart margin={{ top: 20, right: 20, bottom: 30, left: 10 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" />
                 <XAxis
@@ -1691,7 +1691,7 @@ export default function Dashboard() {
 
           {/* Desktop: radar chart */}
           <div className="hidden sm:block h-[320px]">
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height="100%" minWidth={1} minHeight={1}>
               <RadarChart data={radarData} cx="50%" cy="50%" outerRadius="70%">
                 <PolarGrid stroke="rgba(255,255,255,0.08)" />
                 <PolarAngleAxis dataKey="category" tick={{ fill: '#9CA3AF', fontSize: 11 }} />

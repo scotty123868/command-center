@@ -1320,7 +1320,7 @@ function Sparkline({ data }: { data: number[] }) {
   const chartData = data.map((v, i) => ({ i, v }));
   return (
     <div className="w-20 h-8">
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height="100%" minWidth={1} minHeight={1}>
         <LineChart data={chartData}>
           <Line
             type="monotone"
@@ -1487,7 +1487,7 @@ function DivisionDashboard({ company }: { company: CompanyData }) {
           Savings Breakdown ($K)
         </h3>
         <div className="h-56">
-          <ResponsiveContainer width="100%" height="100%">
+          <ResponsiveContainer width="100%" height="100%" minWidth={1} minHeight={1}>
             <BarChart data={savingsData} layout="vertical" margin={{ left: 0, right: 24 }}>
               <XAxis type="number" tick={{ fontSize: 12, fill: '#6B7280' }} tickFormatter={(v) => `$${v}K`} />
               <YAxis

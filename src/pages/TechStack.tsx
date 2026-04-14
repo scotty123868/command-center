@@ -95,22 +95,7 @@ function RadialGauge({ score, size = 40 }: { score: number; size?: number }) {
   );
 }
 
-/* ── industry multipliers ────────────────────────────────────────────────── */
-
-const industryMult: Record<string, number> = {
-  'Railroad & Infrastructure': 0.32,
-  'Transportation Services': 0.34,
-  Manufacturing: 0.30,
-  'Energy Infrastructure': 0.28,
-  'Environmental Services': 0.26,
-  Construction: 0.30,
-  'Transit Operations': 0.34,
-  'Healthcare': 0.36,
-  'Insurance': 0.33,
-  'Financial Services': 0.31,
-  'Aerospace & Defense': 0.29,
-  'Digital Government': 0.27,
-};
+/* ── industry matching (used for display label) ─────────────────────────── */
 
 /* ══════════════════════════════════════════════════════════════════════════ */
 
@@ -201,18 +186,19 @@ export default function TechStack() {
     setFtes(company.employees || 2800);
   }, [company.id, company.employees]);
 
-  // Simple projected savings: industry multiplier × spend, scaled by FTE ratio
+  // Simple projected savings: scaled by FTE and spend ratios
   const projected = useMemo(() => {
-    const mult = industryMult[matchedIndustry] ?? 0.33;
-    const fteRatio = ftes / Math.max(1, defaultFtes); // 1.0 at default, scales linearly
+    const fteRatio = ftes / Math.max(1, defaultFtes);
     const spendRatio = spend / Math.max(1, defaultSpend);
-    return Math.round(companyRoi.totalSavings * spendRatio * fteRatio * (mult / (industryMult[matchedIndustry] ?? 0.33)));
-  }, [spend, ftes, defaultSpend, defaultFtes, companyRoi.totalSavings, matchedIndustry]);
+    const raw = Math.round(companyRoi.totalSavings * spendRatio * fteRatio);
+    // Cap savings at current spend to avoid nonsensical "negative remaining spend"
+    return Math.min(raw, spend);
+  }, [spend, ftes, defaultSpend, defaultFtes, companyRoi.totalSavings]);
 
-  const optimized = Math.max(0, spend - projected);
+  const optimized = spend - projected;
 
   const donutData = [
-    { name: 'Optimized Spend', value: optimized },
+    { name: 'Remaining Spend', value: optimized },
     { name: 'Projected Savings', value: projected },
   ];
 
