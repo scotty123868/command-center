@@ -1749,7 +1749,7 @@ export default function Dashboard() {
             </motion.div>
           ))}
         </div>
-        <p className="mt-3 text-[10px] italic" style={{ color: 'var(--cc-text-muted)' }}>Based on UpSkiller client data. Company details anonymized.</p>
+        <p className="mt-3 text-[10px] italic" style={{ color: 'var(--cc-text-muted)' }}>Based on Ally client data. Company details anonymized.</p>
       </motion.section>
 
       {/* ── 8. GANTT TIMELINE ────────────────────────────────────── */}
@@ -2008,7 +2008,7 @@ export default function Dashboard() {
           <div className="flex items-center gap-3">
             <div className="w-1 h-8 rounded-full" style={{ background: 'var(--cc-accent)' }} />
             <div>
-              <p className="text-[12px]" style={{ color: 'var(--cc-accent)' }}>UpSkiller AI</p>
+              <p className="text-[12px]" style={{ color: 'var(--cc-accent)' }}>Ally AI</p>
               <p className="text-[13px]" style={{ color: 'var(--cc-text)' }}>5 days to first insights, &lt;$750/month &rarr; Live platform</p>
             </div>
           </div>

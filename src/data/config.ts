@@ -20,7 +20,7 @@ const defaultConfig: CompanyConfig = {
   aiReadinessScore: 52,
   logoInitials: 'IC',
   userInitials: 'SL',
-  userName: 'UpSkiller',
+  userName: 'Ally',
 };
 
 // Check URL params for white-label overrides

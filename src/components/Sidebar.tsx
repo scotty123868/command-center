@@ -138,7 +138,7 @@ export default function Sidebar({ onNavClick, onClose }: { onNavClick?: () => vo
               className="text-white font-semibold text-[26px] leading-none"
               style={{ letterSpacing: '-0.04em' }}
             >
-              UpSkiller
+              Ally
             </span>
             <span
               className="text-accent font-semibold text-[26px] leading-none ml-1.5"

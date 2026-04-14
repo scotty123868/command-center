@@ -251,7 +251,7 @@ function generateReportHTML(companyId = 'meridian', scenario: ScenarioKey = 'bas
     <div class="logo-area">
       <div class="logo-mark">U</div>
       <div>
-        <div class="logo-text">UpSkiller <span>AI</span></div>
+        <div class="logo-text">Ally <span>AI</span></div>
       </div>
     </div>
     <div class="header-right">
@@ -274,7 +274,7 @@ function generateReportHTML(companyId = 'meridian', scenario: ScenarioKey = 'bas
   <div class="section">
     <div class="section-title">Executive Summary</div>
     <p>
-      UpSkiller AI conducted a comprehensive AI transformation analysis of ${safeName}, evaluating
+      Ally AI conducted a comprehensive AI transformation analysis of ${safeName}, evaluating
       ${wfSummary.total} workflows and ${safeEmployees}+ employee roles across ${safeOpCos} divisions.
       The analysis identified <strong>${fmtMoney(net)} in annualized net savings</strong> (${scenarioLabel} scenario) through tech stack optimization,
       workflow automation, and license reclamation. With an implementation investment of ${fmtMoney(roiSummary.implementationCosts)}, the program
@@ -383,7 +383,7 @@ function generateReportHTML(companyId = 'meridian', scenario: ScenarioKey = 'bas
 
   <!-- Footer -->
   <div class="footer">
-    Confidential &mdash; Prepared by UpSkiller AI Command Center &mdash; ${safeToday}
+    Confidential &mdash; Prepared by Ally AI Command Center &mdash; ${safeToday}
   </div>
 </body>
 </html>`;
@@ -456,7 +456,7 @@ export async function downloadBoardReportPDF(companyId = 'meridian', scenario: S
   const profile = getCompanyProfile(companyId);
   const companySlug = (profile.name || config.name).replace(/\s+/g, '-');
   const scenarioSuffix = scenario !== 'base' ? `-${scenario}` : '';
-  const filename = `UpSkiller-Board-Report-${companySlug}${scenarioSuffix}-${dateStr}.pdf`;
+  const filename = `Ally-Board-Report-${companySlug}${scenarioSuffix}-${dateStr}.pdf`;
 
   // Use Record<string, unknown> cast to include pagebreak which is supported
   // at runtime but missing from the shipped type declarations

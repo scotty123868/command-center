@@ -58,7 +58,7 @@ export default function BoardReportPage() {
       paddingTop: '8px',
     }}>
       <span>CONFIDENTIAL</span>
-      <span>Prepared by UpSkiller AI  |  March 2026</span>
+      <span>Prepared by Ally AI  |  March 2026</span>
       <span>Page {pageNum} of 4</span>
     </div>
   );
@@ -184,7 +184,7 @@ export default function BoardReportPage() {
               textTransform: 'uppercase' as const,
               color: '#64748b',
             }}>
-              UpSkiller AI
+              Ally AI
             </div>
           </div>
 
@@ -228,7 +228,7 @@ export default function BoardReportPage() {
               </span>
               <br />
               <span style={{ fontSize: '14px', fontWeight: 500, color: '#334155' }}>
-                UpSkiller AI Advisory Services
+                Ally AI Advisory Services
               </span>
             </div>
             <div style={{ marginTop: '16px' }}>
@@ -278,7 +278,7 @@ export default function BoardReportPage() {
         <div className="section-rule" />
 
         <p style={{ fontSize: '12.5px', color: '#334155', marginBottom: '20px', lineHeight: 1.7 }}>
-          UpSkiller AI conducted a comprehensive technology and AI readiness assessment of {companyProfile.name},
+          Ally AI conducted a comprehensive technology and AI readiness assessment of {companyProfile.name},
           evaluating {companyKpis.workflowsAnalyzed} workflows across {companyProfile.employees.toLocaleString()} FTE
           roles and {companyProfile.opCos} operating divisions. The assessment reveals significant opportunity for
           operational improvement through technology modernization and AI adoption.
@@ -724,8 +724,8 @@ export default function BoardReportPage() {
           color: '#64748b',
           lineHeight: 1.8,
         }}>
-          <div style={{ fontWeight: 600, color: '#334155' }}>UpSkiller AI Advisory Services</div>
-          <div>ai-advisory@upskiller.com &nbsp;|&nbsp; upskiller.com/enterprise</div>
+          <div style={{ fontWeight: 600, color: '#334155' }}>Ally AI Advisory Services</div>
+          <div>ai-advisory@ally-ai.com &nbsp;|&nbsp; ally-ai.com/enterprise</div>
         </div>
 
         {pageFooter(4)}

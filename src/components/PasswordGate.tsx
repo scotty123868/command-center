@@ -1,6 +1,6 @@
 import { useState, type ReactNode, type FormEvent } from 'react';
 
-const AUTH_KEY = 'upskiller_auth';
+const AUTH_KEY = 'ally_auth';
 
 export default function PasswordGate({ children }: { children: ReactNode }) {
   const [authed, setAuthed] = useState(() => sessionStorage.getItem(AUTH_KEY) === 'true');
@@ -12,7 +12,7 @@ export default function PasswordGate({ children }: { children: ReactNode }) {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (password === 'upskiller26') {
+    if (password === 'ally26') {
       sessionStorage.setItem(AUTH_KEY, 'true');
       setAuthed(true);
     } else {
@@ -73,7 +73,7 @@ export default function PasswordGate({ children }: { children: ReactNode }) {
             fontSize: '22px', fontWeight: 600, color: '#fafafa', margin: 0,
             letterSpacing: '-0.02em',
           }}>
-            UpSkiller AI
+            Ally AI
           </h1>
           <p style={{
             fontSize: '14px', color: '#71717a', margin: '6px 0 0', fontWeight: 400,
