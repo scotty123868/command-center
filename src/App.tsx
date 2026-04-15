@@ -69,6 +69,7 @@ function TopBar({ onMenuClick }: { onMenuClick: () => void }) {
             <input
               type="text"
               readOnly
+              autoComplete="off"
               placeholder="Search across analysis..."
               className="w-[260px] h-8 pl-8 pr-14 rounded-lg border border-transparent text-[13px] focus:outline-none transition-all duration-200 cursor-pointer"
               style={{
@@ -108,31 +109,21 @@ function AnimatedRoutes() {
   const location = useLocation();
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={location.pathname}
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -6 }}
-        transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-      >
-        <Routes location={location}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/tech-stack" element={<TechStack />} />
-          <Route path="/workflows" element={<Workflows />} />
-          <Route path="/license-audit" element={<LicenseAudit />} />
-          <Route path="/data-flow" element={<DataFlow />} />
-          <Route path="/integrations" element={<Integrations />} />
-          <Route path="/stories" element={<Stories />} />
-          <Route path="/roi-summary" element={<ROISummary />} />
-          <Route path="/assessment" element={<Assessment />} />
-          <Route path="/ai-assistant" element={<Navigate to="/assessment" replace />} />
-          <Route path="/compare" element={<Compare />} />
-          <Route path="/board-report" element={<BoardReportPage />} />
-          <Route path="*" element={<Navigate to="/dashboard" replace />} />
-        </Routes>
-      </motion.div>
-    </AnimatePresence>
+    <Routes location={location}>
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/tech-stack" element={<TechStack />} />
+      <Route path="/workflows" element={<Workflows />} />
+      <Route path="/license-audit" element={<LicenseAudit />} />
+      <Route path="/data-flow" element={<DataFlow />} />
+      <Route path="/integrations" element={<Integrations />} />
+      <Route path="/stories" element={<Stories />} />
+      <Route path="/roi-summary" element={<ROISummary />} />
+      <Route path="/assessment" element={<Assessment />} />
+      <Route path="/ai-assistant" element={<Navigate to="/assessment" replace />} />
+      <Route path="/compare" element={<Compare />} />
+      <Route path="/board-report" element={<BoardReportPage />} />
+      <Route path="*" element={<Navigate to="/dashboard" replace />} />
+    </Routes>
   );
 }
 

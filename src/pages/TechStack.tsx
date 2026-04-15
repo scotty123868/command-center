@@ -234,7 +234,7 @@ export default function TechStack() {
       {/* ─── Section 1 : Stack Health Overview ─────────────────────────────── */}
       <section>
         <motion.h2
-          initial={{ opacity: 0, y: 12 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
           className="text-2xl font-bold mb-6" style={{ color: 'var(--cc-text)' }}
@@ -244,7 +244,7 @@ export default function TechStack() {
 
         {/* Overall health bar */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
           className="rounded-2xl shadow-sm p-6 mb-6" style={{ background: 'var(--cc-bg-card)', borderColor: 'var(--cc-border)', border: '1px solid var(--cc-border)' }}
@@ -304,7 +304,7 @@ export default function TechStack() {
       {/* ─── Section 2 : AI-Native Migration Map ──────────────────────────── */}
       <section>
         <motion.h2
-          initial={{ opacity: 0, y: 12 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
           className="text-2xl font-bold mb-6" style={{ color: 'var(--cc-text)' }}
@@ -429,7 +429,7 @@ export default function TechStack() {
       {/* ─── Section 3 : ROI Calculator ───────────────────────────────────── */}
       <section>
         <motion.h2
-          initial={{ opacity: 0, y: 12 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
           className="text-2xl font-bold mb-6" style={{ color: 'var(--cc-text)' }}
@@ -438,7 +438,7 @@ export default function TechStack() {
         </motion.h2>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
           className="rounded-2xl shadow-sm p-4 sm:p-6" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
@@ -606,7 +606,7 @@ export default function TechStack() {
         };
         return (
           <motion.section
-            initial={{ opacity: 0, y: 24 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.1 }}
             className="rounded-2xl p-4 sm:p-6" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}

@@ -251,7 +251,7 @@ function CostOfInactionCounter({ monthlyWaste, companyName }: { monthlyWaste: nu
         background: 'linear-gradient(135deg, rgba(239,68,68,0.08) 0%, rgba(239,68,68,0.02) 100%)',
         border: '1px solid rgba(239,68,68,0.2)',
       }}
-      initial={{ opacity: 0, y: -12 }}
+      initial={false}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
     >
@@ -309,7 +309,7 @@ function ScenarioSelector({
     <motion.div
       className="rounded-2xl p-4 sm:p-6"
       style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
-      initial={{ opacity: 0, y: 12 }}
+      initial={false}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: 0.05 }}
     >
@@ -600,7 +600,7 @@ export default function ROISummary() {
       {/* ── Section 1: Hero ───────────────────────────────────────────── */}
       <motion.div
         className="text-center"
-        initial={{ opacity: 0, y: 24 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >

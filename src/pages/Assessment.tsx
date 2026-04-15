@@ -133,7 +133,7 @@ ${stack.slice(0, 10).map(s => `- ${s.name} (${s.category}): ${fmt$(s.annualCost)
 function UserMessage({ content, delay }: { content: string; delay: number }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 12 }}
+      initial={false}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay }}
       className="flex justify-end"
@@ -173,7 +173,7 @@ function AIMessage({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 12 }}
+      initial={false}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay }}
       className="flex items-start gap-3"
@@ -445,7 +445,7 @@ export default function Assessment() {
     <div className="flex flex-col" style={{ height: 'calc(100vh - 160px)' }}>
       {/* Header */}
       <motion.div
-        initial={{ opacity: 0, y: -8 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
         className="flex-shrink-0 px-4 sm:px-6 pt-2 pb-4 border-b" style={{ borderColor: 'var(--cc-border)' }}
@@ -505,7 +505,7 @@ export default function Assessment() {
 
           {/* Suggested questions */}
           <motion.div
-            initial={{ opacity: 0, y: 8 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: delayCounter + 0.2 }}
             className="pt-4"
@@ -532,7 +532,7 @@ export default function Assessment() {
 
       {/* Input bar */}
       <motion.div
-        initial={{ opacity: 0, y: 12 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.3 }}
         className="flex-shrink-0 border-t px-3 sm:px-6 py-4" style={{ borderColor: 'var(--cc-border)', background: 'var(--cc-bg-card)' }}

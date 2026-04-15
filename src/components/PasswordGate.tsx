@@ -88,6 +88,8 @@ export default function PasswordGate({ children }: { children: ReactNode }) {
             value={password}
             onChange={(e) => { setPassword(e.target.value); setError(false); }}
             placeholder="Enter password"
+            autoComplete="off"
+            name="gate-code"
             autoFocus
             style={{
               width: '100%', height: '44px', padding: '0 14px', borderRadius: '12px',

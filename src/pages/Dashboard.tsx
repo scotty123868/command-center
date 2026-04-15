@@ -858,7 +858,7 @@ export default function Dashboard() {
       {/* ── 1. CINEMATIC HERO SECTION ────────────────────────────── */}
       <motion.section
         key={`hero-${company.id}`}
-        initial={{ opacity: 0, y: 20 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         className="relative overflow-hidden rounded-2xl cc-dotgrid"
@@ -945,7 +945,7 @@ export default function Dashboard() {
 
       {/* ── Cost of Inaction Toggle ──────────────────────────────── */}
       <motion.div
-        initial={{ opacity: 0, y: 12 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.1 }}
       >
@@ -1034,7 +1034,7 @@ export default function Dashboard() {
       {/* ── Sub-Entities Section ────────────────────────────────── */}
       {childEntities.length > 0 && (
         <motion.section
-          initial={{ opacity: 0, y: 12 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1 }}
         >
@@ -1122,7 +1122,7 @@ export default function Dashboard() {
 
       {/* ── 2. KPI Cards ──────────────────────────────────────────── */}
       <motion.div
-        initial={{ opacity: 0, y: 12 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.2 }}
         className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4"
@@ -1205,7 +1205,7 @@ export default function Dashboard() {
 
       {/* ── Timeline Scrubber (dark-themed) ────────────────────── */}
       <motion.section
-        initial={{ opacity: 0, y: 12 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.25 }}
         className="rounded-2xl p-4 sm:p-6"
@@ -1472,7 +1472,7 @@ export default function Dashboard() {
 
       {/* ── 4. WHAT-IF ASSUMPTION SLIDERS ────────────────────────── */}
       <motion.section
-        initial={{ opacity: 0, y: 12 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.35 }}
         className="rounded-2xl p-4 sm:p-6"
@@ -1566,7 +1566,7 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
         {/* Priority Matrix */}
         <motion.section
-          initial={{ opacity: 0, y: 12 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.4 }}
           className="rounded-2xl p-5 sm:p-6"
@@ -1658,7 +1658,7 @@ export default function Dashboard() {
 
         {/* Radar Chart (Competitive Benchmarking) */}
         <motion.section
-          initial={{ opacity: 0, y: 12 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.45 }}
           className="rounded-2xl p-6"
@@ -1717,7 +1717,7 @@ export default function Dashboard() {
 
       {/* ── 7. PEER BENCHMARKING ─────────────────────────────────── */}
       <motion.section
-        initial={{ opacity: 0, y: 12 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.5 }}
       >
@@ -1754,7 +1754,7 @@ export default function Dashboard() {
 
       {/* ── 8. GANTT TIMELINE ────────────────────────────────────── */}
       <motion.section
-        initial={{ opacity: 0, y: 12 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.55 }}
         className="rounded-2xl p-4 sm:p-6"
@@ -1889,7 +1889,7 @@ export default function Dashboard() {
 
       {/* ── 9. AI INSIGHT CARDS ──────────────────────────────────── */}
       <motion.section
-        initial={{ opacity: 0, y: 12 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.6 }}
       >
@@ -1991,7 +1991,7 @@ export default function Dashboard() {
 
       {/* ── Competitive Framing ────────────────────────────────── */}
       <motion.section
-        initial={{ opacity: 0 }}
+        initial={false}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.65 }}
         className="rounded-xl px-6 py-5"

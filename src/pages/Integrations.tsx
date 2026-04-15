@@ -128,7 +128,7 @@ export default function Integrations() {
       {/* -- Summary stats --------------------------------------------------- */}
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-3 gap-5"
-        initial={{ opacity: 0 }}
+        initial={false}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
@@ -185,7 +185,7 @@ export default function Integrations() {
       {/* == VENDOR HEALTH DASHBOARD ======================================= */}
       {/* ================================================================== */}
       <motion.div
-        initial={{ opacity: 0, y: 16 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.1 }}
       >
@@ -261,7 +261,7 @@ export default function Integrations() {
       {/* == FAILURE MODE REGISTRY ========================================= */}
       {/* ================================================================== */}
       <motion.div
-        initial={{ opacity: 0, y: 16 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.15 }}
       >
@@ -359,7 +359,7 @@ export default function Integrations() {
       {/* == AI AGENT RELIABILITY SCORES =================================== */}
       {/* ================================================================== */}
       <motion.div
-        initial={{ opacity: 0, y: 16 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.2 }}
       >
@@ -462,7 +462,7 @@ export default function Integrations() {
 
       {/* -- Section 1: Assessment Data Sources ----------------------------- */}
       <motion.div
-        initial={{ opacity: 0, y: 16 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.25 }}
       >
@@ -523,7 +523,7 @@ export default function Integrations() {
 
       {/* -- Section 2: Assessment Methodology ----------------------------- */}
       <motion.div
-        initial={{ opacity: 0, y: 16 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.3 }}
       >
@@ -560,7 +560,7 @@ export default function Integrations() {
 
       {/* -- Section 3: Data Security -------------------------------------- */}
       <motion.div
-        initial={{ opacity: 0, y: 16 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.35 }}
         className="rounded-2xl overflow-hidden"
@@ -616,7 +616,7 @@ export default function Integrations() {
       <motion.div
         className="rounded-2xl p-5 sm:p-8"
         style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
-        initial={{ opacity: 0, y: 16 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.4 }}
       >

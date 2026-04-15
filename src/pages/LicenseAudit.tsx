@@ -97,7 +97,7 @@ export default function LicenseAudit() {
 
       {/* ── Hero Section ──────────────────────────────────────────────────── */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.25 }}
         className="rounded-2xl shadow-sm p-4 sm:p-6 flex flex-col lg:flex-row items-center gap-6 sm:gap-10" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
@@ -151,7 +151,7 @@ export default function LicenseAudit() {
 
       {/* ── License Table ─────────────────────────────────────────────────── */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.25, delay: 0.08 }}
         className="rounded-2xl shadow-sm overflow-hidden" style={{ background: 'var(--cc-bg-card)', border: '1px solid var(--cc-border)' }}
